@@ -1,0 +1,401 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>GeomVertexData &mdash; Panda3D Manual</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Panda3D Manual" href="../../../index.html"/>
+        <link rel="up" title="How Panda3D Stores Vertices and Geometry" href="index.html"/>
+        <link rel="next" title="GeomVertexFormat" href="geomvertexformat.html"/>
+        <link rel="prev" title="How Panda3D Stores Vertices and Geometry" href="index.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Panda3D
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.10
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../intro/index.html">Introduction to Panda3D</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Programming with Panda3D</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../the-scene-graph/index.html">The Scene Graph</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../the-configuration-file/index.html">The Configuration File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../models-and-actors/index.html">Models and Actors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../render-attributes/index.html">Render Attributes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../texturing/index.html">Texturing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../shaders/index.html">Shaders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../camera-control/index.html">Camera Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../sound/index.html">Sound</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../intervals/index.html">Intervals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tasks-and-event-handling/index.html">Tasks and Event Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../text-and-image-rendering/index.html">Text and Image Rendering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../directgui/index.html">DirectGUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../render-effects/index.html">Render Effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../finite-state-machines/index.html">Finite State Machines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../terrain/index.html">Terrain</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Advanced operations with Panda3D&#8217;s internal structures</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">How Panda3D Stores Vertices and Geometry</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">GeomVertexData</a></li>
+<li class="toctree-l4"><a class="reference internal" href="geomvertexformat.html">GeomVertexFormat</a></li>
+<li class="toctree-l4"><a class="reference internal" href="geomprimitive.html">GeomPrimitive</a></li>
+<li class="toctree-l4"><a class="reference internal" href="geom.html">Geom</a></li>
+<li class="toctree-l4"><a class="reference internal" href="geomnode.html">GeomNode</a></li>
+<li class="toctree-l4"><a class="reference internal" href="boundingvolume.html">BoundingVolume</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../procedural-generation/index.html">Procedurally Generating 3D Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../other-vertex-and-model-manipulation/index.html">Other Vertex and Model Manipulation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../render-to-texture-and-image-postprocessing/index.html">Render-to-Texture and Image Postprocessing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../panda3d-rendering-process/index.html">Panda3D Rendering Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../panda3d-utility-functions.html">Panda3D Utility Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../particle-effects/index.html">Particle Effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../collision-detection/index.html">Collision Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../garbage-collection/index.html">Garbage Collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hardware-support/index.html">Hardware support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../math-engine/index.html">Math Engine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../motion-paths.html">Motion Paths</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../timing/index.html">Timing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../networking/index.html">Networking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../multifiles/index.html">Multifiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../showbase.html">ShowBase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../file-reading.html">File Reading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../threading.html">Threading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../subclassing.html">Subclassing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../table-of-features-supported-per-graphic-renderer.html">Table of features supported per graphic renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../pandai/index.html">Artificial Intelligence (PANDAI)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../distribution/index.html">Distributing Panda3D Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../samples/index.html">Sample Programs in the Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../debugging/index.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../performance-tuning/index.html">Performance Tuning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../using-c++/index.html">Using C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tools/index.html">Panda3D Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../building-from-source.html">Building Panda3D from Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cheat-sheets.html">Cheat Sheets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting-started-on-osx.html">Getting Started on OSX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../more-panda3d-resources.html">More Panda3D Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../thirdparty-licenses.html">Third-party dependencies and license info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../the-irc-channel.html">The IRC Channel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../faq.html">FAQ</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../index.html">Panda3D</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../index.html">Programming with Panda3D</a> &raquo;</li>
+      
+          <li><a href="../index.html">Advanced operations with Panda3D&#8217;s internal structures</a> &raquo;</li>
+      
+          <li><a href="index.html">How Panda3D Stores Vertices and Geometry</a> &raquo;</li>
+      
+    <li>GeomVertexData</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../_sources/programming-with-panda3d/internal-structures/how-panda3d-stores-vertices-and-geometry/geomvertexdata.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="geomvertexdata">
+<span id="id1"></span><h1>GeomVertexData<a class="headerlink" href="#geomvertexdata" title="Permalink to this headline">¶</a></h1>
+<p>The fundamental object used to store vertex information in Panda is the
+GeomVertexData. This stores a list of vertices, organized conceptually as a
+table, where each row of the table represents a different vertex, and the
+columns of the table represent the different kinds of per-vertex data that may
+be associated with each vertex. For instance, the following table defines four
+vertices, each with its own vertex position, normal vector, color, and texture
+coordinate pair:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="8%" />
+<col width="22%" />
+<col width="22%" />
+<col width="27%" />
+<col width="20%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>&nbsp;</td>
+<td>vertex</td>
+<td>normal</td>
+<td>color</td>
+<td>texcoord</td>
+</tr>
+<tr class="row-even"><td>0</td>
+<td>(1, 0, 0)</td>
+<td>(0, 0, 1)</td>
+<td>(0, 0, 1, 1)</td>
+<td>(1, 0)</td>
+</tr>
+<tr class="row-odd"><td>1</td>
+<td>(1, 1, 0)</td>
+<td>(0, 0, 1)</td>
+<td>(0, 0, 1, 1)</td>
+<td>(1, 1)</td>
+</tr>
+<tr class="row-even"><td>2</td>
+<td>(0, 1, 0)</td>
+<td>(0, 0, 1)</td>
+<td>(0, 0, 1, 1)</td>
+<td>(0, 1)</td>
+</tr>
+<tr class="row-odd"><td>3</td>
+<td>(0, 0, 0)</td>
+<td>(0, 0, 1)</td>
+<td>(0, 0, 1, 1)</td>
+<td>(0, 0)</td>
+</tr>
+</tbody>
+</table>
+<p>Vertices are always numbered beginning at 0, and continue to the number of
+rows in the table (minus 1).</p>
+<p>Not all GeomVertexData objects will use these same four columns; some will
+have fewer columns, and some will have more. In fact, all columns, except for
+&#8220;vertex&#8221;, which stores the vertex position, are optional.</p>
+<p>The order of the columns is not meaningful, but the column names are. There
+are certain column names that are reserved for Panda, and instruct Panda what
+the meaning of each column is. For instance, the vertex position column is
+always named &#8220;vertex&#8221;, and the lighting normal column, if it is present, must
+be named &#8220;normal&#8221;. See :ref:` &lt;geomvertexformat&gt;` for the complete list of
+reserved column names.</p>
+<p>You can define your own custom columns. If there are any columns that have a
+name that Panda does not recognize, Panda will not do anything special with
+the column, but it can still send it to the graphics card. Of course, it is
+then up to you to write a :ref:` &lt;shader-basics&gt;` that understands what to do
+with the data in the column.</p>
+<p>It is possible to break up a GeomVertexData into more than one array. A
+GeomVertexArray is table of vertex data that is stored in one contiguous block
+of memory. Typically, each GeomVertexData consists of just one array; but it
+is also possible to distribute the data so that some columns are stored in one
+array, while other columns are stored in another array:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="8%" />
+<col width="21%" />
+<col width="19%" />
+<col width="6%" />
+<col width="21%" />
+<col width="25%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>&nbsp;</td>
+<td>vertex</td>
+<td>texcoord</td>
+<td>&nbsp;</td>
+<td>normal</td>
+<td>color</td>
+</tr>
+<tr class="row-even"><td>0</td>
+<td>(1, 0, 0)</td>
+<td>(1, 0)</td>
+<td>&nbsp;</td>
+<td>(0, 0, 1)</td>
+<td>(0, 0, 1, 1)</td>
+</tr>
+<tr class="row-odd"><td>1</td>
+<td>(1, 1, 0)</td>
+<td>(1, 1)</td>
+<td>&nbsp;</td>
+<td>(0, 0, 1)</td>
+<td>(0, 0, 1, 1)</td>
+</tr>
+<tr class="row-even"><td>2</td>
+<td>(0, 1, 0)</td>
+<td>(0, 1)</td>
+<td>&nbsp;</td>
+<td>(0, 0, 1)</td>
+<td>(0, 0, 1, 1)</td>
+</tr>
+<tr class="row-odd"><td>3</td>
+<td>(0, 0, 0)</td>
+<td>(0, 0)</td>
+<td>&nbsp;</td>
+<td>(0, 0, 1)</td>
+<td>(0, 0, 1, 1)</td>
+</tr>
+</tbody>
+</table>
+<p>You might want to do this, for instance, if you have certain columns of data
+that are always the same between different blocks of vertices; you can put
+those columns in a separate array, and then use the same array within multiple
+different GeomVertexData objects. There is no limit to the number of different
+arrays you can have within one GeomVertexData; you can make each column a
+separate array if you like. (There may be performance implications to
+consider. Some graphics drivers may work better with one block of contiguous
+data&#8211;one array&#8211;while others may prefer many different arrays. This
+performance difference is likely to be small, however.)</p>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="geomvertexformat.html" class="btn btn-neutral float-right" title="GeomVertexFormat" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="How Panda3D Stores Vertices and Geometry" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Panda3D.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'1.10.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

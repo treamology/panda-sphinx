@@ -1,0 +1,401 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Instancing &mdash; Panda3D Manual</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Panda3D Manual" href="../../index.html"/>
+        <link rel="up" title="The Scene Graph" href="index.html"/>
+        <link rel="next" title="The Configuration File" href="../the-configuration-file/index.html"/>
+        <link rel="prev" title="Searching the Scene Graph" href="searching-the-scene-graph.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Panda3D
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.10
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../intro/index.html">Introduction to Panda3D</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Programming with Panda3D</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">The Scene Graph</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="scene-graph-manipulations.html">Scene Graph Manipulations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-state-changes.html">Common State Changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="manipulating-a-piece-of-a-model.html">Manipulating a Piece of a Model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="searching-the-scene-graph.html">Searching the Scene Graph</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Instancing</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../the-configuration-file/index.html">The Configuration File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../models-and-actors/index.html">Models and Actors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-attributes/index.html">Render Attributes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../texturing/index.html">Texturing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shaders/index.html">Shaders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../camera-control/index.html">Camera Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sound/index.html">Sound</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intervals/index.html">Intervals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks-and-event-handling/index.html">Tasks and Event Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../text-and-image-rendering/index.html">Text and Image Rendering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../directgui/index.html">DirectGUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-effects/index.html">Render Effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../finite-state-machines/index.html">Finite State Machines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../terrain/index.html">Terrain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internal-structures/index.html">Advanced operations with Panda3D&#8217;s internal structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-to-texture-and-image-postprocessing/index.html">Render-to-Texture and Image Postprocessing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../panda3d-rendering-process/index.html">Panda3D Rendering Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../panda3d-utility-functions.html">Panda3D Utility Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../particle-effects/index.html">Particle Effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../collision-detection/index.html">Collision Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../garbage-collection/index.html">Garbage Collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hardware-support/index.html">Hardware support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../math-engine/index.html">Math Engine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../motion-paths.html">Motion Paths</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../timing/index.html">Timing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../networking/index.html">Networking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../multifiles/index.html">Multifiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../showbase.html">ShowBase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../file-reading.html">File Reading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../threading.html">Threading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../subclassing.html">Subclassing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../table-of-features-supported-per-graphic-renderer.html">Table of features supported per graphic renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pandai/index.html">Artificial Intelligence (PANDAI)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../distribution/index.html">Distributing Panda3D Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../samples/index.html">Sample Programs in the Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../debugging/index.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../performance-tuning/index.html">Performance Tuning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../using-c++/index.html">Using C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/index.html">Panda3D Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../building-from-source.html">Building Panda3D from Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cheat-sheets.html">Cheat Sheets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started-on-osx.html">Getting Started on OSX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../more-panda3d-resources.html">More Panda3D Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../thirdparty-licenses.html">Third-party dependencies and license info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../the-irc-channel.html">The IRC Channel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">FAQ</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Panda3D</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Programming with Panda3D</a> &raquo;</li>
+      
+          <li><a href="index.html">The Scene Graph</a> &raquo;</li>
+      
+    <li>Instancing</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/programming-with-panda3d/the-scene-graph/instancing.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="instancing">
+<span id="id1"></span><h1>Instancing<a class="headerlink" href="#instancing" title="Permalink to this headline">¶</a></h1>
+<p>In the musical &#8220;A Chorus Line,&#8221; the most well-known scene is when about 50
+identical-looking young women line up left-to-right across the stage, and they
+all kick-left-kick-right in unison. To implement this in Panda3D, you might do
+this:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">50</span><span class="p">):</span>
+  <span class="n">dancer</span> <span class="o">=</span> <span class="n">Actor</span><span class="o">.</span><span class="n">Actor</span><span class="p">(</span><span class="s2">&quot;chorus-line-dancer.egg&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;kick&quot;</span><span class="p">:</span><span class="s2">&quot;kick.egg&quot;</span><span class="p">})</span>
+  <span class="n">dancer</span><span class="o">.</span><span class="n">loop</span><span class="p">(</span><span class="s2">&quot;kick&quot;</span><span class="p">)</span>
+  <span class="n">dancer</span><span class="o">.</span><span class="n">setPos</span><span class="p">(</span><span class="n">i</span><span class="o">*</span><span class="mi">5</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+  <span class="n">dancer</span><span class="o">.</span><span class="n">reparentTo</span><span class="p">(</span><span class="n">render</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Here is the scene graph that we just created:</p>
+<p><img alt="Instancing1.jpg" src="../../_images/instancing1.jpg" /></p>
+<p>This works fine, but it is a little expensive. Animating a model involves a
+lot of per-vertex matrix calculations. In this case, we&#8217;re animating 50 copies
+of the exact same model using 50 copies of the exact same animation. That&#8217;s a
+lot of redundant calculation. It would seem that there must be some way avoid
+calculating the exact same values 50 times. There is: the technique is called
+instancing.</p>
+<p>The idea is this: instead of creating 50 separate dancers, create only one
+dancer, so that the engine only has to update her animation once. Cause the
+engine to render her 50 times, by inserting her into the scene graph in 50
+different places. Here is how it is done:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">dancer</span> <span class="o">=</span> <span class="n">Actor</span><span class="o">.</span><span class="n">Actor</span><span class="p">(</span><span class="s2">&quot;chorus-line-dancer.egg&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;kick&quot;</span><span class="p">:</span><span class="s2">&quot;kick.egg&quot;</span><span class="p">})</span>
+<span class="n">dancer</span><span class="o">.</span><span class="n">loop</span><span class="p">(</span><span class="s2">&quot;kick&quot;</span><span class="p">)</span>
+<span class="n">dancer</span><span class="o">.</span><span class="n">setPos</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">50</span><span class="p">):</span>
+  <span class="n">placeholder</span> <span class="o">=</span> <span class="n">render</span><span class="o">.</span><span class="n">attachNewNode</span><span class="p">(</span><span class="s2">&quot;Dancer-Placeholder&quot;</span><span class="p">)</span>
+  <span class="n">placeholder</span><span class="o">.</span><span class="n">setPos</span><span class="p">(</span><span class="n">i</span><span class="o">*</span><span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+  <span class="n">dancer</span><span class="o">.</span><span class="n">instanceTo</span><span class="p">(</span><span class="n">placeholder</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Here is a diagram of the scene graph we just created:</p>
+<p><img alt="Instancing2.jpg" src="../../_images/instancing2.jpg" /></p>
+<p>It&#8217;s not a tree any more, it is a directed acyclic graph. But the renderer
+still traverses the graph using a recursive tree-traversal algorithm. As a
+result, it ends up traversing the dancer node 50 times. Here is a diagram of
+the depth-first traversal that the renderer takes through the graph. Note that
+this is not a diagram of the scene graph - it&#8217;s a diagram of the renderer&#8217;s
+path through the scene graph:</p>
+<p><img alt="Instancing3.jpg" src="../../_images/instancing3.jpg" /></p>
+<p>In other words, the renderer visits the dancer actor 50 times. It doesn&#8217;t even
+notice that it&#8217;s visiting the same actor 50 times, rather than visiting 50
+different actors. It&#8217;s all the same to the renderer.</p>
+<p>There are 50 placeholder nodes, lined up across the stage. These are called
+dummy nodes. They don&#8217;t contain any polygons, they&#8217;re little tiny objects used
+mainly for organization. In this case, I&#8217;m using each placeholder as a
+platform on which a dancer can stand.</p>
+<p>The position of the dancer is (0,0,0). But that&#8217;s relative to the position of
+the parent. When the renderer is traversing placeholder 1&#8217;s subtree, the
+dancer&#8217;s position is treated as relative to placeholder 1. When the renderer
+is traversing placeholder 2&#8217;s subtree, the dancer&#8217;s position is treated as
+relative to placeholder 2. So although the position of the dancer is fixed at
+(0,0,0), it appears in multiple locations in the scene (on top of each
+placeholder).</p>
+<p>In this way, it is possible to render a model multiple times without storing
+and animating it multiple times.</p>
+<div class="section" id="advanced-instancing">
+<h2>Advanced Instancing<a class="headerlink" href="#advanced-instancing" title="Permalink to this headline">¶</a></h2>
+<p>Now, let&#8217;s go a step further:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">dancer</span> <span class="o">=</span> <span class="n">Actor</span><span class="o">.</span><span class="n">Actor</span><span class="p">(</span><span class="s2">&quot;chorus-line-dancer.egg&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;kick&quot;</span><span class="p">:</span><span class="s2">&quot;kick.egg&quot;</span><span class="p">})</span>
+<span class="n">dancer</span><span class="o">.</span><span class="n">loop</span><span class="p">(</span><span class="s2">&quot;kick&quot;</span><span class="p">)</span>
+<span class="n">dancer</span><span class="o">.</span><span class="n">setPos</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">chorusline</span> <span class="o">=</span> <span class="n">NodePath</span><span class="p">(</span><span class="s1">&#39;chorusline&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">50</span><span class="p">):</span>
+  <span class="n">placeholder</span> <span class="o">=</span> <span class="n">chorusline</span><span class="o">.</span><span class="n">attachNewNode</span><span class="p">(</span><span class="s2">&quot;Dancer-Placeholder&quot;</span><span class="p">)</span>
+  <span class="n">placeholder</span><span class="o">.</span><span class="n">setPos</span><span class="p">(</span><span class="n">i</span><span class="o">*</span><span class="mi">5</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+  <span class="n">dancer</span><span class="o">.</span><span class="n">instanceTo</span><span class="p">(</span><span class="n">placeholder</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This is the exact same code as before, except that instead of putting the 50
+placeholders beneath <code class="docutils literal"><span class="pre">render</span></code>, I
+put them beneath a dummy node called
+<code class="docutils literal"><span class="pre">chorusline</span></code>. So my line of dancers
+is not part of the scene graph yet. Now, I can do this:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+  <span class="n">placeholder</span> <span class="o">=</span> <span class="n">render</span><span class="o">.</span><span class="n">attachNewNode</span><span class="p">(</span><span class="s2">&quot;Line-Placeholder&quot;</span><span class="p">)</span>
+  <span class="n">placeholder</span><span class="o">.</span><span class="n">setPos</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">i</span><span class="o">*</span><span class="mi">10</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+  <span class="n">chorusline</span><span class="o">.</span><span class="n">instanceTo</span><span class="p">(</span><span class="n">placeholder</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Here is the scene graph I just created:</p>
+<p><img alt="Instancing4.jpg" src="../../_images/instancing4.jpg" /></p>
+<p>But when the renderer traverses it using a recursive tree-traversal algorithm,
+it will see 3 major subtrees (rooted at a line-placeholder), and each subtree
+will contain 50 placeholders and 50 dancers, for a grand total of 150 apparent
+dancers.</p>
+</div>
+<div class="section" id="instancing-an-important-caveat">
+<h2>Instancing: an Important Caveat<a class="headerlink" href="#instancing-an-important-caveat" title="Permalink to this headline">¶</a></h2>
+<p>Instancing saves panda quite a bit of CPU time when animating the model. But
+that doesn&#8217;t change the fact that the renderer still needs to render the model
+150 times. If the dancer is a 1000 polygon model, that&#8217;s still 150,000
+polygons.</p>
+<p>Note that each instance has its own bounding box, each is occlusion-culled and
+frustum-culled separately.</p>
+</div>
+<div class="section" id="the-nodepath-a-pointer-to-a-node-plus-a-unique-instance-id">
+<h2>The NodePath: a Pointer to a Node plus a Unique Instance ID<a class="headerlink" href="#the-nodepath-a-pointer-to-a-node-plus-a-unique-instance-id" title="Permalink to this headline">¶</a></h2>
+<p>If I had a pointer to the chorus-line dancer model, and I tried to ask the
+question &#8220;where is the dancer,&#8221; there would be no well-defined answer. The
+dancer is not in one place, she is in 150 places. Because of this, the data
+type pointer to node does not have a method that retrieves the net transform.</p>
+<p>This is very inconvenient. Being able to ask &#8220;where is this object located&#8221; is
+fundamental. There are other incredibly useful queries that you cannot perform
+because of instancing. For example, you cannot fetch the parent of a node. You
+cannot determine its global color, or any other global attribute. All of these
+queries are ill-defined, because a single node can have many positions, many
+colors, many parents. Yet these queries are essential. It was therefore
+necessary for the panda3d designers to come up with some way to perform these
+queries, even though a node can be in multiple locations at the same time.</p>
+<p>The solution is based on the following observation: if I had a pointer to the
+chorus line-dancer model, and I also had a unique identifier that
+distinguishes one of the 150 instances from all the others, then I could
+meaningfully ask for the net transform of that particular instance of the
+node.</p>
+<p>Earlier, it was noted that a NodePath contains a pointer to a node, plus some
+administrative information. The purpose of that administrative information is
+to uniquely identify one of the instances. There is no method
+<code class="docutils literal"><span class="pre">PandaNode.getNetTransform</span></code>, but there is a method
+<code class="docutils literal"><span class="pre">NodePath.getNetTransform</span></code>. Now you know why.</p>
+<p>To understand how NodePath got its name, think about what is necessary to
+uniquely identify an instance. Each of the 150 dancers in the graph above
+corresponds to a single path through the scene graph. For every possible path
+from root to dancer, there exists one dancer-instance in the scene. In other
+words, to uniquely identify an instance, you need a list of nodes that starts
+at the leaf and goes up to the root.</p>
+<p>The administrative information in a NodePath is a list of nodes. You can fetch
+any node in the list, using the
+<code class="docutils literal"><span class="pre">NodePath.node(i)</span></code> method. The first one,
+<code class="docutils literal"><span class="pre">node(0)</span></code>, is the node to which
+the NodePath points.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../the-configuration-file/index.html" class="btn btn-neutral float-right" title="The Configuration File" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="searching-the-scene-graph.html" class="btn btn-neutral" title="Searching the Scene Graph" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Panda3D.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.10.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

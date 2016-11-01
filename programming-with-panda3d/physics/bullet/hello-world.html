@@ -1,0 +1,611 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Bullet Hello World &mdash; Panda3D Manual</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Panda3D Manual" href="../../../index.html"/>
+        <link rel="up" title="Using Bullet with Panda3D" href="index.html"/>
+        <link rel="next" title="Bullet Debug Renderer" href="debug-renderer.html"/>
+        <link rel="prev" title="Using Bullet with Panda3D" href="index.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Panda3D
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.10
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../intro/index.html">Introduction to Panda3D</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Programming with Panda3D</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../the-scene-graph/index.html">The Scene Graph</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../the-configuration-file/index.html">The Configuration File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../models-and-actors/index.html">Models and Actors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../render-attributes/index.html">Render Attributes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../texturing/index.html">Texturing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../shaders/index.html">Shaders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../camera-control/index.html">Camera Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../sound/index.html">Sound</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../intervals/index.html">Intervals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tasks-and-event-handling/index.html">Tasks and Event Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../text-and-image-rendering/index.html">Text and Image Rendering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../directgui/index.html">DirectGUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../render-effects/index.html">Render Effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../finite-state-machines/index.html">Finite State Machines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../terrain/index.html">Terrain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../internal-structures/index.html">Advanced operations with Panda3D&#8217;s internal structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../render-to-texture-and-image-postprocessing/index.html">Render-to-Texture and Image Postprocessing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../panda3d-rendering-process/index.html">Panda3D Rendering Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../panda3d-utility-functions.html">Panda3D Utility Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../particle-effects/index.html">Particle Effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../collision-detection/index.html">Collision Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../garbage-collection/index.html">Garbage Collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hardware-support/index.html">Hardware support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../math-engine/index.html">Math Engine</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Physics</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../panda3d-physics-engine/index.html">Panda3D Physics Engine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ode/index.html">Using ODE with Panda3D</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Using Bullet with Panda3D</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Bullet Hello World</a></li>
+<li class="toctree-l4"><a class="reference internal" href="debug-renderer.html">Bullet Debug Renderer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="collision-shapes.html">Bullet Collision Shapes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="collision-filtering.html">Bullet Collision Filtering</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ccd.html">Bullet Continuous Collision Detection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="queries.html">Bullet Queries</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ghosts.html">Bullet Ghosts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="character-controller.html">Bullet Character Controller</a></li>
+<li class="toctree-l4"><a class="reference internal" href="constraints.html">Bullet Constraints</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vehicles.html">Bullet Vehicles</a></li>
+<li class="toctree-l4"><a class="reference internal" href="softbodies.html">Bullet Softbodies</a></li>
+<li class="toctree-l4"><a class="reference internal" href="softbody-rope.html">Bullet Softbody Rope</a></li>
+<li class="toctree-l4"><a class="reference internal" href="softbody-patch.html">Bullet Softbody Patch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="softbody-triangles.html">Bullet Softbody Triangles</a></li>
+<li class="toctree-l4"><a class="reference internal" href="softbody-tetrahedron.html">Bullet Softbody Tetrahedron</a></li>
+<li class="toctree-l4"><a class="reference internal" href="softbody-config.html">Bullet Softbody Config</a></li>
+<li class="toctree-l4"><a class="reference internal" href="config-options.html">Bullet Config Options</a></li>
+<li class="toctree-l4"><a class="reference internal" href="faq.html">Bullet FAQ</a></li>
+<li class="toctree-l4"><a class="reference internal" href="samples.html">Bullet Samples</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../motion-paths.html">Motion Paths</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../timing/index.html">Timing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../networking/index.html">Networking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../multifiles/index.html">Multifiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../showbase.html">ShowBase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../file-reading.html">File Reading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../threading.html">Threading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../subclassing.html">Subclassing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../table-of-features-supported-per-graphic-renderer.html">Table of features supported per graphic renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../pandai/index.html">Artificial Intelligence (PANDAI)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../distribution/index.html">Distributing Panda3D Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../samples/index.html">Sample Programs in the Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../debugging/index.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../performance-tuning/index.html">Performance Tuning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../using-c++/index.html">Using C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tools/index.html">Panda3D Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../building-from-source.html">Building Panda3D from Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cheat-sheets.html">Cheat Sheets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting-started-on-osx.html">Getting Started on OSX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../more-panda3d-resources.html">More Panda3D Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../thirdparty-licenses.html">Third-party dependencies and license info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../the-irc-channel.html">The IRC Channel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../faq.html">FAQ</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../index.html">Panda3D</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../index.html">Programming with Panda3D</a> &raquo;</li>
+      
+          <li><a href="../index.html">Physics</a> &raquo;</li>
+      
+          <li><a href="index.html">Using Bullet with Panda3D</a> &raquo;</li>
+      
+    <li>Bullet Hello World</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../_sources/programming-with-panda3d/physics/bullet/hello-world.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="bullet-hello-world">
+<span id="hello-world"></span><h1>Bullet Hello World<a class="headerlink" href="#bullet-hello-world" title="Permalink to this headline">¶</a></h1>
+<p>This page intends to lead through a minimal &#8220;hello world&#8221; program using
+Panda3D and Bullet physics.</p>
+<div class="section" id="compiling-c-panda3d-with-bullet-code">
+<h2>Compiling C++ Panda3D with Bullet code<a class="headerlink" href="#compiling-c-panda3d-with-bullet-code" title="Permalink to this headline">¶</a></h2>
+<p>To compile a Panda3D C++ program with Bullet, you will need to link directly
+against the Bullet libraries.</p>
+<p>These are not included in the Panda3D SDK, but are included in a separate
+&#8220;thirdparty tools&#8221; download on the download page. You will need to add the
+appropriate Bullet include and library directories to your compiler settings.</p>
+<p>On Ubuntu, we compile against the Bullet version that is included in the
+Ubuntu distribution, and you can use pkg-config to determine the include and
+library paths for Bullet.</p>
+</div>
+<div class="section" id="world">
+<h2>World<a class="headerlink" href="#world" title="Permalink to this headline">¶</a></h2>
+<p>In order to use Bullet physics we need to have a BulletWorld. The world is
+Panda3D&#8217;s term for a &#8220;space&#8221; or &#8220;scene&#8221;. The world holds physical objects like
+rigid bodies, soft bodies or character controllers. It controls global
+parameters, such a gravity, and it advances the simulation state.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">panda3d.bullet</span> <span class="kn">import</span> <span class="n">BulletWorld</span>
+<span class="n">world</span> <span class="o">=</span> <span class="n">BulletWorld</span><span class="p">()</span>
+<span class="n">world</span><span class="o">.</span><span class="n">setGravity</span><span class="p">(</span><span class="n">Vec3</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mf">9.81</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>First, include Panda3D bullet binding headers.</p>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&quot;bulletWorld.h&quot;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&quot;bulletPlaneShape.h&quot;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&quot;bulletBoxShape.h&quot;</span><span class="cp"></span>
+<span class="p">...</span>
+<span class="n">PT</span><span class="p">(</span><span class="n">BulletWorld</span><span class="p">)</span> <span class="n">physics_world</span><span class="p">;</span>
+<span class="n">physics_world</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BulletWorld</span><span class="p">();</span>
+<span class="n">physics_world</span><span class="o">-&gt;</span><span class="n">set_gravity</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mf">9.81f</span><span class="p">);</span>
+<span class="p">...</span>
+</pre></div>
+</div>
+<p>The above code creates a new world, and it sets the worlds gravity to a
+downward vector with length 9.81. While Bullet is in theory independent from
+any particular units it is recommended to stick with SI units (kilogram,
+meter, second). In SI units 9.81 m/s² is the gravity on Earth&#8217;s surface.</p>
+<p>Next we need to advance the simulation state. This is best done by a task
+which gets called each frame. We find out about the elapsed time (dt), and
+pass this value to the</p>
+<p><code class="docutils literal"><span class="pre">doPhysics</span></code></p>
+<p><code class="docutils literal"><span class="pre">do_physics</span></code></p>
+<p><code class="docutils literal"><span class="pre">method.</span></code></p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="n">task</span><span class="p">):</span>
+  <span class="n">dt</span> <span class="o">=</span> <span class="n">globalClock</span><span class="o">.</span><span class="n">getDt</span><span class="p">()</span>
+  <span class="n">world</span><span class="o">.</span><span class="n">doPhysics</span><span class="p">(</span><span class="n">dt</span><span class="p">)</span>
+  <span class="k">return</span> <span class="n">task</span><span class="o">.</span><span class="n">cont</span>
+
+<span class="n">taskMgr</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">update</span><span class="p">,</span> <span class="s1">&#39;update&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="p">...</span>
+<span class="n">AsyncTask</span><span class="o">::</span><span class="n">DoneStatus</span> <span class="n">update_scene</span><span class="p">(</span><span class="n">GenericAsyncTask</span><span class="o">*</span> <span class="n">task</span><span class="p">,</span> <span class="kt">void</span><span class="o">*</span> <span class="n">data</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Get dt (from Python example) and apply to do_physics(float, int, int);</span>
+    <span class="n">ClockObject</span> <span class="o">*</span><span class="n">co</span> <span class="o">=</span> <span class="n">ClockObject</span><span class="o">::</span><span class="n">get_global_clock</span><span class="p">();</span>
+    <span class="n">physics_world</span><span class="o">-&gt;</span><span class="n">do_physics</span><span class="p">(</span><span class="n">co</span><span class="o">-&gt;</span><span class="n">get_dt</span><span class="p">(),</span> <span class="mi">10</span><span class="p">,</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="mf">180.0</span><span class="p">);</span>
+
+    <span class="k">return</span> <span class="n">AsyncTask</span><span class="o">::</span><span class="n">DS_cont</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="p">...</span>
+<span class="n">PT</span><span class="p">(</span><span class="n">GenericAsyncTask</span><span class="p">)</span> <span class="n">task</span><span class="p">;</span>
+<span class="n">task</span> <span class="o">=</span> <span class="k">new</span> <span class="n">GenericAsyncTask</span><span class="p">(</span><span class="s">&quot;Scene update&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">update_scene</span><span class="p">,</span> <span class="p">(</span><span class="kt">void</span><span class="o">*</span><span class="p">)</span> <span class="nb">NULL</span><span class="p">);</span>
+<span class="n">task_mgr</span><span class="o">-&gt;</span><span class="n">add</span><span class="p">(</span><span class="n">task</span><span class="p">);</span> <span class="c1">// Note: task_mgr = AsyncTaskManager::get_global_ptr();</span>
+<span class="p">...</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal"><span class="pre">doPhysics</span></code> method allows finer
+control on the way the simulation state is advanced. Internally Bullet splits
+a timestep into several substeps. We can pass a maximum number of substeps and
+the size of each substep, like show in the following code.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">world</span><span class="o">.</span><span class="n">doPhysics</span><span class="p">(</span><span class="n">dt</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mf">1.0</span><span class="o">/</span><span class="mf">180.0</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">physics_world</span><span class="o">-&gt;</span><span class="n">do_physics</span><span class="p">(</span><span class="n">co</span><span class="o">-&gt;</span><span class="n">get_dt</span><span class="p">(),</span> <span class="mi">10</span><span class="p">,</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="mf">180.0</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Here we have a maximum of 10 substeps, each with 1/180 seconds. Choosing
+smaller substeps will make the simulation more realistic, but performance will
+decrease too. Smaller substeps also reduce jitter.</p>
+</div>
+<div class="section" id="static-bodies">
+<h2>Static bodies<a class="headerlink" href="#static-bodies" title="Permalink to this headline">¶</a></h2>
+<p>So far we just have an empty world. We next need to add some objects. The most
+simple objects are static bodies. Static object don&#8217;t change their position or
+orientation with time. Typical static objects are the ground or terrain, and
+houses or other non-moveable obstacles. Here we create a simple plane which
+will serve as a ground.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">panda3d.bullet</span> <span class="kn">import</span> <span class="n">BulletPlaneShape</span>
+<span class="kn">from</span> <span class="nn">panda3d.bullet</span> <span class="kn">import</span> <span class="n">BulletRigidBodyNode</span>
+
+<span class="n">shape</span> <span class="o">=</span> <span class="n">BulletPlaneShape</span><span class="p">(</span><span class="n">Vec3</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="n">node</span> <span class="o">=</span> <span class="n">BulletRigidBodyNode</span><span class="p">(</span><span class="s1">&#39;Ground&#39;</span><span class="p">)</span>
+<span class="n">node</span><span class="o">.</span><span class="n">addShape</span><span class="p">(</span><span class="n">shape</span><span class="p">)</span>
+
+<span class="n">np</span> <span class="o">=</span> <span class="n">render</span><span class="o">.</span><span class="n">attachNewNode</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">setPos</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">world</span><span class="o">.</span><span class="n">attachRigidBody</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="p">...</span>
+<span class="n">PT</span><span class="p">(</span><span class="n">BulletPlaneShape</span><span class="p">)</span> <span class="n">floor_shape</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BulletPlaneShape</span><span class="p">(</span><span class="n">LVecBase3f</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="mi">1</span><span class="p">);</span>
+<span class="n">PT</span><span class="p">(</span><span class="n">BulletRigidBodyNode</span><span class="p">)</span> <span class="n">floor_rigid_node</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BulletRigidBodyNode</span><span class="p">(</span><span class="s">&quot;Ground&quot;</span><span class="p">);</span>
+
+<span class="n">floor_rigid_node</span><span class="o">-&gt;</span><span class="n">add_shape</span><span class="p">(</span><span class="n">floor_shape</span><span class="p">);</span>
+
+<span class="n">NodePath</span> <span class="n">np_ground</span> <span class="o">=</span> <span class="n">window</span><span class="o">-&gt;</span><span class="n">get_render</span><span class="p">().</span><span class="n">attach_new_node</span><span class="p">(</span><span class="n">floor_rigid_node</span><span class="p">);</span>
+<span class="n">np_ground</span><span class="p">.</span><span class="n">set_pos</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">);</span>
+<span class="n">physics_world</span><span class="o">-&gt;</span><span class="n">attach</span><span class="p">(</span><span class="n">floor_rigid_node</span><span class="p">);</span>
+<span class="p">...</span>
+</pre></div>
+</div>
+<p>First we create a collision shape, in the case a
+<code class="docutils literal"><span class="pre">BulletPlaneShape</span></code>. We pass the plane&#8217;s
+constant and normal vector within the shape&#8217;s constructor. There is a separate
+page about setting up the various collision shapes offered by Bullet, so we
+won&#8217;t go into more detail here.</p>
+<p>Next we create a rigid body and add the previously created shape.
+<code class="docutils literal"><span class="pre">BulletRigidBodyNode</span></code> is derived from
+<code class="docutils literal"><span class="pre">PandaNode</span></code>, and thus the rigid
+body can be placed within the Panda3D scene graph. you can also use methods
+like <code class="docutils literal"><span class="pre">setPos</span></code> or setH to place
+the rigid body node where you want it to be.</p>
+<p>Finally we need to attach the newly created rigid body node to the world. Only
+rigid bodies attached to the world will be considered when advancing the
+simulation state.</p>
+</div>
+<div class="section" id="dynamic-bodies">
+<h2>Dynamic bodies<a class="headerlink" href="#dynamic-bodies" title="Permalink to this headline">¶</a></h2>
+<p>Dynamic bodies are similar to static bodies. Except that dynamic bodies can be
+moved around the world by applying force or torque. To setup a dynamic body is
+almost the same as for static bodies. We will have to set one additional
+property though, the body&#8217;s mass. Setting a positive finite mass will create a
+dynamic body, while setting the mass to zero will create a static body. Zero
+mass is a convention for setting an infinite mass, which is the same as making
+the body unmovable (static).</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">panda3d.bullet</span> <span class="kn">import</span> <span class="n">BulletBoxShape</span>
+
+<span class="n">shape</span> <span class="o">=</span> <span class="n">BulletBoxShape</span><span class="p">(</span><span class="n">Vec3</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">))</span>
+
+<span class="n">node</span> <span class="o">=</span> <span class="n">BulletRigidBodyNode</span><span class="p">(</span><span class="s1">&#39;Box&#39;</span><span class="p">)</span>
+<span class="n">node</span><span class="o">.</span><span class="n">setMass</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span>
+<span class="n">node</span><span class="o">.</span><span class="n">addShape</span><span class="p">(</span><span class="n">shape</span><span class="p">)</span>
+
+<span class="n">np</span> <span class="o">=</span> <span class="n">render</span><span class="o">.</span><span class="n">attachNewNode</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">setPos</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+
+<span class="n">world</span><span class="o">.</span><span class="n">attachRigidBody</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="p">...</span>
+<span class="n">PT</span><span class="p">(</span><span class="n">BulletBoxShape</span><span class="p">)</span> <span class="n">box_shape</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BulletBoxShape</span><span class="p">(</span><span class="n">LVecBase3f</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">));</span>
+<span class="n">PT</span><span class="p">(</span><span class="n">BulletRigidBodyNode</span><span class="p">)</span> <span class="n">box_rigid_node</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BulletRigidBodyNode</span><span class="p">(</span><span class="s">&quot;Box&quot;</span><span class="p">);</span>
+
+<span class="n">box_rigid_node</span><span class="o">-&gt;</span><span class="n">set_mass</span><span class="p">(</span><span class="mf">1.0f</span><span class="p">);</span> <span class="c1">// Gravity affects this rigid node.</span>
+<span class="n">box_rigid_node</span><span class="o">-&gt;</span><span class="n">add_shape</span><span class="p">(</span><span class="n">box_shape</span><span class="p">);</span>
+
+<span class="n">NodePath</span> <span class="n">np_box</span> <span class="o">=</span> <span class="n">window</span><span class="o">-&gt;</span><span class="n">get_render</span><span class="p">().</span><span class="n">attach_new_node</span><span class="p">(</span><span class="n">box_rigid_node</span><span class="p">);</span>
+<span class="n">np_box</span><span class="p">.</span><span class="n">set_pos</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+<span class="n">physics_world</span><span class="o">-&gt;</span><span class="n">attach</span><span class="p">(</span><span class="n">box_rigid_node</span><span class="p">);</span>
+<span class="p">...</span>
+</pre></div>
+</div>
+<p>Bullet will automatically update a rigid body node&#8217;s position and orientation
+if is has changed after advancing the simulation state. So, if you have a
+<code class="docutils literal"><span class="pre">GeomNode</span></code>- e. g. a textured box
+- and reparent this geom node below the rigid body node, then the geom node
+will move around together with the rigid body. You don&#8217;t have to synchronize
+the visual world with the physics world.</p>
+</div>
+<div class="section" id="the-program">
+<h2>The Program<a class="headerlink" href="#the-program" title="Permalink to this headline">¶</a></h2>
+<p>Let&#8217;s put everything learned on this page together into a single script, which
+is shown below. It assumes that you have an .egg model of a 1 by 1 by 1 box.</p>
+<p>when running the script you will see a box falling down onto an invisible
+plane. The plane is invisible simply because we didn&#8217;t parent a visual mode
+below the plane&#8217;s rigid body node. Of course we could have done so.</p>
+<p>The model cube.egg used in this hello word sample can be found in the
+following archive:
+<a class="reference external" href="https://www.panda3d.org/download/noversion/bullet-samples.zip">https://www.panda3d.org/download/noversion/bullet-samples.zip</a></p>
+<p>NOTE: Samples are currently available in Python code only.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">direct.directbase.DirectStart</span>
+<span class="kn">from</span> <span class="nn">panda3d.core</span> <span class="kn">import</span> <span class="n">Vec3</span>
+<span class="kn">from</span> <span class="nn">panda3d.bullet</span> <span class="kn">import</span> <span class="n">BulletWorld</span>
+<span class="kn">from</span> <span class="nn">panda3d.bullet</span> <span class="kn">import</span> <span class="n">BulletPlaneShape</span>
+<span class="kn">from</span> <span class="nn">panda3d.bullet</span> <span class="kn">import</span> <span class="n">BulletRigidBodyNode</span>
+<span class="kn">from</span> <span class="nn">panda3d.bullet</span> <span class="kn">import</span> <span class="n">BulletBoxShape</span>
+
+<span class="n">base</span><span class="o">.</span><span class="n">cam</span><span class="o">.</span><span class="n">setPos</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">base</span><span class="o">.</span><span class="n">cam</span><span class="o">.</span><span class="n">lookAt</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># World</span>
+<span class="n">world</span> <span class="o">=</span> <span class="n">BulletWorld</span><span class="p">()</span>
+<span class="n">world</span><span class="o">.</span><span class="n">setGravity</span><span class="p">(</span><span class="n">Vec3</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mf">9.81</span><span class="p">))</span>
+
+<span class="c1"># Plane</span>
+<span class="n">shape</span> <span class="o">=</span> <span class="n">BulletPlaneShape</span><span class="p">(</span><span class="n">Vec3</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">node</span> <span class="o">=</span> <span class="n">BulletRigidBodyNode</span><span class="p">(</span><span class="s1">&#39;Ground&#39;</span><span class="p">)</span>
+<span class="n">node</span><span class="o">.</span><span class="n">addShape</span><span class="p">(</span><span class="n">shape</span><span class="p">)</span>
+<span class="n">np</span> <span class="o">=</span> <span class="n">render</span><span class="o">.</span><span class="n">attachNewNode</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">setPos</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">world</span><span class="o">.</span><span class="n">attachRigidBody</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+
+<span class="c1"># Box</span>
+<span class="n">shape</span> <span class="o">=</span> <span class="n">BulletBoxShape</span><span class="p">(</span><span class="n">Vec3</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">))</span>
+<span class="n">node</span> <span class="o">=</span> <span class="n">BulletRigidBodyNode</span><span class="p">(</span><span class="s1">&#39;Box&#39;</span><span class="p">)</span>
+<span class="n">node</span><span class="o">.</span><span class="n">setMass</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span>
+<span class="n">node</span><span class="o">.</span><span class="n">addShape</span><span class="p">(</span><span class="n">shape</span><span class="p">)</span>
+<span class="n">np</span> <span class="o">=</span> <span class="n">render</span><span class="o">.</span><span class="n">attachNewNode</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">setPos</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">world</span><span class="o">.</span><span class="n">attachRigidBody</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">loader</span><span class="o">.</span><span class="n">loadModel</span><span class="p">(</span><span class="s1">&#39;models/box.egg&#39;</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">flattenLight</span><span class="p">()</span>
+<span class="n">model</span><span class="o">.</span><span class="n">reparentTo</span><span class="p">(</span><span class="n">np</span><span class="p">)</span>
+
+<span class="c1"># Update</span>
+<span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="n">task</span><span class="p">):</span>
+  <span class="n">dt</span> <span class="o">=</span> <span class="n">globalClock</span><span class="o">.</span><span class="n">getDt</span><span class="p">()</span>
+  <span class="n">world</span><span class="o">.</span><span class="n">doPhysics</span><span class="p">(</span><span class="n">dt</span><span class="p">)</span>
+  <span class="k">return</span> <span class="n">task</span><span class="o">.</span><span class="n">cont</span>
+
+<span class="n">taskMgr</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">update</span><span class="p">,</span> <span class="s1">&#39;update&#39;</span><span class="p">)</span>
+<span class="n">run</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="c1">// Bullet Physics Example.</span>
+<span class="c1">// The following example is done from Python sources, Panda Reference and Panda Manual,</span>
+<span class="c1">// for more information, visit Panda3D and/or Bullet physics web site.</span>
+
+<span class="c1">// Compiling and Linking documentation and notes are not</span>
+<span class="c1">// covered in this file, check manual for more information.</span>
+
+<span class="cp">#include</span> <span class="cpf">&quot;pandaFramework.h&quot;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&quot;windowFramework.h&quot;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&quot;nodePath.h&quot;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&quot;clockObject.h&quot;</span><span class="cp"></span>
+
+<span class="cp">#include</span> <span class="cpf">&quot;asyncTask.h&quot;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&quot;genericAsyncTask.h&quot;</span><span class="cp"></span>
+
+<span class="cp">#include</span> <span class="cpf">&quot;bulletWorld.h&quot;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&quot;bulletPlaneShape.h&quot;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&quot;bulletBoxShape.h&quot;</span><span class="cp"></span>
+
+<span class="n">BulletWorld</span> <span class="o">*</span><span class="nf">get_physics_world</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// physics_world is supposed to be an global variable,</span>
+    <span class="c1">// but declaring global variables is not cool</span>
+    <span class="c1">// for good programmers lol, instead, should use static keyword.</span>
+    <span class="k">static</span> <span class="n">PT</span><span class="p">(</span><span class="n">BulletWorld</span><span class="p">)</span> <span class="n">physics_world</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BulletWorld</span><span class="p">();</span>
+    <span class="k">return</span> <span class="n">physics_world</span><span class="p">.</span><span class="n">p</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="n">AsyncTask</span><span class="o">::</span><span class="n">DoneStatus</span> <span class="n">update_scene</span><span class="p">(</span><span class="n">GenericAsyncTask</span><span class="o">*</span> <span class="n">task</span><span class="p">,</span> <span class="kt">void</span><span class="o">*</span> <span class="n">data</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Get dt (from Python example) and apply to do_physics(float, int, int);</span>
+    <span class="n">ClockObject</span> <span class="o">*</span><span class="n">co</span> <span class="o">=</span> <span class="n">ClockObject</span><span class="o">::</span><span class="n">get_global_clock</span><span class="p">();</span>
+    <span class="n">get_physics_world</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">do_physics</span><span class="p">(</span><span class="n">co</span><span class="o">-&gt;</span><span class="n">get_dt</span><span class="p">(),</span> <span class="mi">10</span><span class="p">,</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="mf">180.0</span><span class="p">);</span>
+
+    <span class="k">return</span> <span class="n">AsyncTask</span><span class="o">::</span><span class="n">DS_cont</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="n">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
+    <span class="c1">// All variables.</span>
+    <span class="n">PandaFramework</span> <span class="n">framework</span><span class="p">;</span>
+    <span class="n">WindowFramework</span> <span class="o">*</span><span class="n">window</span><span class="p">;</span>
+    <span class="n">NodePath</span> <span class="n">camera</span><span class="p">;</span>
+    <span class="n">PT</span><span class="p">(</span><span class="n">AsyncTaskManager</span><span class="p">)</span> <span class="n">task_mgr</span><span class="p">;</span>
+
+    <span class="c1">// Init everything :D</span>
+    <span class="n">framework</span><span class="p">.</span><span class="n">open_framework</span><span class="p">(</span><span class="n">argc</span><span class="p">,</span> <span class="n">argv</span><span class="p">);</span>
+    <span class="n">framework</span><span class="p">.</span><span class="n">set_window_title</span><span class="p">(</span><span class="s">&quot;Bullet Physics&quot;</span><span class="p">);</span>
+
+    <span class="n">window</span> <span class="o">=</span> <span class="n">framework</span><span class="p">.</span><span class="n">open_window</span><span class="p">();</span>
+    <span class="n">window</span><span class="o">-&gt;</span><span class="n">enable_keyboard</span><span class="p">();</span>
+    <span class="n">window</span><span class="o">-&gt;</span><span class="n">setup_trackball</span><span class="p">();</span>
+
+    <span class="n">camera</span> <span class="o">=</span> <span class="n">window</span><span class="o">-&gt;</span><span class="n">get_camera_group</span><span class="p">();</span>
+    <span class="n">task_mgr</span> <span class="o">=</span> <span class="n">AsyncTaskManager</span><span class="o">::</span><span class="n">get_global_ptr</span><span class="p">();</span>
+
+    <span class="c1">// Make physics simulation.</span>
+    <span class="c1">// Static world stuff.</span>
+    <span class="n">get_physics_world</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">set_gravity</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mf">9.81f</span><span class="p">);</span>
+
+    <span class="n">PT</span><span class="p">(</span><span class="n">BulletPlaneShape</span><span class="p">)</span> <span class="n">floor_shape</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BulletPlaneShape</span><span class="p">(</span><span class="n">LVecBase3f</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="mi">1</span><span class="p">);</span>
+    <span class="n">PT</span><span class="p">(</span><span class="n">BulletRigidBodyNode</span><span class="p">)</span> <span class="n">floor_rigid_node</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BulletRigidBodyNode</span><span class="p">(</span><span class="s">&quot;Ground&quot;</span><span class="p">);</span>
+
+    <span class="n">floor_rigid_node</span><span class="o">-&gt;</span><span class="n">add_shape</span><span class="p">(</span><span class="n">floor_shape</span><span class="p">);</span>
+
+    <span class="n">NodePath</span> <span class="n">np_ground</span> <span class="o">=</span> <span class="n">window</span><span class="o">-&gt;</span><span class="n">get_render</span><span class="p">().</span><span class="n">attach_new_node</span><span class="p">(</span><span class="n">floor_rigid_node</span><span class="p">);</span>
+    <span class="n">np_ground</span><span class="p">.</span><span class="n">set_pos</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">);</span>
+    <span class="n">get_physics_world</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">attach</span><span class="p">(</span><span class="n">floor_rigid_node</span><span class="p">);</span>
+
+    <span class="c1">// Dynamic world stuff.</span>
+    <span class="n">PT</span><span class="p">(</span><span class="n">BulletBoxShape</span><span class="p">)</span> <span class="n">box_shape</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BulletBoxShape</span><span class="p">(</span><span class="n">LVecBase3f</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">));</span>
+    <span class="n">PT</span><span class="p">(</span><span class="n">BulletRigidBodyNode</span><span class="p">)</span> <span class="n">box_rigid_node</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BulletRigidBodyNode</span><span class="p">(</span><span class="s">&quot;Box&quot;</span><span class="p">);</span>
+
+    <span class="n">box_rigid_node</span><span class="o">-&gt;</span><span class="n">set_mass</span><span class="p">(</span><span class="mf">1.0f</span><span class="p">);</span> <span class="c1">// Gravity affects this rigid node.</span>
+    <span class="n">box_rigid_node</span><span class="o">-&gt;</span><span class="n">add_shape</span><span class="p">(</span><span class="n">box_shape</span><span class="p">);</span>
+
+    <span class="n">NodePath</span> <span class="n">np_box</span> <span class="o">=</span> <span class="n">window</span><span class="o">-&gt;</span><span class="n">get_render</span><span class="p">().</span><span class="n">attach_new_node</span><span class="p">(</span><span class="n">box_rigid_node</span><span class="p">);</span>
+    <span class="n">np_box</span><span class="p">.</span><span class="n">set_pos</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+    <span class="n">get_physics_world</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">attach</span><span class="p">(</span><span class="n">box_rigid_node</span><span class="p">);</span>
+
+    <span class="n">NodePath</span> <span class="n">np_box_model</span> <span class="o">=</span> <span class="n">window</span><span class="o">-&gt;</span><span class="n">load_model</span><span class="p">(</span><span class="n">framework</span><span class="p">.</span><span class="n">get_models</span><span class="p">(),</span> <span class="s">&quot;models/box&quot;</span><span class="p">);</span>
+    <span class="n">np_box_model</span><span class="p">.</span><span class="n">set_pos</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span><span class="o">-</span><span class="mf">0.5</span><span class="p">);</span>
+    <span class="n">np_box</span><span class="p">.</span><span class="n">flatten_light</span><span class="p">();</span>
+    <span class="n">np_box_model</span><span class="p">.</span><span class="n">reparent_to</span><span class="p">(</span><span class="n">np_box</span><span class="p">);</span>
+
+    <span class="n">PT</span><span class="p">(</span><span class="n">GenericAsyncTask</span><span class="p">)</span> <span class="n">task</span><span class="p">;</span>
+    <span class="n">task</span> <span class="o">=</span> <span class="k">new</span> <span class="n">GenericAsyncTask</span><span class="p">(</span><span class="s">&quot;Scene update&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">update_scene</span><span class="p">,</span> <span class="p">(</span><span class="kt">void</span><span class="o">*</span><span class="p">)</span> <span class="nb">NULL</span><span class="p">);</span>
+    <span class="n">task_mgr</span><span class="o">-&gt;</span><span class="n">add</span><span class="p">(</span><span class="n">task</span><span class="p">);</span>
+
+    <span class="n">framework</span><span class="p">.</span><span class="n">main_loop</span><span class="p">();</span>
+    <span class="n">framework</span><span class="p">.</span><span class="n">close_framework</span><span class="p">();</span>
+
+    <span class="k">return</span> <span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="debug-renderer.html" class="btn btn-neutral float-right" title="Bullet Debug Renderer" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Using Bullet with Panda3D" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Panda3D.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'1.10.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

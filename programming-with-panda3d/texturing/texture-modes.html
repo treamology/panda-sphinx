@@ -1,0 +1,601 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Texture Modes &mdash; Panda3D Manual</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Panda3D Manual" href="../../index.html"/>
+        <link rel="up" title="Texturing" href="index.html"/>
+        <link rel="next" title="Texture Order" href="texture-order.html"/>
+        <link rel="prev" title="Multitexture Introduction" href="multitexture-introduction.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Panda3D
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.10
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../intro/index.html">Introduction to Panda3D</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Programming with Panda3D</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../the-scene-graph/index.html">The Scene Graph</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../the-configuration-file/index.html">The Configuration File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../models-and-actors/index.html">Models and Actors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-attributes/index.html">Render Attributes</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Texturing</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="simple-texturing.html">Simple Texturing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="choosing-a-texture-size.html">Choosing a Texture Size</a></li>
+<li class="toctree-l3"><a class="reference internal" href="texture-wrap-modes.html">Texture Wrap Modes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="texture-filter-types.html">Texture Filter Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="simple-texture-replacement.html">Simple Texture Replacement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multitexture-introduction.html">Multitexture Introduction</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Texture Modes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="texture-order.html">Texture Order</a></li>
+<li class="toctree-l3"><a class="reference internal" href="texture-combine-modes.html">Texture Combine Modes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="texture-transforms.html">Texture Transforms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multiple-texture-coordinate-sets.html">Multiple Texture Coordinate Sets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="automatic-texture-coordinates.html">Automatic Texture Coordinates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="projected-textures.html">Projected Textures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="simple-environment-mapping.html">Simple Environment Mapping</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3d-textures.html">3-D Textures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cube-maps.html">Cube Maps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="environment-mapping-with-cube-maps.html">Environment Mapping with Cube Maps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="automatic-texture-animation.html">Automatic Texture Animation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="playing-mpg-and-avi-files.html">Playing MPG and AVI files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="stereo-multiview-textures.html">Stereo/Multiview Textures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="transparency-and-blending.html">Transparency and Blending</a></li>
+<li class="toctree-l3"><a class="reference internal" href="texture-management.html">Texture Management</a></li>
+<li class="toctree-l3"><a class="reference internal" href="texture-compression.html">Texture Compression</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../shaders/index.html">Shaders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../camera-control/index.html">Camera Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sound/index.html">Sound</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intervals/index.html">Intervals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks-and-event-handling/index.html">Tasks and Event Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../text-and-image-rendering/index.html">Text and Image Rendering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../directgui/index.html">DirectGUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-effects/index.html">Render Effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../finite-state-machines/index.html">Finite State Machines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../terrain/index.html">Terrain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internal-structures/index.html">Advanced operations with Panda3D&#8217;s internal structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-to-texture-and-image-postprocessing/index.html">Render-to-Texture and Image Postprocessing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../panda3d-rendering-process/index.html">Panda3D Rendering Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../panda3d-utility-functions.html">Panda3D Utility Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../particle-effects/index.html">Particle Effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../collision-detection/index.html">Collision Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../garbage-collection/index.html">Garbage Collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hardware-support/index.html">Hardware support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../math-engine/index.html">Math Engine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../motion-paths.html">Motion Paths</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../timing/index.html">Timing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../networking/index.html">Networking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../multifiles/index.html">Multifiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../showbase.html">ShowBase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../file-reading.html">File Reading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../threading.html">Threading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../subclassing.html">Subclassing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../table-of-features-supported-per-graphic-renderer.html">Table of features supported per graphic renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pandai/index.html">Artificial Intelligence (PANDAI)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../distribution/index.html">Distributing Panda3D Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../samples/index.html">Sample Programs in the Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../debugging/index.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../performance-tuning/index.html">Performance Tuning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../using-c++/index.html">Using C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/index.html">Panda3D Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../building-from-source.html">Building Panda3D from Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cheat-sheets.html">Cheat Sheets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started-on-osx.html">Getting Started on OSX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../more-panda3d-resources.html">More Panda3D Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../thirdparty-licenses.html">Third-party dependencies and license info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../the-irc-channel.html">The IRC Channel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">FAQ</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Panda3D</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Programming with Panda3D</a> &raquo;</li>
+      
+          <li><a href="index.html">Texturing</a> &raquo;</li>
+      
+    <li>Texture Modes</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/programming-with-panda3d/texturing/texture-modes.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="texture-modes">
+<span id="id1"></span><h1>Texture Modes<a class="headerlink" href="#texture-modes" title="Permalink to this headline">¶</a></h1>
+<p>There are several kinds of textures: color textures, normal maps, gloss maps,
+glow maps, and so forth. To distinguish these, use the
+<code class="docutils literal"><span class="pre">TextureStage.setMode</span></code> function.</p>
+<p>Futhermore, within the general category of color textures, there are several
+ways to combine the colors: Modulate, Decal, Blend, and so forth. These, too,
+are controlled using the
+<code class="docutils literal"><span class="pre">TextureStage.setMode</span></code> function.</p>
+<div class="section" id="the-basics">
+<h2>The Basics<a class="headerlink" href="#the-basics" title="Permalink to this headline">¶</a></h2>
+<p>Let&#8217;s go back to the example of applying a texture to the smiley model. In
+this case, we&#8217;ll create a new TextureStage to apply the following texture
+image:</p>
+<p><img alt="Sample multitexture image" src="../../_images/color-pattern.png" /></p>
+<p>To this scene:</p>
+<p><img alt="Smiley with no multitexture" src="../../_images/smiley-multitex-none.png" /></p>
+<p>Note that the circular white part of the sample image is actually not white at
+all, but an alpha cutout (you are seeing through the image to the white page
+background). We have rendered smiley.egg against a colored background so you
+can see the effects of alpha in the various modes below; in some of them, the
+alpha is propagated through to the final color, so smiley is transparent in
+those parts of the image, but in other modes, the alpha is used for a
+different purpose, and smiley is not transparent there.</p>
+<p>Note also that, for the purposes of illustration, we have only applied the
+sample texture image to a portion of the smiley model, rather than to the
+whole model. (This was done by transforming the texture coordinates of this
+texture stage, which is covered in :ref:` &lt;texture-transforms&gt;`.)</p>
+</div>
+<div class="section" id="modulate-mode">
+<h2>Modulate mode<a class="headerlink" href="#modulate-mode" title="Permalink to this headline">¶</a></h2>
+<p>This is the default blend mode. In this mode, the top texture color is
+multiplied by the bottom texture color to produce the result. This means the
+resulting texture color will be darker (or at least, no brighter) than both of
+the original texture colors.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">ts</span> <span class="o">=</span> <span class="n">TextureStage</span><span class="p">(</span><span class="s1">&#39;ts&#39;</span><span class="p">)</span>
+<span class="n">ts</span><span class="o">.</span><span class="n">setMode</span><span class="p">(</span><span class="n">TextureStage</span><span class="o">.</span><span class="n">MModulate</span><span class="p">)</span>
+<span class="n">smiley</span><span class="o">.</span><span class="n">setTexture</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="n">tex</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">PT</span><span class="p">(</span><span class="n">TextureStage</span><span class="p">)</span> <span class="n">ts</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TextureStage</span><span class="p">(</span><span class="s">&quot;ts&quot;</span><span class="p">);</span>
+<span class="n">ts</span><span class="o">-&gt;</span><span class="n">set_mode</span><span class="p">(</span><span class="n">TextureStage</span><span class="o">::</span><span class="n">M_modulate</span><span class="p">);</span>
+<span class="n">smiley</span><span class="p">.</span><span class="n">set_texture</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="n">tex</span><span class="p">);</span>
+</pre></div>
+</div>
+<p><img alt="Modulate blend mode" src="../../_images/smiley-multitex-modulate.png" /></p>
+<p>Note that in this mode, an alpha cutout in the top texture produces an alpha
+cutout in the resulting image.</p>
+</div>
+<div class="section" id="add-mode">
+<h2>Add mode<a class="headerlink" href="#add-mode" title="Permalink to this headline">¶</a></h2>
+<p>In this mode, the top texture color is added to the bottom texture color, and
+clamped to 1 (white). This means the resulting texture color will be brighter
+(or at least, no darker) than both of the original texture colors.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">ts</span> <span class="o">=</span> <span class="n">TextureStage</span><span class="p">(</span><span class="s1">&#39;ts&#39;</span><span class="p">)</span>
+<span class="n">ts</span><span class="o">.</span><span class="n">setMode</span><span class="p">(</span><span class="n">TextureStage</span><span class="o">.</span><span class="n">MAdd</span><span class="p">)</span>
+<span class="n">smiley</span><span class="o">.</span><span class="n">setTexture</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="n">tex</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">PT</span><span class="p">(</span><span class="n">TextureStage</span><span class="p">)</span> <span class="n">ts</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TextureStage</span><span class="p">(</span><span class="s">&quot;ts&quot;</span><span class="p">);</span>
+<span class="n">ts</span><span class="o">-&gt;</span><span class="n">set_mode</span><span class="p">(</span><span class="n">TextureStage</span><span class="o">::</span><span class="n">M_add</span><span class="p">);</span>
+<span class="n">smiley</span><span class="p">.</span><span class="n">set_texture</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="n">tex</span><span class="p">);</span>
+</pre></div>
+</div>
+<p><img alt="Add blend mode" src="../../_images/smiley-multitex-add.png" /></p>
+<p>Note that in this mode, as in modulate mode, an alpha cutout in the top
+texture produces an alpha cutout in the resulting image. Also note that,
+unless one or both of your source textures was rather dark, there is a
+tendency for the colors to get washed out at white where everything clamps to
+1.</p>
+</div>
+<div class="section" id="replace-mode">
+<h2>Replace mode<a class="headerlink" href="#replace-mode" title="Permalink to this headline">¶</a></h2>
+<p>In this mode the top texture completely replaces the bottom texture. This mode
+is not often used.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">ts</span> <span class="o">=</span> <span class="n">TextureStage</span><span class="p">(</span><span class="s1">&#39;ts&#39;</span><span class="p">)</span>
+<span class="n">ts</span><span class="o">.</span><span class="n">setMode</span><span class="p">(</span><span class="n">TextureStage</span><span class="o">.</span><span class="n">MReplace</span><span class="p">)</span>
+<span class="n">smiley</span><span class="o">.</span><span class="n">setTexture</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="n">tex</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">PT</span><span class="p">(</span><span class="n">TextureStage</span><span class="p">)</span> <span class="n">ts</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TextureStage</span><span class="p">(</span><span class="s">&quot;ts&quot;</span><span class="p">);</span>
+<span class="n">ts</span><span class="o">-&gt;</span><span class="n">set_mode</span><span class="p">(</span><span class="n">TextureStage</span><span class="o">::</span><span class="n">M_replace</span><span class="p">);</span>
+<span class="n">smiley</span><span class="p">.</span><span class="n">set_texture</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="n">tex</span><span class="p">);</span>
+</pre></div>
+</div>
+<p><img alt="Replace blend mode" src="../../_images/smiley-multitex-replace.png" /></p>
+<p>Note that the alpha cutout is preserved, but the effects of lighting (which
+are considered part of the underlying texture) have been lost.</p>
+</div>
+<div class="section" id="decal-mode">
+<h2>Decal mode<a class="headerlink" href="#decal-mode" title="Permalink to this headline">¶</a></h2>
+<p>In this mode the top texture completely replaces the bottom texture, but only
+where alpha = 1 in the top texture. When alpha = 0, the bottom texture shows
+through, and there is a smooth blending for alpha values between 0 and 1.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">ts</span> <span class="o">=</span> <span class="n">TextureStage</span><span class="p">(</span><span class="s1">&#39;ts&#39;</span><span class="p">)</span>
+<span class="n">ts</span><span class="o">.</span><span class="n">setMode</span><span class="p">(</span><span class="n">TextureStage</span><span class="o">.</span><span class="n">MDecal</span><span class="p">)</span>
+<span class="n">smiley</span><span class="o">.</span><span class="n">setTexture</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="n">tex</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">PT</span><span class="p">(</span><span class="n">TextureStage</span><span class="p">)</span> <span class="n">ts</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TextureStage</span><span class="p">(</span><span class="s">&quot;ts&quot;</span><span class="p">);</span>
+<span class="n">ts</span><span class="o">-&gt;</span><span class="n">set_mode</span><span class="p">(</span><span class="n">TextureStage</span><span class="o">::</span><span class="n">M_decal</span><span class="p">);</span>
+<span class="n">smiley</span><span class="p">.</span><span class="n">set_texture</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="n">tex</span><span class="p">);</span>
+</pre></div>
+</div>
+<p><img alt="Decal blend mode" src="../../_images/smiley-multitex-decal-1.png" /></p>
+<p>Note that the alpha cutout is no longer preserved in this mode, because alpha
+is used to determine which texture should be visible. Also note that the
+effects of lighting are lost for the decalled part of the texture.</p>
+<p>Panda3D also provides a built-in decal capability, for rendering a small
+polygon coplanar with and embedded within a larger polygon, which is not
+related to the decal texture blend mode.</p>
+</div>
+<div class="section" id="blend-mode">
+<h2>Blend mode<a class="headerlink" href="#blend-mode" title="Permalink to this headline">¶</a></h2>
+<p>Blend mode is similar to decal mode, except you can specify the color of the
+decal as a parameter at runtime. You can vary the color and you don&#8217;t have to
+have a different texture image prepared for each possible color. However, the
+decal will always be monochromatic (it will be drawn in different shades of
+whatever color you specify).</p>
+<p>Blend mode can only be used with a grayscale texture, and it does not use
+alpha. Since the sample texture above is not a grayscale texture, we will use
+a different texture for this example:</p>
+<p><a href="#id2"><span class="problematic" id="id3">|White\_a.png|</span></a></p>
+<p>This texture does not have an alpha channel; it is simply a grayscale image
+with a large white &#8220;A&#8221; on a field of black. Blend mode will produce the
+original color where the image is black, and the color we specify with
+<code class="docutils literal"><span class="pre">TextureStage.setColor()</span></code> where the image is
+white. Where the image is shades of gray, there will be a smooth blending
+between the colors.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">ts</span> <span class="o">=</span> <span class="n">TextureStage</span><span class="p">(</span><span class="s1">&#39;ts&#39;</span><span class="p">)</span>
+<span class="n">ts</span><span class="o">.</span><span class="n">setMode</span><span class="p">(</span><span class="n">TextureStage</span><span class="o">.</span><span class="n">MBlend</span><span class="p">)</span>
+<span class="n">ts</span><span class="o">.</span><span class="n">setColor</span><span class="p">(</span><span class="n">Vec4</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">smiley</span><span class="o">.</span><span class="n">setTexture</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="n">tex</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">PT</span><span class="p">(</span><span class="n">TextureStage</span><span class="p">)</span> <span class="n">ts</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TextureStage</span><span class="p">(</span><span class="s">&quot;ts&quot;</span><span class="p">);</span>
+<span class="n">ts</span><span class="o">-&gt;</span><span class="n">set_mode</span><span class="p">(</span><span class="n">TextureStage</span><span class="o">::</span><span class="n">M_blend</span><span class="p">);</span>
+<span class="n">ts</span><span class="o">-&gt;</span><span class="n">set_color</span><span class="p">(</span><span class="n">LVector4f</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">));</span>
+<span class="n">smiley</span><span class="p">.</span><span class="n">set_texture</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="n">tex</span><span class="p">);</span>
+</pre></div>
+</div>
+<p><img alt="Blend mode, with a red image" src="../../_images/smiley-multitex-blend-red.png" /></p>
+<p>And we can change the color of the decal at will, simply with:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">ts</span><span class="o">.</span><span class="n">setColor</span><span class="p">(</span><span class="n">Vec4</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">ts</span><span class="o">-&gt;</span><span class="n">set_color</span><span class="p">(</span><span class="n">LVector4f</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">));</span>
+</pre></div>
+</div>
+<p><img alt="Blend mode, with a blue image" src="../../_images/smiley-multitex-blend-blue.png" /></p>
+<p>Note that, as with the decal example above, the lighting information is lost
+where the decal is applied.</p>
+</div>
+<div class="section" id="normal-map-mode">
+<h2>Normal Map Mode<a class="headerlink" href="#normal-map-mode" title="Permalink to this headline">¶</a></h2>
+<p>Normal maps are maps that cause surfaces to appear to have raised and lowered
+areas. They are also called &#8220;bump maps.&#8221; Unlike most maps, normal maps do not
+affect the color of the model - they affect the lighting. When light hits a
+normal-mapped model, the light creates highlights and shadows throughout those
+ridges and bumps. If no lights are applied to the model, then there will be no
+shadows or highlights, and the normal map will be invisible. Currently,
+Panda3D only allows one normal map per polygon, additional normal maps will be
+ignored.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">ts</span> <span class="o">=</span> <span class="n">TextureStage</span><span class="p">(</span><span class="s1">&#39;ts&#39;</span><span class="p">)</span>
+<span class="n">ts</span><span class="o">.</span><span class="n">setMode</span><span class="p">(</span><span class="n">TextureStage</span><span class="o">.</span><span class="n">MNormal</span><span class="p">)</span>
+<span class="n">smiley</span><span class="o">.</span><span class="n">setTexture</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="n">tex</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">PT</span><span class="p">(</span><span class="n">TextureStage</span><span class="p">)</span> <span class="n">ts</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TextureStage</span><span class="p">(</span><span class="s">&quot;ts&quot;</span><span class="p">);</span>
+<span class="n">ts</span><span class="o">-&gt;</span><span class="n">set_mode</span><span class="p">(</span><span class="n">TextureStage</span><span class="o">::</span><span class="n">M_normal</span><span class="p">);</span>
+<span class="n">smiley</span><span class="p">.</span><span class="n">set_texture</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="n">tex</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>The creation of normal maps is a sufficiently complex process that it is
+beyond the scope of this manual. However, there are many good tools out there
+like Z-Brush, Crazy Bump, and the like which create normal maps.</p>
+<p>See also: :ref:` &lt;bump-mapping&gt;`</p>
+<p>Normal maps are new to Panda3D as of version 1.5.0. They only function when
+:ref:` &lt;the-shader-generator&gt;` is enabled.</p>
+</div>
+<div class="section" id="height-parallax-map-mode">
+<h2>Height / Parallax Map Mode<a class="headerlink" href="#height-parallax-map-mode" title="Permalink to this headline">¶</a></h2>
+<p>This feature is new as of Panda3D 1.7.0.</p>
+<p>As an addition to normal mapping, you can specify a grayscale height map to
+enable parallax mapping. This technique offsets the UV coordinates based on
+the height value and eye normal vector, so the resulting surface will have
+more apparent depth. Currently, Panda only supports one height map per
+polygon, additional height maps will be ignored.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">ts</span> <span class="o">=</span> <span class="n">TextureStage</span><span class="p">(</span><span class="s1">&#39;ts&#39;</span><span class="p">)</span>
+<span class="n">ts</span><span class="o">.</span><span class="n">setMode</span><span class="p">(</span><span class="n">TextureStage</span><span class="o">.</span><span class="n">MHeight</span><span class="p">)</span>
+<span class="n">smiley</span><span class="o">.</span><span class="n">setTexture</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="n">tex</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">PT</span><span class="p">(</span><span class="n">TextureStage</span><span class="p">)</span> <span class="n">ts</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TextureStage</span><span class="p">(</span><span class="s">&quot;ts&quot;</span><span class="p">);</span>
+<span class="n">ts</span><span class="o">-&gt;</span><span class="n">set_mode</span><span class="p">(</span><span class="n">TextureStage</span><span class="o">::</span><span class="n">M_height</span><span class="p">);</span>
+<span class="n">smiley</span><span class="p">.</span><span class="n">set_texture</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="n">tex</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Since parallax mapping doesn&#8217;t look very good without normal mapping, they are
+often used both together. As an optimization, most people prefer to store the
+height map into the alpha channel of the normal map. If you are using such a
+packed normal/height map, you need to use the MNormalHeight mode in Panda:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># The second parameter to loadTexture will be stored in the texture&#39;s alpha channel.</span>
+<span class="n">tex</span> <span class="o">=</span> <span class="n">loader</span><span class="o">.</span><span class="n">loadTexture</span><span class="p">(</span><span class="s2">&quot;normalmap.png&quot;</span><span class="p">,</span> <span class="s2">&quot;heightmap.png&quot;</span><span class="p">)</span>
+
+<span class="n">ts</span> <span class="o">=</span> <span class="n">TextureStage</span><span class="p">(</span><span class="s1">&#39;ts&#39;</span><span class="p">)</span>
+<span class="n">ts</span><span class="o">.</span><span class="n">setMode</span><span class="p">(</span><span class="n">TextureStage</span><span class="o">.</span><span class="n">MNormalHeight</span><span class="p">)</span>
+<span class="n">smiley</span><span class="o">.</span><span class="n">setTexture</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="n">tex</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="cp"># The second parameter to load_texture will be stored in the texture&#39;s alpha channel.</span>
+<span class="n">PT</span><span class="p">(</span><span class="n">Texture</span><span class="p">)</span> <span class="n">tex</span> <span class="o">=</span> <span class="n">TexturePool</span><span class="o">::</span><span class="n">load_texture</span><span class="p">(</span><span class="s">&quot;normalmap.png&quot;</span><span class="p">,</span> <span class="s">&quot;heightmap.png&quot;</span><span class="p">);</span>
+
+<span class="n">PT</span><span class="p">(</span><span class="n">TextureStage</span><span class="p">)</span> <span class="n">ts</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TextureStage</span><span class="p">(</span><span class="s">&quot;ts&quot;</span><span class="p">);</span>
+<span class="n">ts</span><span class="o">-&gt;</span><span class="n">set_mode</span><span class="p">(</span><span class="n">TextureStage</span><span class="o">::</span><span class="n">M_normal_height</span><span class="p">);</span>
+<span class="n">smiley</span><span class="p">.</span><span class="n">set_texture</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="n">tex</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>By default, the parallax mapping algorithm will use 3 samples, and the effect
+will be scaled by 0.1. To change these parameters, use the following
+Config.prc lines:</p>
+<div class="highlight-text"><div class="highlight"><pre><span></span>parallax-mapping-samples 3
+parallax-mapping-scale 0.1
+</pre></div>
+</div>
+<p>The
+amount of samples is how accurate the parallax mapping will be. Lower values
+are cheaper, but the result will be less accurate. The scale is the magnitude
+of the effect - with a lower value the effect decreases, with a higher value
+the surface will have more apparent depth (although the artifacts due to lack
+of occlusion will be more visible). Use a negative value to invert the effect
+(this has the same effect as inverting the heightmap).</p>
+</div>
+<div class="section" id="gloss-map-mode">
+<h2>Gloss Map Mode<a class="headerlink" href="#gloss-map-mode" title="Permalink to this headline">¶</a></h2>
+<p>A gloss map is a black-and-white image indicating where the model is supposed
+to be shiny and where it is supposed to be dull. Gloss maps do not affect the
+color of the model - they affect the degree to which the model reflects
+specular highlights. So if no lights are applied to the model, and thus there
+are no specular highlights at all, then the gloss map will be invisible.</p>
+<p>More precisely, the gloss map affects the material specular color of the
+model. If the model already has a material specular color, then it is
+multiplied by the value (0-1) in the gloss map. In this way, the gloss map can
+effectively turn on or off the specularity on a per-pixel basis. If the model
+does not already have a material specular color specified, then applying a
+gloss map causes the material specular color to range from off to bright
+white.</p>
+<p>A gloss map must be an alpha-texture:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">ts</span> <span class="o">=</span> <span class="n">TextureStage</span><span class="p">(</span><span class="s1">&#39;ts&#39;</span><span class="p">)</span>
+<span class="n">ts</span><span class="o">.</span><span class="n">setMode</span><span class="p">(</span><span class="n">TextureStage</span><span class="o">.</span><span class="n">MGloss</span><span class="p">)</span>
+<span class="n">smiley</span><span class="o">.</span><span class="n">setTexture</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="n">tex</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">PT</span><span class="p">(</span><span class="n">TextureStage</span><span class="p">)</span> <span class="n">ts</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TextureStage</span><span class="p">(</span><span class="s">&quot;ts&quot;</span><span class="p">);</span>
+<span class="n">ts</span><span class="o">-&gt;</span><span class="n">set_mode</span><span class="p">(</span><span class="n">TextureStage</span><span class="o">::</span><span class="n">M_gloss</span><span class="p">);</span>
+<span class="n">smiley</span><span class="p">.</span><span class="n">set_texture</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="n">tex</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>If you wish, you can pack a modulate-texture and a gloss-map into a single
+RGBA texture. In that case, the RGB components are just regular color values
+that are modulated onto the model, and the A controls gloss:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">ts</span> <span class="o">=</span> <span class="n">TextureStage</span><span class="p">(</span><span class="s1">&#39;ts&#39;</span><span class="p">)</span>
+<span class="n">ts</span><span class="o">.</span><span class="n">setMode</span><span class="p">(</span><span class="n">TextureStage</span><span class="o">.</span><span class="n">MModulateGloss</span><span class="p">)</span>
+<span class="n">smiley</span><span class="o">.</span><span class="n">setTexture</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="n">tex</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">PT</span><span class="p">(</span><span class="n">TextureStage</span><span class="p">)</span> <span class="n">ts</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TextureStage</span><span class="p">(</span><span class="s">&quot;ts&quot;</span><span class="p">);</span>
+<span class="n">ts</span><span class="o">-&gt;</span><span class="n">set_mode</span><span class="p">(</span><span class="n">TextureStage</span><span class="o">::</span><span class="n">M_modulate_gloss</span><span class="p">);</span>
+<span class="n">smiley</span><span class="p">.</span><span class="n">set_texture</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="n">tex</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Currently, Panda3D only allows one gloss map per polygon, additional gloss
+maps will be ignored.</p>
+<p>Gloss maps are new to Panda3D as of version 1.5.0. They only function when
+:ref:` &lt;the-shader-generator&gt;` is enabled.</p>
+</div>
+<div class="section" id="glow-map-mode">
+<h2>Glow Map Mode<a class="headerlink" href="#glow-map-mode" title="Permalink to this headline">¶</a></h2>
+<p>A glow map is a black-and-white texture which indicates that a model should be
+glowing in certain areas. More specifically, the contents of the glow map are
+added to the material emission. This causes those parts of the model to be lit
+even when the lights are otherwise off.</p>
+<p>In practice, though, things don&#8217;t really look like they&#8217;re glowing unless you
+apply a bloom filter to your scene. Panda can be made to copy the contents of
+your glow map into the framebuffer alpha, from which it can be read by the
+bloom filter. The bloom filter then really creates a dramatic glow effect. All
+of this is documented in the chapter on the bloom filter.</p>
+<p>A glow map must be an alpha-texture:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">ts</span> <span class="o">=</span> <span class="n">TextureStage</span><span class="p">(</span><span class="s1">&#39;ts&#39;</span><span class="p">)</span>
+<span class="n">ts</span><span class="o">.</span><span class="n">setMode</span><span class="p">(</span><span class="n">TextureStage</span><span class="o">.</span><span class="n">MGlow</span><span class="p">)</span>
+<span class="n">smiley</span><span class="o">.</span><span class="n">setTexture</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="n">tex</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">PT</span><span class="p">(</span><span class="n">TextureStage</span><span class="p">)</span> <span class="n">ts</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TextureStage</span><span class="p">(</span><span class="s">&quot;ts&quot;</span><span class="p">);</span>
+<span class="n">ts</span><span class="o">-&gt;</span><span class="n">set_mode</span><span class="p">(</span><span class="n">TextureStage</span><span class="o">::</span><span class="n">M_glow</span><span class="p">);</span>
+<span class="n">smiley</span><span class="p">.</span><span class="n">set_texture</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="n">tex</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>If you wish, you can pack a modulate-texture and a glow-map into a single RGBA
+texture. In that case, the RGB components are just regular color values that
+are modulated onto the model, and the A controls glow:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">ts</span> <span class="o">=</span> <span class="n">TextureStage</span><span class="p">(</span><span class="s1">&#39;ts&#39;</span><span class="p">)</span>
+<span class="n">ts</span><span class="o">.</span><span class="n">setMode</span><span class="p">(</span><span class="n">TextureStage</span><span class="o">.</span><span class="n">MModulateGlow</span><span class="p">)</span>
+<span class="n">smiley</span><span class="o">.</span><span class="n">setTexture</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="n">tex</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">PT</span><span class="p">(</span><span class="n">TextureStage</span><span class="p">)</span> <span class="n">ts</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TextureStage</span><span class="p">(</span><span class="s">&quot;ts&quot;</span><span class="p">);</span>
+<span class="n">ts</span><span class="o">-&gt;</span><span class="n">set_mode</span><span class="p">(</span><span class="n">TextureStage</span><span class="o">::</span><span class="n">M_modulate_glow</span><span class="p">);</span>
+<span class="n">smiley</span><span class="p">.</span><span class="n">set_texture</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="n">tex</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Currently, Panda3D only allows one glow map per polygon, additional glow maps
+will be ignored.</p>
+<p>See also: :ref:` &lt;glow-filter&gt;`</p>
+<p>Glow maps are new to Panda3D as of version 1.5.0. They only function when
+:ref:` &lt;the-shader-generator&gt;` is enabled.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="texture-order.html" class="btn btn-neutral float-right" title="Texture Order" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="multitexture-introduction.html" class="btn btn-neutral" title="Multitexture Introduction" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Panda3D.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.10.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

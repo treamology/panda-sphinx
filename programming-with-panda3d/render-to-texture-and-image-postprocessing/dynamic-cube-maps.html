@@ -1,0 +1,374 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Dynamic Cube Maps &mdash; Panda3D Manual</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Panda3D Manual" href="../../index.html"/>
+        <link rel="up" title="Render-to-Texture and Image Postprocessing" href="index.html"/>
+        <link rel="next" title="Low-Level Render to Texture" href="low-level-render-to-texture.html"/>
+        <link rel="prev" title="Generalized Image Filters" href="generalized-image-filters.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Panda3D
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.10
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../intro/index.html">Introduction to Panda3D</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Programming with Panda3D</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../the-scene-graph/index.html">The Scene Graph</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../the-configuration-file/index.html">The Configuration File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../models-and-actors/index.html">Models and Actors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-attributes/index.html">Render Attributes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../texturing/index.html">Texturing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shaders/index.html">Shaders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../camera-control/index.html">Camera Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sound/index.html">Sound</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intervals/index.html">Intervals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks-and-event-handling/index.html">Tasks and Event Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../text-and-image-rendering/index.html">Text and Image Rendering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../directgui/index.html">DirectGUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-effects/index.html">Render Effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../finite-state-machines/index.html">Finite State Machines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../terrain/index.html">Terrain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internal-structures/index.html">Advanced operations with Panda3D&#8217;s internal structures</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Render-to-Texture and Image Postprocessing</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="common-image-filters.html">Common Image Filters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generalized-image-filters.html">Generalized Image Filters</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Dynamic Cube Maps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="low-level-render-to-texture.html">Low-Level Render to Texture</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../panda3d-rendering-process/index.html">Panda3D Rendering Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../panda3d-utility-functions.html">Panda3D Utility Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../particle-effects/index.html">Particle Effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../collision-detection/index.html">Collision Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../garbage-collection/index.html">Garbage Collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hardware-support/index.html">Hardware support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../math-engine/index.html">Math Engine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../motion-paths.html">Motion Paths</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../timing/index.html">Timing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../networking/index.html">Networking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../multifiles/index.html">Multifiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../showbase.html">ShowBase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../file-reading.html">File Reading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../threading.html">Threading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../subclassing.html">Subclassing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../table-of-features-supported-per-graphic-renderer.html">Table of features supported per graphic renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pandai/index.html">Artificial Intelligence (PANDAI)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../distribution/index.html">Distributing Panda3D Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../samples/index.html">Sample Programs in the Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../debugging/index.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../performance-tuning/index.html">Performance Tuning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../using-c++/index.html">Using C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/index.html">Panda3D Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../building-from-source.html">Building Panda3D from Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cheat-sheets.html">Cheat Sheets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started-on-osx.html">Getting Started on OSX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../more-panda3d-resources.html">More Panda3D Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../thirdparty-licenses.html">Third-party dependencies and license info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../the-irc-channel.html">The IRC Channel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">FAQ</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Panda3D</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Programming with Panda3D</a> &raquo;</li>
+      
+          <li><a href="index.html">Render-to-Texture and Image Postprocessing</a> &raquo;</li>
+      
+    <li>Dynamic Cube Maps</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/programming-with-panda3d/render-to-texture-and-image-postprocessing/dynamic-cube-maps.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="dynamic-cube-maps">
+<span id="id1"></span><h1>Dynamic Cube Maps<a class="headerlink" href="#dynamic-cube-maps" title="Permalink to this headline">¶</a></h1>
+<p>Since the six faces of a cube map are really just six different views of a
+scene from the same point, it&#8217;s possible to generate a cube map automatically
+by rendering these six different views at runtime.</p>
+<p>This is really just a form of offscreen rendering to a texture. Instead of
+rendering just one 2-D texture image, though, rendering a dynamic cube map
+means rendering six different 2-D images, one for each face of a cube map
+texture.</p>
+<p>Panda3D makes this easy for you. To start rendering a dynamic cube map, simply
+call:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">rig</span> <span class="o">=</span> <span class="n">NodePath</span><span class="p">(</span><span class="s1">&#39;rig&#39;</span><span class="p">)</span>
+<span class="nb">buffer</span> <span class="o">=</span> <span class="n">base</span><span class="o">.</span><span class="n">win</span><span class="o">.</span><span class="n">makeCubeMap</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">rig</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This will return
+an offscreen <code class="docutils literal"><span class="pre">GraphicsBuffer</span></code> that will
+be used to render the cube map. The three required parameters to
+<code class="docutils literal"><span class="pre">makeCubeMap()</span></code> are:</p>
+<p>There are also additional, optional parameters to
+<code class="docutils literal"><span class="pre">makeCubeMap()</span></code>:</p>
+<p>Note that we passed a new
+<code class="docutils literal"><span class="pre">NodePath</span></code>, called
+<code class="docutils literal"><span class="pre">rig</span></code> in the above example,
+to the <code class="docutils literal"><span class="pre">makeCubeMap()</span></code> call. This
+<code class="docutils literal"><span class="pre">NodePath</span></code> serves as the &#8220;camera
+rig&#8221;; the <code class="docutils literal"><span class="pre">makeCubeMap()</span></code> method will
+create six cameras facing in six different directions, and attach them all to
+the camera rig. Thus, you can parent this rig into your scene and move it
+around as if it were a six-eyed camera. Normally, for environment maps, you
+would parent the rig somewhere within your shiny object so it can look out of
+the shiny object and see the things that should be reflected in it.</p>
+<p>The actual cube map itself be retrieved with the call:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">tex</span> <span class="o">=</span> <span class="nb">buffer</span><span class="o">.</span><span class="n">getTexture</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>You can apply the texture to geometry as in the
+:ref:` &lt;environment-mapping-with-cube-maps&gt;`. You should use the
+<code class="docutils literal"><span class="pre">MWorldCubeMap</span></code> mode to generate
+texture coordinates for your geometry since the camera rig will have a
+:ref:` &lt;compass-effects&gt;` on it to keep it unrotated with respect to
+<code class="docutils literal"><span class="pre">render</span></code>.</p>
+<p>When you are done with the cube map, you should remove its buffer (and stop
+the cube map from continuing to render) by calling:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">base</span><span class="o">.</span><span class="n">graphicsEngine</span><span class="o">.</span><span class="n">removeWindow</span><span class="p">(</span><span class="nb">buffer</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>As a complete example, here is how we might load up a dynamic cube map
+environment on our teapot and move the teapot down the street to show off the
+dynamic reflections:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">scene</span> <span class="o">=</span> <span class="n">loader</span><span class="o">.</span><span class="n">loadModel</span><span class="p">(</span><span class="s1">&#39;bvw-f2004--streetscene/street-scene.egg&#39;</span><span class="p">)</span>
+<span class="n">scene</span><span class="o">.</span><span class="n">reparentTo</span><span class="p">(</span><span class="n">render</span><span class="p">)</span>
+<span class="n">scene</span><span class="o">.</span><span class="n">setZ</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">teapot</span> <span class="o">=</span> <span class="n">loader</span><span class="o">.</span><span class="n">loadModel</span><span class="p">(</span><span class="s1">&#39;teapot.egg&#39;</span><span class="p">)</span>
+<span class="n">teapot</span><span class="o">.</span><span class="n">reparentTo</span><span class="p">(</span><span class="n">render</span><span class="p">)</span>
+
+<span class="n">rig</span> <span class="o">=</span> <span class="n">NodePath</span><span class="p">(</span><span class="s1">&#39;rig&#39;</span><span class="p">)</span>
+<span class="nb">buffer</span> <span class="o">=</span> <span class="n">base</span><span class="o">.</span><span class="n">win</span><span class="o">.</span><span class="n">makeCubeMap</span><span class="p">(</span><span class="s1">&#39;env&#39;</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="n">rig</span><span class="p">)</span>
+<span class="n">rig</span><span class="o">.</span><span class="n">reparentTo</span><span class="p">(</span><span class="n">teapot</span><span class="p">)</span>
+
+<span class="n">teapot</span><span class="o">.</span><span class="n">setTexGen</span><span class="p">(</span><span class="n">TextureStage</span><span class="o">.</span><span class="n">getDefault</span><span class="p">(),</span> <span class="n">TexGenAttrib</span><span class="o">.</span><span class="n">MWorldCubeMap</span><span class="p">)</span>
+<span class="n">teapot</span><span class="o">.</span><span class="n">setTexture</span><span class="p">(</span><span class="nb">buffer</span><span class="o">.</span><span class="n">getTexture</span><span class="p">())</span>
+
+<span class="n">zoom</span> <span class="o">=</span> <span class="n">teapot</span><span class="o">.</span><span class="n">posInterval</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">VBase3</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">startPos</span><span class="o">=</span><span class="n">VBase3</span><span class="p">(</span><span class="o">-</span><span class="mi">20</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+<span class="n">zoom</span><span class="o">.</span><span class="n">loop</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="section" id="a-word-of-caution">
+<h2>A word of caution<a class="headerlink" href="#a-word-of-caution" title="Permalink to this headline">¶</a></h2>
+<p>When you render a dynamic cube map, don&#8217;t forget that you are re-rendering
+your scene <em>six times</em> every frame in addition to the main frame render. If
+you are not careful, and if you have a complex scene, then you could easily
+end up reducing your frame rate by a factor of seven.</p>
+<p>It is a good idea to limit the amount of geometry that you render in the cube
+map. One simple way to do this is to ensure that the
+:ref:` &lt;lenses-and-field-of-view&gt;` on the cube map cameras is set relatively
+close in. Since all of the cube map cameras share the same lens, you can
+adjust the near and far plane of all of the cameras at once like this:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">lens</span> <span class="o">=</span> <span class="n">rig</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;**/+Camera&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">node</span><span class="p">()</span><span class="o">.</span><span class="n">getLens</span><span class="p">()</span>
+<span class="n">lens</span><span class="o">.</span><span class="n">setNearFar</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>It is especially important when you are using cube maps that you structure
+your scene graph hierarchically and divide it up spatially so that Panda3D&#8217;s
+view-frustum culling can do an effective job of eliminating the parts of the
+scene that are behind each of the six cameras. (Unfortunately, the
+street-scene model used in the above example is not at all well-structured, so
+the example performs very poorly on all but the highest-end hardware.)</p>
+<p>It&#8217;s also usually a good idea to keep the cube map size (the
+<code class="docutils literal"><span class="pre">size</span></code> parameter to
+<code class="docutils literal"><span class="pre">makeCubeMap()</span></code>) no larger than it
+absolutely has to be to get the look you want.</p>
+<p>You can also take advantage of the
+<code class="docutils literal"><span class="pre">DrawMask</span></code> to hide things from the
+cube cameras that are not likely to be important in the reflections. The
+documentation for this advanced feature of Panda3D will be found in another
+section of the manual (which, as of the time of this writing, has yet to be
+written).</p>
+<p>Finally, you can temporarily disable the cube map rendering from time to time
+if you know the environment won&#8217;t be changing for a little while. The cube map
+will retain its last-rendered image. You can do this with
+<code class="docutils literal"><span class="pre">buffer.setActive(0)</span></code>. Use
+<code class="docutils literal"><span class="pre">buffer.setActive(1)</span></code> to re-activate it.</p>
+</div>
+<div class="section" id="incomplete-section">
+<h2>Incomplete Section<a class="headerlink" href="#incomplete-section" title="Permalink to this headline">¶</a></h2>
+<p>Note: this section is incomplete. It will be updated soon.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="low-level-render-to-texture.html" class="btn btn-neutral float-right" title="Low-Level Render to Texture" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="generalized-image-filters.html" class="btn btn-neutral" title="Generalized Image Filters" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Panda3D.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.10.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

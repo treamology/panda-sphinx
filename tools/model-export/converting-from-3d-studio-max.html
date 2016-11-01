@@ -1,0 +1,371 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Converting from 3D Studio Max &mdash; Panda3D Manual</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Panda3D Manual" href="../../index.html"/>
+        <link rel="up" title="Model Export" href="index.html"/>
+        <link rel="next" title="Converting from Maya" href="converting-from-maya.html"/>
+        <link rel="prev" title="Model Export" href="index.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Panda3D
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.10
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../intro/index.html">Introduction to Panda3D</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../programming-with-panda3d/index.html">Programming with Panda3D</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../distribution/index.html">Distributing Panda3D Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../samples/index.html">Sample Programs in the Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../debugging/index.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../performance-tuning/index.html">Performance Tuning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../using-c++/index.html">Using C++</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Panda3D Tools</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../the-scene-graph-browser/index.html">The Scene Graph Browser</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../interrogate.html">Interrogate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pipeline-tips.html">Pipeline Tips</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Model Export</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Converting from 3D Studio Max</a></li>
+<li class="toctree-l3"><a class="reference internal" href="converting-from-maya.html">Converting from Maya</a></li>
+<li class="toctree-l3"><a class="reference internal" href="converting-from-blender.html">Converting from Blender</a></li>
+<li class="toctree-l3"><a class="reference internal" href="converting-from-softimage.html">Converting from SoftImage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="converting-from-milkshape-3d.html">Converting from Milkshape 3D</a></li>
+<li class="toctree-l3"><a class="reference internal" href="converting-from-gmax.html">Converting from GMax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="converting-from-other-formats.html">Converting from other Formats</a></li>
+<li class="toctree-l3"><a class="reference internal" href="converting-egg-to-bam.html">Converting Egg to Bam</a></li>
+<li class="toctree-l3"><a class="reference internal" href="parsing-and-generating-egg-files.html">Parsing and Generating Egg Files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="egg-syntax.html">Egg Syntax</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../pview.html">Previewing 3D Models in Pview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../list-of-panda3d-executables.html">List of Panda3D Executables</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../building-from-source.html">Building Panda3D from Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cheat-sheets.html">Cheat Sheets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started-on-osx.html">Getting Started on OSX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../more-panda3d-resources.html">More Panda3D Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../thirdparty-licenses.html">Third-party dependencies and license info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../the-irc-channel.html">The IRC Channel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">FAQ</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Panda3D</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Panda3D Tools</a> &raquo;</li>
+      
+          <li><a href="index.html">Model Export</a> &raquo;</li>
+      
+    <li>Converting from 3D Studio Max</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/tools/model-export/converting-from-3d-studio-max.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="converting-from-3d-studio-max">
+<span id="id1"></span><h1>Converting from 3D Studio Max<a class="headerlink" href="#converting-from-3d-studio-max" title="Permalink to this headline">¶</a></h1>
+<p>__TOC__</p>
+<p>NOTE: In Panda3D version 1.5.3, the max exporter was overhauled. Versions
+prior to that were unstable.</p>
+<p>The Max exporter understands only bone-based animation. In other words, all
+animation must be done by moving bones around. If you move anything else, the
+Max exporter may not notice! Character studio bipeds work too &#8212; they are
+indeed collections of bones.</p>
+<p>Meshes must be connected to the bones using either the
+<code class="docutils literal"><span class="pre">skin</span></code> or
+<code class="docutils literal"><span class="pre">physique</span></code> modifiers. Any other
+way of attaching the mesh to the bones will not work. In particular, simply
+linking the mesh to the bone using the link tool will not work correctly. Do
+not use the link tool to connect your meshes to your bones. Use the physique
+or skin modifiers.</p>
+<p>If all you want to do is drag a mesh around, then use the following method.
+Create a single bone - it will look like a small diamond. Put it in the middle
+of the mesh. Skin the mesh, and connect it to the one bone. Now you can drag
+the one bone around and the mesh will follow.</p>
+<p>In Max, it is a little difficult to create a single bone, because the bone
+creation tool usually creates two. After clicking to create a bone, look in
+the object list, and you&#8217;ll see &#8220;Bone01&#8221;, &#8220;Bone02&#8221;, which proves that there
+are indeed two. The easiest thing to do is to create the pair of bones, and
+then delete the second one by pressing the &#8220;delete&#8221; button.</p>
+<div class="section" id="using-the-exporter">
+<h2>Using the Exporter<a class="headerlink" href="#using-the-exporter" title="Permalink to this headline">¶</a></h2>
+<p>Before installing any plugins, you must install the visual studio runtime
+system. To do so, execute vcredist_x86-sp1.exe as administrator. Then, to
+install the plugin, look in the panda3d &#8220;plugins&#8221; directory. There, you will
+find the plugins, such as
+<code class="docutils literal"><span class="pre">maxegg5.dlo</span></code>,
+<code class="docutils literal"><span class="pre">maxegg6.dlo</span></code>, and
+<code class="docutils literal"><span class="pre">maxegg7.dlo</span></code>. These are for 3D
+Studio Max versions 5, 6, and 7 respectively. Copy the correct file from the
+Panda3D plugins directory into the 3D Studio Max plugins directory, then,
+restart 3D Studio Max.</p>
+<p>The exporter is somewhat unconventional in its design. Max has a menu item
+&#8220;File/Export&#8221;. Panda&#8217;s egg format does not show up in this menu. Instead,
+Panda&#8217;s exporter is a helper object. This enables the exporter to save your
+export settings from one session to the next.</p>
+<p>To export a scene, your first step is to create the necessary helper object.
+Go to the creation panel, select &#8220;helper objects,&#8221; choose &#8220;exporters,&#8221; and
+then click on the button to create a Panda3D export helper:</p>
+<p><img alt="maxexp1.jpg" src="../../_images/maxexp1.jpg" /></p>
+<p>Drop an egg exporter into the scene:</p>
+<p><img alt="maxexp2.jpg" src="../../_images/maxexp2.jpg" /></p>
+<p>Switch to the modify panel. You will now be able to see the configuration
+settings that are stored in the export helper.</p>
+<p><img alt="maxexp3.jpg" src="../../_images/maxexp3.jpg" /></p>
+<p>The exporter can generate several egg files from a single scene. The exporter
+therefore contains a list of egg files to generate. To export this particular
+scene (the one with the blocky humanoid and the biped skeleton), we will
+create an egg containing the model and one containing the animation. Click the
+&#8220;add...&#8221; button on the exporter&#8217;s modify panel. You will be prompted:</p>
+<p><img alt="maxexp4.jpg" src="../../_images/maxexp4.jpg" /></p>
+<p>I have filled in the file name, and I have selected the mesh I want to export.
+When I click &#8220;OK,&#8221; an egg file will be added to the list of eggs to generate.
+I then click the &#8220;add...&#8221; button again, and add another egg to the list:</p>
+<p><img alt="maxexp5.jpg" src="../../_images/maxexp5.jpg" /></p>
+<p>This time, I&#8217;m generating an animation egg. I have listed the bones to export,
+and the range of animation frames. Once I click OK, the modify panel for the
+egg exporter looks like this:</p>
+<p><img alt="maxexp6.jpg" src="../../_images/maxexp6.jpg" /></p>
+<p>When I click the &#8220;export now&#8221; button, the two egg files are generated, and I
+am asked whether or not I would like to pview them.</p>
+<p>When you save your MAX file, the export helper will also be saved. The next
+time you load it up, it will still remember which meshes go in which egg
+files.</p>
+</div>
+<div class="section" id="materials">
+<h2>Materials<a class="headerlink" href="#materials" title="Permalink to this headline">¶</a></h2>
+<p>The different map types in the 3dsmax Standard material equal Panda ones
+followingly:</p>
+<ul class="simple">
+<li>Diffuse Slot = Color</li>
+<li>Bump Slot = Normal</li>
+<li>Self-Illumination Slot = Glow</li>
+<li>Specular Color Slot = Gloss</li>
+<li>Opacity Slot = Modulate</li>
+</ul>
+</div>
+<div class="section" id="max-egger-changes-and-additions-to-be-available-in-panda3d-1-7-1-or-later">
+<h2>Max egger changes and additions(To be available in Panda3D 1.7.1 or later)<a class="headerlink" href="#max-egger-changes-and-additions-to-be-available-in-panda3d-1-7-1-or-later" title="Permalink to this headline">¶</a></h2>
+<p>There have been some minor but very noticeable changes to the way the Max
+egger handles collisions. Although collision tagging was possible on a global
+level with the egger prior to now, it had some drawbacks, such as only one
+object would get tagged if the whole scene was exported. To remedy this
+problem, the Panda SE team has implemented a method similar to the way Maya
+tags collision objects. Every object in max has a User Defined properties box
+inside the per-object properties options. (to get it simply right click on any
+object and select Object Properties, User Defined is the far right tab).</p>
+<p><a href="#id2"><span class="problematic" id="id3">|OBJ\_PROPS.JPG|</span></a> <a href="#id4"><span class="problematic" id="id5">|OBJECT\_PROPERTIES.JPG|</span></a></p>
+<p>Every collision object in Panda has a Collision Solid Type and a Collision
+Flag. To tag an object you have to type the &#8220;&lt;solid type&gt; = 1&#8221;. Where
+&lt;solid type&gt; is polyset, plane, etc. Next you must specify a collision
+flag in the same manner (ex. descend = 1). Be sure to note the all lowercase
+and spaces between the equals sign and the 1. To remove any tag simply set the
+value of one to zero on both properties. in order to speed up this process
+we&#8217;ve included a simple Maxscript utility called TagSelectedObjects.ms. Simply
+run this either from the main program menu bar, or anywhere else in the
+program where you can run a Maxscript. It will allow you to select any number
+of objects and tag them or remove any tags on the objects.</p>
+<p><a href="#id6"><span class="problematic" id="id7">|MAX\_SCRIPT.JPG|</span></a></p>
+<p>Also included in this update is the ability to use Point Objects as locators
+(similar to Maya&#8217;s locators). Prior to now, an artist had to egg out a max
+scene using the model option and using joints as locators. Now with the
+addition of point objects, an artist can use the static option and place
+locators for wherever a position needs to be stored. NOTE: point objects do
+not get included in animated models, only in static ones.</p>
+</div>
+<div class="section" id="known-issues">
+<h2>Known Issues<a class="headerlink" href="#known-issues" title="Permalink to this headline">¶</a></h2>
+<p>Currently, you have to use the option &#8216;Export Entire Scene&#8217; when having
+animated models, otherwise the character hierarchy might not be exported
+correctly.</p>
+<p>Also, in version 1.5.3, the &#8216;both&#8217; option was broken. Instead, you had to
+export animations separately with the &#8216;model&#8217; and &#8216;anim&#8217; options. However,
+this has been fixed in 1.5.4.</p>
+<p>Versions prior to 1.5.3 were unstable and it&#8217;s not recommended to use them.</p>
+<p>User interpretation regarding &#8220;Pose&#8221; versus the other export types (&#8220;Model&#8221;,
+&#8220;Animation&#8221;, &#8220;Both&#8221;) was not always correct. Newer versions of the exporter
+will have &#8220;Static&#8221; rather than &#8220;Pose&#8221; in the interface, as the &#8220;Static&#8221;
+(formerly listed as &#8220;Pose&#8221;) type should be chosen for exporting an environment
+or static geometry, with the &#8220;Model&#8221; type chosen for exporting an animatable
+model with joints and vertex membership. Using &#8220;Static&#8221; will generate an egg
+file without a &#8220;Dart&#8221; tag. The &#8220;Model&#8221; export will produce a &#8220;Dart&#8221; tag in the
+egg file. See :ref:` &lt;parsing-and-generating-egg-files&gt;` for more details.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="converting-from-maya.html" class="btn btn-neutral float-right" title="Converting from Maya" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Model Export" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Panda3D.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.10.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

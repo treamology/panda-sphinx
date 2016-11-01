@@ -1,0 +1,384 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Choosing a Texture Size &mdash; Panda3D Manual</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Panda3D Manual" href="../../index.html"/>
+        <link rel="up" title="Texturing" href="index.html"/>
+        <link rel="next" title="Texture Wrap Modes" href="texture-wrap-modes.html"/>
+        <link rel="prev" title="Simple Texturing" href="simple-texturing.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Panda3D
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.10
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../intro/index.html">Introduction to Panda3D</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Programming with Panda3D</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../the-scene-graph/index.html">The Scene Graph</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../the-configuration-file/index.html">The Configuration File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../models-and-actors/index.html">Models and Actors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-attributes/index.html">Render Attributes</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Texturing</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="simple-texturing.html">Simple Texturing</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Choosing a Texture Size</a></li>
+<li class="toctree-l3"><a class="reference internal" href="texture-wrap-modes.html">Texture Wrap Modes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="texture-filter-types.html">Texture Filter Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="simple-texture-replacement.html">Simple Texture Replacement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multitexture-introduction.html">Multitexture Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="texture-modes.html">Texture Modes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="texture-order.html">Texture Order</a></li>
+<li class="toctree-l3"><a class="reference internal" href="texture-combine-modes.html">Texture Combine Modes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="texture-transforms.html">Texture Transforms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multiple-texture-coordinate-sets.html">Multiple Texture Coordinate Sets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="automatic-texture-coordinates.html">Automatic Texture Coordinates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="projected-textures.html">Projected Textures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="simple-environment-mapping.html">Simple Environment Mapping</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3d-textures.html">3-D Textures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cube-maps.html">Cube Maps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="environment-mapping-with-cube-maps.html">Environment Mapping with Cube Maps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="automatic-texture-animation.html">Automatic Texture Animation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="playing-mpg-and-avi-files.html">Playing MPG and AVI files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="stereo-multiview-textures.html">Stereo/Multiview Textures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="transparency-and-blending.html">Transparency and Blending</a></li>
+<li class="toctree-l3"><a class="reference internal" href="texture-management.html">Texture Management</a></li>
+<li class="toctree-l3"><a class="reference internal" href="texture-compression.html">Texture Compression</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../shaders/index.html">Shaders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../camera-control/index.html">Camera Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sound/index.html">Sound</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intervals/index.html">Intervals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks-and-event-handling/index.html">Tasks and Event Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../text-and-image-rendering/index.html">Text and Image Rendering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../directgui/index.html">DirectGUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-effects/index.html">Render Effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../finite-state-machines/index.html">Finite State Machines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../terrain/index.html">Terrain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internal-structures/index.html">Advanced operations with Panda3D&#8217;s internal structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-to-texture-and-image-postprocessing/index.html">Render-to-Texture and Image Postprocessing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../panda3d-rendering-process/index.html">Panda3D Rendering Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../panda3d-utility-functions.html">Panda3D Utility Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../particle-effects/index.html">Particle Effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../collision-detection/index.html">Collision Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../garbage-collection/index.html">Garbage Collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hardware-support/index.html">Hardware support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../math-engine/index.html">Math Engine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../motion-paths.html">Motion Paths</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../timing/index.html">Timing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../networking/index.html">Networking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../multifiles/index.html">Multifiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../showbase.html">ShowBase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../file-reading.html">File Reading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../threading.html">Threading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../subclassing.html">Subclassing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../table-of-features-supported-per-graphic-renderer.html">Table of features supported per graphic renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pandai/index.html">Artificial Intelligence (PANDAI)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../distribution/index.html">Distributing Panda3D Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../samples/index.html">Sample Programs in the Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../debugging/index.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../performance-tuning/index.html">Performance Tuning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../using-c++/index.html">Using C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/index.html">Panda3D Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../building-from-source.html">Building Panda3D from Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cheat-sheets.html">Cheat Sheets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started-on-osx.html">Getting Started on OSX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../more-panda3d-resources.html">More Panda3D Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../thirdparty-licenses.html">Third-party dependencies and license info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../the-irc-channel.html">The IRC Channel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">FAQ</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Panda3D</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Programming with Panda3D</a> &raquo;</li>
+      
+          <li><a href="index.html">Texturing</a> &raquo;</li>
+      
+    <li>Choosing a Texture Size</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/programming-with-panda3d/texturing/choosing-a-texture-size.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="choosing-a-texture-size">
+<span id="id1"></span><h1>Choosing a Texture Size<a class="headerlink" href="#choosing-a-texture-size" title="Permalink to this headline">¶</a></h1>
+<p>Standard Texture Sizes</p>
+<p>Most graphics hardware requires that your texture images always be a size that
+is a power of two in each dimension. That means you can use any of the
+following choices for a texture size: 1, 2, 4, 8, 16, 32, 64, 128, 256, 512,
+1024, 2048, or so on (but unless you have a really high-end card, you&#8217;ll
+probably need to stop there).</p>
+<p>The textures don&#8217;t usually have to be square: they don&#8217;t have to have the same
+size in both dimensions. But each dimension does usually have to be a power of
+two. So 64 × 128 is all right, for instance, or 512 × 32, or 256 × 256. But
+you can&#8217;t make a texture image that is 200 × 200 pixels, since 200 isn&#8217;t a
+power of two.</p>
+<p>By default, Panda3D will automatically rescale any texture image down to the
+nearest smaller power of two when you read it from disk, so you usually don&#8217;t
+have to think about this&#8211;but your application will load faster if you scale
+your textures properly in the first place.</p>
+<p>If you would like Panda3D to rescale your images up to the next larger power
+of two instead of down to the next smaller power of two, use:</p>
+<div class="highlight-text"><div class="highlight"><pre><span></span>textures-power-2 up
+</pre></div>
+</div>
+<p>In your config file. The default is:</p>
+<div class="highlight-text"><div class="highlight"><pre><span></span>textures-power-2 down
+</pre></div>
+</div>
+<p>As of version 1.8.0, another mode was added which adds black borders as needed
+to frame the texture within a larger power-two texture. To enable this mode
+instead, use:</p>
+<div class="highlight-text"><div class="highlight"><pre><span></span>textures-power-2 pad
+</pre></div>
+</div>
+<p>In your config file.</p>
+<p>It will then be up to your code to apply
+<code class="docutils literal"><span class="pre">texture.getTexScale()</span></code> where needed. This mode
+does, of course, prevent using repeated textures.</p>
+<p>Although you usually shouldn&#8217;t use non power-of-two textures, for some things
+like GUI graphics it is not very uncommon to have them like that and let the
+game engine scale or pad them automatically.</p>
+<p>Note that the size you choose for the texture image has nothing to do with the
+size or shape of the texture image onscreen&#8211;that&#8217;s controlled by the size and
+shape of the polygon you apply it to. Making a texture image larger won&#8217;t make
+it make it appear larger onscreen, but it will tend to make it crisper and
+more detailed. Similarly, making a texture smaller will tend to make it
+fuzzier.</p>
+<p>Padded Textures</p>
+<p>Sometimes, you need to load data into a texture every frame. The most common
+example is when you&#8217;re playing a movie. Let&#8217;s say, for example, that the movie
+is encoded at 640x480 at 30fps. Neither of those dimensions is a power-of-two.
+It would theoretically be possible for Panda3D to rescale the image to
+512x512, but it would have to do it 30 times per second, which is too
+expensive to be practical.</p>
+<p>Instead, panda pads the data. Panda creates a 1024x512 texture, which is the
+smallest power-of-two size that can hold a 640x480 movie. It sticks the
+640x480 movie into the lower-left corner of the texture. Then, it adds a black
+border to the right edge and top edge of the movie, padding it out to
+1024x512.</p>
+<p>From that point forward, it&#8217;s just a texture with a movie in the lower-left
+corner, and black bars on the upper and right sides. However, if you use UV
+coordinates carefully, you can cause just the movie to be displayed. To do
+this, you need to know how big those black bars are:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">padx</span> <span class="o">=</span> <span class="n">texture</span><span class="o">.</span><span class="n">getPadXSize</span><span class="p">()</span>
+<span class="n">pady</span> <span class="o">=</span> <span class="n">texture</span><span class="o">.</span><span class="n">getPadYSize</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Panda3D only uses padded textures in a few very special cases: 1. When playing
+a non-power-of-two movie. 2. When using render-to-texture, and a
+non-power-of-two buffer.</p>
+<p>Nonstandard Texture Sizes</p>
+<p>Some newer graphics cards can render textures that are not a power of two.
+This is generally not very useful for loading art from disk: after all, game
+art is usually created in power-of-two sizes no matter what. However, it is
+useful to avoid wasteful movie padding of the kind described above. If you
+have one of these cards and you want to enable the use of non-power-of-two
+textures, you can put the following line in your Config.prc:</p>
+<div class="highlight-text"><div class="highlight"><pre><span></span>textures-power-2 none
+</pre></div>
+</div>
+<p>You can also attempt to have panda detect your video card&#8217;s capabilities
+automatically, using this command:</p>
+<div class="highlight-text"><div class="highlight"><pre><span></span>textures-auto-power-2 #t
+</pre></div>
+</div>
+<p>If this variable is true, then panda will wait until you open a window, and
+then ask the window&#8217;s driver if the driver supports non-power-of-two textures.
+If so, then the config variable
+<code class="docutils literal"><span class="pre">textures_power_2</span></code> will automatically be
+adjusted. In this way, you can configure Panda3D to use non-power-of-two
+textures if they are available.</p>
+<p>Caution: there is a potential pitfall when using
+<code class="docutils literal"><span class="pre">textures-auto-power-2</span></code>. If you open a window
+that supports non-power-of-two textures, panda will switch into
+<code class="docutils literal"><span class="pre">textures-power-2</span> <span class="pre">none</span></code> mode. If you then open
+a second window using a different video card which doesn&#8217;t support
+non-power-of-two textures, then panda will have no choice but to print an
+error message.</p>
+<p>Note that some cards appear to be able to render non-power-of-two textures,
+but the driver is really just scaling the textures at load time. With cards
+like these, you&#8217;re better off letting Panda do the scaling, or dynamic
+textures may render very slowly.</p>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="texture-wrap-modes.html" class="btn btn-neutral float-right" title="Texture Wrap Modes" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="simple-texturing.html" class="btn btn-neutral" title="Simple Texturing" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Panda3D.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.10.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

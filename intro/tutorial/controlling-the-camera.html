@@ -1,0 +1,421 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Controlling the Camera &mdash; Panda3D Manual</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Panda3D Manual" href="../../index.html"/>
+        <link rel="up" title="A Panda3D Hello World Tutorial" href="index.html"/>
+        <link rel="next" title="Loading and Animating the Panda Model" href="loading-and-animating-the-panda-model.html"/>
+        <link rel="prev" title="Loading the Grassy Scenery" href="loading-the-grassy-scenery.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Panda3D
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.10
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Introduction to Panda3D</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../installation-windows.html">Installing Panda3D in Windows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation-linux.html">Installing Panda3D in Linux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../preparation.html">General Preparation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../running-your-program.html">Running your Program</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">A Panda3D Hello World Tutorial</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="starting-panda3d.html">Starting Panda3D</a></li>
+<li class="toctree-l3"><a class="reference internal" href="loading-the-grassy-scenery.html">Loading the Grassy Scenery</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Controlling the Camera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="loading-and-animating-the-panda-model.html">Loading and Animating the Panda Model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="using-intervals-to-move-the-panda.html">Using Intervals to move the Panda</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorial-end.html">Tutorial End</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../user-contributed-tutorials-and-examples.html">User Contributed Tutorials and Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../video-tutorials.html">Video Tutorials</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../programming-with-panda3d/index.html">Programming with Panda3D</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../distribution/index.html">Distributing Panda3D Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../samples/index.html">Sample Programs in the Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../debugging/index.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../performance-tuning/index.html">Performance Tuning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../using-c++/index.html">Using C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/index.html">Panda3D Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../building-from-source.html">Building Panda3D from Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cheat-sheets.html">Cheat Sheets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started-on-osx.html">Getting Started on OSX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../more-panda3d-resources.html">More Panda3D Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../thirdparty-licenses.html">Third-party dependencies and license info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../the-irc-channel.html">The IRC Channel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">FAQ</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Panda3D</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Introduction to Panda3D</a> &raquo;</li>
+      
+          <li><a href="index.html">A Panda3D Hello World Tutorial</a> &raquo;</li>
+      
+    <li>Controlling the Camera</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/intro/tutorial/controlling-the-camera.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="controlling-the-camera">
+<span id="id1"></span><h1>Controlling the Camera<a class="headerlink" href="#controlling-the-camera" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="default-camera-control-system">
+<h2>Default Camera Control System<a class="headerlink" href="#default-camera-control-system" title="Permalink to this headline">¶</a></h2>
+<p>By default, Panda3D runs a task that allows you to move the camera using the
+mouse.</p>
+<p>To enable it, use the following command:</p>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">window</span><span class="o">-&gt;</span><span class="n">setup_trackball</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>The keys to navigate are:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="37%" />
+<col width="63%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Key</th>
+<th class="head">Action</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Left Button</td>
+<td>Pan left and right.</td>
+</tr>
+<tr class="row-odd"><td>Right Button</td>
+<td>Move forwards and backwards.</td>
+</tr>
+<tr class="row-even"><td>Middle Button</td>
+<td>Rotate around the origin of the application.</td>
+</tr>
+<tr class="row-odd"><td>Right and Middle Buttons</td>
+<td>Roll the point of view around the view axis.</td>
+</tr>
+</tbody>
+</table>
+<p>Go ahead and try this camera control system. The problem with it is that it is
+sometimes awkward. It is not always easy to get the camera pointed in the
+direction we want.</p>
+</div>
+<div class="section" id="ref-tasks">
+<h2>:ref:` &lt;tasks&gt;`<a class="headerlink" href="#ref-tasks" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="update-the-code">
+<h3>Update the Code<a class="headerlink" href="#update-the-code" title="Permalink to this headline">¶</a></h3>
+<p>Instead, we are going to write a <em>task</em> that controls the camera&#8217;s position
+explicitly. A <em>task</em> is nothing but a procedure that gets called every frame.
+Update your code as follows:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">pi</span><span class="p">,</span> <span class="n">sin</span><span class="p">,</span> <span class="n">cos</span>
+
+<span class="kn">from</span> <span class="nn">direct.showbase.ShowBase</span> <span class="kn">import</span> <span class="n">ShowBase</span>
+<span class="kn">from</span> <span class="nn">direct.task</span> <span class="kn">import</span> <span class="n">Task</span>
+
+<span class="k">class</span> <span class="nc">MyApp</span><span class="p">(</span><span class="n">ShowBase</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">ShowBase</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+        <span class="c1"># Load the environment model.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">scene</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">loader</span><span class="o">.</span><span class="n">loadModel</span><span class="p">(</span><span class="s2">&quot;models/environment&quot;</span><span class="p">)</span>
+        <span class="c1"># Reparent the model to render.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">scene</span><span class="o">.</span><span class="n">reparentTo</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">render</span><span class="p">)</span>
+        <span class="c1"># Apply scale and position transforms on the model.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">scene</span><span class="o">.</span><span class="n">setScale</span><span class="p">(</span><span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">scene</span><span class="o">.</span><span class="n">setPos</span><span class="p">(</span><span class="o">-</span><span class="mi">8</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+        <span class="c1"># Add the spinCameraTask procedure to the task manager.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">taskMgr</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">spinCameraTask</span><span class="p">,</span> <span class="s2">&quot;SpinCameraTask&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Define a procedure to move the camera.</span>
+    <span class="k">def</span> <span class="nf">spinCameraTask</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">task</span><span class="p">):</span>
+        <span class="n">angleDegrees</span> <span class="o">=</span> <span class="n">task</span><span class="o">.</span><span class="n">time</span> <span class="o">*</span> <span class="mf">6.0</span>
+        <span class="n">angleRadians</span> <span class="o">=</span> <span class="n">angleDegrees</span> <span class="o">*</span> <span class="p">(</span><span class="n">pi</span> <span class="o">/</span> <span class="mf">180.0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">camera</span><span class="o">.</span><span class="n">setPos</span><span class="p">(</span><span class="mi">20</span> <span class="o">*</span> <span class="n">sin</span><span class="p">(</span><span class="n">angleRadians</span><span class="p">),</span> <span class="o">-</span><span class="mf">20.0</span> <span class="o">*</span> <span class="n">cos</span><span class="p">(</span><span class="n">angleRadians</span><span class="p">),</span> <span class="mi">3</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">camera</span><span class="o">.</span><span class="n">setHpr</span><span class="p">(</span><span class="n">angleDegrees</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">Task</span><span class="o">.</span><span class="n">cont</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">MyApp</span><span class="p">()</span>
+<span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&quot;pandaFramework.h&quot;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&quot;pandaSystem.h&quot;</span><span class="cp"></span>
+
+<span class="cp">#include</span> <span class="cpf">&quot;genericAsyncTask.h&quot;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&quot;asyncTaskManager.h&quot;</span><span class="cp"></span>
+
+<span class="c1">// The global task manager</span>
+<span class="n">PT</span><span class="p">(</span><span class="n">AsyncTaskManager</span><span class="p">)</span> <span class="n">taskMgr</span> <span class="o">=</span> <span class="n">AsyncTaskManager</span><span class="o">::</span><span class="n">get_global_ptr</span><span class="p">();</span>
+<span class="c1">// The global clock</span>
+<span class="n">PT</span><span class="p">(</span><span class="n">ClockObject</span><span class="p">)</span> <span class="n">globalClock</span> <span class="o">=</span> <span class="n">ClockObject</span><span class="o">::</span><span class="n">get_global_clock</span><span class="p">();</span>
+<span class="c1">// Here&#39;s what we&#39;ll store the camera in.</span>
+<span class="n">NodePath</span> <span class="n">camera</span><span class="p">;</span>
+
+<span class="c1">// This is our task - a global or static function that has to return DoneStatus.</span>
+<span class="c1">// The task object is passed as argument, plus a void* pointer, containing custom data.</span>
+<span class="c1">// For more advanced usage, we can subclass AsyncTask and override the do_task method.</span>
+<span class="n">AsyncTask</span><span class="o">::</span><span class="n">DoneStatus</span> <span class="n">spinCameraTask</span><span class="p">(</span><span class="n">GenericAsyncTask</span><span class="o">*</span> <span class="n">task</span><span class="p">,</span> <span class="kt">void</span><span class="o">*</span> <span class="n">data</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Calculate the new position and orientation (inefficient - change me!)</span>
+  <span class="kt">double</span> <span class="n">time</span> <span class="o">=</span> <span class="n">globalClock</span><span class="o">-&gt;</span><span class="n">get_real_time</span><span class="p">();</span>
+  <span class="kt">double</span> <span class="n">angledegrees</span> <span class="o">=</span> <span class="n">time</span> <span class="o">*</span> <span class="mf">6.0</span><span class="p">;</span>
+  <span class="kt">double</span> <span class="n">angleradians</span> <span class="o">=</span> <span class="n">angledegrees</span> <span class="o">*</span> <span class="p">(</span><span class="mf">3.14</span> <span class="o">/</span> <span class="mf">180.0</span><span class="p">);</span>
+  <span class="n">camera</span><span class="p">.</span><span class="n">set_pos</span><span class="p">(</span><span class="mi">20</span><span class="o">*</span><span class="n">sin</span><span class="p">(</span><span class="n">angleradians</span><span class="p">),</span><span class="o">-</span><span class="mf">20.0</span><span class="o">*</span><span class="n">cos</span><span class="p">(</span><span class="n">angleradians</span><span class="p">),</span><span class="mi">3</span><span class="p">);</span>
+  <span class="n">camera</span><span class="p">.</span><span class="n">set_hpr</span><span class="p">(</span><span class="n">angledegrees</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+
+  <span class="c1">// Tell the task manager to continue this task the next frame.</span>
+  <span class="k">return</span> <span class="n">AsyncTask</span><span class="o">::</span><span class="n">DS_cont</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="n">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
+    <span class="c1">// Load the window and set its title.</span>
+    <span class="n">PandaFramework</span> <span class="n">framework</span><span class="p">;</span>
+    <span class="n">framework</span><span class="p">.</span><span class="n">open_framework</span><span class="p">(</span><span class="n">argc</span><span class="p">,</span> <span class="n">argv</span><span class="p">);</span>
+    <span class="n">framework</span><span class="p">.</span><span class="n">set_window_title</span><span class="p">(</span><span class="s">&quot;My Panda3D Window&quot;</span><span class="p">);</span>
+    <span class="n">WindowFramework</span> <span class="o">*</span><span class="n">window</span> <span class="o">=</span> <span class="n">framework</span><span class="p">.</span><span class="n">open_window</span><span class="p">();</span>
+    <span class="c1">// Get the camera and store it in a variable.</span>
+    <span class="n">camera</span> <span class="o">=</span> <span class="n">window</span><span class="o">-&gt;</span><span class="n">get_camera_group</span><span class="p">();</span>
+
+    <span class="c1">// Load the environment model.</span>
+    <span class="n">NodePath</span> <span class="n">scene</span> <span class="o">=</span> <span class="n">window</span><span class="o">-&gt;</span><span class="n">load_model</span><span class="p">(</span><span class="n">framework</span><span class="p">.</span><span class="n">get_models</span><span class="p">(),</span> <span class="s">&quot;models/environment&quot;</span><span class="p">);</span>
+    <span class="c1">// Reparent the model to render.</span>
+    <span class="n">scene</span><span class="p">.</span><span class="n">reparent_to</span><span class="p">(</span><span class="n">window</span><span class="o">-&gt;</span><span class="n">get_render</span><span class="p">());</span>
+    <span class="c1">// Apply scale and position transforms to the model.</span>
+    <span class="n">scene</span><span class="p">.</span><span class="n">set_scale</span><span class="p">(</span><span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">);</span>
+    <span class="n">scene</span><span class="p">.</span><span class="n">set_pos</span><span class="p">(</span><span class="o">-</span><span class="mi">8</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+
+    <span class="c1">// Add our task.</span>
+    <span class="c1">// If we specify custom data instead of NULL, it will be passed as the second argument</span>
+    <span class="c1">// to the task function.</span>
+    <span class="n">taskMgr</span><span class="o">-&gt;</span><span class="n">add</span><span class="p">(</span><span class="k">new</span> <span class="n">GenericAsyncTask</span><span class="p">(</span><span class="s">&quot;Spins the camera&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">spinCameraTask</span><span class="p">,</span> <span class="p">(</span><span class="kt">void</span><span class="o">*</span><span class="p">)</span> <span class="nb">NULL</span><span class="p">));</span>
+
+    <span class="c1">// Run the engine.</span>
+    <span class="n">framework</span><span class="p">.</span><span class="n">main_loop</span><span class="p">();</span>
+    <span class="c1">// Shut down the engine when done.</span>
+    <span class="n">framework</span><span class="p">.</span><span class="n">close_framework</span><span class="p">();</span>
+    <span class="k">return</span> <span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The procedure <code class="docutils literal"><span class="pre">taskMgr.add()</span></code> tells
+Panda3D&#8217;s task manager to call the procedure
+<code class="docutils literal"><span class="pre">spinCameraTask()</span></code> every frame. This is a
+procedure that we have written to control the camera. As long as the procedure
+<code class="docutils literal"><span class="pre">spinCameraTask()</span></code> returns the constant
+<code class="docutils literal"><span class="pre">&lt;cxx&gt;Async&lt;/cxx&gt;Task.&lt;cxx&gt;DS_&lt;/cxx&gt;cont</span></code>, the task manager will
+continue to call it every frame.</p>
+<p>The object passed to <code class="docutils literal"><span class="pre">taskMgr-&gt;add</span></code> is
+an <code class="docutils literal"><span class="pre">AsyncTask</span></code> object. We can use
+<code class="docutils literal"><span class="pre">GenericAsyncTask</span></code> to wrap a global
+function or static method around a task. We can also pass an additional
+<code class="docutils literal"><span class="pre">void*</span></code> parameter that we can
+cast into a pointer of any data type we like, which is passed as argument to
+the task function. A GenericAsyncTask function must look like the following:</p>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">AsyncTask</span><span class="o">::</span><span class="n">DoneStatus</span> <span class="n">your_task</span><span class="p">(</span><span class="n">GenericAsyncTask</span><span class="o">*</span> <span class="n">task</span><span class="p">,</span> <span class="kt">void</span><span class="o">*</span> <span class="n">data</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Do your stuff here.</span>
+
+  <span class="c1">// Tell the task manager to continue this task the next frame.</span>
+  <span class="c1">// You can also pass DS_done if this task should not be run again.</span>
+  <span class="k">return</span> <span class="n">AsyncTask</span><span class="o">::</span><span class="n">DS_cont</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>For more advanced usage, you can subclass AsyncTask and override the
+<code class="docutils literal"><span class="pre">do_task</span></code> method to make it do
+what you want.</p>
+<p>In our code, the procedure
+<code class="docutils literal"><span class="pre">spinCameraTask()</span></code> calculates the desired
+position of the camera based on how much time has elapsed. The camera rotates
+6 degrees every second. The first two lines compute the desired orientation of
+the camera; first in degrees, and then in radians. The
+<code class="docutils literal"><span class="pre">setPos()</span></code> call actually sets the
+position of the camera. (Remember that Y is horizontal and Z is vertical, so
+the position is changed by animating X and Y while Z is left fixed at 3 units
+above ground level.) The
+<code class="docutils literal"><span class="pre">setHpr()</span></code> call actually sets the
+orientation.</p>
+</div>
+<div class="section" id="run-the-program">
+<h3>Run the Program<a class="headerlink" href="#run-the-program" title="Permalink to this headline">¶</a></h3>
+<p>The camera should no longer be underground; and furthermore, it should now be
+rotating about the clearing:</p>
+<p><img alt="Tutorial2.jpg" src="../../_images/tutorial2.jpg" /></p>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="loading-and-animating-the-panda-model.html" class="btn btn-neutral float-right" title="Loading and Animating the Panda Model" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="loading-the-grassy-scenery.html" class="btn btn-neutral" title="Loading the Grassy Scenery" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Panda3D.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.10.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

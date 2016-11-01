@@ -1,0 +1,303 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Converting from Milkshape 3D &mdash; Panda3D Manual</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Panda3D Manual" href="../../index.html"/>
+        <link rel="up" title="Model Export" href="index.html"/>
+        <link rel="next" title="Converting from GMax" href="converting-from-gmax.html"/>
+        <link rel="prev" title="Converting from SoftImage" href="converting-from-softimage.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Panda3D
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.10
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../intro/index.html">Introduction to Panda3D</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../programming-with-panda3d/index.html">Programming with Panda3D</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../distribution/index.html">Distributing Panda3D Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../samples/index.html">Sample Programs in the Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../debugging/index.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../performance-tuning/index.html">Performance Tuning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../using-c++/index.html">Using C++</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Panda3D Tools</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../the-scene-graph-browser/index.html">The Scene Graph Browser</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../interrogate.html">Interrogate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pipeline-tips.html">Pipeline Tips</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Model Export</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="converting-from-3d-studio-max.html">Converting from 3D Studio Max</a></li>
+<li class="toctree-l3"><a class="reference internal" href="converting-from-maya.html">Converting from Maya</a></li>
+<li class="toctree-l3"><a class="reference internal" href="converting-from-blender.html">Converting from Blender</a></li>
+<li class="toctree-l3"><a class="reference internal" href="converting-from-softimage.html">Converting from SoftImage</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Converting from Milkshape 3D</a></li>
+<li class="toctree-l3"><a class="reference internal" href="converting-from-gmax.html">Converting from GMax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="converting-from-other-formats.html">Converting from other Formats</a></li>
+<li class="toctree-l3"><a class="reference internal" href="converting-egg-to-bam.html">Converting Egg to Bam</a></li>
+<li class="toctree-l3"><a class="reference internal" href="parsing-and-generating-egg-files.html">Parsing and Generating Egg Files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="egg-syntax.html">Egg Syntax</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../pview.html">Previewing 3D Models in Pview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../list-of-panda3d-executables.html">List of Panda3D Executables</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../building-from-source.html">Building Panda3D from Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cheat-sheets.html">Cheat Sheets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started-on-osx.html">Getting Started on OSX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../more-panda3d-resources.html">More Panda3D Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../thirdparty-licenses.html">Third-party dependencies and license info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../the-irc-channel.html">The IRC Channel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">FAQ</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Panda3D</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Panda3D Tools</a> &raquo;</li>
+      
+          <li><a href="index.html">Model Export</a> &raquo;</li>
+      
+    <li>Converting from Milkshape 3D</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/tools/model-export/converting-from-milkshape-3d.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="converting-from-milkshape-3d">
+<span id="id1"></span><h1>Converting from Milkshape 3D<a class="headerlink" href="#converting-from-milkshape-3d" title="Permalink to this headline">¶</a></h1>
+<p>Currently, the best way to get data from Milkshape into Panda is to use X
+(DirectX native) file format. Save the model as X from Milkshape, then load it
+directly into Panda, which can read X file format. Alternately, if you&#8217;re
+concerned about long load times (panda has to translate the file at load
+time), then pre-convert the model from X to Egg to Bam using the conversion
+programs supplied with Panda3D (x2egg, egg2bam).</p>
+<p>Note that Milkshape 3D contains two X export plugins. I have heard that one of
+them does not work correctly. This may require some experimentation.</p>
+<p>Whenever you save a model in a non-native file format, you need to ask
+yourself: &#8220;does this file format support everything I need?&#8221; For example, when
+you save out a model in 3DS file format, you automatically lose all bone and
+animation data, because the 3DS file format doesn&#8217;t contain bone and animation
+data. In the case of the X file format, you&#8217;re in good shape: it&#8217;s a fairly
+powerful file format, supporting vertices and triangles, bones and animation.</p>
+<p>However, egg file format supports some esoteric things. For example, it
+supports blend targets (morph animations), which are not supported by the X
+file format.</p>
+<div class="section" id="more-detailed-explanations-for-ms3d-users">
+<h2>More Detailed explanations for MS3D users<a class="headerlink" href="#more-detailed-explanations-for-ms3d-users" title="Permalink to this headline">¶</a></h2>
+<p>You can use MS3D to create X Files (both static or animated) to be converted
+by Panda3d x2eggconverter.</p>
+<p>In MS3D there is two Direct X .X exporter: Direct 8.0 and DirectX(JT). So far
+i&#8217;ve managed to use only DirectX 8.0 File. (DirectX JT got a lot more
+parameters and only a few combination of it seemed to work but not on a
+predictable basis). I&#8217;ll talk only for animation with bones (not tested other
+ones).But this exporter work also for static meshes.</p>
+<p>A) Before Exporting to .X you must ensure: - no null material or null name in
+texture in your model (MS3D won&#8217;t block you but will crashes during the
+export) - no hyphen in your bones names (underscore is ok) (No issue in MS3D
+but issue with panda converter). - animation mode is NOT enabled</p>
+<p>B) To export , use Direct 8.0 file export. Select the required boxes. (Meshes,
+Materials ,Animations) if you selected less than all checkboxes (material
+animations...) you will have to edit manually the x files to remove the last 1
+or 2 &#8220;}&#8221; of the file . before using X2egg to convert . It&#8217;s OK to leave
+default settings (Lock Root Bone and 1 as Frame offset). Warning: Export can
+be very long in case of big models/animations.</p>
+<ol class="upperalpha simple" start="3">
+<li>Convert using X2egg converter</li>
+</ol>
+<p>Warning:if you run X2egg without special args, you will need to have your
+textures also in the same directory than the x files. Don&#8217;t be surprised if
+.egg file size is 6 times your .X file size, it&#8217;s pretty normal due to more
+explicit information in the .egg file format. In case size is an issue,
+bamming the .egg file will reduce the size and optimize loading time.</p>
+<p>Also , before converting to .egg , you can load your .x in pview to check
+everything is fine.</p>
+<p>D)TIPS: depending if you make your models fully in MS3D or import it from
+Poser, you may find an issue : all animations applied to root bone instead of
+correct bone. You can solve it in MS3D by regrouping all materials, export to
+HL SMD (1 or 2 ) then import again and export to .X.</p>
+<p>NB: this have been written by a coder not an artist :-)</p>
+</div>
+<div class="section" id="bugs-in-the-process">
+<h2>Bugs in the Process<a class="headerlink" href="#bugs-in-the-process" title="Permalink to this headline">¶</a></h2>
+<p>Caution: at one time, it was discovered that there were two bugs in panda&#8217;s
+X-file importer. One, it was case-sensitive and it should not be. Two, it did
+not handle hyphens in identifiers correctly. It is unknown whether or not
+these bugs have been fixed.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="converting-from-gmax.html" class="btn btn-neutral float-right" title="Converting from GMax" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="converting-from-softimage.html" class="btn btn-neutral" title="Converting from SoftImage" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Panda3D.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.10.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

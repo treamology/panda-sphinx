@@ -1,0 +1,410 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Loading Models &mdash; Panda3D Manual</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Panda3D Manual" href="../../index.html"/>
+        <link rel="up" title="Models and Actors" href="index.html"/>
+        <link rel="next" title="Loading Actors and Animations" href="loading-actors-and-animations.html"/>
+        <link rel="prev" title="Models and Actors" href="index.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Panda3D
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.10
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../intro/index.html">Introduction to Panda3D</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Programming with Panda3D</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../the-scene-graph/index.html">The Scene Graph</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../the-configuration-file/index.html">The Configuration File</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Models and Actors</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Loading Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="loading-actors-and-animations.html">Loading Actors and Animations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="actor-animations.html">Actor Animations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multi-part-actors.html">Multi-Part Actors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="attaching-an-object-to-a-joint.html">Attaching an Object to a Joint</a></li>
+<li class="toctree-l3"><a class="reference internal" href="controlling-a-joint-procedurally.html">Controlling a Joint Procedurally</a></li>
+<li class="toctree-l3"><a class="reference internal" href="level-of-detail.html">Level of Detail</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../render-attributes/index.html">Render Attributes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../texturing/index.html">Texturing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shaders/index.html">Shaders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../camera-control/index.html">Camera Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sound/index.html">Sound</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intervals/index.html">Intervals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks-and-event-handling/index.html">Tasks and Event Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../text-and-image-rendering/index.html">Text and Image Rendering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../directgui/index.html">DirectGUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-effects/index.html">Render Effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../finite-state-machines/index.html">Finite State Machines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../terrain/index.html">Terrain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internal-structures/index.html">Advanced operations with Panda3D&#8217;s internal structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-to-texture-and-image-postprocessing/index.html">Render-to-Texture and Image Postprocessing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../panda3d-rendering-process/index.html">Panda3D Rendering Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../panda3d-utility-functions.html">Panda3D Utility Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../particle-effects/index.html">Particle Effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../collision-detection/index.html">Collision Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../garbage-collection/index.html">Garbage Collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hardware-support/index.html">Hardware support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../math-engine/index.html">Math Engine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../motion-paths.html">Motion Paths</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../timing/index.html">Timing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../networking/index.html">Networking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../multifiles/index.html">Multifiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../showbase.html">ShowBase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../file-reading.html">File Reading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../threading.html">Threading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../subclassing.html">Subclassing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../table-of-features-supported-per-graphic-renderer.html">Table of features supported per graphic renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pandai/index.html">Artificial Intelligence (PANDAI)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../distribution/index.html">Distributing Panda3D Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../samples/index.html">Sample Programs in the Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../debugging/index.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../performance-tuning/index.html">Performance Tuning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../using-c++/index.html">Using C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/index.html">Panda3D Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../building-from-source.html">Building Panda3D from Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cheat-sheets.html">Cheat Sheets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started-on-osx.html">Getting Started on OSX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../more-panda3d-resources.html">More Panda3D Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../thirdparty-licenses.html">Third-party dependencies and license info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../the-irc-channel.html">The IRC Channel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">FAQ</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Panda3D</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Programming with Panda3D</a> &raquo;</li>
+      
+          <li><a href="index.html">Models and Actors</a> &raquo;</li>
+      
+    <li>Loading Models</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/programming-with-panda3d/models-and-actors/loading-models.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="loading-models">
+<span id="id1"></span><h1>Loading Models<a class="headerlink" href="#loading-models" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="the-basics">
+<h2>The Basics<a class="headerlink" href="#the-basics" title="Permalink to this headline">¶</a></h2>
+<p>Loading static geometry is done using
+<code class="docutils literal"><span class="pre">loader.loadModel</span></code>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">loader</span><span class="o">.</span><span class="n">loadModel</span><span class="p">(</span><span class="s2">&quot;mymodel.egg&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Loading static geometry is done using
+<code class="docutils literal"><span class="pre">window-&gt;load_model</span></code>:</p>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">NodePath</span> <span class="n">m</span> <span class="o">=</span> <span class="n">window</span><span class="o">-&gt;</span><span class="n">load_model</span><span class="p">(</span><span class="n">framework</span><span class="p">.</span><span class="n">get_models</span><span class="p">(),</span> <span class="s">&quot;mymodel.egg&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>The path name specified in the loadModel can be an absolute path, or a
+relative path. Relative is recommended. If a relative path is used, then
+Panda3D will search its model path to find the egg file. The model path is
+controlled by panda&#8217;s :ref:` &lt;the-configuration-file&gt;`.</p>
+</div>
+<div class="section" id="inserting-the-model-into-the-scene-graph">
+<h2>Inserting the Model into the Scene Graph<a class="headerlink" href="#inserting-the-model-into-the-scene-graph" title="Permalink to this headline">¶</a></h2>
+<p>Do not forget that loading the model does not, by itself, cause the model to
+be visible. To cause Panda3D to render the model, you must insert it into the
+scene graph:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">m</span><span class="o">.</span><span class="n">reparentTo</span><span class="p">(</span><span class="n">render</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">m</span><span class="p">.</span><span class="n">reparent_to</span><span class="p">(</span><span class="n">window</span><span class="o">-&gt;</span><span class="n">get_render</span><span class="p">());</span>
+</pre></div>
+</div>
+<p>You can read more about :ref:` &lt;the-scene-graph&gt;`.</p>
+</div>
+<div class="section" id="panda-filename-syntax">
+<h2>Panda Filename Syntax<a class="headerlink" href="#panda-filename-syntax" title="Permalink to this headline">¶</a></h2>
+<p>The path used in the</p>
+<p>loadModel</p>
+<p>load_model</p>
+<p><code class="docutils literal"><span class="pre">call&nbsp;must&nbsp;abide&nbsp;by&nbsp;Panda3D's&nbsp;filename</span></code></p>
+<p>conventions. For easier portability, Panda3D uses Unix-style pathnames, even
+on Microsoft Windows. This means that the directory separator character is
+always a forward slash, not the Windows backslash character, and there is no
+leading drive letter prefix. (Instead of a leading drive letter, Panda uses an
+initial one-letter directory name to represent the drive.)</p>
+<p>There is a fairly straightforward conversion from Windows filenames to panda
+filenames. Always be sure to use Panda filename syntax when using a Panda3D
+library function, or one of the panda utility programs:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># WRONG:</span>
+<span class="n">loader</span><span class="o">.</span><span class="n">loadModel</span><span class="p">(</span><span class="s2">&quot;c:</span><span class="se">\\</span><span class="s2">Program Files</span><span class="se">\\</span><span class="s2">My Game</span><span class="se">\\</span><span class="s2">Models</span><span class="se">\\</span><span class="s2">Model1.egg&quot;</span><span class="p">)</span>
+
+<span class="c1"># RIGHT:</span>
+<span class="n">loader</span><span class="o">.</span><span class="n">loadModel</span><span class="p">(</span><span class="s2">&quot;/c/Program Files/My Game/Models/Model1.egg&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="cp"># WRONG:</span>
+<span class="n">window</span><span class="o">-&gt;</span><span class="n">load_model</span><span class="p">(</span><span class="n">framework</span><span class="p">.</span><span class="n">get_models</span><span class="p">(),</span> <span class="s">&quot;c:</span><span class="se">\\</span><span class="s">Program Files</span><span class="se">\\</span><span class="s">My Game</span><span class="se">\\</span><span class="s">Models</span><span class="se">\\</span><span class="s">Model1.egg&quot;</span><span class="p">);</span>
+
+<span class="cp"># RIGHT:</span>
+<span class="n">window</span><span class="o">-&gt;</span><span class="n">load_model</span><span class="p">(</span><span class="n">framework</span><span class="p">.</span><span class="n">get_models</span><span class="p">(),</span> <span class="s">&quot;/c/Program Files/My Game/Models/Model1.egg&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Panda uses the <code class="docutils literal"><span class="pre">Filename</span></code> class to
+store Panda-style filenames; many Panda functions expect a Filename object as
+a parameter. The Filename class also contains several useful methods for path
+manipulation and file access, as well as for converting between Windows-style
+filenames and Panda-style filenames; see the API reference for a more complete
+list.</p>
+<p>To convert a Windows filename to a Panda pathname, use code similar to the
+following:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">panda3d.core</span> <span class="kn">import</span> <span class="n">Filename</span>
+<span class="n">winfile</span> <span class="o">=</span> <span class="s2">&quot;c:</span><span class="se">\\</span><span class="s2">MyGame</span><span class="se">\\</span><span class="s2">Model1.egg&quot;</span>
+<span class="n">pandafile</span> <span class="o">=</span> <span class="n">Filename</span><span class="o">.</span><span class="n">fromOsSpecific</span><span class="p">(</span><span class="n">winfile</span><span class="p">)</span>
+<span class="k">print</span> <span class="n">pandafile</span>
+</pre></div>
+</div>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&quot;filename.h&quot;</span><span class="cp"></span>
+
+<span class="k">const</span> <span class="n">string</span> <span class="n">winfile</span> <span class="o">=</span> <span class="s">&quot;c:</span><span class="se">\\</span><span class="s">MyGame</span><span class="se">\\</span><span class="s">Model1.egg&quot;</span><span class="p">;</span>
+<span class="n">Filename</span> <span class="n">pandafile</span> <span class="o">=</span> <span class="n">Filename</span><span class="o">::</span><span class="n">from_os_specific</span><span class="p">(</span><span class="n">winfile</span><span class="p">);</span>
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">pandafile</span><span class="p">.</span><span class="n">get_fullpath</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>To convert a Panda filename into a Windows filename, use code not unlike this:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">panda3d.core</span> <span class="kn">import</span> <span class="n">Filename</span>
+<span class="n">pandafile</span> <span class="o">=</span> <span class="n">Filename</span><span class="p">(</span><span class="s2">&quot;/c/MyGame/Model1.egg&quot;</span><span class="p">)</span>
+<span class="n">winfile</span> <span class="o">=</span> <span class="n">pandafile</span><span class="o">.</span><span class="n">toOsSpecific</span><span class="p">()</span>
+<span class="k">print</span> <span class="n">winfile</span>
+</pre></div>
+</div>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&quot;filename.h&quot;</span><span class="cp"></span>
+
+<span class="n">Filename</span> <span class="nf">pandafile</span> <span class="p">(</span><span class="s">&quot;/c/MyGame/Model1.egg&quot;</span><span class="p">);</span>
+<span class="k">const</span> <span class="n">string</span> <span class="n">winfile</span> <span class="o">=</span> <span class="n">pandafile</span><span class="p">.</span><span class="n">to_os_specific</span><span class="p">();</span>
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">winfile</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>The Filename class can also be used in combination with</p>
+<p>python&#8217;s built-in path manipulation mechanisms</p>
+<p>Panda&#8217;s ExecutionEnvironment utility class</p>
+<p>. Let&#8217;s say, for
+instance, that you want to load a model, and the model is in the &#8220;model&#8221;
+directory that is in the same directory as the main program&#8217;s</p>
+<p>&#8220;py&#8221;</p>
+<p>executable</p>
+<p><code class="docutils literal"><span class="pre">file.&nbsp;&nbsp;Here&nbsp;is&nbsp;how&nbsp;you</span></code></p>
+<p>would load the model:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span><span class="o">,</span><span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">direct.directbase.DirectStart</span>
+<span class="kn">from</span> <span class="nn">panda3d.core</span> <span class="kn">import</span> <span class="n">Filename</span>
+
+<span class="c1"># Get the location of the &#39;py&#39; file I&#39;m running:</span>
+<span class="n">mydir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="c1"># Convert that to panda&#39;s unix-style notation.</span>
+<span class="n">mydir</span> <span class="o">=</span> <span class="n">Filename</span><span class="o">.</span><span class="n">fromOsSpecific</span><span class="p">(</span><span class="n">mydir</span><span class="p">)</span><span class="o">.</span><span class="n">getFullpath</span><span class="p">()</span>
+
+<span class="c1"># Now load the model:</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">loader</span><span class="o">.</span><span class="n">loadModel</span><span class="p">(</span><span class="n">mydir</span> <span class="o">+</span> <span class="s2">&quot;/models/mymodel.egg&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&quot;filename.h&quot;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&quot;executionEnvironment.h&quot;</span><span class="cp"></span>
+
+<span class="c1">// Get the location of the executable file I&#39;m running:</span>
+<span class="n">Filename</span> <span class="n">mydir</span> <span class="o">=</span> <span class="n">ExecutionEnvironment</span><span class="o">::</span><span class="n">get_binary_name</span><span class="p">();</span>
+<span class="n">mydir</span> <span class="o">=</span> <span class="n">mydir</span><span class="p">.</span><span class="n">get_dirname</span><span class="p">();</span>
+
+<span class="c1">// Now load the model:</span>
+<span class="n">window</span><span class="o">-&gt;</span><span class="n">load_model</span><span class="p">(</span><span class="n">framework</span><span class="p">.</span><span class="n">get_models</span><span class="p">(),</span> <span class="n">mydir</span> <span class="o">+</span> <span class="s">&quot;/models/mymodel.egg&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>You need to keep in mind that the</p>
+<p>Operating System&#8217;s</p>
+<div class="line-block">
+<div class="line"><a href="#id2"><span class="problematic" id="id3">``</span></a>standard</div>
+</div>
+<p>python</p>
+<p>``
+| <a href="#id4"><span class="problematic" id="id5">``</span></a>functions</p>
+<p>(like os.remove())</p>
+<p>``
+| <code class="docutils literal"><span class="pre">work&nbsp;with&nbsp;OS&nbsp;specific&nbsp;paths.&nbsp;So&nbsp;do&nbsp;not&nbsp;forget&nbsp;to&nbsp;convert&nbsp;your&nbsp;OS&nbsp;Generic&nbsp;paths&nbsp;back&nbsp;to&nbsp;OS&nbsp;Specific&nbsp;paths&nbsp;when&nbsp;using&nbsp;built-in&nbsp;functions.&nbsp;In&nbsp;cases&nbsp;that&nbsp;Panda&nbsp;offers&nbsp;equivalent&nbsp;functions&nbsp;through&nbsp;the&nbsp;Filename&nbsp;class,&nbsp;it&nbsp;is&nbsp;recommended&nbsp;to&nbsp;use&nbsp;that&nbsp;instead.</span></code></p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="loading-actors-and-animations.html" class="btn btn-neutral float-right" title="Loading Actors and Animations" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Models and Actors" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Panda3D.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.10.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

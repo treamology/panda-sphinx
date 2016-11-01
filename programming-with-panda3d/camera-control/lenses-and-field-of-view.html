@@ -1,0 +1,413 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Lenses and Field of View &mdash; Panda3D Manual</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Panda3D Manual" href="../../index.html"/>
+        <link rel="up" title="Camera Control" href="index.html"/>
+        <link rel="next" title="Orthographic Lenses" href="orthographic-lenses.html"/>
+        <link rel="prev" title="The Default Camera Driver" href="the-default-camera-driver.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Panda3D
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.10
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../intro/index.html">Introduction to Panda3D</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Programming with Panda3D</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../the-scene-graph/index.html">The Scene Graph</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../the-configuration-file/index.html">The Configuration File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../models-and-actors/index.html">Models and Actors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-attributes/index.html">Render Attributes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../texturing/index.html">Texturing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shaders/index.html">Shaders</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Camera Control</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="the-default-camera-driver.html">The Default Camera Driver</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Lenses and Field of View</a></li>
+<li class="toctree-l3"><a class="reference internal" href="orthographic-lenses.html">Orthographic Lenses</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../sound/index.html">Sound</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intervals/index.html">Intervals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks-and-event-handling/index.html">Tasks and Event Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../text-and-image-rendering/index.html">Text and Image Rendering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../directgui/index.html">DirectGUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-effects/index.html">Render Effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../finite-state-machines/index.html">Finite State Machines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../terrain/index.html">Terrain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internal-structures/index.html">Advanced operations with Panda3D&#8217;s internal structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-to-texture-and-image-postprocessing/index.html">Render-to-Texture and Image Postprocessing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../panda3d-rendering-process/index.html">Panda3D Rendering Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../panda3d-utility-functions.html">Panda3D Utility Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../particle-effects/index.html">Particle Effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../collision-detection/index.html">Collision Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../garbage-collection/index.html">Garbage Collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hardware-support/index.html">Hardware support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../math-engine/index.html">Math Engine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../motion-paths.html">Motion Paths</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../timing/index.html">Timing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../networking/index.html">Networking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../multifiles/index.html">Multifiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../showbase.html">ShowBase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../file-reading.html">File Reading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../threading.html">Threading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../subclassing.html">Subclassing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../table-of-features-supported-per-graphic-renderer.html">Table of features supported per graphic renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pandai/index.html">Artificial Intelligence (PANDAI)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../distribution/index.html">Distributing Panda3D Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../samples/index.html">Sample Programs in the Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../debugging/index.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../performance-tuning/index.html">Performance Tuning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../using-c++/index.html">Using C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/index.html">Panda3D Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../building-from-source.html">Building Panda3D from Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cheat-sheets.html">Cheat Sheets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started-on-osx.html">Getting Started on OSX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../more-panda3d-resources.html">More Panda3D Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../thirdparty-licenses.html">Third-party dependencies and license info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../the-irc-channel.html">The IRC Channel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">FAQ</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Panda3D</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Programming with Panda3D</a> &raquo;</li>
+      
+          <li><a href="index.html">Camera Control</a> &raquo;</li>
+      
+    <li>Lenses and Field of View</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/programming-with-panda3d/camera-control/lenses-and-field-of-view.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="lenses-and-field-of-view">
+<span id="id1"></span><h1>Lenses and Field of View<a class="headerlink" href="#lenses-and-field-of-view" title="Permalink to this headline">¶</a></h1>
+<p>Every Camera has a Lens object that defines the properties of its view. For
+simple applications, you do not need to think about the lens; you will
+probably be happy with the default lens properties. However, you will
+occasionally want to adjust some properties of the lens, such as its field of
+view, and there are several interfaces to do this, depending on how you want
+to think about the lens.</p>
+<p>When you start Panda3D, a default camera and lens are created for you
+automatically. The default camera object is stored in
+<code class="docutils literal"><span class="pre">base.cam``(although</span> <span class="pre">by</span>
+<span class="pre">convention,</span> <span class="pre">if</span> <span class="pre">you</span> <span class="pre">want</span> <span class="pre">to</span> <span class="pre">move</span> <span class="pre">the</span> <span class="pre">default</span> <span class="pre">camera</span> <span class="pre">you</span> <span class="pre">should</span> <span class="pre">manipulate</span>
+<span class="pre">``base.camera</span></code> instead), and the
+default lens is <code class="docutils literal"><span class="pre">base.camLens</span></code>.</p>
+<p>This default lens will almost always be a perspective lens&#8211;that is, an
+instance of the class
+<code class="docutils literal"><span class="pre">PerspectiveLens</span></code>&#8211;unless you have done
+something to change it to another kind of lens. A perspective lens is by far
+the most common kind of lens used, and it behaves the same way the physical
+lens in a camera works, or for that matter the same way the lenses in our eyes
+work:</p>
+<p><img alt="Lens tutorial, perspective view" src="../../_images/lens-tutorial-perspective.jpg" /></p>
+<p>The illustration above shows a camera with an ordinary perspective lens
+observing a model in the world. The camera can only see the part of the world
+that falls within the black lines; this area is called the lens frustum.</p>
+<p>In the picture, you can also see the image that the lens is capturing (and
+that image is shown upside-down, just as it would be in a real, physical
+camera). This image is just for the purposes of illustration; it isn&#8217;t really
+part of a Panda3D camera. It is included to help show the relationship between
+a Panda3D lens and a real, physical lens.</p>
+<p>There are several different properties that can be set on a PerspectiveLens.
+Not all of them are independent; setting some properties will change the
+values of other properties. Here is an illustration:</p>
+<p><img alt="Lens tutorial, top view" src="../../_images/lens-tutorial-top.jpg" /></p>
+<p>A. This point is the nodal point or eyepoint of the lens. It is also (usually)
+the origin, that is, the (0, 0, 0) point of the camera that holds the lens.
+Normally (in a default Z-up coordinate system), the lens will be looking down
+the +Y axis, so in the above illustration the +Y axis extends to the right
+from point A. The plane containing the nodal point, perpendicular the viewing
+direction (that is, the plane corresponding to the vertical line through point
+A), is called the camera plane.</p>
+<p>Although it is possible to change the nodal point or view direction of a lens
+to some point other than (0, 0, 0) or some direction other than down the +Y
+axis, it is usually simplest and best just to move the entire camera using the
+basic NodePath operations like setPos() and setHpr().</p>
+<p>B. This angle is the field of view, or fov, of the lens. You can easily change
+this by setting a new value in degrees with
+<code class="docutils literal"><span class="pre">lens.setFov(angle)</span></code>. Making the field of
+view smaller will bring things in closer, like a telephoto lens; it will also
+diminish the visible effects of perspective. Making the field of view larger
+will open up the view to more objects, like a wide-angle lens; it will also
+increase the visible distortion of perspective. The field of view must be
+greater than 0 degrees and less than 180, but values greater than 90 will seem
+extremely distorted. (In the real world, perspective lenses rarely go wider
+than 80 degrees, and that&#8217;s pretty wide.) The default field of view is 40
+degrees, which is usually a pretty comfortable viewing angle.</p>
+<p>There is actually a separate horizontal field of view and vertical field of
+view, both of which may be independently controlled with the two-parameter
+form of setFov: <code class="docutils literal"><span class="pre">lens.setFov(horizontalAngle,</span> <span class="pre">verticalAngle)</span></code>. Using
+the two-parameter form will change the aspect ratio of the lens (see below).
+Normally, you would set the field of view using only the one-parameter form,
+which sets the horizontal field of view directly, and automatically recomputes
+the vertical field of view to preserve the same aspect ratio.</p>
+<p>C. This distance is called the near distance or near plane of the lens.
+Objects that are closer than this to the camera plane will not be rendered.
+You may set the near distance as small as you like, but it must be greater
+than 0; and the smaller you set it, the greater the likelihood that you will
+observe an artifact called Z-fighting, a shimmering of objects that are off in
+the distance. The default near distance is 1.0, which for many scenes is a
+reasonable compromise. Of course, the most appropriate value for your scene
+depends on the nature of the scene (as well as the measurement units in which
+your scene is modeled).</p>
+<p>You may change the near distance at any time with the call
+<code class="docutils literal"><span class="pre">lens.setNear(distance)</span></code>.</p>
+<p>D. This is the far distance or far plane of the lens. Similar to the near
+distance, objects that are farther than this from the camera plane will not be
+rendered. You may set this as large as you like, but like the near distance,
+setting it too large may result in Z-fighting. (However, the near distance
+value has a much greater impact on Z-fighting than the far distance value,
+because of the nature of the math involved.) The default far distance is
+1000.0, which is appropriate for small scenes; you may need to set it larger
+if you have a large scene.</p>
+<p>You may change the far distance with the call
+<code class="docutils literal"><span class="pre">lens.setFar(distance)</span></code>. Since the near
+distance and far distance are often changed at the same time, there is a
+convenience function to set then both:
+<code class="docutils literal"><span class="pre">lens.setNearFar(nearDistance,</span> <span class="pre">farDistance)</span></code>.</p>
+<p>E. This size is the film size of the lens. This is only an abstract concept in
+Panda3D; it is designed to simulate the actual film size of a physical lens.
+In a real, physical camera, the lens casts light onto a piece of film behind
+the lens, and the size of the film impacts the effective field of view of the
+lens via a mathematical formula that every photographer knows (and which I
+won&#8217;t repeat here). In Panda3D, you will probably ignore the film size, unless
+you are a photographer, or you want to set up a virtual lens that exactly
+matches the properties of some real, physical lens.</p>
+<p>You can specify the film size with
+<code class="docutils literal"><span class="pre">lens.setFilmSize(width)</span></code> or
+<code class="docutils literal"><span class="pre">lens.setFilmSize(width,</span> <span class="pre">height)</span></code>. Like field of view,
+the film size has two components, a horizontal film size and a vertical film
+size. Also like field of view, if you specify both components at once it will
+change the aspect ratio of the lens, but if you set only the width, Panda will
+automatically compute the height to keep the aspect ratio the same.</p>
+<p>Setting the film size defines the units to be used for some of the other
+advanced lens properties, such as the focal length (below) and the lens
+offset. For instance, a 35mm camera exposes a rectangle on the film about 24mm
+x 36mm, so if you wanted to simulate a 35mm camera, you would use
+<code class="docutils literal"><span class="pre">lens.setFilmSize(24,</span> <span class="pre">36)</span></code>. This establishes that
+your film units are in millimeters, so you could then specify a lens with a
+focal length of 50mm using
+<code class="docutils literal"><span class="pre">lens.setFocalLength(50)</span></code>. (Setting both the film
+size and the focal length like this would automatically calculate the field of
+view; see below.)</p>
+<p>F. This distance is the focal length of the lens. Like film size, this is only
+an abstract concept in Panda3D, but it is a very important concept in a real,
+physical camera. Technically, it is the distance between a lens&#8217;s nodal point
+or camera plane and its focal plane or film plane, and it affects the field of
+view of the lens. In real photography, lenses are typically described by their
+focal length, rather than by their field of view. You can set the focal length
+via <code class="docutils literal"><span class="pre">lens.setFocalLength(distance)</span></code>.</p>
+<p>G (not pictured). The final important property of a lens is its aspect ratio.
+This is the ratio of the width to the height of the image produced by the
+lens. It is almost, but not quite, the same as the ratio of the horizontal
+field of view to the vertical field of view. (It is not quite this, because a
+perspective lens is not linear in proportion to the angle.) Normally, you will
+want the aspect ratio of the lens to match the aspect ratio of your window; if
+it is something different, the image may seem stretched or squashed.</p>
+<p>You can set the aspect ratio explicitly via
+<code class="docutils literal"><span class="pre">lens.setAspectRatio(ratio)</span></code>. For instance, if you
+open a window that is 800 pixels wide and 300 pixels tall, you might want to
+call <code class="docutils literal"><span class="pre">lens.setAspectRatio(800.0</span> <span class="pre">/</span> <span class="pre">300.0)</span></code>.</p>
+<div class="section" id="interplay-of-lens-properties">
+<h2>Interplay of lens properties<a class="headerlink" href="#interplay-of-lens-properties" title="Permalink to this headline">¶</a></h2>
+<p>Note that, as mentioned above, several of these properties are interrelated.
+In particular, the field of view, focal length, and film size are closely tied
+together. Setting any two of these three properties will implicitly define the
+third one.</p>
+<p>Panda will let you set all three of these properties as often as you like, but
+only the last two properties you set will be important. That is, if you set
+field of view and film size, Panda will calculate the focal length. If you set
+film size and focal length, Panda will calculate the field of view. If you set
+focal length and field of view, Panda will calculate the film size.</p>
+<p>Also, the aspect ratio can be set either implicitly, by using the
+two-parameter <code class="docutils literal"><span class="pre">setFov()</span></code> or
+<code class="docutils literal"><span class="pre">setFilmSize()</span></code> methods, or explicitly,
+by directly specifying it with
+<code class="docutils literal"><span class="pre">setAspectRatio()</span></code>. If you set the aspect
+ratio explicitly, Panda will recompute your vertical field of view and
+vertical film size to match.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="orthographic-lenses.html" class="btn btn-neutral float-right" title="Orthographic Lenses" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="the-default-camera-driver.html" class="btn btn-neutral" title="The Default Camera Driver" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Panda3D.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.10.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

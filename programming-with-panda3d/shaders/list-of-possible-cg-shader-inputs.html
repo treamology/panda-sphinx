@@ -1,0 +1,745 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>List of Possible Cg Shader Inputs &mdash; Panda3D Manual</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Panda3D Manual" href="../../index.html"/>
+        <link rel="up" title="Shaders" href="index.html"/>
+        <link rel="next" title="List of GLSL Shader Inputs" href="list-of-glsl-shader-inputs.html"/>
+        <link rel="prev" title="Shader Basics" href="shader-basics.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Panda3D
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.10
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../intro/index.html">Introduction to Panda3D</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Programming with Panda3D</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../the-scene-graph/index.html">The Scene Graph</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../the-configuration-file/index.html">The Configuration File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../models-and-actors/index.html">Models and Actors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-attributes/index.html">Render Attributes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../texturing/index.html">Texturing</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Shaders</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="shader-basics.html">Shader Basics</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">List of Possible Cg Shader Inputs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="list-of-glsl-shader-inputs.html">List of GLSL Shader Inputs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="shaders-and-coordinate-spaces.html">Shaders and Coordinate Spaces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="known-shader-issues.html">Known Shader Bugs and Limitations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="the-shader-generator.html">The Shader Generator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cg-shader-tutorial/index.html">Cg Shader Tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="compute-shaders.html">Compute Shaders</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../camera-control/index.html">Camera Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sound/index.html">Sound</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intervals/index.html">Intervals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks-and-event-handling/index.html">Tasks and Event Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../text-and-image-rendering/index.html">Text and Image Rendering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../directgui/index.html">DirectGUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-effects/index.html">Render Effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../finite-state-machines/index.html">Finite State Machines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../terrain/index.html">Terrain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internal-structures/index.html">Advanced operations with Panda3D&#8217;s internal structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-to-texture-and-image-postprocessing/index.html">Render-to-Texture and Image Postprocessing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../panda3d-rendering-process/index.html">Panda3D Rendering Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../panda3d-utility-functions.html">Panda3D Utility Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../particle-effects/index.html">Particle Effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../collision-detection/index.html">Collision Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../garbage-collection/index.html">Garbage Collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hardware-support/index.html">Hardware support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../math-engine/index.html">Math Engine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../motion-paths.html">Motion Paths</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../timing/index.html">Timing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../networking/index.html">Networking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../multifiles/index.html">Multifiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../showbase.html">ShowBase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../file-reading.html">File Reading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../threading.html">Threading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../subclassing.html">Subclassing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../table-of-features-supported-per-graphic-renderer.html">Table of features supported per graphic renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pandai/index.html">Artificial Intelligence (PANDAI)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../distribution/index.html">Distributing Panda3D Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../samples/index.html">Sample Programs in the Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../debugging/index.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../performance-tuning/index.html">Performance Tuning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../using-c++/index.html">Using C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/index.html">Panda3D Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../building-from-source.html">Building Panda3D from Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cheat-sheets.html">Cheat Sheets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started-on-osx.html">Getting Started on OSX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../more-panda3d-resources.html">More Panda3D Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../thirdparty-licenses.html">Third-party dependencies and license info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../the-irc-channel.html">The IRC Channel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">FAQ</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Panda3D</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Programming with Panda3D</a> &raquo;</li>
+      
+          <li><a href="index.html">Shaders</a> &raquo;</li>
+      
+    <li>List of Possible Cg Shader Inputs</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/programming-with-panda3d/shaders/list-of-possible-cg-shader-inputs.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="list-of-possible-cg-shader-inputs">
+<span id="id1"></span><h1>List of Possible Cg Shader Inputs<a class="headerlink" href="#list-of-possible-cg-shader-inputs" title="Permalink to this headline">¶</a></h1>
+<p>In many cases, it is desirable to access information from the render state or
+from the 3-D transformation of the node that is currently being rendered.
+Instead of having to pass all this information manually, it is possible to
+name your variables in a special way that Panda3D will recognize and
+automatically populate with the relevant data.</p>
+<p>The following table describes the inputs that can be used in Cg shaders.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="41%" />
+<col width="59%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">CG Input</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>XXXREPLACE-ee61fca6b083d004cf79
+431a92218195fb188d16XXX</td>
+<td>The model&#8217;s first texture. This requires that
+the model be textured in the normal manner.
+You may also use tex_1, tex_2, and so forth,
+if the model is multitextured.</td>
+</tr>
+<tr class="row-odd"><td>XXXREPLACE-aad2030d32c6bd07680a
+89692946efde09b91d11XXX</td>
+<td>If the model uses a 3D texture or a cubemap,
+use tex3D and texCUBE to access the color.</td>
+</tr>
+<tr class="row-even"><td>XXXREPLACE-21fbcf384fc17bb28018
+65a21ed336b92493c1b4XXX</td>
+<td>Vertex Position. Vertex shader only. You may
+also use float4, in which case (w==1).</td>
+</tr>
+<tr class="row-odd"><td>XXXREPLACE-3c26cfe76fa029981a75
+06bb2bcac189877319d1XXX</td>
+<td>Vertex Normal. Vertex shader only.</td>
+</tr>
+<tr class="row-even"><td>XXXREPLACE-3d80c02aee56d6defe37
+8bcdd5e24794f9326876XXX</td>
+<td>Vertex color. Vertex shader only.</td>
+</tr>
+<tr class="row-odd"><td>XXXREPLACE-8b8da4cc28141f16d5e8
+3abc3a68d68e95eb0e8eXXX</td>
+<td>UV(W) coordinate set associated with the
+model&#8217;s first texture. This requires that the
+model be textured in the normal manner. You
+may also use vtx_texcoord1, vtx_texcoord2,
+and so forth if the model is multitextured.
+Vertex shader only.</td>
+</tr>
+<tr class="row-even"><td>XXXREPLACE-5bc038169a0020623f8d
+cd0ae4556374650b04d4XXX</td>
+<td>From Panda3D 1.9 onward, this refers to the
+default (unnamed) set of UV(W) coordinates, if
+present, rather than being an alias for
+vtx_texcoord0. Vertex shader only.</td>
+</tr>
+<tr class="row-odd"><td>XXXREPLACE-23ef7d4c817b2822c2e6
+73c78c8b5eb483fcac99XXX</td>
+<td>From Panda3D 1.9 onward, this refers to a set
+of UV(W) coordinates with the given name.
+Vertex shader only.</td>
+</tr>
+<tr class="row-even"><td>XXXREPLACE-ad0140f2fd4a6d4e146b
+8c74c7c750efa461aa63XXX</td>
+<td>Tangent vector associated with the model&#8217;s
+first texture. This can only be used if the
+model has been textured in the normal manner,
+and if binormals have been precomputed. You
+may also use vtx_tangent1, vtx_tangent2, and
+so forth if the model is multitextured. Vertex
+shader only.</td>
+</tr>
+<tr class="row-odd"><td>XXXREPLACE-381351885d5d76fb7e18
+750ab6d7412103daa265XXX</td>
+<td>Binormal vector associated with
+vtx_texcoord0. This can only be used if the
+model has been textured in the normal manner,
+and if binormals have been precomputed. You
+can also use vtx_binormal1, vtx_binormal2,
+and so forth if the model has been
+multitextured. Vertex shader only.</td>
+</tr>
+<tr class="row-even"><td>XXXREPLACE-7a5e56662cb421c54c76
+0020cbeb31f1d436009eXXX</td>
+<td>Panda makes it possible to store arbitrary
+columns of user-defined data in the vertex
+table; see :ref:` &lt;geomvertexdata&gt;`. You can
+access this data using this syntax. For
+example, vtx_chicken will look for a column
+named &#8220;chicken&#8221; in the vertex array. Vertex
+shader only.</td>
+</tr>
+<tr class="row-odd"><td>XXXREPLACE-c8fc7deb8dc4f7f7fd23
+ddc1498d0b7379d391f7XXX</td>
+<td>A matrix that transforms from coordinate
+system X to coordinate system Y. See the
+section on
+:ref:` &lt;shaders-and-coordinate-spaces&gt;` for
+more information.</td>
+</tr>
+<tr class="row-even"><td>XXXREPLACE-e1cb5f95f7136699441c
+100140dd9fb6374d3e7bXXX</td>
+<td>Transpose of trans_x_to_y</td>
+</tr>
+<tr class="row-odd"><td>XXXREPLACE-74a608fcbc8719928d2e
+18e1e2fa0b78cc2cc916XXX</td>
+<td>Row 0 of trans_x_to_y.</td>
+</tr>
+<tr class="row-even"><td>XXXREPLACE-4cc1e6e14061d4e1f3db
+8fd0cb1853efde86b6a9XXX</td>
+<td>Row 1 of trans_x_to_y.</td>
+</tr>
+<tr class="row-odd"><td>XXXREPLACE-e315d787cd670c569df9
+e8d8f7685e87b0c5c0c5XXX</td>
+<td>Row 2 of trans_x_to_y.</td>
+</tr>
+<tr class="row-even"><td>XXXREPLACE-08d6bdd2cd3192ff29a1
+dcf713578ae77af3e0bdXXX</td>
+<td>Row 3 of trans_x_to_y.</td>
+</tr>
+<tr class="row-odd"><td>XXXREPLACE-ce3a4d3948710fa96ef0
+58f1fbc06eef735bae59XXX</td>
+<td>Col 0 of trans_x_to_y.</td>
+</tr>
+<tr class="row-even"><td>XXXREPLACE-7f917d99225f9bc8c3e3
+eae374aefbec7397d9e2XXX</td>
+<td>Col 1 of trans_x_to_y.</td>
+</tr>
+<tr class="row-odd"><td>XXXREPLACE-e3425eb94ecede1cfa2c
+413232fce3943b080f52XXX</td>
+<td>Col 2 of trans_x_to_y.</td>
+</tr>
+<tr class="row-even"><td>XXXREPLACE-77b91e4951525d1c803d
+eaeea40aac5b30199e11XXX</td>
+<td>Col 3 of trans_x_to_y.</td>
+</tr>
+<tr class="row-odd"><td>XXXREPLACE-8e0d3d3d05f8a8ede3d9
+8a314b80b433eb43f8edXXX</td>
+<td>Model-Space Transform of X, aka
+trans_x_to_model</td>
+</tr>
+<tr class="row-even"><td>XXXREPLACE-43f4ac889e8d13672c42
+433675f935a24a54c363XXX</td>
+<td>Clip-Space Transform of X, aka
+trans_x_to_clip</td>
+</tr>
+<tr class="row-odd"><td>XXXREPLACE-93a912eff5b3dd568eb3
+c5dd0a4c691f3413d8b1XXX</td>
+<td>World-Space Transform of X, aka
+trans_x_to_world</td>
+</tr>
+<tr class="row-even"><td>XXXREPLACE-47d3e5da7ffbaae4c9c6
+7060e619cd240ea290f8XXX</td>
+<td>View-Space Transform of X, aka
+trans_x_to_view</td>
+</tr>
+<tr class="row-odd"><td>XXXREPLACE-fee247bf08084658898b
+46da06728e00b21edd1aXXX</td>
+<td>Model-Space Position of X, aka
+row3_x_to_model</td>
+</tr>
+<tr class="row-even"><td>XXXREPLACE-958ba8168462233c8815
+46aca915d8813c175813XXX</td>
+<td>Clip-Space Position of X, aka
+row3_x_to_clip</td>
+</tr>
+<tr class="row-odd"><td>XXXREPLACE-f5d1d2ca0bd8496a1884
+2063497eabe6e69261efXXX</td>
+<td>World-Space Position of X, aka
+row3_x_to_world</td>
+</tr>
+<tr class="row-even"><td>XXXREPLACE-3ba1704075cafa5e748c
+11882509374659f414e5XXX</td>
+<td>View-Space Position of X, aka
+row3_x_to_view</td>
+</tr>
+<tr class="row-odd"><td>XXXREPLACE-d222a852ebd7ca8b0802
+3f72837efae5831804e1XXX</td>
+<td>Modelview matrix, transforming model-space
+coordinates to camera-space coordinates.</td>
+</tr>
+<tr class="row-even"><td>XXXREPLACE-60be7f6b418e47a9db0b
+2c96c2aa8d0e7d10ffa7XXX</td>
+<td>Inverse of the model-view Matrix</td>
+</tr>
+<tr class="row-odd"><td>XXXREPLACE-52adc2c0efe44900d2ca
+017205a54aa97a5b9c4cXXX</td>
+<td>Transposed Modelview Matrix</td>
+</tr>
+<tr class="row-even"><td>XXXREPLACE-c866e1d716b46de92fa2
+fb8e6ad1b78c1d332467XXX</td>
+<td>Inverse Transposed Modelview Matrix</td>
+</tr>
+<tr class="row-odd"><td>XXXREPLACE-dd5317c543b932bbd863
+f851e87a4f2847396041XXX</td>
+<td>Projection Matrix</td>
+</tr>
+<tr class="row-even"><td>XXXREPLACE-86f5992522b25d9340cf
+434c1114c0c18ad6dffcXXX</td>
+<td>Inverse Projection Matrix</td>
+</tr>
+<tr class="row-odd"><td>XXXREPLACE-a7f6281a5fe826c52acf
+cf03be06cecc4701888fXXX</td>
+<td>Transposed Projection Matrix</td>
+</tr>
+<tr class="row-even"><td>XXXREPLACE-29f98aaeacba44df301e
+da5297d9cd55cbf21263XXX</td>
+<td>Inverse Transposed Projection Matrix</td>
+</tr>
+<tr class="row-odd"><td>XXXREPLACE-d8a2cb01739769c34e98
+a35b100ef18edf35f80bXXX</td>
+<td>Composed Modelview/Projection Matrix</td>
+</tr>
+<tr class="row-even"><td>XXXREPLACE-a88574a14e3f8742c614
+cacd4fbd5087b4db7a35XXX</td>
+<td>Inverse ModelProj Matrix</td>
+</tr>
+<tr class="row-odd"><td>XXXREPLACE-71e529f58a7ad6ae1065
+595d1623ba248b554145XXX</td>
+<td>Transposed ModelProj Matrix</td>
+</tr>
+<tr class="row-even"><td>XXXREPLACE-f996cfead6b49ac91872
+8a79c7f7702f17d3f60aXXX</td>
+<td>Inverse Transposed ModelProj Matrix</td>
+</tr>
+<tr class="row-odd"><td>XXXREPLACE-dcfaafa44c2e29ccba9f
+412ef4529124b8790bfaXXX</td>
+<td>A constant vector that was stored using
+XXXREPLACE-166d220e69ac62fe398d901c39139782013
+7430fXXX.
+Parameter anything would match data supplied
+by the call setShaderInput(&#8220;anything&#8221;,
+Vec4(x,y,z,w))</td>
+</tr>
+<tr class="row-even"><td>XXXREPLACE-33f7d4c784edc1032401
+395e0ed3e3146e78676cXXX</td>
+<td>A constant texture that was stored using
+XXXREPLACE-166d220e69ac62fe398d901c39139782013
+7430fXXX.
+Parameter <em>anything</em> would match data supplied
+by the call
+XXXREPLACE-f9c9794fb0d6f7fe5e7a2ea51202d9e8112
+c12ffXXX</td>
+</tr>
+<tr class="row-odd"><td>XXXREPLACE-588e0858060cd5bd0956
+d8b5d2ac9f8eb2381dcbXXX</td>
+<td>A constant matrix that was stored using
+XXXREPLACE-166d220e69ac62fe398d901c39139782013
+7430fXXX.
+Parameter anything would match data supplied
+by the call setShaderInput(&#8220;anything&#8221;,
+myNodePath). The matrix supplied is the
+nodepath&#8217;s local transform.</td>
+</tr>
+<tr class="row-even"><td>XXXREPLACE-257e17922805bff24aa8
+762396511fa66a3f354bXXX</td>
+<td>X must be the name of a texture specified via
+shaderInput. Contains the U,V coordinates of
+the center of the texture. This will be
+(0.5,0.5) if the texture is not padded, but it
+will be less if the texture is padded.</td>
+</tr>
+<tr class="row-odd"><td>XXXREPLACE-433b04446d1aec3445ad
+a3a39fbccb297bd4c83fXXX</td>
+<td>X must be the name of a texture specified via
+shaderInput. Contains the U,V offset of a
+single pixel in the texture (ie, the
+reciprocal of the texture size).</td>
+</tr>
+<tr class="row-even"><td>XXXREPLACE-69171425cea5d8acbc7d
+fac921ee96a219a2a485XXX</td>
+<td>The contents of the material attribute. Row 0
+is ambient, Row 1 is diffuse, Row 2 is
+emission, Row 3 is specular, with shininess in
+W.</td>
+</tr>
+<tr class="row-odd"><td>XXXREPLACE-5570aaf10355024eab81
+92965c8d97f630a3bf2dXXX</td>
+<td>The contents of the color attribute. This is
+white unless the model has a flat color
+applied.</td>
+</tr>
+<tr class="row-even"><td>XXXREPLACE-ba42cb69ffe3f9060b85
+7347bce66cb76dfb2bb4XXX</td>
+<td><p class="first">The contents of the color scale attribute.
+This is white unless the model has a color
+scale applied using nodePath.setColorScale.</p>
+<p class="last">This variable is only available in 1.6.2 and
+above.</p>
+</td>
+</tr>
+<tr class="row-odd"><td>XXXREPLACE-fb2bae8ffc7683a12e45
+f48c0dbbd9dddd090412XXX</td>
+<td><p class="first">The fog parameters, where applicable. The
+values are in order: density, start, end,
+scale. The density is for exponential fog
+only, the start, end and scale are for linear
+fog only. The scale is equal to 1 / (end -
+start).</p>
+<p class="last">New in Panda3D 1.8.</p>
+</td>
+</tr>
+<tr class="row-even"><td>XXXREPLACE-f8f82e6c43eb862a0e3a
+4a4fc7a8d7ed3c3ba961XXX</td>
+<td>The fog color, if applicable. New in Panda3D
+1.8.</td>
+</tr>
+<tr class="row-odd"><td>XXXREPLACE-82dd291aeb81626a2e52
+9f0da55c019b0acad15bXXX</td>
+<td>X must be an AmbientLight specified via a
+shaderInput. Contains the color of the light.</td>
+</tr>
+<tr class="row-even"><td>XXXREPLACE-69c9f94eee1f4a940098
+7521a51d94bba8c55477XXX</td>
+<td>X must be an DirectionalLight specified via a
+shaderInput. Row 0 is color, row 1 is
+specular, row 2 is model-space direction, row
+3 is model-space pseudo half-angle.</td>
+</tr>
+<tr class="row-odd"><td>XXXREPLACE-aac20706a6aa8070ee01
+04ead8781ec23c8090b1XXX</td>
+<td><p class="first">X must be an PlaneNode specified via a
+shaderInput. Contains the four terms of the
+plane equation.</p>
+<p class="last">This variable is only available in 1.6.2 and
+above.</p>
+</td>
+</tr>
+<tr class="row-even"><td>XXXREPLACE-da5ef1742310c83ca6c2
+0bf93354db2e601b3004XXX</td>
+<td><p class="first">Contains the parameters of the first clipplane
+(also: clipplane_1, clipplane_2, etc. for
+subsequent clip planes) in world-space
+coordinates.</p>
+<p class="last">This variable is only available in 1.6.2 and
+above.</p>
+</td>
+</tr>
+<tr class="row-odd"><td>XXXREPLACE-6d25be988a57d60afbaf
+8bf0375bfa263fc54985XXX</td>
+<td><p class="first">Contains the frame time in seconds.</p>
+<p class="last">This variable is only available in 1.9.0 and
+above.</p>
+</td>
+</tr>
+<tr class="row-even"><td>XXXREPLACE-f74f6ab9ba89fb1b8390
+f4a8ab3c7984f09a7749XXX</td>
+<td>Linearly interpolated Position, as supplied by
+the vertex shader to the fragment shader.
+Declare &#8220;out&#8221; in the vertex shader, &#8220;in&#8221; in
+the fragment shader.</td>
+</tr>
+<tr class="row-odd"><td>XXXREPLACE-63d0cc1323d8f4e7878e
+2753a99f542ab65905daXXX</td>
+<td>Linearly interpolated Primary color, as
+supplied by the vertex shader to the fragment
+shader. Declare &#8220;out&#8221; in the vertex shader,
+&#8220;in&#8221; in the fragment shader.</td>
+</tr>
+<tr class="row-even"><td>XXXREPLACE-827683dfa5c3fa699e40
+f81c857e699a98def94aXXX</td>
+<td>Linearly interpolated Secondary color, as
+supplied by the vertex shader to the fragment
+shader. Declare &#8220;out&#8221; in the vertex shader,
+&#8220;in&#8221; in the fragment shader.</td>
+</tr>
+<tr class="row-odd"><td>XXXREPLACE-8abf2bdc39d80c545af4
+6db0b28b578f82cdb548XXX</td>
+<td>Linearly interpolated Texture Coordinate 0, as
+supplied by the vertex shader to the fragment
+shader. You may also use l_texcoord1,
+l_texcoord2, and so forth. Declare &#8220;out&#8221; in
+the vertex shader, &#8220;in&#8221; in the fragment
+shader.</td>
+</tr>
+<tr class="row-even"><td>XXXREPLACE-4e47b3a246d59a44dec4
+afc627a05542120519a8XXX</td>
+<td>Output Color, as supplied by the fragment
+shader to the blending units. Fragment shader
+only. (COLOR0 is also accepted.)</td>
+</tr>
+<tr class="row-odd"><td>XXXREPLACE-911e3c6c1252d4ee2efa
+602d21d0a8dd1b9ccc63XXX</td>
+<td>Output auxiliary color. Only available if an
+auxiliary was obtained for the shaders target
+buffer/window. Fragment shader only.</td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="using-custom-shader-inputs">
+<h2>Using Custom Shader Inputs<a class="headerlink" href="#using-custom-shader-inputs" title="Permalink to this headline">¶</a></h2>
+<p>As of Panda3D 1.8.0, the capabilities for passing numeric shader inputs have
+been greatly enhanced. The available input types are as follows:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">-</span> <span class="n">Vec4</span>
+<span class="o">-</span> <span class="n">Vec3</span>
+<span class="o">-</span> <span class="n">Vec2</span>
+<span class="o">-</span> <span class="n">Point4</span>
+<span class="o">-</span> <span class="n">Point3</span>
+<span class="o">-</span> <span class="n">Point2</span>
+<span class="o">-</span> <span class="n">Mat4</span>
+<span class="o">-</span> <span class="n">Mat3</span>
+<span class="o">-</span> <span class="n">PTALMatrix4f</span>
+<span class="o">-</span> <span class="n">PTALMatrix3f</span>
+<span class="o">-</span> <span class="n">PTALVecBase4f</span>
+<span class="o">-</span> <span class="n">PTALVecBase3f</span>
+<span class="o">-</span> <span class="n">PTALVecBase2f</span>
+<span class="o">-</span> <span class="n">PTAFloat</span>
+<span class="o">-</span> <span class="n">PTADouble</span>
+</pre></div>
+</div>
+<p>(In Panda3D 1.9.0, the integer versions of these vectors and arrays are also
+supported.)</p>
+<p>For definition let us consider the shader parameter float3. It&#8217;s type is float
+and format is Vec3 (meaning it can hold 3 elements) and a float3x3 input is of
+type float and format Mat3 (meaning it can hold 9 elements)</p>
+<p>The main concept of the shader inputs is that the Cg input format and type is
+independent to the Panda3D input. The only condition is that the number of
+elements passed by the user through the setShaderInput() function of Panda3D
+and the number of elements expected by the shader input should be the same.
+For example a parameter uniform float4x4 mat[4] (total of 16*4 elements)
+could be set with(the below list is just a sample and there are more ways to
+represent it):</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">setShaderInput</span><span class="p">(</span><span class="s2">&quot;input_name&quot;</span><span class="p">,</span><span class="n">PTALMat4f</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span>
+<span class="n">setShaderInput</span><span class="p">(</span><span class="n">PTALVecBase4f</span><span class="p">[</span><span class="mi">16</span><span class="p">])</span>
+<span class="n">setShaderInput</span><span class="p">(</span><span class="n">PTAFloat</span><span class="p">[</span><span class="mi">16</span><span class="o">*</span><span class="mi">4</span><span class="p">])</span>
+<span class="n">setShaderInput</span><span class="p">(</span><span class="n">PTADouble</span><span class="p">[</span><span class="mi">16</span><span class="o">*</span><span class="mi">4</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>But for some Cg input types there is no corresponding Panda3D type such as
+float3x2(Panda3D does not have a corresponding Mat3x2 class) Hence these input
+types can be initiated row-wise as</p>
+<p>1 2 3</p>
+<p>4 5 6</p>
+<p>This row wise input can be sent to the Cg shader in any of the following
+ways(Note that the below list is just a sample and there are more ways to
+represent it)</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">setShaderInput</span><span class="p">(</span><span class="n">PTAFloat</span><span class="p">[</span><span class="mi">6</span><span class="p">])</span>
+<span class="n">setShaderInput</span><span class="p">(</span><span class="n">PTADouble</span><span class="p">[</span><span class="mi">6</span><span class="p">])</span>
+<span class="n">setShaderInput</span><span class="p">(</span><span class="n">PTALVecBase3f</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+<span class="n">setShaderInput</span><span class="p">(</span><span class="n">PTALVecBase2f</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Now, the issue of common input types such as float, double, int, long. The GPU
+registers generally can handle only floats. Hence even if we do send a double
+it will be automatically type casted into float. Hence for such type of inputs
+we can use above types.</p>
+<p>For example, input types such as</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">float3</span> <span class="n">var</span>
+<span class="n">bool3</span> <span class="n">var</span>
+<span class="n">half3</span> <span class="n">var</span>
+<span class="n">double3</span> <span class="n">var</span>
+<span class="n">fixed3</span> <span class="n">var</span>
+<span class="n">int3</span> <span class="n">var</span>
+</pre></div>
+</div>
+<p>Can be sent to your Cg shader program by (the below list is just a sample and
+there are more ways to represent it)</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">setShaderInput</span><span class="p">(</span><span class="n">PTAFloat</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+<span class="n">setShaderInput</span><span class="p">(</span><span class="n">PTADouble</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Below is a sample code snippet that shows how you can use the new shader
+inputs.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">panda3d.core</span> <span class="kn">import</span> <span class="n">Vec4</span>
+<span class="n">vec4</span> <span class="o">=</span> <span class="n">Vec4</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">1.0</span><span class="p">)</span>
+<span class="n">myModel</span><span class="o">.</span><span class="n">setShaderInput</span><span class="p">(</span><span class="s2">&quot;Inputs.vec4&quot;</span><span class="p">,</span><span class="n">vec4</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>First import the necessary header to use the type of input. In our case it&#8217;s
+Vec4. The next statement shows a Vec4 input type. Then set the Vec4 as a
+shader input to your model.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="list-of-glsl-shader-inputs.html" class="btn btn-neutral float-right" title="List of GLSL Shader Inputs" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="shader-basics.html" class="btn btn-neutral" title="Shader Basics" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Panda3D.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.10.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

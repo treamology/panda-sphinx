@@ -1,0 +1,379 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Transparency and Blending &mdash; Panda3D Manual</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Panda3D Manual" href="../../index.html"/>
+        <link rel="up" title="Texturing" href="index.html"/>
+        <link rel="next" title="Texture Management" href="texture-management.html"/>
+        <link rel="prev" title="Stereo/Multiview Textures" href="stereo-multiview-textures.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Panda3D
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.10
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../intro/index.html">Introduction to Panda3D</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Programming with Panda3D</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../the-scene-graph/index.html">The Scene Graph</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../the-configuration-file/index.html">The Configuration File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../models-and-actors/index.html">Models and Actors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-attributes/index.html">Render Attributes</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Texturing</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="simple-texturing.html">Simple Texturing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="choosing-a-texture-size.html">Choosing a Texture Size</a></li>
+<li class="toctree-l3"><a class="reference internal" href="texture-wrap-modes.html">Texture Wrap Modes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="texture-filter-types.html">Texture Filter Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="simple-texture-replacement.html">Simple Texture Replacement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multitexture-introduction.html">Multitexture Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="texture-modes.html">Texture Modes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="texture-order.html">Texture Order</a></li>
+<li class="toctree-l3"><a class="reference internal" href="texture-combine-modes.html">Texture Combine Modes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="texture-transforms.html">Texture Transforms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multiple-texture-coordinate-sets.html">Multiple Texture Coordinate Sets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="automatic-texture-coordinates.html">Automatic Texture Coordinates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="projected-textures.html">Projected Textures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="simple-environment-mapping.html">Simple Environment Mapping</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3d-textures.html">3-D Textures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cube-maps.html">Cube Maps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="environment-mapping-with-cube-maps.html">Environment Mapping with Cube Maps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="automatic-texture-animation.html">Automatic Texture Animation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="playing-mpg-and-avi-files.html">Playing MPG and AVI files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="stereo-multiview-textures.html">Stereo/Multiview Textures</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Transparency and Blending</a></li>
+<li class="toctree-l3"><a class="reference internal" href="texture-management.html">Texture Management</a></li>
+<li class="toctree-l3"><a class="reference internal" href="texture-compression.html">Texture Compression</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../shaders/index.html">Shaders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../camera-control/index.html">Camera Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sound/index.html">Sound</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intervals/index.html">Intervals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks-and-event-handling/index.html">Tasks and Event Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../text-and-image-rendering/index.html">Text and Image Rendering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../directgui/index.html">DirectGUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-effects/index.html">Render Effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../finite-state-machines/index.html">Finite State Machines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../terrain/index.html">Terrain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internal-structures/index.html">Advanced operations with Panda3D&#8217;s internal structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-to-texture-and-image-postprocessing/index.html">Render-to-Texture and Image Postprocessing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../panda3d-rendering-process/index.html">Panda3D Rendering Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../panda3d-utility-functions.html">Panda3D Utility Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../particle-effects/index.html">Particle Effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../collision-detection/index.html">Collision Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../garbage-collection/index.html">Garbage Collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hardware-support/index.html">Hardware support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../math-engine/index.html">Math Engine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../motion-paths.html">Motion Paths</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../timing/index.html">Timing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../networking/index.html">Networking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../multifiles/index.html">Multifiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../showbase.html">ShowBase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../file-reading.html">File Reading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../threading.html">Threading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../subclassing.html">Subclassing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../table-of-features-supported-per-graphic-renderer.html">Table of features supported per graphic renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pandai/index.html">Artificial Intelligence (PANDAI)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../distribution/index.html">Distributing Panda3D Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../samples/index.html">Sample Programs in the Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../debugging/index.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../performance-tuning/index.html">Performance Tuning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../using-c++/index.html">Using C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/index.html">Panda3D Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../building-from-source.html">Building Panda3D from Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cheat-sheets.html">Cheat Sheets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started-on-osx.html">Getting Started on OSX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../more-panda3d-resources.html">More Panda3D Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../thirdparty-licenses.html">Third-party dependencies and license info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../the-irc-channel.html">The IRC Channel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">FAQ</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Panda3D</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Programming with Panda3D</a> &raquo;</li>
+      
+          <li><a href="index.html">Texturing</a> &raquo;</li>
+      
+    <li>Transparency and Blending</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/programming-with-panda3d/texturing/transparency-and-blending.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="transparency-and-blending">
+<span id="id1"></span><h1>Transparency and Blending<a class="headerlink" href="#transparency-and-blending" title="Permalink to this headline">¶</a></h1>
+<p>Dealing with Depth-Sorting Note: this page is cut-and-pasted from a howto we
+found. We&#8217;ll polish it later.</p>
+<p>Usually transparency works as expected in Panda automatically, but sometimes
+it just seems to go awry, where a semitransparent object in the background
+seems to partially obscure a semitransparent object in front of it. This is
+especially likely to happen with large flat polygon cutouts, or when a
+transparent object is contained within another transparent object, or when
+parts of a transparent object can be seen behind other parts of the same
+object.</p>
+<p>The fundamental problem is that correct transparency, in the absence of
+special hardware support involving extra framebuffer bits, requires drawing
+everything in order from farthest away to nearest. This means sorting each
+polygon&#8211;actually, each pixel, for true correctness&#8211;into back-to-front order
+before drawing the scene.</p>
+<p>It is, of course, impossible to split up every transparent object into
+individual pixels or polygons for sorting individually, so Panda sorts objects
+at the Geom level, according to the center of the bounding volume. This works
+well 95% of the time.</p>
+<p>You run into problems with large flat polygons, though, since these tend to
+have parts that are far away from the center of their bounding volume. The
+bounding-volume sorting is especially likely to go awry when you have two or
+more large flats close behind the other, and you view them from slightly
+off-axis. (Try drawing a picture, of the two flats as seen from the top, and
+imagine yourself viewing them from different directions. Also imagine where
+the center of the bounding volumes is.)</p>
+<p>Now, there are a number of solutions to this sort of problem. No one solution
+is right for every situation.</p>
+<p>First, the easiest thing to do is to use M_dual transparency. This is a
+special transparency mode in which the completely invisible parts of the
+object aren&#8217;t drawn into the Z-buffer at all, so that they don&#8217;t have any
+chance of obscuring things behind them. This only works well if the flats are
+typical cutouts, where there is a big solid part (alpha == 1.0) and a big
+transparent part (alpha == 0.0), and not a lot of semitransparent parts (0.0 &lt;
+alpha &lt; 1.0). It is also a slightly more expensive rendering mode than the
+default of M_alpha, so it&#8217;s not enabled by default in Panda. But
+egg-palettize will turn it on automatically for a particular model if it
+detects textures that appear to be cutouts of the appropriate nature, which is
+another reason to use egg-palettize if you are not using it already.</p>
+<p>If you don&#8217;t use egg-palettize (you really should, you know), you can just
+hand-edit the egg files to put the line:</p>
+<div class="highlight-text"><div class="highlight"><pre><span></span>&lt;Scalar&gt; alpha { dual }
+</pre></div>
+</div>
+<p>within the
+&lt;Texture&gt; reference for the textures in question.</p>
+<p>A second easy option is to use M_multisample transparency, which doesn&#8217;t have
+any ordering issues at all, but it only looks good on very high-end cards that
+have special multisample bits to support full-screen antialiasing. Also, at
+the present it only looks good on these high-end cards in OpenGL mode (since
+our pandadx drivers don&#8217;t support M_multisample explicitly right now). But if
+M_multisample is not supported by a particular hardware or panda driver, it
+automatically falls back to M_binary, which also doesn&#8217;t have any ordering
+issues, but it always has jaggy edges along the cutout edge. This only works
+well on texture images that represent cutouts, like M_dual, above.</p>
+<p>If you use egg-palettize, you can engage M_multisample mode by putting the
+keyword &#8220;ms&#8221; on the line with the texture(s). Without egg-palettize, hand-edit
+the egg files to put the line:</p>
+<div class="highlight-text"><div class="highlight"><pre><span></span>&lt;Scalar&gt; alpha { ms }
+</pre></div>
+</div>
+<p>within the
+&lt;Texture&gt; reference for the textures in question.</p>
+<p>A third easy option is to chop up one or both competing models into smaller
+pieces, each of which can be sorted independently by Panda. For instance, you
+can split one big polygon into a grid of little polygons, and the sorting is
+more likely to be accurate for each piece (because the center of the bounding
+volume is closer to the pixels). You can draw a picture to see how this works.
+In order to do this properly, you can&#8217;t just make it one big mesh of small
+polygons, since Panda will make a mesh into a single Geom of tristrips;
+instead, it needs to be separate meshes, so that each one will become its own
+Geom. Obviously, this is slightly more expensive too, since you are
+introducing additional vertices and adding more objects to the sort list; so
+you don&#8217;t want to go too crazy with the smallness of your polygons.</p>
+<p>A fourth option is simply to disable the depth write on your transparent
+objects. This is most effective when you are trying to represent something
+that is barely visible, like glass or a soap bubble. Doing this doesn&#8217;t
+improve the likelihood of correct sorting, but it will tend to make the
+artifacts of an incorrect sorting less obvious. You can achieve this by using
+the transparency option &#8220;blend_no_occlude&#8221; in an egg file, or by explicitly
+disabling the depth write on a loaded model with
+node_path.set_depth_write(false). You should be careful only to disable
+depth write on the transparent pieces, and not on the opaque parts.</p>
+<p>A final option is to make explicit sorting requests to Panda. This is often
+the last resort because it is more difficult, and doesn&#8217;t generalize well, but
+it does have the advantage of not adding additional performance penalties to
+your scene. It only works well when the transparent objects can be sorted
+reliably with respect to everything else behind them. For instance, clouds in
+the sky can reliably be drawn before almost everything else in the scene,
+except the sky itself. Similarly, a big flat that is up against an opaque wall
+can reliably be drawn after all of the opaque objects, but before any other
+transparent object, regardless of where the camera happens to be placed in the
+scene. See howto.control_render_order.txt for more information about
+explicitly controlling the rendering order.</p>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="texture-management.html" class="btn btn-neutral float-right" title="Texture Management" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="stereo-multiview-textures.html" class="btn btn-neutral" title="Stereo/Multiview Textures" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Panda3D.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.10.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

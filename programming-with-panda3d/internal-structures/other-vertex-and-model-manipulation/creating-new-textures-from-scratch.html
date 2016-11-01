@@ -1,0 +1,412 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Creating New Textures from Scratch &mdash; Panda3D Manual</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Panda3D Manual" href="../../../index.html"/>
+        <link rel="up" title="Other Vertex and Model Manipulation" href="index.html"/>
+        <link rel="next" title="Writing 3D Models out to Disk" href="writing-3d-models-out-to-disk.html"/>
+        <link rel="prev" title="More about GeomVertexReader, GeomVertexWriter, and GeomVertexRewriter" href="more-about-geomvertexreader-geomvertexwriter-and-geomvertexrewriter.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Panda3D
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.10
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../intro/index.html">Introduction to Panda3D</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Programming with Panda3D</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../the-scene-graph/index.html">The Scene Graph</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../the-configuration-file/index.html">The Configuration File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../models-and-actors/index.html">Models and Actors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../render-attributes/index.html">Render Attributes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../texturing/index.html">Texturing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../shaders/index.html">Shaders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../camera-control/index.html">Camera Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../sound/index.html">Sound</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../intervals/index.html">Intervals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tasks-and-event-handling/index.html">Tasks and Event Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../text-and-image-rendering/index.html">Text and Image Rendering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../directgui/index.html">DirectGUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../render-effects/index.html">Render Effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../finite-state-machines/index.html">Finite State Machines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../terrain/index.html">Terrain</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Advanced operations with Panda3D&#8217;s internal structures</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../how-panda3d-stores-vertices-and-geometry/index.html">How Panda3D Stores Vertices and Geometry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../procedural-generation/index.html">Procedurally Generating 3D Models</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Other Vertex and Model Manipulation</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="reading-existing-geometry-data.html">Reading existing geometry data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modifying-existing-geometry-data.html">Modifying existing geometry data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="meshdrawer.html">MeshDrawer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="more-about-geomvertexreader-geomvertexwriter-and-geomvertexrewriter.html">More about GeomVertexReader, GeomVertexWriter, and GeomVertexRewriter</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Creating New Textures from Scratch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="writing-3d-models-out-to-disk.html">Writing 3D Models out to Disk</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../render-to-texture-and-image-postprocessing/index.html">Render-to-Texture and Image Postprocessing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../panda3d-rendering-process/index.html">Panda3D Rendering Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../panda3d-utility-functions.html">Panda3D Utility Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../particle-effects/index.html">Particle Effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../collision-detection/index.html">Collision Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../garbage-collection/index.html">Garbage Collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hardware-support/index.html">Hardware support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../math-engine/index.html">Math Engine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../motion-paths.html">Motion Paths</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../timing/index.html">Timing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../networking/index.html">Networking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../multifiles/index.html">Multifiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../showbase.html">ShowBase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../file-reading.html">File Reading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../threading.html">Threading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../subclassing.html">Subclassing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../table-of-features-supported-per-graphic-renderer.html">Table of features supported per graphic renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../pandai/index.html">Artificial Intelligence (PANDAI)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../distribution/index.html">Distributing Panda3D Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../samples/index.html">Sample Programs in the Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../debugging/index.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../performance-tuning/index.html">Performance Tuning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../using-c++/index.html">Using C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tools/index.html">Panda3D Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../building-from-source.html">Building Panda3D from Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cheat-sheets.html">Cheat Sheets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting-started-on-osx.html">Getting Started on OSX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../more-panda3d-resources.html">More Panda3D Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../thirdparty-licenses.html">Third-party dependencies and license info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../the-irc-channel.html">The IRC Channel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../faq.html">FAQ</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../index.html">Panda3D</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../index.html">Programming with Panda3D</a> &raquo;</li>
+      
+          <li><a href="../index.html">Advanced operations with Panda3D&#8217;s internal structures</a> &raquo;</li>
+      
+          <li><a href="index.html">Other Vertex and Model Manipulation</a> &raquo;</li>
+      
+    <li>Creating New Textures from Scratch</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../_sources/programming-with-panda3d/internal-structures/other-vertex-and-model-manipulation/creating-new-textures-from-scratch.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="creating-new-textures-from-scratch">
+<span id="id1"></span><h1>Creating New Textures from Scratch<a class="headerlink" href="#creating-new-textures-from-scratch" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="the-pnmimage-class">
+<h2>The PNMImage Class<a class="headerlink" href="#the-pnmimage-class" title="Permalink to this headline">¶</a></h2>
+<p>This class is how Panda3D handles regular images (.gif, .jpg, and the like).
+This class allows you to manipulate individual pixels of the image. You can
+load existing images using the function
+<code class="docutils literal"><span class="pre">read(fileName)</span></code> where
+<code class="docutils literal"><span class="pre">filename</span></code> is the path to the
+image file (in :ref:` &lt;loading-models&gt;`) wrapped in a
+<a href="#id2"><span class="problematic" id="id3">``</span></a>Filename `` object. Or, you can
+create a brand new image from scratch, by passing the x, y size to the
+constructor.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">myImage</span> <span class="o">=</span> <span class="n">PNMImage</span><span class="p">()</span>
+<span class="n">myImage</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">Filename</span><span class="p">(</span><span class="s2">&quot;testImg.png&quot;</span><span class="p">))</span>
+<span class="n">myEmptyImage</span> <span class="o">=</span> <span class="n">PNMImage</span><span class="p">(</span><span class="mi">256</span><span class="p">,</span> <span class="mi">256</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">PNMImage</span> <span class="n">myImage</span><span class="p">;</span>
+<span class="n">myImage</span><span class="p">.</span><span class="n">read</span><span class="p">(</span><span class="n">Filename</span><span class="p">(</span><span class="s">&quot;testImg.png&quot;</span><span class="p">),</span><span class="n">PNMFileTypeRegistry</span><span class="o">::</span><span class="n">get_global_ptr</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">get_type_from_extension</span><span class="p">(</span><span class="s">&quot;png&quot;</span><span class="p">),</span><span class="nb">true</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>You can get the size of the image you have read using the
+<code class="docutils literal"><span class="pre">getXSize()</span></code> and
+<code class="docutils literal"><span class="pre">getYSize()</span></code> functions. Although you
+cannot change the size of an image directly, you can rescale an image by
+filtering it into a larger or smaller PNMImage:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">fullSize</span> <span class="o">=</span> <span class="n">PNMImage</span><span class="p">(</span><span class="n">Filename</span><span class="p">(</span><span class="s2">&quot;testImg.png&quot;</span><span class="p">))</span>
+<span class="n">reduced</span> <span class="o">=</span> <span class="n">PNMImage</span><span class="p">(</span><span class="mi">256</span><span class="p">,</span> <span class="mi">256</span><span class="p">)</span>
+<span class="n">reduced</span><span class="o">.</span><span class="n">gaussianFilterFrom</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">fullSize</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>You can get individual RGB values using the
+<code class="docutils literal"><span class="pre">getRed(x,y),</span> <span class="pre">getGreen(x,y),</span> <span class="pre">getBlue(x,y)</span></code> or
+<code class="docutils literal"><span class="pre">getRedVal(x,y),</span> <span class="pre">getGreenVal(x,y),</span> <span class="pre">getBlueVal(x,y)</span></code> where x and y tell what
+pixel to look at (lower-left is 0,0 upper right is
+<code class="docutils literal"><span class="pre">getXSize()-1,</span> <span class="pre">getYSize()-1</span></code> The difference between
+these functions is that the
+<code class="docutils literal"><span class="pre">get*Val</span></code> functions return a
+number between 0 and 1 while the
+<code class="docutils literal"><span class="pre">get*</span></code> functions return their
+value as an integer. For example, if your image uses 8-bit color calling
+<code class="docutils literal"><span class="pre">getGreenVal</span></code> on a green pixel will
+return 255 and calling <code class="docutils literal"><span class="pre">getGreen</span></code>
+will return 1. You can also get all the RGB information at the same time using
+<code class="docutils literal"><span class="pre">getXel(x,y)</span></code> and
+<code class="docutils literal"><span class="pre">getXelVal(x,y)</span></code> which return a 3
+component vector with red in the x, green in the y, and blue in the z.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># The pixel at 0,0 is red and we&#39;re using 8-bit color</span>
+<span class="n">myImage</span><span class="o">.</span><span class="n">getRedVal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># Returns 255</span>
+<span class="n">myImage</span><span class="o">.</span><span class="n">getRed</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># Returns 1</span>
+
+<span class="n">colors</span> <span class="o">=</span> <span class="n">myImage</span><span class="o">.</span><span class="n">getXelVal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># Returns (255,0,0)</span>
+<span class="n">colorVal</span> <span class="o">=</span> <span class="n">myImage</span><span class="o">.</span><span class="n">getXel</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># Returns (1,0,0)</span>
+</pre></div>
+</div>
+<p>The functions for setting pixel information are
+<code class="docutils literal"><span class="pre">setRed(x,y,value),</span> <span class="pre">setGreen(x,y,</span> <span class="pre">value),</span> <span class="pre">setBlue(x,y,</span> <span class="pre">value)</span></code> or
+<code class="docutils literal"><span class="pre">setRedVal(x,y,value),</span> <span class="pre">setGreenVal(x,y,</span> <span class="pre">value),</span> <span class="pre">setBlueVal(x,y,</span> <span class="pre">value)</span></code>. Theres still the same
+dichotomy as above when it comes to regular sets and using setvals. You can
+also use <code class="docutils literal"><span class="pre">setXel(x,y,colorVec)</span></code> and
+<code class="docutils literal"><span class="pre">setXelVal(x,y,</span> <span class="pre">colorVec)</span></code>. You can also fill an
+image with a color by using
+<code class="docutils literal"><span class="pre">fill(r,g,b)</span></code> and
+<code class="docutils literal"><span class="pre">fillVal(r,g,b)</span></code>.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">myImage</span><span class="o">.</span><span class="n">setGreenVal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">)</span> <span class="c1"># If pixel (0,0) was red before, now it is yellow (255,255,0)</span>
+<span class="n">myImage</span><span class="o">.</span><span class="n">setBlue</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="c1"># Pixel (0,0) is now white</span>
+
+<span class="n">gray</span> <span class="o">=</span> <span class="n">Vec3</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+
+<span class="c1"># Both of these set the origin to gray</span>
+<span class="n">myImage</span><span class="o">.</span><span class="n">setXelVal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">gray</span> <span class="o">*</span> <span class="mi">255</span><span class="p">)</span>
+<span class="n">myImage</span><span class="o">.</span><span class="n">setXel</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">gray</span><span class="p">)</span>
+
+<span class="c1"># Makes every pixel red</span>
+<span class="n">myImage</span><span class="o">.</span><span class="n">fillVal</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="c1"># Makes every pixel green</span>
+<span class="n">myImage</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>There are also gets and sets for the alpha channel using the same interface as
+above. However, if you use them on an image that doesn&#8217;t have an alpha channel
+you will cause a crash. To see if an image has an alpha channel use
+<code class="docutils literal"><span class="pre">hasAlpha()</span></code> which returns True if
+there is an alpha channel and False otherwise. You can add an alpha channel
+using <code class="docutils literal"><span class="pre">addAlpha()</span></code>. You can also
+remove it using <code class="docutils literal"><span class="pre">removeAlpha()</span></code>.</p>
+<p>You can also make an image grayscale by using
+<code class="docutils literal"><span class="pre">makeGrayscale()</span></code>. You can now use sets
+and gets for Gray too. Using
+<code class="docutils literal"><span class="pre">getGray*</span></code> on a color image just
+returns the value in the blue channel. If you want to get the grayscale value
+of a pixel regardless of whether the image is a grayscale or a color image,
+you can use <code class="docutils literal"><span class="pre">getBright(x,y)</span></code>, which
+works equally well on color or on grayscale images. If you want to weight the
+colors use <code class="docutils literal"><span class="pre">getBright(x,y,</span> <span class="pre">r,g,b)</span></code> where r,g,b
+are the weights for their respective channels.</p>
+<p>There are several other useful functions in the class this the API Reference
+for more information.</p>
+</div>
+<div class="section" id="getting-the-image-of-a-texture">
+<h2>Getting the Image of a Texture<a class="headerlink" href="#getting-the-image-of-a-texture" title="Permalink to this headline">¶</a></h2>
+<p>The Panda <code class="docutils literal"><span class="pre">Texture</span></code> class does
+not allow for pixel manipulation. However the
+<code class="docutils literal"><span class="pre">PNMImage</span></code> class below does.
+Therefore, if you want to change the image in a
+<code class="docutils literal"><span class="pre">Texture</span></code> object you must call
+its <code class="docutils literal"><span class="pre">store(myImage)</span></code> which saves the
+image of the texture into
+<code class="docutils literal"><span class="pre">myImage</span></code>.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">myImage</span> <span class="o">=</span> <span class="n">PNMImage</span><span class="p">()</span>
+<span class="n">myTexture</span> <span class="o">=</span> <span class="n">loader</span><span class="o">.</span><span class="n">loadTexture</span><span class="p">(</span><span class="s2">&quot;myTex.jpg&quot;</span><span class="p">)</span>
+
+<span class="c1"># After this call, myImage now holds the same image as the texture</span>
+<span class="n">myTexture</span><span class="o">.</span><span class="n">store</span><span class="p">(</span><span class="n">myImage</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="loading-a-pnmimage-into-a-texture">
+<h2>Loading a PNMImage Into a Texture<a class="headerlink" href="#loading-a-pnmimage-into-a-texture" title="Permalink to this headline">¶</a></h2>
+<p>Once you have changed all the data in the image you can now load it into a
+texture using the <code class="docutils literal"><span class="pre">Texture</span></code>
+objects <code class="docutils literal"><span class="pre">load(myImage)</span></code> function, where
+<code class="docutils literal"><span class="pre">myImage</span></code> is the PNMImage to make
+the texture from.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># Assume we already have myImage which is our modified PNMImage</span>
+<span class="n">myTexture</span><span class="o">=</span><span class="n">Texture</span><span class="p">()</span>
+
+<span class="c1"># This texture now represents myImage</span>
+<span class="n">myTexture</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">myImage</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Remember however, that most graphics cards require that the dimensions of
+texture have to be a power of two.
+<code class="docutils literal"><span class="pre">PNMImage</span></code> does not have this
+restriction and Panda will not automatically scale the image when you put it
+into a texture.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="writing-3d-models-out-to-disk.html" class="btn btn-neutral float-right" title="Writing 3D Models out to Disk" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="more-about-geomvertexreader-geomvertexwriter-and-geomvertexrewriter.html" class="btn btn-neutral" title="More about GeomVertexReader, GeomVertexWriter, and GeomVertexRewriter" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Panda3D.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'1.10.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

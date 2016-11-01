@@ -1,0 +1,721 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Egg Syntax &mdash; Panda3D Manual</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Panda3D Manual" href="../../index.html"/>
+        <link rel="up" title="Model Export" href="index.html"/>
+        <link rel="next" title="Previewing 3D Models in Pview" href="../pview.html"/>
+        <link rel="prev" title="Parsing and Generating Egg Files" href="parsing-and-generating-egg-files.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Panda3D
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.10
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../intro/index.html">Introduction to Panda3D</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../programming-with-panda3d/index.html">Programming with Panda3D</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../distribution/index.html">Distributing Panda3D Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../samples/index.html">Sample Programs in the Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../debugging/index.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../performance-tuning/index.html">Performance Tuning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../using-c++/index.html">Using C++</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Panda3D Tools</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../the-scene-graph-browser/index.html">The Scene Graph Browser</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../interrogate.html">Interrogate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pipeline-tips.html">Pipeline Tips</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Model Export</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="converting-from-3d-studio-max.html">Converting from 3D Studio Max</a></li>
+<li class="toctree-l3"><a class="reference internal" href="converting-from-maya.html">Converting from Maya</a></li>
+<li class="toctree-l3"><a class="reference internal" href="converting-from-blender.html">Converting from Blender</a></li>
+<li class="toctree-l3"><a class="reference internal" href="converting-from-softimage.html">Converting from SoftImage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="converting-from-milkshape-3d.html">Converting from Milkshape 3D</a></li>
+<li class="toctree-l3"><a class="reference internal" href="converting-from-gmax.html">Converting from GMax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="converting-from-other-formats.html">Converting from other Formats</a></li>
+<li class="toctree-l3"><a class="reference internal" href="converting-egg-to-bam.html">Converting Egg to Bam</a></li>
+<li class="toctree-l3"><a class="reference internal" href="parsing-and-generating-egg-files.html">Parsing and Generating Egg Files</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Egg Syntax</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../pview.html">Previewing 3D Models in Pview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../list-of-panda3d-executables.html">List of Panda3D Executables</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../building-from-source.html">Building Panda3D from Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cheat-sheets.html">Cheat Sheets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started-on-osx.html">Getting Started on OSX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../more-panda3d-resources.html">More Panda3D Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../thirdparty-licenses.html">Third-party dependencies and license info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../the-irc-channel.html">The IRC Channel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">FAQ</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Panda3D</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Panda3D Tools</a> &raquo;</li>
+      
+          <li><a href="index.html">Model Export</a> &raquo;</li>
+      
+    <li>Egg Syntax</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/tools/model-export/egg-syntax.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="egg-syntax">
+<span id="id1"></span><h1>Egg Syntax<a class="headerlink" href="#egg-syntax" title="Permalink to this headline">¶</a></h1>
+<p><strong>The Egg Syntax</strong></p>
+<p>This is a condensed version of the Egg Syntax document, incorporating only
+syntax definitions in common use. For complete documentation, please see the
+<a class="reference external" href="https://raw.githubusercontent.com/panda3d/panda3d/master/panda/src/doc/eggSyntax.txt">Egg
+Syntax</a>
+documentation from the Panda3D source code repository.</p>
+<p>__TOC__</p>
+<div class="section" id="general-syntax">
+<h2>General Syntax<a class="headerlink" href="#general-syntax" title="Permalink to this headline">¶</a></h2>
+<p>Egg files consist of a series of sequential and hierarchically-nested entries.
+In general, the syntax of each entry is:</p>
+<p><code class="docutils literal"><span class="pre">&nbsp;&lt;Entry-type&gt;&nbsp;name&nbsp;{&nbsp;contents&nbsp;}</span></code></p>
+<p>Comment text should be enclosed in quotation marks:</p>
+<p><code class="docutils literal"><span class="pre">&nbsp;&lt;Comment&gt;&nbsp;{&nbsp;text&nbsp;}</span></code></p>
+</div>
+<div class="section" id="local-information-entries">
+<h2>Local Information Entries<a class="headerlink" href="#local-information-entries" title="Permalink to this headline">¶</a></h2>
+<p>These nodes contain information relevant to the current level of nesting only.</p>
+<p><code class="docutils literal"><span class="pre">&nbsp;&lt;Scalar&gt;&nbsp;name&nbsp;{&nbsp;value&nbsp;}</span></code></p>
+<p>Scalars are attributes of the entry the Scalar is in. Name is the attribute
+name with value as the contents of that attribute.</p>
+</div>
+<div class="section" id="global-information-entries">
+<h2>Global Information Entries<a class="headerlink" href="#global-information-entries" title="Permalink to this headline">¶</a></h2>
+<p>These nodes contain information relevant to the file as a whole. They can be
+nested along with geometry nodes, but this nesting is irrelevant and the only
+significant placement rule is that they should appear before they are
+referenced.</p>
+<div class="section" id="coordinate-system">
+<h3>Coordinate System<a class="headerlink" href="#coordinate-system" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal"><span class="pre">&nbsp;&lt;CoordinateSystem&gt;&nbsp;{&nbsp;string&nbsp;}</span></code></p>
+<p>This entry indicates the coordinate system used in the egg file; the egg
+loader will automatically make a conversion if necessary. The following
+strings are valid: Y-up, Z-up, Y-up-right, Z-up-right, Y-up-left, or
+Z-up-left. (Y-up is the same as Y-up-right, and Z-up is the same as
+Z-up-right.)</p>
+</div>
+<div class="section" id="textures">
+<h3>Textures<a class="headerlink" href="#textures" title="Permalink to this headline">¶</a></h3>
+<p>This describes a texture file that can be referenced later with &lt;TRef&gt; {
+name }.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">Texture</span><span class="o">&gt;</span> <span class="n">name</span> <span class="p">{</span>
+  <span class="n">filename</span>
+  <span class="p">[</span><span class="n">scalars</span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="section" id="texture-scalars">
+<h4>Texture Scalars<a class="headerlink" href="#texture-scalars" title="Permalink to this headline">¶</a></h4>
+<p>This is not a complete list of texture attributes. Please refer to the full
+document for all scalars and their value definitions</p>
+<div class="line-block">
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&lt;Scalar&gt;&nbsp;alpha-file&nbsp;{&nbsp;alpha-filename&nbsp;}</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&lt;Scalar&gt;&nbsp;alpha-file-channel&nbsp;{&nbsp;channel&nbsp;}</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&lt;Scalar&gt;&nbsp;format&nbsp;{&nbsp;format-definition&nbsp;}</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&lt;Scalar&gt;&nbsp;type&nbsp;{&nbsp;texture-type&nbsp;}</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&lt;Scalar&gt;&nbsp;envtype&nbsp;{&nbsp;environment-type&nbsp;}</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&lt;Scalar&gt;&nbsp;tex-gen&nbsp;{&nbsp;mode&nbsp;}</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&lt;Scalar&gt;&nbsp;stage-name&nbsp;{&nbsp;name&nbsp;}</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&lt;Scalar&gt;&nbsp;uv-name&nbsp;{&nbsp;name&nbsp;}</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&lt;Scalar&gt;&nbsp;rgb-scale&nbsp;{&nbsp;scale&nbsp;}</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&lt;Scalar&gt;&nbsp;alpha-scale&nbsp;{&nbsp;scale&nbsp;}</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&lt;Scalar&gt;&nbsp;alpha&nbsp;{&nbsp;alpha-type&nbsp;}</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&lt;Transform&gt;&nbsp;{&nbsp;transform-definition&nbsp;}</span></code></div>
+</div>
+</div>
+</div>
+<div class="section" id="materials">
+<h3>Materials<a class="headerlink" href="#materials" title="Permalink to this headline">¶</a></h3>
+<p>This defines a set of material attributes that may later be referenced with
+&lt;MRef&gt; { name }.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">Material</span><span class="o">&gt;</span> <span class="n">name</span> <span class="p">{</span>
+  <span class="p">[</span><span class="n">scalars</span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="section" id="material-scalars">
+<h4>Material Scalars<a class="headerlink" href="#material-scalars" title="Permalink to this headline">¶</a></h4>
+<div class="line-block">
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&lt;Scalar&gt;&nbsp;diffr&nbsp;{&nbsp;number&nbsp;}</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&lt;Scalar&gt;&nbsp;diffg&nbsp;{&nbsp;number&nbsp;}</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&lt;Scalar&gt;&nbsp;diffb&nbsp;{&nbsp;number&nbsp;}</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&lt;Scalar&gt;&nbsp;diffa&nbsp;{&nbsp;number&nbsp;}</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&lt;Scalar&gt;&nbsp;ambr&nbsp;{&nbsp;number&nbsp;}</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&lt;Scalar&gt;&nbsp;ambg&nbsp;{&nbsp;number&nbsp;}</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&lt;Scalar&gt;&nbsp;ambb&nbsp;{&nbsp;number&nbsp;}</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&lt;Scalar&gt;&nbsp;amba&nbsp;{&nbsp;number&nbsp;}</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&lt;Scalar&gt;&nbsp;emitr&nbsp;{&nbsp;number&nbsp;}</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&lt;Scalar&gt;&nbsp;emitg&nbsp;{&nbsp;number&nbsp;}</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&lt;Scalar&gt;&nbsp;emitb&nbsp;{&nbsp;number&nbsp;}</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&lt;Scalar&gt;&nbsp;emita&nbsp;{&nbsp;number&nbsp;}</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&lt;Scalar&gt;&nbsp;specr&nbsp;{&nbsp;number&nbsp;}</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&lt;Scalar&gt;&nbsp;specg&nbsp;{&nbsp;number&nbsp;}</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&lt;Scalar&gt;&nbsp;specb&nbsp;{&nbsp;number&nbsp;}</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&lt;Scalar&gt;&nbsp;speca&nbsp;{&nbsp;number&nbsp;}</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&lt;Scalar&gt;&nbsp;shininess&nbsp;{&nbsp;number&nbsp;}</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&lt;Scalar&gt;&nbsp;local&nbsp;{&nbsp;flag&nbsp;}</span></code></div>
+</div>
+</div>
+</div>
+<div class="section" id="vertex-pool">
+<h3>Vertex Pool<a class="headerlink" href="#vertex-pool" title="Permalink to this headline">¶</a></h3>
+<p>A vertex pool is a set of vertices. All geometry is created by referring to
+vertices by number in a particular vertex pool. There may be one or several
+vertex pools in an egg file, but all vertices that make up a single polygon
+must come from the same vertex pool. The body of a &lt;VertexPool&gt; entry is
+simply a list of one or more &lt;Vertex&gt; entries, as follows:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">VertexPool</span><span class="o">&gt;</span> <span class="n">name</span> <span class="p">{</span>
+  <span class="o">&lt;</span><span class="n">Vertex</span><span class="o">&gt;</span> <span class="n">number1</span> <span class="p">{</span>
+  <span class="p">}</span>
+  <span class="o">&lt;</span><span class="n">Vertex</span><span class="o">&gt;</span> <span class="n">numer2</span> <span class="p">{</span>
+  <span class="p">}</span>
+  <span class="o">...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="section" id="vertices">
+<h4>Vertices<a class="headerlink" href="#vertices" title="Permalink to this headline">¶</a></h4>
+<p>A &lt;Vertex&gt; entry is only valid within a vertex pool definition. The number
+is the index by which this vertex will be referenced. It is optional; if it is
+omitted, the vertices are implicitly numbered consecutively beginning at one.
+If the number is supplied, the vertices need not be consecutive.</p>
+<p>The vertex&#8217;s coordinates are always given in world space, regardless of any
+transforms before the vertex pool or before the referencing geometry. If the
+vertex is referenced by geometry under a transform, the egg loader will do an
+inverse transform to move the vertex into the proper coordinate space without
+changing its position in world space. One exception is geometry under an
+&lt;Instance&gt; node; in this case the vertex coordinates are given in the
+space of the &lt;Instance&gt; node. (Another exception is a
+&lt;DynamicVertexPool&gt;; see below.)</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">Vertex</span><span class="o">&gt;</span> <span class="n">number</span> <span class="p">{</span>
+  <span class="n">x</span> <span class="n">y</span> <span class="n">z</span> <span class="p">[</span><span class="n">w</span><span class="p">]</span>
+  <span class="p">[</span><span class="n">attributes</span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="section" id="vertex-attributes">
+<h5>Vertex Attributes<a class="headerlink" href="#vertex-attributes" title="Permalink to this headline">¶</a></h5>
+<div class="line-block">
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&lt;Normal&gt;&nbsp;{&nbsp;x&nbsp;y&nbsp;z&nbsp;[morph-list]&nbsp;}</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&lt;RGBA&gt;&nbsp;{&nbsp;r&nbsp;g&nbsp;b&nbsp;a&nbsp;[morph-list]&nbsp;}</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&lt;UV&gt;&nbsp;[name]&nbsp;{&nbsp;u&nbsp;v&nbsp;[w]&nbsp;[tangent]&nbsp;[binormal]&nbsp;[morph-list]&nbsp;}</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&lt;Dxyz&gt;&nbsp;target&nbsp;{&nbsp;x&nbsp;y&nbsp;z&nbsp;}</span></code></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="geometry-entries">
+<h2>Geometry Entries<a class="headerlink" href="#geometry-entries" title="Permalink to this headline">¶</a></h2>
+<p>Geometry entries reference Vertex pool entries to generate renderable geometry
+for Panda to use.</p>
+<div class="section" id="polygons">
+<h3>Polygons<a class="headerlink" href="#polygons" title="Permalink to this headline">¶</a></h3>
+<p>A polygon consists of a sequence of vertices from a single vertex pool.
+Vertices are identified by pool-name and index number within the pool; indices
+is a list of vertex numbers within the given vertex pool. Vertices are listed
+in counterclockwise order. Although the vertices must all come from the same
+vertex pool, they may have been assigned to arbitrarily many different joints
+regardless of joint connectivity (there is no &#8220;straddle-polygon&#8221; limitation).
+See Joints, below.</p>
+<p>The polygon syntax is quite verbose, and there isn&#8217;t any way to specify a set
+of attributes that applies to a group of polygons&#8211;the attributes list must be
+repeated for each polygon. This is why egg files tend to be very large.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">Polygon</span><span class="o">&gt;</span> <span class="n">name</span> <span class="p">{</span>
+    <span class="p">[</span><span class="n">attributes</span><span class="p">]</span>
+    <span class="o">&lt;</span><span class="n">VertexRef</span><span class="o">&gt;</span> <span class="p">{</span>
+        <span class="n">indices</span>
+        <span class="o">&lt;</span><span class="n">Ref</span><span class="o">&gt;</span> <span class="p">{</span> <span class="n">pool</span><span class="o">-</span><span class="n">name</span> <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="section" id="polygon-attributes">
+<h4>Polygon Attributes<a class="headerlink" href="#polygon-attributes" title="Permalink to this headline">¶</a></h4>
+<div class="line-block">
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&lt;TRef&gt;&nbsp;{&nbsp;texture-name&nbsp;}</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&lt;Texture&gt;&nbsp;{&nbsp;filename&nbsp;}</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&lt;MRef&gt;&nbsp;{&nbsp;material-name&nbsp;}</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&lt;Normal&gt;&nbsp;{&nbsp;x&nbsp;y&nbsp;z&nbsp;[morph-list]&nbsp;}</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&lt;RGBA&gt;&nbsp;{&nbsp;r&nbsp;g&nbsp;b&nbsp;a&nbsp;[morph-list]&nbsp;}</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&lt;BFace&gt;&nbsp;{&nbsp;boolean-value&nbsp;}</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&lt;Scalar&gt;&nbsp;bin&nbsp;{&nbsp;bin-name&nbsp;}</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&lt;Scalar&gt;&nbsp;draw_order&nbsp;{&nbsp;number&nbsp;}</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&lt;Scalar&gt;&nbsp;visibility&nbsp;{&nbsp;hidden&nbsp;|&nbsp;normal&nbsp;}</span></code></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="grouping-entries">
+<h2>Grouping Entries<a class="headerlink" href="#grouping-entries" title="Permalink to this headline">¶</a></h2>
+<p>A &lt;Group&gt; node is the primary means of providing structure to the egg
+file. Groups can contain vertex pools and polygons, as well as other groups.
+The egg loader translates &lt;Group&gt; nodes directly into PandaNodes in the
+scene graph (although the egg loader reserves the right to arbitrarily remove
+nodes that it deems unimportant&#8211;see the &lt;Model&gt; flag, below to avoid
+this). In addition, the following entries can be given specifically within a
+&lt;Group&gt; node to specify attributes of the group.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">Group</span><span class="o">&gt;</span> <span class="n">name</span> <span class="p">{</span>
+  <span class="p">[</span><span class="n">attributes</span><span class="p">]</span>
+  <span class="p">[</span><span class="n">scalars</span><span class="p">]</span>
+  <span class="p">[</span><span class="n">SwitchCondition</span><span class="p">]</span>
+  <span class="p">[</span><span class="n">Tag</span><span class="p">]</span>
+  <span class="p">[</span><span class="n">Collide</span><span class="p">]</span>
+  <span class="p">[</span><span class="n">ObjectType</span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="section" id="grouping-attributes">
+<h3>Grouping Attributes<a class="headerlink" href="#grouping-attributes" title="Permalink to this headline">¶</a></h3>
+<div class="line-block">
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&lt;DCS&gt;&nbsp;{&nbsp;boolean-value&nbsp;}</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&lt;DCS&gt;&nbsp;{&nbsp;dcs-type&nbsp;}</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&lt;Model&gt;&nbsp;{&nbsp;boolean-value&nbsp;}</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&lt;Dart&gt;&nbsp;{&nbsp;boolean-value&nbsp;}</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&lt;Switch&gt;&nbsp;{&nbsp;boolean-value&nbsp;}</span></code></div>
+</div>
+</div>
+<div class="section" id="group-scalars">
+<h3>Group Scalars<a class="headerlink" href="#group-scalars" title="Permalink to this headline">¶</a></h3>
+<div class="line-block">
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&lt;Scalar&gt;&nbsp;fps&nbsp;{&nbsp;frame-rate&nbsp;}</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&lt;Scalar&gt;&nbsp;bin&nbsp;{&nbsp;bin-name&nbsp;}</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&lt;Scalar&gt;&nbsp;draw_order&nbsp;{&nbsp;number&nbsp;}</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&lt;Scalar&gt;&nbsp;visibility&nbsp;{&nbsp;hidden&nbsp;|&nbsp;normal&nbsp;}</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&lt;Scalar&gt;&nbsp;decal&nbsp;{&nbsp;boolean-value&nbsp;}</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&lt;Scalar&gt;&nbsp;decalbase&nbsp;{&nbsp;boolean-value&nbsp;}</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&lt;Scalar&gt;&nbsp;collide-mask&nbsp;{&nbsp;value&nbsp;}</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&lt;Scalar&gt;&nbsp;from-collide-mask&nbsp;{&nbsp;value&nbsp;}</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&lt;Scalar&gt;&nbsp;into-collide-mask&nbsp;{&nbsp;value&nbsp;}</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&lt;Scalar&gt;&nbsp;blend&nbsp;{&nbsp;mode&nbsp;}</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&lt;Scalar&gt;&nbsp;blendop-a&nbsp;{&nbsp;mode&nbsp;}</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&lt;Scalar&gt;&nbsp;blendop-b&nbsp;{&nbsp;mode&nbsp;}</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&lt;Scalar&gt;&nbsp;blendr&nbsp;{&nbsp;red-value&nbsp;}</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&lt;Scalar&gt;&nbsp;blendg&nbsp;{&nbsp;green-value&nbsp;}</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&lt;Scalar&gt;&nbsp;blendb&nbsp;{&nbsp;blue-value&nbsp;}</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&lt;Scalar&gt;&nbsp;blenda&nbsp;{&nbsp;alpha-value&nbsp;}</span></code></div>
+</div>
+</div>
+<div class="section" id="other-group-attributes">
+<h3>Other Group Attributes<a class="headerlink" href="#other-group-attributes" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="billboard">
+<h4>Billboard<a class="headerlink" href="#billboard" title="Permalink to this headline">¶</a></h4>
+<p><code class="docutils literal"><span class="pre">&nbsp;&lt;Billboard&gt;&nbsp;{&nbsp;type&nbsp;}</span></code></p>
+<p>This entry indicates that all geometry defined at or below this group level is
+part of a billboard that will rotate to face the camera. Type is either &#8220;axis&#8221;
+or &#8220;point&#8221;, describing the type of rotation.</p>
+<p>Billboards rotate about their local axis. In the case of a Y-up file, the
+billboards rotate about the Y axis; in a Z-up file, they rotate about the Z
+axis. Point-rotation billboards rotate about the origin.</p>
+<p>There is an implicit &lt;Instance&gt; around billboard geometry. This means that
+the geometry within a billboard is not specified in world coordinates, but in
+the local billboard space. Thus, a vertex drawn at point 0,0,0 will appear to
+be at the pivot point of the billboard, not at the origin of the scene.</p>
+</div>
+<div class="section" id="switchcondition">
+<h4>SwitchCondition<a class="headerlink" href="#switchcondition" title="Permalink to this headline">¶</a></h4>
+<div class="line-block">
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&lt;SwitchCondition&gt;&nbsp;{</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&nbsp;&nbsp;&nbsp;&lt;Distance&gt;&nbsp;{&nbsp;</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;in&nbsp;out&nbsp;[fade]&nbsp;&lt;Vertex&gt;&nbsp;{&nbsp;x&nbsp;y&nbsp;z&nbsp;}</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&nbsp;&nbsp;&nbsp;}</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;}</span></code></div>
+</div>
+<p>The subtree beginning at this node and below represents a single level of
+detail for a particular model. Sibling nodes represent the additional levels
+of detail. The geometry at this node will be visible when the point (x, y, z)
+is closer than &#8220;in&#8221; units, but further than &#8220;out&#8221; units, from the camera.
+&#8220;fade&#8221; is presently ignored.</p>
+</div>
+<div class="section" id="tag">
+<h4>Tag<a class="headerlink" href="#tag" title="Permalink to this headline">¶</a></h4>
+<p><code class="docutils literal"><span class="pre">&nbsp;&lt;Tag&gt;&nbsp;key&nbsp;{&nbsp;value&nbsp;}</span></code></p>
+<p>This attribute defines the indicated tag (as a key/value pair), retrievable
+via NodePath::get_tag() and related interfaces, on this node.</p>
+</div>
+<div class="section" id="collide">
+<h4>Collide<a class="headerlink" href="#collide" title="Permalink to this headline">¶</a></h4>
+<p><code class="docutils literal"><span class="pre">&nbsp;&lt;Collide&gt;&nbsp;name&nbsp;{&nbsp;type&nbsp;[flags]&nbsp;}</span></code></p>
+<p>This entry indicates that geometry defined at this group level is actually an
+invisible collision surface, and is not true geometry. The geometry is used to
+define the extents of the collision surface. If there is no geometry defined
+at this level, then a child is searched for with the same collision type
+specified, and its geometry is used to define the extent of the collision
+surface (unless the &#8220;descend&#8221; flag is given; see below).</p>
+<p><code class="docutils literal"><span class="pre">&nbsp;&nbsp;&nbsp;Valid&nbsp;types&nbsp;so&nbsp;far&nbsp;are:</span></code></p>
+<div class="line-block">
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&nbsp;&nbsp;Plane</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&nbsp;&nbsp;</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;geometry&nbsp;represents&nbsp;an&nbsp;infinite&nbsp;plane.&nbsp;&nbsp;The&nbsp;first&nbsp;polygon</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;found&nbsp;in&nbsp;the&nbsp;group&nbsp;will&nbsp;define&nbsp;the&nbsp;plane.</span></code></div>
+</div>
+<p><code class="docutils literal"><span class="pre">&nbsp;&nbsp;&nbsp;Polygon</span></code></p>
+<div class="line-block">
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;geometry&nbsp;represents&nbsp;a&nbsp;single&nbsp;polygon.&nbsp;&nbsp;The&nbsp;first&nbsp;polygon&nbsp;is</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;used.</span></code></div>
+</div>
+<p><code class="docutils literal"><span class="pre">&nbsp;&nbsp;&nbsp;Polyset</span></code></p>
+<div class="line-block">
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;geometry&nbsp;represents&nbsp;a&nbsp;complex&nbsp;shape&nbsp;made&nbsp;up&nbsp;of&nbsp;several</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;polygons.&nbsp;&nbsp;This&nbsp;collision&nbsp;type&nbsp;should&nbsp;not&nbsp;be&nbsp;overused,&nbsp;as&nbsp;it</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;provides&nbsp;the&nbsp;least&nbsp;optimization&nbsp;benefit.</span></code></div>
+</div>
+<p><code class="docutils literal"><span class="pre">&nbsp;&nbsp;&nbsp;Sphere</span></code></p>
+<div class="line-block">
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;geometry&nbsp;represents&nbsp;a&nbsp;sphere.&nbsp;&nbsp;The&nbsp;vertices&nbsp;in&nbsp;the&nbsp;group&nbsp;are</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;averaged&nbsp;together&nbsp;to&nbsp;determine&nbsp;the&nbsp;sphere's&nbsp;center&nbsp;and&nbsp;radius.</span></code></div>
+</div>
+<p><code class="docutils literal"><span class="pre">&nbsp;&nbsp;&nbsp;InvSphere</span></code></p>
+<div class="line-block">
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;geometry&nbsp;represents&nbsp;an&nbsp;inverse&nbsp;sphere.&nbsp;&nbsp;This&nbsp;is&nbsp;the&nbsp;same&nbsp;as</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sphere,&nbsp;with&nbsp;the&nbsp;normal&nbsp;inverted,&nbsp;so&nbsp;that&nbsp;the&nbsp;solid&nbsp;part&nbsp;of&nbsp;an</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;inverse&nbsp;sphere&nbsp;is&nbsp;the&nbsp;entire&nbsp;world&nbsp;outside&nbsp;of&nbsp;it.&nbsp;&nbsp;Note&nbsp;that&nbsp;an</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;inverse&nbsp;sphere&nbsp;is&nbsp;in&nbsp;infinitely&nbsp;large&nbsp;solid&nbsp;with&nbsp;a&nbsp;finite&nbsp;hole</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cut&nbsp;into&nbsp;it.</span></code></div>
+</div>
+<p><code class="docutils literal"><span class="pre">&nbsp;&nbsp;&nbsp;Tube</span></code></p>
+<div class="line-block">
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;geometry&nbsp;represents&nbsp;a&nbsp;tube.&nbsp;&nbsp;This&nbsp;is&nbsp;a&nbsp;cylinder-like&nbsp;shape</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;with&nbsp;hemispherical&nbsp;endcaps;&nbsp;it&nbsp;is&nbsp;sometimes&nbsp;called&nbsp;a&nbsp;capsule&nbsp;or</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a&nbsp;lozenge&nbsp;in&nbsp;other&nbsp;packages.&nbsp;&nbsp;The&nbsp;smallest&nbsp;tube&nbsp;shape&nbsp;that&nbsp;will</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fit&nbsp;around&nbsp;the&nbsp;vertices&nbsp;is&nbsp;used.</span></code></div>
+</div>
+<p><code class="docutils literal"><span class="pre">&nbsp;&nbsp;&nbsp;The&nbsp;flags&nbsp;may&nbsp;be&nbsp;any&nbsp;zero&nbsp;or&nbsp;more&nbsp;of:</span></code></p>
+<p><code class="docutils literal"><span class="pre">&nbsp;&nbsp;&nbsp;event</span></code></p>
+<div class="line-block">
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Throws&nbsp;the&nbsp;name&nbsp;of&nbsp;the&nbsp;&lt;Collide&gt;&nbsp;entry,&nbsp;or&nbsp;the&nbsp;name&nbsp;of&nbsp;the</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;surface&nbsp;if&nbsp;the&nbsp;&lt;Collide&gt;&nbsp;entry&nbsp;has&nbsp;no&nbsp;name,&nbsp;as&nbsp;an&nbsp;event&nbsp;whenever</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;an&nbsp;avatar&nbsp;strikes&nbsp;the&nbsp;solid.&nbsp;&nbsp;This&nbsp;is&nbsp;the&nbsp;default&nbsp;if&nbsp;the</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;Collide&gt;&nbsp;entry&nbsp;has&nbsp;a&nbsp;name.</span></code></div>
+</div>
+<p><code class="docutils literal"><span class="pre">&nbsp;&nbsp;&nbsp;intangible</span></code></p>
+<div class="line-block">
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Rather&nbsp;than&nbsp;being&nbsp;a&nbsp;solid&nbsp;collision&nbsp;surface,&nbsp;the&nbsp;defined&nbsp;surface</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;represents&nbsp;a&nbsp;boundary.&nbsp;&nbsp;The&nbsp;name&nbsp;of&nbsp;the&nbsp;surface&nbsp;will&nbsp;be&nbsp;thrown</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;as&nbsp;an&nbsp;event&nbsp;when&nbsp;an&nbsp;avatar&nbsp;crosses&nbsp;into&nbsp;the&nbsp;interior,&nbsp;and</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name-out&nbsp;will&nbsp;be&nbsp;thrown&nbsp;when&nbsp;an&nbsp;avatar&nbsp;exits.</span></code></div>
+</div>
+<p><code class="docutils literal"><span class="pre">&nbsp;&nbsp;&nbsp;descend</span></code></p>
+<div class="line-block">
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Instead&nbsp;of&nbsp;creating&nbsp;only&nbsp;one&nbsp;collision&nbsp;object&nbsp;of&nbsp;the&nbsp;given&nbsp;type,</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;each&nbsp;group&nbsp;descended&nbsp;from&nbsp;this&nbsp;node&nbsp;that&nbsp;contains&nbsp;geometry&nbsp;will</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;define&nbsp;a&nbsp;new&nbsp;collision&nbsp;object&nbsp;of&nbsp;the&nbsp;given&nbsp;type.&nbsp;&nbsp;The&nbsp;event</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name,&nbsp;if&nbsp;any,&nbsp;will&nbsp;also&nbsp;be&nbsp;inherited&nbsp;from&nbsp;the&nbsp;top&nbsp;node&nbsp;and</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;shared&nbsp;among&nbsp;all&nbsp;the&nbsp;collision&nbsp;objects.</span></code></div>
+</div>
+<div class="line-block">
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&nbsp;&nbsp;keep</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Don't&nbsp;discard&nbsp;the&nbsp;visible&nbsp;geometry&nbsp;after&nbsp;using&nbsp;it&nbsp;to&nbsp;define&nbsp;a</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;collision&nbsp;surface;&nbsp;create&nbsp;both&nbsp;an&nbsp;invisible&nbsp;collision&nbsp;surface</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;and&nbsp;the&nbsp;visible&nbsp;geometry.</span></code></div>
+</div>
+<p><code class="docutils literal"><span class="pre">&nbsp;&nbsp;&nbsp;level</span></code></p>
+<div class="line-block">
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Stores&nbsp;a&nbsp;special&nbsp;effective&nbsp;normal&nbsp;with&nbsp;the&nbsp;collision&nbsp;solid&nbsp;that</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;points&nbsp;up,&nbsp;regardless&nbsp;of&nbsp;the&nbsp;actual&nbsp;shape&nbsp;or&nbsp;orientation&nbsp;of&nbsp;the</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;solid.&nbsp;&nbsp;This&nbsp;can&nbsp;be&nbsp;used&nbsp;to&nbsp;allow&nbsp;an&nbsp;avatar&nbsp;to&nbsp;stand&nbsp;on&nbsp;a</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sloping&nbsp;surface&nbsp;without&nbsp;having&nbsp;a&nbsp;tendency&nbsp;to&nbsp;slide&nbsp;downward.</span></code></div>
+</div>
+</div>
+<div class="section" id="objecttype">
+<h4>ObjectType<a class="headerlink" href="#objecttype" title="Permalink to this headline">¶</a></h4>
+<p><code class="docutils literal"><span class="pre">&nbsp;&lt;ObjectType&gt;&nbsp;{&nbsp;type&nbsp;}</span></code></p>
+<p>This is a short form to indicate one of several pre-canned sets of attributes.
+Type may be any word, and a Config definition will be searched for by the name
+&#8220;egg-object-type-word&#8221;, where &#8220;word&#8221; is the type word. This definition may
+contain any arbitrary egg syntax to be parsed in at this group level.</p>
+<p><code class="docutils literal"><span class="pre">&nbsp;&nbsp;&nbsp;A&nbsp;number&nbsp;of&nbsp;predefined&nbsp;ObjectType&nbsp;definitions&nbsp;are&nbsp;provided:</span></code></p>
+<p><code class="docutils literal"><span class="pre">&nbsp;&nbsp;&nbsp;barrier</span></code></p>
+<div class="line-block">
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This&nbsp;is&nbsp;equivalent&nbsp;to&nbsp;&lt;Collide&gt;&nbsp;{&nbsp;Polyset&nbsp;descend&nbsp;}.&nbsp;&nbsp;The</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;geometry&nbsp;defined&nbsp;at&nbsp;this&nbsp;root&nbsp;and&nbsp;below&nbsp;defines&nbsp;an&nbsp;invisible</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;collision&nbsp;solid.</span></code></div>
+</div>
+<p><code class="docutils literal"><span class="pre">&nbsp;&nbsp;&nbsp;trigger</span></code></p>
+<div class="line-block">
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This&nbsp;is&nbsp;equivalent&nbsp;to&nbsp;&lt;Collide&gt;&nbsp;{&nbsp;Polyset&nbsp;descend&nbsp;intangible&nbsp;}.</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;geometry&nbsp;defined&nbsp;at&nbsp;this&nbsp;root&nbsp;and&nbsp;below&nbsp;defines&nbsp;an&nbsp;invisible</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;trigger&nbsp;surface.</span></code></div>
+</div>
+<p><code class="docutils literal"><span class="pre">&nbsp;&nbsp;&nbsp;sphere</span></code></p>
+<div class="line-block">
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Equivalent&nbsp;to&nbsp;&lt;Collide&gt;&nbsp;{&nbsp;Sphere&nbsp;descend&nbsp;}.&nbsp;&nbsp;The&nbsp;geometry&nbsp;is</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;replaced&nbsp;with&nbsp;the&nbsp;smallest&nbsp;collision&nbsp;sphere&nbsp;that&nbsp;will&nbsp;enclose</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;it.&nbsp;&nbsp;Typically&nbsp;you&nbsp;model&nbsp;a&nbsp;sphere&nbsp;in&nbsp;polygons&nbsp;and&nbsp;put&nbsp;this&nbsp;flag</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;on&nbsp;it&nbsp;to&nbsp;create&nbsp;a&nbsp;collision&nbsp;sphere&nbsp;of&nbsp;the&nbsp;same&nbsp;size.</span></code></div>
+</div>
+<p><code class="docutils literal"><span class="pre">&nbsp;&nbsp;&nbsp;tube</span></code></p>
+<div class="line-block">
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Equivalent&nbsp;to&nbsp;&lt;Collide&gt;&nbsp;{&nbsp;Tube&nbsp;descend&nbsp;}.&nbsp;&nbsp;As&nbsp;in&nbsp;sphere,&nbsp;above,</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;but&nbsp;the&nbsp;geometry&nbsp;is&nbsp;replaced&nbsp;with&nbsp;a&nbsp;collision&nbsp;tube&nbsp;(a&nbsp;capsule).</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Typically&nbsp;you&nbsp;will&nbsp;model&nbsp;a&nbsp;capsule&nbsp;or&nbsp;a&nbsp;cylinder&nbsp;in&nbsp;polygons.</span></code></div>
+</div>
+<p><code class="docutils literal"><span class="pre">&nbsp;&nbsp;&nbsp;bubble</span></code></p>
+<div class="line-block">
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Equivalent&nbsp;to&nbsp;&lt;Collide&gt;&nbsp;{&nbsp;Sphere&nbsp;keep&nbsp;descend&nbsp;}.&nbsp;&nbsp;A&nbsp;collision</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bubble&nbsp;is&nbsp;placed&nbsp;around&nbsp;the&nbsp;geometry,&nbsp;which&nbsp;is&nbsp;otherwise</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;unchanged.</span></code></div>
+</div>
+<p><code class="docutils literal"><span class="pre">&nbsp;&nbsp;&nbsp;ghost</span></code></p>
+<div class="line-block">
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Equivalent&nbsp;to&nbsp;&lt;Scalar&gt;&nbsp;collide-mask&nbsp;{&nbsp;0&nbsp;}.&nbsp;&nbsp;It&nbsp;means&nbsp;that&nbsp;the</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;geometry&nbsp;beginning&nbsp;at&nbsp;this&nbsp;node&nbsp;and&nbsp;below&nbsp;should&nbsp;never&nbsp;be</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;collided&nbsp;with--characters&nbsp;will&nbsp;pass&nbsp;through&nbsp;it.</span></code></div>
+</div>
+<p><code class="docutils literal"><span class="pre">&nbsp;&nbsp;&nbsp;backstage</span></code></p>
+<div class="line-block">
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This&nbsp;has&nbsp;no&nbsp;equivalent;&nbsp;it&nbsp;is&nbsp;treated&nbsp;as&nbsp;a&nbsp;special&nbsp;case.&nbsp;&nbsp;It</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;means&nbsp;that&nbsp;the&nbsp;geometry&nbsp;at&nbsp;this&nbsp;node&nbsp;and&nbsp;below&nbsp;should&nbsp;not&nbsp;be</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;translated.&nbsp;&nbsp;This&nbsp;will&nbsp;normally&nbsp;be&nbsp;used&nbsp;on&nbsp;scale&nbsp;references&nbsp;and</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;other&nbsp;modeling&nbsp;tools.</span></code></div>
+</div>
+<div class="line-block">
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&nbsp;&nbsp;There&nbsp;may&nbsp;also&nbsp;be&nbsp;additional&nbsp;predefined&nbsp;egg&nbsp;object&nbsp;types&nbsp;not</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&nbsp;&nbsp;listed&nbsp;here;&nbsp;see&nbsp;the&nbsp;*.pp&nbsp;files&nbsp;that&nbsp;are&nbsp;installed&nbsp;into&nbsp;the&nbsp;etc</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&nbsp;&nbsp;directory&nbsp;for&nbsp;a&nbsp;complete&nbsp;list.</span></code></div>
+</div>
+<div class="line-block">
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&lt;Transform&gt;&nbsp;{&nbsp;transform-definition&nbsp;}</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&lt;VertexRef&gt;&nbsp;{&nbsp;indices&nbsp;&lt;Ref&gt;&nbsp;{&nbsp;pool-name&nbsp;}&nbsp;}</span></code></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="joint-nodes">
+<h2>Joint Nodes<a class="headerlink" href="#joint-nodes" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">Joint</span><span class="o">&gt;</span> <span class="n">name</span> <span class="p">{</span>
+  <span class="p">[</span><span class="n">transform</span><span class="p">]</span>
+  <span class="p">[</span><span class="n">ref</span><span class="o">-</span><span class="nb">list</span><span class="p">]</span>
+  <span class="p">[</span><span class="n">joint</span><span class="o">-</span><span class="nb">list</span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>A joint is a highly specialized kind of grouping node. A tree of joints is
+used to specify the skeletal structure of an animated character.</p>
+<p>A joint may only contain one of three things. It may contain a
+<code class="docutils literal"><span class="pre">&lt;Transform&gt;</span></code> entry, as above, which
+defines the joint&#8217;s unanimated (rest) position; it may contain lists of
+assigned vertices or CV&#8217;s; and it may contain other joints.</p>
+<p>A tree of &lt;Joint&gt; nodes only makes sense within a character definition,
+which is created by applying the &lt;DART&gt; flag to a group. See &lt;DART&gt;,
+above.</p>
+<p>The vertex assignment is crucial. This is how the geometry of a character is
+made to move with the joints. The character&#8217;s geometry is actually defined
+outside the joint tree, and each vertex must be assigned to one or more joints
+within the tree.</p>
+<p>This is done with zero or more &lt;VertexRef&gt; entries per joint, as the
+following:</p>
+<p><code class="docutils literal"><span class="pre">&nbsp;&lt;VertexRef&gt;&nbsp;{&nbsp;indices&nbsp;[&lt;Scalar&gt;&nbsp;membership&nbsp;{&nbsp;m&nbsp;}]&nbsp;&lt;Ref&gt;&nbsp;{&nbsp;pool-name&nbsp;}&nbsp;}</span></code></p>
+<p>This is syntactically similar to the way vertices are assigned to polygons.
+Each &lt;VertexRef&gt; entry can assign vertices from only one vertex pool (but
+there may be many &lt;VertexRef&gt; entries per joint). Indices is a list of
+vertex numbers from the specified vertex pool, in an arbitrary order.</p>
+<p>The membership scalar is optional. If specified, it is a value between 0.0 and
+1.0 that indicates the fraction of dominance this joint has over the vertices.
+This is used to implement soft-skinning, so that each vertex may have partial
+ownership in several joints.</p>
+<p>The &lt;VertexRef&gt; entry may also be given to ordinary &lt;Group&gt; nodes. In
+this case, it treats the geometry as if it was parented under the group in the
+first place. Non-total membership assignments are meaningless.</p>
+</div>
+<div class="section" id="bundle-and-table-entries">
+<h2>Bundle and Table entries<a class="headerlink" href="#bundle-and-table-entries" title="Permalink to this headline">¶</a></h2>
+<p>A table is a set of animated values for joints. A tree of tables with the same
+structure as the corresponding tree of joints must be defined for each
+character to be animated. Such a tree is placed under a &lt;Bundle&gt; node,
+which provides a handle within Panda to the tree as a whole.</p>
+<p>Bundles may only contain tables; tables may contain more tables, bundles, or
+any one of the following (&lt;Scalar&gt; entries are optional, and default as
+shown):</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>&lt;S$Anim&gt; name {
+  &lt;Scalar&gt; fps { 24 }
+  &lt;V&gt; { values }
+}
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../pview.html" class="btn btn-neutral float-right" title="Previewing 3D Models in Pview" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="parsing-and-generating-egg-files.html" class="btn btn-neutral" title="Parsing and Generating Egg Files" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Panda3D.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.10.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,320 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Basic Performance Diagnostics &mdash; Panda3D Manual</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Panda3D Manual" href="../index.html"/>
+        <link rel="up" title="Performance Tuning" href="index.html"/>
+        <link rel="next" title="Measuring Performance with PStats" href="measuring-performance-with-pstats.html"/>
+        <link rel="prev" title="Performance Tuning" href="index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Panda3D
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.10
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../intro/index.html">Introduction to Panda3D</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../programming-with-panda3d/index.html">Programming with Panda3D</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../distribution/index.html">Distributing Panda3D Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../samples/index.html">Sample Programs in the Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../debugging/index.html">Debugging</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Performance Tuning</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Basic Performance Diagnostics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="measuring-performance-with-pstats.html">Measuring Performance with PStats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="the-rigid-body-combiner.html">The Rigid Body Combiner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="too-many-meshes.html">Performance Issue: Too Many Meshes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="too-many-state-changes.html">Performance Issue: Too Many State Changes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="too-many-text-updates.html">Performance Issue: Too Many Text Updates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="too-many-shader-instructions.html">Performance Issue: Too Many Shader Instructions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="excessive-fill.html">Performance Issue: Excessive Fill</a></li>
+<li class="toctree-l2"><a class="reference internal" href="memory-full.html">Performance Issue: Memory Full</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python-calculation.html">Performance Issue: Python Calculation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="failure-to-garbage-collect.html">Performance Issue: Failure to Garbage Collect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="collision-system-misuse.html">Performance Issue: Collision System Misuse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="motherboard-integrated-video.html">Performance Issue: Motherboard Integrated Video</a></li>
+<li class="toctree-l2"><a class="reference internal" href="too-many-polygons.html">Performance Issue: Too Many Polygons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="miscellaneous.html">Performance Issue: Miscellaneous</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../using-c++/index.html">Using C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tools/index.html">Panda3D Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../building-from-source.html">Building Panda3D from Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cheat-sheets.html">Cheat Sheets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started-on-osx.html">Getting Started on OSX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../more-panda3d-resources.html">More Panda3D Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../thirdparty-licenses.html">Third-party dependencies and license info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../the-irc-channel.html">The IRC Channel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">FAQ</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Panda3D</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="index.html">Performance Tuning</a> &raquo;</li>
+      
+    <li>Basic Performance Diagnostics</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/performance-tuning/basic-performance-diagnostics.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="basic-performance-diagnostics">
+<span id="id1"></span><h1>Basic Performance Diagnostics<a class="headerlink" href="#basic-performance-diagnostics" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introductory-performance-diagnostics">
+<h2>Introductory Performance Diagnostics<a class="headerlink" href="#introductory-performance-diagnostics" title="Permalink to this headline">¶</a></h2>
+<p>In Panda3D, the &#8220;big gun&#8221; of performance analysis is called pstats. This
+program gives you real-time diagnostic analysis of a running Panda3D virtual
+world broken down into hundreds of different categories.</p>
+<p>But sometimes, when you&#8217;ve just encountered a problem, you don&#8217;t want that
+much information. Sometimes, you just want a simple question answered, like
+&#8220;how many meshes do I have,&#8221; or &#8220;is this a fill-rate problem?&#8221; For simple
+questions like that, there are lots of things you can do to get a
+quick-and-dirty answer.</p>
+</div>
+<div class="section" id="the-frame-rate-meter">
+<h2>The Frame-Rate Meter<a class="headerlink" href="#the-frame-rate-meter" title="Permalink to this headline">¶</a></h2>
+<p>The frame-rate meter doesn&#8217;t tell you why your program is running slow, but it
+does have one important purpose: it&#8217;s a lightweight and unobtrusive utility
+that you can leave on throughout the entire development process. This is
+valuable in that it gives you immediate feedback when you do something
+inefficient. To turn on the frame-rate meter, put this in your config file:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">show</span><span class="o">-</span><span class="n">frame</span><span class="o">-</span><span class="n">rate</span><span class="o">-</span><span class="n">meter</span> <span class="c1">#t</span>
+</pre></div>
+</div>
+<p>Or, if you want to have it set at run-time:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">base</span><span class="o">.</span><span class="n">setFrameRateMeter</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="the-scene-analyzer">
+<h2>The Scene Analyzer<a class="headerlink" href="#the-scene-analyzer" title="Permalink to this headline">¶</a></h2>
+<p>If a scene needs to be rendered and has multiple nodes, Panda has to send each
+node to the graphics hardware as a separate batch of polygons (because the
+nodes might move independently, or have different state changes on them).
+Modern graphics hardware hasn&#8217;t made any improvements recently in handling
+large numbers of batches, just in handling large numbers of polygons per
+batch. So if a scene is composed of a large number of nodes with a small
+number of polygons per node, the frame rate will suffer. This problem is not
+specific to Panda; any graphics engine will have the same problem. The problem
+is due to the nature of the PC and the AGP bus.</p>
+<p>For example, though your graphics card may claim it can easily handle 100,000
+polygons, this may be true in practice only if all of those polygons are sent
+in one batch&#8211;that is, just a single :ref:` &lt;geom&gt;`. If, however, your scene
+consists of 1,000 nodes with 100 polygons each, it may not have nearly as good
+a frame rate.</p>
+<p>To inspect performance the NodePath.analyze() method is extremely useful. For
+example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">render</span><span class="o">.</span><span class="n">analyze</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>The response is printed to the command window. It may look something like
+this:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="mi">371</span> <span class="n">total</span> <span class="n">nodes</span> <span class="p">(</span><span class="n">including</span> <span class="mi">43</span> <span class="n">instances</span><span class="p">)</span><span class="o">.</span>
+<span class="mi">21</span> <span class="n">transforms</span><span class="p">;</span> <span class="mi">16</span><span class="o">%</span> <span class="n">of</span> <span class="n">nodes</span> <span class="n">have</span> <span class="n">some</span> <span class="n">render</span> <span class="n">attribute</span><span class="o">.</span>
+<span class="mi">205</span> <span class="n">Geoms</span><span class="p">,</span> <span class="k">with</span> <span class="mi">94</span> <span class="n">GeomVertexDatas</span><span class="p">,</span> <span class="n">appear</span> <span class="n">on</span> <span class="mi">133</span> <span class="n">GeomNodes</span><span class="o">.</span>
+<span class="mi">21665</span> <span class="n">vertices</span><span class="p">,</span> <span class="mi">21573</span> <span class="n">normals</span><span class="p">,</span> <span class="mi">21557</span> <span class="n">texture</span> <span class="n">coordinates</span><span class="o">.</span>
+<span class="mi">35183</span> <span class="n">triangles</span><span class="p">:</span>
+   <span class="mi">3316</span> <span class="n">of</span> <span class="n">these</span> <span class="n">are</span> <span class="n">on</span> <span class="mi">662</span> <span class="n">tristrips</span> <span class="p">(</span><span class="mf">5.00906</span> <span class="n">average</span> <span class="n">tris</span> <span class="n">per</span> <span class="n">strip</span><span class="p">)</span><span class="o">.</span>
+   <span class="mi">0</span> <span class="n">of</span> <span class="n">these</span> <span class="n">are</span> <span class="n">on</span> <span class="mi">0</span> <span class="n">trifans</span><span class="o">.</span>
+   <span class="mi">31867</span> <span class="n">of</span> <span class="n">these</span> <span class="n">are</span> <span class="n">independent</span> <span class="n">triangles</span><span class="o">.</span>
+<span class="mi">0</span> <span class="n">lines</span><span class="p">,</span> <span class="mi">0</span> <span class="n">points</span><span class="o">.</span>
+<span class="mi">99</span> <span class="n">textures</span><span class="p">,</span> <span class="n">estimated</span> <span class="n">minimum</span> <span class="mi">326929</span><span class="n">K</span> <span class="n">texture</span> <span class="n">memory</span> <span class="n">required</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>For a scene with many static nodes there exists a workaround.</p>
+<p>If a scene is composed of many static objects, for example boxes, and the
+intent of all of these boxes to just sit around and be part of the background,
+or to move as a single unit, they can flattened together into a handful of
+nodes (or even one node). To do this, parent them all to the same node, and
+use:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">node</span><span class="o">.</span><span class="n">flattenStrong</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>One thing that flattenStrong() won&#8217;t touch is geometry under a ModelRoot or
+ModelNode node. Since each egg or bam file loads itself up under a ModelRoot
+node, the proper way to handle this is to get rid of that node first to make
+the geometry from multiple different egg files to be flattened together. This
+can be done with the following:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">modelRoot</span> <span class="o">=</span> <span class="n">loader</span><span class="o">.</span><span class="n">loadModel</span><span class="p">(</span><span class="s1">&#39;myModel.egg&#39;</span><span class="p">)</span>
+<span class="n">newModel</span> <span class="o">=</span> <span class="n">NodePath</span><span class="p">(</span><span class="s1">&#39;model&#39;</span><span class="p">)</span>
+<span class="n">modelRoot</span><span class="o">.</span><span class="n">getChildren</span><span class="p">()</span><span class="o">.</span><span class="n">reparentTo</span><span class="p">(</span><span class="n">newModel</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="measuring-performance-with-pstats.html" class="btn btn-neutral float-right" title="Measuring Performance with PStats" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Performance Tuning" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Panda3D.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.10.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

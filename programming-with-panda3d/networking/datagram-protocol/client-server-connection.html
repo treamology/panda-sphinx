@@ -1,0 +1,416 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Client-Server Connection &mdash; Panda3D Manual</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Panda3D Manual" href="../../../index.html"/>
+        <link rel="up" title="Datagram Protocol" href="index.html"/>
+        <link rel="next" title="Transmitting Data" href="transmitting-data.html"/>
+        <link rel="prev" title="Datagram Protocol" href="index.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Panda3D
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.10
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../intro/index.html">Introduction to Panda3D</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Programming with Panda3D</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../the-scene-graph/index.html">The Scene Graph</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../the-configuration-file/index.html">The Configuration File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../models-and-actors/index.html">Models and Actors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../render-attributes/index.html">Render Attributes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../texturing/index.html">Texturing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../shaders/index.html">Shaders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../camera-control/index.html">Camera Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../sound/index.html">Sound</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../intervals/index.html">Intervals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tasks-and-event-handling/index.html">Tasks and Event Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../text-and-image-rendering/index.html">Text and Image Rendering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../directgui/index.html">DirectGUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../render-effects/index.html">Render Effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../finite-state-machines/index.html">Finite State Machines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../terrain/index.html">Terrain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../internal-structures/index.html">Advanced operations with Panda3D&#8217;s internal structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../render-to-texture-and-image-postprocessing/index.html">Render-to-Texture and Image Postprocessing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../panda3d-rendering-process/index.html">Panda3D Rendering Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../panda3d-utility-functions.html">Panda3D Utility Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../particle-effects/index.html">Particle Effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../collision-detection/index.html">Collision Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../garbage-collection/index.html">Garbage Collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hardware-support/index.html">Hardware support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../math-engine/index.html">Math Engine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../motion-paths.html">Motion Paths</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../timing/index.html">Timing</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Networking</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Datagram Protocol</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Client-Server Connection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="transmitting-data.html">Transmitting Data</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../downloading-a-file.html">Downloading a File</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../distributed-networking.html">Distributed Networking</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../multifiles/index.html">Multifiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../showbase.html">ShowBase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../file-reading.html">File Reading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../threading.html">Threading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../subclassing.html">Subclassing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../table-of-features-supported-per-graphic-renderer.html">Table of features supported per graphic renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../pandai/index.html">Artificial Intelligence (PANDAI)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../distribution/index.html">Distributing Panda3D Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../samples/index.html">Sample Programs in the Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../debugging/index.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../performance-tuning/index.html">Performance Tuning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../using-c++/index.html">Using C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tools/index.html">Panda3D Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../building-from-source.html">Building Panda3D from Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cheat-sheets.html">Cheat Sheets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting-started-on-osx.html">Getting Started on OSX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../more-panda3d-resources.html">More Panda3D Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../thirdparty-licenses.html">Third-party dependencies and license info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../the-irc-channel.html">The IRC Channel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../faq.html">FAQ</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../index.html">Panda3D</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../index.html">Programming with Panda3D</a> &raquo;</li>
+      
+          <li><a href="../index.html">Networking</a> &raquo;</li>
+      
+          <li><a href="index.html">Datagram Protocol</a> &raquo;</li>
+      
+    <li>Client-Server Connection</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../_sources/programming-with-panda3d/networking/datagram-protocol/client-server-connection.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="client-server-connection">
+<span id="id1"></span><h1>Client-Server Connection<a class="headerlink" href="#client-server-connection" title="Permalink to this headline">¶</a></h1>
+<p>The first step in network communication is to establish the client-server
+connection. This entails two sets of operations: one for the server side
+(which listens for incoming connections), and one for the client side (which
+establishes a connection to the server). Both of these processes are described
+below.</p>
+<div class="section" id="preparing-the-server-for-connection">
+<h2>Preparing the server for connection<a class="headerlink" href="#preparing-the-server-for-connection" title="Permalink to this headline">¶</a></h2>
+<p>An average Panda program acting as a server will need to create four classes:</p>
+<ul class="simple">
+<li>A QueuedConnectionManager, which handles the low-level connection
+processes, establishes connections, and handles unexpected network
+termination</li>
+<li>A QueuedConnectionListener, which waits for clients to request connection</li>
+<li>A QueuedConnectionReader, which buffers incoming data from an active
+connection</li>
+<li>A ConnectionWriter, which allows PyDatagrams to be transmitted out along an
+active connection</li>
+</ul>
+<p>The first step is to instantiate these four classes.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">panda3d.core</span> <span class="kn">import</span> <span class="n">QueuedConnectionManager</span>
+<span class="kn">from</span> <span class="nn">panda3d.core</span> <span class="kn">import</span> <span class="n">QueuedConnectionListener</span>
+<span class="kn">from</span> <span class="nn">panda3d.core</span> <span class="kn">import</span> <span class="n">QueuedConnectionReader</span>
+<span class="kn">from</span> <span class="nn">panda3d.core</span> <span class="kn">import</span> <span class="n">ConnectionWriter</span>
+
+<span class="n">cManager</span> <span class="o">=</span> <span class="n">QueuedConnectionManager</span><span class="p">()</span>
+<span class="n">cListener</span> <span class="o">=</span> <span class="n">QueuedConnectionListener</span><span class="p">(</span><span class="n">cManager</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">cReader</span> <span class="o">=</span> <span class="n">QueuedConnectionReader</span><span class="p">(</span><span class="n">cManager</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">cWriter</span> <span class="o">=</span> <span class="n">ConnectionWriter</span><span class="p">(</span><span class="n">cManager</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="n">activeConnections</span><span class="o">=</span><span class="p">[]</span> <span class="c1"># We&#39;ll want to keep track of these later</span>
+</pre></div>
+</div>
+<p>This method of instantiation prepares the classes in single-thread mode, which
+that realtime communication requires them to be polled periodically.</p>
+<p>To accept client connections, the server opens a special &#8220;rendezvous&#8221; socket
+at a specific port address. This port address must be known by both the client
+and the server. Additionally, a backlog is specified; this is the number of
+incoming connection requests that the connection will track before it starts
+rejecting connection attempts. The responsibility for managing the rendezvous
+socket is passed to the QueuedConnectionListener, and a task is spawned to
+periodically poll the listener.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">port_address</span><span class="o">=</span><span class="mi">9099</span> <span class="c1">#No-other TCP/IP services are using this port</span>
+<span class="n">backlog</span><span class="o">=</span><span class="mi">1000</span> <span class="c1">#If we ignore 1,000 connection attempts, something is wrong!</span>
+<span class="n">tcpSocket</span> <span class="o">=</span> <span class="n">cManager</span><span class="o">.</span><span class="n">openTCPServerRendezvous</span><span class="p">(</span><span class="n">port_address</span><span class="p">,</span><span class="n">backlog</span><span class="p">)</span>
+
+<span class="n">cListener</span><span class="o">.</span><span class="n">addConnection</span><span class="p">(</span><span class="n">tcpSocket</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Since the network handlers we instantiated are polled, we&#8217;ll create some tasks
+to do the polling.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">taskMgr</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tskListenerPolling</span><span class="p">,</span><span class="s2">&quot;Poll the connection listener&quot;</span><span class="p">,</span><span class="o">-</span><span class="mi">39</span><span class="p">)</span>
+<span class="n">taskMgr</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tskReaderPolling</span><span class="p">,</span><span class="s2">&quot;Poll the connection reader&quot;</span><span class="p">,</span><span class="o">-</span><span class="mi">40</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>When a connection comes in, the tskListenerPolling function below handles the
+incoming connection and hands it to the QueuedConnectionReader. The connection
+is now established.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">panda3d.core</span> <span class="kn">import</span> <span class="n">PointerToConnection</span>
+<span class="kn">from</span> <span class="nn">panda3d.core</span> <span class="kn">import</span> <span class="n">NetAddress</span>
+
+<span class="k">def</span> <span class="nf">tskListenerPolling</span><span class="p">(</span><span class="n">taskdata</span><span class="p">):</span>
+  <span class="k">if</span> <span class="n">cListener</span><span class="o">.</span><span class="n">newConnectionAvailable</span><span class="p">():</span>
+
+    <span class="n">rendezvous</span> <span class="o">=</span> <span class="n">PointerToConnection</span><span class="p">()</span>
+    <span class="n">netAddress</span> <span class="o">=</span> <span class="n">NetAddress</span><span class="p">()</span>
+    <span class="n">newConnection</span> <span class="o">=</span> <span class="n">PointerToConnection</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="n">cListener</span><span class="o">.</span><span class="n">getNewConnection</span><span class="p">(</span><span class="n">rendezvous</span><span class="p">,</span><span class="n">netAddress</span><span class="p">,</span><span class="n">newConnection</span><span class="p">):</span>
+      <span class="n">newConnection</span> <span class="o">=</span> <span class="n">newConnection</span><span class="o">.</span><span class="n">p</span><span class="p">()</span>
+      <span class="n">activeConnections</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">newConnection</span><span class="p">)</span> <span class="c1"># Remember connection</span>
+      <span class="n">cReader</span><span class="o">.</span><span class="n">addConnection</span><span class="p">(</span><span class="n">newConnection</span><span class="p">)</span>     <span class="c1"># Begin reading connection</span>
+  <span class="k">return</span> <span class="n">Task</span><span class="o">.</span><span class="n">cont</span>
+</pre></div>
+</div>
+<p>Once a connection has been opened, the QueuedConnectionReader may begin
+processing incoming packets. This is similar to the flow of the listener&#8217;s
+task, but it is up to the server code to handle the incoming data.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">panda3d.core</span> <span class="kn">import</span> <span class="n">NetDatagram</span>
+
+<span class="k">def</span> <span class="nf">tskReaderPolling</span><span class="p">(</span><span class="n">taskdata</span><span class="p">):</span>
+  <span class="k">if</span> <span class="n">cReader</span><span class="o">.</span><span class="n">dataAvailable</span><span class="p">():</span>
+    <span class="n">datagram</span><span class="o">=</span><span class="n">NetDatagram</span><span class="p">()</span>  <span class="c1"># catch the incoming data in this instance</span>
+    <span class="c1"># Check the return value; if we were threaded, someone else could have</span>
+    <span class="c1"># snagged this data before we did</span>
+    <span class="k">if</span> <span class="n">cReader</span><span class="o">.</span><span class="n">getData</span><span class="p">(</span><span class="n">datagram</span><span class="p">):</span>
+      <span class="n">myProcessDataFunction</span><span class="p">(</span><span class="n">datagram</span><span class="p">)</span>
+  <span class="k">return</span> <span class="n">Task</span><span class="o">.</span><span class="n">cont</span>
+</pre></div>
+</div>
+<p>Note that the QueuedConnectionReader retrieves data from all clients connected
+to the server. The NetDatagram can be queried using NetDatagram.getConnection
+to determine which client sent the message.</p>
+<p>If the server wishes to send data to the client, it can use the
+ConnectionWriter to transmit back along the connection.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span> <span class="c1"># broadcast a message to all clients</span>
+<span class="n">myPyDatagram</span><span class="o">=</span><span class="n">myNewPyDatagram</span><span class="p">()</span>  <span class="c1"># build a datagram to send</span>
+<span class="k">for</span> <span class="n">aClient</span> <span class="ow">in</span> <span class="n">activeConnections</span><span class="p">:</span>
+  <span class="n">cWriter</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">myPyDatagram</span><span class="p">,</span><span class="n">aClient</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Finally, the server may terminate a connection by removing it from the
+QueuedConnectionReader&#8217;s responsibility. It may also deactivate its listener
+so that no more connections are received</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span> <span class="c1"># terminate connection to all clients</span>
+
+<span class="k">for</span> <span class="n">aClient</span> <span class="ow">in</span> <span class="n">activeConnections</span><span class="p">:</span>
+  <span class="n">cReader</span><span class="o">.</span><span class="n">removeConnection</span><span class="p">(</span><span class="n">aClient</span><span class="p">)</span>
+<span class="n">activeConnections</span><span class="o">=</span><span class="p">[]</span>
+
+ <span class="c1"># close down our listener</span>
+<span class="n">cManager</span><span class="o">.</span><span class="n">closeConnection</span><span class="p">(</span><span class="n">tcpSocket</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="connecting-with-a-client">
+<h2>Connecting with a client<a class="headerlink" href="#connecting-with-a-client" title="Permalink to this headline">¶</a></h2>
+<p>The process the client undertakes to connect to a server is extremely similar
+to the process the server undertakes to receive connections. Like the server,
+a client instantiates a QueuedConnectionManager, QueuedConnectionReader, and
+ConnectionWriter. However, there are some differences in the process. In
+general, a client has no need to open a rendezvous socket or create a
+QueuedConnectionListener, since it will be doing the connecting itself.
+Instead, the client connects to a specific server by specifying the server&#8217;s
+IP address and the correct socket ID.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">port_address</span><span class="o">=</span><span class="mi">9099</span>  <span class="c1"># same for client and server</span>
+
+ <span class="c1"># a valid server URL. You can also use a DNS name</span>
+ <span class="c1"># if the server has one, such as &quot;localhost&quot; or &quot;panda3d.org&quot;</span>
+<span class="n">ip_address</span><span class="o">=</span><span class="s2">&quot;192.168.0.50&quot;</span>
+
+ <span class="c1"># how long until we give up trying to reach the server?</span>
+<span class="n">timeout_in_miliseconds</span><span class="o">=</span><span class="mi">3000</span>  <span class="c1"># 3 seconds</span>
+
+<span class="n">myConnection</span><span class="o">=</span><span class="n">cManager</span><span class="o">.</span><span class="n">openTCPClientConnection</span><span class="p">(</span><span class="n">ip_address</span><span class="p">,</span><span class="n">port_address</span><span class="p">,</span><span class="n">timeout_in_miliseconds</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">myConnection</span><span class="p">:</span>
+  <span class="n">cReader</span><span class="o">.</span><span class="n">addConnection</span><span class="p">(</span><span class="n">myConnection</span><span class="p">)</span>  <span class="c1"># receive messages from server</span>
+</pre></div>
+</div>
+<p>When the client has finished communicating with the server, it can close the
+connection.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">cManager</span><span class="o">.</span><span class="n">closeConnection</span><span class="p">(</span><span class="n">myConnection</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="transmitting-data.html" class="btn btn-neutral float-right" title="Transmitting Data" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Datagram Protocol" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Panda3D.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'1.10.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

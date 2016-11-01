@@ -1,0 +1,409 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>The Scene Graph &mdash; Panda3D Manual</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Panda3D Manual" href="../../index.html"/>
+        <link rel="up" title="Programming with Panda3D" href="../index.html"/>
+        <link rel="next" title="Scene Graph Manipulations" href="scene-graph-manipulations.html"/>
+        <link rel="prev" title="Programming with Panda3D" href="../index.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Panda3D
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.10
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../intro/index.html">Introduction to Panda3D</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Programming with Panda3D</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">The Scene Graph</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="scene-graph-manipulations.html">Scene Graph Manipulations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common-state-changes.html">Common State Changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="manipulating-a-piece-of-a-model.html">Manipulating a Piece of a Model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="searching-the-scene-graph.html">Searching the Scene Graph</a></li>
+<li class="toctree-l3"><a class="reference internal" href="instancing.html">Instancing</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../the-configuration-file/index.html">The Configuration File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../models-and-actors/index.html">Models and Actors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-attributes/index.html">Render Attributes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../texturing/index.html">Texturing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shaders/index.html">Shaders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../camera-control/index.html">Camera Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sound/index.html">Sound</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intervals/index.html">Intervals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks-and-event-handling/index.html">Tasks and Event Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../text-and-image-rendering/index.html">Text and Image Rendering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../directgui/index.html">DirectGUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-effects/index.html">Render Effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../finite-state-machines/index.html">Finite State Machines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../terrain/index.html">Terrain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internal-structures/index.html">Advanced operations with Panda3D&#8217;s internal structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-to-texture-and-image-postprocessing/index.html">Render-to-Texture and Image Postprocessing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../panda3d-rendering-process/index.html">Panda3D Rendering Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../panda3d-utility-functions.html">Panda3D Utility Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../particle-effects/index.html">Particle Effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../collision-detection/index.html">Collision Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../garbage-collection/index.html">Garbage Collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hardware-support/index.html">Hardware support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../math-engine/index.html">Math Engine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../motion-paths.html">Motion Paths</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../timing/index.html">Timing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../networking/index.html">Networking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../multifiles/index.html">Multifiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../showbase.html">ShowBase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../file-reading.html">File Reading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../threading.html">Threading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../subclassing.html">Subclassing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../table-of-features-supported-per-graphic-renderer.html">Table of features supported per graphic renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pandai/index.html">Artificial Intelligence (PANDAI)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../distribution/index.html">Distributing Panda3D Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../samples/index.html">Sample Programs in the Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../debugging/index.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../performance-tuning/index.html">Performance Tuning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../using-c++/index.html">Using C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/index.html">Panda3D Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../building-from-source.html">Building Panda3D from Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cheat-sheets.html">Cheat Sheets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started-on-osx.html">Getting Started on OSX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../more-panda3d-resources.html">More Panda3D Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../thirdparty-licenses.html">Third-party dependencies and license info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../the-irc-channel.html">The IRC Channel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">FAQ</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Panda3D</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Programming with Panda3D</a> &raquo;</li>
+      
+    <li>The Scene Graph</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/programming-with-panda3d/the-scene-graph/index.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="the-scene-graph">
+<span id="id1"></span><h1>The Scene Graph<a class="headerlink" href="#the-scene-graph" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="the-scene-graph-a-tree-of-nodes">
+<h2>The Scene Graph: a Tree of Nodes<a class="headerlink" href="#the-scene-graph-a-tree-of-nodes" title="Permalink to this headline">¶</a></h2>
+<p>Many simple 3D engines maintain a list of 3D models to render every frame. In
+these simple engines, one must allocate a 3D model (or load it from disk), and
+then insert it into the list of models to render. The model is not &#8220;visible&#8221;
+to the renderer until it is inserted into the list.</p>
+<p>Panda3D is slightly more sophisticated. Instead of maintaining a list of
+objects to render, it maintains a tree of objects to render. An object is not
+visible to the renderer until it is inserted into the tree.</p>
+<p>The tree consists of objects of class
+<code class="docutils literal"><span class="pre">PandaNode</span></code>. This is actually a
+superclass for a number of other classes:
+<code class="docutils literal"><span class="pre">ModelNode</span></code>,
+<code class="docutils literal"><span class="pre">GeomNode</span></code>,
+<code class="docutils literal"><span class="pre">LightNode</span></code>, and so forth.
+Throughout this manual, it is common for us to refer to objects of these
+classes as simply nodes. The root of the tree is a node called
+<code class="docutils literal"><span class="pre">render</span></code>. (Note: there may be
+additional roots for specialized purposes, like
+<code class="docutils literal"><span class="pre">render2d</span></code> for 2D objects)</p>
+<p>Panda3D&#8217;s &#8220;tree of things to render&#8221; is named the scene graph.</p>
+</div>
+<div class="section" id="what-you-need-to-know-about-the-hierarchical-scene-graph">
+<h2>What you Need to Know about the Hierarchical Scene Graph<a class="headerlink" href="#what-you-need-to-know-about-the-hierarchical-scene-graph" title="Permalink to this headline">¶</a></h2>
+<p>Here are the most important things you need to know about the hierarchical
+arrangement of the scene graph:</p>
+<ol class="arabic simple">
+<li>You control where objects go in the tree. When you insert an object into
+the tree, you specify where to insert it. You can move branches of the tree
+around. You can make the tree as deep or as shallow as you like.</li>
+<li>Positions of objects are specified relative to their parent in the tree.
+For example, if you have a 3D model of a hat, you might want to specify
+that it always stays five units above a 3D model of a certain person&#8217;s
+head. Insert the hat as a child of the head, and set the position of the
+hat to (0,0,5).</li>
+<li>When models are arranged in a tree, any <em>rendering attributes</em> you assign
+to a node will propagate to its children. For example, if you specify that
+a given node should be rendered with depth fog, then its children will also
+be rendered with depth fog, unless you explicitly override at the child
+level.</li>
+<li>Panda3D generates bounding boxes for each node in the tree. A good
+organizational hierarchy can speed frustum and occlusion culling. If the
+bounding box of an entire branch is outside the frustum, there is no need
+to examine the children.</li>
+</ol>
+<p>Beginners usually choose to make their tree completely flat&#8211;everything is
+inserted immediately beneath the root. This is actually a very good initial
+design. Eventually, you will find a reason to want to add a little more depth
+to the hierarchy. But it is wise not to get complicated until you have a
+clear, specific reason to do so.</p>
+</div>
+<div class="section" id="nodepaths">
+<h2>NodePaths<a class="headerlink" href="#nodepaths" title="Permalink to this headline">¶</a></h2>
+<p>There is a helper class called
+<code class="docutils literal"><span class="pre">NodePath</span></code> which is a very small
+object containing a pointer to a node, plus some administrative information.
+For now, you can ignore the administrative information; it will be explained
+in a :ref:` &lt;instancing&gt;` of the manual. It is the intent of the panda
+designers that you should think of a NodePath as a handle to a node. Any
+function that creates a node returns a
+<code class="docutils literal"><span class="pre">NodePath</span></code> that refers to the
+newly-created node.</p>
+<p>A NodePath isn&#8217;t exactly a pointer to a node; it&#8217;s a &#8220;handle&#8221; to a node.
+Conceptually, this is almost a distinction without a difference. However,
+there are certain API functions that expect you to pass in a NodePath, and
+there are other API functions that expect you to pass in a node pointer.
+Because of this, although there is little conceptual difference between them,
+you still need to know that both exist.</p>
+<p>You can convert a NodePath into a &#8220;regular&#8221; pointer at any time by calling
+<code class="docutils literal"><span class="pre">nodePath.node()</span></code>. However, there is no
+unambiguous way to convert back. That&#8217;s important: sometimes you need a
+NodePath, sometimes you need a node pointer. Because of this, it is
+recommended that you store NodePaths, not node pointers. When you pass
+parameters, you should probably pass NodePaths, not node pointers. The callee
+can always convert the NodePath to a node pointer if it needs to.</p>
+</div>
+<div class="section" id="nodepath-methods-and-node-methods">
+<h2>NodePath methods and Node methods<a class="headerlink" href="#nodepath-methods-and-node-methods" title="Permalink to this headline">¶</a></h2>
+<p>There are many methods that you can invoke on NodePaths, which are appropriate
+for nodes of any type. Specialized node types, like LODNodes and Cameras (for
+instance), provide additional methods that are available only for nodes of
+that type, which you must invoke on the node itself. Here are some assorted
+examples:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># NODEPATH METHODS:</span>
+<span class="n">myNodePath</span><span class="o">.</span><span class="n">setPos</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
+<span class="n">myNodePath</span><span class="o">.</span><span class="n">setColor</span><span class="p">(</span><span class="n">banana</span><span class="p">)</span>
+
+<span class="c1"># LODNODE METHODS:</span>
+<span class="n">myNodePath</span><span class="o">.</span><span class="n">node</span><span class="p">()</span><span class="o">.</span><span class="n">addSwitch</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">myNodePath</span><span class="o">.</span><span class="n">node</span><span class="p">()</span><span class="o">.</span><span class="n">setCenter</span><span class="p">(</span><span class="n">Point3</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+
+<span class="c1"># CAMERA NODE METHODS:</span>
+<span class="n">myNodePath</span><span class="o">.</span><span class="n">node</span><span class="p">()</span><span class="o">.</span><span class="n">setLens</span><span class="p">(</span><span class="n">PerspectiveLens</span><span class="p">())</span>
+<span class="n">myNodePath</span><span class="o">.</span><span class="n">node</span><span class="p">()</span><span class="o">.</span><span class="n">getCameraMask</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="c1">// NODEPATH METHODS:</span>
+<span class="n">myNodePath</span><span class="p">.</span><span class="n">set_pos</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">);</span>
+<span class="n">myNodePath</span><span class="p">.</span><span class="n">set_color</span><span class="p">(</span><span class="n">banana</span><span class="p">);</span>
+
+<span class="c1">// LODNODE METHODS:</span>
+<span class="n">myNodePath</span><span class="p">.</span><span class="n">node</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">add_switch</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+<span class="n">myNodePath</span><span class="p">.</span><span class="n">node</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">set_center</span><span class="p">(</span><span class="n">LPoint3f</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">));</span>
+
+<span class="c1">// CAMERA NODE METHODS:</span>
+<span class="n">myNodePath</span><span class="p">.</span><span class="n">node</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">set_lens</span><span class="p">(</span><span class="k">new</span> <span class="n">PerspectiveLens</span><span class="p">());</span>
+<span class="n">myNodePath</span><span class="p">.</span><span class="n">node</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">get_camera_mask</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>Always remember: when you invoke a method of
+<code class="docutils literal"><span class="pre">NodePath</span></code>, you are actually
+performing an operation on the node to which it points.</p>
+<p>In the example above, we call node-methods by first converting the NodePath
+into a node, and then immediately calling the node-method. This is the
+recommended style.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="scene-graph-manipulations.html">Scene Graph Manipulations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="scene-graph-manipulations.html#the-default-scene-graphs">The default scene graphs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scene-graph-manipulations.html#loading-models">Loading models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scene-graph-manipulations.html#reparenting-nodes-and-models">Reparenting nodes and models</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="common-state-changes.html">Common State Changes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="common-state-changes.html#summary">Summary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-state-changes.html#state-change-cheat-sheet">State Change Cheat Sheet</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="manipulating-a-piece-of-a-model.html">Manipulating a Piece of a Model</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="manipulating-a-piece-of-a-model.html#animated-skeleton-animation-models">Animated (skeleton animation) models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manipulating-a-piece-of-a-model.html#unanimated-environment-models">Unanimated (environment) models</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="searching-the-scene-graph.html">Searching the Scene Graph</a></li>
+<li class="toctree-l1"><a class="reference internal" href="instancing.html">Instancing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="instancing.html#advanced-instancing">Advanced Instancing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="instancing.html#instancing-an-important-caveat">Instancing: an Important Caveat</a></li>
+<li class="toctree-l2"><a class="reference internal" href="instancing.html#the-nodepath-a-pointer-to-a-node-plus-a-unique-instance-id">The NodePath: a Pointer to a Node plus a Unique Instance ID</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="scene-graph-manipulations.html" class="btn btn-neutral float-right" title="Scene Graph Manipulations" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../index.html" class="btn btn-neutral" title="Programming with Panda3D" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Panda3D.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.10.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,433 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Projected Textures &mdash; Panda3D Manual</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Panda3D Manual" href="../../index.html"/>
+        <link rel="up" title="Texturing" href="index.html"/>
+        <link rel="next" title="Simple Environment Mapping" href="simple-environment-mapping.html"/>
+        <link rel="prev" title="Automatic Texture Coordinates" href="automatic-texture-coordinates.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Panda3D
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.10
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../intro/index.html">Introduction to Panda3D</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Programming with Panda3D</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../the-scene-graph/index.html">The Scene Graph</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../the-configuration-file/index.html">The Configuration File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../models-and-actors/index.html">Models and Actors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-attributes/index.html">Render Attributes</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Texturing</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="simple-texturing.html">Simple Texturing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="choosing-a-texture-size.html">Choosing a Texture Size</a></li>
+<li class="toctree-l3"><a class="reference internal" href="texture-wrap-modes.html">Texture Wrap Modes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="texture-filter-types.html">Texture Filter Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="simple-texture-replacement.html">Simple Texture Replacement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multitexture-introduction.html">Multitexture Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="texture-modes.html">Texture Modes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="texture-order.html">Texture Order</a></li>
+<li class="toctree-l3"><a class="reference internal" href="texture-combine-modes.html">Texture Combine Modes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="texture-transforms.html">Texture Transforms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multiple-texture-coordinate-sets.html">Multiple Texture Coordinate Sets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="automatic-texture-coordinates.html">Automatic Texture Coordinates</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Projected Textures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="simple-environment-mapping.html">Simple Environment Mapping</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3d-textures.html">3-D Textures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cube-maps.html">Cube Maps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="environment-mapping-with-cube-maps.html">Environment Mapping with Cube Maps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="automatic-texture-animation.html">Automatic Texture Animation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="playing-mpg-and-avi-files.html">Playing MPG and AVI files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="stereo-multiview-textures.html">Stereo/Multiview Textures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="transparency-and-blending.html">Transparency and Blending</a></li>
+<li class="toctree-l3"><a class="reference internal" href="texture-management.html">Texture Management</a></li>
+<li class="toctree-l3"><a class="reference internal" href="texture-compression.html">Texture Compression</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../shaders/index.html">Shaders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../camera-control/index.html">Camera Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sound/index.html">Sound</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intervals/index.html">Intervals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks-and-event-handling/index.html">Tasks and Event Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../text-and-image-rendering/index.html">Text and Image Rendering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../directgui/index.html">DirectGUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-effects/index.html">Render Effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../finite-state-machines/index.html">Finite State Machines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../terrain/index.html">Terrain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internal-structures/index.html">Advanced operations with Panda3D&#8217;s internal structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-to-texture-and-image-postprocessing/index.html">Render-to-Texture and Image Postprocessing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../panda3d-rendering-process/index.html">Panda3D Rendering Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../panda3d-utility-functions.html">Panda3D Utility Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../particle-effects/index.html">Particle Effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../collision-detection/index.html">Collision Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../garbage-collection/index.html">Garbage Collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hardware-support/index.html">Hardware support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../math-engine/index.html">Math Engine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../motion-paths.html">Motion Paths</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../timing/index.html">Timing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../networking/index.html">Networking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../multifiles/index.html">Multifiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../showbase.html">ShowBase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../file-reading.html">File Reading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../threading.html">Threading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../subclassing.html">Subclassing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../table-of-features-supported-per-graphic-renderer.html">Table of features supported per graphic renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pandai/index.html">Artificial Intelligence (PANDAI)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../distribution/index.html">Distributing Panda3D Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../samples/index.html">Sample Programs in the Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../debugging/index.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../performance-tuning/index.html">Performance Tuning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../using-c++/index.html">Using C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/index.html">Panda3D Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../building-from-source.html">Building Panda3D from Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cheat-sheets.html">Cheat Sheets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started-on-osx.html">Getting Started on OSX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../more-panda3d-resources.html">More Panda3D Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../thirdparty-licenses.html">Third-party dependencies and license info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../the-irc-channel.html">The IRC Channel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">FAQ</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Panda3D</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Programming with Panda3D</a> &raquo;</li>
+      
+          <li><a href="index.html">Texturing</a> &raquo;</li>
+      
+    <li>Projected Textures</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/programming-with-panda3d/texturing/projected-textures.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="projected-textures">
+<span id="id1"></span><h1>Projected Textures<a class="headerlink" href="#projected-textures" title="Permalink to this headline">¶</a></h1>
+<p>In a :ref:` &lt;texture-transforms&gt;`, we introduced ways to apply an explicit
+transformation to a model&#8217;s texture coordinates, with methods like
+<code class="docutils literal"><span class="pre">setTexOffset()</span></code> and
+<code class="docutils literal"><span class="pre">setTexScale()</span></code>. In addition to this
+explicit control, Panda3D offers a simple mechanism to apply an automatic
+texture transform each frame, as computed from the relative transform between
+any two nodes.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">nodePath</span><span class="o">.</span><span class="n">setTexProjector</span><span class="p">(</span><span class="n">textureStage</span><span class="p">,</span> <span class="n">fromNodePath</span><span class="p">,</span> <span class="n">toNodePath</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>When you have enabled this mode, the relative scene-graph transform from
+<code class="docutils literal"><span class="pre">fromNodePath</span></code> to
+<code class="docutils literal"><span class="pre">toNodePath</span></code>&#8211;that is, the result of
+<code class="docutils literal"><span class="pre">fromNodePath.getTransform(toNodePath)</span></code>&#8211;is automatically
+applied as a texture-coordinate transform to the indicated textureStage. The
+result is more-or-less as if you executed the following command every frame:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">nodePath</span><span class="o">.</span><span class="n">setTexTransform</span><span class="p">(</span><span class="n">textureStage</span><span class="p">,</span> <span class="n">fromNodePath</span><span class="o">.</span><span class="n">getTransform</span><span class="p">(</span><span class="n">toNodePath</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>There is no need for either
+<code class="docutils literal"><span class="pre">fromNodePath</span></code> or
+<code class="docutils literal"><span class="pre">toNodePath</span></code> to have any relation to
+the nodePath that is receiving the
+<code class="docutils literal"><span class="pre">setTexProjector()</span></code> call; they can be any
+two arbitrary NodePaths. If either of them is just
+<code class="docutils literal"><span class="pre">NodePath()</span></code>, it stands for the top
+of the graph.</p>
+<p>This has several useful applications. We have already introduced
+:ref:` &lt;automatic-texture-coordinates&gt;`, in conjunction with
+<code class="docutils literal"><span class="pre">MWorldPosition</span></code>, to move the generated
+texture coordinates from the root of the graph to the model itself.</p>
+<div class="section" id="interval-animated-texture-transforms">
+<h2>Interval-animated texture transforms<a class="headerlink" href="#interval-animated-texture-transforms" title="Permalink to this headline">¶</a></h2>
+<p>Another handy application for a TexProjector is to enable the use of the
+various :ref:` &lt;lerp-intervals&gt;` to animate a texture transform. Although
+there are no LerpIntervals that directly animate texture transforms, you can
+make a LerpInterval animate a NodePath&#8211;and then set up a TexProjector effect
+to follow that NodePath. For example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">smiley</span> <span class="o">=</span> <span class="n">loader</span><span class="o">.</span><span class="n">loadModel</span><span class="p">(</span><span class="s1">&#39;smiley.egg&#39;</span><span class="p">)</span>
+<span class="n">lerper</span> <span class="o">=</span> <span class="n">NodePath</span><span class="p">(</span><span class="s1">&#39;lerper&#39;</span><span class="p">)</span>
+<span class="n">smiley</span><span class="o">.</span><span class="n">setTexProjector</span><span class="p">(</span><span class="n">TextureStage</span><span class="o">.</span><span class="n">getDefault</span><span class="p">(),</span> <span class="n">NodePath</span><span class="p">(),</span> <span class="n">lerper</span><span class="p">)</span>
+<span class="n">i</span> <span class="o">=</span> <span class="n">lerper</span><span class="o">.</span><span class="n">posInterval</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">VBase3</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+<span class="n">i</span><span class="o">.</span><span class="n">loop</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Note that you don&#8217;t even have to parent the animated NodePath into the scene
+graph. In the above example, we have set up the interval
+<code class="docutils literal"><span class="pre">i</span></code> to repeatedly move the
+standalone NodePath <code class="docutils literal"><span class="pre">lerper</span></code>
+from position (0, 0, 0) to (0, 1, 0) over 5 seconds. Since
+<code class="docutils literal"><span class="pre">smiley</span></code> is assigned a
+TexProjector that copies the relative transform from
+<code class="docutils literal"><span class="pre">NodePath()</span></code> to
+<code class="docutils literal"><span class="pre">lerper</span></code>&#8211;that is, the net
+transform of <code class="docutils literal"><span class="pre">lerper</span></code>&#8211;it means
+we are really animating the texture coordinates on
+<code class="docutils literal"><span class="pre">smiley</span></code> from (0, 0) to (0, 1)
+(the Z coordinate is ignored for an ordinary 2-D texture).</p>
+</div>
+<div class="section" id="id2">
+<h2>Projected Textures<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>Another useful application of the TexProjector is to implement projected
+textures&#8211;that is, a texture applied to geometry as if it has been projected
+from a lens somewhere in the world, something like a slide projector. You can
+use this to implement a flashlight effect, for instance, or simple projected
+shadows.</p>
+<p>This works because the TexProjector effect does one additional trick: if the
+second NodePath in the <code class="docutils literal"><span class="pre">setTexProjector()</span></code>
+call happens to be a LensNode, then the TexProjector automatically applies the
+lens&#8217;s projection matrix to the texture coordinates (in addition to applying
+the relative transform between the nodes).</p>
+<p>To implement projected textures, you need to do three steps:</p>
+<p>1. Apply the texture you want to the model you want to project it onto,
+usually on its own TextureStage, so that it is
+:ref:` &lt;multitexture-introduction&gt;`.</p>
+<p>2. Put the <code class="docutils literal"><span class="pre">MWorldPosition</span></code> TexGen mode
+on the model. This copies the model&#8217;s vertex positions into its texture
+coordinates, for your texture&#8217;s TextureStage.</p>
+<ol class="arabic" start="3">
+<li><dl class="first docutils">
+<dt>Call ::</dt>
+<dd><p class="first last">model.setTexProjector(textureStage, NodePath(),
+projector)</p>
+</dd>
+</dl>
+</li>
+</ol>
+<p>, where
+<code class="docutils literal"><span class="pre">projector</span></code> is the NodePath to the
+LensNode you want to project from.</p>
+<p>For your convenience, the NodePath class defines the following method that
+performs these three steps at once:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">nodePath</span><span class="o">.</span><span class="n">projectTexture</span><span class="p">(</span><span class="n">textureStage</span><span class="p">,</span> <span class="n">texture</span><span class="p">,</span> <span class="n">lensNodePath</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>For instance, we could use it to project the bamboo texture
+(&#8220;envir-reeds.png&#8221;) onto the ripple.egg model, like this:</p>
+<p><img alt="Bamboo projected onto ripple" src="../../_images/projected-bamboo.jpg" /></p>
+<p>You could move around the projector in the world, or even change the lens
+field of view, and the bamboo image would follow it. (In the above image, the
+camera model and the projection lines are made visible only for illustration
+purposes; normally you wouldn&#8217;t see them.)</p>
+<p>This image was generated with the following code:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">direct.directbase.DirectStart</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">direct.actor</span> <span class="kn">import</span> <span class="n">Actor</span>
+<span class="kn">from</span> <span class="nn">pandac.PandaModules</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">base</span><span class="o">.</span><span class="n">setBackgroundColor</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="n">ripple</span> <span class="o">=</span> <span class="n">Actor</span><span class="o">.</span><span class="n">Actor</span><span class="p">(</span><span class="s1">&#39;ripple.egg&#39;</span><span class="p">)</span>
+<span class="n">ripple</span><span class="o">.</span><span class="n">reparentTo</span><span class="p">(</span><span class="n">render</span><span class="p">)</span>
+<span class="n">ripple</span><span class="o">.</span><span class="n">setScale</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">ripple</span><span class="o">.</span><span class="n">pose</span><span class="p">(</span><span class="s1">&#39;animation&#39;</span><span class="p">,</span> <span class="mi">17</span><span class="p">)</span>
+
+<span class="n">dl</span> <span class="o">=</span> <span class="n">DirectionalLight</span><span class="p">(</span><span class="s1">&#39;dl&#39;</span><span class="p">)</span>
+<span class="n">dlnp</span> <span class="o">=</span> <span class="n">camera</span><span class="o">.</span><span class="n">attachNewNode</span><span class="p">(</span><span class="n">dl</span><span class="p">)</span>
+<span class="n">ripple</span><span class="o">.</span><span class="n">setLight</span><span class="p">(</span><span class="n">dlnp</span><span class="p">)</span>
+
+<span class="n">proj</span> <span class="o">=</span> <span class="n">render</span><span class="o">.</span><span class="n">attachNewNode</span><span class="p">(</span><span class="n">LensNode</span><span class="p">(</span><span class="s1">&#39;proj&#39;</span><span class="p">))</span>
+<span class="n">lens</span> <span class="o">=</span> <span class="n">PerspectiveLens</span><span class="p">()</span>
+<span class="n">proj</span><span class="o">.</span><span class="n">node</span><span class="p">()</span><span class="o">.</span><span class="n">setLens</span><span class="p">(</span><span class="n">lens</span><span class="p">)</span>
+<span class="n">proj</span><span class="o">.</span><span class="n">node</span><span class="p">()</span><span class="o">.</span><span class="n">showFrustum</span><span class="p">()</span>
+<span class="n">proj</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;frustum&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">setColor</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">camModel</span> <span class="o">=</span> <span class="n">loader</span><span class="o">.</span><span class="n">loadModel</span><span class="p">(</span><span class="s1">&#39;camera.egg&#39;</span><span class="p">)</span>
+<span class="n">camModel</span><span class="o">.</span><span class="n">reparentTo</span><span class="p">(</span><span class="n">proj</span><span class="p">)</span>
+<span class="n">proj</span><span class="o">.</span><span class="n">reparentTo</span><span class="p">(</span><span class="n">render</span><span class="p">)</span>
+<span class="n">proj</span><span class="o">.</span><span class="n">setPos</span><span class="p">(</span><span class="mf">1.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">7.3</span><span class="p">,</span> <span class="mf">2.9</span><span class="p">)</span>
+<span class="n">proj</span><span class="o">.</span><span class="n">setHpr</span><span class="p">(</span><span class="mi">22</span><span class="p">,</span> <span class="o">-</span><span class="mi">15</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+<span class="n">tex</span> <span class="o">=</span> <span class="n">loader</span><span class="o">.</span><span class="n">loadTexture</span><span class="p">(</span><span class="s1">&#39;maps/envir-reeds.png&#39;</span><span class="p">)</span>
+<span class="n">tex</span><span class="o">.</span><span class="n">setWrapU</span><span class="p">(</span><span class="n">Texture</span><span class="o">.</span><span class="n">WMBorderColor</span><span class="p">)</span>
+<span class="n">tex</span><span class="o">.</span><span class="n">setWrapV</span><span class="p">(</span><span class="n">Texture</span><span class="o">.</span><span class="n">WMBorderColor</span><span class="p">)</span>
+<span class="n">tex</span><span class="o">.</span><span class="n">setBorderColor</span><span class="p">(</span><span class="n">VBase4</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+<span class="n">ts</span> <span class="o">=</span> <span class="n">TextureStage</span><span class="p">(</span><span class="s1">&#39;ts&#39;</span><span class="p">)</span>
+<span class="n">ts</span><span class="o">.</span><span class="n">setSort</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ts</span><span class="o">.</span><span class="n">setMode</span><span class="p">(</span><span class="n">TextureStage</span><span class="o">.</span><span class="n">MDecal</span><span class="p">)</span>
+<span class="n">ripple</span><span class="o">.</span><span class="n">projectTexture</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="n">tex</span><span class="p">,</span> <span class="n">proj</span><span class="p">)</span>
+
+<span class="n">base</span><span class="o">.</span><span class="n">disableMouse</span><span class="p">()</span>
+<span class="n">camera</span><span class="o">.</span><span class="n">setPos</span><span class="p">(</span><span class="o">-</span><span class="mf">7.8</span><span class="p">,</span> <span class="o">-</span><span class="mf">22.4</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">camera</span><span class="o">.</span><span class="n">setHpr</span><span class="p">(</span><span class="o">-</span><span class="mi">21</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+<span class="n">base</span><span class="o">.</span><span class="n">graphicsEngine</span><span class="o">.</span><span class="n">renderFrame</span><span class="p">()</span>
+<span class="n">base</span><span class="o">.</span><span class="n">screenshot</span><span class="p">(</span><span class="s1">&#39;projected_bamboo.jpg&#39;</span><span class="p">,</span> <span class="n">defaultFilename</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="simple-environment-mapping.html" class="btn btn-neutral float-right" title="Simple Environment Mapping" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="automatic-texture-coordinates.html" class="btn btn-neutral" title="Automatic Texture Coordinates" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Panda3D.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.10.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

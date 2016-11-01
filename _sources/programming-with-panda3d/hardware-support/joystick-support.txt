@@ -1,0 +1,72 @@
+.. _joystick-support:
+
+Joystick Support
+================
+
+Note: I have been told that these instructions are inaccurate. - Josh
+
+While Panda3D has mouse and keyboard support, it is best to look to the open
+source community for joystick support. Pyglet is a Python library with
+joystick and gamepad support that may be used; the relevant modules can be
+extracted from the Pyglet source code. The advantage is that pyglet is pure
+Python and can be used without pulling in heavy C++ modules such as SDL.
+
+Alternatively, Pygame is an open-source module that contains joystick support
+that may be easily included into a Panda3D application. This is not
+recommended since Pygame is relatively big and pulls in C++ modules such as
+SDL. Pygame may be found at `http://www.pygame.org <http://www.pygame.org>`__.
+
+After downloading pygame, simply import the modules as you would any Panda3D
+module.
+
+
+
+.. code-block:: python
+    
+    import pygame
+
+
+
+Once pygame is imported, it needs to be initialized. Also, when the program is
+through with using pygame, it should be exited cleanly.
+
+
+
+.. code-block:: python
+    
+    pygame.init()
+    pygame.quit() 
+
+
+
+Also, the joystick should be initialized. It too has a quit function.
+
+
+
+.. code-block:: python
+    
+    joystick.init()
+    joystick.quit()
+
+
+
+From here, it is possible to get the axis information of the joystick as well
+as the state of the buttons.
+
+
+
+.. code-block:: python
+    
+    # Consume PyGame events.
+    # This seems superfluous, but it is necessary.
+    # Otherwise get_axis and get_button don't work.
+    for e in pygame.event.get(): pass
+    
+    joystick.get_axis(<Axis>)
+    joystick.get_button(<Button>)
+
+
+
+These are the primary functions for the joystick, but there are a number of
+other functions available for joystick support. This can be found at the
+pygame website.

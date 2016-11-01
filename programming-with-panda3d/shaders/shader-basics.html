@@ -1,0 +1,568 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Shader Basics &mdash; Panda3D Manual</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Panda3D Manual" href="../../index.html"/>
+        <link rel="up" title="Shaders" href="index.html"/>
+        <link rel="next" title="List of Possible Cg Shader Inputs" href="list-of-possible-cg-shader-inputs.html"/>
+        <link rel="prev" title="Shaders" href="index.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Panda3D
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.10
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../intro/index.html">Introduction to Panda3D</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Programming with Panda3D</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../the-scene-graph/index.html">The Scene Graph</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../the-configuration-file/index.html">The Configuration File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../models-and-actors/index.html">Models and Actors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-attributes/index.html">Render Attributes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../texturing/index.html">Texturing</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Shaders</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Shader Basics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="list-of-possible-cg-shader-inputs.html">List of Possible Cg Shader Inputs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="list-of-glsl-shader-inputs.html">List of GLSL Shader Inputs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="shaders-and-coordinate-spaces.html">Shaders and Coordinate Spaces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="known-shader-issues.html">Known Shader Bugs and Limitations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="the-shader-generator.html">The Shader Generator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cg-shader-tutorial/index.html">Cg Shader Tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="compute-shaders.html">Compute Shaders</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../camera-control/index.html">Camera Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sound/index.html">Sound</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intervals/index.html">Intervals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks-and-event-handling/index.html">Tasks and Event Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../text-and-image-rendering/index.html">Text and Image Rendering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../directgui/index.html">DirectGUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-effects/index.html">Render Effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../finite-state-machines/index.html">Finite State Machines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../terrain/index.html">Terrain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internal-structures/index.html">Advanced operations with Panda3D&#8217;s internal structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-to-texture-and-image-postprocessing/index.html">Render-to-Texture and Image Postprocessing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../panda3d-rendering-process/index.html">Panda3D Rendering Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../panda3d-utility-functions.html">Panda3D Utility Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../particle-effects/index.html">Particle Effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../collision-detection/index.html">Collision Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../garbage-collection/index.html">Garbage Collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hardware-support/index.html">Hardware support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../math-engine/index.html">Math Engine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../motion-paths.html">Motion Paths</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../timing/index.html">Timing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../networking/index.html">Networking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../multifiles/index.html">Multifiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../showbase.html">ShowBase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../file-reading.html">File Reading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../threading.html">Threading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../subclassing.html">Subclassing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../table-of-features-supported-per-graphic-renderer.html">Table of features supported per graphic renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pandai/index.html">Artificial Intelligence (PANDAI)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../distribution/index.html">Distributing Panda3D Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../samples/index.html">Sample Programs in the Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../debugging/index.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../performance-tuning/index.html">Performance Tuning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../using-c++/index.html">Using C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/index.html">Panda3D Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../building-from-source.html">Building Panda3D from Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cheat-sheets.html">Cheat Sheets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started-on-osx.html">Getting Started on OSX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../more-panda3d-resources.html">More Panda3D Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../thirdparty-licenses.html">Third-party dependencies and license info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../the-irc-channel.html">The IRC Channel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">FAQ</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Panda3D</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Programming with Panda3D</a> &raquo;</li>
+      
+          <li><a href="index.html">Shaders</a> &raquo;</li>
+      
+    <li>Shader Basics</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/programming-with-panda3d/shaders/shader-basics.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="shader-basics">
+<span id="id1"></span><h1>Shader Basics<a class="headerlink" href="#shader-basics" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview-of-shaders">
+<h2>Overview of Shaders<a class="headerlink" href="#overview-of-shaders" title="Permalink to this headline">¶</a></h2>
+<p>As of version 1.7.0, Panda3D supports two shading languages: <strong>Cg</strong> and
+<strong>GLSL</strong>. Section assumes that you have a working knowledge of a shader
+language. If not, it would be wise to read about Cg or GLSL before trying to
+understand how they fit into Panda3D.</p>
+<p>Though Panda3D has used only Cg in the past, it is recommended that you create
+new shaders in GLSL unless you want to target DirectX as well, since the
+NVIDIA Cg toolkit is no longer being maintained.</p>
+<p>There are various types of shaders, each capable of describing a different
+stage in the rendering process. In the most simple case, a model simply has a
+<em>vertex shader</em>, which describes how each vertex is processed, and a <em>fragment
+shader</em> (also called a <em>pixel shader</em> in DirectX parlance), describing how the
+color of each visible pixel on the model is determined. A shader pipeline can
+be composed of one or more of the following types of shaders:</p>
+<dl class="docutils">
+<dt>Vertex shader</dt>
+<dd>The first stage of the pipeline. It is run for each vertex on the model
+geometry, and is responsible for preparing the vertex data, usually by
+transforming the original vertex position to on-screen X, Y coordinates.</dd>
+<dt>Tessellation control (hull) shader</dt>
+<dd>Optional. When tessellation is used, this specifies how to subdivide the
+tessellation patch. GLSL only.</dd>
+<dt>Tessellation evaluation (domain) shader</dt>
+<dd>Optional. When tessellation is used, this determines the position of the
+tessellated vertices. GLSL only.</dd>
+<dt>Geometry shader</dt>
+<dd>Optional. This is run for each <em>input primitive</em> (usually a triangle), and
+determines how the geometry is formed from the input vertices. It may also
+create additional geometry.</dd>
+<dt>Fragment (pixel) shaders</dt>
+<dd>This is the last stage of the pipeline before the pixel is blended into
+the framebuffer, and usually the most useful one. It determines the color
+of each pixel of the rendered geometry, and therefore performs tasks such
+as lighting and texturing.</dd>
+</dl>
+<p>You will often only find a vertex and fragment shader, since geometry and
+tessellation shaders are relatively new features that are useful only in more
+specific cases.</p>
+</div>
+<div class="section" id="cg-shaders">
+<h2>Cg Shaders<a class="headerlink" href="#cg-shaders" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="overview-of-cg-shaders">
+<h3>Overview of Cg Shaders<a class="headerlink" href="#overview-of-cg-shaders" title="Permalink to this headline">¶</a></h3>
+<p>A Cg shader must contain procedures named
+<code class="docutils literal"><span class="pre">vshader()</span></code> and
+<code class="docutils literal"><span class="pre">fshader()</span></code>; the vertex shader and
+fragment shader respectively. If a geometry shader is used, then it must also
+contain a procedure named
+<code class="docutils literal"><span class="pre">gshader()</span></code>.</p>
+</div>
+<div class="section" id="single-file-cg-shaders">
+<h3>Single-File Cg Shaders<a class="headerlink" href="#single-file-cg-shaders" title="Permalink to this headline">¶</a></h3>
+<p>To write a Cg shader in a single file, you must create a shader program that
+looks much like the one shown below. This example preserves position but
+switches the red and green channels of everything it is applied to:</p>
+<div class="highlight-glsl"><div class="highlight"><pre><span></span><span class="c1">//Cg</span>
+
+<span class="k">void</span> <span class="n">vshader</span><span class="p">(</span><span class="n">float4</span> <span class="n">vtx_position</span> <span class="o">:</span> <span class="n">POSITION</span><span class="p">,</span>
+             <span class="n">float4</span> <span class="n">vtx_color</span><span class="o">:</span> <span class="n">COLOR</span><span class="p">,</span>
+             <span class="k">out</span> <span class="n">float4</span> <span class="n">l_position</span> <span class="o">:</span> <span class="n">POSITION</span><span class="p">,</span>
+             <span class="k">out</span> <span class="n">float4</span> <span class="n">l_color0</span> <span class="o">:</span> <span class="n">COLOR0</span><span class="p">,</span>
+             <span class="k">uniform</span> <span class="n">float4x4</span> <span class="n">mat_modelproj</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n">l_position</span> <span class="o">=</span> <span class="n">mul</span><span class="p">(</span><span class="n">mat_modelproj</span><span class="p">,</span> <span class="n">vtx_position</span><span class="p">);</span>
+  <span class="n">l_color0</span> <span class="o">=</span> <span class="n">vtx_color</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">void</span> <span class="n">fshader</span><span class="p">(</span><span class="n">float4</span> <span class="n">l_color0</span> <span class="o">:</span> <span class="n">COLOR0</span><span class="p">,</span>
+             <span class="k">out</span> <span class="n">float4</span> <span class="n">o_color</span> <span class="o">:</span> <span class="n">COLOR</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n">o_color</span> <span class="o">=</span> <span class="n">l_color0</span><span class="p">.</span><span class="n">grba</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="multi-file-cg-shaders">
+<h3>Multi-File Cg Shaders<a class="headerlink" href="#multi-file-cg-shaders" title="Permalink to this headline">¶</a></h3>
+<p>Cg shaders can be divided into several files as well; one for the vertex
+shader, another for the fragment shader, and a third for the geometry shader.
+The procedure names are still required to be
+<code class="docutils literal"><span class="pre">vshader()</span></code>,
+<code class="docutils literal"><span class="pre">fshader()</span></code> and
+<code class="docutils literal"><span class="pre">gshader()</span></code> in their respective
+shader files.</p>
+</div>
+</div>
+<div class="section" id="glsl-shaders">
+<h2>GLSL Shaders<a class="headerlink" href="#glsl-shaders" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="overview-of-glsl-shaders">
+<h3>Overview of GLSL Shaders<a class="headerlink" href="#overview-of-glsl-shaders" title="Permalink to this headline">¶</a></h3>
+<p>To write a GLSL shader, you must write your vertex, pixel and geometry shaders
+separately, since GLSL requires the names of the entry point to all be
+<code class="docutils literal"><span class="pre">main()</span></code>.</p>
+</div>
+<div class="section" id="glsl-example">
+<h3>GLSL Example<a class="headerlink" href="#glsl-example" title="Permalink to this headline">¶</a></h3>
+<p>This example applies the first texture of the model using the first texture
+coordinate set, but switches the red and blue channels around.</p>
+<p>This is the vertex shader, named myshader.vert:</p>
+<div class="highlight-glsl"><div class="highlight"><pre><span></span><span class="cp">#version 130</span>
+
+<span class="c1">// Uniform inputs</span>
+<span class="k">uniform</span> <span class="n">mat4</span> <span class="n">p3d_ModelViewProjectionMatrix</span><span class="p">;</span>
+
+<span class="c1">// Vertex inputs</span>
+<span class="k">in</span> <span class="k">vec4</span> <span class="n">p3d_Vertex</span><span class="p">;</span>
+<span class="k">in</span> <span class="k">vec2</span> <span class="n">p3d_MultiTexCoord0</span><span class="p">;</span>
+
+<span class="c1">// Output to fragment shader</span>
+<span class="k">out</span> <span class="k">vec2</span> <span class="n">texcoord</span><span class="p">;</span>
+
+<span class="k">void</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">gl_Position</span> <span class="o">=</span> <span class="n">p3d_ModelViewProjectionMatrix</span> <span class="o">*</span> <span class="n">p3d_Vertex</span><span class="p">;</span>
+  <span class="n">texcoord</span> <span class="o">=</span> <span class="n">p3d_MultiTexCoord0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>This is the fragment shader, named myshader.frag:</p>
+<div class="highlight-glsl"><div class="highlight"><pre><span></span><span class="cp">#version 130</span>
+
+<span class="k">uniform</span> <span class="k">sampler2D</span> <span class="n">p3d_Texture0</span><span class="p">;</span>
+
+<span class="c1">// Input from vertex shader</span>
+<span class="k">in</span> <span class="k">vec2</span> <span class="n">texcoord</span><span class="p">;</span>
+
+<span class="k">void</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">vec4</span> <span class="n">color</span> <span class="o">=</span> <span class="n">texture</span><span class="p">(</span><span class="n">p3d_Texture0</span><span class="p">,</span> <span class="n">texcoord</span><span class="p">);</span>
+  <span class="n">gl_FragColor</span> <span class="o">=</span> <span class="n">color</span><span class="p">.</span><span class="n">bgra</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="using-shaders-in-panda3d">
+<h2>Using Shaders in Panda3D<a class="headerlink" href="#using-shaders-in-panda3d" title="Permalink to this headline">¶</a></h2>
+<p>Shaders in Panda3D use the
+<code class="docutils literal"><span class="pre">Shader</span></code> class. When a shader is
+loaded, an object of this class is returned. This is then applied to a node
+using the <code class="docutils literal"><span class="pre">set_shader</span></code> method of the
+<code class="docutils literal"><span class="pre">NodePath</span></code> class.</p>
+<div class="section" id="loading-a-cg-shader">
+<h3>Loading a Cg Shader<a class="headerlink" href="#loading-a-cg-shader" title="Permalink to this headline">¶</a></h3>
+<p>Loading a single-file Cg shader is done with the
+<code class="docutils literal"><span class="pre">Shader.load()</span></code> procedure. The first
+parameter is the path to the shader file, and the second is the shader
+language, which in this case is
+<code class="docutils literal"><span class="pre">Shader.SL_Cg</span></code>. The following is an
+example of using this procedure:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">panda3d.core</span> <span class="kn">import</span> <span class="n">Shader</span>
+
+<span class="n">myShader</span> <span class="o">=</span> <span class="n">Shader</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;myshader.sha&quot;</span><span class="p">,</span> <span class="n">Shader</span><span class="o">.</span><span class="n">SL_Cg</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&quot;shader.h&quot;</span><span class="cp"></span>
+
+<span class="n">PT</span><span class="p">(</span><span class="n">Shader</span><span class="p">)</span> <span class="n">myShader</span> <span class="o">=</span> <span class="n">Shader</span><span class="o">::</span><span class="n">load</span><span class="p">(</span><span class="s">&quot;myshader.sha&quot;</span><span class="p">,</span> <span class="n">Shader</span><span class="p">.</span><span class="n">SL_Cg</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Loading a multi-file Cg shader requires a different set of parameters for the
+<code class="docutils literal"><span class="pre">load()</span></code> function; the first
+being the shader language, and the second, third and fourth being paths to the
+vertex, fragment and geometry shaders respectively. Here is an example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">myShader</span> <span class="o">=</span> <span class="n">Shader</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">Shader</span><span class="o">.</span><span class="n">SL_Cg</span><span class="p">,</span> <span class="n">vertex</span><span class="o">=</span><span class="s2">&quot;myvertexshader.sha&quot;</span><span class="p">,</span> <span class="n">fragment</span><span class="o">=</span><span class="s2">&quot;myfragmentshader.sha&quot;</span><span class="p">,</span> <span class="n">geometry</span><span class="o">=</span><span class="s2">&quot;mygeometryshader.sha&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">PT</span><span class="p">(</span><span class="n">Shader</span><span class="p">)</span> <span class="n">myShader</span> <span class="o">=</span> <span class="n">Shader</span><span class="o">::</span><span class="n">load</span><span class="p">(</span><span class="n">Shader</span><span class="p">.</span><span class="n">SL_Cg</span><span class="p">,</span> <span class="s">&quot;myvertexshader.sha&quot;</span><span class="p">,</span> <span class="s">&quot;myfragmentshader.sha&quot;</span><span class="p">,</span> <span class="s">&quot;mygeometryshader.sha&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="loading-a-glsl-shader">
+<h3>Loading a GLSL Shader<a class="headerlink" href="#loading-a-glsl-shader" title="Permalink to this headline">¶</a></h3>
+<p>In the following code sample, a GLSL shader is loaded:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">myShader</span> <span class="o">=</span> <span class="n">Shader</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">Shader</span><span class="o">.</span><span class="n">SL_GLSL</span><span class="p">,</span> <span class="n">vertex</span><span class="o">=</span><span class="s2">&quot;myshader.vert&quot;</span><span class="p">,</span> <span class="n">fragment</span><span class="o">=</span><span class="s2">&quot;myshader.frag&quot;</span><span class="p">,</span> <span class="n">geometry</span><span class="o">=</span><span class="s2">&quot;myshader.geom&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">PT</span><span class="p">(</span><span class="n">Shader</span><span class="p">)</span> <span class="n">myShader</span> <span class="o">=</span> <span class="n">Shader</span><span class="p">::</span><span class="n">load</span><span class="p">(</span><span class="n">Shader</span><span class="o">.</span><span class="n">SL_GLSL</span><span class="p">,</span> <span class="s2">&quot;myvertexshader.vert&quot;</span><span class="p">,</span> <span class="s2">&quot;myfragmentshader.frag&quot;</span><span class="p">,</span> <span class="s2">&quot;mygeometryshader.geom&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="applying-a-shader">
+<h3>Applying a Shader<a class="headerlink" href="#applying-a-shader" title="Permalink to this headline">¶</a></h3>
+<p>Shaders can be applied to any
+<code class="docutils literal"><span class="pre">NodePath</span></code> with the
+<code class="docutils literal"><span class="pre">set_shader()</span></code> method. Here is an
+example that applies a loaded shader to a model:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">myModel</span><span class="o">.</span><span class="n">set_shader</span><span class="p">(</span><span class="n">myShader</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">myModel</span><span class="p">.</span><span class="n">set_shader</span><span class="p">(</span><span class="n">myShader</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>The call to <code class="docutils literal"><span class="pre">set_shader()</span></code> causes the
+<code class="docutils literal"><span class="pre">NodePath</span></code> to be rendered with the
+shader passed to it as a parameter. Shaders propagate down the scene graph,
+like any other render attribute; the node and everything beneath it will use
+the shader.</p>
+<p><code class="docutils literal"><span class="pre">NOTE:&nbsp;The&nbsp;following&nbsp;still&nbsp;needs&nbsp;renovating.&nbsp;</span></code></p>
+</div>
+</div>
+<div class="section" id="fetching-data-from-the-panda3d-runtime">
+<h2>Fetching Data from the Panda3D Runtime<a class="headerlink" href="#fetching-data-from-the-panda3d-runtime" title="Permalink to this headline">¶</a></h2>
+<p>Each shader program contains a parameter list. Panda3D scans the parameter
+list and interprets each parameter name as a request to extract data from the
+panda runtime. For example, if the shader contains a parameter declaration
+<code class="docutils literal"><span class="pre">float3</span> <span class="pre">vtx_position</span> <span class="pre">:</span> <span class="pre">POSITION</span></code>, Panda3D will interpret
+that as a request for the vertex position, and it will satisfy the request.
+Panda3D will only allow parameter declarations that it recognizes and
+understands.</p>
+<p>Panda3D will generate an error if the parameter qualifiers do not match what
+Panda3D is expecting. For example, if you declare the parameter
+<code class="docutils literal"><span class="pre">float3</span> <span class="pre">vtx_position</span></code>, then Panda3D will be
+happy. If, on the other hand, you were to declare
+<code class="docutils literal"><span class="pre">uniform</span> <span class="pre">sampler2D</span> <span class="pre">vtx_position</span></code>, then Panda3D would
+generate two separate errors: Panda3D knows that vtx_position is supposed to
+be a float-vector, not a texture, that it is supposed to be varying, not
+uniform.</p>
+<p>Again, all parameter names must be recognized. There is a
+:ref:` &lt;list-of-possible-cg-shader-inputs&gt;` that shows all the valid parameter
+names and the data that Panda3D will supply.</p>
+</div>
+<div class="section" id="supplying-data-to-the-shader-manually">
+<h2>Supplying data to the Shader Manually<a class="headerlink" href="#supplying-data-to-the-shader-manually" title="Permalink to this headline">¶</a></h2>
+<p>Most of the data that the shader could want can be fetched from Panda3D at
+runtime by using the appropriate parameter names. However, it is sometimes
+necessary to supply some user-provided data to the shader. For this, you need
+<code class="docutils literal"><span class="pre">set_shader_input()</span></code>. Here is an example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">myModel</span><span class="o">.</span><span class="n">set_shader_input</span><span class="p">(</span><span class="s2">&quot;tint&quot;</span><span class="p">,</span> <span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">));</span>
+</pre></div>
+</div>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">myModel</span><span class="p">.</span><span class="n">set_shader_input</span><span class="p">(</span><span class="s">&quot;tint&quot;</span><span class="p">,</span> <span class="n">LVector4f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">));</span>
+</pre></div>
+</div>
+<p>The method <code class="docutils literal"><span class="pre">set_shader_input()</span></code> stores data
+that can be accessed by the shader. It is possible to store data of type
+<code class="docutils literal"><span class="pre">Texture</span></code>,
+<code class="docutils literal"><span class="pre">NodePath</span></code>, and any vector object.</p>
+<p>The data that you store using
+<code class="docutils literal"><span class="pre">set_shader_input()</span></code> isn&#8217;t necessarily used
+by the shader. Instead, the values are stored in the node, but unless the
+shader explicitly asks for them, they will sit unused. So the example above
+simply stores the vector, but it is up to the shader whether or not it is
+interested in a data item labeled &#8220;tint&#8221;.</p>
+<p>To fetch data that was supplied using
+<code class="docutils literal"><span class="pre">set_shader_input()</span></code>, the shader must use
+the appropriate parameter name. See the
+:ref:` &lt;list-of-possible-cg-shader-inputs&gt;`, many of which refer to the data
+that was stored using <code class="docutils literal"><span class="pre">set_shader_input()</span></code>.</p>
+<p>Shader Inputs propagate down the scene graph, and accumulate as they go. For
+example, if you store <code class="docutils literal"><span class="pre">set_shader_input(&quot;x&quot;,</span> <span class="pre">1)</span></code>
+on a node, and <code class="docutils literal"><span class="pre">set_shader_input(&quot;y&quot;,</span> <span class="pre">2)</span></code> on its
+child, then the child will contain both values. If you store
+<code class="docutils literal"><span class="pre">set_shader_input(&quot;z&quot;,</span> <span class="pre">1)</span></code> on a node, and
+<code class="docutils literal"><span class="pre">set_shader_input(&quot;z&quot;,</span> <span class="pre">2)</span></code> on its child, then the
+latter will override the former. The method
+<code class="docutils literal"><span class="pre">set_shader_input()</span></code> accepts a third
+parameter, priority, which defaults to zero. If you store
+<code class="docutils literal"><span class="pre">set_shader_input(&quot;w&quot;,</span> <span class="pre">1,</span> <span class="pre">priority=1000)</span></code> on a node, and
+<code class="docutils literal"><span class="pre">set_shader_input(&quot;w&quot;,</span> <span class="pre">2,</span> <span class="pre">priority=500)</span></code> on the child, then the
+child will contain (&#8220;w&#8221;==1), because the priority 1000 overrides the priority
+500.</p>
+</div>
+<div class="section" id="shader-render-attributes">
+<h2>Shader Render Attributes<a class="headerlink" href="#shader-render-attributes" title="Permalink to this headline">¶</a></h2>
+<p>The functions <code class="docutils literal"><span class="pre">nodePath.set_shader()</span></code> and
+<code class="docutils literal"><span class="pre">nodePath.set_shader_input()</span></code> are used to apply a
+shader to a node in the scene graph. Internally, these functions manipulate a
+render attribute of class
+<code class="docutils literal"><span class="pre">ShaderAttrib</span></code> on the node.</p>
+<p>In rare occasions, it is necessary to manipulate
+<code class="docutils literal"><span class="pre">ShaderAttrib</span></code> objects
+explicitly.</p>
+<p><code class="docutils literal"><span class="pre">As&nbsp;an&nbsp;example,&nbsp;the&nbsp;code&nbsp;below&nbsp;shows&nbsp;how&nbsp;to&nbsp;create&nbsp;a&nbsp;``ShaderAttrib</span></code>&nbsp;and&nbsp;apply&nbsp;it&nbsp;to&nbsp;a&nbsp;camera:``</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">myShaderAttrib</span> <span class="o">=</span> <span class="n">ShaderAttrib</span><span class="o">.</span><span class="n">make</span><span class="p">()</span>
+<span class="n">myShaderAttrib</span> <span class="o">=</span> <span class="n">myShaderAttrib</span><span class="o">.</span><span class="n">setShader</span><span class="p">(</span><span class="n">Shader</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;myshader.sha&quot;</span><span class="p">))</span>
+<span class="n">myShaderAttrib</span> <span class="o">=</span> <span class="n">myShaderAttrib</span><span class="o">.</span><span class="n">setShaderInput</span><span class="p">(</span><span class="s2">&quot;tint&quot;</span><span class="p">,</span> <span class="n">Vec4</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">))</span>
+<span class="n">base</span><span class="o">.</span><span class="n">cam</span><span class="o">.</span><span class="n">node</span><span class="p">()</span><span class="o">.</span><span class="n">setInitialState</span><span class="p">(</span><span class="n">render</span><span class="o">.</span><span class="n">getState</span><span class="p">()</span><span class="o">.</span><span class="n">addAttrib</span><span class="p">(</span><span class="n">myShaderAttrib</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Be careful: attribs are immutable objects. So when you apply a function like
+<code class="docutils literal"><span class="pre">set_shader()</span></code> or
+<code class="docutils literal"><span class="pre">set_shader_input()</span></code> to a
+<code class="docutils literal"><span class="pre">ShaderAttrib</span></code>, you aren&#8217;t modifying
+the attrib. Instead, these functions work by returning a new attrib (which
+contains the modified data).</p>
+</div>
+<div class="section" id="deferred-shader-compilation">
+<h2>Deferred Shader Compilation<a class="headerlink" href="#deferred-shader-compilation" title="Permalink to this headline">¶</a></h2>
+<p>When you create a Cg shader object, it compiles the shader, checking for
+syntax errors. But it does not check whether or not your video card is
+powerful enough to handle the shader. This only happens later on, when you try
+to render something with the shader. In the case of GLSL shaders, all of this
+will only happen when the shader is first used to render something.</p>
+<p>In the unusual event that your computer contains multiple video cards, the
+shader may be compiled more than once. It is possible that the compilation
+could succeed for one video card, and fail for the other.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="list-of-possible-cg-shader-inputs.html" class="btn btn-neutral float-right" title="List of Possible Cg Shader Inputs" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Shaders" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Panda3D.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.10.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

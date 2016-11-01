@@ -1,0 +1,386 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Shaders &mdash; Panda3D Manual</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Panda3D Manual" href="../../index.html"/>
+        <link rel="up" title="Programming with Panda3D" href="../index.html"/>
+        <link rel="next" title="Shader Basics" href="shader-basics.html"/>
+        <link rel="prev" title="Texture Compression" href="../texturing/texture-compression.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Panda3D
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.10
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../intro/index.html">Introduction to Panda3D</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Programming with Panda3D</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../the-scene-graph/index.html">The Scene Graph</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../the-configuration-file/index.html">The Configuration File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../models-and-actors/index.html">Models and Actors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-attributes/index.html">Render Attributes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../texturing/index.html">Texturing</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Shaders</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="shader-basics.html">Shader Basics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="list-of-possible-cg-shader-inputs.html">List of Possible Cg Shader Inputs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="list-of-glsl-shader-inputs.html">List of GLSL Shader Inputs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="shaders-and-coordinate-spaces.html">Shaders and Coordinate Spaces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="known-shader-issues.html">Known Shader Bugs and Limitations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="the-shader-generator.html">The Shader Generator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cg-shader-tutorial/index.html">Cg Shader Tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="compute-shaders.html">Compute Shaders</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../camera-control/index.html">Camera Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sound/index.html">Sound</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intervals/index.html">Intervals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks-and-event-handling/index.html">Tasks and Event Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../text-and-image-rendering/index.html">Text and Image Rendering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../directgui/index.html">DirectGUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-effects/index.html">Render Effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../finite-state-machines/index.html">Finite State Machines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../terrain/index.html">Terrain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internal-structures/index.html">Advanced operations with Panda3D&#8217;s internal structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-to-texture-and-image-postprocessing/index.html">Render-to-Texture and Image Postprocessing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../panda3d-rendering-process/index.html">Panda3D Rendering Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../panda3d-utility-functions.html">Panda3D Utility Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../particle-effects/index.html">Particle Effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../collision-detection/index.html">Collision Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../garbage-collection/index.html">Garbage Collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hardware-support/index.html">Hardware support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../math-engine/index.html">Math Engine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../motion-paths.html">Motion Paths</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../timing/index.html">Timing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../networking/index.html">Networking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../multifiles/index.html">Multifiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../showbase.html">ShowBase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../file-reading.html">File Reading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../threading.html">Threading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../subclassing.html">Subclassing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../table-of-features-supported-per-graphic-renderer.html">Table of features supported per graphic renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pandai/index.html">Artificial Intelligence (PANDAI)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../distribution/index.html">Distributing Panda3D Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../samples/index.html">Sample Programs in the Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../debugging/index.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../performance-tuning/index.html">Performance Tuning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../using-c++/index.html">Using C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/index.html">Panda3D Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../building-from-source.html">Building Panda3D from Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cheat-sheets.html">Cheat Sheets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started-on-osx.html">Getting Started on OSX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../more-panda3d-resources.html">More Panda3D Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../thirdparty-licenses.html">Third-party dependencies and license info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../the-irc-channel.html">The IRC Channel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">FAQ</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Panda3D</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Programming with Panda3D</a> &raquo;</li>
+      
+    <li>Shaders</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/programming-with-panda3d/shaders/index.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="shaders">
+<span id="id1"></span><h1>Shaders<a class="headerlink" href="#shaders" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="what-are-shaders">
+<h2>What are Shaders?<a class="headerlink" href="#what-are-shaders" title="Permalink to this headline">¶</a></h2>
+<p>Once upon a time, each 3D video card had a fixed list of things that it could
+do. At first, the feature lists were short: the cards could draw polygons, do
+some basic texturing, a little alpha blending, and that was it. As time went
+on, the list of features increased and increased: offscreen buffers,
+multisampling, hardware transform and lighting, and so forth. Every time
+somebody thought of some new rendering trick they wanted to try, they had to
+design a new video card with the new ability. People are creative, so soon,
+the list of known features exceeded 350 - this is not an exaggeration, see the
+OpenGL extension registry! Each of these features corresponded to each of the
+hundreds of rendering tricks that people had thought of so far. Yet, people
+kept designing new video card features, because their creativity for inventing
+new rendering tricks had not nearly been exhausted.</p>
+<p>Eventually, somebody realized that video cards needed to be more like
+computers. When you want your computer to have a new capability, you don&#8217;t
+design a new computer. You install a new piece of software. Adding software
+gives a computer new capabilities. If you could download new software to your
+video card, they reasoned, you wouldn&#8217;t need design a new video card every
+time you thought of a new rendering trick. You could upgrade the new feature
+right into the card, right when you needed it.</p>
+<p>And so, shaders were invented. Shaders are software for video cards. Shaders
+look just like computer programs, but they&#8217;re executed by the video card, not
+the computer. If a video card supports shaders, it can be upgraded to support
+almost any desired behavior. Pretty much, the only thing that limits a
+shader-based video card is its speed.</p>
+</div>
+<div class="section" id="automatic-use-of-shaders">
+<h2>Automatic use of Shaders<a class="headerlink" href="#automatic-use-of-shaders" title="Permalink to this headline">¶</a></h2>
+<p>As of version 1.5.0, Panda has several advanced rendering techniques such as
+per-pixel lighting, normal mapping, gloss mapping, glow mapping, HDR, bloom,
+and cartoon inking. In order to make these work, Panda is quietly uploading
+shaders to your video card. You don&#8217;t need to write shaders to use these
+features, or even know much about shaders. You just turn these features on. To
+learn how to turn these features on, read about these features in their own
+sections of the manual.</p>
+</div>
+<div class="section" id="writing-your-own-shaders">
+<h2>Writing your own Shaders<a class="headerlink" href="#writing-your-own-shaders" title="Permalink to this headline">¶</a></h2>
+<p>If what you want to do is one of the things that Panda already supports
+automatically, such as per-pixel lighting, normal mapping, gloss mapping, glow
+mapping, HDR, bloom, or cartoon inking, you don&#8217;t need to write any shaders.
+Just let Panda handle it.</p>
+<p>But if you want to do anything else &#8212; for instance, if you wanted to do
+painterly rendering, or water reflections, or lens flare, or ... well, your
+imagination&#8217;s the limit &#8212; in that case, you need to write your own shaders.
+The following sections will tell you about how to do that in Panda3D.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="shader-basics.html">Shader Basics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="shader-basics.html#overview-of-shaders">Overview of Shaders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shader-basics.html#cg-shaders">Cg Shaders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shader-basics.html#glsl-shaders">GLSL Shaders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shader-basics.html#using-shaders-in-panda3d">Using Shaders in Panda3D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shader-basics.html#fetching-data-from-the-panda3d-runtime">Fetching Data from the Panda3D Runtime</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shader-basics.html#supplying-data-to-the-shader-manually">Supplying data to the Shader Manually</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shader-basics.html#shader-render-attributes">Shader Render Attributes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shader-basics.html#deferred-shader-compilation">Deferred Shader Compilation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="list-of-possible-cg-shader-inputs.html">List of Possible Cg Shader Inputs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="list-of-possible-cg-shader-inputs.html#using-custom-shader-inputs">Using Custom Shader Inputs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="list-of-glsl-shader-inputs.html">List of GLSL Shader Inputs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="list-of-glsl-shader-inputs.html#vertex-shader-attributes">Vertex shader attributes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="list-of-glsl-shader-inputs.html#uniform-shader-inputs">Uniform shader inputs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="shaders-and-coordinate-spaces.html">Shaders and Coordinate Spaces</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="shaders-and-coordinate-spaces.html#the-major-coordinate-spaces">The Major Coordinate Spaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shaders-and-coordinate-spaces.html#supplying-translation-matrices-to-a-shader">Supplying Translation Matrices to a Shader</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shaders-and-coordinate-spaces.html#a-note-about-glsl-inputs">A note about GLSL inputs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shaders-and-coordinate-spaces.html#recommendation-don-t-use-api-view-space-or-api-clip-space">Recommendation: Don&#8217;t use API View Space or API Clip Space</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shaders-and-coordinate-spaces.html#model-of-x-view-of-x-clip-of-x">Model_of_x, View_of_x, Clip_of_x</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="known-shader-issues.html">Known Shader Bugs and Limitations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="known-shader-issues.html#problem-register-allocation">Problem: Register Allocation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="known-shader-issues.html#problem-bad-target-languages">Problem: Bad Target Languages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="known-shader-issues.html#problem-invalid-output-when-using-ati-amd-cards">Problem: Invalid output when using ATI/AMD cards</a></li>
+<li class="toctree-l2"><a class="reference internal" href="known-shader-issues.html#problem-cg-program-too-complex-for-driver">Problem: Cg program too complex for driver</a></li>
+<li class="toctree-l2"><a class="reference internal" href="known-shader-issues.html#problem-untested-unfinished-directx-support">Problem: Untested/Unfinished DirectX Support</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="the-shader-generator.html">The Shader Generator</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="the-shader-generator.html#id2">The Shader Generator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="the-shader-generator.html#sample-programs">Sample Programs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="the-shader-generator.html#per-pixel-lighting">Per-Pixel Lighting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="the-shader-generator.html#known-limitations">Known Limitations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="the-shader-generator.html#how-the-shader-generator-works">How the Shader Generator Works</a></li>
+<li class="toctree-l2"><a class="reference internal" href="the-shader-generator.html#caching-and-the-shader-generator">Caching and the Shader Generator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="the-shader-generator.html#combining-automatic-shaders-with-manual-shaders">Combining Automatic Shaders with Manual Shaders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="the-shader-generator.html#creating-your-own-shader-generator">Creating your own Shader Generator</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cg-shader-tutorial/index.html">Cg Shader Tutorial</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cg-shader-tutorial/index.html#cg-shader-tutorials">Cg Shader Tutorials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cg-shader-tutorial/index.html#pre-requisites">Pre-requisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cg-shader-tutorial/index.html#tutorials">Tutorials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cg-shader-tutorial/index.html#incomplete-section">Incomplete Section</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="compute-shaders.html">Compute Shaders</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="compute-shaders.html#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compute-shaders.html#work-groups">Work groups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compute-shaders.html#example-shader">Example shader</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compute-shaders.html#loading-a-compute-shader">Loading a compute shader</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compute-shaders.html#dispatching-a-compute-shader">Dispatching a compute shader</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compute-shaders.html#image-access">Image access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compute-shaders.html#texture-clear">Texture Clear</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compute-shaders.html#memory-barriers">Memory barriers</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="shader-basics.html" class="btn btn-neutral float-right" title="Shader Basics" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../texturing/texture-compression.html" class="btn btn-neutral" title="Texture Compression" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Panda3D.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.10.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

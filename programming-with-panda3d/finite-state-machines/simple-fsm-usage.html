@@ -1,0 +1,398 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Simple FSM Usage &mdash; Panda3D Manual</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Panda3D Manual" href="../../index.html"/>
+        <link rel="up" title="Finite State Machines" href="index.html"/>
+        <link rel="next" title="FSM with input" href="fsm-with-input.html"/>
+        <link rel="prev" title="FSM Introduction" href="fsm-introduction.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Panda3D
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.10
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../intro/index.html">Introduction to Panda3D</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Programming with Panda3D</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../the-scene-graph/index.html">The Scene Graph</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../the-configuration-file/index.html">The Configuration File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../models-and-actors/index.html">Models and Actors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-attributes/index.html">Render Attributes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../texturing/index.html">Texturing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shaders/index.html">Shaders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../camera-control/index.html">Camera Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sound/index.html">Sound</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intervals/index.html">Intervals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks-and-event-handling/index.html">Tasks and Event Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../text-and-image-rendering/index.html">Text and Image Rendering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../directgui/index.html">DirectGUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-effects/index.html">Render Effects</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Finite State Machines</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="fsm-introduction.html">FSM Introduction</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Simple FSM Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fsm-with-input.html">FSM with input</a></li>
+<li class="toctree-l3"><a class="reference internal" href="advanced-fsm-tidbits.html">Advanced FSM Tidbits</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../terrain/index.html">Terrain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internal-structures/index.html">Advanced operations with Panda3D&#8217;s internal structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-to-texture-and-image-postprocessing/index.html">Render-to-Texture and Image Postprocessing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../panda3d-rendering-process/index.html">Panda3D Rendering Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../panda3d-utility-functions.html">Panda3D Utility Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../particle-effects/index.html">Particle Effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../collision-detection/index.html">Collision Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../garbage-collection/index.html">Garbage Collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hardware-support/index.html">Hardware support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../math-engine/index.html">Math Engine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../motion-paths.html">Motion Paths</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../timing/index.html">Timing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../networking/index.html">Networking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../multifiles/index.html">Multifiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../showbase.html">ShowBase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../file-reading.html">File Reading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../threading.html">Threading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../subclassing.html">Subclassing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../table-of-features-supported-per-graphic-renderer.html">Table of features supported per graphic renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pandai/index.html">Artificial Intelligence (PANDAI)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../distribution/index.html">Distributing Panda3D Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../samples/index.html">Sample Programs in the Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../debugging/index.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../performance-tuning/index.html">Performance Tuning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../using-c++/index.html">Using C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/index.html">Panda3D Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../building-from-source.html">Building Panda3D from Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cheat-sheets.html">Cheat Sheets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started-on-osx.html">Getting Started on OSX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../more-panda3d-resources.html">More Panda3D Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../thirdparty-licenses.html">Third-party dependencies and license info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../the-irc-channel.html">The IRC Channel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">FAQ</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Panda3D</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Programming with Panda3D</a> &raquo;</li>
+      
+          <li><a href="index.html">Finite State Machines</a> &raquo;</li>
+      
+    <li>Simple FSM Usage</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/programming-with-panda3d/finite-state-machines/simple-fsm-usage.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="simple-fsm-usage">
+<span id="id1"></span><h1>Simple FSM Usage<a class="headerlink" href="#simple-fsm-usage" title="Permalink to this headline">¶</a></h1>
+<p>A Panda3D FSM is implemented by defining a new Python class which inherits
+from the class direct.fsm.FSM.FSM (normally imported as simply FSM), and
+defining the appropriate enter and exit methods on the class. FSM states are
+represented by name strings, which should not contain spaces or punctuation
+marks; by Panda3D convention, state names should begin with a capital letter.
+An FSM is always in exactly one state a time; the name of the current state in
+stored in <code class="docutils literal"><span class="pre">fsm.state</span></code>. When it
+transitions from one state to another, it first calls
+<code class="docutils literal"><span class="pre">exitOldState()</span></code>, and then it calls
+<code class="docutils literal"><span class="pre">enterNewState()</span></code>, where OldState is the
+name of the previous state, and NewState is the name of the state it is
+entering. While it is making this transition, the FSM is not technically in
+either state, and <code class="docutils literal"><span class="pre">fsm.state</span></code> will
+be None&#8211;but you can find both old and new state names in
+<code class="docutils literal"><span class="pre">fsm.oldState</span></code> and
+<code class="docutils literal"><span class="pre">fsm.newState</span></code>, respectively. To
+define a possible state for an FSM, you only need to define an
+<code class="docutils literal"><span class="pre">enterStateName()</span></code> and/or
+<code class="docutils literal"><span class="pre">exitStateName()</span></code> method on your class,
+where StateName is the name of the state you would like to define. The
+<code class="docutils literal"><span class="pre">enterStateName()</span></code> method should perform
+all the necessary action for entering your new state, and the corresponding
+<code class="docutils literal"><span class="pre">exitStateName()</span></code> method should generally
+undo everything that was done in
+<code class="docutils literal"><span class="pre">enterStateName()</span></code>, so that the world is
+returned to a neutral state. An FSM starts and finishes in the state named
+&#8220;Off&#8221;. When the FSM is created, it is already in &#8220;Off&#8221;; and when you destroy
+it (by calling <code class="docutils literal"><span class="pre">fsm.cleanup()</span></code>), it
+automatically transitions back to &#8220;Off&#8221;. To request an FSM to transition
+explicitly to a new state, use the call
+<code class="docutils literal"><span class="pre">fsm.request('StateName')</span></code>, where StateName is the
+state you would like it to transition to.</p>
+<div class="section" id="arguments-to-enterstatename-methods">
+<h2>Arguments to enterStateName methods<a class="headerlink" href="#arguments-to-enterstatename-methods" title="Permalink to this headline">¶</a></h2>
+<p>Normally, both <code class="docutils literal"><span class="pre">enterStateName()</span></code> and
+<code class="docutils literal"><span class="pre">exitStateName()</span></code> take no arguments
+(other than self). However, if your FSM requires some information before it
+can transition to a particular state, you can define any arguments you like to
+the enterStateName method for that state; these arguments should be passed in
+to the <code class="docutils literal"><span class="pre">request()</span></code> call, following
+the state name.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">direct.fsm.FSM</span> <span class="kn">import</span> <span class="n">FSM</span>
+
+<span class="k">class</span> <span class="nc">AvatarFSM</span><span class="p">(</span><span class="n">FSM</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">enterWalk</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">speed</span><span class="p">,</span> <span class="n">doorMask</span><span class="p">):</span>
+        <span class="n">avatar</span><span class="o">.</span><span class="n">setPlayRate</span><span class="p">(</span><span class="n">speed</span><span class="p">,</span> <span class="s1">&#39;walk&#39;</span><span class="p">)</span>
+        <span class="n">avatar</span><span class="o">.</span><span class="n">loop</span><span class="p">(</span><span class="s1">&#39;walk&#39;</span><span class="p">)</span>
+        <span class="n">footstepsSound</span><span class="o">.</span><span class="n">play</span><span class="p">()</span>
+        <span class="n">enableDoorCollisions</span><span class="p">(</span><span class="n">doorMask</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">exitWalk</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">avatar</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+        <span class="n">footstepsSound</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+        <span class="n">disableDoorCollisions</span><span class="p">()</span>
+
+<span class="n">myfsm</span> <span class="o">=</span> <span class="n">AvatarFSM</span><span class="p">(</span><span class="s1">&#39;myAvatar&#39;</span><span class="p">)</span>
+<span class="n">myfsm</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s1">&#39;Walk&#39;</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">BitMask32</span><span class="o">.</span><span class="n">bit</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Note
+that the exitStateName method must always take no arguments.</p>
+</div>
+<div class="section" id="allowed-and-disallowed-state-transitions">
+<h2>Allowed and disallowed state transitions<a class="headerlink" href="#allowed-and-disallowed-state-transitions" title="Permalink to this headline">¶</a></h2>
+<p>By default, every state transition request is allowed: the call
+<code class="docutils literal"><span class="pre">fsm.request('StateName')</span></code> will always succeed,
+and the the FSM will be left in the new state. You may wish to make your FSM
+more robust by disallowing certain transitions that you don&#8217;t want to happen.
+For instance, consider the example FSM described previously, which had the
+following state diagram:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="17%" />
+<col width="28%" />
+<col width="17%" />
+<col width="11%" />
+<col width="26%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>↗</td>
+<td>Walk2Swim</td>
+<td>↘</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>Walk</td>
+<td>&nbsp;</td>
+<td>Swim</td>
+<td>→</td>
+<td>Drowning</td>
+</tr>
+<tr class="row-odd"><td>↖</td>
+<td>Swim2Walk</td>
+<td>↙</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<p>In this diagram, the arrows represent legal transitions. It is legal to
+transition from &#8216;Walk&#8217; to &#8216;Walk2Swim&#8217;, but not from &#8216;Walk&#8217; to &#8216;Swim2Walk&#8217;. If
+you were to request the FSM to enter state &#8216;Swim2Walk&#8217; while it is currently
+in state &#8216;Walk&#8217;, that&#8217;s a bug; you might prefer to have the FSM throw an
+exception, so you can find this bug. To enforce this, you can store
+<code class="docutils literal"><span class="pre">self.defaultTransitions</span></code> in the FSM&#8217;s
+<code class="docutils literal"><span class="pre">__init__()</span></code> method. This should be
+a map of allowed transitions from each state. That is, each key of the map is
+a state name; for that key, the value is a list of allowed transitions from
+the indicated state. Any transition not listed in defaultTransitions is
+considered invalid. For example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">AvatarFSM</span><span class="p">(</span><span class="n">FSM</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">FSM</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;myAvatar&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">defaultTransitions</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;Walk&#39;</span> <span class="p">:</span> <span class="p">[</span> <span class="s1">&#39;Walk2Swim&#39;</span> <span class="p">],</span>
+            <span class="s1">&#39;Walk2Swim&#39;</span> <span class="p">:</span> <span class="p">[</span> <span class="s1">&#39;Swim&#39;</span> <span class="p">],</span>
+            <span class="s1">&#39;Swim&#39;</span> <span class="p">:</span> <span class="p">[</span> <span class="s1">&#39;Swim2Walk&#39;</span><span class="p">,</span> <span class="s1">&#39;Drowning&#39;</span> <span class="p">],</span>
+            <span class="s1">&#39;Swim2Walk&#39;</span> <span class="p">:</span> <span class="p">[</span> <span class="s1">&#39;Walk&#39;</span> <span class="p">],</span>
+            <span class="s1">&#39;Drowning&#39;</span> <span class="p">:</span> <span class="p">[</span> <span class="p">],</span>
+            <span class="p">}</span>
+</pre></div>
+</div>
+<p>If you do not assign
+anything to <code class="docutils literal"><span class="pre">self.defaultTransitions()</span></code>, then all
+transitions are legal. However, if you do assign a map like the above, then
+requesting a transition that is not listed in the map will raise the exception
+<code class="docutils literal"><span class="pre">FSM.RequestDenied</span></code>.</p>
+</div>
+<p>This section does not apply to C++ users.</p>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="fsm-with-input.html" class="btn btn-neutral float-right" title="FSM with input" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="fsm-introduction.html" class="btn btn-neutral" title="FSM Introduction" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Panda3D.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.10.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

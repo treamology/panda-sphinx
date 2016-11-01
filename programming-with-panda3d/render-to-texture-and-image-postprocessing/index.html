@@ -1,0 +1,337 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Render-to-Texture and Image Postprocessing &mdash; Panda3D Manual</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Panda3D Manual" href="../../index.html"/>
+        <link rel="up" title="Programming with Panda3D" href="../index.html"/>
+        <link rel="next" title="Common Image Filters" href="common-image-filters.html"/>
+        <link rel="prev" title="Writing 3D Models out to Disk" href="../internal-structures/other-vertex-and-model-manipulation/writing-3d-models-out-to-disk.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Panda3D
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.10
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../intro/index.html">Introduction to Panda3D</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Programming with Panda3D</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../the-scene-graph/index.html">The Scene Graph</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../the-configuration-file/index.html">The Configuration File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../models-and-actors/index.html">Models and Actors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-attributes/index.html">Render Attributes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../texturing/index.html">Texturing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shaders/index.html">Shaders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../camera-control/index.html">Camera Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sound/index.html">Sound</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intervals/index.html">Intervals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks-and-event-handling/index.html">Tasks and Event Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../text-and-image-rendering/index.html">Text and Image Rendering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../directgui/index.html">DirectGUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-effects/index.html">Render Effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../finite-state-machines/index.html">Finite State Machines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../terrain/index.html">Terrain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internal-structures/index.html">Advanced operations with Panda3D&#8217;s internal structures</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Render-to-Texture and Image Postprocessing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="common-image-filters.html">Common Image Filters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generalized-image-filters.html">Generalized Image Filters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dynamic-cube-maps.html">Dynamic Cube Maps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="low-level-render-to-texture.html">Low-Level Render to Texture</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../panda3d-rendering-process/index.html">Panda3D Rendering Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../panda3d-utility-functions.html">Panda3D Utility Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../particle-effects/index.html">Particle Effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../collision-detection/index.html">Collision Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../garbage-collection/index.html">Garbage Collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hardware-support/index.html">Hardware support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../math-engine/index.html">Math Engine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../motion-paths.html">Motion Paths</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../timing/index.html">Timing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../networking/index.html">Networking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../multifiles/index.html">Multifiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../showbase.html">ShowBase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../file-reading.html">File Reading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../threading.html">Threading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../subclassing.html">Subclassing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../table-of-features-supported-per-graphic-renderer.html">Table of features supported per graphic renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pandai/index.html">Artificial Intelligence (PANDAI)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../distribution/index.html">Distributing Panda3D Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../samples/index.html">Sample Programs in the Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../debugging/index.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../performance-tuning/index.html">Performance Tuning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../using-c++/index.html">Using C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/index.html">Panda3D Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../building-from-source.html">Building Panda3D from Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cheat-sheets.html">Cheat Sheets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started-on-osx.html">Getting Started on OSX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../more-panda3d-resources.html">More Panda3D Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../thirdparty-licenses.html">Third-party dependencies and license info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../the-irc-channel.html">The IRC Channel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">FAQ</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Panda3D</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Programming with Panda3D</a> &raquo;</li>
+      
+    <li>Render-to-Texture and Image Postprocessing</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/programming-with-panda3d/render-to-texture-and-image-postprocessing/index.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="render-to-texture-and-image-postprocessing">
+<span id="id1"></span><h1>Render-to-Texture and Image Postprocessing<a class="headerlink" href="#render-to-texture-and-image-postprocessing" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="render-to-texture-basics">
+<h2>Render-to-Texture Basics<a class="headerlink" href="#render-to-texture-basics" title="Permalink to this headline">¶</a></h2>
+<p>Conceptually, you can think of render-to-texture as being like rendering a
+scene into a hidden window, and then copying the contents of the window into a
+texture. Such hidden windows are not actually called windows, they&#8217;re called
+&#8220;buffers.&#8221; Furthermore, the data is usually not copied into the texture, it&#8217;s
+usually transferred into the texture using a more efficient mechanism. Details
+aside, though, if you think of it as rendering into a hidden window and then
+copying into a texture, you have a pretty accurate idea of what
+render-to-texture does.</p>
+<p>Render-to-texture is particularly useful when you&#8217;d like to apply a &#8220;filter&#8221;
+to your scene. If you&#8217;ve ever used Photoshop, you know what a filter is:
+Photoshop has lots of interesting filters that do blurring, texturizing, edge
+detection, and more. The first step in implementing a filter is to render the
+entire scene into a texture. Then, the texture is applied to a full-screen
+quad and displayed in a window. So far, it looks the same as if you simply
+rendered the scene into the window. However, by applying a shader to the
+full-screen quad, you can implement your filter.</p>
+<p>There are several other interesting uses for render-to-texture: water
+reflections, environment mapping, creating virtual televisions, shadow
+mapping... the list is quite long.</p>
+</div>
+<div class="section" id="the-low-level-api-and-the-high-level-utilities">
+<h2>The Low-Level API and the High-Level Utilities<a class="headerlink" href="#the-low-level-api-and-the-high-level-utilities" title="Permalink to this headline">¶</a></h2>
+<p>Panda3D contains a very low-level API for creating offscreen buffers, creating
+render-target textures, and the like. This low-level API is extremely
+flexible: it gives you a great deal of control over what kinds of buffers you
+create, over what gets rendered into them, over how the data gets transferred
+to a texture, and so forth. The advantage of using the low-level API is that
+you can control everything. The disadvantage is that you have to control
+everything, and there&#8217;s a lot of stuff to control.</p>
+<p>Panda3D also provides a number of utilities that make it convenient to use
+render-to-texture for certain specific applications. For example, there is a
+utility that helps set up common image filters. There is another that helps
+set up cube-map environment maps. The downside of these utilities is that each
+one performs a fairly specific function, and if there isn&#8217;t one for your
+particular application, you&#8217;ll need to resort to the lower-level API.</p>
+<p>In the following sections, we document the high-level utilities first, because
+these are what most people are going to use. If none of the utilities does
+what you need, then the last subsection explains the low-level API.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="common-image-filters.html">Common Image Filters</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="common-image-filters.html#id2">Common Image Filters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-image-filters.html#basic-setup">Basic Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-image-filters.html#what-if-the-video-card-can-t-handle-it">What if the Video Card can&#8217;t handle it?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-image-filters.html#the-bloom-filter">The Bloom Filter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-image-filters.html#the-cartoon-inking-filter">The Cartoon Inking Filter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-image-filters.html#the-volumetric-lighting-filter">The Volumetric Lighting Filter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-image-filters.html#the-inverted-filter">The Inverted Filter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-image-filters.html#the-blur-sharpen-filter">The Blur / Sharpen Filter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-image-filters.html#the-ambient-occlusion-filter">The Ambient Occlusion Filter</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="generalized-image-filters.html">Generalized Image Filters</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="generalized-image-filters.html#the-filter-manager">The Filter Manager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generalized-image-filters.html#the-simplest-filter">The Simplest Filter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generalized-image-filters.html#extracting-more-information-from-the-scene">Extracting More Information from the Scene</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generalized-image-filters.html#using-intermediate-stages">Using Intermediate Stages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generalized-image-filters.html#resolution-management">Resolution Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generalized-image-filters.html#cleaning-up">Cleaning Up</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="dynamic-cube-maps.html">Dynamic Cube Maps</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="dynamic-cube-maps.html#a-word-of-caution">A word of caution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dynamic-cube-maps.html#incomplete-section">Incomplete Section</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="low-level-render-to-texture.html">Low-Level Render to Texture</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="common-image-filters.html" class="btn btn-neutral float-right" title="Common Image Filters" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../internal-structures/other-vertex-and-model-manipulation/writing-3d-models-out-to-disk.html" class="btn btn-neutral" title="Writing 3D Models out to Disk" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Panda3D.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.10.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

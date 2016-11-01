@@ -1,0 +1,395 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>3-D Textures &mdash; Panda3D Manual</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Panda3D Manual" href="../../index.html"/>
+        <link rel="up" title="Texturing" href="index.html"/>
+        <link rel="next" title="Cube Maps" href="cube-maps.html"/>
+        <link rel="prev" title="Simple Environment Mapping" href="simple-environment-mapping.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Panda3D
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.10
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../intro/index.html">Introduction to Panda3D</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Programming with Panda3D</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../the-scene-graph/index.html">The Scene Graph</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../the-configuration-file/index.html">The Configuration File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../models-and-actors/index.html">Models and Actors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-attributes/index.html">Render Attributes</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Texturing</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="simple-texturing.html">Simple Texturing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="choosing-a-texture-size.html">Choosing a Texture Size</a></li>
+<li class="toctree-l3"><a class="reference internal" href="texture-wrap-modes.html">Texture Wrap Modes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="texture-filter-types.html">Texture Filter Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="simple-texture-replacement.html">Simple Texture Replacement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multitexture-introduction.html">Multitexture Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="texture-modes.html">Texture Modes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="texture-order.html">Texture Order</a></li>
+<li class="toctree-l3"><a class="reference internal" href="texture-combine-modes.html">Texture Combine Modes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="texture-transforms.html">Texture Transforms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multiple-texture-coordinate-sets.html">Multiple Texture Coordinate Sets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="automatic-texture-coordinates.html">Automatic Texture Coordinates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="projected-textures.html">Projected Textures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="simple-environment-mapping.html">Simple Environment Mapping</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">3-D Textures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cube-maps.html">Cube Maps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="environment-mapping-with-cube-maps.html">Environment Mapping with Cube Maps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="automatic-texture-animation.html">Automatic Texture Animation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="playing-mpg-and-avi-files.html">Playing MPG and AVI files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="stereo-multiview-textures.html">Stereo/Multiview Textures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="transparency-and-blending.html">Transparency and Blending</a></li>
+<li class="toctree-l3"><a class="reference internal" href="texture-management.html">Texture Management</a></li>
+<li class="toctree-l3"><a class="reference internal" href="texture-compression.html">Texture Compression</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../shaders/index.html">Shaders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../camera-control/index.html">Camera Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sound/index.html">Sound</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intervals/index.html">Intervals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks-and-event-handling/index.html">Tasks and Event Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../text-and-image-rendering/index.html">Text and Image Rendering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../directgui/index.html">DirectGUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-effects/index.html">Render Effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../finite-state-machines/index.html">Finite State Machines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../terrain/index.html">Terrain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internal-structures/index.html">Advanced operations with Panda3D&#8217;s internal structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-to-texture-and-image-postprocessing/index.html">Render-to-Texture and Image Postprocessing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../panda3d-rendering-process/index.html">Panda3D Rendering Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../panda3d-utility-functions.html">Panda3D Utility Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../particle-effects/index.html">Particle Effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../collision-detection/index.html">Collision Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../garbage-collection/index.html">Garbage Collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hardware-support/index.html">Hardware support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../math-engine/index.html">Math Engine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../motion-paths.html">Motion Paths</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../timing/index.html">Timing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../networking/index.html">Networking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../multifiles/index.html">Multifiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../showbase.html">ShowBase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../file-reading.html">File Reading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../threading.html">Threading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../subclassing.html">Subclassing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../table-of-features-supported-per-graphic-renderer.html">Table of features supported per graphic renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pandai/index.html">Artificial Intelligence (PANDAI)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../distribution/index.html">Distributing Panda3D Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../samples/index.html">Sample Programs in the Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../debugging/index.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../performance-tuning/index.html">Performance Tuning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../using-c++/index.html">Using C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/index.html">Panda3D Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../building-from-source.html">Building Panda3D from Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cheat-sheets.html">Cheat Sheets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started-on-osx.html">Getting Started on OSX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../more-panda3d-resources.html">More Panda3D Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../thirdparty-licenses.html">Third-party dependencies and license info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../the-irc-channel.html">The IRC Channel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">FAQ</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Panda3D</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Programming with Panda3D</a> &raquo;</li>
+      
+          <li><a href="index.html">Texturing</a> &raquo;</li>
+      
+    <li>3-D Textures</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/programming-with-panda3d/texturing/3d-textures.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="d-textures">
+<span id="id1"></span><h1>3-D Textures<a class="headerlink" href="#d-textures" title="Permalink to this headline">¶</a></h1>
+<p>So far, we have only talked about ordinary 2-D texture maps. Beginning with
+version 1.1, Panda3D also supports the concept of a 3-D texture map. This is a
+volumetric texture: in addition to a height and a width, it also has a depth:</p>
+<p><img alt="A sample 3-D texture." src="../../_images/3dtexture-cube.png" /></p>
+<p>The 3-D texture image is solid all the way through; if we were to cut away
+part of the cube we would discover that the checkerboard pattern continues
+within:</p>
+<p><img alt="A sample 3-D texture on a sphere." src="../../_images/3dtexture-sphere.png" /></p>
+<p>This is true no matter what shape we carve out of the cube:</p>
+<p><img alt="A sample 3-D texture on a teapot." src="../../_images/3dtexture-teapot.png" /></p>
+<p>In addition to the usual u and v texture dimensions, a 3-D texture also has w.
+In order to apply a 3-D texture to geometry, you will therefore need to have
+3-D texture coordinates (u, v, w) on your geometry, instead of just the
+ordinary (u, v).</p>
+<p>There are several ways to get 3-D texture coordinates on a model. One way is
+to assign appropriate 3-D texture coordinates to each vertex when you create
+the model, the same way you might assign 2-D texture coordinates. This
+requires that your modeling package (and its Panda converter) support 3-D
+texture coordinates; however, at the time of this writing, none of the
+existing Panda converters currently do support 3-D texture coordinates.</p>
+<p>More commonly, 3-D texture coordinates are assigned to a model automatically
+with one of the :ref:` &lt;automatic-texture-coordinates&gt;`, especially
+<code class="docutils literal"><span class="pre">MWorldPosition</span></code>. For example, to assign
+3-D texture coordinates to the teapot, you might do something like this:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">teapot</span> <span class="o">=</span> <span class="n">loader</span><span class="o">.</span><span class="n">loadModel</span><span class="p">(</span><span class="s1">&#39;teapot.egg&#39;</span><span class="p">)</span>
+<span class="n">teapot</span><span class="o">.</span><span class="n">setTexGen</span><span class="p">(</span><span class="n">TextureStage</span><span class="o">.</span><span class="n">getDefault</span><span class="p">(),</span> <span class="n">TexGenAttrib</span><span class="o">.</span><span class="n">MWorldPosition</span><span class="p">)</span>
+<span class="n">teapot</span><span class="o">.</span><span class="n">setTexProjector</span><span class="p">(</span><span class="n">TextureStage</span><span class="o">.</span><span class="n">getDefault</span><span class="p">(),</span> <span class="n">render</span><span class="p">,</span> <span class="n">teapot</span><span class="p">)</span>
+<span class="n">teapot</span><span class="o">.</span><span class="n">setTexPos</span><span class="p">(</span><span class="n">TextureStage</span><span class="o">.</span><span class="n">getDefault</span><span class="p">(),</span> <span class="mf">0.44</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">)</span>
+<span class="n">teapot</span><span class="o">.</span><span class="n">setTexScale</span><span class="p">(</span><span class="n">TextureStage</span><span class="o">.</span><span class="n">getDefault</span><span class="p">(),</span> <span class="mf">0.2</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The above assigns 3-D texture coordinates to the teapot based on the (x, y, z)
+positions of its vertices, which is a common way to assign 3-D texture
+coordinates. The <code class="docutils literal"><span class="pre">setTexPos()</span></code> and
+<code class="docutils literal"><span class="pre">setTexScale()</span></code> calls in the above are
+particular to the teapot model; these numbers are chosen to scale the texture
+so that its unit cube covers the teapot.</p>
+<p>Storing 3-D texture maps on disk is a bit of a problem, since most image
+formats only support 2-D images. By convention, then, Panda3D will store a 3-D
+texture image by slicing it into horizontal cross-sections and writing each
+slice as a separate 2-D image. When you load a 3-D texture, you specify a
+series of 2-D images which Panda3D will load and stack up like pancakes to
+make the full 3-D image.</p>
+<p>The above 3-D texture image, for instance, is stored as four separate image
+files:</p>
+<p><img alt="The four images that make up the 3-D Texture" src="../../_images/3dtexture-levels-0.png" /></p>
+<p>Note that, although the image is stored as four separate images on disk,
+internally Panda3D stores it as a single, three-dimensional image, with
+height, width, and depth.</p>
+<p>The Panda3D convention for naming the slices of a 3-D texture is fairly rigid.
+Each slice must be numbered, and all of the filenames must be the same except
+for the number; and the first (bottom) slice must be numbered 0. If you have
+followed this convention, then you can load a 3-D texture with a call like
+this:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">tex</span> <span class="o">=</span> <span class="n">loader</span><span class="o">.</span><span class="n">load3DTexture</span><span class="p">(</span><span class="s2">&quot;grid_#.png&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The hash sign (&#8220;#&#8221;) in the filename passed to
+<code class="docutils literal"><span class="pre">loader.load3DTexture()</span></code> will be filled in with
+the sequence number of each slice, so the above loads files named
+&#8220;grid_0.png&#8221;, &#8220;grid_1.png&#8221;, &#8220;grid_2.png&#8221;, and so on. If you prefer to pad
+the slice number with zeros to a certain number of digits, repeat the hash
+sign; for instance, loading &#8220;grid_###.png&#8221; would look for files named
+&#8220;grid_000.png&#8221;, &#8220;grid_001.png&#8221;, and so on. Note that you don&#8217;t have to use
+multiple hash marks to count higher than 9. You can count as high as you like
+even with only one hash mark; it just won&#8217;t pad the numbers with zeros.</p>
+<p>Remember that you must usually :ref:` &lt;choosing-a-texture-size&gt;` for the size
+of your texture images. This extends to the w size, too: for most graphics
+cards, the number of slices of your texture should be a power of two. Unlike
+the ordinary (u, v) dimensions, Panda3D won&#8217;t automatically rescale your 3-D
+texture if it has a non-power-of-two size in the w dimension, so it is
+important that you choose the size correctly yourself.</p>
+<div class="section" id="applications-for-3-d-textures">
+<h2>Applications for 3-D textures<a class="headerlink" href="#applications-for-3-d-textures" title="Permalink to this headline">¶</a></h2>
+<p>3-D textures are often used in scientific and medical imagery applications,
+but they are used only rarely in 3-D game programs. One reason for this is the
+amount of memory they require; since a 3-D texture requires storing
+(u&nbsp;×&nbsp;v&nbsp;×&nbsp;w) texels, a large 3-D texture can easily consume a substantial
+fraction of your available texture memory.</p>
+<p>But probably the bigger reason that 3-D textures are rarely used in games is
+that the texture images in games are typically hand-painted, and it is
+difficult for an artist to paint a 3-D texture. It is usually much easier just
+to paint the surface of an object.</p>
+<p>So when 3-D textures are used at all, they are often generated procedurally.
+One classic example of a procedural 3-D texture is wood grain; it is fairly
+easy to define a convincing woodgrain texture procedurally. For instance,
+:ref:` &lt;woodgrain-example&gt;` to view a Panda3D program that generates a
+woodgrain texture and stores it as a series of files named woodgrain_0.png,
+woodgrain_1.png, and so on. The following code applies this woodgrain texture
+to the teapot, to make a teapot that looks like it was carved from a single
+block of wood:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">teapot</span> <span class="o">=</span> <span class="n">loader</span><span class="o">.</span><span class="n">loadModel</span><span class="p">(</span><span class="s1">&#39;teapot.egg&#39;</span><span class="p">)</span>
+<span class="n">teapot</span><span class="o">.</span><span class="n">setTexGen</span><span class="p">(</span><span class="n">TextureStage</span><span class="o">.</span><span class="n">getDefault</span><span class="p">(),</span> <span class="n">TexGenAttrib</span><span class="o">.</span><span class="n">MWorldPosition</span><span class="p">)</span>
+<span class="n">teapot</span><span class="o">.</span><span class="n">setTexProjector</span><span class="p">(</span><span class="n">TextureStage</span><span class="o">.</span><span class="n">getDefault</span><span class="p">(),</span> <span class="n">render</span><span class="p">,</span> <span class="n">teapot</span><span class="p">)</span>
+<span class="n">teapot</span><span class="o">.</span><span class="n">setTexPos</span><span class="p">(</span><span class="n">TextureStage</span><span class="o">.</span><span class="n">getDefault</span><span class="p">(),</span> <span class="mf">0.44</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">)</span>
+<span class="n">teapot</span><span class="o">.</span><span class="n">setTexScale</span><span class="p">(</span><span class="n">TextureStage</span><span class="o">.</span><span class="n">getDefault</span><span class="p">(),</span> <span class="mf">0.2</span><span class="p">)</span>
+
+<span class="n">tex</span> <span class="o">=</span> <span class="n">loader</span><span class="o">.</span><span class="n">load3DTexture</span><span class="p">(</span><span class="s1">&#39;woodgrain_#.png&#39;</span><span class="p">)</span>
+<span class="n">teapot</span><span class="o">.</span><span class="n">setTexture</span><span class="p">(</span><span class="n">tex</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><img alt="A wooden teapot." src="../../_images/wooden-teapot.jpg" /></p>
+<p>However, even procedurally-generated 3-D textures like this are used only
+occasionally. If the algorithm to generate your texture is not too complex, it
+may make more sense to program a :ref:` &lt;shaders&gt;` to generate the texture
+implicitly, as your models are rendered.</p>
+<p>Still, even if it is used only occasionally, the 3-D texture remains a
+powerful rendering technique to keep in your back pocket.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="cube-maps.html" class="btn btn-neutral float-right" title="Cube Maps" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="simple-environment-mapping.html" class="btn btn-neutral" title="Simple Environment Mapping" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Panda3D.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.10.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

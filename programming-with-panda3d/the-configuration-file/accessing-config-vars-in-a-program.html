@@ -1,0 +1,406 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Accessing Config Vars in a Program &mdash; Panda3D Manual</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Panda3D Manual" href="../../index.html"/>
+        <link rel="up" title="The Configuration File" href="index.html"/>
+        <link rel="next" title="Models and Actors" href="../models-and-actors/index.html"/>
+        <link rel="prev" title="List of All Config Variables" href="list-of-all-config-variables.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Panda3D
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.10
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../intro/index.html">Introduction to Panda3D</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Programming with Panda3D</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../the-scene-graph/index.html">The Scene Graph</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">The Configuration File</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="configuring-panda3d.html">Configuring Panda3D</a></li>
+<li class="toctree-l3"><a class="reference internal" href="list-of-all-config-variables.html">List of All Config Variables</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Accessing Config Vars in a Program</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../models-and-actors/index.html">Models and Actors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-attributes/index.html">Render Attributes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../texturing/index.html">Texturing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shaders/index.html">Shaders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../camera-control/index.html">Camera Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sound/index.html">Sound</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intervals/index.html">Intervals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks-and-event-handling/index.html">Tasks and Event Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../text-and-image-rendering/index.html">Text and Image Rendering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../directgui/index.html">DirectGUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-effects/index.html">Render Effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../finite-state-machines/index.html">Finite State Machines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../terrain/index.html">Terrain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internal-structures/index.html">Advanced operations with Panda3D&#8217;s internal structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-to-texture-and-image-postprocessing/index.html">Render-to-Texture and Image Postprocessing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../panda3d-rendering-process/index.html">Panda3D Rendering Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../panda3d-utility-functions.html">Panda3D Utility Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../particle-effects/index.html">Particle Effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../collision-detection/index.html">Collision Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../garbage-collection/index.html">Garbage Collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hardware-support/index.html">Hardware support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../math-engine/index.html">Math Engine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../motion-paths.html">Motion Paths</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../timing/index.html">Timing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../networking/index.html">Networking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../multifiles/index.html">Multifiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../showbase.html">ShowBase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../file-reading.html">File Reading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../threading.html">Threading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../subclassing.html">Subclassing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../table-of-features-supported-per-graphic-renderer.html">Table of features supported per graphic renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pandai/index.html">Artificial Intelligence (PANDAI)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../distribution/index.html">Distributing Panda3D Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../samples/index.html">Sample Programs in the Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../debugging/index.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../performance-tuning/index.html">Performance Tuning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../using-c++/index.html">Using C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/index.html">Panda3D Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../building-from-source.html">Building Panda3D from Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cheat-sheets.html">Cheat Sheets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started-on-osx.html">Getting Started on OSX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../more-panda3d-resources.html">More Panda3D Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../thirdparty-licenses.html">Third-party dependencies and license info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../the-irc-channel.html">The IRC Channel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">FAQ</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Panda3D</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Programming with Panda3D</a> &raquo;</li>
+      
+          <li><a href="index.html">The Configuration File</a> &raquo;</li>
+      
+    <li>Accessing Config Vars in a Program</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/programming-with-panda3d/the-configuration-file/accessing-config-vars-in-a-program.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="accessing-config-vars-in-a-program">
+<span id="id1"></span><h1>Accessing Config Vars in a Program<a class="headerlink" href="#accessing-config-vars-in-a-program" title="Permalink to this headline">¶</a></h1>
+<p>Panda3D uses a :ref:` &lt;configuring-panda3d&gt;` named Config.prc. Panda3D
+supplies functions to easily read values out of Config.prc, and to alter their
+values in memory (the modified values are not written back out to disk). The
+ability to read an alter configuration settings procedurally has two major
+uses:</p>
+<ol class="arabic simple">
+<li>Storing your own configuration data.</li>
+<li>Tweaking Panda3D&#8217;s behavior.</li>
+</ol>
+<p>&#8220;Storing your own configuration data&#8221; means that your game might have its own
+settings that need to be stored. Rather than writing your own configuration
+file parser, you might consider adding your configuration data to the panda
+configuration file instead.</p>
+<p>Suppose hypothetically that you are writing an online game, and your online
+game connects to a server. You need a configuration file to tell you the name
+of the server. Open up the &#8220;Config.prc&#8221; file and add the following line at the
+end of the file.</p>
+<div class="highlight-text"><div class="highlight"><pre><span></span>my-game-server panda3dgame.com
+</pre></div>
+</div>
+<p>Note
+that I invented the variable name &#8220;my-game-server&#8221; out of thin air. This
+variable is not recognized by Panda3D in any way. Therefore, this line has no
+effect on the engine whatsoever.</p>
+<p>To manipulate this variable procedurally, use code not unlike the following,
+which creates an object of class
+<code class="docutils literal"><span class="pre">ConfigVariableString</span></code> and then manipulates it
+using the methods <code class="docutils literal"><span class="pre">setValue()</span></code> and
+<code class="docutils literal"><span class="pre">getValue()</span></code>.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">panda3d.core</span> <span class="kn">import</span> <span class="n">ConfigVariableString</span>
+
+<span class="n">myGameServer</span> <span class="o">=</span> <span class="n">ConfigVariableString</span><span class="p">(</span><span class="s1">&#39;my-game-server&#39;</span><span class="p">,</span> <span class="s1">&#39;127.0.0.1&#39;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;Server specified in config file: &#39;</span><span class="p">,</span> <span class="n">myGameServer</span><span class="o">.</span><span class="n">getValue</span><span class="p">())</span>
+
+<span class="c1"># Allow the user to change servers on the command-line.</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;--server&#39;</span><span class="p">):</span>
+    <span class="n">myGameServer</span><span class="o">.</span><span class="n">setValue</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;Server that we will use: &#39;</span><span class="p">,</span> <span class="n">myGameServer</span><span class="o">.</span><span class="n">getValue</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>The second parameter to the ConfigVariableString constructor is the default
+value that should be returned, in case the line &#8220;my-game-server&#8221; does not
+appear in any Config.prc file. There is also an optional third parameter,
+which is a description of the purpose of the variable.</p>
+<p>This string will be displayed when the user executes the command
+<code class="docutils literal"><span class="pre">print(cvMgr)</span></code>.</p>
+<p>The types of configuration variable are:</p>
+<p>ConfigVariableString
+ConfigVariableInt
+ConfigVariableBool
+ConfigVariableColor
+ConfigVariableDouble
+ConfigVariableFilename
+ConfigVariableList
+ConfigVariableSearchPath</p>
+<p>Most of these follow the same form as ConfigVariableString, above, except that
+the default value (and the parameter from
+<code class="docutils literal"><span class="pre">setValue()</span></code> and
+<code class="docutils literal"><span class="pre">getValue()</span></code>) is of the indicated
+type, rather than a string. The two exceptions are ConfigVariableList and
+ConfigVariableSearchPath. These types of variables do not accept a default
+value to the constructor since the default value in both cases is always the
+empty list or search path.</p>
+<p>To display the current value of a particular variable interactively (for a
+string-type variable in this example), type the following:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="n">ConfigVariableString</span><span class="p">(</span><span class="s2">&quot;my-game-server&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Panda3D will automatically load any PRC files it finds in its standard config
+directory at start-up.</p>
+<p>You can view a list of the files it has actually loaded with the following
+command:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="n">cpMgr</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>It is helpful
+to do this to ensure that you are editing the correct Config.prc file.</p>
+<p>Sometimes, it is desirable to load an additional configuration file from disk,
+by giving an explicit filename. To do so, use
+<code class="docutils literal"><span class="pre">loadPrcFile()</span></code>. Note that
+:ref:` &lt;loading-models&gt;` uses a forward slash even under Windows.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">panda3d.core</span> <span class="kn">import</span> <span class="n">loadPrcFile</span>
+
+<span class="n">loadPrcFile</span><span class="p">(</span><span class="s2">&quot;config/Config.prc&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&quot;load_prc_file.h&quot;</span><span class="cp"></span>
+
+<span class="n">load_prc_file</span><span class="p">(</span><span class="s">&quot;config/Config.prc&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>The filename you specify is searched for along the model-path, in the same way
+that an Egg or Bam file is searched for when you use
+<code class="docutils literal"><span class="pre">loader.loadModel()</span></code>.</p>
+<p>You should load your own PRC file before</p>
+<p>instantiating ShowBase.</p>
+<p>opening the window.</p>
+<p><code class="docutils literal"><span class="pre">Changing&nbsp;configuration&nbsp;data&nbsp;later&nbsp;on&nbsp;won't&nbsp;affect&nbsp;the&nbsp;window/environment&nbsp;that&nbsp;has&nbsp;already&nbsp;been&nbsp;created.</span></code></p>
+<p>You can also use <code class="docutils literal"><span class="pre">loadPrcFileData()</span></code> to
+load a string that you define in your code, as if it were the contents read
+from a disk file. The <code class="docutils literal"><span class="pre">loadPrcFileData()</span></code>
+call requires two parameters. The first parameter is an arbitrary string name
+to assign to this &#8220;file&#8221; (and it can be the empty string if you don&#8217;t care),
+while the second parameter is the contents of the file itself. This second
+parameter should contain newlines between variable definitions if you want to
+set the value of more than one variable.</p>
+<p>For example, let&#8217;s say that Panda3D&#8217;s configuration file contains this line:</p>
+<div class="highlight-text"><div class="highlight"><pre><span></span>fullscreen #f
+</pre></div>
+</div>
+<p>By default, Panda3D
+programs will run in a window; not fullscreen. However, if you do this, then
+by the time you instantiate ShowBase, you will have changed the
+fullscreen-flag to true, and your program will run in fullscreen.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">panda3d.core</span> <span class="kn">import</span> <span class="n">loadPrcFileData</span>
+
+<span class="n">loadPrcFileData</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;fullscreen true&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&quot;load_prc_file.h&quot;</span><span class="cp"></span>
+
+<span class="n">load_prc_file_data</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">,</span> <span class="s">&quot;fullscreen true&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>There are other ways to go to fullscreen. This is not necessarily the most
+straightforward approach, but it illustrates the point.</p>
+<p>You can get a more complete list of available config variables at
+runtime</p>
+<p><code class="docutils literal"><span class="pre">(once&nbsp;you&nbsp;have&nbsp;instantiated&nbsp;ShowBase)</span></code></p>
+<p>, with the
+<code class="docutils literal"><span class="pre">listVariables()</span></code> command:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">cvMgr</span><span class="o">.</span><span class="n">listVariables</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">ConfigVariableManager</span><span class="o">::</span><span class="n">get_global_ptr</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">list_variables</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>For a more complete documentation about Panda3D&#8217;s configuration system, view
+the <a class="reference external" href="https://raw.githubusercontent.com/panda3d/panda3d/master/panda/src/doc/howto.use_config.txt">original documentation
+file</a>.</p>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../models-and-actors/index.html" class="btn btn-neutral float-right" title="Models and Actors" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="list-of-all-config-variables.html" class="btn btn-neutral" title="List of All Config Variables" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Panda3D.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.10.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,465 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>GeomPrimitive &mdash; Panda3D Manual</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Panda3D Manual" href="../../../index.html"/>
+        <link rel="up" title="How Panda3D Stores Vertices and Geometry" href="index.html"/>
+        <link rel="next" title="Geom" href="geom.html"/>
+        <link rel="prev" title="GeomVertexFormat" href="geomvertexformat.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Panda3D
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.10
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../intro/index.html">Introduction to Panda3D</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Programming with Panda3D</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../the-scene-graph/index.html">The Scene Graph</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../the-configuration-file/index.html">The Configuration File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../models-and-actors/index.html">Models and Actors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../render-attributes/index.html">Render Attributes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../texturing/index.html">Texturing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../shaders/index.html">Shaders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../camera-control/index.html">Camera Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../sound/index.html">Sound</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../intervals/index.html">Intervals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tasks-and-event-handling/index.html">Tasks and Event Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../text-and-image-rendering/index.html">Text and Image Rendering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../directgui/index.html">DirectGUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../render-effects/index.html">Render Effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../finite-state-machines/index.html">Finite State Machines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../terrain/index.html">Terrain</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Advanced operations with Panda3D&#8217;s internal structures</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">How Panda3D Stores Vertices and Geometry</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="geomvertexdata.html">GeomVertexData</a></li>
+<li class="toctree-l4"><a class="reference internal" href="geomvertexformat.html">GeomVertexFormat</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">GeomPrimitive</a></li>
+<li class="toctree-l4"><a class="reference internal" href="geom.html">Geom</a></li>
+<li class="toctree-l4"><a class="reference internal" href="geomnode.html">GeomNode</a></li>
+<li class="toctree-l4"><a class="reference internal" href="boundingvolume.html">BoundingVolume</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../procedural-generation/index.html">Procedurally Generating 3D Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../other-vertex-and-model-manipulation/index.html">Other Vertex and Model Manipulation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../render-to-texture-and-image-postprocessing/index.html">Render-to-Texture and Image Postprocessing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../panda3d-rendering-process/index.html">Panda3D Rendering Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../panda3d-utility-functions.html">Panda3D Utility Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../particle-effects/index.html">Particle Effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../collision-detection/index.html">Collision Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../garbage-collection/index.html">Garbage Collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hardware-support/index.html">Hardware support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../math-engine/index.html">Math Engine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../motion-paths.html">Motion Paths</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../timing/index.html">Timing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../networking/index.html">Networking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../multifiles/index.html">Multifiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../showbase.html">ShowBase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../file-reading.html">File Reading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../threading.html">Threading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../subclassing.html">Subclassing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../table-of-features-supported-per-graphic-renderer.html">Table of features supported per graphic renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../pandai/index.html">Artificial Intelligence (PANDAI)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../distribution/index.html">Distributing Panda3D Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../samples/index.html">Sample Programs in the Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../debugging/index.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../performance-tuning/index.html">Performance Tuning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../using-c++/index.html">Using C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tools/index.html">Panda3D Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../building-from-source.html">Building Panda3D from Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cheat-sheets.html">Cheat Sheets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting-started-on-osx.html">Getting Started on OSX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../more-panda3d-resources.html">More Panda3D Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../thirdparty-licenses.html">Third-party dependencies and license info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../the-irc-channel.html">The IRC Channel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../faq.html">FAQ</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../index.html">Panda3D</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../index.html">Programming with Panda3D</a> &raquo;</li>
+      
+          <li><a href="../index.html">Advanced operations with Panda3D&#8217;s internal structures</a> &raquo;</li>
+      
+          <li><a href="index.html">How Panda3D Stores Vertices and Geometry</a> &raquo;</li>
+      
+    <li>GeomPrimitive</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../_sources/programming-with-panda3d/internal-structures/how-panda3d-stores-vertices-and-geometry/geomprimitive.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="geomprimitive">
+<span id="id1"></span><h1>GeomPrimitive<a class="headerlink" href="#geomprimitive" title="Permalink to this headline">¶</a></h1>
+<p>In order to use the vertices in a :ref:` &lt;geomvertexdata&gt;` to render anything,
+Panda needs to have a GeomPrimitive of some kind, which indexes into the
+vertex table and tells Panda how to tie together the vertices to make lines,
+triangles, or individual points.</p>
+<p>There are several different kinds of GeomPrimitive objects, one for each
+different kind of primitive. Each GeomPrimitive object actually stores several
+different individual primitives, each of which is represented simply as a list
+of vertex numbers, indexing into the vertices stored in the associated
+GeomVertexData. For some GeomPrimitive types, like GeomTriangles, all the
+primitives must have a fixed number of vertex numbers (3, in the case of
+GeomTriangles); for others, like GeomTristrips, each primitive can have a
+different number of vertex numbers.</p>
+<p>For instance, a GeomTriangles object containing three triangles, and a
+GeomTristrips containing two triangle strips, might look like this:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="45%" />
+<col width="11%" />
+<col width="45%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>GeomTriangles</td>
+<td>&nbsp;</td>
+<td>GeomTristrips</td>
+</tr>
+<tr class="row-even"><td>0</td>
+<td>&nbsp;</td>
+<td>0</td>
+</tr>
+<tr class="row-odd"><td>1</td>
+<td>&nbsp;</td>
+<td>2</td>
+</tr>
+<tr class="row-even"><td>2</td>
+<td>&nbsp;</td>
+<td>3</td>
+</tr>
+<tr class="row-odd"><td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>5</td>
+</tr>
+<tr class="row-even"><td>2</td>
+<td>&nbsp;</td>
+<td>6</td>
+</tr>
+<tr class="row-odd"><td>1</td>
+<td>&nbsp;</td>
+<td>1</td>
+</tr>
+<tr class="row-even"><td>3</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>5</td>
+</tr>
+<tr class="row-even"><td>0</td>
+<td>&nbsp;</td>
+<td>1</td>
+</tr>
+<tr class="row-odd"><td>5</td>
+<td>&nbsp;</td>
+<td>3</td>
+</tr>
+<tr class="row-even"><td>6</td>
+<td>&nbsp;</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<p>Note that the GeomPrimitive objects don&#8217;t themselves contain any vertex data;
+they only contain a list of vertex index numbers, which is used to look up the
+actual vertex data in a GeomVertexData object, stored elsewhere.</p>
+<div class="section" id="geomtriangles">
+<h2>GeomTriangles<a class="headerlink" href="#geomtriangles" title="Permalink to this headline">¶</a></h2>
+<p>This is the most common kind of GeomPrimitive. This kind of primitive stores
+any number of connected or unconnected triangles. Each triangle must have
+exactly three vertices, of course. In each triangle, the vertices should be
+listed in counterclockwise order, as seen from the front of the triangle.</p>
+<p><img alt="GeomTriangles.png" src="../../../_images/geomtriangles.png" /></p>
+</div>
+<div class="section" id="geomtristrips">
+<h2>GeomTristrips<a class="headerlink" href="#geomtristrips" title="Permalink to this headline">¶</a></h2>
+<p>This kind of primitive stores lists of connected triangles, in a specific
+arrangement called a triangle strip. You can store any number of individual
+triangle strips in a single GeomTristrips object, and each triangle strip can
+have an arbitrary number of vertices (at least three).</p>
+<p>The first three vertices of a triangle strip define one triangle, with the
+vertices listed in counterclockwise order. Thereafter, each additional vertex
+defines an additional triangle, based on the new vertex and the preceding two
+vertices. The vertices go back and forth, defining triangles in a zigzag
+fashion.</p>
+<p><img alt="GeomTristrips.png" src="../../../_images/geomtristrips.png" /></p>
+<p>Note that the second triangle in a triangle strip is defined in clockwise
+order, the third triangle is in counterclockwise order, the fourth triangle is
+in clockwise order again, and so on.</p>
+<p>On certain hardware, particularly older SGI hardware and some console games,
+using triangle strips is an important optimization to reduce the number of
+vertices that are sent to the graphics pipe, since most triangles (except for
+the first one) can be defined with only a single vertex, rather than three
+vertices for each triangle.</p>
+<p>Modern PC graphics cards prefer to receive a group of triangle strips
+connected together into one very long triangle strip, by the introduction of
+repeated vertices and degenerate triangles. Panda will do this automatically,
+but in order for this to work you should ensure that every triangle strip has
+an even number of vertices in it.</p>
+<p>Furthermore, since modern PC graphics cards incorporate a short vertex cache,
+they can generally render individual, indexed triangles as fast as triangle
+strips; so triangle strips are less important on PC hardware than they have
+been in the past. Unless you have a good reason to use a GeomTristrips, it may
+be easier just to use GeomTriangles.</p>
+<p>When loading a model from an egg file, Panda will assemble the polygons into
+triangle strips if it can do so without making other compromises; otherwise,
+it will leave the polygons as individual triangles.</p>
+</div>
+<div class="section" id="geomtrifans">
+<h2>GeomTrifans<a class="headerlink" href="#geomtrifans" title="Permalink to this headline">¶</a></h2>
+<p>This is similar to a GeomTristrips, in that the primitive can contain any
+number of triangle fans, each of which has an arbitrary number of vertices.
+Within each triangle fan, the first three vertices (in counterclockwise order)
+define a triangle, and each additional vertex defines a new triangle. However,
+instead of using the preceding two vertices to define each new triangle, a
+triangle fan uses the previous vertex and the first vertex, which means that
+all of the resulting triangles fan out from a single point, like this:</p>
+<p><img alt="GeomTrifans.png" src="../../../_images/geomtrifans.png" /></p>
+<p>Like the triangle strip, a triangle fan can be an important optimization on
+certain hardware. However, its use can actually incur a performance penalty on
+modern PC hardware, because it is impossible to send more than one triangle
+fan in one batch, so you probably shouldn&#8217;t use triangle fans on a PC. Use
+GeomTriangles or GeomTristrips instead.</p>
+</div>
+<div class="section" id="geomlines">
+<h2>GeomLines<a class="headerlink" href="#geomlines" title="Permalink to this headline">¶</a></h2>
+<p>This kind of GeomPrimitive stores any number of connected or unconnected line
+segments. It is similar to a GeomTriangles, but it draws lines instead of
+triangles. Each line has exactly two vertices.</p>
+<p><img alt="GeomLines.png" src="../../../_images/geomlines.png" /></p>
+<p>By default, line segments are one pixel wide, no matter how far away they are
+from the camera. You can use nodePath.setRenderModeThickness() to change this;
+if you specify a thickness greater than 1, this will make the lines render as
+thick lines, the specified number of pixels wide. However, the lines will
+always be the same width in pixels, regardless of how far away from the camera
+they are.</p>
+<p>Thick lines are not supported by the DirectX renderer; in DirectX, the
+thickness parameter is ignored.</p>
+</div>
+<div class="section" id="geomlinestrips">
+<h2>GeomLinestrips<a class="headerlink" href="#geomlinestrips" title="Permalink to this headline">¶</a></h2>
+<p>This is the analogue of a GeomTristrips object: the GeomLinestrips object can
+store any number of line strips, each of which can have any number of
+vertices, at least two. Within a particular line strip, the first two vertices
+define a line segment; and thereafter, each new vertex defines an additional
+line segment, connected end-to-end with the previous line segment. This
+primitive type can be used to draw a curve approximation with many bends
+fairly easily.</p>
+<p><img alt="GeomLinestrips.png" src="../../../_images/geomlinestrips.png" /></p>
+</div>
+<div class="section" id="geompoints">
+<h2>GeomPoints<a class="headerlink" href="#geompoints" title="Permalink to this headline">¶</a></h2>
+<p>This is the simplest kind of GeomPrimitive; it stores a number of individual
+points. Each point has exactly one vertex.</p>
+<p><img alt="GeomPoints.png" src="../../../_images/geompoints.png" /></p>
+<p>By default, each point is rendered as one pixel. You can use
+nodePath.setRenderModeThickness() to change this; if you specify a thickness
+greater than 1, this will make the points render as squares (which always face
+the camera), where the vertex coordinate is the center point of the square,
+and the square has the specified number of pixels along each side. Each point
+will always be the same width in pixels, no matter how far it is from the
+camera. Unlike line segments, thick points are supported by DirectX.</p>
+<p><img alt="GeomPointsThick.png" src="../../../_images/geompointsthick.png" /></p>
+<p>In addition to ordinary thick points, which are always the same size no matter
+how far they are from the camera, you can also use
+nodePath.setRenderModePerspective() to enable a mode in which the points scale
+according to their distance from the camera. This makes the points appear more
+like real objects in the 3-D scene, and is particularly useful for rendering
+sprite polygons, for instance for particle effects. In fact, Panda&#8217;s
+:ref:` &lt;particle-renderers&gt;` takes advantage of this render mode. (This
+perspective mode works only for points; it does not affect line segments.)</p>
+<p>Even though the sprite polygons are rendered as squares, remember they are
+really defined with one vertex, and each vertex can only supply one UV
+coordinate. This means each sprite normally has only one UV coordinate pair
+across the whole polygon. If you want to apply a texture to the face of each
+sprite, use :ref:` &lt;automatic-texture-coordinates&gt;` with the mode
+TexGenAttrib.MPointSprite; this will generate texture coordinates on each
+polygon in the range (0, 0) to (1, 1). You can then transform the texture
+coordinates, if you wish, using one of the methods like
+nodePath.setTexOffset(), setTexScale(), etc.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="geom.html" class="btn btn-neutral float-right" title="Geom" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="geomvertexformat.html" class="btn btn-neutral" title="GeomVertexFormat" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Panda3D.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'1.10.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

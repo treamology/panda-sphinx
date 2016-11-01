@@ -1,0 +1,534 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Keyboard Support &mdash; Panda3D Manual</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Panda3D Manual" href="../../index.html"/>
+        <link rel="up" title="Hardware support" href="index.html"/>
+        <link rel="next" title="Mouse Support" href="mouse-support.html"/>
+        <link rel="prev" title="Hardware support" href="index.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Panda3D
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.10
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../intro/index.html">Introduction to Panda3D</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Programming with Panda3D</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../the-scene-graph/index.html">The Scene Graph</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../the-configuration-file/index.html">The Configuration File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../models-and-actors/index.html">Models and Actors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-attributes/index.html">Render Attributes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../texturing/index.html">Texturing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shaders/index.html">Shaders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../camera-control/index.html">Camera Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sound/index.html">Sound</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intervals/index.html">Intervals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks-and-event-handling/index.html">Tasks and Event Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../text-and-image-rendering/index.html">Text and Image Rendering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../directgui/index.html">DirectGUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-effects/index.html">Render Effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../finite-state-machines/index.html">Finite State Machines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../terrain/index.html">Terrain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internal-structures/index.html">Advanced operations with Panda3D&#8217;s internal structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-to-texture-and-image-postprocessing/index.html">Render-to-Texture and Image Postprocessing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../panda3d-rendering-process/index.html">Panda3D Rendering Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../panda3d-utility-functions.html">Panda3D Utility Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../particle-effects/index.html">Particle Effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../collision-detection/index.html">Collision Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../garbage-collection/index.html">Garbage Collection</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Hardware support</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Keyboard Support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mouse-support.html">Mouse Support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="joystick-support.html">Joystick Support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vr-helmets-and-trackers.html">VR Helmets and Trackers</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../math-engine/index.html">Math Engine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../motion-paths.html">Motion Paths</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../timing/index.html">Timing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../networking/index.html">Networking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../multifiles/index.html">Multifiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../showbase.html">ShowBase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../file-reading.html">File Reading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../threading.html">Threading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../subclassing.html">Subclassing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../table-of-features-supported-per-graphic-renderer.html">Table of features supported per graphic renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pandai/index.html">Artificial Intelligence (PANDAI)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../distribution/index.html">Distributing Panda3D Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../samples/index.html">Sample Programs in the Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../debugging/index.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../performance-tuning/index.html">Performance Tuning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../using-c++/index.html">Using C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/index.html">Panda3D Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../building-from-source.html">Building Panda3D from Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cheat-sheets.html">Cheat Sheets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started-on-osx.html">Getting Started on OSX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../more-panda3d-resources.html">More Panda3D Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../thirdparty-licenses.html">Third-party dependencies and license info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../the-irc-channel.html">The IRC Channel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">FAQ</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Panda3D</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Programming with Panda3D</a> &raquo;</li>
+      
+          <li><a href="index.html">Hardware support</a> &raquo;</li>
+      
+    <li>Keyboard Support</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/programming-with-panda3d/hardware-support/keyboard-support.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="keyboard-support">
+<span id="id1"></span><h1>Keyboard Support<a class="headerlink" href="#keyboard-support" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="keyboard-events">
+<h2>Keyboard events<a class="headerlink" href="#keyboard-events" title="Permalink to this headline">¶</a></h2>
+<p>Panda3D has keyboard support built-in. Keyboard presses send
+:ref:` &lt;tasks-and-event-handling&gt;`. Each keyboard key will send an event when
+it is first pressed down, when it is released, and one repeatedly while its
+pressed.</p>
+<p>The events can be accepted with the following code:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="bp">self</span><span class="o">.</span><span class="n">accept</span><span class="p">(</span><span class="n">XXXLTevent</span> <span class="n">name</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">XXXLTfunction</span><span class="o">&gt;</span><span class="p">)</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">accept</span><span class="p">(</span><span class="n">XXXLTevent</span> <span class="n">name</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">XXXLTfunction</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">XXXLTparameters</span> <span class="nb">list</span><span class="o">&gt;</span><span class="p">)</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">acceptOnce</span><span class="p">(</span><span class="n">XXXLTevent</span> <span class="n">name</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">XXXLTfunction</span><span class="o">&gt;</span><span class="p">)</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">acceptOnce</span><span class="p">(</span><span class="n">XXXLTevent</span> <span class="n">name</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">XXXLTfunction</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">XXXLTparameters</span> <span class="nb">list</span><span class="o">&gt;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">framework</span><span class="o">-&gt;</span><span class="n">define_key</span><span class="p">(</span><span class="n">XXXLTevent</span> <span class="n">name</span><span class="o">&gt;</span><span class="p">,</span> <span class="o">&lt;</span><span class="n">description</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">XXXLTfunction</span><span class="o">&gt;</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
+<span class="n">framework</span><span class="o">-&gt;</span><span class="n">define_key</span><span class="p">(</span><span class="n">XXXLTevent</span> <span class="n">name</span><span class="o">&gt;</span><span class="p">,</span> <span class="o">&lt;</span><span class="n">description</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">XXXLTfunction</span><span class="o">&gt;</span><span class="p">,</span> <span class="o">&lt;</span><span class="n">data</span><span class="o">&gt;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>&lt;event name&gt; is a string that labels the event. &lt;function&gt; is a python
+function to be called when the event is sent. &lt;parameters list&gt; is a
+python list of parameters to use to call &lt;function&gt;.</p>
+<p>If you&#8217;re wondering which events are being fired for certain keyboard
+activity, it is advised to call
+<code class="docutils literal"><span class="pre">base.messenger.toggleVerbose()</span></code>. This will cause
+Panda3D to print out all the events that are being sent to the command-line
+prompt. This way, you can find out which keyboard key corresponds to which
+event name.</p>
+<p>In general, the keyboard event naming follows the following rules:</p>
+<p>1. Keys that type a character are named that character. It is always
+lowercase, even when shift or caps lock is pressed. (Shift and other modifiers
+are explained below.)</p>
+<p>e.g.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;3&quot;</span><span class="p">,</span> <span class="s2">&quot;[&quot;</span><span class="p">,</span> <span class="n">etc</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>not</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="s2">&quot;#&quot;</span><span class="p">,</span> <span class="s2">&quot;{&quot;</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li>The key down event is named for the key.</li>
+<li>As of 1.3.0 The keyboard autorepeat is named for the key + &#8220;-repeat&#8221; e.g.</li>
+</ol>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="s2">&quot;a-repeat&quot;</span><span class="p">,</span> <span class="s2">&quot;2-repeat&quot;</span><span class="p">,</span> <span class="s2">&quot;[-repeat&quot;</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="4">
+<li>The key up event is named for the key + &#8220;-up&#8221; e.g.</li>
+</ol>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="s2">&quot;a-up&quot;</span><span class="p">,</span> <span class="s2">&quot;2-up&quot;</span><span class="p">,</span> <span class="s2">&quot;[-up&quot;</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="5">
+<li>All key events (including &#8220;-up&#8221;) have a corresponding time event labeled</li>
+</ol>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="s2">&quot;time-&quot;</span> <span class="o">+</span> <span class="o">&lt;</span><span class="n">key</span> <span class="n">name</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>Here is an example of time reading in code:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">ReadKeys</span><span class="p">(</span><span class="n">DirectObject</span><span class="o">.</span><span class="n">DirectObject</span><span class="p">):</span>
+  <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">accept</span><span class="p">(</span><span class="s1">&#39;time-a-repeat&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">printRepeat</span><span class="p">)</span>
+
+  <span class="k">def</span> <span class="nf">printRepeat</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">when</span><span class="p">):</span>
+      <span class="k">print</span> <span class="s2">&quot;repeat a&quot;</span><span class="p">,</span> <span class="n">when</span>
+</pre></div>
+</div>
+<p>that send a time argument corresponding to the time that event was fired</p>
+<ol class="arabic simple" start="6">
+<li>Keys that don&#8217;t type a character are labeled as follows:</li>
+</ol>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="s2">&quot;escape&quot;</span><span class="p">,</span> <span class="s2">&quot;f&quot;</span><span class="o">+</span><span class="s2">&quot;1-12&quot;</span> <span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">g</span><span class="o">.</span> <span class="s2">&quot;f1&quot;</span><span class="p">,</span><span class="s2">&quot;f2&quot;</span><span class="p">,</span><span class="o">...</span><span class="s2">&quot;f12&quot;</span><span class="p">),</span> <span class="s2">&quot;print_screen&quot;</span> <span class="s2">&quot;scroll_lock&quot;</span>
+<span class="s2">&quot;backspace&quot;</span><span class="p">,</span> <span class="s2">&quot;insert&quot;</span><span class="p">,</span> <span class="s2">&quot;home&quot;</span><span class="p">,</span> <span class="s2">&quot;page_up&quot;</span><span class="p">,</span> <span class="s2">&quot;num_lock&quot;</span>
+<span class="s2">&quot;tab&quot;</span><span class="p">,</span>  <span class="s2">&quot;delete&quot;</span><span class="p">,</span> <span class="s2">&quot;end&quot;</span><span class="p">,</span> <span class="s2">&quot;page_down&quot;</span>
+<span class="s2">&quot;caps_lock&quot;</span><span class="p">,</span> <span class="s2">&quot;enter&quot;</span><span class="p">,</span> <span class="s2">&quot;arrow_left&quot;</span><span class="p">,</span> <span class="s2">&quot;arrow_up&quot;</span><span class="p">,</span> <span class="s2">&quot;arrow_down&quot;</span><span class="p">,</span> <span class="s2">&quot;arrow_right&quot;</span>
+<span class="s2">&quot;shift&quot;</span><span class="p">,</span> <span class="s2">&quot;lshift&quot;</span><span class="p">,</span> <span class="s2">&quot;rshift&quot;</span><span class="p">,</span>
+<span class="s2">&quot;control&quot;</span><span class="p">,</span> <span class="s2">&quot;alt&quot;</span><span class="p">,</span> <span class="s2">&quot;lcontrol&quot;</span><span class="p">,</span> <span class="s2">&quot;lalt&quot;</span><span class="p">,</span> <span class="s2">&quot;space&quot;</span><span class="p">,</span> <span class="s2">&quot;ralt&quot;</span><span class="p">,</span> <span class="s2">&quot;rcontrol&quot;</span>
+</pre></div>
+</div>
+<p>Note that some key combinations (like
+<code class="docutils literal"><span class="pre">print_screen</span></code> on Windows) may be
+intercepted by the operating system and may therefore not be available. If you
+want to be able to catch these keys, you need to find some way to prevent the
+system from intercepting the events. (however, &#8220;print_screen-up&#8221; is still
+available in most cases.)</p>
+<p>7. Some physical keys are distinguishable from the events that they fire, and
+some are not. The modifier keys distinguish between left and right, but send a
+neutral event as well. (e.g. the left shift key sends both &#8220;lshift&#8221; and
+&#8220;shift&#8221; events when pressed) Save for &#8220;num_lock&#8221;, &#8220;*&#8221;, and &#8220;+&#8221; the numpad
+keys are indistinguishable from the main keyboard counterparts. (e.g. when Num
+Lock is on the both the numpad and keyboard 1 keys send &#8220;1&#8221;)</p>
+<p>Here are some examples in code:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="bp">self</span><span class="o">.</span><span class="n">accept</span><span class="p">(</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__spam</span><span class="p">)</span> <span class="c1"># calls the function __spam() on the k key event.</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">accept</span><span class="p">(</span><span class="s1">&#39;k-up&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__spam</span><span class="p">,</span> <span class="p">[</span><span class="n">eggs</span><span class="p">,</span> <span class="n">sausage</span><span class="p">,</span> <span class="n">bacon</span><span class="p">,])</span> <span class="c1"># calls __spam(eggs,sausage,bacon)</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">accept</span><span class="p">(</span><span class="s1">&#39;escape&#39;</span><span class="p">,</span> <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">)</span> <span class="c1"># exit on esc</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">accept</span><span class="p">(</span><span class="s1">&#39;arrow_up&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">spamAndEggs</span><span class="p">)</span> <span class="c1"># call spamAndEggs when up is pressed</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">accept</span><span class="p">(</span><span class="s1">&#39;arrow_up-repeat&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">spamAndEggs</span><span class="p">)</span> <span class="c1"># and at autorepeat if held</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">accept</span><span class="p">(</span><span class="s1">&#39;arrow_up-up&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">spamAndEggs</span><span class="p">)</span> <span class="c1"># calls when the up arrow key is released</span>
+</pre></div>
+</div>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span>framework-&gt;define_key(&quot;k&quot;, &quot;call k&quot; __spam, NULL) # calls the function __spam(const Event* eventPtr, void* dataPtr) on the k key event.
+framework-&gt;define_key(&quot;k&quot;, &quot;call k&quot; __spam, &amp;data) # calls the function __spam(const Event* eventPtr, void* dataPtr) on the k key event.
+framework-&gt;define_key(&quot;escape&quot;, &quot;sys Exit&quot;, exit(0), NULL) # exit on esc
+framework-&gt;define_key(&quot;arrow_up&quot;, &quot;spam and egg&quot;, spamAndEggs, NULL) # call spamAndEggs(const Event* eventPtr, void* dataPtr) when up is pressed
+framework-&gt;define_key(&quot;arrow_up-repeat&quot;, &quot;spam and egg&quot;, spamAndEggs, NULL) # and at autorepeat if held
+framework-&gt;define_key(&quot;arrow_up-up&quot;, &quot;spam and egg&quot;, spamAndEggs, NULL) # calls when the up arrow key is released
+</pre></div>
+</div>
+<p>Please, note then when the Panda window is minimized or Panda3D loses focus
+somehow else, &#8220;-up&#8221; event is sent for all keys. Read this forum thread to
+learn more: <a class="reference external" href="https://www.panda3d.org/forums/viewtopic.php?t=4630">https://www.panda3d.org/forums/viewtopic.php?t=4630</a></p>
+</div>
+<div class="section" id="modifier-keys">
+<h2>Modifier keys<a class="headerlink" href="#modifier-keys" title="Permalink to this headline">¶</a></h2>
+<p>When a key is pressed while a modifier key is pressed, such as shift, control
+or alt, it is not sent in the usual way. Instead, the event name is modified
+by prepending the name of the modifier key to the event name, separated by a
+dash, in the order &#8220;shift&#8221;, &#8220;control&#8221;, &#8220;alt&#8221;, for example:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="s2">&quot;shift-a&quot;</span> <span class="s2">&quot;shift-control-alt-a&quot;</span> <span class="s2">&quot;shift-alt-a&quot;</span>
+</pre></div>
+</div>
+<p>These compound events don&#8217;t send a &#8220;time-&#8221; event. If you need one, use the
+&#8220;time-&#8221; event sent by one of the keys in the combination.</p>
+<p>The modifier compound events may optionally be turned off, in which case the
+&#8220;a&#8221; event and the &#8220;shift&#8221; event will be sent separately:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">base</span><span class="o">.</span><span class="n">mouseWatcherNode</span><span class="o">.</span><span class="n">set_modifier_buttons</span><span class="p">(</span><span class="n">ModifierButtons</span><span class="p">())</span>
+<span class="n">base</span><span class="o">.</span><span class="n">buttonThrowers</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">node</span><span class="p">()</span><span class="o">.</span><span class="n">set_modifier_buttons</span><span class="p">(</span><span class="n">ModifierButtons</span><span class="p">())</span>
+</pre></div>
+</div>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">PT</span><span class="p">(</span><span class="n">MouseWatcher</span><span class="p">)</span> <span class="n">mouseWatcher</span><span class="p">;</span>
+<span class="n">mouseWatcher</span> <span class="o">=</span> <span class="p">(</span><span class="n">MouseWatcher</span><span class="o">*</span><span class="p">)</span><span class="n">window</span><span class="o">-&gt;</span><span class="n">get_mouse</span><span class="p">().</span><span class="n">node</span><span class="p">();</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="n">mouseWatcher</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">mouseWatcher</span><span class="o">-&gt;</span><span class="n">set_modifier_buttons</span><span class="p">(</span><span class="n">ModifierButtons</span><span class="p">());</span>
+<span class="p">}</span>
+
+<span class="n">ButtonThrower</span> <span class="o">*</span><span class="n">bt</span> <span class="o">=</span> <span class="n">DCAST</span><span class="p">(</span><span class="n">ButtonThrower</span><span class="p">,</span> <span class="n">window</span><span class="o">-&gt;</span><span class="n">get_mouse</span><span class="p">().</span><span class="n">get_child</span><span class="p">(</span><span class="mi">0</span><span class="p">).</span><span class="n">node</span><span class="p">());</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">bt</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">bt</span><span class="o">-&gt;</span><span class="n">set_modifier_buttons</span><span class="p">(</span><span class="n">ModifierButtons</span><span class="p">());</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="polling-interface">
+<h2>Polling interface<a class="headerlink" href="#polling-interface" title="Permalink to this headline">¶</a></h2>
+<p>The above interfaces make use of events to cause a method to be called when
+the key pressed or released. However, in some situations, it may be more
+desirable to instead ask Panda every frame whether or not a certain key is
+pressed. In this situation, you can use the polling interface instead, via the
+<code class="docutils literal"><span class="pre">is_button_down</span></code> method on the
+MouseWatcher node. (The name of this class is a bit misleading - it listens
+for keyboard events as well.)</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">forward_speed</span> <span class="o">=</span> <span class="mf">5.0</span> <span class="c1"># units per second</span>
+<span class="n">backward_speed</span> <span class="o">=</span> <span class="mf">2.0</span>
+<span class="n">forward_button</span> <span class="o">=</span> <span class="n">KeyboardButton</span><span class="o">.</span><span class="n">ascii_key</span><span class="p">(</span><span class="s1">&#39;w&#39;</span><span class="p">)</span>
+<span class="n">backward_button</span> <span class="o">=</span> <span class="n">KeyboardButton</span><span class="o">.</span><span class="n">ascii_key</span><span class="p">(</span><span class="s1">&#39;s&#39;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">move_task</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">task</span><span class="p">):</span>
+    <span class="n">speed</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+    <span class="c1"># Check if the player is holding W or S</span>
+    <span class="n">is_down</span> <span class="o">=</span> <span class="n">base</span><span class="o">.</span><span class="n">mouseWatcherNode</span><span class="o">.</span><span class="n">is_button_down</span>
+
+    <span class="k">if</span> <span class="n">is_down</span><span class="p">(</span><span class="n">forward_button</span><span class="p">):</span>
+        <span class="n">speed</span> <span class="o">+=</span> <span class="n">forward_speed</span>
+
+    <span class="k">if</span> <span class="n">is_down</span><span class="p">(</span><span class="n">backward_button</span><span class="p">):</span>
+        <span class="n">speed</span> <span class="o">-=</span> <span class="n">backward_speed</span>
+
+    <span class="c1"># Move the player</span>
+    <span class="n">y_delta</span> <span class="o">=</span> <span class="n">speed</span> <span class="o">*</span> <span class="n">globalClock</span><span class="o">.</span><span class="n">get_dt</span><span class="p">()</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">player</span><span class="o">.</span><span class="n">set_y</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">player</span><span class="p">,</span> <span class="n">y_delta</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="keystroke-events">
+<h2>Keystroke events<a class="headerlink" href="#keystroke-events" title="Permalink to this headline">¶</a></h2>
+<p>The interfaces described above are useful for listening for predetermined key
+presses, like navigational keys or hot keys, but not for text input. Not only
+are there no events for fancy keys in foreign languages, but a single key
+press may not necessarily associate with a single letter to be entered in a
+text field. This is because some international characters can only be typed
+using multiple key presses.</p>
+<p>Therefore, Panda3D has a concept of a <em>keystroke event</em>, which is used for
+text input. Panda3D uses this under the hood for all GUI text entry. If you
+are writing your own GUI widgets, it may be desirable for you to catch your
+own keystroke events. To do this, it is first necessary to inform Panda3D
+which event name should be sent when a keystroke occurs, after which you can
+accept it as you would with any other event:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">base</span><span class="o">.</span><span class="n">buttonThrowers</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">node</span><span class="p">()</span><span class="o">.</span><span class="n">setKeystrokeEvent</span><span class="p">(</span><span class="s1">&#39;keystroke&#39;</span><span class="p">)</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">accept</span><span class="p">(</span><span class="s1">&#39;keystroke&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">myFunc</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">myFunc</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">keyname</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">keyname</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="raw-keyboard-events">
+<h2>Raw keyboard events<a class="headerlink" href="#raw-keyboard-events" title="Permalink to this headline">¶</a></h2>
+<p>Normally, when you listen for a keyboard event, the user&#8217;s configured keyboard
+layout is taken into account. This may present problems for key bindings that
+are determined by <em>position</em> on the keyboard. For instance, when using the
+popular WASD control scheme for navigating the player, someone who&#8217;s using an
+AZERTY or dvorak keyboard layout may have to bend their fingers in an
+unnatural way in order to use this scheme!</p>
+<p>In light of this, Panda3D 1.9.0 introduces some features that will help to
+solve this problem. The easiest way to fix this problem is to instead refer to
+the keys by how they would appear on an ANSI US (QWERTY) keyboard layout. To
+do this, you can prepend the
+<code class="docutils literal"><span class="pre">raw-</span></code> prefix to any key
+event. This will cause Panda3D to <em>ignore</em> the user&#8217;s configured keyboard
+layout, and instead report the key as if the user had set his keyboard layout
+to ANSI US. It does this by interpreting the raw scancode as sent by the
+hardware, rather than the virtual key as reported by the operating system.
+(Note that raw events do not have prefixes for modifier keys.)</p>
+<p>This works for simple cases, but it is often necessary to have more specific
+information about the way the keys are mapped in the user&#8217;s system. For
+example, showing &#8220;press W to move forward&#8221; may be confusing on someone with an
+AZERTY layout, in which case it is more appropriate to say &#8220;press Z to move
+forward&#8221;. When the application has a configuration screen for the keyboard
+control scheme, acquiring more information about the mapping may also be
+necessary.</p>
+<p>This can be done using the
+<code class="docutils literal"><span class="pre">get_keyboard_map()</span></code> on the GraphicsWindow
+object, returning a ButtonMap object, which can be used to find out which
+virtual key event will be fired for a certain raw keyboard button:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># Get the current keyboard layout.</span>
+<span class="c1"># This may be a somewhat expensive operation, so don&#39;t call</span>
+<span class="c1"># it all the time, instead storing the result when possible.</span>
+<span class="nb">map</span> <span class="o">=</span> <span class="n">base</span><span class="o">.</span><span class="n">win</span><span class="o">.</span><span class="n">get_keyboard_map</span><span class="p">()</span>
+
+<span class="c1"># Use this to print all key mappings</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">map</span><span class="p">)</span>
+
+<span class="c1"># Find out which virtual key is associated with the ANSI US &quot;w&quot;</span>
+<span class="n">w_button</span> <span class="o">=</span> <span class="nb">map</span><span class="o">.</span><span class="n">get_mapped_button</span><span class="p">(</span><span class="s2">&quot;w&quot;</span><span class="p">)</span>
+
+<span class="c1"># Get a textual representation for the button</span>
+<span class="n">w_label</span> <span class="o">=</span> <span class="nb">map</span><span class="o">.</span><span class="n">get_mapped_button_label</span><span class="p">(</span><span class="s2">&quot;w&quot;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">w_label</span><span class="p">:</span>
+    <span class="c1"># There is none, use the event name instead.</span>
+    <span class="n">w_label</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">w_button</span><span class="p">)</span>
+<span class="n">w_label</span> <span class="o">=</span> <span class="n">w_label</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span>
+
+<span class="c1"># Use this label to tell the player which button to press.</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">tutorial_text</span> <span class="o">=</span> <span class="s2">&quot;Press </span><span class="si">%s</span><span class="s2"> to move forward.&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">w_label</span><span class="p">)</span>
+
+<span class="c1"># Poll to check if the button is pressed...</span>
+<span class="k">if</span> <span class="n">base</span><span class="o">.</span><span class="n">mouseWatcherNode</span><span class="o">.</span><span class="n">is_button_down</span><span class="p">(</span><span class="n">w_button</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2"> is currently pressed&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">w_label</span><span class="p">))</span>
+
+<span class="c1"># ...or register event handlers</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">accept</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">w_button</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">start_moving_forward</span><span class="p">)</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">accept</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">-up&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">w_button</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">stop_moving_forward</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The above code example also illustrates the use of the
+<code class="docutils literal"><span class="pre">get_mapped_button_label</span></code> function to get a
+textual representation for the button, if the operating system provides it.
+This is most useful for keys like &#8220;shift&#8221; or &#8220;enter&#8221;, which may be called
+differently on different keyboards or in different languages. However, this is
+both system-dependent and locale-dependent. You should not rely on it being
+present, and if it is, you should not rely on consistent formatting or
+capitalization.</p>
+<p>Of course, it is always advisable to still add in a configuration screen so
+that users can customize key bindings in case they find a particular control
+scheme difficult to use.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="mouse-support.html" class="btn btn-neutral float-right" title="Mouse Support" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Hardware support" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Panda3D.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.10.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

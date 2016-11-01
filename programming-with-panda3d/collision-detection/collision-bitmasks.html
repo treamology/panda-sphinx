@@ -1,0 +1,359 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Collision Bitmasks &mdash; Panda3D Manual</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Panda3D Manual" href="../../index.html"/>
+        <link rel="up" title="Collision Detection" href="index.html"/>
+        <link rel="next" title="Rapidly-Moving Objects" href="rapidly-moving-objects.html"/>
+        <link rel="prev" title="Collision Traversers" href="collision-traversers.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Panda3D
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.10
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../intro/index.html">Introduction to Panda3D</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Programming with Panda3D</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../the-scene-graph/index.html">The Scene Graph</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../the-configuration-file/index.html">The Configuration File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../models-and-actors/index.html">Models and Actors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-attributes/index.html">Render Attributes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../texturing/index.html">Texturing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shaders/index.html">Shaders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../camera-control/index.html">Camera Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sound/index.html">Sound</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intervals/index.html">Intervals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks-and-event-handling/index.html">Tasks and Event Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../text-and-image-rendering/index.html">Text and Image Rendering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../directgui/index.html">DirectGUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-effects/index.html">Render Effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../finite-state-machines/index.html">Finite State Machines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../terrain/index.html">Terrain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internal-structures/index.html">Advanced operations with Panda3D&#8217;s internal structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-to-texture-and-image-postprocessing/index.html">Render-to-Texture and Image Postprocessing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../panda3d-rendering-process/index.html">Panda3D Rendering Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../panda3d-utility-functions.html">Panda3D Utility Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../particle-effects/index.html">Particle Effects</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Collision Detection</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="collision-solids.html">Collision Solids</a></li>
+<li class="toctree-l3"><a class="reference internal" href="collision-handlers.html">Collision Handlers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="collision-entries.html">Collision Entries</a></li>
+<li class="toctree-l3"><a class="reference internal" href="collision-traversers.html">Collision Traversers</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Collision Bitmasks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rapidly-moving-objects.html">Rapidly-Moving Objects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pusher-example.html">Pusher Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="event-example.html">Event Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bitmask-example.html">Bitmask Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="clicking-on-3d-objects.html">Clicking on 3D Objects</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../garbage-collection/index.html">Garbage Collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hardware-support/index.html">Hardware support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../math-engine/index.html">Math Engine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../motion-paths.html">Motion Paths</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../timing/index.html">Timing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../networking/index.html">Networking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../multifiles/index.html">Multifiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../showbase.html">ShowBase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../file-reading.html">File Reading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../threading.html">Threading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../subclassing.html">Subclassing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../table-of-features-supported-per-graphic-renderer.html">Table of features supported per graphic renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pandai/index.html">Artificial Intelligence (PANDAI)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../distribution/index.html">Distributing Panda3D Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../samples/index.html">Sample Programs in the Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../debugging/index.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../performance-tuning/index.html">Performance Tuning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../using-c++/index.html">Using C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/index.html">Panda3D Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../building-from-source.html">Building Panda3D from Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cheat-sheets.html">Cheat Sheets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started-on-osx.html">Getting Started on OSX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../more-panda3d-resources.html">More Panda3D Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../thirdparty-licenses.html">Third-party dependencies and license info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../the-irc-channel.html">The IRC Channel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">FAQ</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Panda3D</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Programming with Panda3D</a> &raquo;</li>
+      
+          <li><a href="index.html">Collision Detection</a> &raquo;</li>
+      
+    <li>Collision Bitmasks</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/programming-with-panda3d/collision-detection/collision-bitmasks.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="collision-bitmasks">
+<span id="id1"></span><h1>Collision Bitmasks<a class="headerlink" href="#collision-bitmasks" title="Permalink to this headline">¶</a></h1>
+<p>By default, every &#8220;from&#8221; object added to a CollisionTraverser will test for
+collisions with every other CollisionNode in the scene graph, and will not
+test for collisions with visible geometry. For simple applications, this is
+sufficient, but often you will need more control.</p>
+<p>This control is provided with the collide masks. Every CollisionNode has two
+collide masks: a &#8220;from&#8221; mask, which is used when the CollisionNode is acting
+as a &#8220;from&#8221; object (i.e. it has been added to a
+:ref:` &lt;collision-traversers&gt;`), and an &#8220;into&#8221; mask, which is used when the
+node is acting as an &#8220;into&#8221; object (i.e. it is in the scene graph, and a from
+object is considering it for collisions).</p>
+<p>In addition, visible geometry nodes&#8211;that is, GeomNodes&#8211;also have an &#8220;into&#8221;
+mask, so that visible geometry can serve as an &#8220;into&#8221; object also. (However,
+only a CollisionNode can serve as a &#8220;from&#8221; object.)</p>
+<p>Before the solids in a &#8220;from&#8221; CollisionNode are tested for collisions with
+another CollisionNode or with a GeomNode, the collide masks are compared.
+Specifically, the &#8220;from&#8221; mask of the from object, and the &#8220;into&#8221; mask of the
+into object, are ANDed together. If the result is not zero&#8211;meaning the two
+masks have at least one bit in common&#8211;then the collision test is attempted;
+otherwise, the two objects are ignored.</p>
+<p>The collide masks are represented using a BitMask32 object, which is really
+just a 32-bit integer with some additional methods for getting and setting
+particular bits.</p>
+<p>You can only set the from collide mask on a collision node, and you must set
+it directly on the node itself, not on the NodePath:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">nodePath</span><span class="o">.</span><span class="n">node</span><span class="p">()</span><span class="o">.</span><span class="n">setFromCollideMask</span><span class="p">(</span><span class="n">BitMask32</span><span class="p">(</span><span class="mh">0x10</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>However, the into collide mask may be set on the NodePath, for convenience;
+this recursively modifies the into collide mask for all the nodes at the given
+NodePath level and below.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">nodePath</span><span class="o">.</span><span class="n">setCollideMask</span><span class="p">(</span><span class="n">newMask</span><span class="p">,</span> <span class="n">bitsToChange</span><span class="p">,</span> <span class="n">nodeType</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The parameter newMask specifies the new mask to apply. The remaining
+parameters are optional; if they are omitted, then every node at nodePath
+level and below is assigned newMask as the new into collide mask. However, if
+bitsToChange is specified, it represents the set of bits that are to be
+changed from the original; bits that are 0 in bitsToChange will not be
+modified at each node level. If nodeType is specified, it should be a
+TypeHandle that represents the type of node that will be modified, e.g.
+<code class="docutils literal"><span class="pre">CollisionNode.getClassType()</span></code> to affect only
+CollisionNodes.</p>
+<p>Examples:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">nodePath</span><span class="o">.</span><span class="n">setCollideMask</span><span class="p">(</span><span class="n">BitMask32</span><span class="p">(</span><span class="mh">0x10</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>This sets the into collide mask of nodePath, and all children of nodePath, to
+the value 0x10, regardless of the value each node had before.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">nodePath</span><span class="o">.</span><span class="n">setCollideMask</span><span class="p">(</span><span class="n">BitMask32</span><span class="p">(</span><span class="mh">0x04</span><span class="p">),</span> <span class="n">BitMask32</span><span class="p">(</span><span class="mh">0xff</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>This replaces the lower 8 bits of nodePath and all of its children with the
+value 0x04, leaving the upper 24 bits of each node unchanged.</p>
+<p>The default value for both from and into collide masks for a new CollisionNode
+can be retrieved by <code class="docutils literal"><span class="pre">CollisionNode.getDefaultCollideMask()</span></code>,
+and the default into collide mask for a new GeomNode is
+<code class="docutils literal"><span class="pre">GeomNode.getDefaultCollideMask()</span></code>. Note that you can
+create a CollisionNode that collides with visible geometry by doing something
+like this:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">nodePath</span><span class="o">.</span><span class="n">node</span><span class="p">()</span><span class="o">.</span><span class="n">setFromCollideMask</span><span class="p">(</span><span class="n">GeomNode</span><span class="o">.</span><span class="n">getDefaultCollideMask</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal"><span class="pre">NodePath.getCollideMask()</span></code> function returns a
+union of all the collide masks for itself and its children. Since the
+<code class="docutils literal"><span class="pre">NodePath.setCollideMask()</span></code> function is called
+recursively on its children, the following code can have a profound effect,
+even though it looks like it&#8217;s doing nothing:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">nodePath</span><span class="o">.</span><span class="n">setCollideMask</span><span class="p">(</span><span class="n">nodePath</span><span class="o">.</span><span class="n">getCollideMask</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>The above code actually calculates the collide mask for its children, and sets
+all of its children to that same collide mask, wiping out what was there
+before.</p>
+<p>If you need to have only entities with a certain collision mask to be able to
+collide with a model, it is helpful to open the model&#8217;s egg file and see where
+the collisions are enabled (see :ref:` &lt;egg-syntax&gt;`). Then you would set the
+collide mask for only that child node, using
+<a href="#id2"><span class="problematic" id="id3">``</span></a>NodePath.find()``(see
+:ref:` &lt;the-scene-graph&gt;`). For example, to create a box into only &#8220;ralph&#8221; can
+collide:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">ralph</span><span class="o">=</span><span class="n">loader</span><span class="o">.</span><span class="n">loadModel</span><span class="p">(</span><span class="s2">&quot;ralph&quot;</span><span class="p">)</span>
+<span class="n">ralph</span><span class="o">.</span><span class="n">setCollideMask</span><span class="p">(</span><span class="n">BitMask32</span><span class="o">.</span><span class="n">bit</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+<span class="n">box</span><span class="o">=</span><span class="n">loader</span><span class="o">.</span><span class="n">loadModel</span><span class="p">(</span><span class="s2">&quot;box&quot;</span><span class="p">)</span>
+<span class="n">box</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;**/Cube;+h&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">setCollideMask</span><span class="p">(</span><span class="n">BitMask32</span><span class="o">.</span><span class="n">bit</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="rapidly-moving-objects.html" class="btn btn-neutral float-right" title="Rapidly-Moving Objects" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="collision-traversers.html" class="btn btn-neutral" title="Collision Traversers" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Panda3D.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.10.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

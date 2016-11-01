@@ -1,0 +1,281 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>DetectPanda3D.js &mdash; Panda3D Manual</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Panda3D Manual" href="../../index.html"/>
+        <link rel="up" title="Advanced scripting techniques" href="index.html"/>
+        <link rel="next" title="Advanced object tags" href="advanced-object-tags.html"/>
+        <link rel="prev" title="Advanced scripting techniques" href="index.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Panda3D
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.10
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../intro/index.html">Introduction to Panda3D</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../programming-with-panda3d/index.html">Programming with Panda3D</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Distributing Panda3D Applications</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../introduction-to-p3d-files/index.html">Introduction to p3d files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../distributing-via-the-web/index.html">Distributing via the web</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../p3d-file-config-settings.html">P3D file config settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../distributing-as-a-self-contained-installer.html">Distributing as a self-contained installer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../the-runtime-panda3d-directory.html">The runtime Panda3D directory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../the-package-system/index.html">The package system</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Advanced scripting techniques</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">DetectPanda3D.js</a></li>
+<li class="toctree-l3"><a class="reference internal" href="advanced-object-tags.html">Advanced object tags</a></li>
+<li class="toctree-l3"><a class="reference internal" href="splash-window-tags.html">Splash window tags</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plugin-notify-callbacks.html">Plugin notify callbacks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="apprunner/index.html">AppRunner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="p3d-origin-security.html">P3D origin security</a></li>
+<li class="toctree-l3"><a class="reference internal" href="packageinstaller.html">PackageInstaller</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../samples/index.html">Sample Programs in the Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../debugging/index.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../performance-tuning/index.html">Performance Tuning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../using-c++/index.html">Using C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/index.html">Panda3D Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../building-from-source.html">Building Panda3D from Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cheat-sheets.html">Cheat Sheets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started-on-osx.html">Getting Started on OSX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../more-panda3d-resources.html">More Panda3D Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../thirdparty-licenses.html">Third-party dependencies and license info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../the-irc-channel.html">The IRC Channel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">FAQ</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Panda3D</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Distributing Panda3D Applications</a> &raquo;</li>
+      
+          <li><a href="index.html">Advanced scripting techniques</a> &raquo;</li>
+      
+    <li>DetectPanda3D.js</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/distribution/advanced-scripting-techniques/detectpanda3d.js.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="detectpanda3d-js">
+<span id="id1"></span><h1>DetectPanda3D.js<a class="headerlink" href="#detectpanda3d-js" title="Permalink to this headline">¶</a></h1>
+<p>There is a JavaScript function distributed with Panda, in the
+direct/src/directscripts directory, that can be used to determine whether the
+Panda3D plugin is installed at all. You can use this script to redirect users
+to the appropriate page to install the plugin if necessary.</p>
+<p>To use it, copy it to your web server and reference it in the section of your
+HTML document like this:</p>
+<div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;DetectPanda3D.js&quot;</span> <span class="na">language</span><span class="o">=</span><span class="s">&quot;javascript&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>Then elsewhere, presumably in the section of your document, you can reference
+it like this:</p>
+<div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">script</span> <span class="na">language</span><span class="o">=</span><span class="s">&quot;javascript&quot;</span><span class="p">&gt;</span>
+<span class="k">if</span> <span class="p">(</span><span class="nx">detectPanda3D</span><span class="p">())</span> <span class="p">{</span>
+   <span class="p">...</span> <span class="nx">plugin</span> <span class="nx">installed</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+   <span class="p">...</span> <span class="nx">plugin</span> <span class="nx">not</span> <span class="nx">installed</span>
+<span class="p">}</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>The function takes two optional parameters. The first parameter, if specified,
+is the URL of another page to redirect to, and the second parameter should be
+True to redirect to the indicated URL if the plugin is found, or False to
+redirect if the plugin is not found.</p>
+<p>For instance, to trigger an automatic redirect to another page if the plugin
+is not installed, pass that page&#8217;s URL as the first parameter, and False as
+the second parameter, like this:</p>
+<div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">script</span> <span class="na">language</span><span class="o">=</span><span class="s">&quot;javascript&quot;</span><span class="p">&gt;</span>
+<span class="nx">detectPanda3D</span><span class="p">(</span><span class="s1">&#39;http://my.host.net/needsPlugin.html&#39;</span><span class="p">,</span> <span class="nx">False</span><span class="p">);</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>Note that this JavaScript function only detects whether the plugin is
+installed; it cannot report the plugin version number, and even if the plugin
+is installed there is no guarantee that the plugin actually runs on this
+browser. In order to test either of these, you have to use the plugin to embed
+a p3d file and query the resulting embedded object.</p>
+<p>Note also that :ref:` &lt;embedding-with-runpanda3d&gt;` can also be used to do some
+simple plugin detection, using the noplugin_img and noplugin_href tags.</p>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="advanced-object-tags.html" class="btn btn-neutral float-right" title="Advanced object tags" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Advanced scripting techniques" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Panda3D.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.10.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

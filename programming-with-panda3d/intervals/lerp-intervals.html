@@ -1,0 +1,455 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Lerp Intervals &mdash; Panda3D Manual</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Panda3D Manual" href="../../index.html"/>
+        <link rel="up" title="Intervals" href="index.html"/>
+        <link rel="next" title="Function Intervals" href="function-intervals.html"/>
+        <link rel="prev" title="Intervals" href="index.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Panda3D
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.10
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../intro/index.html">Introduction to Panda3D</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Programming with Panda3D</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../the-scene-graph/index.html">The Scene Graph</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../the-configuration-file/index.html">The Configuration File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../models-and-actors/index.html">Models and Actors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-attributes/index.html">Render Attributes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../texturing/index.html">Texturing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shaders/index.html">Shaders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../camera-control/index.html">Camera Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sound/index.html">Sound</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Intervals</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Lerp Intervals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function-intervals.html">Function Intervals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="actor-intervals.html">Actor Intervals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sound-intervals.html">Sound Intervals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="motion-path-and-particle-intervals.html">Motion Path and Particle Intervals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sequences-and-parallels.html">Sequences and Parallels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="position-rotation-and-scale-intervals.html">Position, Rotation and Scale Intervals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="projectile-intervals.html">Projectile Intervals</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks-and-event-handling/index.html">Tasks and Event Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../text-and-image-rendering/index.html">Text and Image Rendering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../directgui/index.html">DirectGUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-effects/index.html">Render Effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../finite-state-machines/index.html">Finite State Machines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../terrain/index.html">Terrain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internal-structures/index.html">Advanced operations with Panda3D&#8217;s internal structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-to-texture-and-image-postprocessing/index.html">Render-to-Texture and Image Postprocessing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../panda3d-rendering-process/index.html">Panda3D Rendering Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../panda3d-utility-functions.html">Panda3D Utility Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../particle-effects/index.html">Particle Effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../collision-detection/index.html">Collision Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../garbage-collection/index.html">Garbage Collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hardware-support/index.html">Hardware support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../math-engine/index.html">Math Engine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../motion-paths.html">Motion Paths</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../timing/index.html">Timing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../networking/index.html">Networking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../multifiles/index.html">Multifiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../showbase.html">ShowBase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../file-reading.html">File Reading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../threading.html">Threading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../subclassing.html">Subclassing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../table-of-features-supported-per-graphic-renderer.html">Table of features supported per graphic renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pandai/index.html">Artificial Intelligence (PANDAI)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../distribution/index.html">Distributing Panda3D Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../samples/index.html">Sample Programs in the Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../debugging/index.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../performance-tuning/index.html">Performance Tuning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../using-c++/index.html">Using C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/index.html">Panda3D Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../building-from-source.html">Building Panda3D from Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cheat-sheets.html">Cheat Sheets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started-on-osx.html">Getting Started on OSX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../more-panda3d-resources.html">More Panda3D Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../thirdparty-licenses.html">Third-party dependencies and license info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../the-irc-channel.html">The IRC Channel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">FAQ</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Panda3D</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Programming with Panda3D</a> &raquo;</li>
+      
+          <li><a href="index.html">Intervals</a> &raquo;</li>
+      
+    <li>Lerp Intervals</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/programming-with-panda3d/intervals/lerp-intervals.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="lerp-intervals">
+<span id="id1"></span><h1>Lerp Intervals<a class="headerlink" href="#lerp-intervals" title="Permalink to this headline">¶</a></h1>
+<p>The <code class="docutils literal"><span class="pre">LerpInterval</span></code> is the main
+workhorse of the Interval system. The word &#8220;lerp&#8221; is short for &#8220;linearly
+interpolate&#8221; and means to smoothly adjust properties, such as position, from
+one value to another over a period of time. You can use
+<code class="docutils literal"><span class="pre">LerpIntervals</span></code> to move and rotate
+objects around in your world. The
+<code class="docutils literal"><span class="pre">LerpInterval</span></code> is also the most
+complex of all of the intervals, since there are many different parameters
+that you might want to specify to control the lerp.</p>
+<div class="section" id="an-overview-of-the-nodepath-based-lerpintervals">
+<h2>An overview of the NodePath-based LerpIntervals<a class="headerlink" href="#an-overview-of-the-nodepath-based-lerpintervals" title="Permalink to this headline">¶</a></h2>
+<p>Most <code class="docutils literal"><span class="pre">LerpIntervals</span></code> adjust the various
+transform properties of a
+<code class="docutils literal"><span class="pre">NodePath</span></code>, such as
+<code class="docutils literal"><span class="pre">pos</span></code>,
+<code class="docutils literal"><span class="pre">hpr</span></code>, and
+<code class="docutils literal"><span class="pre">scale</span></code>, and they all have a
+similar form. Consider the
+<code class="docutils literal"><span class="pre">LerpPosInterval</span></code>, which will smoothly
+move a model from one point in space to another:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">direct.interval.LerpInterval</span> <span class="kn">import</span> <span class="n">LerpPosInterval</span>
+<span class="n">i</span> <span class="o">=</span> <span class="n">LerpPosInterval</span><span class="p">(</span><span class="n">nodePath</span><span class="p">,</span>
+                    <span class="n">duration</span><span class="p">,</span>
+                    <span class="n">pos</span><span class="p">,</span>
+                    <span class="n">startPos</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+                    <span class="n">other</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+                    <span class="n">blendType</span><span class="o">=</span><span class="s1">&#39;noBlend&#39;</span><span class="p">,</span>
+                    <span class="n">bakeInStart</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                    <span class="n">fluid</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                    <span class="n">name</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The only required
+parameters are the model whose position is being changed, the length of time
+to apply the move, and the model&#8217;s new position. The remaining parameters are
+all optional and are often omitted. Here is a breakdown of what each parameter
+means:</p>
+<p><code class="docutils literal"><span class="pre">nodePath</span></code></p>
+<p>The model whose position is being changed.</p>
+<p><code class="docutils literal"><span class="pre">duration</span></code></p>
+<p>The duration of the lerp in seconds.</p>
+<p><code class="docutils literal"><span class="pre">pos</span></code></p>
+<p>The model&#8217;s target position (the new position it will move to). Usually this
+is a <code class="docutils literal"><span class="pre">Point3(x,</span> <span class="pre">y,</span> <span class="pre">z)</span></code>, but as a special advanced feature, it might be a
+Python function that, when called, returns a <code class="docutils literal"><span class="pre">Point3</span></code>. If it is a function,
+then it will be called at the time the lerp actually begins to play.</p>
+<p><code class="docutils literal"><span class="pre">startPos</span></code></p>
+<p>The starting position of the model at the beginning of the lerp. If this is
+omitted, the model will start from its current position. As with <code class="docutils literal"><span class="pre">pos</span></code>,
+above, this might be a Python function, which will be called at the time the
+lerp actually begins.</p>
+<p>Note that if you intend to move an object from its current position, it is
+better to omit this parameter altogether rather than try to specify it
+explicitly with something like <code class="docutils literal"><span class="pre">startPos=object.getPos()</span></code> since the latter
+will be evaluated at the time the interval is created; not when it is played.
+This is especially true if you plan to embed a series of consecutive
+<code class="docutils literal"><span class="pre">LerpIntervals</span></code> within a [[Sequences and Parallels|Sequence]].</p>
+<p><code class="docutils literal"><span class="pre">other</span></code></p>
+<p>Normally this is set to None to indicate a normal lerp. If a <code class="docutils literal"><span class="pre">NodePath</span></code> is
+passed in, however, it indicates that this is a relative lerp, and the <code class="docutils literal"><span class="pre">pos</span></code>
+and <code class="docutils literal"><span class="pre">startPos</span></code> will be computed as a relative transform from that
+<code class="docutils literal"><span class="pre">NodePath</span></code>. The relative transform is recomputed each frame, so if the other
+<code class="docutils literal"><span class="pre">NodePath</span></code> is animating during the lerp, the animation will be reflected
+here. For this reason, you should not attempt to lerp a model relative to
+itself.</p>
+<p><code class="docutils literal"><span class="pre">blendType</span></code></p>
+<p>This specifies how smoothly the lerp starts and stops. It may be any of the
+following values:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">'easeIn'</span></code></td>
+<td>The lerp begins slowly, ramps up to
+full speed, and stops abruptly.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">'easeOut'</span></code></td>
+<td>The lerp begins at full speed, and then
+slows to a gentle stop at the end.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">'easeInOut'</span></code></td>
+<td>The lerp begins slowly, ramps up to
+full speed, and then slows to a gentle
+stop.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">'noBlend'</span></code></td>
+<td>The lerp begins and ends abruptly.</td>
+</tr>
+</tbody>
+</table>
+<p><code class="docutils literal"><span class="pre">bakeInStart</span></code></p>
+<p>This is an advanced feature. Normally this is 1, which means the original
+starting position of the model is determined when the interval starts to play
+and saved for the duration of the interval. You almost always want to keep it
+that way. If you pass this as 0, however, the starting position is cleverly
+re-inferred at each frame, based on the model&#8217;s current position and the
+elapsed time in the lerp; this allows your application to move the model even
+while it is being lerped, and the lerp will adapt. This has nothing to do with
+controlling when the <code class="docutils literal"><span class="pre">startPos</span></code> parameter is evaluated.</p>
+<p><code class="docutils literal"><span class="pre">fluid</span></code></p>
+<p>If this is 1, then the lerp uses <code class="docutils literal"><span class="pre">setFluidPos()</span></code> rather than <code class="docutils literal"><span class="pre">setPos()</span></code> to
+animate the model. See [[Rapidly-Moving Objects]]. This is meaningful only
+when the collision system is currently active on the model. Since usually
+there is no reason to have the collision system active while a model is under
+direct application control, this parameter is rarely used.</p>
+<p><code class="docutils literal"><span class="pre">name</span></code></p>
+<p>This specifies the name of the lerp, and may be useful for debugging. Also, by
+convention, there may only be one lerp with a given name playing at any given
+time, so if you put a name here, any other interval with the same name will
+automatically stop when this one is started. The default is to assign a unique
+name for each interval.</p>
+</div>
+<div class="section" id="the-rest-of-the-nodepath-based-lerpintervals">
+<h2>The rest of the NodePath-based LerpIntervals<a class="headerlink" href="#the-rest-of-the-nodepath-based-lerpintervals" title="Permalink to this headline">¶</a></h2>
+<p>Many <code class="docutils literal"><span class="pre">NodePath</span></code> properties other
+than position may be controlled via a lerp. Here is the list of the various
+<code class="docutils literal"><span class="pre">LerpIntervals</span></code> that control
+<code class="docutils literal"><span class="pre">NodePath</span></code> properties:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">LerpPosInterval</span><span class="p">(</span><span class="n">nodePath</span><span class="p">,</span> <span class="n">duration</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">startPos</span><span class="p">)</span>
+<span class="n">LerpHprInterval</span><span class="p">(</span><span class="n">nodePath</span><span class="p">,</span> <span class="n">duration</span><span class="p">,</span> <span class="n">hpr</span><span class="p">,</span> <span class="n">startHpr</span><span class="p">)</span>
+<span class="n">LerpQuatInterval</span><span class="p">(</span><span class="n">nodePath</span><span class="p">,</span> <span class="n">duration</span><span class="p">,</span> <span class="n">quat</span><span class="p">,</span> <span class="n">startHpr</span><span class="p">,</span> <span class="n">startQuat</span><span class="p">)</span>
+<span class="n">LerpScaleInterval</span><span class="p">(</span><span class="n">nodePath</span><span class="p">,</span> <span class="n">duration</span><span class="p">,</span> <span class="n">scale</span><span class="p">,</span> <span class="n">startScale</span><span class="p">)</span>
+<span class="n">LerpShearInterval</span><span class="p">(</span><span class="n">nodePath</span><span class="p">,</span> <span class="n">duration</span><span class="p">,</span> <span class="n">shear</span><span class="p">,</span> <span class="n">startShear</span><span class="p">)</span>
+<span class="n">LerpColorInterval</span><span class="p">(</span><span class="n">nodePath</span><span class="p">,</span> <span class="n">duration</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">startColor</span><span class="p">)</span>
+<span class="n">LerpColorScaleInterval</span><span class="p">(</span><span class="n">nodePath</span><span class="p">,</span> <span class="n">duration</span><span class="p">,</span> <span class="n">colorScale</span><span class="p">,</span> <span class="n">startColorScale</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Each of the above has a
+similar set of parameters as those of
+<code class="docutils literal"><span class="pre">LerpPosInterval</span></code>. They also have a
+similar shortcut (e.g. <code class="docutils literal"><span class="pre">model.hprInterval()</span></code>,
+etc.) Finally, there is a handful of combination
+<code class="docutils literal"><span class="pre">LerpIntervals</span></code> that perform multiple
+lerps at the same time. (You can also achieve the same effect by combining
+several <code class="docutils literal"><span class="pre">LerpIntervals</span></code> within a
+:ref:` &lt;sequences-and-parallels&gt;`, but these combination intervals are often
+simpler to use, and they execute just a bit faster.)</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">LerpPosHprInterval</span><span class="p">(</span><span class="n">nodePath</span><span class="p">,</span> <span class="n">duration</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">hpr</span><span class="p">,</span> <span class="n">startPos</span><span class="p">,</span> <span class="n">startHpr</span><span class="p">)</span>
+<span class="n">LerpPosQuatInterval</span><span class="p">(</span><span class="n">nodePath</span><span class="p">,</span> <span class="n">duration</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">quat</span><span class="p">,</span> <span class="n">startPos</span><span class="p">,</span> <span class="n">startQuat</span><span class="p">)</span>
+<span class="n">LerpHprScaleInterval</span><span class="p">(</span><span class="n">nodePath</span><span class="p">,</span> <span class="n">duration</span><span class="p">,</span> <span class="n">hpr</span><span class="p">,</span> <span class="n">scale</span><span class="p">,</span> <span class="n">startHpr</span><span class="p">,</span> <span class="n">startScale</span><span class="p">)</span>
+<span class="n">LerpQuatScaleInterval</span><span class="p">(</span><span class="n">nodePath</span><span class="p">,</span> <span class="n">duration</span><span class="p">,</span> <span class="n">quat</span><span class="p">,</span> <span class="n">scale</span><span class="p">,</span> <span class="n">startQuat</span><span class="p">,</span> <span class="n">startScale</span><span class="p">)</span>
+<span class="n">LerpPosHprScaleInterval</span><span class="p">(</span><span class="n">nodePath</span><span class="p">,</span> <span class="n">duration</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">hpr</span><span class="p">,</span> <span class="n">scale</span><span class="p">,</span> <span class="n">startPos</span><span class="p">,</span> <span class="n">startHpr</span><span class="p">,</span> <span class="n">startScale</span><span class="p">)</span>
+<span class="n">LerpPosQuatScaleInterval</span><span class="p">(</span><span class="n">nodePath</span><span class="p">,</span> <span class="n">duration</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">quat</span><span class="p">,</span> <span class="n">scale</span><span class="p">,</span> <span class="n">startPos</span><span class="p">,</span> <span class="n">startQuat</span><span class="p">,</span> <span class="n">startScale</span><span class="p">)</span>
+<span class="n">LerpPosHprScaleShearInterval</span><span class="p">(</span><span class="n">nodePath</span><span class="p">,</span> <span class="n">duration</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">hpr</span><span class="p">,</span> <span class="n">scale</span><span class="p">,</span> <span class="n">shear</span><span class="p">,</span> <span class="n">startPos</span><span class="p">,</span> <span class="n">startHpr</span><span class="p">,</span> <span class="n">startScale</span><span class="p">,</span> <span class="n">startShear</span><span class="p">)</span>
+<span class="n">LerpPosQuatScaleShearInterval</span><span class="p">(</span><span class="n">nodePath</span><span class="p">,</span> <span class="n">duration</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">quat</span><span class="p">,</span> <span class="n">scale</span><span class="p">,</span> <span class="n">shear</span><span class="p">,</span> <span class="n">startPos</span><span class="p">,</span> <span class="n">startQuat</span><span class="p">,</span> <span class="n">startScale</span><span class="p">,</span> <span class="n">startShear</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="other-types-of-lerpinterval">
+<h2>Other types of LerpInterval<a class="headerlink" href="#other-types-of-lerpinterval" title="Permalink to this headline">¶</a></h2>
+<p>Beyond animating NodePaths, you can create a
+<code class="docutils literal"><span class="pre">LerpInterval</span></code> that blends any
+parameter of any object over time. This can be done with a
+<code class="docutils literal"><span class="pre">LerpFunctionInterval</span></code>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">myFunction</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+  <span class="c1"># Do something based on t.</span>
+
+<span class="n">i</span> <span class="o">=</span> <span class="n">LerpFunc</span><span class="p">(</span><span class="n">myFunction</span><span class="p">,</span>
+             <span class="n">fromData</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+             <span class="n">toData</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+             <span class="n">duration</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span>
+             <span class="n">blendType</span><span class="o">=</span><span class="s1">&#39;noBlend&#39;</span><span class="p">,</span>
+             <span class="n">extraArgs</span><span class="o">=</span><span class="p">[],</span>
+             <span class="n">name</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This advanced interval
+has many things in common with all of the above
+<code class="docutils literal"><span class="pre">LerpIntervals</span></code>, but instead of
+directly animating a value, it instead calls the function you specify, passing
+a single floating-point parameter,
+<code class="docutils literal"><span class="pre">t</span></code>, that ranges from
+<code class="docutils literal"><span class="pre">fromData</span></code> to
+<code class="docutils literal"><span class="pre">toData</span></code> over the duration of
+the interval. It is then up to your function to set whatever property of
+whatever object you like according to the current value of
+<code class="docutils literal"><span class="pre">t</span></code>.</p>
+</div>
+<div class="section" id="incomplete-section">
+<h2>Incomplete Section<a class="headerlink" href="#incomplete-section" title="Permalink to this headline">¶</a></h2>
+<p>Note: this section is incomplete. It will be updated soon.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="function-intervals.html" class="btn btn-neutral float-right" title="Function Intervals" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Intervals" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Panda3D.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.10.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

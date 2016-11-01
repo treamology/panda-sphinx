@@ -1,0 +1,417 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>FSM with input &mdash; Panda3D Manual</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Panda3D Manual" href="../../index.html"/>
+        <link rel="up" title="Finite State Machines" href="index.html"/>
+        <link rel="next" title="Advanced FSM Tidbits" href="advanced-fsm-tidbits.html"/>
+        <link rel="prev" title="Simple FSM Usage" href="simple-fsm-usage.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Panda3D
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.10
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../intro/index.html">Introduction to Panda3D</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Programming with Panda3D</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../the-scene-graph/index.html">The Scene Graph</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../the-configuration-file/index.html">The Configuration File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../models-and-actors/index.html">Models and Actors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-attributes/index.html">Render Attributes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../texturing/index.html">Texturing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shaders/index.html">Shaders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../camera-control/index.html">Camera Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sound/index.html">Sound</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intervals/index.html">Intervals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks-and-event-handling/index.html">Tasks and Event Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../text-and-image-rendering/index.html">Text and Image Rendering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../directgui/index.html">DirectGUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-effects/index.html">Render Effects</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Finite State Machines</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="fsm-introduction.html">FSM Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="simple-fsm-usage.html">Simple FSM Usage</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">FSM with input</a></li>
+<li class="toctree-l3"><a class="reference internal" href="advanced-fsm-tidbits.html">Advanced FSM Tidbits</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../terrain/index.html">Terrain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internal-structures/index.html">Advanced operations with Panda3D&#8217;s internal structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-to-texture-and-image-postprocessing/index.html">Render-to-Texture and Image Postprocessing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../panda3d-rendering-process/index.html">Panda3D Rendering Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../panda3d-utility-functions.html">Panda3D Utility Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../particle-effects/index.html">Particle Effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../collision-detection/index.html">Collision Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../garbage-collection/index.html">Garbage Collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hardware-support/index.html">Hardware support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../math-engine/index.html">Math Engine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../motion-paths.html">Motion Paths</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../timing/index.html">Timing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../networking/index.html">Networking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../multifiles/index.html">Multifiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../showbase.html">ShowBase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../file-reading.html">File Reading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../threading.html">Threading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../subclassing.html">Subclassing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../table-of-features-supported-per-graphic-renderer.html">Table of features supported per graphic renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pandai/index.html">Artificial Intelligence (PANDAI)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../distribution/index.html">Distributing Panda3D Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../samples/index.html">Sample Programs in the Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../debugging/index.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../performance-tuning/index.html">Performance Tuning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../using-c++/index.html">Using C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/index.html">Panda3D Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../building-from-source.html">Building Panda3D from Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cheat-sheets.html">Cheat Sheets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started-on-osx.html">Getting Started on OSX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../more-panda3d-resources.html">More Panda3D Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../thirdparty-licenses.html">Third-party dependencies and license info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../the-irc-channel.html">The IRC Channel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">FAQ</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Panda3D</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Programming with Panda3D</a> &raquo;</li>
+      
+          <li><a href="index.html">Finite State Machines</a> &raquo;</li>
+      
+    <li>FSM with input</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/programming-with-panda3d/finite-state-machines/fsm-with-input.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="fsm-with-input">
+<span id="id1"></span><h1>FSM with input<a class="headerlink" href="#fsm-with-input" title="Permalink to this headline">¶</a></h1>
+<p>Another common use for FSM&#8217;s is to provide an abstraction for AI state. For
+this purpose, you would like to supply an &#8220;input&#8221; string to the FSM and let
+the FSM decide which state it should transition to rather than explicitly
+specifying the target state name. Consider the following FSM state diagram:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="37%" />
+<col width="26%" />
+<col width="37%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>↷ straight</td>
+<td>&nbsp;</td>
+<td>↶ straight</td>
+</tr>
+<tr class="row-even"><td>North</td>
+<td>← left</td>
+<td>East</td>
+</tr>
+<tr class="row-odd"><td>↓ left</td>
+<td>&nbsp;</td>
+<td>↑ left</td>
+</tr>
+<tr class="row-even"><td>West</td>
+<td>→ left</td>
+<td>South</td>
+</tr>
+<tr class="row-odd"><td>↺ straight</td>
+<td>&nbsp;</td>
+<td>↻ straight</td>
+</tr>
+</tbody>
+</table>
+<p>Here the text next to an arrow represents the &#8220;input&#8221; string given to the FSM,
+and the direction of the arrow represents the state transition that should be
+made for that particular input string, from the indicated starting state. In
+this example, we have encoded a simple FSM that determines which compass
+direction a character will be facing after either turning left or continuing
+straight. The input will be either &#8220;left&#8221; or &#8220;straight&#8221;, and the result is a
+transition to a new state that represents the new compass direction, based on
+the previous compass direction. If we request &#8220;left&#8221; from state North, the FSM
+transitions to state West. On the other hand, if we request &#8220;left&#8221; from state
+South, the FSM transitions to state East. If we request &#8220;straight&#8221; from any
+state, the FSM should remain in its current state. To implement this in
+Panda3D, we define a number of filter functions, one for each state. The
+purpose of this function is to decide what state to transition to next, if
+any, on receipt of a particular input. A filter function is created by
+defining a python method named
+<code class="docutils literal"><span class="pre">filterStateName()</span></code>, where StateName is the
+name of the FSM state to which this filter function applies. The
+filterStateName method receives two parameters, a string and a tuple of
+arguments (the arguments contain the optional additional arguments that might
+have been passed to the <code class="docutils literal"><span class="pre">fsm.request()</span></code>
+call; it&#8217;s usually an empty tuple). The filter function should return the name
+of the state to transition to. If the transition should be disallowed, the
+filter function can either return None to quietly ignore it, or it can raise
+an exception. For example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">CompassDir</span><span class="p">(</span><span class="n">FSM</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">filterNorth</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">args</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">request</span> <span class="o">==</span> <span class="s1">&#39;straight&#39;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s1">&#39;North&#39;</span>
+        <span class="k">elif</span> <span class="n">request</span> <span class="o">==</span> <span class="s1">&#39;left&#39;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s1">&#39;West&#39;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">None</span>
+
+    <span class="k">def</span> <span class="nf">filterWest</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">args</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">request</span> <span class="o">==</span> <span class="s1">&#39;straight&#39;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s1">&#39;West&#39;</span>
+        <span class="k">elif</span> <span class="n">request</span> <span class="o">==</span> <span class="s1">&#39;left&#39;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s1">&#39;South&#39;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">None</span>
+
+    <span class="k">def</span> <span class="nf">filterSouth</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">args</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">request</span> <span class="o">==</span> <span class="s1">&#39;straight&#39;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s1">&#39;South&#39;</span>
+        <span class="k">elif</span> <span class="n">request</span> <span class="o">==</span> <span class="s1">&#39;left&#39;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s1">&#39;East&#39;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">None</span>
+
+    <span class="k">def</span> <span class="nf">filterEast</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">args</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">request</span> <span class="o">==</span> <span class="s1">&#39;straight&#39;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s1">&#39;East&#39;</span>
+        <span class="k">elif</span> <span class="n">request</span> <span class="o">==</span> <span class="s1">&#39;left&#39;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s1">&#39;North&#39;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">None</span>
+</pre></div>
+</div>
+<p>Note that input
+strings, by convention, should begin with a lowercase letter, as opposed to
+state names, which should begin with an uppercase letter. This allows you to
+make the distinction between requesting a state directly, and feeding a
+particular input string to an FSM. To feed input to this FSM, you would use
+the <code class="docutils literal"><span class="pre">request()</span></code> call, just as
+before:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">myfsm</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s1">&#39;left&#39;</span><span class="p">)</span> <span class="c1"># or myfsm.request_left()</span>
+<span class="n">myfsm</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s1">&#39;left&#39;</span><span class="p">)</span>
+<span class="n">myfsm</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s1">&#39;straight&#39;</span><span class="p">)</span> <span class="c1"># or myfsm.request_straight()</span>
+<span class="n">myfsm</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s1">&#39;left&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>If the FSM had
+been in state North originally, after the above sequence of operations it
+would now be in state East.</p>
+<div class="section" id="the-defaultfilter-method">
+<h2>The defaultFilter method<a class="headerlink" href="#the-defaultfilter-method" title="Permalink to this headline">¶</a></h2>
+<p>Although defining a series of individual filter methods gives you the most
+flexibility, for many FSM&#8217;s you may not need this much explicit control. For
+these cases, you can simply define a defaultFilter method that does everything
+you need. If a particular
+<code class="docutils literal"><span class="pre">filterStateName()</span></code> method does not exist,
+then the FSM will call the method named
+<code class="docutils literal"><span class="pre">defaultFilter()</span></code> instead; you can put
+any logic here that handles the general case. For instance, we could have
+defined the above FSM using just the defaultFilter method, and a lookup table:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">CompassDir</span><span class="p">(</span><span class="n">FSM</span><span class="p">):</span>
+    <span class="n">nextState</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="p">(</span><span class="s1">&#39;North&#39;</span><span class="p">,</span> <span class="s1">&#39;straight&#39;</span><span class="p">)</span> <span class="p">:</span> <span class="s1">&#39;North&#39;</span><span class="p">,</span>
+        <span class="p">(</span><span class="s1">&#39;North&#39;</span><span class="p">,</span> <span class="s1">&#39;left&#39;</span><span class="p">)</span> <span class="p">:</span> <span class="s1">&#39;West&#39;</span><span class="p">,</span>
+        <span class="p">(</span><span class="s1">&#39;West&#39;</span><span class="p">,</span> <span class="s1">&#39;straight&#39;</span><span class="p">)</span> <span class="p">:</span> <span class="s1">&#39;West&#39;</span><span class="p">,</span>
+        <span class="p">(</span><span class="s1">&#39;West&#39;</span><span class="p">,</span> <span class="s1">&#39;left&#39;</span><span class="p">)</span> <span class="p">:</span> <span class="s1">&#39;South&#39;</span><span class="p">,</span>
+        <span class="p">(</span><span class="s1">&#39;South&#39;</span><span class="p">,</span> <span class="s1">&#39;straight&#39;</span><span class="p">)</span> <span class="p">:</span> <span class="s1">&#39;South&#39;</span><span class="p">,</span>
+        <span class="p">(</span><span class="s1">&#39;South&#39;</span><span class="p">,</span> <span class="s1">&#39;left&#39;</span><span class="p">)</span> <span class="p">:</span> <span class="s1">&#39;East&#39;</span><span class="p">,</span>
+        <span class="p">(</span><span class="s1">&#39;East&#39;</span><span class="p">,</span> <span class="s1">&#39;straight&#39;</span><span class="p">)</span> <span class="p">:</span> <span class="s1">&#39;East&#39;</span><span class="p">,</span>
+        <span class="p">(</span><span class="s1">&#39;East&#39;</span><span class="p">,</span> <span class="s1">&#39;left&#39;</span><span class="p">)</span> <span class="p">:</span> <span class="s1">&#39;North&#39;</span><span class="p">,</span>
+        <span class="p">}</span>
+
+    <span class="k">def</span> <span class="nf">defaultFilter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">args</span><span class="p">):</span>
+        <span class="n">key</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">,</span> <span class="n">request</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">nextState</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The base FSM class
+defines a <code class="docutils literal"><span class="pre">defaultFilter()</span></code> method that
+implements the default FSM transition rules (that is, allow all
+direct-to-state (uppercase) transition requests unless
+<code class="docutils literal"><span class="pre">self.defaultTransitions</span></code> is defined; in either
+case, quietly ignore input (lowercase) requests). In practice, you can
+mix-and-match the use of the defaultFilter method and your own custom methods.
+The defaultFilter method will be called only if a particular state&#8217;s custom
+filter method does not exist. If a particular state&#8217;s filterStateName method
+is defined, that method will be called upon a new request; it can do any
+custom logic you require (and it can call up to the defaultFilter method if
+you like).</p>
+</div>
+<p>This section does not apply to C++ users.</p>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="advanced-fsm-tidbits.html" class="btn btn-neutral float-right" title="Advanced FSM Tidbits" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="simple-fsm-usage.html" class="btn btn-neutral" title="Simple FSM Usage" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Panda3D.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.10.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

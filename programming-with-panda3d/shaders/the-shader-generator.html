@@ -1,0 +1,445 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>The Shader Generator &mdash; Panda3D Manual</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Panda3D Manual" href="../../index.html"/>
+        <link rel="up" title="Shaders" href="index.html"/>
+        <link rel="next" title="Cg Shader Tutorial" href="cg-shader-tutorial/index.html"/>
+        <link rel="prev" title="Known Shader Bugs and Limitations" href="known-shader-issues.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Panda3D
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.10
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../intro/index.html">Introduction to Panda3D</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Programming with Panda3D</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../the-scene-graph/index.html">The Scene Graph</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../the-configuration-file/index.html">The Configuration File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../models-and-actors/index.html">Models and Actors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-attributes/index.html">Render Attributes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../texturing/index.html">Texturing</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Shaders</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="shader-basics.html">Shader Basics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="list-of-possible-cg-shader-inputs.html">List of Possible Cg Shader Inputs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="list-of-glsl-shader-inputs.html">List of GLSL Shader Inputs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="shaders-and-coordinate-spaces.html">Shaders and Coordinate Spaces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="known-shader-issues.html">Known Shader Bugs and Limitations</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">The Shader Generator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cg-shader-tutorial/index.html">Cg Shader Tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="compute-shaders.html">Compute Shaders</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../camera-control/index.html">Camera Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sound/index.html">Sound</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intervals/index.html">Intervals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks-and-event-handling/index.html">Tasks and Event Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../text-and-image-rendering/index.html">Text and Image Rendering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../directgui/index.html">DirectGUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-effects/index.html">Render Effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../finite-state-machines/index.html">Finite State Machines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../terrain/index.html">Terrain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internal-structures/index.html">Advanced operations with Panda3D&#8217;s internal structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-to-texture-and-image-postprocessing/index.html">Render-to-Texture and Image Postprocessing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../panda3d-rendering-process/index.html">Panda3D Rendering Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../panda3d-utility-functions.html">Panda3D Utility Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../particle-effects/index.html">Particle Effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../collision-detection/index.html">Collision Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../garbage-collection/index.html">Garbage Collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hardware-support/index.html">Hardware support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../math-engine/index.html">Math Engine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../motion-paths.html">Motion Paths</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../timing/index.html">Timing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../networking/index.html">Networking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../multifiles/index.html">Multifiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../showbase.html">ShowBase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../file-reading.html">File Reading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../threading.html">Threading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../subclassing.html">Subclassing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../table-of-features-supported-per-graphic-renderer.html">Table of features supported per graphic renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pandai/index.html">Artificial Intelligence (PANDAI)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../distribution/index.html">Distributing Panda3D Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../samples/index.html">Sample Programs in the Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../debugging/index.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../performance-tuning/index.html">Performance Tuning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../using-c++/index.html">Using C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/index.html">Panda3D Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../building-from-source.html">Building Panda3D from Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cheat-sheets.html">Cheat Sheets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started-on-osx.html">Getting Started on OSX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../more-panda3d-resources.html">More Panda3D Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../thirdparty-licenses.html">Third-party dependencies and license info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../the-irc-channel.html">The IRC Channel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">FAQ</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Panda3D</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Programming with Panda3D</a> &raquo;</li>
+      
+          <li><a href="index.html">Shaders</a> &raquo;</li>
+      
+    <li>The Shader Generator</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/programming-with-panda3d/shaders/the-shader-generator.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="the-shader-generator">
+<span id="id1"></span><h1>The Shader Generator<a class="headerlink" href="#the-shader-generator" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id2">
+<h2>The Shader Generator<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>As of version 1.5.0, panda supports several new features:</p>
+<ul class="simple">
+<li>per-pixel lighting</li>
+<li>normal mapping</li>
+<li>gloss mapping</li>
+<li>glow mapping</li>
+<li>high-dynamic range rendering</li>
+<li>cartoon shading</li>
+</ul>
+<p>It&#8217;s not that these things weren&#8217;t possible before: they were. But previously,
+you had to write shaders to accomplish these things. This is no longer
+necessary. As of version 1.5.0, all that has to happen is for the artist to
+apply a normal map, gloss map, or glow map in the 3D modeling program. Then,
+the programmer gives permission for shader generation, and Panda3D handles the
+rest.</p>
+<p>A few of these features do require minimal involvement from the programmer:
+for instance, high-dynamic range rendering requires the programmer to choose a
+tone-mapping operator from a small set of options. But that&#8217;s it: the amount
+of work required of the programmer is vastly less than before.</p>
+<p>Many of these features are complementary with :ref:` &lt;common-image-filters&gt;`,
+some of which are now nearly-automatic as well. For example, HDR combines very
+nicely with the bloom filter, and cartoon shading goes very well with cartoon
+inking.</p>
+<p>Individually, these features are not documented in this chapter of the manual.
+Instead, they&#8217;re documented in the portion of the manual where they make the
+most sense. For example, normal mapping, gloss mapping, and glow mapping are
+all documented in the section on :ref:` &lt;texturing&gt;`. HDR and cartoon shading
+are documented under Render Attributes in the subsection on
+:ref:` &lt;light-ramps&gt;`.</p>
+<p>However, to enable any of these features, you need to tell Panda3D that it&#8217;s
+OK to automatically generate shaders and send them to the video card. The call
+to do this is:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">nodepath</span><span class="o">.</span><span class="n">setShaderAuto</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">nodepath</span><span class="p">.</span><span class="n">set_shader_auto</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>If you don&#8217;t do this, none of the features listed above will have any effect.
+Panda will simply ignore normal maps, HDR, and so forth if shader generation
+is not enabled. It would be reasonable to enable shader generation for the
+entire game, using this call:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">render</span><span class="o">.</span><span class="n">setShaderAuto</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">window</span><span class="o">-&gt;</span><span class="n">get_render</span><span class="p">().</span><span class="n">set_shader_auto</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="sample-programs">
+<h2>Sample Programs<a class="headerlink" href="#sample-programs" title="Permalink to this headline">¶</a></h2>
+<p>Three of the sample programs demonstrate the shader generator in action:</p>
+<ul class="simple">
+<li>:ref:` &lt;cartoon-shader&gt;`</li>
+<li>:ref:` &lt;glow-filter&gt;`</li>
+<li>:ref:` &lt;bump-mapping&gt;`</li>
+<li>:ref:` &lt;shadows&gt;`</li>
+</ul>
+<p>In each case, the sample program provides two versions: Basic and Advanced.
+The Basic version relies on the shader generator to make everything automatic.
+The Advanced version involves writing shaders explicitly.</p>
+</div>
+<div class="section" id="per-pixel-lighting">
+<h2>Per-Pixel Lighting<a class="headerlink" href="#per-pixel-lighting" title="Permalink to this headline">¶</a></h2>
+<p>Simply turning on <code class="docutils literal"><span class="pre">setShaderAuto</span></code>
+causes one immediate change: all lighting calculations are done per-pixel
+instead of per-vertex. This means that models do not have to be highly
+tesselated in order to get nice-looking spotlights or specular highlights.</p>
+<p>Of course, the real magic of
+<code class="docutils literal"><span class="pre">setShaderAuto</span></code> is that it enables you
+to use powerful features like normal maps and the like.</p>
+</div>
+<div class="section" id="known-limitations">
+<h2>Known Limitations<a class="headerlink" href="#known-limitations" title="Permalink to this headline">¶</a></h2>
+<p>The shader generator replaces the fixed-function pipeline with a shader. To
+make this work, we have to duplicate the functionality of the entire fixed
+function pipeline. That&#8217;s a lot of stuff. We haven&#8217;t implemented all of it
+yet. Here&#8217;s what&#8217;s supported: (as of version 1.7.0)</p>
+<ul class="simple">
+<li>flat colors, vertex colors and color scales</li>
+<li>lighting</li>
+<li>normal maps</li>
+<li>gloss maps</li>
+<li>glow maps</li>
+<li>materials, but not updates to materials</li>
+<li>1D, 2D, 3D, cube textures</li>
+<li>most texture stage and combine modes</li>
+<li>light ramps (for cartoon shading)</li>
+<li>some texgen modes</li>
+<li>texmatrix</li>
+</ul>
+<p>Here&#8217;s what&#8217;s known to be missing:</p>
+<ul class="simple">
+<li>some texgen modes</li>
+<li>fog (added in Panda3D 1.8.0)</li>
+</ul>
+<p>These functions are high on the list of priorities, and will probably be
+coming sometime in the next month or so.</p>
+<p>Note that although vertex colors are supported by the ShaderGenerator, in
+order to render vertex colors you need to apply a
+<code class="docutils literal"><span class="pre">ColorAttrib.makeVertex()</span></code> attrib to the render
+state. One easy way to do this is to call
+<a href="#id3"><span class="problematic" id="id4">``</span></a>NodePath.setColorOff()``(that is, turn off
+scene graph color, and let vertex color be visible). In the fixed-function
+renderer, vertex colors will render with or without this attrib, so you might
+not notice if you fail to apply it. Models that come in via the egg loader
+should have this attribute applied already. However, if you are using your own
+model loader or generating models procedurally you will need to set it
+yourself.</p>
+</div>
+<div class="section" id="how-the-shader-generator-works">
+<h2>How the Shader Generator Works<a class="headerlink" href="#how-the-shader-generator-works" title="Permalink to this headline">¶</a></h2>
+<p>When panda goes to render something marked
+<code class="docutils literal"><span class="pre">setShaderAuto</span></code>, it synthesizes a
+shader to render that object. In order to generate the shader, it examines all
+the attributes of the object: the lights, the material, the fog setting, the
+color, the vertex colors... almost everything. It takes into account all of
+these factors when generating the shader. For instance, if the object has a
+material attrib, then material color support is inserted into the shader. If
+the object has lights, then lighting calculations are inserted into the
+shader. If the object has vertex colors, then the shader is made to use those.</p>
+</div>
+<div class="section" id="caching-and-the-shader-generator">
+<h2>Caching and the Shader Generator<a class="headerlink" href="#caching-and-the-shader-generator" title="Permalink to this headline">¶</a></h2>
+<p>If two objects are rendered using the same RenderState (ie, the exact same
+attributes), then the shader is only generated once. But even a single change
+to the RenderState will cause the shader to be regenerated. This is not
+entirely cheap. Making changes to the RenderState of an object should be
+avoided when shader generation is enabled, because this necessitates
+regeneration of the shader.</p>
+<p>A few alterations don&#8217;t count as RenderState modifications: in particular,
+changing the positions and colors of the lights doesn&#8217;t count as a change to
+the RenderState, and therefore, does not require shader regeneration. This can
+be useful: if you just want to tint an object, apply a light to it then change
+the color of the light.</p>
+<p>There is a second level of caching. If the system generates a shader, it will
+then compare that shader to the other shaders it has generated previously. If
+it matches a previously-generated shader, it will not need to compile the
+shader again.</p>
+<p>So, to save the full cost, use the same RenderState. To save most of the cost,
+use two RenderStates that are similar. By &#8220;similar,&#8221; I mean having the same
+general structure: ie, two models that both have a texture and a normal map,
+and both have no vertex colors and neither has a material applied.</p>
+</div>
+<div class="section" id="combining-automatic-shaders-with-manual-shaders">
+<h2>Combining Automatic Shaders with Manual Shaders<a class="headerlink" href="#combining-automatic-shaders-with-manual-shaders" title="Permalink to this headline">¶</a></h2>
+<p>Sometimes, you will want to write most of a game using panda&#8217;s automatic
+shader generation abilitites, but you&#8217;ll want to use a few of your own
+shaders. A typical example would be a scene with some houses, trees, and a
+pond. You can probably do the houses and trees using panda&#8217;s built-in
+abilities. However, Panda doesn&#8217;t contain anything that particularly looks
+like pond-water: for that, you&#8217;ll probably need to write your own shader.</p>
+<p>When you use <code class="docutils literal"><span class="pre">render.setShaderAuto()</span></code>, that
+propagates down the scene graph just like any other render attribute. If you
+assign a specific shader to a node using
+<code class="docutils literal"><span class="pre">nodepath.setShader(myshader)</span></code>, that overrides any
+shader assignment propagated down from above, including an Auto shader
+assignment from above. So that means it is easy, in the example above, to
+enable auto shader generation for the scene as a whole, and then override that
+at the pond-nodepath.</p>
+</div>
+<div class="section" id="creating-your-own-shader-generator">
+<h2>Creating your own Shader Generator<a class="headerlink" href="#creating-your-own-shader-generator" title="Permalink to this headline">¶</a></h2>
+<p>We anticipate that people who are writing full-fledged commercial games using
+Panda3D might want to write their own shader generators. In this way, you can
+get any effect you imagine without having to give up the convenience and
+elegance of being able to simply apply a normal map or a gloss map to a model,
+and having it &#8220;just work.&#8221;</p>
+<p>To create your own shader generator, you will need to delve into Panda3D&#8217;s C++
+code. Class ShaderGenerator is meant to be subclassed, and a hook function is
+provided to enable you to turn on your own generator.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="cg-shader-tutorial/index.html" class="btn btn-neutral float-right" title="Cg Shader Tutorial" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="known-shader-issues.html" class="btn btn-neutral" title="Known Shader Bugs and Limitations" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Panda3D.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.10.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

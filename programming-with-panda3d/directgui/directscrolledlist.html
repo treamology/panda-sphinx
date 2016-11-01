@@ -1,0 +1,430 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>DirectScrolledList &mdash; Panda3D Manual</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Panda3D Manual" href="../../index.html"/>
+        <link rel="up" title="DirectGUI" href="index.html"/>
+        <link rel="next" title="DirectWaitBar" href="directwaitbar.html"/>
+        <link rel="prev" title="DirectOptionMenu" href="directoptionmenu.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Panda3D
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.10
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../intro/index.html">Introduction to Panda3D</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Programming with Panda3D</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../the-scene-graph/index.html">The Scene Graph</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../the-configuration-file/index.html">The Configuration File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../models-and-actors/index.html">Models and Actors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-attributes/index.html">Render Attributes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../texturing/index.html">Texturing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shaders/index.html">Shaders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../camera-control/index.html">Camera Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sound/index.html">Sound</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intervals/index.html">Intervals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks-and-event-handling/index.html">Tasks and Event Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../text-and-image-rendering/index.html">Text and Image Rendering</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">DirectGUI</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="directbutton.html">DirectButton</a></li>
+<li class="toctree-l3"><a class="reference internal" href="directcheckbutton.html">DirectCheckButton</a></li>
+<li class="toctree-l3"><a class="reference internal" href="directradiobutton.html">DirectRadioButton</a></li>
+<li class="toctree-l3"><a class="reference internal" href="directdialog.html">DirectDialog</a></li>
+<li class="toctree-l3"><a class="reference internal" href="directentry.html">DirectEntry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="directframe.html">DirectFrame</a></li>
+<li class="toctree-l3"><a class="reference internal" href="directlabel.html">DirectLabel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="directoptionmenu.html">DirectOptionMenu</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">DirectScrolledList</a></li>
+<li class="toctree-l3"><a class="reference internal" href="directwaitbar.html">DirectWaitBar</a></li>
+<li class="toctree-l3"><a class="reference internal" href="directslider.html">DirectSlider</a></li>
+<li class="toctree-l3"><a class="reference internal" href="directscrollbar.html">DirectScrollBar</a></li>
+<li class="toctree-l3"><a class="reference internal" href="directscrolledframe.html">DirectScrolledFrame</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../render-effects/index.html">Render Effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../finite-state-machines/index.html">Finite State Machines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../terrain/index.html">Terrain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internal-structures/index.html">Advanced operations with Panda3D&#8217;s internal structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-to-texture-and-image-postprocessing/index.html">Render-to-Texture and Image Postprocessing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../panda3d-rendering-process/index.html">Panda3D Rendering Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../panda3d-utility-functions.html">Panda3D Utility Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../particle-effects/index.html">Particle Effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../collision-detection/index.html">Collision Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../garbage-collection/index.html">Garbage Collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hardware-support/index.html">Hardware support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../math-engine/index.html">Math Engine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../motion-paths.html">Motion Paths</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../timing/index.html">Timing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../networking/index.html">Networking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../multifiles/index.html">Multifiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../showbase.html">ShowBase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../file-reading.html">File Reading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../threading.html">Threading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../subclassing.html">Subclassing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../table-of-features-supported-per-graphic-renderer.html">Table of features supported per graphic renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pandai/index.html">Artificial Intelligence (PANDAI)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../distribution/index.html">Distributing Panda3D Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../samples/index.html">Sample Programs in the Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../debugging/index.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../performance-tuning/index.html">Performance Tuning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../using-c++/index.html">Using C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/index.html">Panda3D Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../building-from-source.html">Building Panda3D from Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cheat-sheets.html">Cheat Sheets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started-on-osx.html">Getting Started on OSX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../more-panda3d-resources.html">More Panda3D Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../thirdparty-licenses.html">Third-party dependencies and license info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../the-irc-channel.html">The IRC Channel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">FAQ</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Panda3D</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Programming with Panda3D</a> &raquo;</li>
+      
+          <li><a href="index.html">DirectGUI</a> &raquo;</li>
+      
+    <li>DirectScrolledList</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/programming-with-panda3d/directgui/directscrolledlist.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="directscrolledlist">
+<span id="id1"></span><h1>DirectScrolledList<a class="headerlink" href="#directscrolledlist" title="Permalink to this headline">¶</a></h1>
+<p>DirectScrolledLists create a list of DirectGuiWidgets. Each object is created
+individually and can then be added to the list. Some useful methods are:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">addItem</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">refresh</span><span class="p">)</span>
+<span class="n">getItemIndexForItemID</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">itemID</span><span class="p">)</span>
+<span class="n">getSelectedIndex</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+<span class="n">getSelectedText</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+<span class="n">removeItem</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">,</span> <span class="n">refresh</span><span class="p">)</span>
+<span class="n">scrollBy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">delta</span><span class="p">)</span>
+<span class="n">scrollTo</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">centered</span><span class="p">)</span>
+<span class="n">scrollToItemID</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">itemID</span><span class="p">,</span> <span class="n">centered</span><span class="p">)</span>
+<span class="n">selectListItem</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>In the above methods, item is a new item, either a string or a DirectGUI
+element, and itemID is an arbitrary identification number for each item (but
+not necessarily a zero-based index number). The itemID for a new item is the
+return value of addItem(). The centered parameter is a boolean; if true, the
+list scrolls so that the given index is centered, otherwise it scrolls so that
+the index is on top of the list.</p>
+<p>The items option should either be a list of DirectGUI items or of strings. If
+strings are used, the itemMakeFunction (and possibly itemMakeExtraArgs) option
+should be defined to point to a function that will take the supplied string,
+the index, and the extra args as parameters and return a DirectGUI object to
+insert into the list. If items is a list of strings and itemMakeFunction is
+not specified, it will create a list of DirectLabels. itemMakeFunction is
+redundant if a list of DirectGUI objects is passed into items to begin with.</p>
+<p>DirectScrolledLists come with two scroll buttons for navigating through the
+list. By default, they both start at (0,0,0) relative to the list with size 0,
+and their positions and size need to be set explicitly. You can set any of the
+values except relief appearance as you initialize the list:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">myScrolledList</span> <span class="o">=</span> <span class="n">DirectScrolledList</span><span class="p">(</span><span class="n">incButton_propertyName</span> <span class="o">=</span> <span class="n">value</span><span class="p">,</span>
+<span class="n">decButton_propertyName</span> <span class="o">=</span> <span class="n">value</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>incButton scrolls forward through the list; decButton backward. Note that this
+only works for initialization. To change a property of the scroll buttons
+later in the program, you must use:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">myScrolledList</span><span class="o">.</span><span class="n">incButton</span><span class="p">[</span><span class="s1">&#39;propertyName&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+<span class="n">myScrolledList</span><span class="o">.</span><span class="n">decButton</span><span class="p">[</span><span class="s1">&#39;propertyName&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+</pre></div>
+</div>
+<p>Unlike the first method, this does not work with NodePath options like
+position; use setPos(...) for that.</p>
+<p>For example, the following creates a scrolled list and resizes and moves the
+buttons appropriately.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">myScrolledList</span> <span class="o">=</span> <span class="n">DirectScrolledList</span><span class="p">(</span>
+   <span class="n">incButton_pos</span><span class="o">=</span> <span class="p">(</span><span class="o">.</span><span class="mi">5</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="n">incButton_text</span> <span class="o">=</span> <span class="s2">&quot;Inc&quot;</span><span class="p">,</span>
+   <span class="n">decButton_pos</span><span class="o">=</span> <span class="p">(</span><span class="o">-.</span><span class="mi">5</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="n">decButton_text</span> <span class="o">=</span> <span class="s2">&quot;Dec&quot;</span><span class="p">)</span>
+<span class="n">myScrolledList</span><span class="o">.</span><span class="n">incButton</span><span class="p">[</span><span class="s1">&#39;frameSize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">)</span>
+<span class="n">myScrolledList</span><span class="o">.</span><span class="n">decButton</span><span class="p">[</span><span class="s1">&#39;frameSize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">)</span>
+<span class="n">myScrolledList</span><span class="o">.</span><span class="n">incButton</span><span class="p">[</span><span class="s1">&#39;text_scale&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="o">.</span><span class="mi">2</span>
+<span class="n">myScrolledList</span><span class="o">.</span><span class="n">decButton</span><span class="p">[</span><span class="s1">&#39;text_scale&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="o">.</span><span class="mi">2</span>
+</pre></div>
+</div>
+<table border="1" class="docutils">
+<colgroup>
+<col width="19%" />
+<col width="50%" />
+<col width="31%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Keyword</th>
+<th class="head">Definition</th>
+<th class="head">Value</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>command</td>
+<td>Function called when the list is scrolled</td>
+<td>Function</td>
+</tr>
+<tr class="row-odd"><td>extraArgs</td>
+<td>Extra arguments to the function specified in command</td>
+<td>[Extra Arguments]</td>
+</tr>
+<tr class="row-even"><td>text_scale</td>
+<td>Scale of the displayed text</td>
+<td>(sx,sz)</td>
+</tr>
+<tr class="row-odd"><td>items</td>
+<td>List of the objects to appear in the ScrolledList</td>
+<td>[DirectGUI items] or [Strings]</td>
+</tr>
+<tr class="row-even"><td>numItemsVisible</td>
+<td>Number of items visible at a time</td>
+<td>Number</td>
+</tr>
+<tr class="row-odd"><td>forceHeight</td>
+<td>Forces the height of the list to be a given number</td>
+<td>Number</td>
+</tr>
+<tr class="row-even"><td>itemMakeFunction</td>
+<td>Function that makes DirectGUI items out of strings</td>
+<td>Function</td>
+</tr>
+<tr class="row-odd"><td>itemMakeExtraArgs</td>
+<td>Extra arguments to the function in itemMakeFunction</td>
+<td>[Extra Arguments]</td>
+</tr>
+</tbody>
+</table>
+<p>A small example on how to use it:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">direct.directbase</span> <span class="kn">import</span> <span class="n">DirectStart</span>
+<span class="kn">from</span> <span class="nn">direct.gui.DirectGui</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">panda3d.core</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">b1</span> <span class="o">=</span> <span class="n">DirectButton</span><span class="p">(</span><span class="n">text</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Button1&quot;</span><span class="p">,</span> <span class="s2">&quot;click!&quot;</span><span class="p">,</span> <span class="s2">&quot;roll&quot;</span><span class="p">,</span> <span class="s2">&quot;disabled&quot;</span><span class="p">),</span>
+                  <span class="n">text_scale</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">borderWidth</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">),</span>
+                  <span class="n">relief</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">b2</span> <span class="o">=</span> <span class="n">DirectButton</span><span class="p">(</span><span class="n">text</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Button2&quot;</span><span class="p">,</span> <span class="s2">&quot;click!&quot;</span><span class="p">,</span> <span class="s2">&quot;roll&quot;</span><span class="p">,</span> <span class="s2">&quot;disabled&quot;</span><span class="p">),</span>
+                  <span class="n">text_scale</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">borderWidth</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">),</span>
+                  <span class="n">relief</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">l1</span> <span class="o">=</span> <span class="n">DirectLabel</span><span class="p">(</span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;Test1&quot;</span><span class="p">,</span> <span class="n">text_scale</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+<span class="n">l2</span> <span class="o">=</span> <span class="n">DirectLabel</span><span class="p">(</span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;Test2&quot;</span><span class="p">,</span> <span class="n">text_scale</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+<span class="n">l3</span> <span class="o">=</span> <span class="n">DirectLabel</span><span class="p">(</span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;Test3&quot;</span><span class="p">,</span> <span class="n">text_scale</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+
+<span class="n">numItemsVisible</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">itemHeight</span> <span class="o">=</span> <span class="mf">0.11</span>
+
+<span class="n">myScrolledList</span> <span class="o">=</span> <span class="n">DirectScrolledList</span><span class="p">(</span>
+    <span class="n">decButton_pos</span><span class="o">=</span> <span class="p">(</span><span class="mf">0.35</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.53</span><span class="p">),</span>
+    <span class="n">decButton_text</span> <span class="o">=</span> <span class="s2">&quot;Dec&quot;</span><span class="p">,</span>
+    <span class="n">decButton_text_scale</span> <span class="o">=</span> <span class="mf">0.04</span><span class="p">,</span>
+    <span class="n">decButton_borderWidth</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.005</span><span class="p">,</span> <span class="mf">0.005</span><span class="p">),</span>
+
+    <span class="n">incButton_pos</span><span class="o">=</span> <span class="p">(</span><span class="mf">0.35</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.02</span><span class="p">),</span>
+    <span class="n">incButton_text</span> <span class="o">=</span> <span class="s2">&quot;Inc&quot;</span><span class="p">,</span>
+    <span class="n">incButton_text_scale</span> <span class="o">=</span> <span class="mf">0.04</span><span class="p">,</span>
+    <span class="n">incButton_borderWidth</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.005</span><span class="p">,</span> <span class="mf">0.005</span><span class="p">),</span>
+
+    <span class="n">frameSize</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.59</span><span class="p">),</span>
+    <span class="n">frameColor</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.5</span><span class="p">),</span>
+    <span class="n">pos</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+    <span class="n">items</span> <span class="o">=</span> <span class="p">[</span><span class="n">b1</span><span class="p">,</span> <span class="n">b2</span><span class="p">],</span>
+    <span class="n">numItemsVisible</span> <span class="o">=</span> <span class="n">numItemsVisible</span><span class="p">,</span>
+    <span class="n">forceHeight</span> <span class="o">=</span> <span class="n">itemHeight</span><span class="p">,</span>
+    <span class="n">itemFrame_frameSize</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.37</span><span class="p">,</span> <span class="mf">0.11</span><span class="p">),</span>
+    <span class="n">itemFrame_pos</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.35</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">),</span>
+    <span class="p">)</span>
+
+<span class="n">myScrolledList</span><span class="o">.</span><span class="n">addItem</span><span class="p">(</span><span class="n">l1</span><span class="p">)</span>
+<span class="n">myScrolledList</span><span class="o">.</span><span class="n">addItem</span><span class="p">(</span><span class="n">l2</span><span class="p">)</span>
+<span class="n">myScrolledList</span><span class="o">.</span><span class="n">addItem</span><span class="p">(</span><span class="n">l3</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">fruit</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;apple&#39;</span><span class="p">,</span> <span class="s1">&#39;pear&#39;</span><span class="p">,</span> <span class="s1">&#39;banana&#39;</span><span class="p">,</span> <span class="s1">&#39;orange&#39;</span><span class="p">]:</span>
+    <span class="n">l</span> <span class="o">=</span> <span class="n">DirectLabel</span><span class="p">(</span><span class="n">text</span> <span class="o">=</span> <span class="n">fruit</span><span class="p">,</span> <span class="n">text_scale</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+    <span class="n">myScrolledList</span><span class="o">.</span><span class="n">addItem</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
+
+
+<span class="n">run</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="directwaitbar.html" class="btn btn-neutral float-right" title="DirectWaitBar" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="directoptionmenu.html" class="btn btn-neutral" title="DirectOptionMenu" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Panda3D.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.10.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

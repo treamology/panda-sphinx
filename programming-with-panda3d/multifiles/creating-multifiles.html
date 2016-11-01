@@ -1,0 +1,583 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Creating Multifiles &mdash; Panda3D Manual</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Panda3D Manual" href="../../index.html"/>
+        <link rel="up" title="Multifiles" href="index.html"/>
+        <link rel="next" title="Patching" href="patching.html"/>
+        <link rel="prev" title="Multifiles" href="index.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Panda3D
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.10
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../intro/index.html">Introduction to Panda3D</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Programming with Panda3D</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../the-scene-graph/index.html">The Scene Graph</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../the-configuration-file/index.html">The Configuration File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../models-and-actors/index.html">Models and Actors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-attributes/index.html">Render Attributes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../texturing/index.html">Texturing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shaders/index.html">Shaders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../camera-control/index.html">Camera Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sound/index.html">Sound</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intervals/index.html">Intervals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks-and-event-handling/index.html">Tasks and Event Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../text-and-image-rendering/index.html">Text and Image Rendering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../directgui/index.html">DirectGUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-effects/index.html">Render Effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../finite-state-machines/index.html">Finite State Machines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../terrain/index.html">Terrain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internal-structures/index.html">Advanced operations with Panda3D&#8217;s internal structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-to-texture-and-image-postprocessing/index.html">Render-to-Texture and Image Postprocessing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../panda3d-rendering-process/index.html">Panda3D Rendering Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../panda3d-utility-functions.html">Panda3D Utility Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../particle-effects/index.html">Particle Effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../collision-detection/index.html">Collision Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../garbage-collection/index.html">Garbage Collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hardware-support/index.html">Hardware support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../math-engine/index.html">Math Engine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../motion-paths.html">Motion Paths</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../timing/index.html">Timing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../networking/index.html">Networking</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Multifiles</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Creating Multifiles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="patching.html">Patching</a></li>
+<li class="toctree-l3"><a class="reference internal" href="loading-resources-from-nonstandard-sources.html">Loading resources from nonstandard sources</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../showbase.html">ShowBase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../file-reading.html">File Reading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../threading.html">Threading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../subclassing.html">Subclassing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../table-of-features-supported-per-graphic-renderer.html">Table of features supported per graphic renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pandai/index.html">Artificial Intelligence (PANDAI)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../distribution/index.html">Distributing Panda3D Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../samples/index.html">Sample Programs in the Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../debugging/index.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../performance-tuning/index.html">Performance Tuning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../using-c++/index.html">Using C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/index.html">Panda3D Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../building-from-source.html">Building Panda3D from Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cheat-sheets.html">Cheat Sheets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started-on-osx.html">Getting Started on OSX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../more-panda3d-resources.html">More Panda3D Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../thirdparty-licenses.html">Third-party dependencies and license info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../the-irc-channel.html">The IRC Channel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">FAQ</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Panda3D</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Programming with Panda3D</a> &raquo;</li>
+      
+          <li><a href="index.html">Multifiles</a> &raquo;</li>
+      
+    <li>Creating Multifiles</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/programming-with-panda3d/multifiles/creating-multifiles.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="creating-multifiles">
+<span id="id1"></span><h1>Creating Multifiles<a class="headerlink" href="#creating-multifiles" title="Permalink to this headline">¶</a></h1>
+<p>Multifiles archives are archive files that store game resources. Think of it
+as a giant zip file that stores, optionally zips and encrypts your data files,
+but does not need to be extracted.</p>
+<div class="section" id="the-multify-program">
+<h2>The multify program<a class="headerlink" href="#the-multify-program" title="Permalink to this headline">¶</a></h2>
+<p>The multify console program creates such files. You can get information about
+the commandline parameters by running multify with the
+<code class="docutils literal"><span class="pre">-h</span></code> option. This is how
+program describes itself:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Usage</span><span class="p">:</span> <span class="n">multify</span> <span class="o">-</span><span class="p">[</span><span class="n">c</span><span class="o">|</span><span class="n">r</span><span class="o">|</span><span class="n">u</span><span class="o">|</span><span class="n">t</span><span class="o">|</span><span class="n">x</span><span class="p">]</span> <span class="o">-</span><span class="n">f</span> <span class="o">&lt;</span><span class="n">multifile_name</span><span class="o">&gt;</span> <span class="p">[</span><span class="n">options</span><span class="p">]</span> <span class="o">&lt;</span><span class="n">subfile_name</span><span class="o">&gt;</span> <span class="o">...</span>
+</pre></div>
+</div>
+<p>multify is used to store and extract files from a Panda Multifile. This is
+similar to a tar or zip file in that it is an archive file that contains a
+number of subfiles that may later be extracted.</p>
+<p>Panda&#8217;s VirtualFileSystem is capable of mounting Multifiles for direct access
+to the subfiles contained within without having to extract them out to
+independent files first.</p>
+<p>The command-line options for multify are designed to be similar to those for
+tar, the traditional Unix archiver utility.</p>
+</div>
+<div class="section" id="read-assets">
+<h2>Read Assets<a class="headerlink" href="#read-assets" title="Permalink to this headline">¶</a></h2>
+<p>If you want to prepare to read assets from a Multifile directly, you can
+&#8220;mount&#8221; it into the virtual file system:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">panda3d.core</span> <span class="kn">import</span> <span class="n">VirtualFileSystem</span>
+<span class="kn">from</span> <span class="nn">panda3d.core</span> <span class="kn">import</span> <span class="n">Multifile</span>
+<span class="kn">from</span> <span class="nn">panda3d.core</span> <span class="kn">import</span> <span class="n">Filename</span>
+
+<span class="n">vfs</span> <span class="o">=</span> <span class="n">VirtualFileSystem</span><span class="o">.</span><span class="n">getGlobalPtr</span><span class="p">()</span>
+<span class="n">vfs</span><span class="o">.</span><span class="n">mount</span><span class="p">(</span><span class="n">Filename</span><span class="p">(</span><span class="s2">&quot;foo.mf&quot;</span><span class="p">),</span> <span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="n">VirtualFileSystem</span><span class="o">.</span><span class="n">MFReadOnly</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">VirtualFileSystem</span> <span class="o">*</span><span class="n">vfs</span> <span class="o">=</span> <span class="n">VirtualFileSystem</span><span class="o">::</span><span class="n">get_global_ptr</span><span class="p">();</span>
+<span class="n">vfs</span><span class="o">-&gt;</span><span class="n">mount</span><span class="p">(</span><span class="s">&quot;./foo.mf&quot;</span><span class="p">,</span> <span class="s">&quot;.&quot;</span><span class="p">,</span> <span class="n">VirtualFileSystem</span><span class="o">::</span><span class="n">MF_read_only</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>If you want to read assets, you can mount a whole directory structure from a
+webserver.</p>
+<p>If your webserver hosts:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">localhost</span><span class="o">/</span><span class="n">mydir</span><span class="o">/</span><span class="n">models</span><span class="o">/</span><span class="n">myfile</span><span class="o">.</span><span class="n">bam</span>
+<span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">localhost</span><span class="o">/</span><span class="n">mydir</span><span class="o">/</span><span class="n">maps</span><span class="o">/</span><span class="n">mytexture</span><span class="o">.</span><span class="n">png</span>
+</pre></div>
+</div>
+<p>Put this in your config.prc:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">vfs</span><span class="o">-</span><span class="n">mount</span><span class="o">-</span><span class="n">url</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">myserver</span><span class="o">/</span><span class="n">mydir</span> <span class="o">/</span><span class="n">mydir</span>
+<span class="n">model</span><span class="o">-</span><span class="n">path</span> <span class="o">/</span><span class="n">mydir</span>
+</pre></div>
+</div>
+<p>Or, equivalently, write this Python code at startup:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">vfs</span><span class="o">.</span><span class="n">mount</span><span class="p">(</span><span class="n">VirtualFileMountHTTP</span><span class="p">(</span><span class="s1">&#39;http://myserver/mydir&#39;</span><span class="p">),</span> <span class="s1">&#39;/mydir&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">getModelPath</span><span class="p">()</span><span class="o">.</span><span class="n">appendDirectory</span><span class="p">(</span><span class="s1">&#39;/mydir&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>and then you can load models like this in your Python code:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">loader</span><span class="o">.</span><span class="n">loadModel</span><span class="p">(</span><span class="s1">&#39;models/myfile.bam&#39;</span><span class="p">)</span>
+<span class="n">texture</span> <span class="o">=</span> <span class="n">loader</span><span class="o">.</span><span class="n">loadTexture</span><span class="p">(</span><span class="s1">&#39;maps/mytexture.png&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>If you want to prepare for reading and writing assets to a Multifile do the
+following.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">panda3d.core</span> <span class="kn">import</span> <span class="n">VirtualFileSystem</span>
+<span class="kn">from</span> <span class="nn">panda3d.core</span> <span class="kn">import</span> <span class="n">Multifile</span>
+<span class="kn">from</span> <span class="nn">panda3d.core</span> <span class="kn">import</span> <span class="n">Filename</span>
+
+<span class="n">mf</span> <span class="o">=</span> <span class="n">Multifile</span><span class="p">()</span>
+<span class="n">mf</span><span class="o">.</span><span class="n">openReadWrite</span><span class="p">(</span><span class="s2">&quot;models.mf&quot;</span><span class="p">)</span>
+
+<span class="n">vfs</span> <span class="o">=</span> <span class="n">VirtualFileSystem</span><span class="o">.</span><span class="n">getGlobalPtr</span><span class="p">()</span>
+<span class="k">if</span> <span class="n">vfs</span><span class="o">.</span><span class="n">mount</span><span class="p">(</span><span class="n">mf</span><span class="p">,</span> <span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="n">VirtualFileSystem</span><span class="o">.</span><span class="n">MFReadOnly</span><span class="p">):</span>
+  <span class="k">print</span> <span class="s1">&#39;mounted&#39;</span>
+</pre></div>
+</div>
+<p>If you want to prepare for reading and writing assets to a &#8216;subdirectory&#8217;
+Multifile do the following. Note &#8220;mysys&#8221; must always be literally written in
+any python code. E.g. &#8220;mysys/memfdir/mfbar2.txt&#8221;</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">panda3d.core</span> <span class="kn">import</span> <span class="n">VirtualFileSystem</span>
+<span class="kn">from</span> <span class="nn">panda3d.core</span> <span class="kn">import</span> <span class="n">Multifile</span>
+<span class="kn">from</span> <span class="nn">panda3d.core</span> <span class="kn">import</span> <span class="n">Filename</span>
+
+<span class="n">mf</span> <span class="o">=</span> <span class="n">Multifile</span><span class="p">()</span>
+<span class="n">mf</span><span class="o">.</span><span class="n">openReadWrite</span><span class="p">(</span><span class="s2">&quot;models.mf&quot;</span><span class="p">)</span>
+
+<span class="n">vfs</span> <span class="o">=</span> <span class="n">VirtualFileSystem</span><span class="o">.</span><span class="n">getGlobalPtr</span><span class="p">()</span>
+<span class="k">if</span> <span class="n">vfs</span><span class="o">.</span><span class="n">mount</span><span class="p">(</span><span class="n">mf</span><span class="p">,</span> <span class="s2">&quot;mysys&quot;</span><span class="p">,</span> <span class="n">VirtualFileSystem</span><span class="o">.</span><span class="n">MFReadOnly</span><span class="p">):</span>
+  <span class="k">print</span> <span class="s1">&#39;mounted&#39;</span>
+</pre></div>
+</div>
+<p>If you are having problems loading from multifiles you can list the complete
+contents of your .mf file with a command like:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">multify</span> <span class="o">-</span><span class="n">tvf</span> <span class="n">mymultifile</span><span class="o">.</span><span class="n">mf</span>
+</pre></div>
+</div>
+<p>Doing a sanity inspection like this can be useful to ensure that your assets
+are in the right place within the multifile.</p>
+</div>
+<div class="section" id="multifile-objects">
+<h2>Multifile objects<a class="headerlink" href="#multifile-objects" title="Permalink to this headline">¶</a></h2>
+<p>The Multifile class is designed for opening, reading and writing multifiles.
+You can open a new multifile by creating an instance of the class and calling
+the <code class="docutils literal"><span class="pre">openRead</span></code> method:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">panda3d.core</span> <span class="kn">import</span> <span class="n">Multifile</span>
+
+<span class="n">mf</span> <span class="o">=</span> <span class="n">Multifile</span><span class="p">()</span>
+<span class="n">mf</span><span class="o">.</span><span class="n">openRead</span><span class="p">(</span><span class="s2">&quot;foo.mf&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal"><span class="pre">openRead</span></code> method opens the
+multifile as read-only. If you want to make changes to it and write it back to
+disk, you will need to use the
+<code class="docutils literal"><span class="pre">openReadWrite</span></code> method. Also, there
+exists <code class="docutils literal"><span class="pre">openWrite</span></code> to create a new
+multifile.</p>
+<p>If you have made important structural changes to a Multifile, it is
+recommended to rewrite the multifile using the
+<code class="docutils literal"><span class="pre">repack()</span></code> method. (This won&#8217;t
+work if you&#8217;ve opened it using
+<code class="docutils literal"><span class="pre">openRead</span></code>.) If you are uncertain
+about whether it has become suboptimal, you can call
+<code class="docutils literal"><span class="pre">needsRepack()</span></code> which returns True if
+the Multifile is suboptimal and should be repacked.</p>
+<p>To write it back to disk, you can use the
+<code class="docutils literal"><span class="pre">flush()</span></code> method which flushes
+the changes you&#8217;ve made to the multifile back to disk, or the
+<code class="docutils literal"><span class="pre">close()</span></code> method if you&#8217;re done
+with the file.</p>
+<p>To mount Multifile objects into the VirtualFileSystem without writing them to
+disk first, here&#8217;s an example on how to mount them:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">yourMF</span> <span class="o">=</span> <span class="n">Multifile</span><span class="p">()</span>
+<span class="c1">#... now do something with yourMF</span>
+
+<span class="n">vfs</span> <span class="o">=</span> <span class="n">VirtualFileSystem</span><span class="o">.</span><span class="n">getGlobalPtr</span><span class="p">()</span>
+<span class="n">vfs</span><span class="o">.</span><span class="n">mount</span><span class="p">(</span><span class="n">yourMF</span><span class="p">,</span> <span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="n">VirtualFileSystem</span><span class="o">.</span><span class="n">MFReadOnly</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="subfiles">
+<h2>Subfiles<a class="headerlink" href="#subfiles" title="Permalink to this headline">¶</a></h2>
+<p>Files that are added to a multifile are called subfiles. You can add existing
+files to a multifile object using the
+<code class="docutils literal"><span class="pre">addSubfile</span></code> function. This function
+takes three arguments: the target filename, the existing source file and the
+compression level (1-9). There is also
+<code class="docutils literal"><span class="pre">updateSubfile</span></code>, which does the same
+thing but if the file already exists, only updates it if the content is
+different.</p>
+<p>There are several other methods which operate on subfiles, which you can find
+in the <a class="reference external" href="https://www.panda3d.org/apiref.php?page=Multifile">API Reference.</a>
+Here are a few examples of working with subfiles:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">panda3d.core</span> <span class="kn">import</span> <span class="n">VirtualFileSystem</span>
+<span class="kn">from</span> <span class="nn">panda3d.core</span> <span class="kn">import</span> <span class="n">Multifile</span>
+<span class="kn">from</span> <span class="nn">panda3d.core</span> <span class="kn">import</span> <span class="n">Filename</span>
+
+<span class="n">m</span> <span class="o">=</span> <span class="n">Multifile</span><span class="p">()</span>
+
+<span class="c1"># Add an existing real os file with compression level 6</span>
+<span class="n">m</span><span class="o">.</span><span class="n">openReadWrite</span><span class="p">(</span><span class="s2">&quot;foo.mf&quot;</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">addSubfile</span><span class="p">(</span><span class="s2">&quot;bar.txt&quot;</span><span class="p">,</span> <span class="n">Filename</span><span class="p">(</span><span class="s2">&quot;/tmp/bar.txt&quot;</span><span class="p">),</span> <span class="mi">6</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">flush</span><span class="p">()</span>
+
+<span class="c1"># Destroy the contents of the multifile</span>
+<span class="c1"># Add an existing real os file to be the first multifile</span>
+<span class="n">m</span><span class="o">.</span><span class="n">openWrite</span><span class="p">(</span><span class="s2">&quot;foo.mf&quot;</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">addSubfile</span><span class="p">(</span><span class="s2">&quot;bar.txt&quot;</span><span class="p">,</span> <span class="n">Filename</span><span class="p">(</span><span class="s2">&quot;/tmp/bar.txt&quot;</span><span class="p">),</span> <span class="mi">6</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">flush</span><span class="p">()</span>
+
+<span class="c1"># Permanently re-order in ascending order the</span>
+<span class="c1"># directories and files in the multifile</span>
+<span class="n">m</span><span class="o">.</span><span class="n">openReadWrite</span><span class="p">(</span><span class="s2">&quot;foo.mf&quot;</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">repack</span><span class="p">()</span>
+<span class="n">m</span><span class="o">.</span><span class="n">flush</span><span class="p">()</span>
+
+<span class="c1"># Open a multifile and replace the contents of the mulifile file</span>
+<span class="c1"># with new contents</span>
+<span class="n">m</span> <span class="o">=</span> <span class="n">Multifile</span><span class="p">()</span>
+<span class="n">m</span><span class="o">.</span><span class="n">openReadWrite</span><span class="p">(</span><span class="s2">&quot;foo.mf&quot;</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">updateSubfile</span><span class="p">(</span><span class="s2">&quot;bar.txt&quot;</span><span class="p">,</span> <span class="n">Filename</span><span class="p">(</span><span class="s2">&quot;/tmp/bar2.txt&quot;</span><span class="p">),</span> <span class="mi">9</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">flush</span><span class="p">()</span>
+
+<span class="c1"># Open a multifile and extract all files smaller than 3kb</span>
+<span class="c1"># New real os files are created with the contents of the multifile data</span>
+<span class="n">m</span> <span class="o">=</span> <span class="n">Multifile</span><span class="p">()</span>
+<span class="n">m</span><span class="o">.</span><span class="n">openRead</span><span class="p">(</span><span class="s2">&quot;foo.mf&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">getNumSubfiles</span><span class="p">()):</span>
+  <span class="k">if</span> <span class="n">m</span><span class="o">.</span><span class="n">getSubfileLength</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">3</span> <span class="o">*</span> <span class="mi">1024</span><span class="p">:</span>
+    <span class="n">m</span><span class="o">.</span><span class="n">extractSubfile</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">Filename</span><span class="p">(</span><span class="s2">&quot;/tmp/&quot;</span> <span class="o">+</span> <span class="n">m</span><span class="o">.</span><span class="n">getSubfileName</span><span class="p">(</span><span class="n">i</span><span class="p">)))</span>
+
+<span class="c1"># Find, print and remove a file named bar.txt</span>
+<span class="n">barIdx</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">findSubfile</span><span class="p">(</span><span class="s2">&quot;bar.txt&quot;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">barIdx</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+  <span class="c1"># It returns -1 if it doesn&#39;t exist</span>
+  <span class="k">print</span> <span class="n">m</span><span class="o">.</span><span class="n">readSubfile</span><span class="p">(</span><span class="n">barIdx</span><span class="p">)</span>
+  <span class="n">m</span><span class="o">.</span><span class="n">removeSubfile</span><span class="p">(</span><span class="n">barIdx</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">flush</span><span class="p">()</span>
+
+<span class="n">m</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">ostringstream</span> <span class="n">os</span> <span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">ios</span><span class="o">::</span><span class="n">in</span> <span class="o">|</span> <span class="n">std</span><span class="o">::</span><span class="n">ios</span><span class="o">::</span><span class="n">out</span><span class="p">);</span>
+<span class="n">std</span><span class="o">::</span><span class="n">istream</span> <span class="n">is</span> <span class="p">(</span><span class="n">os</span><span class="p">.</span><span class="n">rdbuf</span> <span class="p">());</span>
+
+<span class="n">os</span><span class="p">.</span><span class="n">write</span><span class="p">((</span><span class="kt">char</span><span class="o">*</span><span class="p">)</span><span class="o">&amp;</span><span class="n">stuff</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">stuff</span><span class="p">));</span>
+
+<span class="n">PT</span><span class="p">(</span><span class="n">Multifile</span><span class="p">)</span> <span class="n">mf</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Multifile</span><span class="p">();</span>
+<span class="n">mf</span><span class="o">-&gt;</span><span class="n">open_write</span><span class="p">(</span><span class="n">fileName</span><span class="p">);</span>
+<span class="n">mf</span><span class="o">-&gt;</span><span class="n">add_subfile</span><span class="p">(</span><span class="s">&quot;foo.mf&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">is</span><span class="p">,</span><span class="mi">6</span><span class="p">);</span>
+<span class="n">mf</span><span class="o">-&gt;</span><span class="n">flush</span><span class="p">();</span>
+<span class="n">mf</span><span class="o">-&gt;</span><span class="n">close</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>If the foo.mf file were to have a contained bar.egg.pz file, load the egg and
+use it similar to other model loading methods.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">nodepath</span> <span class="o">=</span> <span class="n">loader</span><span class="o">.</span><span class="n">loadModel</span><span class="p">(</span><span class="s2">&quot;foo/bar&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="stream-based">
+<h2>Stream-Based<a class="headerlink" href="#stream-based" title="Permalink to this headline">¶</a></h2>
+<p>Multifile algorithms are stream-based and not random-based. In a running game,
+from the output, if a message is received saying something similar to the
+words <code class="docutils literal"><span class="pre">seek</span> <span class="pre">error</span> <span class="pre">for</span> <span class="pre">offset</span></code> then a file in
+the multifile is trying to be accessed by a random-based method. For
+multifiles and fonts, an example of a random-based file is an .rgb file. An
+alternative different from the use of an .rgb file is the use of a .ttf
+instead. An example follows.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># models is the original directory</span>
+<span class="c1"># models.mf it the new target multifile</span>
+<span class="n">multify</span> <span class="o">-</span><span class="n">c</span> <span class="o">-</span><span class="n">f</span> <span class="n">models</span><span class="o">.</span><span class="n">mf</span> <span class="o">-</span><span class="n">v</span> <span class="n">models</span>
+</pre></div>
+</div>
+<p>In the game, from the
+multifile models.mf, load the .ttf file.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">font</span> <span class="o">=</span> <span class="n">loader</span><span class="o">.</span><span class="n">loadFont</span><span class="p">(</span><span class="s2">&quot;models/arial.ttf&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="encryption">
+<h2>Encryption<a class="headerlink" href="#encryption" title="Permalink to this headline">¶</a></h2>
+<p>Multifiles can also encrypt your files with a password. To do so, you need to
+set the encryption flag and password using the
+<code class="docutils literal"><span class="pre">setEncryptionFlag</span></code> and
+<code class="docutils literal"><span class="pre">setEncryptionPassword</span></code> methods, before adding,
+extracting or reading multifiles.</p>
+<p>At the OS prompt, to create a password protected multifile and print out the
+contents do the following.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># models is the original directory</span>
+<span class="c1"># models.mf it the new target multifile</span>
+<span class="n">multify</span> <span class="o">-</span><span class="n">c</span> <span class="o">-</span><span class="n">f</span> <span class="n">models</span><span class="o">.</span><span class="n">mf</span> <span class="o">-</span><span class="n">ep</span> <span class="s2">&quot;mypass&quot;</span> <span class="o">-</span><span class="n">v</span> <span class="n">models</span>
+</pre></div>
+</div>
+<p>This code creates a multifile and adds an encrypted file to it:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">Multifile</span><span class="p">()</span>
+<span class="n">m</span><span class="o">.</span><span class="n">openReadWrite</span><span class="p">(</span><span class="s2">&quot;foo.mf&quot;</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">setEncryptionFlag</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">setEncryptionPassword</span><span class="p">(</span><span class="s2">&quot;foobar&quot;</span><span class="p">)</span>
+
+<span class="c1"># Add a new file to the multifile</span>
+<span class="n">m</span><span class="o">.</span><span class="n">addSubfile</span><span class="p">(</span><span class="s2">&quot;bar.txt&quot;</span><span class="p">,</span> <span class="n">Filename</span><span class="p">(</span><span class="s2">&quot;/tmp/bar.txt&quot;</span><span class="p">),</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">flush</span><span class="p">()</span>
+<span class="n">m</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>You can read encrypted multifiles the same way:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">Multifile</span><span class="p">()</span>
+<span class="n">m</span><span class="o">.</span><span class="n">openRead</span><span class="p">(</span><span class="s2">&quot;foo.mf&quot;</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">setEncryptionFlag</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">setEncryptionPassword</span><span class="p">(</span><span class="s2">&quot;foobar&quot;</span><span class="p">)</span>
+<span class="c1"># Prints the contents of the multifile</span>
+<span class="k">print</span> <span class="n">m</span><span class="o">.</span><span class="n">readSubfile</span><span class="p">(</span><span class="s2">&quot;bar.txt&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>At the OS prompt, to see the contents of a password protected multifile
+perform</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">multify</span> <span class="o">-</span><span class="n">tvf</span> <span class="n">models</span><span class="o">.</span><span class="n">mf</span> <span class="o">-</span><span class="n">p</span> <span class="s2">&quot;mypass&quot;</span>
+</pre></div>
+</div>
+<p>You can test the reading in a of password-protected multifile, followed by the
+mounting of the file using the following code.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">panda3d.core</span> <span class="kn">import</span> <span class="n">Multifile</span>
+<span class="n">mf</span> <span class="o">=</span> <span class="n">Multifile</span><span class="p">()</span>
+<span class="n">mf</span><span class="o">.</span><span class="n">openRead</span><span class="p">(</span><span class="s2">&quot;models.mf&quot;</span><span class="p">)</span>
+<span class="n">mf</span><span class="o">.</span><span class="n">setEncryptionFlag</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">mf</span><span class="o">.</span><span class="n">setEncryptionPassword</span><span class="p">(</span><span class="s2">&quot;mypass&quot;</span><span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">panda3d.core</span> <span class="kn">import</span> <span class="n">VirtualFileSystem</span>
+<span class="n">vfs</span> <span class="o">=</span> <span class="n">VirtualFileSystem</span><span class="o">.</span><span class="n">getGlobalPtr</span><span class="p">()</span>
+<span class="k">if</span> <span class="n">vfs</span><span class="o">.</span><span class="n">mount</span><span class="p">(</span><span class="n">mf</span><span class="p">,</span> <span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="n">VirtualFileSystem</span><span class="o">.</span><span class="n">MFReadOnly</span><span class="p">):</span>
+   <span class="k">print</span> <span class="s1">&#39;mounted&#39;</span>
+</pre></div>
+</div>
+<p>When running the game, the following should be seen.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">mounted</span>
+</pre></div>
+</div>
+<p>You can check if a certain subfile is encrypted or not using the
+<code class="docutils literal"><span class="pre">isSubfileEncrypted</span></code> method, which takes the
+subfile index as parameter.</p>
+<p>It is possible to have a multifile where different subfiles have different
+encryption, but you will not be able to mount it with the VirtualFileSystem or
+use it with the multify tool. To mount an encrypted file using the
+VirtualFileSystem, pass the password as parameter to the
+<code class="docutils literal"><span class="pre">mount</span></code> method:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">panda3d.core</span> <span class="kn">import</span> <span class="n">VirtualFileSystem</span><span class="p">,</span> <span class="n">Filename</span>
+<span class="n">vfs</span> <span class="o">=</span> <span class="n">VirtualFileSystem</span><span class="o">.</span><span class="n">getGlobalPtr</span><span class="p">()</span>
+<span class="n">vfs</span><span class="o">.</span><span class="n">mount</span><span class="p">(</span><span class="n">Filename</span><span class="p">(</span><span class="s2">&quot;foo.mf&quot;</span><span class="p">),</span> <span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="n">vfs</span><span class="o">.</span><span class="n">MFReadOnly</span><span class="p">,</span> <span class="s2">&quot;foobar&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">VirtualFileSystem</span> <span class="o">*</span><span class="n">vfs</span> <span class="o">=</span> <span class="n">VirtualFileSystem</span><span class="o">::</span><span class="n">get_global_ptr</span><span class="p">()</span>
+<span class="n">vfs</span><span class="o">-&gt;</span><span class="n">mount</span><span class="p">(</span><span class="s">&quot;./foo.mf&quot;</span><span class="p">,</span> <span class="s">&quot;.&quot;</span><span class="p">,</span> <span class="n">VirtualFileSystem</span><span class="o">::</span><span class="n">MF_read_only</span><span class="p">,</span> <span class="s">&quot;foobar&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>To use encryption with the multify tool, run it with the
+<code class="docutils literal"><span class="pre">-e</span></code> option, which will
+prompt for a password on the command line. Alternatively, if you also specify
+the <code class="docutils literal"><span class="pre">-p</span> <span class="pre">&quot;password&quot;</span></code> option, you can
+specify it in the command instead of typing it at the prompt.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="patching.html" class="btn btn-neutral float-right" title="Patching" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Multifiles" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Panda3D.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.10.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

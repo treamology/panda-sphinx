@@ -1,0 +1,362 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Simple Texture Replacement &mdash; Panda3D Manual</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Panda3D Manual" href="../../index.html"/>
+        <link rel="up" title="Texturing" href="index.html"/>
+        <link rel="next" title="Multitexture Introduction" href="multitexture-introduction.html"/>
+        <link rel="prev" title="Texture Filter Types" href="texture-filter-types.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Panda3D
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.10
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../intro/index.html">Introduction to Panda3D</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Programming with Panda3D</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../the-scene-graph/index.html">The Scene Graph</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../the-configuration-file/index.html">The Configuration File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../models-and-actors/index.html">Models and Actors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-attributes/index.html">Render Attributes</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Texturing</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="simple-texturing.html">Simple Texturing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="choosing-a-texture-size.html">Choosing a Texture Size</a></li>
+<li class="toctree-l3"><a class="reference internal" href="texture-wrap-modes.html">Texture Wrap Modes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="texture-filter-types.html">Texture Filter Types</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Simple Texture Replacement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multitexture-introduction.html">Multitexture Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="texture-modes.html">Texture Modes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="texture-order.html">Texture Order</a></li>
+<li class="toctree-l3"><a class="reference internal" href="texture-combine-modes.html">Texture Combine Modes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="texture-transforms.html">Texture Transforms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multiple-texture-coordinate-sets.html">Multiple Texture Coordinate Sets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="automatic-texture-coordinates.html">Automatic Texture Coordinates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="projected-textures.html">Projected Textures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="simple-environment-mapping.html">Simple Environment Mapping</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3d-textures.html">3-D Textures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cube-maps.html">Cube Maps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="environment-mapping-with-cube-maps.html">Environment Mapping with Cube Maps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="automatic-texture-animation.html">Automatic Texture Animation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="playing-mpg-and-avi-files.html">Playing MPG and AVI files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="stereo-multiview-textures.html">Stereo/Multiview Textures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="transparency-and-blending.html">Transparency and Blending</a></li>
+<li class="toctree-l3"><a class="reference internal" href="texture-management.html">Texture Management</a></li>
+<li class="toctree-l3"><a class="reference internal" href="texture-compression.html">Texture Compression</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../shaders/index.html">Shaders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../camera-control/index.html">Camera Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sound/index.html">Sound</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intervals/index.html">Intervals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks-and-event-handling/index.html">Tasks and Event Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../text-and-image-rendering/index.html">Text and Image Rendering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../directgui/index.html">DirectGUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-effects/index.html">Render Effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../finite-state-machines/index.html">Finite State Machines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../terrain/index.html">Terrain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internal-structures/index.html">Advanced operations with Panda3D&#8217;s internal structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-to-texture-and-image-postprocessing/index.html">Render-to-Texture and Image Postprocessing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../panda3d-rendering-process/index.html">Panda3D Rendering Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../panda3d-utility-functions.html">Panda3D Utility Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../particle-effects/index.html">Particle Effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../collision-detection/index.html">Collision Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../garbage-collection/index.html">Garbage Collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hardware-support/index.html">Hardware support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../math-engine/index.html">Math Engine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../motion-paths.html">Motion Paths</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../timing/index.html">Timing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../networking/index.html">Networking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../multifiles/index.html">Multifiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../showbase.html">ShowBase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../file-reading.html">File Reading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../threading.html">Threading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../subclassing.html">Subclassing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../table-of-features-supported-per-graphic-renderer.html">Table of features supported per graphic renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pandai/index.html">Artificial Intelligence (PANDAI)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../distribution/index.html">Distributing Panda3D Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../samples/index.html">Sample Programs in the Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../debugging/index.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../performance-tuning/index.html">Performance Tuning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../using-c++/index.html">Using C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/index.html">Panda3D Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../building-from-source.html">Building Panda3D from Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cheat-sheets.html">Cheat Sheets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started-on-osx.html">Getting Started on OSX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../more-panda3d-resources.html">More Panda3D Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../thirdparty-licenses.html">Third-party dependencies and license info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../the-irc-channel.html">The IRC Channel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">FAQ</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Panda3D</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Programming with Panda3D</a> &raquo;</li>
+      
+          <li><a href="index.html">Texturing</a> &raquo;</li>
+      
+    <li>Simple Texture Replacement</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/programming-with-panda3d/texturing/simple-texture-replacement.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="simple-texture-replacement">
+<span id="id1"></span><h1>Simple Texture Replacement<a class="headerlink" href="#simple-texture-replacement" title="Permalink to this headline">¶</a></h1>
+<p>Although usually you will load and display models that are already textured,
+you can also apply or replace a texture image on a model at runtime. To do
+this, you must first get a handle to the texture, for instance by loading it
+directly:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">myTexture</span> <span class="o">=</span> <span class="n">loader</span><span class="o">.</span><span class="n">loadTexture</span><span class="p">(</span><span class="s2">&quot;myTexture.png&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The above loadTexture() call will search along the current model-path for the
+named image file (in this example, a file named &#8220;myTexture.png&#8221;). If the
+texture is not found or cannot be read for some reason, None is returned.</p>
+<p>Once you have a texture, you can apply it to a model with the
+<a href="#id2"><span class="problematic" id="id3">``</span></a>setTexture() `` call. For instance,
+suppose you used the CardMaker class to generate a plain white card:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">cm</span> <span class="o">=</span> <span class="n">CardMaker</span><span class="p">(</span><span class="s1">&#39;card&#39;</span><span class="p">)</span>
+<span class="n">card</span> <span class="o">=</span> <span class="n">render</span><span class="o">.</span><span class="n">attachNewNode</span><span class="p">(</span><span class="n">cm</span><span class="o">.</span><span class="n">generate</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>Then you can load up a texture and apply it to the card like this:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">tex</span> <span class="o">=</span> <span class="n">loader</span><span class="o">.</span><span class="n">loadTexture</span><span class="p">(</span><span class="s1">&#39;maps/noise.rgb&#39;</span><span class="p">)</span>
+<span class="n">card</span><span class="o">.</span><span class="n">setTexture</span><span class="p">(</span><span class="n">tex</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>(Note that it is not necessary to use the override parameter to the
+setTexture() call&#8211;that is, you do not need to do card.setTexture(tex,
+1)&#8211;because in this case, the card does not already have any other texture
+applied to it, so your texture will be visible even without the override.)</p>
+<p>In order for this to work, the model you apply it to must already have texture
+coordinates defined (see :ref:` &lt;simple-texturing&gt;`). As it happens, the
+CardMaker generates texture coordinates by default when it generates a card,
+so no problem there.</p>
+<p>You can also use <code class="docutils literal"><span class="pre">setTexture()</span></code> to
+replace the texture on an already-textured model. In this case, you must
+specify a second parameter to setTexture, which is the same optional Panda
+override parameter you can specify on any kind of Panda state change.
+Normally, you simply pass 1 as the second parameter to setTexture(). Without
+this override, the texture that is assigned directly at the Geom level will
+have precedence over the state change you make at the model node, and the
+texture change won&#8217;t be made.</p>
+<p>For instance, to change the appearance of smiley:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">smiley</span> <span class="o">=</span> <span class="n">loader</span><span class="o">.</span><span class="n">loadModel</span><span class="p">(</span><span class="s1">&#39;smiley.egg&#39;</span><span class="p">)</span>
+<span class="n">smiley</span><span class="o">.</span><span class="n">reparentTo</span><span class="p">(</span><span class="n">render</span><span class="p">)</span>
+<span class="n">tex</span> <span class="o">=</span> <span class="n">loader</span><span class="o">.</span><span class="n">loadTexture</span><span class="p">(</span><span class="s1">&#39;maps/noise.rgb&#39;</span><span class="p">)</span>
+<span class="n">smiley</span><span class="o">.</span><span class="n">setTexture</span><span class="p">(</span><span class="n">tex</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><img alt="Smiley with noise.egg applied" src="../../_images/texture-smiley-noise.png" /></p>
+<p>Often, you want to replace the texture on just one piece of a model, rather
+than setting the texture on every element. To do this, you simply get a
+NodePath handle to the piece or pieces of the model that you want to change,
+as described in the section :ref:` &lt;manipulating-a-piece-of-a-model&gt;`, and
+make the <code class="docutils literal"><span class="pre">setTexture()</span></code> call on those
+NodePaths.</p>
+<p>For instance, this car model has multiple textures available in different
+colors:</p>
+<p><img alt="Description" src="../../_images/car-with-blue.png" /></p>
+<p>For the most part, this car was painted with one big texture image, which
+looks like this:</p>
+<p><img alt="Description" src="../../_images/car-with-blue.png" /></p>
+<p>But we also have a blue version of the same texture image:</p>
+<p><img alt="Description" src="../../_images/car-with-blue.png" /></p>
+<p>Although it is tempting to use setTexture() to assign the blue texture to the
+whole car, that would also assign the blue texture to the car&#8217;s tires, which
+need to use a different texture map. So instead, we apply the blue texture
+just to the pieces that we want to change:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">car</span> <span class="o">=</span> <span class="n">loader</span><span class="o">.</span><span class="n">loadModel</span><span class="p">(</span><span class="s1">&#39;bvw-f2004--carnsx/carnsx.egg&#39;</span><span class="p">)</span>
+<span class="n">blue</span> <span class="o">=</span> <span class="n">loader</span><span class="o">.</span><span class="n">loadTexture</span><span class="p">(</span><span class="s1">&#39;bvw-f2004--carnsx/carnsx-blue.png&#39;</span><span class="p">)</span>
+<span class="n">car</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;**/body/body&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">setTexture</span><span class="p">(</span><span class="n">blue</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">car</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;**/body/polySurface1&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">setTexture</span><span class="p">(</span><span class="n">blue</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">car</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;**/body/polySurface2&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">setTexture</span><span class="p">(</span><span class="n">blue</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>And the result is this:</p>
+<p><img alt="Description" src="../../_images/car-with-blue.png" /></p>
+<p>If you are interested in changing the image of a texture during program
+execution, say to adjust some of its pixels, see
+:ref:` &lt;creating-new-textures-from-scratch&gt;`.</p>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="multitexture-introduction.html" class="btn btn-neutral float-right" title="Multitexture Introduction" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="texture-filter-types.html" class="btn btn-neutral" title="Texture Filter Types" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Panda3D.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.10.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

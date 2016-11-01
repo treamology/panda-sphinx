@@ -1,0 +1,276 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Using C++ &mdash; Panda3D Manual</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Panda3D Manual" href="../index.html"/>
+        <link rel="next" title="How to compile a C++ Panda3D program" href="how-to-compile-a-c++-panda3d-program/index.html"/>
+        <link rel="prev" title="Performance Issue: Miscellaneous" href="../performance-tuning/miscellaneous.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Panda3D
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.10
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../intro/index.html">Introduction to Panda3D</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../programming-with-panda3d/index.html">Programming with Panda3D</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../distribution/index.html">Distributing Panda3D Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../samples/index.html">Sample Programs in the Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../debugging/index.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../performance-tuning/index.html">Performance Tuning</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Using C++</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="how-to-compile-a-c++-panda3d-program/index.html">How to compile a C++ Panda3D program</a></li>
+<li class="toctree-l2"><a class="reference internal" href="the-window-framework.html">The Window Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="texturing-in-c++.html">Texturing in C++</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reference-counting.html">Reference Counting</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tools/index.html">Panda3D Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../building-from-source.html">Building Panda3D from Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cheat-sheets.html">Cheat Sheets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started-on-osx.html">Getting Started on OSX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../more-panda3d-resources.html">More Panda3D Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../thirdparty-licenses.html">Third-party dependencies and license info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../the-irc-channel.html">The IRC Channel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">FAQ</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Panda3D</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+    <li>Using C++</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/using-c++/index.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="using-c">
+<span id="id1"></span><h1>Using C++<a class="headerlink" href="#using-c" title="Permalink to this headline">¶</a></h1>
+<p>Though Panda3D is often used with Python, it is possible to program a complete
+game in C++ without any line of Python. To start a C++ project, rebuilding
+Panda3D from source is not needed. This is done by including the right headers
+and linking with the right libraries.</p>
+<p>This section will explain how to use C++ to create your Panda3D programs
+instead of the default Python language.</p>
+<p>The manual and the API are mainly focused at the use of Python, so you will
+need to keep a few things in mind:</p>
+<ul>
+<li><p class="first">You need to include the file pandabase.h, which is needed to initialize the
+Panda3D library.</p>
+</li>
+<li><p class="first">There&#8217;s no DirectStart. You need to create windows yourself using the
+:ref:` &lt;the-window-framework&gt;`.</p>
+</li>
+<li><p class="first">You can import the classes you need just by including their header file,
+like this:</p>
+<blockquote>
+<div><p><code class="docutils literal"><span class="pre">#import</span> <span class="pre">&quot;textNode.h&quot;</span></code></p>
+</div></blockquote>
+</li>
+<li><p class="first">The functions are called the same way, but in lowercase and spaces between
+the words.</p>
+<blockquote>
+<div><p>So instanceTo() in Python becomes instance_to() in C++.</p>
+</div></blockquote>
+</li>
+</ul>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="how-to-compile-a-c++-panda3d-program/index.html">How to compile a C++ Panda3D program</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="how-to-compile-a-c++-panda3d-program/how-to-compile-a-c++-panda3d-program-on-linux.html">How to compile a C++ Panda3D program on Linux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="how-to-compile-a-c++-panda3d-program/how-to-compile-a-c++-panda3d-program-on-mac-os-x.html">How to compile a C++ Panda3D program on Mac OS X</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="the-window-framework.html">The Window Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="texturing-in-c++.html">Texturing in C++</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="texturing-in-c++.html#id2">Texturing in C++</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="reference-counting.html">Reference Counting</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="reference-counting.html#reference-counts">Reference Counts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reference-counting.html#managing-reference-counts">Managing Reference Counts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reference-counting.html#managing-reference-count">Managing Reference Count</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reference-counting.html#weak-pointer">Weak Pointer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reference-counting.html#circular-references">Circular References</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reference-counting.html#stack-allocation">Stack Allocation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="how-to-compile-a-c++-panda3d-program/index.html" class="btn btn-neutral float-right" title="How to compile a C++ Panda3D program" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../performance-tuning/miscellaneous.html" class="btn btn-neutral" title="Performance Issue: Miscellaneous" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Panda3D.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.10.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

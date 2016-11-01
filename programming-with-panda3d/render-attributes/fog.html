@@ -1,0 +1,451 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Fog &mdash; Panda3D Manual</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Panda3D Manual" href="../../index.html"/>
+        <link rel="up" title="Render Attributes" href="index.html"/>
+        <link rel="next" title="Alpha Testing" href="alpha-testing.html"/>
+        <link rel="prev" title="Depth Test and Depth Write" href="depth-test-and-depth-write.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Panda3D
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.10
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../intro/index.html">Introduction to Panda3D</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Programming with Panda3D</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../the-scene-graph/index.html">The Scene Graph</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../the-configuration-file/index.html">The Configuration File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../models-and-actors/index.html">Models and Actors</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Render Attributes</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="list-of-all-attributes.html">List of All Attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lighting.html">Lighting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="materials.html">Materials</a></li>
+<li class="toctree-l3"><a class="reference internal" href="depth-test-and-depth-write.html">Depth Test and Depth Write</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Fog</a></li>
+<li class="toctree-l3"><a class="reference internal" href="alpha-testing.html">Alpha Testing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="color-write-masks.html">Color Write Masks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="antialiasing.html">Antialiasing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="clip-planes.html">Clip Planes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tinting-and-recoloring.html">Tinting and Recoloring</a></li>
+<li class="toctree-l3"><a class="reference internal" href="backface-culling-and-frontface-culling.html">Backface Culling and Frontface Culling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="occlusion-culling/index.html">Occlusion Culling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="light-ramps.html">Light Ramps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="auxiliary-bitplane-control.html">Auxiliary Bitplane Control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="stencil-attribute.html">Stencil Test/Write Attribute</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../texturing/index.html">Texturing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shaders/index.html">Shaders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../camera-control/index.html">Camera Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sound/index.html">Sound</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intervals/index.html">Intervals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks-and-event-handling/index.html">Tasks and Event Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../text-and-image-rendering/index.html">Text and Image Rendering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../directgui/index.html">DirectGUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-effects/index.html">Render Effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../finite-state-machines/index.html">Finite State Machines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../terrain/index.html">Terrain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internal-structures/index.html">Advanced operations with Panda3D&#8217;s internal structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-to-texture-and-image-postprocessing/index.html">Render-to-Texture and Image Postprocessing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../panda3d-rendering-process/index.html">Panda3D Rendering Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../panda3d-utility-functions.html">Panda3D Utility Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../particle-effects/index.html">Particle Effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../collision-detection/index.html">Collision Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../garbage-collection/index.html">Garbage Collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hardware-support/index.html">Hardware support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../math-engine/index.html">Math Engine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../motion-paths.html">Motion Paths</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../timing/index.html">Timing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../networking/index.html">Networking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../multifiles/index.html">Multifiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../showbase.html">ShowBase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../file-reading.html">File Reading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../threading.html">Threading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../subclassing.html">Subclassing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../table-of-features-supported-per-graphic-renderer.html">Table of features supported per graphic renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pandai/index.html">Artificial Intelligence (PANDAI)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../distribution/index.html">Distributing Panda3D Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../samples/index.html">Sample Programs in the Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../debugging/index.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../performance-tuning/index.html">Performance Tuning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../using-c++/index.html">Using C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/index.html">Panda3D Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../building-from-source.html">Building Panda3D from Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cheat-sheets.html">Cheat Sheets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started-on-osx.html">Getting Started on OSX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../more-panda3d-resources.html">More Panda3D Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../thirdparty-licenses.html">Third-party dependencies and license info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../the-irc-channel.html">The IRC Channel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">FAQ</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Panda3D</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Programming with Panda3D</a> &raquo;</li>
+      
+          <li><a href="index.html">Render Attributes</a> &raquo;</li>
+      
+    <li>Fog</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/programming-with-panda3d/render-attributes/fog.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="fog">
+<span id="id1"></span><h1>Fog<a class="headerlink" href="#fog" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="basic-fog">
+<h2>Basic Fog<a class="headerlink" href="#basic-fog" title="Permalink to this headline">¶</a></h2>
+<p>To turn on fog, create an object of class
+<code class="docutils literal"><span class="pre">Fog</span></code>, and then apply it
+using the <code class="docutils literal"><span class="pre">setFog</span></code> operator:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">myFog</span> <span class="o">=</span> <span class="n">Fog</span><span class="p">(</span><span class="s2">&quot;Fog Name&quot;</span><span class="p">)</span>
+<span class="n">myFog</span><span class="o">.</span><span class="n">setColor</span><span class="p">(</span><span class="n">R</span><span class="p">,</span><span class="n">G</span><span class="p">,</span><span class="n">B</span><span class="p">)</span>
+<span class="n">myFog</span><span class="o">.</span><span class="n">setExpDensity</span><span class="p">(</span><span class="n">Float</span> <span class="mi">0</span> <span class="n">to</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">render</span><span class="o">.</span><span class="n">setFog</span><span class="p">(</span><span class="n">myFog</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>However, there is more here than meets the eye. We have created a fog node,
+which goes into the scene graph. Therefore, the fog has a position, a place
+where the fog is (conceptually) thickest.</p>
+<p>If the fog object is not parented into the scene graph (in the example above,
+for instance), then the fog&#8217;s position is ignored, and the fog is
+camera-relative. Likewise, if the fog is exponential, the fog&#8217;s position is
+ignored, and the fog is camera-relative.</p>
+<p>The <code class="docutils literal"><span class="pre">setFog</span></code> directive creates a
+fog attribute object. Like any :ref:` &lt;render-attributes&gt;`, the fog attribute
+affects the node that it is attached to, and any nodes below it in the scene
+graph. So you can easily cause only a subset of the objects (or just a single
+model) to be affected by the fog, by calling
+<code class="docutils literal"><span class="pre">setFog</span></code> on the root of the
+subgraph you want to be affected. To remove the fog attribute later, use the
+<code class="docutils literal"><span class="pre">clearFog</span></code> directive:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">render</span><span class="o">.</span><span class="n">clearFog</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>While you have fog in effect, it is often desirable to set the background
+color to match the fog:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">base</span><span class="o">.</span><span class="n">setBackgroundColor</span><span class="p">(</span> <span class="n">myFogColor</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="fog-modes">
+<h2>Fog Modes<a class="headerlink" href="#fog-modes" title="Permalink to this headline">¶</a></h2>
+<p>There are three fog modes in Panda:
+<code class="docutils literal"><span class="pre">Fog.MExponential</span></code>,
+<code class="docutils literal"><span class="pre">Fog.MExponentialSquared</span></code> and
+<code class="docutils literal"><span class="pre">Fog.MLinear</span></code>. You can switch the
+mode of a <code class="docutils literal"><span class="pre">Fog</span></code> object using
+<code class="docutils literal"><span class="pre">fog.getMode()</span></code> and
+<code class="docutils literal"><span class="pre">fog.setMode(Fog.Mode)</span></code>. This explicit mode
+switching isn&#8217;t normally necessary, as
+<code class="docutils literal"><span class="pre">Fog</span></code> methods implicitly
+switch the mode for you.</p>
+<p>A <code class="docutils literal"><span class="pre">Fog</span></code> object in Panda3D is
+a node that can be parented into the scene graph with a position, colour and
+orientation like any other node (importantly,
+<code class="docutils literal"><span class="pre">Fog</span></code> is a subclass of
+<code class="docutils literal"><span class="pre">PandaNode</span></code>, not of
+<code class="docutils literal"><span class="pre">NodePath</span></code>) (do
+<code class="docutils literal"><span class="pre">Fog</span></code> nodes have a scale?).</p>
+<p>The position of a <code class="docutils literal"><span class="pre">Fog</span></code> node
+in the scene graph does not determine which objects the fog affects, it
+determines the origin and direction of the fog when it is in linear mode. When
+a fog node is in exponential mode its position and orientation in the scene
+graph are irrelevant. Either way, a
+<code class="docutils literal"><span class="pre">Fog</span></code> node must be activated
+by calling <code class="docutils literal"><span class="pre">nodePath.setFog(fogNode)</span></code> on some
+<code class="docutils literal"><span class="pre">NodePath</span></code> in the scene graph.
+Which <code class="docutils literal"><span class="pre">NodePath</span></code> you call the
+<code class="docutils literal"><span class="pre">setFog</span></code> method on determines
+which parts of the scene will be fogged: that
+<code class="docutils literal"><span class="pre">NodePath</span></code> and all its children.</p>
+<div class="section" id="linear-fog">
+<h3>Linear Fog<a class="headerlink" href="#linear-fog" title="Permalink to this headline">¶</a></h3>
+<p>This is the default mode. In this mode the position and orientation of a
+<code class="docutils literal"><span class="pre">Fog</span></code> node are important. A
+linear-mode <code class="docutils literal"><span class="pre">Fog</span></code> node must
+first be parented into the scene graph, then activated by calling
+<code class="docutils literal"><span class="pre">setFog(fogNode)</span></code> on some
+<code class="docutils literal"><span class="pre">NodePath</span></code> in the scene graph.</p>
+<p>Setup a linear fog node at the origin:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">colour</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.8</span><span class="p">,</span><span class="mf">0.8</span><span class="p">)</span>
+<span class="n">linfog</span> <span class="o">=</span> <span class="n">Fog</span><span class="p">(</span><span class="s2">&quot;A linear-mode Fog node&quot;</span><span class="p">)</span>
+<span class="n">linfog</span><span class="o">.</span><span class="n">setColor</span><span class="p">(</span><span class="o">*</span><span class="n">colour</span><span class="p">)</span>
+<span class="n">linfog</span><span class="o">.</span><span class="n">setLinearRange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">320</span><span class="p">)</span>
+<span class="n">linfog</span><span class="o">.</span><span class="n">setLinearFallback</span><span class="p">(</span><span class="mi">45</span><span class="p">,</span><span class="mi">160</span><span class="p">,</span><span class="mi">320</span><span class="p">)</span>
+<span class="n">render</span><span class="o">.</span><span class="n">attachNewNode</span><span class="p">(</span><span class="n">linfog</span><span class="p">)</span>
+<span class="n">render</span><span class="o">.</span><span class="n">setFog</span><span class="p">(</span><span class="n">linfog</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>In linear mode, the onset and opaque distances of the fog are defined as
+offsets along the local forward (+Y) axis of the fog node. The onset distance
+is the distance from the fog node at which the fog will begin to have effect,
+and the opaque distance is the distance from the fog node at which the fog
+will be completely opaque. From reading the API page for the
+<code class="docutils literal"><span class="pre">Fog</span></code> class, it sounds as if
+beyond this opaque point there is no fog (rather than continuing opaque fog up
+to the location of the fog node as you might expect): &#8220;the fog will be
+rendered as if it extended along the vector from the onset point to the opaque
+point.&#8221;</p>
+<p>These settings can be modified using the methods
+<code class="docutils literal"><span class="pre">getLinearOnsetPoint()</span></code>,
+<code class="docutils literal"><span class="pre">getLinearOpaquePoint()</span></code>,
+<code class="docutils literal"><span class="pre">setLinearOnsetPoint(float</span> <span class="pre">x,y,z)</span></code>,
+<code class="docutils literal"><span class="pre">setLinearOpaquePoint(Point3D</span> <span class="pre">pos)</span></code> and
+<code class="docutils literal"><span class="pre">setLinearRange(float</span> <span class="pre">onset,</span> <span class="pre">float</span> <span class="pre">opaque)</span></code> of
+<code class="docutils literal"><span class="pre">Fog</span></code>.</p>
+<p>There is a hardware issue with rendering fog which means that linear fog can
+breakdown and vanish depending on the angle from which it is viewed:</p>
+<blockquote>
+<div>&#8220;the underlying fog effect supported by hardware is generally only
+one-dimensional, and must be rendered based on linear distance from the
+camera plane. Thus, this in-the-world effect is most effective when the
+fog vector from onset point to opaque point is most nearly parallel to the
+camera’s eye vector. As the angle between the fog vector and the eye
+vector increases, the accuracy of the effect diminishes, up to a complete
+breakdown of the effect at a 90 degree angle.&#8221;</div></blockquote>
+<p>The <code class="docutils literal"><span class="pre">Fog</span></code> method
+<code class="docutils literal"><span class="pre">setLinearFallback(float</span> <span class="pre">angle,</span> <span class="pre">float</span> <span class="pre">onset,</span> <span class="pre">float</span> <span class="pre">opaque)</span></code> defines how the fog
+should be rendered when the fog effect is diminished in this way.
+<code class="docutils literal"><span class="pre">angle</span></code> is the minimum viewing
+angle (angle between the camera direction and fog direction) at which the
+fallback effect will be employed.
+<code class="docutils literal"><span class="pre">onset</span></code> and
+<code class="docutils literal"><span class="pre">opaque</span></code> specify camera-relative
+onset and opaque distances that will be fallen back on, overriding the
+<code class="docutils literal"><span class="pre">Fog</span></code> node’s own onset and
+opaque distances.</p>
+<p>The <code class="docutils literal"><span class="pre">setLinearFallback(float</span> <span class="pre">angle,</span> <span class="pre">float</span> <span class="pre">onset,</span> <span class="pre">float</span> <span class="pre">opaque)</span></code> workaround will
+only look good in certain situations, for example when the fog is deep inside
+a dark cave. So in general, exponential mode fog is more useful than the
+default linear mode fog.</p>
+</div>
+<div class="section" id="exponential-fog">
+<h3>Exponential Fog<a class="headerlink" href="#exponential-fog" title="Permalink to this headline">¶</a></h3>
+<p>In exponential fog mode the position and orientation of your fog node in the
+scene graph and the onset and opaque points are ignored (in fact you don’t
+even have to put your fog node in the scene graph). Instead, fog is rendered
+camera relative according to a density factor: the fog begins at the camera
+and continues to infinity, with an exponentially increasing density determined
+by the density factor. The fog moves with the camera as the camera’s position
+and orientation changes:</p>
+<blockquote>
+<div>&#8220;the onset point and opaque point are not used, and the fog effect is
+based on the value specified to
+<code class="docutils literal"><span class="pre">set_exp_density()</span></code>, and it doesn’t
+matter to which node the fog object is parented, or if it is parented
+anywhere at all.&#8221;</div></blockquote>
+<p>The <code class="docutils literal"><span class="pre">fog.setExpDensity(float)</span></code> method determines
+the density value used for exponential fog calculations.</p>
+<p>You activate an exponential fog effect by calling the
+<code class="docutils literal"><span class="pre">setFog(Fog)</span></code> method of
+<code class="docutils literal"><span class="pre">NodePath</span></code>, for example:
+<code class="docutils literal"><span class="pre">render.setFog(myFog)</span></code>:</p>
+<p>Setup some scene-wide exponential fog:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">colour</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.8</span><span class="p">,</span><span class="mf">0.8</span><span class="p">)</span>
+<span class="n">expfog</span> <span class="o">=</span> <span class="n">Fog</span><span class="p">(</span><span class="s2">&quot;Scene-wide exponential Fog object&quot;</span><span class="p">)</span>
+<span class="n">expfog</span><span class="o">.</span><span class="n">setColor</span><span class="p">(</span><span class="o">*</span><span class="n">colour</span><span class="p">)</span>
+<span class="n">expfog</span><span class="o">.</span><span class="n">setExpDensity</span><span class="p">(</span><span class="mf">0.005</span><span class="p">)</span>
+<span class="n">render</span><span class="o">.</span><span class="n">setFog</span><span class="p">(</span><span class="n">expfog</span><span class="p">)</span>
+<span class="n">base</span><span class="o">.</span><span class="n">setBackgroundColor</span><span class="p">(</span><span class="o">*</span><span class="n">colour</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The last line in the sample above doesn&#8217;t actually affect the fog, however, it
+generally looks better if the scene background color matches the color of the
+fog.</p>
+<p>Since <code class="docutils literal"><span class="pre">setFog</span></code> is called on
+<code class="docutils literal"><span class="pre">render</span></code> it effects the entire
+scene. <code class="docutils literal"><span class="pre">setFog</span></code> can just as
+easily be called on some other
+<code class="docutils literal"><span class="pre">NodePath</span></code> and will effect only
+that <code class="docutils literal"><span class="pre">NodePath</span></code> and its children.</p>
+<p>The expontential fog effect can be turned off again using
+<code class="docutils literal"><span class="pre">clearFog</span></code>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">render</span><span class="o">.</span><span class="n">clearFog</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="alpha-testing.html" class="btn btn-neutral float-right" title="Alpha Testing" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="depth-test-and-depth-write.html" class="btn btn-neutral" title="Depth Test and Depth Write" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Panda3D.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.10.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

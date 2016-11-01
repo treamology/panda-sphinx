@@ -1,0 +1,446 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Shaders and Coordinate Spaces &mdash; Panda3D Manual</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Panda3D Manual" href="../../index.html"/>
+        <link rel="up" title="Shaders" href="index.html"/>
+        <link rel="next" title="Known Shader Bugs and Limitations" href="known-shader-issues.html"/>
+        <link rel="prev" title="List of GLSL Shader Inputs" href="list-of-glsl-shader-inputs.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Panda3D
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.10
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../intro/index.html">Introduction to Panda3D</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Programming with Panda3D</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../the-scene-graph/index.html">The Scene Graph</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../the-configuration-file/index.html">The Configuration File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../models-and-actors/index.html">Models and Actors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-attributes/index.html">Render Attributes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../texturing/index.html">Texturing</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Shaders</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="shader-basics.html">Shader Basics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="list-of-possible-cg-shader-inputs.html">List of Possible Cg Shader Inputs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="list-of-glsl-shader-inputs.html">List of GLSL Shader Inputs</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Shaders and Coordinate Spaces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="known-shader-issues.html">Known Shader Bugs and Limitations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="the-shader-generator.html">The Shader Generator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cg-shader-tutorial/index.html">Cg Shader Tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="compute-shaders.html">Compute Shaders</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../camera-control/index.html">Camera Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sound/index.html">Sound</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intervals/index.html">Intervals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks-and-event-handling/index.html">Tasks and Event Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../text-and-image-rendering/index.html">Text and Image Rendering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../directgui/index.html">DirectGUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-effects/index.html">Render Effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../finite-state-machines/index.html">Finite State Machines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../terrain/index.html">Terrain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internal-structures/index.html">Advanced operations with Panda3D&#8217;s internal structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-to-texture-and-image-postprocessing/index.html">Render-to-Texture and Image Postprocessing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../panda3d-rendering-process/index.html">Panda3D Rendering Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../panda3d-utility-functions.html">Panda3D Utility Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../particle-effects/index.html">Particle Effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../collision-detection/index.html">Collision Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../garbage-collection/index.html">Garbage Collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hardware-support/index.html">Hardware support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../math-engine/index.html">Math Engine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../motion-paths.html">Motion Paths</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../timing/index.html">Timing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../networking/index.html">Networking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../multifiles/index.html">Multifiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../showbase.html">ShowBase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../file-reading.html">File Reading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../threading.html">Threading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../subclassing.html">Subclassing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../table-of-features-supported-per-graphic-renderer.html">Table of features supported per graphic renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pandai/index.html">Artificial Intelligence (PANDAI)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../distribution/index.html">Distributing Panda3D Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../samples/index.html">Sample Programs in the Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../debugging/index.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../performance-tuning/index.html">Performance Tuning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../using-c++/index.html">Using C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/index.html">Panda3D Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../building-from-source.html">Building Panda3D from Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cheat-sheets.html">Cheat Sheets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started-on-osx.html">Getting Started on OSX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../more-panda3d-resources.html">More Panda3D Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../thirdparty-licenses.html">Third-party dependencies and license info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../the-irc-channel.html">The IRC Channel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">FAQ</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Panda3D</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Programming with Panda3D</a> &raquo;</li>
+      
+          <li><a href="index.html">Shaders</a> &raquo;</li>
+      
+    <li>Shaders and Coordinate Spaces</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/programming-with-panda3d/shaders/shaders-and-coordinate-spaces.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="shaders-and-coordinate-spaces">
+<span id="id1"></span><h1>Shaders and Coordinate Spaces<a class="headerlink" href="#shaders-and-coordinate-spaces" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="the-major-coordinate-spaces">
+<h2>The Major Coordinate Spaces<a class="headerlink" href="#the-major-coordinate-spaces" title="Permalink to this headline">¶</a></h2>
+<p>When writing complex shaders, it is often necessary to do a lot of coordinate
+system conversion. In order to get this right, it is important to be aware of
+all the different coordinate spaces that panda uses. You must know what
+&#8220;space&#8221; the coordinate is in. Here is a list of the major coordinate spaces:</p>
+<dl class="docutils">
+<dt>Model Space</dt>
+<dd>If a coordinate is in model space, then it is relative to the center of
+the model currently being rendered. The vertex arrays are in model space,
+therefore, if you access the vertex position using vtx_position, you have
+a coordinate in model space. Model space is z-up right-handed.</dd>
+<dt>World Space</dt>
+<dd>If a coordinate is in world space, then it is relative to the scene&#8217;s
+origin. World space is z-up right-handed.</dd>
+<dt>View Space</dt>
+<dd>If a coordinate is in view space, then it is relative to the camera. View
+space is z-up right-handed.</dd>
+<dt>API View Space</dt>
+<dd>This coordinate space is identical to view space, except that the axes may
+be flipped to match the natural orientation of the rendering API. In the
+case of OpenGL, API view space is y-up right-handed. In the case of
+DirectX, API view space is y-up left-handed.</dd>
+<dt>Clip Space</dt>
+<dd>Panda&#8217;s clip space is a coordinate system in which (X/W, Y/W) maps to a
+screen pixel, and (Z/W) maps to a depth-buffer value. All values in this
+space range over [-1,1].</dd>
+<dt>API Clip Space</dt>
+<dd>This coordinate space is identical to clip space, except that the axes may
+be flipped to match the natural orientation of the rendering API, and the
+numeric ranges may be rescaled to match the needs of the rendering API. In
+the case of OpenGL, the (Z/W) values range from [-1, 1]. In the case of
+DirectX, the (Z/W) values range from [0,1].</dd>
+</dl>
+<p>In OpenGL, &#8220;clip space&#8221; and &#8220;API clip space&#8221; are equivalent.</p>
+</div>
+<div class="section" id="supplying-translation-matrices-to-a-shader">
+<h2>Supplying Translation Matrices to a Shader<a class="headerlink" href="#supplying-translation-matrices-to-a-shader" title="Permalink to this headline">¶</a></h2>
+<p>You can use a shader parameter named &#8220;trans_x_to_y&#8221; to automatically obtain
+a matrix that converts any coordinate system to any other. The words x and y
+can be &#8220;model,&#8221; &#8220;world,&#8221; &#8220;view,&#8221; &#8220;apiview,&#8221; &#8220;clip,&#8221; or &#8220;apiclip.&#8221; Using this
+notation, you can build up almost any transform matrix that you might need.
+Here is a short list of popular matrices that can be recreated using this
+syntax. Of course, this isn&#8217;t even close to exhaustive: there are seven
+keywords, so there are 7x7 possible matrices, of which 7 are the identity
+matrix.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="31%" />
+<col width="34%" />
+<col width="34%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Desired Matrix</th>
+<th class="head">Source</th>
+<th class="head">Syntax</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>The Modelview Matrix</td>
+<td>gsg.getInternalTransform()</td>
+<td>trans_model_to_apiview</td>
+</tr>
+<tr class="row-odd"><td>The Projection Matrix</td>
+<td>gsg.getProjectionMat()</td>
+<td>trans_apiview_to_apiclip</td>
+</tr>
+<tr class="row-even"><td>the DirectX world matrix</td>
+<td>model.getNetTransform()</td>
+<td>trans_model_to_world</td>
+</tr>
+<tr class="row-odd"><td>the DirectX view matrix</td>
+<td>scene.getCsWorldTransform()</td>
+<td>trans_world_to_apiview</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td>scene.getCameraTransform()</td>
+<td>trans_view_to_world</td>
+</tr>
+<tr class="row-odd"><td>&nbsp;</td>
+<td>scene.getWorldTransform()</td>
+<td>trans_world_to_view</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td>gsg.getExternalTransform()</td>
+<td>trans_model_to_view</td>
+</tr>
+<tr class="row-odd"><td>&nbsp;</td>
+<td>gsg.getInternalTransform()</td>
+<td>trans_model_to_apiview</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td>gsg.getCsTransform()</td>
+<td>trans_view_to_apiview</td>
+</tr>
+<tr class="row-odd"><td>&nbsp;</td>
+<td>gsg.getInvCsTransform()</td>
+<td>trans_apiview_to_view</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="a-note-about-glsl-inputs">
+<h2>A note about GLSL inputs<a class="headerlink" href="#a-note-about-glsl-inputs" title="Permalink to this headline">¶</a></h2>
+<p>The p3d_ModelViewMatrix and p3d_ProjectionMatrix by default transform to and
+from &#8220;apiview&#8221; space, in order to match the behavior of the equivalent
+gl_-prefixed inputs from earlier GLSL versions. Panda3D traditionally uses a
+right-handed Y-up coordinate space for all OpenGL operations because some
+OpenGL fixed-function features rely on this space in order to produce the
+correct results.</p>
+<p>However, if you develop a largely shader-based application and/or don&#8217;t really
+use features like fixed-function sphere mapping, you may choose to disable
+this conversion to Y-up space. This will define &#8220;apiview&#8221; space to be
+equivalent to &#8220;view&#8221; space, which simplifies many things, and will reduce
+overhead due to unnecessary coordinate space conversion.</p>
+<p>This is possible in Panda3D 1.9.1 and above, by putting
+<code class="docutils literal"><span class="pre">gl-coordinate-system</span> <span class="pre">default</span></code> in your Config.prc
+file.</p>
+</div>
+<div class="section" id="recommendation-don-t-use-api-view-space-or-api-clip-space">
+<h2>Recommendation: Don&#8217;t use API View Space or API Clip Space<a class="headerlink" href="#recommendation-don-t-use-api-view-space-or-api-clip-space" title="Permalink to this headline">¶</a></h2>
+<p>The coordinate systems &#8220;API View Space&#8221; and &#8220;API Clip Space&#8221; are not very
+useful. The fact that their behavior changes from one rendering API to the
+next makes them extremely hard to work with. Of course, you have to use the
+composed modelview/projection matrix to transform your vertices, and in doing
+so, you are implicitly using these spaces. But aside from that, it is strongly
+recommended that you not use these spaces for anything else.</p>
+</div>
+<div class="section" id="model-of-x-view-of-x-clip-of-x">
+<h2>Model_of_x, View_of_x, Clip_of_x<a class="headerlink" href="#model-of-x-view-of-x-clip-of-x" title="Permalink to this headline">¶</a></h2>
+<p>When you use the word &#8220;model&#8221; in a trans directive, you implicitly mean &#8220;the
+model currently being rendered.&#8221; But you can make any nodepath accessible to
+the shader subsystem using
+<code class="docutils literal"><span class="pre">setShaderInput</span></code>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">myhouse</span> <span class="o">=</span> <span class="n">loader</span><span class="o">.</span><span class="n">loadModel</span><span class="p">(</span><span class="s2">&quot;myhouse&quot;</span><span class="p">)</span>
+<span class="n">render</span><span class="o">.</span><span class="n">setShaderInput</span><span class="p">(</span><span class="s2">&quot;myhouse&quot;</span><span class="p">,</span> <span class="n">myhouse</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">NodePath</span> <span class="n">myhouse</span> <span class="o">=</span> <span class="n">window</span><span class="o">-&gt;</span><span class="n">load_model</span><span class="p">(</span><span class="n">framework</span><span class="p">.</span><span class="n">get_models</span><span class="p">(),</span> <span class="s">&quot;myhouse&quot;</span><span class="p">);</span>
+<span class="n">window</span><span class="o">-&gt;</span><span class="n">get_render</span><span class="p">().</span><span class="n">set_shader_input</span><span class="p">(</span><span class="s">&quot;myhouse&quot;</span><span class="p">,</span> <span class="n">myhouse</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Then, in the shader, you can convert coordinates to or from the model-space of
+this particular nodepath:</p>
+<div class="highlight-glsl"><div class="highlight"><pre><span></span><span class="k">uniform</span> <span class="n">float4x4</span> <span class="n">trans_world_to_model_of_myhouse</span>
+</pre></div>
+</div>
+<p>or, use the syntactic shorthand:</p>
+<div class="highlight-glsl"><div class="highlight"><pre><span></span><span class="k">uniform</span> <span class="n">float4x4</span> <span class="n">trans_world_to_myhouse</span>
+</pre></div>
+</div>
+<p>Likewise, you can create a camera and pass it into the shader subsystem. This
+is particularly useful when doing shadow mapping:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">render</span><span class="o">.</span><span class="n">setShaderInput</span><span class="p">(</span><span class="s2">&quot;shadowcam&quot;</span><span class="p">,</span> <span class="n">shadowcam</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">render</span><span class="p">.</span><span class="n">set_shader_input</span><span class="p">(</span><span class="s">&quot;shadowcam&quot;</span><span class="p">,</span> <span class="n">shadowcam</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Now you can transform vertices into the clip-space of the given camera using
+this notation:</p>
+<div class="highlight-glsl"><div class="highlight"><pre><span></span><span class="k">uniform</span> <span class="n">float4x4</span> <span class="n">trans_model_to_clip_of_shadowcam</span>
+</pre></div>
+</div>
+<p>If you transform your model&#8217;s vertices from model space into the clip space of
+a shadow camera, the resulting (X/W,Y/W) values can be used as texture
+coordinates to projectively texture the shadow map onto the scene (after
+rescaling them), and the (Z/W) value can be compared to the value stored in
+the depth map (again, after rescaling it).</p>
+<p>Panda does support the notation &#8220;trans_x_to_apiclip_of_y&#8221;, but again, our
+recommendation is not to use it.</p>
+<p>You can transform a vertex to the view space of an alternate camera, using
+&#8220;view of x.&#8221; In fact, this is exactly identical to &#8220;model of x,&#8221; but it&#8217;s
+probably good form to use &#8220;view of x&#8221; when x is a camera.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="known-shader-issues.html" class="btn btn-neutral float-right" title="Known Shader Bugs and Limitations" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="list-of-glsl-shader-inputs.html" class="btn btn-neutral" title="List of GLSL Shader Inputs" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Panda3D.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.10.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

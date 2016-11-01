@@ -1,0 +1,492 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Particle Effects &mdash; Panda3D Manual</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Panda3D Manual" href="../../index.html"/>
+        <link rel="up" title="Programming with Panda3D" href="../index.html"/>
+        <link rel="next" title="Using the Particle Panel" href="using-the-particle-panel.html"/>
+        <link rel="prev" title="Panda3D Utility Functions" href="../panda3d-utility-functions.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Panda3D
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.10
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../intro/index.html">Introduction to Panda3D</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Programming with Panda3D</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../the-scene-graph/index.html">The Scene Graph</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../the-configuration-file/index.html">The Configuration File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../models-and-actors/index.html">Models and Actors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-attributes/index.html">Render Attributes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../texturing/index.html">Texturing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shaders/index.html">Shaders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../camera-control/index.html">Camera Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sound/index.html">Sound</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intervals/index.html">Intervals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks-and-event-handling/index.html">Tasks and Event Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../text-and-image-rendering/index.html">Text and Image Rendering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../directgui/index.html">DirectGUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-effects/index.html">Render Effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../finite-state-machines/index.html">Finite State Machines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../terrain/index.html">Terrain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internal-structures/index.html">Advanced operations with Panda3D&#8217;s internal structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-to-texture-and-image-postprocessing/index.html">Render-to-Texture and Image Postprocessing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../panda3d-rendering-process/index.html">Panda3D Rendering Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../panda3d-utility-functions.html">Panda3D Utility Functions</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Particle Effects</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="using-the-particle-panel.html">Using the Particle Panel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="loading-particle-systems.html">Loading Particle Systems</a></li>
+<li class="toctree-l3"><a class="reference internal" href="particle-effect-basic-parameters.html">Particle Effect Basic Parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="particle-factories.html">Particle Factories</a></li>
+<li class="toctree-l3"><a class="reference internal" href="particle-emitters.html">Particle Emitters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="particle-renderers.html">Particle Renderers</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../collision-detection/index.html">Collision Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../garbage-collection/index.html">Garbage Collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hardware-support/index.html">Hardware support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../math-engine/index.html">Math Engine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../motion-paths.html">Motion Paths</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../timing/index.html">Timing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../networking/index.html">Networking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../multifiles/index.html">Multifiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../showbase.html">ShowBase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../file-reading.html">File Reading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../threading.html">Threading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../subclassing.html">Subclassing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../table-of-features-supported-per-graphic-renderer.html">Table of features supported per graphic renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pandai/index.html">Artificial Intelligence (PANDAI)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../distribution/index.html">Distributing Panda3D Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../samples/index.html">Sample Programs in the Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../debugging/index.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../performance-tuning/index.html">Performance Tuning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../using-c++/index.html">Using C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/index.html">Panda3D Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../building-from-source.html">Building Panda3D from Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cheat-sheets.html">Cheat Sheets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started-on-osx.html">Getting Started on OSX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../more-panda3d-resources.html">More Panda3D Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../thirdparty-licenses.html">Third-party dependencies and license info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../the-irc-channel.html">The IRC Channel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">FAQ</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Panda3D</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Programming with Panda3D</a> &raquo;</li>
+      
+    <li>Particle Effects</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/programming-with-panda3d/particle-effects/index.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="particle-effects">
+<span id="id1"></span><h1>Particle Effects<a class="headerlink" href="#particle-effects" title="Permalink to this headline">¶</a></h1>
+<p>Particle effects involve the use of several small images acting on the same
+set of forces. These particles are created, they move, and they die out. These
+systems are dynamic and may be used for such effects as explosions, smoke,
+bubbling liquid and swarms. In essence, any particle effect needs three key
+parts: the renderer, the emitter, and the factory. The renderer translates the
+particle object into a visible object on the screen. The emitter assigns
+initial locations and velocity vectors for the particles. The factory
+generates particles and assigns their attributes. There are many different
+types of each part, and they each have their own parameters. Creating your own
+particle effects using code alone may be difficult. A particle effect panel is
+available to ease through this process. This section will discuss using the
+particle panel and the large number of variables associated with particle
+effects.</p>
+<p>Fire,&nbsp; smoke, glowing, explosion, water fountain, falling leaves, fur, hair
+and many other fuzzy effects are created procedurally using particle systems.
+It&#8217;s important not to make the assumption that particles must have the size of
+a &#8216;particle&#8217; that is very small, particles can have any size and any mass.
+Particles are physical entities which inherit PhysicsObject. Panda3D provides
+a tool which simplifies testing particle systems. The tool is called (Particle
+Panel) and is written in python. The link to run the particle panel is in the
+same folder as the particle sample which comes with Panda3D.</p>
+<div class="section" id="a-particle-system-in-panda3d-consists-of-6-components">
+<h2>A particle system in Panda3D consists of 6 components:<a class="headerlink" href="#a-particle-system-in-panda3d-consists-of-6-components" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>Factory</li>
+<li>Emitter</li>
+<li>Physics engine</li>
+<li>Renderer</li>
+<li>Particle System Controller (Particle System)</li>
+<li>Particle System Manager (Optional)</li>
+</ol>
+</div>
+<div class="section" id="factory">
+<h2>Factory:<a class="headerlink" href="#factory" title="Permalink to this headline">¶</a></h2>
+<p>Particles are generated in this stage using the provided parameters. Panda3D
+Provides 2 Factories:</p>
+<ul class="simple">
+<li>PointParticleFactory: Generates particles with default rotation.</li>
+<li>ZspintParticleFactory:&nbsp; [From Source Code] Generates particles which spin
+along their z-axis. this is kind of an intermediary class- if you&#8217;re using
+a SpriteParticleRenderer and you want your sprites to spin without having
+them be full-blown oriented (i.e. angry quat math), use this. Note:
+&#8216;set_final_angle&#8217; and &#8216;angular_velocity&#8217; are mutually exclusive APIs &nbsp;if
+angular-velocity is specified, final_angle is ignored.</li>
+</ul>
+<p>[Sample]</p>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">PT</span><span class="p">(</span><span class="n">PointParticleFactory</span><span class="p">)</span> <span class="n">pt_particle_factory</span> <span class="o">=</span> <span class="k">new</span> <span class="n">PointParticleFactory</span><span class="p">();</span>
+<span class="n">pt_particle_factory</span><span class="o">-&gt;</span><span class="n">set_lifespan_base</span><span class="p">(</span><span class="mf">0.5</span><span class="p">);</span>
+<span class="n">pt_particle_factory</span><span class="o">-&gt;</span><span class="n">set_lifespan_spread</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="n">pt_particle_factory</span><span class="o">-&gt;</span><span class="n">set_mass_base</span><span class="p">(</span><span class="mf">1.0</span><span class="p">);</span>
+<span class="n">pt_particle_factory</span><span class="o">-&gt;</span><span class="n">set_mass_spread</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="n">pt_particle_factory</span><span class="o">-&gt;</span><span class="n">set_terminal_velocity_base</span><span class="p">(</span><span class="mi">400</span><span class="p">);</span>
+<span class="n">pt_particle_factory</span><span class="o">-&gt;</span><span class="n">set_terminal_velocity_spread</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="emitter">
+<h2>Emitter:<a class="headerlink" href="#emitter" title="Permalink to this headline">¶</a></h2>
+<p>The emitter is used to emit the particles generated by the factory. The shape
+of the emitter determins the initial position and motion direction of the
+particles.</p>
+<div class="section" id="available-emitters">
+<h3>Available Emitters:<a class="headerlink" href="#available-emitters" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>ArcEmitter</li>
+<li>&nbsp;BoxEmitter</li>
+<li>&nbsp;DiscEmitter</li>
+<li>&nbsp;LineEmitter</li>
+<li>&nbsp;RectangleEmitter</li>
+<li>&nbsp;RingEmitter</li>
+<li>&nbsp;SphereSurfaceEmitter</li>
+<li>&nbsp;SphereVolumeEmitter</li>
+<li>&nbsp;TangentRingEmitter</li>
+</ul>
+<p>Each emitter is declared in a separate .h file with the same name as the
+emitter. For example: ArcEmitter is declared in arcEmitter.h [Sample]</p>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">PT</span><span class="p">(</span><span class="n">SphereVolumeEmitter</span><span class="p">)</span> <span class="n">sphere_emitter</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SphereVolumeEmitter</span><span class="p">;</span>
+<span class="n">sphere_emitter</span><span class="o">-&gt;</span><span class="n">set_emission_type</span><span class="p">(</span><span class="n">SphereVolumeEmitter</span><span class="o">::</span><span class="n">ET_RADIATE</span><span class="p">);</span>
+<span class="n">sphere_emitter</span><span class="o">-&gt;</span><span class="n">set_radius</span><span class="p">(</span><span class="mf">3.0</span><span class="p">);</span>
+<span class="c1">// negative values emit the particles toward the sphere center</span>
+<span class="n">sphere_emitter</span><span class="o">-&gt;</span><span class="n">set_amplitude</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="n">sphere_emitter</span><span class="o">-&gt;</span><span class="n">set_amplitude_spread</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="n">sphere_emitter</span><span class="o">-&gt;</span><span class="n">set_offset_force</span><span class="p">(</span><span class="n">LVector3f</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">));</span>
+<span class="n">sphere_emitter</span><span class="o">-&gt;</span><span class="n">set_explicit_launch_vector</span><span class="p">(</span><span class="n">LVector3f</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">));</span>
+<span class="n">sphere_emitter</span><span class="o">-&gt;</span><span class="n">set_radiate_origin</span><span class="p">(</span><span class="n">LPoint3f</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="renderer">
+<h2>Renderer:<a class="headerlink" href="#renderer" title="Permalink to this headline">¶</a></h2>
+<p>The renderer is used to specify how the particle appears on screen.</p>
+<div class="section" id="available-renderers">
+<h3>Available renderers:<a class="headerlink" href="#available-renderers" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>GeomParticleRenderer: displays each particle on the shape of a selected
+PandaNode</li>
+<li>LineParticleRenderer: displays each particle as a line</li>
+<li>PointParticleRenderer: displays each particle as a point</li>
+<li>SparkleParticleRenderer displayes each particle as a plus (+)</li>
+<li>SpriteParticleRenderer: &nbsp;displays each particle as a sprite</li>
+</ul>
+<p>Each renderer is declared in a separate .h file with the same name as the
+renderer. For example: GeomParticleRenderer is declared in
+geomParticleRenderer.h [Sample]</p>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">PT</span><span class="p">(</span><span class="n">PointParticleRenderer</span><span class="p">)</span> <span class="n">pt_particle_rend</span> <span class="o">=</span> <span class="k">new</span> <span class="n">PointParticleRenderer</span><span class="p">();</span>
+<span class="n">pt_particle_rend</span><span class="o">-&gt;</span><span class="n">set_alpha_mode</span><span class="p">(</span><span class="n">BaseParticleRenderer</span><span class="o">::</span><span class="n">PR_ALPHA_OUT</span><span class="p">);</span>
+<span class="n">pt_particle_rend</span><span class="o">-&gt;</span><span class="n">set_user_alpha</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="n">pt_particle_rend</span><span class="o">-&gt;</span><span class="n">set_point_size</span><span class="p">(</span><span class="mf">2.0</span><span class="p">);</span>
+<span class="n">pt_particle_rend</span><span class="o">-&gt;</span><span class="n">set_start_color</span><span class="p">(</span><span class="n">Colorf</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">));</span> <span class="c1">// alpha value is ignored</span>
+<span class="n">pt_particle_rend</span><span class="o">-&gt;</span><span class="n">set_end_color</span><span class="p">(</span><span class="n">Colorf</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">));</span>
+<span class="n">pt_particle_rend</span><span class="o">-&gt;</span><span class="n">set_blend_type</span><span class="p">(</span><span class="n">PointParticleRenderer</span><span class="o">::</span><span class="n">PointParticleBlendType</span><span class="o">::</span><span class="n">PP_BLEND_LIFE</span><span class="p">);</span>
+<span class="n">pt_particle_rend</span><span class="o">-&gt;</span><span class="n">set_blend_method</span><span class="p">(</span><span class="n">BaseParticleRenderer</span><span class="o">::</span><span class="n">ParticleRendererBlendMethod</span><span class="o">::</span><span class="n">PP_BLEND_LINEAR</span><span class="p">);</span>
+<span class="c1">//pt_particle_rend-&gt;set_color_blend_mode(ColorBlendAttrib::Mode::M_inv_subtract);</span>
+<span class="c1">//pt_particle_rend-&gt;set_ignore_scale(false);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="particlesystem">
+<h2>ParticleSystem:<a class="headerlink" href="#particlesystem" title="Permalink to this headline">¶</a></h2>
+<p>This class is the controller of the particle system. &nbsp;The main parameters are:</p>
+<ul class="simple">
+<li>Pool Size: the maximum number of particles the factory can generate Birth
+Rate: number of seconds between particle births, also it is the time after
+which the first birth occurs. So if the value is 6 the first litter will be
+born after 6 seconds.</li>
+<li>Litter Size: number of particles created at each birth. If you want all the
+particles to be born at the same time, set this value to the value of (Pool
+Size) Litter Spread: this adds a random value in the range [-spread,
++spread] to the value of Litter Size.</li>
+<li>Lifespan: &nbsp;number of seconds the system will live.</li>
+<li>System Grows Older: this flag must be set for the Lifespan value to be
+used. It&#8217;s very important to remember that particle systems which reach the
+end of their lifespan are automatically removed from the
+ParticleSystemManager and if you want to reuse them, they should be added
+to the ParticleSystemManager again.</li>
+</ul>
+<p>[Sample]</p>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">PT</span><span class="p">(</span><span class="n">ParticleSystem</span><span class="p">)</span> <span class="n">particle_sys</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ParticleSystem</span><span class="p">();</span>
+<span class="n">particle_sys</span><span class="o">-&gt;</span><span class="n">set_pool_size</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
+<span class="n">particle_sys</span><span class="o">-&gt;</span><span class="n">set_birth_rate</span><span class="p">(</span><span class="mf">0.1</span><span class="p">);</span>
+<span class="n">particle_sys</span><span class="o">-&gt;</span><span class="n">set_litter_size</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+<span class="n">particle_sys</span><span class="o">-&gt;</span><span class="n">set_litter_spread</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="n">particle_sys</span><span class="o">-&gt;</span><span class="n">set_local_velocity_flag</span><span class="p">(</span><span class="nb">true</span><span class="p">);</span>
+<span class="c1">//particle_sys-&gt;set_spawn_on_death_flag(true); // this caused an exception!!</span>
+<span class="n">particle_sys</span><span class="o">-&gt;</span><span class="n">set_system_grows_older_flag</span><span class="p">(</span><span class="nb">true</span><span class="p">);</span>
+<span class="n">particle_sys</span><span class="o">-&gt;</span><span class="n">set_system_lifespan</span><span class="p">(</span><span class="mf">3.0</span><span class="p">);</span>
+<span class="n">particle_sys</span><span class="o">-&gt;</span><span class="n">set_active_system_flag</span><span class="p">(</span><span class="nb">true</span><span class="p">);</span>
+<span class="c1">// use it to advance system age, or start at some age</span>
+<span class="c1">//particle_sys-&gt;set_system_age(5.0);</span>
+<span class="c1">// system_age is updated only when set_system_grows_older_flag(true);</span>
+<span class="c1">// get_system_age() returns 0 unless system_grows_older_flag is set</span>
+</pre></div>
+</div>
+<p>The particle
+factory, emitter and renderer should be attached to the ParticleSystem and
+most important the render node should be set.</p>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">particle_sys</span><span class="o">-&gt;</span><span class="n">set_factory</span><span class="p">(</span><span class="n">pt_particle_factory</span><span class="p">);</span>
+<span class="n">particle_sys</span><span class="o">-&gt;</span><span class="n">set_renderer</span><span class="p">(</span><span class="n">pt_particle_rend</span><span class="p">);</span>
+<span class="n">particle_sys</span><span class="o">-&gt;</span><span class="n">set_emitter</span><span class="p">(</span><span class="n">sphere_emitter</span><span class="p">);</span>
+<span class="c1">// if spawn and render parents should be different</span>
+<span class="c1">//particle_sys-&gt;set_spawn_render_node_path(window-&gt;get_render());</span>
+<span class="n">particle_sys</span><span class="o">-&gt;</span><span class="n">set_render_parent</span><span class="p">(</span><span class="n">window</span><span class="o">-&gt;</span><span class="n">get_render</span><span class="p">());</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="particlesystemmanager">
+<h2>ParticleSystemManager:<a class="headerlink" href="#particlesystemmanager" title="Permalink to this headline">¶</a></h2>
+<p>This class is responsible for simplifying control of particle systems. Instead
+of stepping each particle system in the scene they are all added to the
+ParticleSystemManager and they can be all stepped using a single command or
+they can be stepped individually. This class is not count referenced so PT()
+and CPT() should not be used with it. To attach a particle system to the
+manager:</p>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">particle_sys_mgr</span><span class="p">.</span><span class="n">attach_particlesystem</span><span class="p">(</span><span class="n">particle_sys</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>To step all the
+particle systems:</p>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">particle_sys_mgr</span><span class="p">.</span><span class="n">do_particles</span><span class="p">(</span><span class="n">ClockObject</span><span class="o">::</span><span class="n">get_global_clock</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">get_dt</span><span class="p">());</span>
+</pre></div>
+</div>
+<p>To
+step a specific particle
+system:</p>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">particle_sys_mgr</span><span class="p">.</span><span class="n">do_particles</span><span class="p">(</span><span class="n">ClockObject</span><span class="o">::</span><span class="n">get_global_clock</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">get_dt</span><span class="p">(),</span>
+<span class="n">particle_sys</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>NOTE: particle
+systems which reach the end of their lifespan are automatically removed from
+the ParticleSystemManager and if you want to reuse them, they should be added
+to the ParticleSystemManager again.</p>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="using-the-particle-panel.html">Using the Particle Panel</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="using-the-particle-panel.html#incomplete-section">Incomplete Section</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="loading-particle-systems.html">Loading Particle Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="particle-effect-basic-parameters.html">Particle Effect Basic Parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="particle-factories.html">Particle Factories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="particle-emitters.html">Particle Emitters</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="particle-emitters.html#boxemitter">BoxEmitter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="particle-emitters.html#discemitter">DiscEmitter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="particle-emitters.html#pointemitter">PointEmitter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="particle-emitters.html#rectangleemitter">RectangleEmitter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="particle-emitters.html#ringemitter">RingEmitter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="particle-emitters.html#spheresurfaceemitter">SphereSurfaceEmitter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="particle-emitters.html#spherevolumeemitter">SphereVolumeEmitter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="particle-emitters.html#tangentringemitter">TangentRingEmitter</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="particle-renderers.html">Particle Renderers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="particle-renderers.html#pointparticlerenderer">PointParticleRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="particle-renderers.html#lineparticlerenderer">LineParticleRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="particle-renderers.html#sparkleparticlerenderer">SparkleParticleRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="particle-renderers.html#spriteparticlerenderer">SpriteParticleRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="particle-renderers.html#geomparticlerenderer">GeomParticleRenderer</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="using-the-particle-panel.html" class="btn btn-neutral float-right" title="Using the Particle Panel" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../panda3d-utility-functions.html" class="btn btn-neutral" title="Panda3D Utility Functions" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Panda3D.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.10.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

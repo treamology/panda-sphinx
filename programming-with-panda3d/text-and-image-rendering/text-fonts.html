@@ -1,0 +1,397 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Text Fonts &mdash; Panda3D Manual</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Panda3D Manual" href="../../index.html"/>
+        <link rel="up" title="Text and Image Rendering" href="index.html"/>
+        <link rel="next" title="Text Node" href="text-node.html"/>
+        <link rel="prev" title="Text and Image Rendering" href="index.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Panda3D
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.10
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../intro/index.html">Introduction to Panda3D</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Programming with Panda3D</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../the-scene-graph/index.html">The Scene Graph</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../the-configuration-file/index.html">The Configuration File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../models-and-actors/index.html">Models and Actors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-attributes/index.html">Render Attributes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../texturing/index.html">Texturing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shaders/index.html">Shaders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../camera-control/index.html">Camera Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sound/index.html">Sound</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intervals/index.html">Intervals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks-and-event-handling/index.html">Tasks and Event Handling</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Text and Image Rendering</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Text Fonts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="text-node.html">Text Node</a></li>
+<li class="toctree-l3"><a class="reference internal" href="onscreentext.html">OnscreenText</a></li>
+<li class="toctree-l3"><a class="reference internal" href="onscreenimage.html">OnscreenImage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="embedded-text-properties.html">Embedded Text Properties</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../directgui/index.html">DirectGUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-effects/index.html">Render Effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../finite-state-machines/index.html">Finite State Machines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../terrain/index.html">Terrain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internal-structures/index.html">Advanced operations with Panda3D&#8217;s internal structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-to-texture-and-image-postprocessing/index.html">Render-to-Texture and Image Postprocessing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../panda3d-rendering-process/index.html">Panda3D Rendering Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../panda3d-utility-functions.html">Panda3D Utility Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../particle-effects/index.html">Particle Effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../collision-detection/index.html">Collision Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../garbage-collection/index.html">Garbage Collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hardware-support/index.html">Hardware support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../math-engine/index.html">Math Engine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../motion-paths.html">Motion Paths</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../timing/index.html">Timing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../networking/index.html">Networking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../multifiles/index.html">Multifiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../showbase.html">ShowBase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../file-reading.html">File Reading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../threading.html">Threading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../subclassing.html">Subclassing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../table-of-features-supported-per-graphic-renderer.html">Table of features supported per graphic renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pandai/index.html">Artificial Intelligence (PANDAI)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../distribution/index.html">Distributing Panda3D Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../samples/index.html">Sample Programs in the Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../debugging/index.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../performance-tuning/index.html">Performance Tuning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../using-c++/index.html">Using C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/index.html">Panda3D Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../building-from-source.html">Building Panda3D from Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cheat-sheets.html">Cheat Sheets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started-on-osx.html">Getting Started on OSX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../more-panda3d-resources.html">More Panda3D Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../thirdparty-licenses.html">Third-party dependencies and license info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../the-irc-channel.html">The IRC Channel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">FAQ</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Panda3D</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Programming with Panda3D</a> &raquo;</li>
+      
+          <li><a href="index.html">Text and Image Rendering</a> &raquo;</li>
+      
+    <li>Text Fonts</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/programming-with-panda3d/text-and-image-rendering/text-fonts.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="text-fonts">
+<span id="id1"></span><h1>Text Fonts<a class="headerlink" href="#text-fonts" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="loading-a-font">
+<h2>Loading a Font<a class="headerlink" href="#loading-a-font" title="Permalink to this headline">¶</a></h2>
+<p>Panda3D can render text using a variety of fonts. If your version of Panda3D
+has been compiled with support for the FreeType library (the default
+distribution of Panda3D has been), then you can load any TTF file, or any
+other font file type that is supported by FreeType, directly:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">font</span> <span class="o">=</span> <span class="n">loader</span><span class="o">.</span><span class="n">loadFont</span><span class="p">(</span><span class="s1">&#39;arial.ttf&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">PT</span><span class="p">(</span><span class="n">TextFont</span><span class="p">)</span> <span class="n">font</span><span class="o">=</span><span class="n">FontPool</span><span class="o">::</span><span class="n">load_font</span><span class="p">(</span><span class="s">&quot;arial.ttf&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>The named file is searched for along the model-path, just like a regular egg
+file. You can also give the full path to the font file if you prefer (but
+remember to observe the :ref:` &lt;loading-models&gt;`).</p>
+<p>It is also possible to pre-generate a font with the egg-mkfont command-line
+utility:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">egg</span><span class="o">-</span><span class="n">mkfont</span> <span class="o">-</span><span class="n">o</span> <span class="n">arial</span><span class="o">.</span><span class="n">egg</span> <span class="n">arial</span><span class="o">.</span><span class="n">ttf</span>
+</pre></div>
+</div>
+<p>This will generate an egg file (arial.egg in the above example) and an
+associated texture file that can then be loaded as if it were a font:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">font</span> <span class="o">=</span> <span class="n">loader</span><span class="o">.</span><span class="n">loadFont</span><span class="p">(</span><span class="s1">&#39;arial.egg&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">PT</span><span class="p">(</span><span class="n">TextFont</span><span class="p">)</span> <span class="n">font</span><span class="o">=</span><span class="n">FontPool</span><span class="o">::</span><span class="n">load_font</span><span class="p">(</span><span class="s">&quot;arial.egg&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>There are several options you can specify to the egg-mkfont utility; use
+&#8220;egg-mkfont -h&#8221; to give a list.</p>
+<p>For example, to generate a font file with foo.png as the texture, instead of
+the default foo.rgb do the following:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">egg</span><span class="o">-</span><span class="n">mkfont</span> <span class="o">-</span><span class="n">pp</span> <span class="n">foo</span><span class="o">.</span><span class="n">png</span> <span class="o">-</span><span class="n">o</span> <span class="n">foo</span><span class="o">.</span><span class="n">egg</span> <span class="n">foo</span><span class="o">.</span><span class="n">ttf</span>
+</pre></div>
+</div>
+<p>The advantages to pre-generating a font are (a) the resulting egg file can be
+used by a version of Panda that does not include support for FreeType, and (b)
+you can apply some painterly effects to the generated texture image using
+Photoshop or a similar program (note that you&#8217;ll need to open the egg file in
+a text editor and change the &lt;Texture&gt; entry to replace &#8220;alpha&#8221; with
+&#8220;rgba&#8221;, otherwise the font will appear grayscale). On the other hand, you have
+to decide ahead of time which characters you will want to use from the font;
+the default is the set of ASCII characters.</p>
+<p>There are three default font files supplied with the default distribution of
+Panda3D in the models subdirectory; these are &#8220;cmr12.egg&#8221;, a Roman font,
+&#8220;cmss12.egg&#8221;, a Sans-Serif font, and &#8220;cmtt12.egg&#8221;, a Teletypewriter-style
+fixed-width font. These three fonts were generated from free fonts provided
+with the Metafont utility (which is not a part of Panda3D). There is also a
+default font image which is compiled into Panda if you do not load any other
+font.</p>
+</div>
+<div class="section" id="font-quality">
+<h2>Font Quality<a class="headerlink" href="#font-quality" title="Permalink to this headline">¶</a></h2>
+<p>Occasionally, i.e. when displaying large characters and irrespective of the
+font used, the default font quality won&#8217;t be enough and the characters will
+show noticeable blurring, especially along curving edges. The way to overcome
+this is to set appropriately the <em>pixels per unit</em> value of the font object.
+This is done through the method setPixelPerUnit() of the class
+<a class="reference external" href="https://www.panda3d.org/reference/python/classpanda3d_1_1core_1_1DynamicTextFont.php">DynamicTextFont</a>,
+i.e.:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">font</span><span class="o">.</span><span class="n">setPixelsPerUnit</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">PT</span><span class="p">(</span><span class="n">TextFont</span><span class="p">)</span> <span class="n">font</span><span class="o">=</span><span class="n">FontPool</span><span class="o">::</span><span class="n">load_font</span><span class="p">(</span><span class="s">&quot;arial.ttf&quot;</span><span class="p">);</span>
+<span class="n">PT</span><span class="p">(</span><span class="n">DynamicTextFont</span><span class="p">)</span> <span class="n">dfont</span><span class="o">=</span><span class="n">DCAST</span><span class="p">(</span><span class="n">DynamicTextFont</span><span class="p">,</span> <span class="n">font</span><span class="p">);</span>
+<span class="n">dfont</span><span class="o">-&gt;</span><span class="n">set_pixels_per_unit</span><span class="p">(</span><span class="mi">60</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Notice that this method is only available with DynamicTextFont objects. These
+are the objects created when loading FreeType-compatible fonts such as TTF
+files. In these cases the font file is loaded into memory and characters are
+rasterized and mapped onto a polygon as the need arises. Changes to the font
+object (such as resetting the pixels per unit value) will regenerate the
+textures for all characters that have been generated so far, a small price to
+pay for the flexibility of a dynamic font. When a font is loaded from an egg
+file instead, the returned object is a
+<a class="reference external" href="https://www.panda3d.org/reference/python/classpanda3d_1_1core_1_1.php">StaticTextFont</a>
+that provides a much restricted functionality. Effectively these kind of egg
+files are &#8220;frozen&#8221; fonts: their characters have been permanently rendered into
+a texture and cannot be easily changed from inside your application.</p>
+<p>Panda3D defaults to 40 pixels per unit and this is sufficient for small to
+normal sized on screen text. Should you wish to use higher values and if you
+experience crashes (this issue should disappear with Panda3D 1.6.3), you might
+need to increase the page size, normally set to 256 pixels in height and
+width. To do so you can use the method <strong>setPageSize(width, height)</strong>, i.e:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">font</span><span class="o">.</span><span class="n">setPageSize</span><span class="p">(</span><span class="mi">512</span><span class="p">,</span><span class="mi">512</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">dfont</span><span class="o">-&gt;</span><span class="n">set_page_size</span><span class="p">(</span><span class="mi">512</span><span class="p">,</span><span class="mi">512</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Beware however that this increases the size of the texture for each character,
+hence increasing memory consumption. I.e. all else being equal a page size of
+256x256 (the default) will use a quarter of the memory used with a page size
+of 512x512 and 1/16th of the memory used by a page size of 1024x1024.</p>
+</div>
+<div class="section" id="alternative-render-modes">
+<h2>Alternative Render Modes<a class="headerlink" href="#alternative-render-modes" title="Permalink to this headline">¶</a></h2>
+<p>Fonts loaded through the FreeType library (resulting in a DynamicTextFont
+object) are normally rasterized into textures and mapped onto polygons, due to
+the default Render Mode being set to
+&#8216;&#8217;&#8216;</p>
+<p>TextFont.RMTexture</p>
+<p>TextFont::RM_texture</p>
+<p>&#8216;&#8217;&#8216;. The render mode
+however changed using the method <strong>setRenderMode()</strong>, to allow for radically
+different generated characters. For example, the following statement ensures
+that generated characters will be fully three-dimensional, thick, polygonal
+characters.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">font</span><span class="o">.</span><span class="n">setRenderMode</span><span class="p">(</span><span class="n">TextFont</span><span class="o">.</span><span class="n">RMSolid</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">dfont</span><span class="o">-&gt;</span><span class="n">set_render_mode</span><span class="p">(</span><span class="n">TexFont</span><span class="o">::</span><span class="n">RM_solid</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Other available modes are TextFont.RMWireframe, generating characters as
+polylines, TextFont.RMPolygon, generating characters as flat polygonal
+objects, and TextFont.RMExtruded, generating characters as extruded polygonal
+surfaces.</p>
+<p>Other available modes are TextFont::RM_wireframe, generating characters as
+polylines, TextFont::RM_polygon, generating characters as flat polygonal
+objects, and TextFont::RM_extruded, generating characters as extruded
+polygonal surfaces.</p>
+<p><strong>WARNING</strong>: at the time of the writing and with very few exceptions, nearly
+all tested TTF fonts available on Vista were compatible with the RMTexture
+render mode. However, many of the same fonts would crash the application if
+set to a different render mode such as TextFont.RMSolid. (Bug Report
+<a class="reference external" href="https://bugs.launchpad.net/panda3d/+bug/383251">#383251</a>)</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="text-node.html" class="btn btn-neutral float-right" title="Text Node" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Text and Image Rendering" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Panda3D.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.10.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

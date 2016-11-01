@@ -1,0 +1,345 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>List of All Attributes &mdash; Panda3D Manual</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Panda3D Manual" href="../../index.html"/>
+        <link rel="up" title="Render Attributes" href="index.html"/>
+        <link rel="next" title="Lighting" href="lighting.html"/>
+        <link rel="prev" title="Render Attributes" href="index.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Panda3D
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.10
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../intro/index.html">Introduction to Panda3D</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Programming with Panda3D</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../the-scene-graph/index.html">The Scene Graph</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../the-configuration-file/index.html">The Configuration File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../models-and-actors/index.html">Models and Actors</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Render Attributes</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">List of All Attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lighting.html">Lighting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="materials.html">Materials</a></li>
+<li class="toctree-l3"><a class="reference internal" href="depth-test-and-depth-write.html">Depth Test and Depth Write</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fog.html">Fog</a></li>
+<li class="toctree-l3"><a class="reference internal" href="alpha-testing.html">Alpha Testing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="color-write-masks.html">Color Write Masks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="antialiasing.html">Antialiasing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="clip-planes.html">Clip Planes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tinting-and-recoloring.html">Tinting and Recoloring</a></li>
+<li class="toctree-l3"><a class="reference internal" href="backface-culling-and-frontface-culling.html">Backface Culling and Frontface Culling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="occlusion-culling/index.html">Occlusion Culling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="light-ramps.html">Light Ramps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="auxiliary-bitplane-control.html">Auxiliary Bitplane Control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="stencil-attribute.html">Stencil Test/Write Attribute</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../texturing/index.html">Texturing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shaders/index.html">Shaders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../camera-control/index.html">Camera Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sound/index.html">Sound</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intervals/index.html">Intervals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks-and-event-handling/index.html">Tasks and Event Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../text-and-image-rendering/index.html">Text and Image Rendering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../directgui/index.html">DirectGUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-effects/index.html">Render Effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../finite-state-machines/index.html">Finite State Machines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../terrain/index.html">Terrain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internal-structures/index.html">Advanced operations with Panda3D&#8217;s internal structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-to-texture-and-image-postprocessing/index.html">Render-to-Texture and Image Postprocessing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../panda3d-rendering-process/index.html">Panda3D Rendering Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../panda3d-utility-functions.html">Panda3D Utility Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../particle-effects/index.html">Particle Effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../collision-detection/index.html">Collision Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../garbage-collection/index.html">Garbage Collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hardware-support/index.html">Hardware support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../math-engine/index.html">Math Engine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../motion-paths.html">Motion Paths</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../timing/index.html">Timing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../networking/index.html">Networking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../multifiles/index.html">Multifiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../showbase.html">ShowBase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../file-reading.html">File Reading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../threading.html">Threading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../subclassing.html">Subclassing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../table-of-features-supported-per-graphic-renderer.html">Table of features supported per graphic renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pandai/index.html">Artificial Intelligence (PANDAI)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../distribution/index.html">Distributing Panda3D Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../samples/index.html">Sample Programs in the Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../debugging/index.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../performance-tuning/index.html">Performance Tuning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../using-c++/index.html">Using C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/index.html">Panda3D Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../building-from-source.html">Building Panda3D from Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cheat-sheets.html">Cheat Sheets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started-on-osx.html">Getting Started on OSX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../more-panda3d-resources.html">More Panda3D Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../thirdparty-licenses.html">Third-party dependencies and license info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../the-irc-channel.html">The IRC Channel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">FAQ</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Panda3D</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Programming with Panda3D</a> &raquo;</li>
+      
+          <li><a href="index.html">Render Attributes</a> &raquo;</li>
+      
+    <li>List of All Attributes</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/programming-with-panda3d/render-attributes/list-of-all-attributes.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="list-of-all-attributes">
+<span id="id1"></span><h1>List of All Attributes<a class="headerlink" href="#list-of-all-attributes" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id2">
+<h2>List of All Attributes<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>The following is a concise list of all the RenderAttribs supported by Panda3D.
+Additional documentation can be found by clicking on the name of the
+RenderAttrib.</p>
+<ul class="simple">
+<li>:ref:` &lt;alpha-testing&gt;`: Hides part of the model, based on the texture&#8217;s
+alpha channel.</li>
+<li>:ref:` &lt;antialiasing&gt;`: Controls full-screen antialiasing and polygon-edge
+antialiasing.</li>
+<li>:ref:<a href="#id3"><span class="problematic" id="id4">``</span></a>: Applies a scale to audio volume for positional sounds.</li>
+<li>:ref:` &lt;auxiliary-bitplane-control&gt;`: Causes shader generator to produce
+extra data.</li>
+<li>:ref:` &lt;clip-planes&gt;`: Slices off a piece of the model, using a clipping
+plane.</li>
+<li>:ref:` &lt;tinting-and-recoloring&gt;`: Tints the model. Only works if the model
+is not illuminated.</li>
+<li>:ref:` &lt;transparency-and-blending&gt;`: This specifies how colors are blended
+into the frame buffer, for special effects.</li>
+<li>:ref:` &lt;tinting-and-recoloring&gt;`: Modulates vertex colors with a flat
+color.</li>
+<li>:ref:` &lt;color-write-masks&gt;`: Causes the model to not affect the R, G, B, or
+A channel of the framebuffer.</li>
+<li>CullBinAttrib: Controls the order in which Panda renders geometry.</li>
+<li>:ref:` &lt;backface-culling-and-frontface-culling&gt;`: Causes backfaces or
+frontfaces of the model to be visible.</li>
+<li>DepthOffsetAttrib: Causes the Z-buffer to treat the object as if it were
+closer or farther.</li>
+<li>:ref:` &lt;depth-test-and-depth-write&gt;`: Alters the way the Z-buffer affects
+the model.</li>
+<li>:ref:` &lt;depth-test-and-depth-write&gt;`: Controls whether or not the model
+affects the Z-buffer.</li>
+<li>:ref:` &lt;fog&gt;`: Causes the model to be obscured by fog if it is far from the
+camera.</li>
+<li>:ref:` &lt;lighting&gt;`: Causes the model to be illuminated by certain lights.</li>
+<li>:ref:` &lt;light-ramps&gt;`: Enables HDR tone mapping or cartoon shading.</li>
+<li>:ref:` &lt;materials&gt;`: Changes the way the model reflects light.</li>
+<li>RenderModeAttrib: Used to enable wireframe rendering.</li>
+<li>RescaleNormalAttrib: Can disable the automatic correction of non-unit
+normals.</li>
+<li>ShadeModelAttrib: Can cause the model to appear faceted instead of smooth.</li>
+<li>:ref:` &lt;shaders&gt;`: Gives almost unlimited control, but difficult to use.</li>
+<li>:ref:` &lt;stencil-attribute&gt;`: Causes the model to affect the stencil buffer,
+or be affected by the stencil buffer.</li>
+<li>:ref:` &lt;automatic-texture-coordinates&gt;`: Causes the system to synthesize
+texture coordinates for the model.</li>
+<li>:ref:` &lt;texture-transforms&gt;`: Alters the existing texture coordinates.</li>
+<li>:ref:` &lt;texturing&gt;`: Applies a texture map to the model.</li>
+<li>:ref:` &lt;transparency-and-blending&gt;`: Causes the model to be partially
+transparent.</li>
+</ul>
+</div>
+<div class="section" id="undocumented">
+<h2>Undocumented<a class="headerlink" href="#undocumented" title="Permalink to this headline">¶</a></h2>
+<p>Unfortunately, the Panda3D manual is still a work in progress: there are many
+aspects of it that are not fully documented yet. These attributes are not yet
+documented:</p>
+<p>AudioVolumeAttrib, CullBinAttrib, DepthOffsetAttrib, RenderModeAttrib,
+RescaleNormalAttrib, ShadeModelAttrib</p>
+<p>However, although the manual does not document these classes, the
+<a class="reference external" href="https://www.panda3d.org/apiref.php?page=classes">Reference</a> documentation
+does.</p>
+</div>
+<div class="section" id="incomplete-section">
+<h2>Incomplete Section<a class="headerlink" href="#incomplete-section" title="Permalink to this headline">¶</a></h2>
+<p>Note: this section is incomplete. It will be updated soon.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="lighting.html" class="btn btn-neutral float-right" title="Lighting" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Render Attributes" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Panda3D.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.10.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

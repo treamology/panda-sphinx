@@ -1,0 +1,447 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Threading &mdash; Panda3D Manual</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Panda3D Manual" href="../index.html"/>
+        <link rel="up" title="Programming with Panda3D" href="index.html"/>
+        <link rel="next" title="Subclassing" href="subclassing.html"/>
+        <link rel="prev" title="File Reading" href="file-reading.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Panda3D
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.10
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../intro/index.html">Introduction to Panda3D</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Programming with Panda3D</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="the-scene-graph/index.html">The Scene Graph</a></li>
+<li class="toctree-l2"><a class="reference internal" href="the-configuration-file/index.html">The Configuration File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="models-and-actors/index.html">Models and Actors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="render-attributes/index.html">Render Attributes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="texturing/index.html">Texturing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shaders/index.html">Shaders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="camera-control/index.html">Camera Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sound/index.html">Sound</a></li>
+<li class="toctree-l2"><a class="reference internal" href="intervals/index.html">Intervals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tasks-and-event-handling/index.html">Tasks and Event Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="text-and-image-rendering/index.html">Text and Image Rendering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="directgui/index.html">DirectGUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="render-effects/index.html">Render Effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="finite-state-machines/index.html">Finite State Machines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="terrain/index.html">Terrain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="internal-structures/index.html">Advanced operations with Panda3D&#8217;s internal structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="render-to-texture-and-image-postprocessing/index.html">Render-to-Texture and Image Postprocessing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="panda3d-rendering-process/index.html">Panda3D Rendering Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="panda3d-utility-functions.html">Panda3D Utility Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="particle-effects/index.html">Particle Effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="collision-detection/index.html">Collision Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garbage-collection/index.html">Garbage Collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hardware-support/index.html">Hardware support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="math-engine/index.html">Math Engine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="motion-paths.html">Motion Paths</a></li>
+<li class="toctree-l2"><a class="reference internal" href="timing/index.html">Timing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="networking/index.html">Networking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multifiles/index.html">Multifiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="showbase.html">ShowBase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="file-reading.html">File Reading</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Threading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="subclassing.html">Subclassing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="table-of-features-supported-per-graphic-renderer.html">Table of features supported per graphic renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pandai/index.html">Artificial Intelligence (PANDAI)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../distribution/index.html">Distributing Panda3D Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../samples/index.html">Sample Programs in the Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../debugging/index.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../performance-tuning/index.html">Performance Tuning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using-c++/index.html">Using C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tools/index.html">Panda3D Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../building-from-source.html">Building Panda3D from Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cheat-sheets.html">Cheat Sheets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started-on-osx.html">Getting Started on OSX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../more-panda3d-resources.html">More Panda3D Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../thirdparty-licenses.html">Third-party dependencies and license info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../the-irc-channel.html">The IRC Channel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">FAQ</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Panda3D</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="index.html">Programming with Panda3D</a> &raquo;</li>
+      
+    <li>Threading</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/programming-with-panda3d/threading.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="threading">
+<span id="id1"></span><h1>Threading<a class="headerlink" href="#threading" title="Permalink to this headline">¶</a></h1>
+<p><strong>Note:</strong> In versions 1.6.0 and above, Panda3D provides a safe threading
+interface you can use, which works very similar to Python&#8217;s threading modules.
+Beginning in version 1.8.0, Panda3D is compiled by default to use &#8220;true&#8221;
+threading, which makes it safe to use Python threading interfaces (or any
+other threading library) in conjunction with or in lieu of Panda&#8217;s own
+built-in threading interfaces described below.</p>
+<p>If you want to test whether threading is enabled in your build of panda, use
+the following program:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">panda3d.core</span> <span class="kn">import</span> <span class="n">Thread</span>
+<span class="k">print</span> <span class="n">Thread</span><span class="o">.</span><span class="n">isThreadingSupported</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&quot;thread.h&quot;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="n">cerr</span> <span class="o">&lt;&lt;</span> <span class="n">Thread</span><span class="o">::</span><span class="n">is_threading_supported</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>If threading is enabled, it&#8217;s also possible to turn it off, for example if you
+want to test if a certain problem you are experiencing is related to
+threading. Put this in your :ref:` &lt;configuring-panda3d&gt;`:</p>
+<div class="highlight-text"><div class="highlight"><pre><span></span>support-threads #f
+</pre></div>
+</div>
+<div class="section" id="asynchronous-operations">
+<h2>Asynchronous Operations<a class="headerlink" href="#asynchronous-operations" title="Permalink to this headline">¶</a></h2>
+<p>Panda3D provides several useful functions for loading models and doing other
+expensive operations in a thread, so the user of your application will not
+notice chugs in the frame rate.</p>
+<div class="section" id="model-loading">
+<h3>Model loading<a class="headerlink" href="#model-loading" title="Permalink to this headline">¶</a></h3>
+<p>For example, <code class="docutils literal"><span class="pre">loader.loadModel</span></code> call also
+accepts an optional &#8216;callback&#8217; argument. If callback is not None, then the
+model load will be performed asynchronously. In this case,
+<code class="docutils literal"><span class="pre">loadModel()</span></code> will initiate a
+background load and return immediately. The return value will be an object
+that may later be passed to
+<code class="docutils literal"><span class="pre">loader.cancelRequest()</span></code> to cancel the
+asynchronous request. At some later point, when the requested model(s) have
+finished loading, the callback function will be invoked with the n loaded
+models passed as its parameter list. It is possible that the callback will be
+invoked immediately, even before
+<code class="docutils literal"><span class="pre">loadModel()</span></code> returns. If you use
+callback, you may also specify a priority, which specifies the relative
+importance over this model over all of the other asynchronous load requests
+(higher numbers are loaded first).</p>
+<p>True asynchronous model loading requires Panda to have been compiled with
+threading support enabled. In the absence of threading support, the
+asynchronous interface still exists and still behaves exactly as described,
+except that <code class="docutils literal"><span class="pre">loadModel()</span></code> might not
+return immediately.</p>
+</div>
+<div class="section" id="model-flattening">
+<h3>Model flattening<a class="headerlink" href="#model-flattening" title="Permalink to this headline">¶</a></h3>
+<p>Similarly, there is <code class="docutils literal"><span class="pre">loader.asyncFlattenStrong</span></code>.
+This performs a <code class="docutils literal"><span class="pre">model.flattenStrong()</span></code>
+operation in a sub-thread (if threading is compiled into Panda). The model may
+be a single NodePath, or it may be a list of NodePaths.</p>
+<p>Each model is duplicated and flattened in the sub-thread. If the optional
+<code class="docutils literal"><span class="pre">inPlace</span></code> parameter is True, then
+when the flatten operation completes, the newly flattened copies are
+automatically dropped into the scene graph, in place the original models.</p>
+<p>If a callback is specified, then it is called after the operation is finished,
+receiving the flattened model (or a list of flattened models).</p>
+<p>The <code class="docutils literal"><span class="pre">loader.cancelRequest()</span></code> method works for
+asyncFlattenStrong as well.</p>
+</div>
+<div class="section" id="texture-uploading">
+<h3>Texture uploading<a class="headerlink" href="#texture-uploading" title="Permalink to this headline">¶</a></h3>
+<p>In addition, you can further ask textures to be loaded to the graphics card
+asynchronously. This means that the first time you look at a particular model,
+the texture might not be available; but instead of holding up the frame while
+we wait for it to be loaded, Panda can render the model immediately, with a
+flat color instead of the texture; and start the texture loading in the
+background. When the texture is eventually loaded, it will be applied. This
+results in fewer frame-rate chugs, but it means that the model looks a little
+weird at first. It has the greatest advantage when you are using lazy-load
+textures as well as texture compression, because it means these things will
+happen in the background. You will need these configuration options to enable
+this behavior:</p>
+<div class="highlight-text"><div class="highlight"><pre><span></span>preload-textures 0
+preload-simple-textures 1
+texture-compression 1
+allow-incomplete-render 1
+</pre></div>
+</div>
+</div>
+<div class="section" id="animation-loading">
+<h3>Animation loading<a class="headerlink" href="#animation-loading" title="Permalink to this headline">¶</a></h3>
+<p>A similar behavior can be enabled for Actors, so that when you have an Actor
+with a large number of animations (too many to preload them all at once), you
+can have the Actor load them on-demand, so that when you play an animation,
+the animation may not start playing immediately, but will instead be loaded in
+the background. Until it is ready, the actor will hold its last pose, and then
+when the animation is fully loaded, the actor will start playing where it
+would have been had the animation been loaded from the beginning. To make this
+work, you have to run all of the animations through
+<code class="docutils literal"><span class="pre">egg-optchar</span></code> with the
+<code class="docutils literal"><span class="pre">-preload</span></code> option, and you might
+also want to set:</p>
+<div class="highlight-text"><div class="highlight"><pre><span></span>allow-async-bind 1
+restore-initial-pose 0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id2">
+<h2>Threading<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>If you want to use threading with Panda3D, it&#8217;s not recommended to use
+Python&#8217;s built-in threading modules, since you will most likely run into
+issues (for Panda3D is written in C++ and thus does not use the Python
+threading modules). However, Panda3D offers a threading implementation that is
+safe to use, by reimplementing Python&#8217;s &#8220;thread&#8221; and &#8220;threading&#8221; modules,
+these work the same as the Python built-in threading modules but are actually
+safe to use with Panda3D.</p>
+<p>You can get access to Panda3D&#8217;s implementation of Python&#8217;s &#8220;thread&#8221; module by
+importing the &#8220;thread&#8221; module from direct.stdpy:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># WRONG:</span>
+<span class="kn">import</span> <span class="nn">thread</span>
+<span class="c1"># RIGHT:</span>
+<span class="kn">from</span> <span class="nn">direct.stdpy</span> <span class="kn">import</span> <span class="n">thread</span>
+</pre></div>
+</div>
+<p>For the Python module &#8220;threading&#8221;, Panda3D offers two equivalents, &#8220;threading&#8221;
+and &#8220;threading2&#8221;, which you can find both in direct.stdpy also. The
+&#8220;threading&#8221; module implements the threading module with a thin layer over
+Panda&#8217;s threading constructs. As such, the semantics are close to, but not
+precisely, the semantics documented for Python&#8217;s standard threading module. If
+you really do require strict adherence to Python&#8217;s semantics, see the
+threading2 module instead.</p>
+<p>In fact, the threading2 module is a bald-face copy of Python&#8217;s threading
+module from Python 2.5, with a few lines at the top to import Panda&#8217;s thread
+reimplementation instead of the system thread module, and so it is therefore
+layered on top of Panda&#8217;s thread implementation.</p>
+<p>However, if you don&#8217;t need such strict adherence to Python&#8217;s original
+semantics, the &#8220;threading&#8221; module is probably a better choice. It is likely to
+be slightly faster than the threading2 module (and even slightly faster than
+Python&#8217;s own threading module). It is also better integrated with Panda&#8217;s
+threads, so that Panda&#8217;s thread debug mechanisms will be easier to use and
+understand.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># WRONG:</span>
+<span class="kn">import</span> <span class="nn">threading</span>
+<span class="c1"># RIGHT:</span>
+<span class="kn">from</span> <span class="nn">direct.stdpy</span> <span class="kn">import</span> <span class="n">threading</span>
+<span class="c1"># ALSO RIGHT:</span>
+<span class="kn">from</span> <span class="nn">direct.stdpy</span> <span class="kn">import</span> <span class="n">threading2</span> <span class="k">as</span> <span class="n">threading</span>
+</pre></div>
+</div>
+<p>It is permissible to mix-and-match both threading and threading2 within the
+same application.</p>
+</div>
+<div class="section" id="file-i-o">
+<h2>File I/O<a class="headerlink" href="#file-i-o" title="Permalink to this headline">¶</a></h2>
+<p>In versions 1.6.0 and above, Panda3D also offers a thread-safe replacement for
+the Python file module. You can find it in direct.stdpy.file. The interface is
+exactly the same as Python&#8217;s, so it&#8217;s safe to put this import above all the
+files where you want to use the &#8220;file&#8221; or &#8220;open&#8221; functions:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">direct.stdpy.file</span> <span class="kn">import</span> <span class="o">*</span>
+</pre></div>
+</div>
+<p>This module
+reimplements Python&#8217;s file I/O mechanisms using Panda constructs. This enables
+Python to interface more easily with Panda&#8217;s virtual file system, and it also
+better-supports Panda&#8217;s SIMPLE_THREADS model, by avoiding blocking all
+threads while waiting for I/O to complete.</p>
+</div>
+<div class="section" id="compiling-panda3d-with-threading-support">
+<h2>Compiling Panda3D with threading support<a class="headerlink" href="#compiling-panda3d-with-threading-support" title="Permalink to this headline">¶</a></h2>
+<p>There are two different interfaces for threading which you can enable using
+the definitions HAVE_THREADS and SIMPLE_THREADS. The former is a full and
+heavy implementation of threading and compiling with that option will slow
+down the Panda3D build, unless you fully make use of the benefits that
+threading gives. The latter, however, is a more simple threading interface
+(introduced in Panda3D 1.6.0) that doesn&#8217;t give you the runtime overhead
+HAVE_THREADS gives you. In Panda3D 1.6.1 and higher, SIMPLE_THREADS is
+enabled in the default build.</p>
+<p>Note that you will have to define both HAVE_THREADS and SIMPLE_THREADS at
+the same time to enable the simple interface, or you will not have threading.</p>
+<p>The public Panda3D 1.8.0 builds enable true threading by default, so you will
+not need to build Panda3D yourself if you want to take advantage of true
+threading.</p>
+<p>If you wish to disable threading, you can pass the option
+<code class="docutils literal"><span class="pre">--override</span> <span class="pre">HAVE_THREADS=UNDEF</span></code> to makepanda.py. If you
+wish to use the simple threading model, you may pass
+<code class="docutils literal"><span class="pre">--override</span> <span class="pre">SIMPLE_THREADS=1</span></code> instead.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="subclassing.html" class="btn btn-neutral float-right" title="Subclassing" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="file-reading.html" class="btn btn-neutral" title="File Reading" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Panda3D.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.10.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

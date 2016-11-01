@@ -1,0 +1,328 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Installing Panda3D in Linux &mdash; Panda3D Manual</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Panda3D Manual" href="../index.html"/>
+        <link rel="up" title="Introduction to Panda3D" href="index.html"/>
+        <link rel="next" title="General Preparation" href="preparation.html"/>
+        <link rel="prev" title="Installing Panda3D in Windows" href="installation-windows.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Panda3D
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.10
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Introduction to Panda3D</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="installation-windows.html">Installing Panda3D in Windows</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Installing Panda3D in Linux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="preparation.html">General Preparation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="running-your-program.html">Running your Program</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/index.html">A Panda3D Hello World Tutorial</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user-contributed-tutorials-and-examples.html">User Contributed Tutorials and Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="video-tutorials.html">Video Tutorials</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../programming-with-panda3d/index.html">Programming with Panda3D</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../distribution/index.html">Distributing Panda3D Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../samples/index.html">Sample Programs in the Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../debugging/index.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../performance-tuning/index.html">Performance Tuning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using-c++/index.html">Using C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tools/index.html">Panda3D Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../building-from-source.html">Building Panda3D from Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cheat-sheets.html">Cheat Sheets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started-on-osx.html">Getting Started on OSX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../more-panda3d-resources.html">More Panda3D Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../thirdparty-licenses.html">Third-party dependencies and license info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../the-irc-channel.html">The IRC Channel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">FAQ</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Panda3D</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="index.html">Introduction to Panda3D</a> &raquo;</li>
+      
+    <li>Installing Panda3D in Linux</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/intro/installation-linux.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="installing-panda3d-in-linux">
+<span id="installation-linux"></span><h1>Installing Panda3D in Linux<a class="headerlink" href="#installing-panda3d-in-linux" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="the-installation-process-linux">
+<h2>The Installation Process - Linux<a class="headerlink" href="#the-installation-process-linux" title="Permalink to this headline">¶</a></h2>
+<p>The easiest way to install panda is to use the RPM or DEB packages. This is
+only possible if your version of Linux is one of the provided versions of
+Linux. If not, you will need to :ref:` &lt;building-from-source&gt;`. If there is an
+installer available, download and install the RPM or DEB appropriate to your
+version of Linux.</p>
+<p>After installing Panda, you should run the sample programs to verify that the
+installation is good. To do so, you need to change directory to the Panda
+samples directory, select a sample program, change directory to that sample,
+and run the sample using Python:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ cd /usr/share/panda3d/samples
+$ ls
+Asteroids
+Ball-in-Maze
+Boxing-Robots
+Carousel
+Cartoon-Shader
+Chessboard
+Disco-Lights
+Fireflies
+Fractal-Plants
+Glow-Filter
+GUI
+Infinite-Tunnel
+Looking-and-Gripping
+Media-Player
+Motion-Trails
+Music-Box
+Normal-Mapping
+Particles
+Procedural-Cube
+Roaming-Ralph
+Shadows
+Solar-System
+Teapot-on-TV
+Texture-Swapping
+$ cd Boxing-Robots
+$ python Tut-Boxing-Robots.py
+</pre></div>
+</div>
+<p><strong>Using an Unsupported Linux Distribution or an Unsupported Python</strong></p>
+<p>Python packages need to be compiled for a particular variant of Python. For
+example, a package that works with Python 2.4 will not work with Python 2.5. A
+package that works with 32-bit Python will not work with 64-bit Python. A
+package that works with UCS2 Python will not work with UCS4 Python. And so
+forth. In short, a Python package must be carefully aligned,
+feature-for-feature, with one particular Python interpreter. That package will
+not work with any other Python interpreter.</p>
+<p>Fortunately for you, our prepackaged copies of Panda3D are already carefully
+matched. For example, our Panda3D for Ubuntu is already perfectly matched to
+the Python interpreter that comes with that version of Ubuntu. So normally,
+you don&#8217;t need to worry about this at all.</p>
+<p>If your Linux Distribution is not listed, you will need to build your own copy
+of Panda3D. The build process will automatically create a copy of Panda3D
+which perfectly matches your Linux Distribution&#8217;s Python interpreter. This is
+easy to do, but it does require a time-consuming compile. On the other hand,
+trying to use an RPM or a DEB from some other Distribution is very unlikely to
+work, because of this need for an exact feature-for-feature match between the
+Python package (Panda3D) and the Python interpreter.</p>
+<p>If you are using a copy of Python other than the one that came with the Linux
+Distribution, you have a bigger problem. Panda3D&#8217;s build-scripts automatically
+build Panda3D for the system&#8217;s native Python interpreter, not for some other
+Python interpreter. To get Panda3D to build for some other Python interpreter,
+you will have to edit the build scripts.</p>
+<p><strong>What to do if you see the Error Message:</strong></p>
+<p>If you see this error:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">error</span><span class="p">):</span> <span class="n">The</span> <span class="n">application</span> <span class="n">requested</span> <span class="n">hardware</span> <span class="n">acceleration</span><span class="p">,</span> <span class="n">but</span> <span class="n">your</span> <span class="n">OpenGL</span>
+<span class="n">display</span><span class="p">(</span><span class="n">error</span><span class="p">):</span> <span class="n">driver</span><span class="p">,</span> <span class="n">GDI</span> <span class="n">Generic</span><span class="p">,</span> <span class="n">only</span> <span class="n">supports</span> <span class="n">software</span> <span class="n">rendering</span><span class="o">.</span>
+<span class="n">display</span><span class="p">(</span><span class="n">error</span><span class="p">):</span> <span class="n">You</span> <span class="n">need</span> <span class="n">to</span> <span class="n">install</span> <span class="n">a</span> <span class="n">hardware</span><span class="o">-</span><span class="n">accelerated</span> <span class="n">OpenGL</span> <span class="n">driver</span><span class="p">,</span> <span class="ow">or</span><span class="p">,</span>
+<span class="n">display</span><span class="p">(</span><span class="n">error</span><span class="p">):</span> <span class="k">if</span> <span class="n">you</span> <span class="n">actually</span> <span class="o">*</span><span class="n">want</span><span class="o">*</span> <span class="n">to</span> <span class="n">use</span> <span class="n">a</span> <span class="n">software</span> <span class="n">renderer</span><span class="p">,</span> <span class="n">then</span>
+<span class="n">display</span><span class="p">(</span><span class="n">error</span><span class="p">):</span> <span class="n">alter</span> <span class="n">the</span> <span class="n">hardware</span><span class="o">/</span><span class="n">software</span> <span class="n">configuration</span> <span class="ow">in</span> <span class="n">your</span> <span class="n">Config</span><span class="o">.</span><span class="n">prc</span> <span class="n">file</span><span class="o">.</span>
+<span class="n">display</span><span class="p">(</span><span class="n">error</span><span class="p">):</span> <span class="n">Window</span> <span class="n">wouldn</span><span class="s1">&#39;t open; abandoning window.</span>
+</pre></div>
+</div>
+<p>This error is fairly self-explanatory: it means your video drivers are
+inadequate. Obtain better drivers.</p>
+<p><strong>What to do if you see the Error Message:</strong></p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="ne">ImportError</span><span class="p">:</span> <span class="n">No</span> <span class="n">module</span> <span class="n">named</span> <span class="n">direct</span><span class="o">.</span><span class="n">directbase</span><span class="o">.</span><span class="n">DirectStart</span>
+</pre></div>
+</div>
+<p>This error means it couldn&#8217;t find the Python modules &#8211; please make sure you
+are running the correct version of Python (probably Python 2.7, that depends
+on the Panda3D version) and that the panda3d.pth is located inside the Python
+site-packages directory.</p>
+<p><strong>What to do if you see the Error Message:</strong></p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="ne">ImportError</span><span class="p">:</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">panda3d</span><span class="o">/</span><span class="n">libpandaexpress</span><span class="o">.</span><span class="n">so</span><span class="p">:</span> <span class="n">undefined</span> <span class="n">symbol</span><span class="p">:</span> <span class="n">PyUnicodeUCS4_AsWideChar</span>
+</pre></div>
+</div>
+<p>This could mean that your version of Python is compiled with the flag
+<code class="docutils literal"><span class="pre">Py_UNICODE_SIZE</span></code> set to
+<code class="docutils literal"><span class="pre">2</span></code>. Please find a Python
+version compiled with Py_UNICODE_SIZE set to 4 (which is usually the
+default). See <a class="reference external" href="https://www.panda3d.org/forums/viewtopic.php?t=3904#20510">this forum
+topic</a> for a
+more detailed explanation about this problem.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="preparation.html" class="btn btn-neutral float-right" title="General Preparation" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="installation-windows.html" class="btn btn-neutral" title="Installing Panda3D in Windows" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Panda3D.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.10.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

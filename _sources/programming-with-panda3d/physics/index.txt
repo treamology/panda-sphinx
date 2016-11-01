@@ -1,0 +1,42 @@
+.. _physics:
+
+Physics
+=======
+
+Panda3D offers four built-in choices to use for Physics:
+
+-  :ref:` <panda3d-physics-engine>`: Panda3D has a very basic physics engine
+   built-in that may apply forces to classes. The physics engine can handle
+   angular or linear forces, as well as viscosity.
+-  :ref:` <ode>`: This is a more extended physics engine that Panda3D offers
+   good integration for, you will want to use this if you need more complex
+   physics simulations. In Panda3D versions 1.5.3 and above, this is
+   integrated in the binaries from the download page.
+-  NVIDIA PhysX: New in 1.7.0. Not yet documented.
+-  \ `Bullet Physics
+   Engine <https://www.panda3d.org/manual/index.php/Using_Bullet_with_Panda3D>`__\ :
+   New in 1.8.0.
+
+When you have a very simple simulation, you will most likely want to use the
+built-in physics, which works with Panda's collision system. Although, when
+the built-in engine doesn't offer enough functionality for you, you can switch
+to ODE, Bullet or PhysX.
+
+Integration for various other physics engines have been provided by the
+community on the forums:
+
+-  Old wrappers for AGEIA PhysX:
+   https://www.panda3d.org/forums/viewtopic.php?t=3108
+-  More recent wrappers:
+   https://www.panda3d.org/forums/viewtopic.php?p=27906#27906
+-  Most recent wrappers: https://www.panda3d.org/forums/viewtopic.php?t=5067
+-  Wrappers for Newton Game Dynamics:
+   https://www.panda3d.org/forums/viewtopic.php?t=2617
+
+
+.. toctree::
+   :maxdepth: 2
+
+   panda3d-physics-engine/index
+   ode/index
+   bullet/index

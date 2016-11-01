@@ -1,0 +1,394 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Plugin notify callbacks &mdash; Panda3D Manual</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Panda3D Manual" href="../../index.html"/>
+        <link rel="up" title="Advanced scripting techniques" href="index.html"/>
+        <link rel="next" title="AppRunner" href="apprunner/index.html"/>
+        <link rel="prev" title="Splash window tags" href="splash-window-tags.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Panda3D
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.10
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../intro/index.html">Introduction to Panda3D</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../programming-with-panda3d/index.html">Programming with Panda3D</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Distributing Panda3D Applications</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../introduction-to-p3d-files/index.html">Introduction to p3d files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../distributing-via-the-web/index.html">Distributing via the web</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../p3d-file-config-settings.html">P3D file config settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../distributing-as-a-self-contained-installer.html">Distributing as a self-contained installer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../the-runtime-panda3d-directory.html">The runtime Panda3D directory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../the-package-system/index.html">The package system</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Advanced scripting techniques</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="detectpanda3d.js.html">DetectPanda3D.js</a></li>
+<li class="toctree-l3"><a class="reference internal" href="advanced-object-tags.html">Advanced object tags</a></li>
+<li class="toctree-l3"><a class="reference internal" href="splash-window-tags.html">Splash window tags</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Plugin notify callbacks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="apprunner/index.html">AppRunner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="p3d-origin-security.html">P3D origin security</a></li>
+<li class="toctree-l3"><a class="reference internal" href="packageinstaller.html">PackageInstaller</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../samples/index.html">Sample Programs in the Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../debugging/index.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../performance-tuning/index.html">Performance Tuning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../using-c++/index.html">Using C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/index.html">Panda3D Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../building-from-source.html">Building Panda3D from Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cheat-sheets.html">Cheat Sheets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started-on-osx.html">Getting Started on OSX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../more-panda3d-resources.html">More Panda3D Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../thirdparty-licenses.html">Third-party dependencies and license info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../the-irc-channel.html">The IRC Channel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">FAQ</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Panda3D</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Distributing Panda3D Applications</a> &raquo;</li>
+      
+          <li><a href="index.html">Advanced scripting techniques</a> &raquo;</li>
+      
+    <li>Plugin notify callbacks</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/distribution/advanced-scripting-techniques/plugin-notify-callbacks.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="plugin-notify-callbacks">
+<span id="id1"></span><h1>Plugin notify callbacks<a class="headerlink" href="#plugin-notify-callbacks" title="Permalink to this headline">¶</a></h1>
+<p>At key points during application launch, the plugin will make optional
+callbacks into JavaScript code, so your page can respond to what the
+application is doing. This is done using the &lt;object&gt; token system, as
+described in :ref:` &lt;advanced-object-tags&gt;`.</p>
+<p>The following events may be sent:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="5%" />
+<col width="95%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Token</th>
+<th class="head">Meaning</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>onPluginFail</td>
+<td>The plugin cannot load for some reason, for instance because the browser is an incompatible version, or because the plugin is critically out-of-date with its associated Core API, and needs to be updated. If you get this event, you will not receive any of the following. Note that certain kinds of browser incompatibilities result in the plugin never running in the first place, so there exist incompatibility cases in which you will not receive any event at all.</td>
+</tr>
+<tr class="row-odd"><td>onPluginLoad</td>
+<td>The browser has activated the object tag, and initialized the plugin. This usually happens after the standard JavaScript page load notification. See below.</td>
+</tr>
+<tr class="row-even"><td>onUnath</td>
+<td>The p3d file has been scanned and needs to be approved by the user. There will be a red play button drawn in the plugin window (if it is visible); when the user clicks this button, it will pop up the certificate-approval dialog. You can simulate the user clicking the button by calling plugin.main.play().</td>
+</tr>
+<tr class="row-odd"><td>onAuth</td>
+<td>The p3d file has been approved by the user as a result of going through the above dialog; or the p3d file was recognized as being already approved at startup.</td>
+</tr>
+<tr class="row-even"><td>onDownloadBegin</td>
+<td>The packages referenced by the p3d file are beginning to download. See below.</td>
+</tr>
+<tr class="row-odd"><td>onDownloadNext</td>
+<td>This event will be generated as each required package finishes downloading and the next one begins. See below.</td>
+</tr>
+<tr class="row-even"><td>onDownloadComplete</td>
+<td>Generated when the download finishes, or when it is determined at startup time that all packages are already downloaded.</td>
+</tr>
+<tr class="row-odd"><td>onReady</td>
+<td>The application is ready to begin. If you have auto_start=&#8221;1&#8221;, then it will launch immediately; otherwise, there will be a green play button drawn in the plugin window (if it is visible). You can simulate the user clicking the button by calling plugin.main.play().</td>
+</tr>
+<tr class="row-even"><td>onPythonLoad</td>
+<td>The Python part of the application has begun. This is part of application startup. At the time you receive this event, your application has only just begun to execute; there is no guarantee that it has assigned anything to appRunner.main at this point.</td>
+</tr>
+<tr class="row-odd"><td>onWindowOpen</td>
+<td>The application has successfully created a graphics window, and is now considered fully launched. From the Python side, it means that your application has imported DirectStart by this point.</td>
+</tr>
+<tr class="row-even"><td>onWindowAttach</td>
+<td>The application has attached its graphics window to the plugin frame, and the window is now embedded in the web page. This may be called at initial startup (possibly before onWindowOpen), and also after a subsequent call to onWindowDetach.</td>
+</tr>
+<tr class="row-odd"><td>onWindowDetach</td>
+<td>The application has removed its game window from the plugin frame. This may be called at application exit, or whenever the application itself removes the window from the frame (for instance, to go to a fullscreen or toplevel window instead). The Panda plugin will display active_img in the plugin frame whenever it is not occupied by the graphics window.</td>
+</tr>
+<tr class="row-even"><td>onPythonStop</td>
+<td>The application has exited, either normally or due to an error.</td>
+</tr>
+</tbody>
+</table>
+<p>In addition to the above list, a particular application may define its own
+custom callbacks, by calling base.appRunner.notify(&#8216;token&#8217;), e.g.
+base.appRunner.notify(&#8216;onLevelStart&#8217;).</p>
+<p>To use any of the above, assign the token to a JavaScript expression which
+should be evaluated when the event occurs. Usually this is a call to one of
+your own JavaScript functions, e.g.:</p>
+<div class="highlight-html"><div class="highlight"><pre><span></span>&lt;object width=&quot;640&quot; height=&quot;480&quot;
+  type=&quot;application/x-panda3d&quot; data=&quot;myapp.p3d&quot;
+  onWindowOpen=&quot;MyWindowFunction()&quot;
+&lt;/object&gt;
+</pre></div>
+</div>
+<p>You should use the appropriate embedding syntax as described in
+:ref:` &lt;advanced-object-tags&gt;`.</p>
+<div class="section" id="additional-notes">
+<h2>Additional notes<a class="headerlink" href="#additional-notes" title="Permalink to this headline">¶</a></h2>
+<p>At each of the above events, certain properties of the plugin object become
+defined and available for access by JavaScript. In the following, &#8220;plugin&#8221; is
+assumed to be the DOM object that refers to the embedding &lt;object&gt;
+element.</p>
+<p>After onPluginLoad, you can query certain built-in properties on the plugin:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>plugin.main.status</td>
+</tr>
+<tr class="row-even"><td>plugin.main.pluginVersionString</td>
+</tr>
+<tr class="row-odd"><td>plugin.main.pluginMajorVersion</td>
+</tr>
+<tr class="row-even"><td>plugin.main.pluginMinorVersion</td>
+</tr>
+<tr class="row-odd"><td>plugin.main.pluginSequenceVersion</td>
+</tr>
+<tr class="row-even"><td>plugin.main.pluginNumericVersion</td>
+</tr>
+<tr class="row-odd"><td>plugin.main.pluginDistributor</td>
+</tr>
+<tr class="row-even"><td>plugin.main.coreapiHostUrl</td>
+</tr>
+<tr class="row-odd"><td>plugin.main.coreapiTimestamp</td>
+</tr>
+<tr class="row-even"><td>plugin.main.coreapiTimestampString</td>
+</tr>
+</tbody>
+</table>
+<p>You can also call plugin.main.get_system_log() at any point after this to
+query the current system log. This is the log file generated by the plugin
+system. You can specify an optional numeric parameter; this limits the return
+value to only the specified number of bytes at the end of the log.</p>
+<p>Note that there appears to be a Firefox bug that sometimes causes the first
+reference to plugin.main to return undefined, even though it has actually been
+defined by this point. This is especially likely after a page reload (F5)
+operation. If this causes you trouble, you may need to work around this with a
+JavaScript timeout callback.</p>
+<p>After onDownloadBegin, you can query the following properties to monitor the
+download:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>plugin.main.numDownloadingPackages</td>
+</tr>
+<tr class="row-even"><td>plugin.main.totalDownloadSize</td>
+</tr>
+<tr class="row-odd"><td>plugin.main.downloadProgress</td>
+</tr>
+<tr class="row-even"><td>plugin.main.downloadElapsedSeconds</td>
+</tr>
+<tr class="row-odd"><td>plugin.main.downloadElapsedFormatted</td>
+</tr>
+<tr class="row-even"><td>plugin.main.downloadRemainingSeconds</td>
+</tr>
+<tr class="row-odd"><td>plugin.main.downloadRemainingFormatted</td>
+</tr>
+<tr class="row-even"><td>plugin.main.downloadPackageName</td>
+</tr>
+<tr class="row-odd"><td>plugin.main.downloadPackageDisplayName</td>
+</tr>
+<tr class="row-even"><td>plugin.main.downloadComplete</td>
+</tr>
+</tbody>
+</table>
+<p>After onDownloadNext, downloadPackageName and downloadPackageDisplayName will
+be updated with the currently-downloading package. Note that
+plugin.main.downloadProgress tracks from 0 .. 1 throughout the entire
+download; it doesn&#8217;t reset for each package.</p>
+<p>After onPythonLoad, you can call plugin.main.get_game_log() to query the
+game log. This is the output from the application itself. Like
+get_system_log(), you can specify an optional numeric parameter to limit the
+return value to only the specified number of bytes at the end of the log.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="apprunner/index.html" class="btn btn-neutral float-right" title="AppRunner" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="splash-window-tags.html" class="btn btn-neutral" title="Splash window tags" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Panda3D.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.10.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,683 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Tasks &mdash; Panda3D Manual</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Panda3D Manual" href="../../index.html"/>
+        <link rel="up" title="Tasks and Event Handling" href="index.html"/>
+        <link rel="next" title="Task Chains" href="task-chains.html"/>
+        <link rel="prev" title="Tasks and Event Handling" href="index.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Panda3D
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.10
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../intro/index.html">Introduction to Panda3D</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Programming with Panda3D</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../the-scene-graph/index.html">The Scene Graph</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../the-configuration-file/index.html">The Configuration File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../models-and-actors/index.html">Models and Actors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-attributes/index.html">Render Attributes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../texturing/index.html">Texturing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shaders/index.html">Shaders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../camera-control/index.html">Camera Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sound/index.html">Sound</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intervals/index.html">Intervals</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Tasks and Event Handling</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Tasks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="task-chains.html">Task Chains</a></li>
+<li class="toctree-l3"><a class="reference internal" href="event-handlers.html">Event Handlers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="main-loop.html">Main Loop</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../text-and-image-rendering/index.html">Text and Image Rendering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../directgui/index.html">DirectGUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-effects/index.html">Render Effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../finite-state-machines/index.html">Finite State Machines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../terrain/index.html">Terrain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internal-structures/index.html">Advanced operations with Panda3D&#8217;s internal structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-to-texture-and-image-postprocessing/index.html">Render-to-Texture and Image Postprocessing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../panda3d-rendering-process/index.html">Panda3D Rendering Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../panda3d-utility-functions.html">Panda3D Utility Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../particle-effects/index.html">Particle Effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../collision-detection/index.html">Collision Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../garbage-collection/index.html">Garbage Collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hardware-support/index.html">Hardware support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../math-engine/index.html">Math Engine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../motion-paths.html">Motion Paths</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../timing/index.html">Timing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../networking/index.html">Networking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../multifiles/index.html">Multifiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../showbase.html">ShowBase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../file-reading.html">File Reading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../threading.html">Threading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../subclassing.html">Subclassing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../table-of-features-supported-per-graphic-renderer.html">Table of features supported per graphic renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pandai/index.html">Artificial Intelligence (PANDAI)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../distribution/index.html">Distributing Panda3D Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../samples/index.html">Sample Programs in the Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../debugging/index.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../performance-tuning/index.html">Performance Tuning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../using-c++/index.html">Using C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/index.html">Panda3D Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../building-from-source.html">Building Panda3D from Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cheat-sheets.html">Cheat Sheets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started-on-osx.html">Getting Started on OSX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../more-panda3d-resources.html">More Panda3D Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../thirdparty-licenses.html">Third-party dependencies and license info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../the-irc-channel.html">The IRC Channel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">FAQ</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Panda3D</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Programming with Panda3D</a> &raquo;</li>
+      
+          <li><a href="index.html">Tasks and Event Handling</a> &raquo;</li>
+      
+    <li>Tasks</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/programming-with-panda3d/tasks-and-event-handling/tasks.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="tasks">
+<span id="id1"></span><h1>Tasks<a class="headerlink" href="#tasks" title="Permalink to this headline">¶</a></h1>
+<p>Tasks are special functions that are called once each frame while your
+application executes. They are similar in concept to threads. However, in
+Panda3D, tasks are not generally separate threads; instead, all tasks are run
+cooperatively, one at a time, within the main thread. This design simplifies
+game programming considerably by removing the requirement to protect critical
+sections of code from mutual access. (See Task Chains in the next section if
+you really want to use threading.)</p>
+<p>When you start Panda3D by initializing ShowBase, a handful of tasks are
+created by default, but you are free to add as many additional tasks as you
+like.</p>
+<div class="section" id="the-task-function">
+<h2>The Task Function<a class="headerlink" href="#the-task-function" title="Permalink to this headline">¶</a></h2>
+<p>A task is defined with a function or class method; this function is the main
+entry point for the task and will be called once per frame while the task is
+running. By default, the function receives one parameter, which is the task
+object; the task object carries information about the task itself, such as the
+amount of time that the task has been running.</p>
+<p>Your task function should return when it has finished processing for the
+frame. Because all tasks are run in the same thread, you must not spend too
+much time processing any one task function; the entire application will be
+locked up until the function returns.</p>
+<p>The task function may return either</p>
+<p><code class="docutils literal"><span class="pre">Task.cont</span></code></p>
+<p><code class="docutils literal"><span class="pre">AsyncTask::DS_cont</span></code></p>
+<p><a href="#id2"><span class="problematic" id="id3">``</span></a>to&nbsp;indicate&nbsp;that&nbsp;the&nbsp;task&nbsp;should&nbsp;be&nbsp;called&nbsp;again&nbsp;next&nbsp;frame,&nbsp;or</p>
+<p><code class="docutils literal"><span class="pre">Task.done</span></code></p>
+<p><a href="#id4"><span class="problematic" id="id5">``</span></a></p>
+<p><code class="docutils literal"><span class="pre">AsyncTask::DS_done</span></code></p>
+<p><a href="#id6"><span class="problematic" id="id7">``</span></a>to&nbsp;indicate&nbsp;that&nbsp;it&nbsp;should&nbsp;not&nbsp;be&nbsp;called&nbsp;again.</p>
+<p>If it returns None (which is to say, it does not return anything), then the
+default behavior is to stop.</p>
+<p><a href="#id8"><span class="problematic" id="id9">``</span></a></p>
+<p>You can check how long your task has been running by checking</p>
+<p><code class="docutils literal"><span class="pre">task.time</span></code></p>
+<p><code class="docutils literal"><span class="pre">task-&gt;get_elapsed_time()</span></code></p>
+<p><a href="#id10"><span class="problematic" id="id11">``</span></a>in&nbsp;your&nbsp;task&nbsp;function.&nbsp;You&nbsp;can&nbsp;also&nbsp;check&nbsp;how&nbsp;many&nbsp;times&nbsp;the&nbsp;task&nbsp;function&nbsp;has&nbsp;been&nbsp;run&nbsp;by&nbsp;using</p>
+<p><code class="docutils literal"><span class="pre">task.frame</span></code></p>
+<p><a href="#id12"><span class="problematic" id="id13">``</span></a></p>
+<p><code class="docutils literal"><span class="pre">task-&gt;get_elapsed_frames()</span></code></p>
+<p>.</p>
+<p>The below example imports the Task module and shows a function used as a task.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">direct.task</span> <span class="kn">import</span> <span class="n">Task</span>
+
+<span class="c1"># This task runs for two seconds, then prints done</span>
+<span class="k">def</span> <span class="nf">exampleTask</span><span class="p">(</span><span class="n">task</span><span class="p">):</span>
+  <span class="k">if</span> <span class="n">task</span><span class="o">.</span><span class="n">time</span> <span class="o">&lt;</span> <span class="mf">2.0</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">task</span><span class="o">.</span><span class="n">cont</span>
+  <span class="k">print</span> <span class="s1">&#39;Done&#39;</span>
+  <span class="k">return</span> <span class="n">task</span><span class="o">.</span><span class="n">done</span>
+</pre></div>
+</div>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&quot;asyncTaskManager.h&quot;</span><span class="cp"></span>
+
+<span class="c1">// This task runs for two seconds, then prints done</span>
+<span class="n">AsyncTask</span><span class="o">::</span><span class="n">DoneStatus</span> <span class="n">example_task</span><span class="p">(</span><span class="n">GenericAsyncTask</span><span class="o">*</span> <span class="n">task</span><span class="p">,</span> <span class="kt">void</span><span class="o">*</span> <span class="n">data</span><span class="p">){</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">task</span><span class="o">-&gt;</span><span class="n">get_elapsed_time</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mf">2.0</span><span class="p">){</span>
+        <span class="k">return</span> <span class="n">AsyncTask</span><span class="o">::</span><span class="n">DS_cont</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Done&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">AsyncTask</span><span class="o">::</span><span class="n">DS_done</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="task-return-values">
+<h2>Task Return Values<a class="headerlink" href="#task-return-values" title="Permalink to this headline">¶</a></h2>
+<p>The value returned from a task affects how the task manager handles that task
+going forward.</p>
+<p>Variable
+Purpose
+<code class="docutils literal"><span class="pre">Task.doneAsyncTask::DS_done</span></code>
+Specifies that a task is finished and removes it from the task manager.
+<code class="docutils literal"><span class="pre">Task.contAsyncTask::DS_cont</span></code>
+Perform the task again next frame.
+<code class="docutils literal"><span class="pre">Task.againAsyncTask::DS_again</span></code>
+Perform the task again, using the same delay as initially specified.
+<code class="docutils literal"><span class="pre">None</span></code>
+Same as done.</p>
+</div>
+<div class="section" id="the-do-later-task">
+<h2>The Do-Later Task?<a class="headerlink" href="#the-do-later-task" title="Permalink to this headline">¶</a></h2>
+<p>If you have used Panda3D in Python maybe you are familiar with the Python
+function <code class="docutils literal"><span class="pre">taskMgr.doMethodLater()</span></code>, which let&#8217;s
+you schedule a task to be started after a certain delay. This isn&#8217;t needed in
+C++, because you can set a delay on a task directly with
+<code class="docutils literal"><span class="pre">task-&gt;set_delay()</span></code>. An example will be
+provided below in the task manager section.</p>
+</div>
+<div class="section" id="id14">
+<h2>The Do-Later Task<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h2>
+<p>A useful special kind of task is the do-later: this is similar to a task, but
+rather than being called every frame it will be called only once, after a
+certain amount of time (in seconds) has elapsed. You can, of course, implement
+a do-later task with a regular task that simply does nothing until a certain
+amount of time has elapsed (as in the above example), but using a do-later is
+a much more efficient way to achieve the same thing, especially if you will
+have many such tasks waiting around.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">taskMgr</span><span class="o">.</span><span class="n">doMethodLater</span><span class="p">(</span><span class="n">delayTime</span><span class="p">,</span> <span class="n">myFunction</span><span class="p">,</span> <span class="s1">&#39;Task Name&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>In this example myFunction must accept a task variable. If you wish to use a
+function that does not accept a task variable:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">taskMgr</span><span class="o">.</span><span class="n">doMethodLater</span><span class="p">(</span><span class="n">delayTime</span><span class="p">,</span> <span class="n">myFunction</span><span class="p">,</span> <span class="s1">&#39;Task Name&#39;</span><span class="p">,</span> <span class="n">extraArgs</span> <span class="o">=</span> <span class="p">[</span><span class="n">variables</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Note: if you wish to call a function which takes no variables simply pass
+<code class="docutils literal"><span class="pre">extraArgs</span> <span class="pre">=</span> <span class="pre">[]</span></code></p>
+<p>Do-Later task&#8217;s can be repeated from the task function by returning
+<code class="docutils literal"><span class="pre">task.again</span></code>. You can also change
+the delay of the Do-Later task by changing
+<code class="docutils literal"><span class="pre">task.delayTime</span></code>, but changing this will
+not have any effect on the task&#8217;s actual delay time until the next time it
+gets added to the do-later list, for instance by returning Task.again.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># This task increments itself so that the delay between task executions</span>
+<span class="c1"># gradually increases over time. If you do not change task.delayTime</span>
+<span class="c1"># the task will simply repeat itself every 2 seconds</span>
+<span class="k">def</span> <span class="nf">myFunction</span><span class="p">(</span><span class="n">task</span><span class="p">):</span>
+    <span class="k">print</span> <span class="s2">&quot;Delay:&quot;</span><span class="p">,</span><span class="n">task</span><span class="o">.</span><span class="n">delayTime</span>
+    <span class="k">print</span> <span class="s2">&quot;Frame:&quot;</span><span class="p">,</span><span class="n">task</span><span class="o">.</span><span class="n">frame</span>
+    <span class="n">task</span><span class="o">.</span><span class="n">delayTime</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">task</span><span class="o">.</span><span class="n">again</span>
+
+<span class="n">myTask</span> <span class="o">=</span> <span class="n">taskMgr</span><span class="o">.</span><span class="n">doMethodLater</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">myFunction</span><span class="p">,</span> <span class="s1">&#39;tickTask&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>If you wish to change the delayTime outside of the task function itself, and
+have it make an immediate effect, you can remove and re-add the task by hand,
+for instance:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">taskMgr</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">task</span><span class="p">)</span>
+<span class="n">task</span><span class="o">.</span><span class="n">delayTime</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="n">taskMgr</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">task</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Although there is a public member
+<code class="docutils literal"><span class="pre">task.wakeTime</span></code> which stores the time
+at which the task should wake up, you should not attempt to modify this. Doing
+so may appear to work in some simple cases, but will actually invalidate the
+Task Manager&#8217;s internal priority queue, potentially causing other tasks to
+wake up later or sooner than they are supposed to. (In Panda3D version 1.6 and
+later, changing this value is specifically disallowed.)</p>
+</div>
+<div class="section" id="the-task-object">
+<h2>The Task Object<a class="headerlink" href="#the-task-object" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal"><span class="pre">task</span></code> object is passed
+into all Task Functions. There are several members accessible in the func
+object,</p>
+<p>among</p>
+<p><code class="docutils literal"><span class="pre">these&nbsp;are:</span></code></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="26%" />
+<col width="74%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Member</th>
+<th class="head">Returns</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">task.&lt;python&gt;time&lt;/python&gt;&lt;cxx&gt;get_elapsed_time()&lt;/cxx&gt;</span></code></td>
+<td>A float that indicates how long this task function has been running since the first execution of the function. The timer is running even when the task function is not being executed.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">task.&lt;python&gt;frame&lt;/python&gt;&lt;cxx&gt;get_elapsed_frames()&lt;/cxx&gt;</span></code></td>
+<td>An integer that counts the number of elapsed frames since this function was added. Count may start from 0 or 1.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">task.&lt;python&gt;id&lt;/python&gt;&lt;cxx&gt;get_task_id()&lt;/cxx&gt;</span></code></td>
+<td>An integer that gives the unique id assigned to this task by the Task Manager.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">task.&lt;python&gt;name&lt;/python&gt;&lt;cxx&gt;get_name()&lt;/cxx&gt;</span></code></td>
+<td>The task name assigned to the task function.</td>
+</tr>
+</tbody>
+</table>
+<p>To remove the task and stop it from executing, call
+<code class="docutils literal"><span class="pre">task.remove()</span></code>.</p>
+</div>
+<div class="section" id="the-task-manager">
+<h2>The Task Manager<a class="headerlink" href="#the-task-manager" title="Permalink to this headline">¶</a></h2>
+<p>All tasks are handled through the global Task Manager object, called
+<code class="docutils literal"><span class="pre">taskMgr</span></code> in Panda3D.</p>
+<p>All tasks are handled through the Task Manager object. Here we assume that you
+have obtained a reference to it and stored it in a variable called
+<code class="docutils literal"><span class="pre">taskMgr</span></code>, for example:</p>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">PT</span><span class="p">(</span><span class="n">AsyncTaskManager</span><span class="p">)</span> <span class="n">taskMgr</span> <span class="o">=</span> <span class="n">AsyncTaskManager</span><span class="o">::</span><span class="n">get_global_ptr</span><span class="p">();</span>
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line"><a href="#id15"><span class="problematic" id="id16">``</span></a>The&nbsp;Task&nbsp;Manager&nbsp;keeps&nbsp;a&nbsp;list&nbsp;of&nbsp;all&nbsp;currently-running&nbsp;tasks.</div>
+</div>
+<p>To add your task function to the task list, call
+<code class="docutils literal"><span class="pre">taskMgr.add()</span></code> with your function and
+an arbitrary name for the task.
+<code class="docutils literal"><span class="pre">taskMgr.add()</span></code> returns a Task which
+can be used to remove the task later on.</p>
+<p>``
+| ``</p>
+<p>To add a task to the Task Manager, first create a task object by indicating
+your function and an arbitrary name, and then add it to the task list by
+calling <code class="docutils literal"><span class="pre">taskMgr-&gt;add()</span></code> with a pointer
+to your task.</p>
+<p><a href="#id17"><span class="problematic" id="id18">``</span></a></p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">taskMgr</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">exampleTask</span><span class="p">,</span> <span class="s1">&#39;MyTaskName&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">PT</span><span class="p">(</span><span class="n">GenericAsyncTask</span><span class="p">)</span> <span class="n">task</span><span class="p">;</span>
+<span class="n">task</span> <span class="o">=</span> <span class="k">new</span> <span class="n">GenericAsyncTask</span><span class="p">(</span><span class="s">&quot;MyTaskName&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">example_task</span><span class="p">,</span> <span class="p">(</span><span class="kt">void</span><span class="o">*</span><span class="p">)</span> <span class="nb">NULL</span><span class="p">);</span>
+
+<span class="n">taskMgr</span><span class="o">-&gt;</span><span class="n">add</span><span class="p">(</span><span class="n">task</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>You can add extra arguments to the call through the</p>
+<p>extraArgs</p>
+<p>third</p>
+<p><a href="#id19"><span class="problematic" id="id20">``</span></a>parameter.</p>
+<p>When you add extraArgs, the task parameter is no longer sent to your function
+by default. If you still want it, make sure to set appendTask to true.
+<code class="docutils literal"><span class="pre">appendTask=True</span></code> makes the task the last
+argument sent to the function.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">taskMgr</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">exampleTask</span><span class="p">,</span> <span class="s1">&#39;MyTaskName&#39;</span><span class="p">,</span> <span class="n">extraArgs</span><span class="o">=</span><span class="p">[</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">],</span> <span class="n">appendTask</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><a href="#id21"><span class="problematic" id="id22">``</span></a></p>
+<p>Although normally each task is given a unique name, you may also create
+multiple different tasks with the same name. This can be convenient for</p>
+<p>removing many task functions at the same time</p>
+<p>locating many related task objects at the same time</p>
+<p>. Each task remains
+independent of the others, even if they have the same name; this means that a
+task function returning</p>
+<p><code class="docutils literal"><span class="pre">Task.done</span></code></p>
+<p><code class="docutils literal"><span class="pre">AsyncTask::DS_done</span></code></p>
+<p><code class="docutils literal"><span class="pre">will&nbsp;not&nbsp;affect&nbsp;any&nbsp;other&nbsp;task&nbsp;functions.</span></code></p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">taskMgr</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">taskFunc</span><span class="p">,</span> <span class="s1">&#39;Existing TaskName&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">PT</span><span class="p">(</span><span class="n">GenericAsyncTask</span><span class="p">)</span> <span class="n">task2</span><span class="p">;</span>
+<span class="n">task2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">GenericAsyncTask</span><span class="p">(</span><span class="s">&quot;Existing TaskName&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">example_task</span><span class="p">,</span> <span class="p">(</span><span class="kt">void</span><span class="o">*</span><span class="p">)</span> <span class="nb">NULL</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>To remove the task and stop it from executing, call
+<code class="docutils literal"><span class="pre">taskMgr.remove()</span></code>. You can pass in either
+the name of the task, or the task object (which was returned by
+<code class="docutils literal"><span class="pre">taskMgr.add()</span></code>, above).</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">taskMgr</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">&#39;MyTaskName&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>To remove the task and stop it from executing, you can call
+<code class="docutils literal"><span class="pre">task-&gt;remove()</span></code>.</p>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">task</span><span class="o">-&gt;</span><span class="n">remove</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>A useful task method is
+<code class="docutils literal"><span class="pre">task-&gt;set_delay()</span></code>; it causes your task to
+be called after a certain amount of time (in seconds). You can, of course,
+implement this kind of functionality with an underlayed task that simply does
+nothing until a certain amount of time has elapsed (as in the above example),
+but using this method is a much more efficient way to achieve the same thing,
+especially if you will have many such tasks waiting around. Note that you need
+to set the delay before you add the task to the Task Manager, otherwise the
+call won&#8217;t have an effect.</p>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">task</span><span class="o">-&gt;</span><span class="n">set_delay</span> <span class="p">(</span><span class="mi">60</span><span class="p">);</span>
+<span class="n">taskMgr</span><span class="o">-&gt;</span><span class="n">add</span><span class="p">(</span><span class="n">task</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Similarly, if you wish to change the delay time of a task, you have to remove
+the task and re-add it by hand. For instance:</p>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">task</span><span class="o">-&gt;</span><span class="n">remove</span><span class="p">();</span>
+<span class="n">task</span><span class="o">-&gt;</span><span class="n">set_delay</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+<span class="n">taskMgr</span><span class="o">-&gt;</span><span class="n">add</span><span class="p">(</span><span class="n">task</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>You can also alter the delay of the task inside the task function, but you
+will have to return AsyncTask::DS_again afterwards so that it takes effect.</p>
+<p>You may add a cleanup function to the task function with the uponDeath
+parameter. Similar to task functions, the uponDeath function has a task object
+as a parameter. The cleanup function is called whenever the task finishes, for
+instance by <code class="docutils literal"><span class="pre">return</span> <span class="pre">Task.done</span></code>, or when it
+is explicitly removed via
+<code class="docutils literal"><span class="pre">taskMgr.remove()</span></code>.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">taskMgr</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">exampleTask</span><span class="p">,</span> <span class="s1">&#39;TaskName&#39;</span><span class="p">,</span> <span class="n">uponDeath</span><span class="o">=</span><span class="n">cleanupFunc</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>You may add a cleanup function to the task with the
+<code class="docutils literal"><span class="pre">task-&gt;set_upon_death()</span></code> function. Similar to
+task functions, this function receives a function pointer as a parameter. The
+cleanup function is called whenever the task finishes, for instance by
+<code class="docutils literal"><span class="pre">return</span> <span class="pre">AsyncTask::DS_done;</span></code>, or when it is
+explicitly removed via a
+<code class="docutils literal"><span class="pre">task-&gt;remove()</span></code> call.</p>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">task</span><span class="o">-&gt;</span><span class="n">set_upon_death</span><span class="p">(</span><span class="o">&amp;</span><span class="n">cleanupFunc</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>To control order in which tasks are executed, you can use sort or priority
+argument. If you use only sort or only priority, tasks given lesser value will
+execute sooner.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">taskMgr</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">task2</span><span class="p">,</span> <span class="s2">&quot;second&quot;</span><span class="p">,</span><span class="n">sort</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">taskMgr</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">task1</span><span class="p">,</span> <span class="s2">&quot;first&quot;</span> <span class="p">,</span><span class="n">sort</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>or</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">taskMgr</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">task2</span><span class="p">,</span> <span class="s2">&quot;second&quot;</span><span class="p">,</span><span class="n">priority</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">taskMgr</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">task1</span><span class="p">,</span> <span class="s2">&quot;first&quot;</span> <span class="p">,</span><span class="n">priority</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>In both cases, task1
+given name &#8220;first&#8221; will be executed before task2 (&#8220;second&#8221;).</p>
+<p>If you use both sort and priority arguments, tasks with lower sort value will
+be executed first. However, if there are several tasks which have same sort
+value, but different priority value then that tasks are going to be executed
+in a way that ones with HIGHER priority value will be executed first.</p>
+<p>To clarify it a bit, here is code sample, tasks are named in order in which
+they are executed.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">taskMgr</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">task1</span><span class="p">,</span> <span class="s2">&quot;first&quot;</span><span class="p">,</span>  <span class="n">sort</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">priority</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">taskMgr</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">task2</span><span class="p">,</span> <span class="s2">&quot;second&quot;</span><span class="p">,</span><span class="n">sort</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">priority</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">taskMgr</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">task3</span><span class="p">,</span> <span class="s2">&quot;third&quot;</span><span class="p">,</span><span class="n">sort</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">priority</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">taskMgr</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">task4</span><span class="p">,</span> <span class="s2">&quot;fourth&quot;</span><span class="p">,</span><span class="n">sort</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">priority</span><span class="o">=</span><span class="mi">13</span><span class="p">)</span>
+<span class="n">taskMgr</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">task5</span><span class="p">,</span> <span class="s2">&quot;fifth&quot;</span><span class="p">,</span><span class="n">sort</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">priority</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>To print the list of tasks currently running,</p>
+<p>simply print out <code class="docutils literal"><span class="pre">taskMgr</span></code>.</p>
+<p>simply call <code class="docutils literal"><span class="pre">taskMgr-&gt;write(cout);</span></code>.</p>
+<p><code class="docutils literal"><span class="pre">Among&nbsp;your&nbsp;own&nbsp;tasks,&nbsp;you&nbsp;may&nbsp;see&nbsp;the&nbsp;following&nbsp;system&nbsp;tasks&nbsp;listed:</span></code></p>
+<p>dataloop
+Processes the keyboard and mouse inputs
+tkloop
+Processes Tk GUI events
+eventManager
+Processes events generated by C++ code, such as collision events
+igloop
+Draws the scene</p>
+<p>There also is graphical interface for managing tasks. This is very useful for
+having a look at the tasks while your application is running.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">taskMgr</span><span class="o">.</span><span class="n">popupControls</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="task-timing">
+<h2>Task timing<a class="headerlink" href="#task-timing" title="Permalink to this headline">¶</a></h2>
+<p>To see the specific timing information for each task when you print taskMgr,
+add the following line to your Config.prc file</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">task</span><span class="o">-</span><span class="n">timer</span><span class="o">-</span><span class="n">verbose</span> <span class="c1">#t</span>
+</pre></div>
+</div>
+<p>(see :ref:` &lt;the-configuration-file&gt;` for config syntax)</p>
+</div>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<p>uponDeath</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">taskAccumulator</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">def</span> <span class="nf">cleanUp</span><span class="p">(</span><span class="n">task</span><span class="p">):</span>
+  <span class="k">global</span> <span class="n">taskAccumulator</span>
+  <span class="k">print</span> <span class="s2">&quot;Task func has accumulated&quot;</span><span class="p">,</span><span class="n">taskAccumulator</span>
+  <span class="c1"># Reset the accumulator</span>
+  <span class="n">taskAccumulator</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="c1"># A task that runs forever</span>
+<span class="k">def</span> <span class="nf">taskFunc</span><span class="p">(</span><span class="n">task</span><span class="p">):</span>
+  <span class="k">global</span> <span class="n">taskAccumulator</span>
+  <span class="n">taskAccumulator</span> <span class="o">+=</span> <span class="mi">1</span>
+  <span class="k">return</span> <span class="n">task</span><span class="o">.</span><span class="n">cont</span>
+
+<span class="k">def</span> <span class="nf">taskStop</span><span class="p">(</span><span class="n">task</span><span class="p">):</span>
+  <span class="n">taskMgr</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">&#39;Accumulator&#39;</span><span class="p">)</span>
+
+<span class="c1"># Add the taskFunc function with an uponDeath argument</span>
+<span class="n">taskMgr</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">taskFunc</span><span class="p">,</span> <span class="s1">&#39;Accumulator&#39;</span><span class="p">,</span> <span class="n">uponDeath</span><span class="o">=</span><span class="n">cleanUp</span><span class="p">)</span>
+<span class="c1"># Stops the task 2 seconds later</span>
+<span class="n">taskMgr</span><span class="o">.</span><span class="n">doMethodLater</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">taskStop</span><span class="p">,</span> <span class="s1">&#39;Task Stop&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>set_upon_death()</p>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">task_accumulator</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+<span class="kt">void</span> <span class="nf">clean_up</span><span class="p">(</span><span class="n">GenericAsyncTask</span> <span class="o">*</span><span class="n">task</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">clean_exit</span><span class="p">,</span> <span class="kt">void</span> <span class="o">*</span><span class="n">user_data</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Task func has accumulated &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">task_accumulator</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="c1">//Reset the accumulator</span>
+    <span class="n">task_accumulator</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// A task that runs forever</span>
+<span class="n">AsyncTask</span><span class="o">::</span><span class="n">DoneStatus</span> <span class="n">task_func</span><span class="p">(</span><span class="n">GenericAsyncTask</span><span class="o">*</span> <span class="n">task</span><span class="p">,</span> <span class="kt">void</span><span class="o">*</span> <span class="n">data</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">task_accumulator</span><span class="o">++</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">AsyncTask</span><span class="o">::</span><span class="n">DS_cont</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">AsyncTask</span><span class="o">::</span><span class="n">DoneStatus</span> <span class="n">task_stop</span><span class="p">(</span><span class="n">GenericAsyncTask</span><span class="o">*</span> <span class="n">task</span><span class="p">,</span> <span class="kt">void</span><span class="o">*</span> <span class="n">data</span><span class="p">)</span> <span class="p">{</span>
+    <span class="p">((</span><span class="n">GenericAsyncTask</span><span class="o">*</span><span class="p">)</span><span class="n">data</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">remove</span><span class="p">();</span>
+    <span class="k">return</span> <span class="n">AsyncTask</span><span class="o">::</span><span class="n">DS_done</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// Note that we skip the initialization and finalization of</span>
+<span class="c1">// the application for the sake of simplifying the example.</span>
+<span class="kt">int</span> <span class="n">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
+
+    <span class="cm">/* Insert here your app initialization code */</span>
+    <span class="cm">/* ... */</span>
+
+    <span class="n">PT</span><span class="p">(</span><span class="n">GenericAsyncTask</span><span class="p">)</span> <span class="n">task</span><span class="p">,</span> <span class="n">stopper_task</span><span class="p">;</span>
+    <span class="c1">//Add the task_func function with an upon_death callback</span>
+    <span class="n">task</span> <span class="o">=</span> <span class="k">new</span> <span class="n">GenericAsyncTask</span><span class="p">(</span><span class="s">&quot;Accumulator&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">task_func</span><span class="p">,</span> <span class="p">(</span><span class="kt">void</span><span class="o">*</span><span class="p">)</span> <span class="nb">NULL</span><span class="p">);</span>
+    <span class="n">task</span><span class="o">-&gt;</span><span class="n">set_upon_death</span> <span class="p">(</span><span class="o">&amp;</span><span class="n">clean_up</span><span class="p">);</span>
+    <span class="n">taskMgr</span><span class="o">-&gt;</span><span class="n">add</span><span class="p">(</span><span class="n">task</span><span class="p">);</span>
+    <span class="c1">//Adds another task to stop the main task 2 seconds later</span>
+    <span class="n">stopper_task</span> <span class="o">=</span> <span class="k">new</span> <span class="n">GenericAsyncTask</span><span class="p">(</span><span class="s">&quot;Task stopper&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">task_stop</span><span class="p">,</span> <span class="n">task</span><span class="p">);</span>
+    <span class="n">stopper_task</span><span class="o">-&gt;</span><span class="n">set_delay</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+    <span class="n">taskMgr</span><span class="o">-&gt;</span><span class="n">add</span><span class="p">(</span><span class="n">stopper_task</span><span class="p">);</span>
+
+    <span class="cm">/* Insert here your app finalization code */</span>
+    <span class="cm">/* ... */</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="task-chains.html" class="btn btn-neutral float-right" title="Task Chains" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Tasks and Event Handling" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Panda3D.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.10.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

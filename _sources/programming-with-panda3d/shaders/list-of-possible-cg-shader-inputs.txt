@@ -1,0 +1,414 @@
+.. _list-of-possible-cg-shader-inputs:
+
+List of Possible Cg Shader Inputs
+=================================
+
+In many cases, it is desirable to access information from the render state or
+from the 3-D transformation of the node that is currently being rendered.
+Instead of having to pass all this information manually, it is possible to
+name your variables in a special way that Panda3D will recognize and
+automatically populate with the relevant data.
+
+The following table describes the inputs that can be used in Cg shaders.
+
++---------------------------------+------------------------------------------------+
+| CG Input                        | Description                                    |
++=================================+================================================+
+| XXXREPLACE-ee61fca6b083d004cf79 | The model's first texture. This requires that  |
+| 431a92218195fb188d16XXX         | the model be textured in the normal manner.    |
+|                                 | You may also use tex\_1, tex\_2, and so forth, |
+|                                 | if the model is multitextured.                 |
++---------------------------------+------------------------------------------------+
+| XXXREPLACE-aad2030d32c6bd07680a | If the model uses a 3D texture or a cubemap,   |
+| 89692946efde09b91d11XXX         | use tex3D and texCUBE to access the color.     |
++---------------------------------+------------------------------------------------+
+| XXXREPLACE-21fbcf384fc17bb28018 | Vertex Position. Vertex shader only. You may   |
+| 65a21ed336b92493c1b4XXX         | also use float4, in which case (w==1).         |
++---------------------------------+------------------------------------------------+
+| XXXREPLACE-3c26cfe76fa029981a75 | Vertex Normal. Vertex shader only.             |
+| 06bb2bcac189877319d1XXX         |                                                |
++---------------------------------+------------------------------------------------+
+| XXXREPLACE-3d80c02aee56d6defe37 | Vertex color. Vertex shader only.              |
+| 8bcdd5e24794f9326876XXX         |                                                |
++---------------------------------+------------------------------------------------+
+| XXXREPLACE-8b8da4cc28141f16d5e8 | UV(W) coordinate set associated with the       |
+| 3abc3a68d68e95eb0e8eXXX         | model's first texture. This requires that the  |
+|                                 | model be textured in the normal manner. You    |
+|                                 | may also use vtx\_texcoord1, vtx\_texcoord2,   |
+|                                 | and so forth if the model is multitextured.    |
+|                                 | Vertex shader only.                            |
++---------------------------------+------------------------------------------------+
+| XXXREPLACE-5bc038169a0020623f8d | From Panda3D 1.9 onward, this refers to the    |
+| cd0ae4556374650b04d4XXX         | default (unnamed) set of UV(W) coordinates, if |
+|                                 | present, rather than being an alias for        |
+|                                 | vtx\_texcoord0. Vertex shader only.            |
++---------------------------------+------------------------------------------------+
+| XXXREPLACE-23ef7d4c817b2822c2e6 | From Panda3D 1.9 onward, this refers to a set  |
+| 73c78c8b5eb483fcac99XXX         | of UV(W) coordinates with the given name.      |
+|                                 | Vertex shader only.                            |
++---------------------------------+------------------------------------------------+
+| XXXREPLACE-ad0140f2fd4a6d4e146b | Tangent vector associated with the model's     |
+| 8c74c7c750efa461aa63XXX         | first texture. This can only be used if the    |
+|                                 | model has been textured in the normal manner,  |
+|                                 | and if binormals have been precomputed. You    |
+|                                 | may also use vtx\_tangent1, vtx\_tangent2, and |
+|                                 | so forth if the model is multitextured. Vertex |
+|                                 | shader only.                                   |
++---------------------------------+------------------------------------------------+
+| XXXREPLACE-381351885d5d76fb7e18 | Binormal vector associated with                |
+| 750ab6d7412103daa265XXX         | vtx\_texcoord0. This can only be used if the   |
+|                                 | model has been textured in the normal manner,  |
+|                                 | and if binormals have been precomputed. You    |
+|                                 | can also use vtx\_binormal1, vtx\_binormal2,   |
+|                                 | and so forth if the model has been             |
+|                                 | multitextured. Vertex shader only.             |
++---------------------------------+------------------------------------------------+
+| XXXREPLACE-7a5e56662cb421c54c76 | Panda makes it possible to store arbitrary     |
+| 0020cbeb31f1d436009eXXX         | columns of user-defined data in the vertex     |
+|                                 | table; see :ref:` <geomvertexdata>`. You can   |
+|                                 | access this data using this syntax. For        |
+|                                 | example, vtx\_chicken will look for a column   |
+|                                 | named "chicken" in the vertex array. Vertex    |
+|                                 | shader only.                                   |
++---------------------------------+------------------------------------------------+
+| XXXREPLACE-c8fc7deb8dc4f7f7fd23 | A matrix that transforms from coordinate       |
+| ddc1498d0b7379d391f7XXX         | system X to coordinate system Y. See the       |
+|                                 | section on                                     |
+|                                 | :ref:` <shaders-and-coordinate-spaces>` for    |
+|                                 | more information.                              |
++---------------------------------+------------------------------------------------+
+| XXXREPLACE-e1cb5f95f7136699441c | Transpose of trans\_x\_to\_y                   |
+| 100140dd9fb6374d3e7bXXX         |                                                |
++---------------------------------+------------------------------------------------+
+| XXXREPLACE-74a608fcbc8719928d2e | Row 0 of trans\_x\_to\_y.                      |
+| 18e1e2fa0b78cc2cc916XXX         |                                                |
++---------------------------------+------------------------------------------------+
+| XXXREPLACE-4cc1e6e14061d4e1f3db | Row 1 of trans\_x\_to\_y.                      |
+| 8fd0cb1853efde86b6a9XXX         |                                                |
++---------------------------------+------------------------------------------------+
+| XXXREPLACE-e315d787cd670c569df9 | Row 2 of trans\_x\_to\_y.                      |
+| e8d8f7685e87b0c5c0c5XXX         |                                                |
++---------------------------------+------------------------------------------------+
+| XXXREPLACE-08d6bdd2cd3192ff29a1 | Row 3 of trans\_x\_to\_y.                      |
+| dcf713578ae77af3e0bdXXX         |                                                |
++---------------------------------+------------------------------------------------+
+| XXXREPLACE-ce3a4d3948710fa96ef0 | Col 0 of trans\_x\_to\_y.                      |
+| 58f1fbc06eef735bae59XXX         |                                                |
++---------------------------------+------------------------------------------------+
+| XXXREPLACE-7f917d99225f9bc8c3e3 | Col 1 of trans\_x\_to\_y.                      |
+| eae374aefbec7397d9e2XXX         |                                                |
++---------------------------------+------------------------------------------------+
+| XXXREPLACE-e3425eb94ecede1cfa2c | Col 2 of trans\_x\_to\_y.                      |
+| 413232fce3943b080f52XXX         |                                                |
++---------------------------------+------------------------------------------------+
+| XXXREPLACE-77b91e4951525d1c803d | Col 3 of trans\_x\_to\_y.                      |
+| eaeea40aac5b30199e11XXX         |                                                |
++---------------------------------+------------------------------------------------+
+| XXXREPLACE-8e0d3d3d05f8a8ede3d9 | Model-Space Transform of X, aka                |
+| 8a314b80b433eb43f8edXXX         | trans\_x\_to\_model                            |
++---------------------------------+------------------------------------------------+
+| XXXREPLACE-43f4ac889e8d13672c42 | Clip-Space Transform of X, aka                 |
+| 433675f935a24a54c363XXX         | trans\_x\_to\_clip                             |
++---------------------------------+------------------------------------------------+
+| XXXREPLACE-93a912eff5b3dd568eb3 | World-Space Transform of X, aka                |
+| c5dd0a4c691f3413d8b1XXX         | trans\_x\_to\_world                            |
++---------------------------------+------------------------------------------------+
+| XXXREPLACE-47d3e5da7ffbaae4c9c6 | View-Space Transform of X, aka                 |
+| 7060e619cd240ea290f8XXX         | trans\_x\_to\_view                             |
++---------------------------------+------------------------------------------------+
+| XXXREPLACE-fee247bf08084658898b | Model-Space Position of X, aka                 |
+| 46da06728e00b21edd1aXXX         | row3\_x\_to\_model                             |
++---------------------------------+------------------------------------------------+
+| XXXREPLACE-958ba8168462233c8815 | Clip-Space Position of X, aka                  |
+| 46aca915d8813c175813XXX         | row3\_x\_to\_clip                              |
++---------------------------------+------------------------------------------------+
+| XXXREPLACE-f5d1d2ca0bd8496a1884 | World-Space Position of X, aka                 |
+| 2063497eabe6e69261efXXX         | row3\_x\_to\_world                             |
++---------------------------------+------------------------------------------------+
+| XXXREPLACE-3ba1704075cafa5e748c | View-Space Position of X, aka                  |
+| 11882509374659f414e5XXX         | row3\_x\_to\_view                              |
++---------------------------------+------------------------------------------------+
+| XXXREPLACE-d222a852ebd7ca8b0802 | Modelview matrix, transforming model-space     |
+| 3f72837efae5831804e1XXX         | coordinates to camera-space coordinates.       |
++---------------------------------+------------------------------------------------+
+| XXXREPLACE-60be7f6b418e47a9db0b | Inverse of the model-view Matrix               |
+| 2c96c2aa8d0e7d10ffa7XXX         |                                                |
++---------------------------------+------------------------------------------------+
+| XXXREPLACE-52adc2c0efe44900d2ca | Transposed Modelview Matrix                    |
+| 017205a54aa97a5b9c4cXXX         |                                                |
++---------------------------------+------------------------------------------------+
+| XXXREPLACE-c866e1d716b46de92fa2 | Inverse Transposed Modelview Matrix            |
+| fb8e6ad1b78c1d332467XXX         |                                                |
++---------------------------------+------------------------------------------------+
+| XXXREPLACE-dd5317c543b932bbd863 | Projection Matrix                              |
+| f851e87a4f2847396041XXX         |                                                |
++---------------------------------+------------------------------------------------+
+| XXXREPLACE-86f5992522b25d9340cf | Inverse Projection Matrix                      |
+| 434c1114c0c18ad6dffcXXX         |                                                |
++---------------------------------+------------------------------------------------+
+| XXXREPLACE-a7f6281a5fe826c52acf | Transposed Projection Matrix                   |
+| cf03be06cecc4701888fXXX         |                                                |
++---------------------------------+------------------------------------------------+
+| XXXREPLACE-29f98aaeacba44df301e | Inverse Transposed Projection Matrix           |
+| da5297d9cd55cbf21263XXX         |                                                |
++---------------------------------+------------------------------------------------+
+| XXXREPLACE-d8a2cb01739769c34e98 | Composed Modelview/Projection Matrix           |
+| a35b100ef18edf35f80bXXX         |                                                |
++---------------------------------+------------------------------------------------+
+| XXXREPLACE-a88574a14e3f8742c614 | Inverse ModelProj Matrix                       |
+| cacd4fbd5087b4db7a35XXX         |                                                |
++---------------------------------+------------------------------------------------+
+| XXXREPLACE-71e529f58a7ad6ae1065 | Transposed ModelProj Matrix                    |
+| 595d1623ba248b554145XXX         |                                                |
++---------------------------------+------------------------------------------------+
+| XXXREPLACE-f996cfead6b49ac91872 | Inverse Transposed ModelProj Matrix            |
+| 8a79c7f7702f17d3f60aXXX         |                                                |
++---------------------------------+------------------------------------------------+
+| XXXREPLACE-dcfaafa44c2e29ccba9f | A constant vector that was stored using        |
+| 412ef4529124b8790bfaXXX         | XXXREPLACE-166d220e69ac62fe398d901c39139782013 |
+|                                 | 7430fXXX.                                      |
+|                                 | Parameter anything would match data supplied   |
+|                                 | by the call setShaderInput("anything",         |
+|                                 | Vec4(x,y,z,w))                                 |
++---------------------------------+------------------------------------------------+
+| XXXREPLACE-33f7d4c784edc1032401 | A constant texture that was stored using       |
+| 395e0ed3e3146e78676cXXX         | XXXREPLACE-166d220e69ac62fe398d901c39139782013 |
+|                                 | 7430fXXX.                                      |
+|                                 | Parameter *anything* would match data supplied |
+|                                 | by the call                                    |
+|                                 | XXXREPLACE-f9c9794fb0d6f7fe5e7a2ea51202d9e8112 |
+|                                 | c12ffXXX                                       |
++---------------------------------+------------------------------------------------+
+| XXXREPLACE-588e0858060cd5bd0956 | A constant matrix that was stored using        |
+| d8b5d2ac9f8eb2381dcbXXX         | XXXREPLACE-166d220e69ac62fe398d901c39139782013 |
+|                                 | 7430fXXX.                                      |
+|                                 | Parameter anything would match data supplied   |
+|                                 | by the call setShaderInput("anything",         |
+|                                 | myNodePath). The matrix supplied is the        |
+|                                 | nodepath's local transform.                    |
++---------------------------------+------------------------------------------------+
+| XXXREPLACE-257e17922805bff24aa8 | X must be the name of a texture specified via  |
+| 762396511fa66a3f354bXXX         | shaderInput. Contains the U,V coordinates of   |
+|                                 | the center of the texture. This will be        |
+|                                 | (0.5,0.5) if the texture is not padded, but it |
+|                                 | will be less if the texture is padded.         |
++---------------------------------+------------------------------------------------+
+| XXXREPLACE-433b04446d1aec3445ad | X must be the name of a texture specified via  |
+| a3a39fbccb297bd4c83fXXX         | shaderInput. Contains the U,V offset of a      |
+|                                 | single pixel in the texture (ie, the           |
+|                                 | reciprocal of the texture size).               |
++---------------------------------+------------------------------------------------+
+| XXXREPLACE-69171425cea5d8acbc7d | The contents of the material attribute. Row 0  |
+| fac921ee96a219a2a485XXX         | is ambient, Row 1 is diffuse, Row 2 is         |
+|                                 | emission, Row 3 is specular, with shininess in |
+|                                 | W.                                             |
++---------------------------------+------------------------------------------------+
+| XXXREPLACE-5570aaf10355024eab81 | The contents of the color attribute. This is   |
+| 92965c8d97f630a3bf2dXXX         | white unless the model has a flat color        |
+|                                 | applied.                                       |
++---------------------------------+------------------------------------------------+
+| XXXREPLACE-ba42cb69ffe3f9060b85 | The contents of the color scale attribute.     |
+| 7347bce66cb76dfb2bb4XXX         | This is white unless the model has a color     |
+|                                 | scale applied using nodePath.setColorScale.    |
+|                                 |                                                |
+|                                 | This variable is only available in 1.6.2 and   |
+|                                 | above.                                         |
++---------------------------------+------------------------------------------------+
+| XXXREPLACE-fb2bae8ffc7683a12e45 | The fog parameters, where applicable. The      |
+| f48c0dbbd9dddd090412XXX         | values are in order: density, start, end,      |
+|                                 | scale. The density is for exponential fog      |
+|                                 | only, the start, end and scale are for linear  |
+|                                 | fog only. The scale is equal to 1 / (end -     |
+|                                 | start).                                        |
+|                                 |                                                |
+|                                 | New in Panda3D 1.8.                            |
++---------------------------------+------------------------------------------------+
+| XXXREPLACE-f8f82e6c43eb862a0e3a | The fog color, if applicable. New in Panda3D   |
+| 4a4fc7a8d7ed3c3ba961XXX         | 1.8.                                           |
++---------------------------------+------------------------------------------------+
+| XXXREPLACE-82dd291aeb81626a2e52 | X must be an AmbientLight specified via a      |
+| 9f0da55c019b0acad15bXXX         | shaderInput. Contains the color of the light.  |
++---------------------------------+------------------------------------------------+
+| XXXREPLACE-69c9f94eee1f4a940098 | X must be an DirectionalLight specified via a  |
+| 7521a51d94bba8c55477XXX         | shaderInput. Row 0 is color, row 1 is          |
+|                                 | specular, row 2 is model-space direction, row  |
+|                                 | 3 is model-space pseudo half-angle.            |
++---------------------------------+------------------------------------------------+
+| XXXREPLACE-aac20706a6aa8070ee01 | X must be an PlaneNode specified via a         |
+| 04ead8781ec23c8090b1XXX         | shaderInput. Contains the four terms of the    |
+|                                 | plane equation.                                |
+|                                 |                                                |
+|                                 | This variable is only available in 1.6.2 and   |
+|                                 | above.                                         |
++---------------------------------+------------------------------------------------+
+| XXXREPLACE-da5ef1742310c83ca6c2 | Contains the parameters of the first clipplane |
+| 0bf93354db2e601b3004XXX         | (also: clipplane\_1, clipplane\_2, etc. for    |
+|                                 | subsequent clip planes) in world-space         |
+|                                 | coordinates.                                   |
+|                                 |                                                |
+|                                 | This variable is only available in 1.6.2 and   |
+|                                 | above.                                         |
++---------------------------------+------------------------------------------------+
+| XXXREPLACE-6d25be988a57d60afbaf | Contains the frame time in seconds.            |
+| 8bf0375bfa263fc54985XXX         |                                                |
+|                                 | This variable is only available in 1.9.0 and   |
+|                                 | above.                                         |
++---------------------------------+------------------------------------------------+
+| XXXREPLACE-f74f6ab9ba89fb1b8390 | Linearly interpolated Position, as supplied by |
+| f4a8ab3c7984f09a7749XXX         | the vertex shader to the fragment shader.      |
+|                                 | Declare "out" in the vertex shader, "in" in    |
+|                                 | the fragment shader.                           |
++---------------------------------+------------------------------------------------+
+| XXXREPLACE-63d0cc1323d8f4e7878e | Linearly interpolated Primary color, as        |
+| 2753a99f542ab65905daXXX         | supplied by the vertex shader to the fragment  |
+|                                 | shader. Declare "out" in the vertex shader,    |
+|                                 | "in" in the fragment shader.                   |
++---------------------------------+------------------------------------------------+
+| XXXREPLACE-827683dfa5c3fa699e40 | Linearly interpolated Secondary color, as      |
+| f81c857e699a98def94aXXX         | supplied by the vertex shader to the fragment  |
+|                                 | shader. Declare "out" in the vertex shader,    |
+|                                 | "in" in the fragment shader.                   |
++---------------------------------+------------------------------------------------+
+| XXXREPLACE-8abf2bdc39d80c545af4 | Linearly interpolated Texture Coordinate 0, as |
+| 6db0b28b578f82cdb548XXX         | supplied by the vertex shader to the fragment  |
+|                                 | shader. You may also use l\_texcoord1,         |
+|                                 | l\_texcoord2, and so forth. Declare "out" in   |
+|                                 | the vertex shader, "in" in the fragment        |
+|                                 | shader.                                        |
++---------------------------------+------------------------------------------------+
+| XXXREPLACE-4e47b3a246d59a44dec4 | Output Color, as supplied by the fragment      |
+| afc627a05542120519a8XXX         | shader to the blending units. Fragment shader  |
+|                                 | only. (COLOR0 is also accepted.)               |
++---------------------------------+------------------------------------------------+
+| XXXREPLACE-911e3c6c1252d4ee2efa | Output auxiliary color. Only available if an   |
+| 602d21d0a8dd1b9ccc63XXX         | auxiliary was obtained for the shaders target  |
+|                                 | buffer/window. Fragment shader only.           |
++---------------------------------+------------------------------------------------+
+
+Using Custom Shader Inputs
+--------------------------
+
+As of Panda3D 1.8.0, the capabilities for passing numeric shader inputs have
+been greatly enhanced. The available input types are as follows:
+
+::
+    
+    - Vec4
+    - Vec3
+    - Vec2
+    - Point4
+    - Point3
+    - Point2
+    - Mat4
+    - Mat3
+    - PTALMatrix4f
+    - PTALMatrix3f
+    - PTALVecBase4f
+    - PTALVecBase3f
+    - PTALVecBase2f
+    - PTAFloat
+    - PTADouble
+
+
+
+(In Panda3D 1.9.0, the integer versions of these vectors and arrays are also
+supported.)
+
+For definition let us consider the shader parameter float3. It's type is float
+and format is Vec3 (meaning it can hold 3 elements) and a float3x3 input is of
+type float and format Mat3 (meaning it can hold 9 elements)
+
+The main concept of the shader inputs is that the Cg input format and type is
+independent to the Panda3D input. The only condition is that the number of
+elements passed by the user through the setShaderInput() function of Panda3D
+and the number of elements expected by the shader input should be the same.
+For example a parameter uniform float4x4 mat[4] (total of 16\*4 elements)
+could be set with(the below list is just a sample and there are more ways to
+represent it):
+
+
+
+.. code-block:: python
+    
+    setShaderInput("input_name",PTALMat4f[4])
+    setShaderInput(PTALVecBase4f[16])
+    setShaderInput(PTAFloat[16*4])
+    setShaderInput(PTADouble[16*4]) 
+
+
+
+But for some Cg input types there is no corresponding Panda3D type such as
+float3x2(Panda3D does not have a corresponding Mat3x2 class) Hence these input
+types can be initiated row-wise as
+
+1 2 3
+
+4 5 6
+
+This row wise input can be sent to the Cg shader in any of the following
+ways(Note that the below list is just a sample and there are more ways to
+represent it)
+
+
+
+.. code-block:: python
+
+     
+    setShaderInput(PTAFloat[6])
+    setShaderInput(PTADouble[6])
+    setShaderInput(PTALVecBase3f[2])
+    setShaderInput(PTALVecBase2f[3])
+
+
+
+Now, the issue of common input types such as float, double, int, long. The GPU
+registers generally can handle only floats. Hence even if we do send a double
+it will be automatically type casted into float. Hence for such type of inputs
+we can use above types.
+
+For example, input types such as
+
+
+
+.. code-block:: python
+
+     
+    float3 var
+    bool3 var
+    half3 var
+    double3 var
+    fixed3 var
+    int3 var
+
+
+
+Can be sent to your Cg shader program by (the below list is just a sample and
+there are more ways to represent it)
+
+
+
+.. code-block:: python
+
+     
+    setShaderInput(PTAFloat[3])
+    setShaderInput(PTADouble[3])
+
+
+
+Below is a sample code snippet that shows how you can use the new shader
+inputs.
+
+
+
+.. code-block:: python
+
+     
+    from panda3d.core import Vec4
+    vec4 = Vec4(0.0,1.0,0.0,1.0)
+    myModel.setShaderInput("Inputs.vec4",vec4)
+
+
+
+First import the necessary header to use the type of input. In our case it's
+Vec4. The next statement shows a Vec4 input type. Then set the Vec4 as a
+shader input to your model.

@@ -1,0 +1,513 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Mouse Support &mdash; Panda3D Manual</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Panda3D Manual" href="../../index.html"/>
+        <link rel="up" title="Hardware support" href="index.html"/>
+        <link rel="next" title="Joystick Support" href="joystick-support.html"/>
+        <link rel="prev" title="Keyboard Support" href="keyboard-support.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Panda3D
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.10
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../intro/index.html">Introduction to Panda3D</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Programming with Panda3D</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../the-scene-graph/index.html">The Scene Graph</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../the-configuration-file/index.html">The Configuration File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../models-and-actors/index.html">Models and Actors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-attributes/index.html">Render Attributes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../texturing/index.html">Texturing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shaders/index.html">Shaders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../camera-control/index.html">Camera Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sound/index.html">Sound</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intervals/index.html">Intervals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks-and-event-handling/index.html">Tasks and Event Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../text-and-image-rendering/index.html">Text and Image Rendering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../directgui/index.html">DirectGUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-effects/index.html">Render Effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../finite-state-machines/index.html">Finite State Machines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../terrain/index.html">Terrain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internal-structures/index.html">Advanced operations with Panda3D&#8217;s internal structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-to-texture-and-image-postprocessing/index.html">Render-to-Texture and Image Postprocessing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../panda3d-rendering-process/index.html">Panda3D Rendering Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../panda3d-utility-functions.html">Panda3D Utility Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../particle-effects/index.html">Particle Effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../collision-detection/index.html">Collision Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../garbage-collection/index.html">Garbage Collection</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Hardware support</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="keyboard-support.html">Keyboard Support</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Mouse Support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="joystick-support.html">Joystick Support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vr-helmets-and-trackers.html">VR Helmets and Trackers</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../math-engine/index.html">Math Engine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../motion-paths.html">Motion Paths</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../timing/index.html">Timing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../networking/index.html">Networking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../multifiles/index.html">Multifiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../showbase.html">ShowBase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../file-reading.html">File Reading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../threading.html">Threading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../subclassing.html">Subclassing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../table-of-features-supported-per-graphic-renderer.html">Table of features supported per graphic renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pandai/index.html">Artificial Intelligence (PANDAI)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../distribution/index.html">Distributing Panda3D Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../samples/index.html">Sample Programs in the Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../debugging/index.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../performance-tuning/index.html">Performance Tuning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../using-c++/index.html">Using C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/index.html">Panda3D Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../building-from-source.html">Building Panda3D from Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cheat-sheets.html">Cheat Sheets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started-on-osx.html">Getting Started on OSX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../more-panda3d-resources.html">More Panda3D Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../thirdparty-licenses.html">Third-party dependencies and license info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../the-irc-channel.html">The IRC Channel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">FAQ</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Panda3D</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Programming with Panda3D</a> &raquo;</li>
+      
+          <li><a href="index.html">Hardware support</a> &raquo;</li>
+      
+    <li>Mouse Support</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/programming-with-panda3d/hardware-support/mouse-support.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="mouse-support">
+<span id="id1"></span><h1>Mouse Support<a class="headerlink" href="#mouse-support" title="Permalink to this headline">¶</a></h1>
+<p>Panda3D has mouse support built in.</p>
+<p>In Python, the default action of the mouse is to control the camera. If you
+want to disable this functionality you can use the command:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">base</span><span class="o">.</span><span class="n">disableMouse</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>This function&#8217;s name is slightly misleading. It only disables the task that
+drives the camera around, it doesn&#8217;t disable the mouse itself. You can still
+get the position of the mouse, as well as the mouse clicks.</p>
+<p>In C++, you need to do the following if you want the mouse to control the
+camera:</p>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">window</span><span class="o">-&gt;</span><span class="n">setup_trackball</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>You don&#8217;t need to do this to enable the mouse itself, only to enable a task
+that drives the camera around. You can still get the position of the mouse, as
+well as the mouse clicks, even if you don&#8217;t enable this &#8220;trackball mode&#8221;.</p>
+<p>To get the position:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">base</span><span class="o">.</span><span class="n">mouseWatcherNode</span><span class="o">.</span><span class="n">hasMouse</span><span class="p">():</span>
+  <span class="n">x</span><span class="o">=</span><span class="n">base</span><span class="o">.</span><span class="n">mouseWatcherNode</span><span class="o">.</span><span class="n">getMouseX</span><span class="p">()</span>
+  <span class="n">y</span><span class="o">=</span><span class="n">base</span><span class="o">.</span><span class="n">mouseWatcherNode</span><span class="o">.</span><span class="n">getMouseY</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">mouseWatcher</span><span class="o">-&gt;</span><span class="n">has_mouse</span><span class="p">()){</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">window</span><span class="o">-&gt;</span><span class="n">get_graphics_window</span><span class="p">()){</span>
+    <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="n">window</span><span class="o">-&gt;</span><span class="n">get_graphics_window</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">get_pointer</span><span class="p">(</span><span class="mi">0</span><span class="p">).</span><span class="n">get_x</span><span class="p">();</span>
+    <span class="kt">int</span> <span class="n">y</span> <span class="o">=</span> <span class="n">window</span><span class="o">-&gt;</span><span class="n">get_graphics_window</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">get_pointer</span><span class="p">(</span><span class="mi">0</span><span class="p">).</span><span class="n">get_y</span><span class="p">();</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The mouse clicks generate &#8220;events.&#8221; To understand what events are, and how to
+process them, you will need to read the :ref:` &lt;tasks-and-event-handling&gt;`
+section. The names of the events generated are:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="32%" />
+<col width="68%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>mouse1</td>
+<td>Mouse Button 1 Pressed</td>
+</tr>
+<tr class="row-even"><td>mouse2</td>
+<td>Mouse Button 2 Pressed</td>
+</tr>
+<tr class="row-odd"><td>mouse3</td>
+<td>Mouse Button 3 Pressed</td>
+</tr>
+<tr class="row-even"><td>mouse1-up</td>
+<td>Mouse Button 1 Released</td>
+</tr>
+<tr class="row-odd"><td>mouse2-up</td>
+<td>Mouse Button 2 Released</td>
+</tr>
+<tr class="row-even"><td>mouse3-up</td>
+<td>Mouse Button 3 Released</td>
+</tr>
+<tr class="row-odd"><td>wheel_up</td>
+<td>Mouse Wheel rolled upwards</td>
+</tr>
+<tr class="row-even"><td>wheel_down</td>
+<td>Mouse Wheel rolled downwards</td>
+</tr>
+</tbody>
+</table>
+<p>If you want to hide the mouse cursor, you want the line: &#8220;cursor hidden #t&#8221; in
+your :ref:` &lt;configuring-panda3d&gt;` or this section of code:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pandac.PandaModules</span> <span class="kn">import</span> <span class="n">WindowProperties</span>
+<span class="n">props</span> <span class="o">=</span> <span class="n">WindowProperties</span><span class="p">()</span>
+<span class="n">props</span><span class="o">.</span><span class="n">setCursorHidden</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">base</span><span class="o">.</span><span class="n">win</span><span class="o">.</span><span class="n">requestProperties</span><span class="p">(</span><span class="n">props</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Re-enabling mouse control</p>
+<p>If you need to re-enable the mouse control of the camera, you have to adjust
+mouseInterfaceNode to the current camera transformation :</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">mat</span><span class="o">=</span><span class="n">Mat4</span><span class="p">(</span><span class="n">camera</span><span class="o">.</span><span class="n">getMat</span><span class="p">())</span>
+<span class="n">mat</span><span class="o">.</span><span class="n">invertInPlace</span><span class="p">()</span>
+<span class="n">base</span><span class="o">.</span><span class="n">mouseInterfaceNode</span><span class="o">.</span><span class="n">setMat</span><span class="p">(</span><span class="n">mat</span><span class="p">)</span>
+<span class="n">base</span><span class="o">.</span><span class="n">enableMouse</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Otherwise the camera would be placed back to the last position when the mouse
+control was enabled.</p>
+<p>Mouse modes</p>
+<p>You may configure the mouse mode, which controls how the mouse cursor operates
+in the window.</p>
+<p>Absolute mouse mode</p>
+<p>By default, the mouse is in &#8220;absolute&#8221; mode, meaning the cursor can freely
+move outside the window. This mode is typical for desktop applications.</p>
+<p>In a first person game where the mouse controls the camera (&#8220;mouselook&#8221;),
+thouh, you usually want the mouse cursor to stay inside the window, so you can
+get movement events no matter how far the user moves the mouse.</p>
+<p>Two other mouse modes can help with this.</p>
+<p>Relative mouse mode</p>
+<p>In relative mode, the mouse cursor is kept at the center of the window, and
+only relative movement events are reported.</p>
+<p>Typically you want to hide the mouse cursor in this case, since otherwise it
+distractingly &#8220;sticks&#8221; to the center of the window.</p>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="c1">// To set relative mode and hide the cursor:</span>
+<span class="n">WindowProperties</span> <span class="n">props</span> <span class="o">=</span> <span class="n">window</span><span class="o">-&gt;</span><span class="n">get_graphics_window</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">get_properties</span><span class="p">();</span>
+<span class="n">props</span><span class="p">.</span><span class="n">set_cursor_hidden</span> <span class="p">(</span><span class="nb">true</span><span class="p">);</span>
+<span class="n">props</span><span class="p">.</span><span class="n">set_mouse_mode</span> <span class="p">(</span><span class="n">WindowProperties</span><span class="o">::</span><span class="n">M_relative</span><span class="p">);</span>
+<span class="n">window</span><span class="o">-&gt;</span><span class="n">get_graphics_window</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">request_properties</span> <span class="p">(</span><span class="n">props</span><span class="p">);</span>
+
+<span class="c1">// To revert to normal mode:</span>
+<span class="n">WindowProperties</span> <span class="n">props</span> <span class="o">=</span> <span class="n">window</span><span class="o">-&gt;</span><span class="n">get_graphics_window</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">get_properties</span><span class="p">();</span>
+<span class="n">props</span><span class="p">.</span><span class="n">set_cursor_hidden</span> <span class="p">(</span><span class="nb">false</span><span class="p">);</span>
+<span class="n">props</span><span class="p">.</span><span class="n">set_mouse_mode</span> <span class="p">(</span><span class="n">WindowProperties</span><span class="o">::</span><span class="n">M_absolute</span><span class="p">);</span>
+<span class="n">window</span><span class="o">-&gt;</span><span class="n">get_graphics_window</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">request_properties</span> <span class="p">(</span><span class="n">props</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># To set relative mode and hide the cursor:</span>
+<span class="n">props</span> <span class="o">=</span> <span class="n">WindowProperties</span><span class="p">()</span>
+<span class="n">props</span><span class="o">.</span><span class="n">setCursorHidden</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">props</span><span class="o">.</span><span class="n">setMouseMode</span><span class="p">(</span><span class="n">WindowProperties</span><span class="o">.</span><span class="n">M_relative</span><span class="p">)</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">base</span><span class="o">.</span><span class="n">win</span><span class="o">.</span><span class="n">requestProperties</span><span class="p">(</span><span class="n">props</span><span class="p">)</span>
+
+<span class="c1"># To revert to normal mode:</span>
+<span class="n">props</span> <span class="o">=</span> <span class="n">WindowProperties</span><span class="p">()</span>
+<span class="n">props</span><span class="o">.</span><span class="n">setCursorHidden</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span>
+<span class="n">props</span><span class="o">.</span><span class="n">setMouseMode</span><span class="p">(</span><span class="n">WindowProperties</span><span class="o">.</span><span class="n">M_absolute</span><span class="p">)</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">base</span><span class="o">.</span><span class="n">win</span><span class="o">.</span><span class="n">requestProperties</span><span class="p">(</span><span class="n">props</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Confined mouse mode</p>
+<p>In Panda3D version 1.9.1 there is a new mode called &#8220;confined.&#8221; In this mode,
+panda will try to use the desktop&#8217;s native facilities to constrain the mouse
+to the borders of the window.</p>
+<p>This is effectively the same as &#8220;absolute&#8221; mode, but you can be assured the
+mouse will remain within the window as long as the mode is in effect and the
+window remains open.</p>
+<p>The mouse will report events continuously, but it will stick to the edges of
+the window. So, for a game, this is probably still not desirable.</p>
+<p>To accommodate this, you can schedule a Task to fetch the current mouse
+position, manually re-center the mouse afterward, and otherwise behave as if
+the mouse events were generated by the relative mode.</p>
+<p>For example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">mw</span> <span class="o">=</span> <span class="n">base</span><span class="o">.</span><span class="n">mouseWatcherNode</span>
+
+<span class="k">if</span> <span class="n">mw</span><span class="o">.</span><span class="n">hasMouse</span><span class="p">():</span>
+  <span class="c1"># get the position, which at center is (0, 0)</span>
+  <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">mw</span><span class="o">.</span><span class="n">getMouseX</span><span class="p">(),</span> <span class="n">mw</span><span class="o">.</span><span class="n">getMouseY</span><span class="p">()</span>
+
+  <span class="c1"># move mouse back to center</span>
+  <span class="n">props</span> <span class="o">=</span> <span class="n">base</span><span class="o">.</span><span class="n">win</span><span class="o">.</span><span class="n">getProperties</span><span class="p">()</span>
+  <span class="n">base</span><span class="o">.</span><span class="n">win</span><span class="o">.</span><span class="n">movePointer</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span>
+            <span class="nb">int</span><span class="p">(</span><span class="n">props</span><span class="o">.</span><span class="n">getXSize</span><span class="p">()</span> <span class="o">/</span> <span class="mi">2</span><span class="p">),</span>
+            <span class="nb">int</span><span class="p">(</span><span class="n">props</span><span class="o">.</span><span class="n">getYSize</span><span class="p">()</span> <span class="o">/</span> <span class="mi">2</span><span class="p">))</span>
+  <span class="c1"># now, x and y can be considered relative movements</span>
+</pre></div>
+</div>
+<p>Of course, the mouse must initially be centered, or else the first event will
+yield a large &#8220;movement&#8221; depending where the cursor happened to be at program
+start.</p>
+<p>Validating mouse mode</p>
+<p>Note that not all desktops support relative or confined modes. Unfortunately,
+you cannot tell in a portable way if a given mode is supported; also, since
+the window properties request is asynchronous, you will not be able to
+immediately detect if it took effect.</p>
+<p>The way to test this is to check whether your request was honored, after
+events have been processed, using</p>
+<p>TaskManager.doMethodLater()</p>
+<p>TaskManager::doMethodLater()</p>
+<p>.</p>
+<p>For example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">setMouseMode</span><span class="p">(</span><span class="o">...</span><span class="p">):</span>
+  <span class="o">...</span>
+  <span class="n">base</span><span class="o">.</span><span class="n">win</span><span class="o">.</span><span class="n">requestProperties</span><span class="p">(</span><span class="n">props</span><span class="p">)</span>
+  <span class="n">base</span><span class="o">.</span><span class="n">taskMgr</span><span class="o">.</span><span class="n">doMethodLater</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">resolveMouse</span><span class="p">,</span> <span class="s2">&quot;Resolve mouse setting&quot;</span><span class="p">)</span>
+ <span class="o">...</span>
+
+<span class="k">def</span> <span class="nf">resolveMouse</span><span class="p">(</span><span class="n">task</span><span class="p">):</span>
+    <span class="n">props</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">base</span><span class="o">.</span><span class="n">win</span><span class="o">.</span><span class="n">getProperties</span><span class="p">()</span>
+
+    <span class="n">actualMode</span> <span class="o">=</span> <span class="n">props</span><span class="o">.</span><span class="n">getMouseMode</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">actualMode</span> <span class="o">!=</span> <span class="n">WindowProperties</span><span class="o">.</span><span class="n">M_relative</span><span class="p">:</span>
+        <span class="c1"># did not get requested mode... perhaps try another.</span>
+</pre></div>
+</div>
+<p>Multiple Mice</p>
+<p>If you have multiple mice connected to a single machine, it is possible to get
+mouse movements and buttons for each individual mouse. This is called raw
+mouse input. It is really only useful if you are building an arcade machine
+that has lots of trackballs or spinners.</p>
+<p>In order to use raw mouse input, you first need to enable it. To do so, add
+the following line to your panda configuration file:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">read</span><span class="o">-</span><span class="n">raw</span><span class="o">-</span><span class="n">mice</span> <span class="c1">#t</span>
+</pre></div>
+</div>
+<p>This causes the panda main window to be created with the &#8220;raw_mice&#8221; window
+property. That window property, in turn, causes the window to track and store
+the positions and buttons of the raw mice. Then, that data is extracted from
+the main window by objects of class MouseWatcher. The application program can
+fetch the mouse data from the MouseWatchers. The global variable
+<code class="docutils literal"><span class="pre">base.pointerWatcherNodes</span></code> contains the
+<code class="docutils literal"><span class="pre">MouseWatcher</span></code> s.</p>
+<p>The first MouseWatcher on the list always represents the system mouse pointer
+- a virtual mouse that moves around whenever any of the physical mice do.
+Usually, you do not want to use this virtual mouse. If you&#8217;re accessing raw
+mice, you usually want to access the real, physical mice. The list
+<code class="docutils literal"><span class="pre">base.pointerWatcherNodes</span></code> always contains the
+virtual system mouse first, followed by all the physical mice.</p>
+<p>So to print out the positions of the mice, use this:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">mouse</span> <span class="ow">in</span> <span class="n">base</span><span class="o">.</span><span class="n">pointerWatcherNodes</span><span class="p">:</span>
+  <span class="k">print</span> <span class="s2">&quot;NAME=&quot;</span><span class="p">,</span> <span class="n">mouse</span><span class="o">.</span><span class="n">getName</span><span class="p">()</span>
+  <span class="k">print</span> <span class="s2">&quot;X=&quot;</span><span class="p">,</span> <span class="n">mouse</span><span class="o">.</span><span class="n">getMouseX</span><span class="p">()</span>
+  <span class="k">print</span> <span class="s2">&quot;Y=&quot;</span><span class="p">,</span> <span class="n">mouse</span><span class="o">.</span><span class="n">getMouseY</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Each mouse will have a name-string, which might be something along the lines
+of &#8220;Micrologic High-Precision Gaming Mouse 2.0 #20245/405&#8221;. The name is the
+only way to tell the various mice apart. If you have two different mice of
+different brands, you can easily tell them apart by the names. If you have two
+mice of the same make and manufacture, then their names will be very similar,
+but still unique. This is not because the mice contain serial numbers, but
+rather because they are uniquefied based on the USB port into which they are
+plugged. That means that if you move a mouse from one USB port to another, it
+will have a new name. For all practical purposes, that means that you will
+need to store a config file that maps mouse name to intended purpose.</p>
+<p>Raw mouse buttons generate events. The event names are similar to the ones for
+the system mouse, except that they have a &#8220;mousedevX&#8221; prefix. Ie, an example
+event might be <code class="docutils literal"><span class="pre">mousedev3-mouse1-up</span></code>. In this
+example, the &#8220;mousedev3&#8221; specifier means that the mouse sending the event is
+<code class="docutils literal"><span class="pre">base.pointerWatcherNode[3]</span></code>.</p>
+<p>Multiple Mice under Linux</p>
+<p>To use raw mouse input under Linux, the panda program needs to open the device
+files /dev/input/event*. On many Linux distributions, the permission bits are
+set such that this is not possible.</p>
+<p>It is not a good idea to just change the permission bits. Doing so introduces
+a huge security hole in which any logged in user can monitor the mice, the
+joysticks, and the keyboard &#8212; including any passwords that may be typed. The
+correct solution is to change the ownership of the input devices whenever a
+user sits down at the console. There is a module, pam_console, that does
+this, but it is now obsoleted, and has been removed from several distros. The
+<a class="reference external" href="http://fedoraproject.org/wiki/Releases/FeatureRemovePAMConsole">Fedora pam_console
+removal</a>
+page states that ACLs set by the HAL should replace pam_console&#8217;s
+functionality. Currently, since it does not seem that HAL provides this yet,
+the best course of action is to make an &#8216;input&#8217; group as described on <a class="reference external" href="http://gizmod.wiki.sourceforge.net/HOWTO+-+Setting+Input+Device+Permissions+-+Creating+a+udev+Rule">the
+Gizmod
+wiki</a>.</p>
+<p>If you are building a stand-alone arcade machine that does not allow remote
+login and probably doesn&#8217;t even have a net connection, then changing the
+permission bits isn&#8217;t going to hurt you.</p>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="joystick-support.html" class="btn btn-neutral float-right" title="Joystick Support" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="keyboard-support.html" class="btn btn-neutral" title="Keyboard Support" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Panda3D.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.10.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

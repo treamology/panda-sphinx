@@ -1,0 +1,412 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Subclassing &mdash; Panda3D Manual</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Panda3D Manual" href="../index.html"/>
+        <link rel="up" title="Programming with Panda3D" href="index.html"/>
+        <link rel="next" title="Table of features supported per graphic renderer" href="table-of-features-supported-per-graphic-renderer.html"/>
+        <link rel="prev" title="Threading" href="threading.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Panda3D
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.10
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../intro/index.html">Introduction to Panda3D</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Programming with Panda3D</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="the-scene-graph/index.html">The Scene Graph</a></li>
+<li class="toctree-l2"><a class="reference internal" href="the-configuration-file/index.html">The Configuration File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="models-and-actors/index.html">Models and Actors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="render-attributes/index.html">Render Attributes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="texturing/index.html">Texturing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shaders/index.html">Shaders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="camera-control/index.html">Camera Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sound/index.html">Sound</a></li>
+<li class="toctree-l2"><a class="reference internal" href="intervals/index.html">Intervals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tasks-and-event-handling/index.html">Tasks and Event Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="text-and-image-rendering/index.html">Text and Image Rendering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="directgui/index.html">DirectGUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="render-effects/index.html">Render Effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="finite-state-machines/index.html">Finite State Machines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="terrain/index.html">Terrain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="internal-structures/index.html">Advanced operations with Panda3D&#8217;s internal structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="render-to-texture-and-image-postprocessing/index.html">Render-to-Texture and Image Postprocessing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="panda3d-rendering-process/index.html">Panda3D Rendering Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="panda3d-utility-functions.html">Panda3D Utility Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="particle-effects/index.html">Particle Effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="collision-detection/index.html">Collision Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garbage-collection/index.html">Garbage Collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hardware-support/index.html">Hardware support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="math-engine/index.html">Math Engine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="motion-paths.html">Motion Paths</a></li>
+<li class="toctree-l2"><a class="reference internal" href="timing/index.html">Timing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="networking/index.html">Networking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multifiles/index.html">Multifiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="showbase.html">ShowBase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="file-reading.html">File Reading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="threading.html">Threading</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Subclassing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="table-of-features-supported-per-graphic-renderer.html">Table of features supported per graphic renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pandai/index.html">Artificial Intelligence (PANDAI)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../distribution/index.html">Distributing Panda3D Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../samples/index.html">Sample Programs in the Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../debugging/index.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../performance-tuning/index.html">Performance Tuning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using-c++/index.html">Using C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tools/index.html">Panda3D Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../building-from-source.html">Building Panda3D from Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cheat-sheets.html">Cheat Sheets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started-on-osx.html">Getting Started on OSX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../more-panda3d-resources.html">More Panda3D Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../thirdparty-licenses.html">Third-party dependencies and license info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../the-irc-channel.html">The IRC Channel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">FAQ</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Panda3D</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="index.html">Programming with Panda3D</a> &raquo;</li>
+      
+    <li>Subclassing</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/programming-with-panda3d/subclassing.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="subclassing">
+<span id="id1"></span><h1>Subclassing<a class="headerlink" href="#subclassing" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>Both Python and C++, being object-oriented programming languages, take
+advantage of the concept known as &#8220;Inheritance&#8221;, to allow for a class to
+subclass one or more other classes. This allows for the creation of a
+sub-class (or descendent class) that is said to &#8220;inherit&#8221; all the attributes
+of the super class (or ancestor class), usually with the purpose of expanding
+upon them.</p>
+<p>Subclassing pure-python classes from python or C++ classes from C++ is fairly
+straightforward and there&#8217;s plenty of literature on the subject. The wikipedia
+article on
+<a class="reference external" href="http://en.wikipedia.org/wiki/Inheritance_(computer_science)">inheritance</a>
+is a good starting point before proceeding to the language-specific
+documentation.</p>
+<p>Special care however must be taken when creating a Python class that
+subclasses from a C++ class, as there are limitations to it.</p>
+</div>
+<div class="section" id="the-theory">
+<h2>The Theory<a class="headerlink" href="#the-theory" title="Permalink to this headline">¶</a></h2>
+<p>The C++ classes do not exactly exist in the Python namespace. They can&#8217;t;
+they&#8217;re C++ objects, not Python objects. Instead, for each C++ class that must
+be available through Python, a wrapper class that has the same name as the C++
+class and all of the same methods has been created. When you call one of the
+methods on the Python wrapper, it turns around and calls the underlying C++
+method of the same name. Thus, it looks like you&#8217;re actually dealing directly
+with the C++ object, even though you&#8217;re really dealing with a Python object.</p>
+<p>When you inherit from a C++ class, you are actually inheriting from the Python
+wrapper class. You can&#8217;t actually inherit from the C++ class itself, since
+you&#8217;re writing a Python class, not a C++ class.</p>
+<p>This means that whenever you create an instance of your new inherited class,
+you&#8217;re creating an instance of the C++ class, the Python wrapper, and your
+Python inherited class. But then if you pass a pointer of your instance to
+some C++ method, all it receives is a pointer to the C++ class.</p>
+<p>In the context of Panda, if you create an instance of a new &#8220;node&#8221; class and
+store it in the scene graph, you are really only storing the underlying C++
+object in the scene graph&#8211;the Python part of the object gets left behind.
+This makes sense, because the C++ structures can only store pointers to C++
+objects, not Python objects.</p>
+<p>So, when you pull the node out of the scene graph later, it creates a new
+Python wrapper around it and returns that new wrapper. Now all you have is the
+original C++ node&#8211;it&#8217;s not your new node class any more, it&#8217;s just the Python
+wrapper to the C++ class.</p>
+</div>
+<div class="section" id="the-practice">
+<h2>The Practice<a class="headerlink" href="#the-practice" title="Permalink to this headline">¶</a></h2>
+<p>With most C++ classes the only way forward is to create a new C++ subclass and
+the related Python wrapper around it. However, there is a work-around for
+classes such as PandaNode and NodePath. Both these C++ classes have in fact
+been designed with functionality to store and retrieve python objects on them.
+Specifically, the methods <strong>setPythonTag()</strong>, <strong>getPythonTag()</strong> and
+<strong>hasPythonTag()</strong> are available to respectively store, retrieve and check for
+the existence of a pointer to an arbitrary python object on these C++ objects.</p>
+<p>This allows us to subclass from the Python wrapper class around the C++ object
+and store, on the C++ object, a pointer to the new sub class.</p>
+<p>Let&#8217;s first see an example of what <strong>doesn&#8217;t</strong> work:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">direct.directbase.DirectStart</span>
+<span class="kn">from</span> <span class="nn">panda3d.core</span> <span class="kn">import</span> <span class="n">PandaNode</span>
+
+<span class="c1">## Here we define the new class, subclassing PandaNode</span>
+<span class="c1">## and adding a new variable to it.</span>
+<span class="k">class</span> <span class="nc">MyNewNode</span><span class="p">(</span><span class="n">PandaNode</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">aName</span><span class="p">):</span>
+        <span class="n">PandaNode</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">aName</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">aVariable</span> <span class="o">=</span> <span class="s2">&quot;A value&quot;</span>
+
+<span class="c1">## Here we are creating a new node and we -think-</span>
+<span class="c1">## we are placing it in the scene graph:</span>
+<span class="n">myNewNode</span> <span class="o">=</span> <span class="n">MyNewNode</span><span class="p">(</span><span class="s2">&quot;MyNewNode&quot;</span><span class="p">)</span>
+<span class="n">aNodePath</span> <span class="o">=</span> <span class="n">aspect2d</span><span class="o">.</span><span class="n">attachNewNode</span><span class="p">(</span><span class="n">myNewNode</span><span class="p">)</span>
+
+<span class="c1">## Here we -attempt- to fetch the stored variable,</span>
+<span class="c1">## but we&#39;ll get an error because aNodePath.node()</span>
+<span class="c1">## returns a PandaNode, not myNewNode!</span>
+<span class="k">print</span><span class="p">(</span><span class="n">aNodePath</span><span class="o">.</span><span class="n">node</span><span class="p">()</span><span class="o">.</span><span class="n">aVariable</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The workaround is for an instance of the new node class to store itself on the
+PandaNode, as a Python tag:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">direct.directbase.DirectStart</span>
+<span class="kn">from</span> <span class="nn">panda3d.core</span> <span class="kn">import</span> <span class="n">PandaNode</span>
+
+<span class="c1">## Here we define the new class, subclassing PandaNode</span>
+<span class="c1">## storing its own instance as a python tag and</span>
+<span class="c1">## initializing a new variable.</span>
+<span class="k">class</span> <span class="nc">MyNewNode</span><span class="p">(</span><span class="n">PandaNode</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">aName</span><span class="p">):</span>
+        <span class="n">PandaNode</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">aName</span><span class="p">)</span>
+        <span class="n">PandaNode</span><span class="o">.</span><span class="n">setPythonTag</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;subclass&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">aVariable</span> <span class="o">=</span> <span class="s2">&quot;A value&quot;</span>
+
+<span class="c1">## Here we create a new node and we are aware we are</span>
+<span class="c1">## placing its -PandaNode- in the scene graph.</span>
+<span class="n">myNewNode</span> <span class="o">=</span> <span class="n">MyNewNode</span><span class="p">(</span><span class="s2">&quot;MyNewNode&quot;</span><span class="p">)</span>
+<span class="n">aNodePath</span> <span class="o">=</span> <span class="n">aspect2d</span><span class="o">.</span><span class="n">attachNewNode</span><span class="p">(</span><span class="n">myNewNode</span><span class="p">)</span>
+
+<span class="c1">## Now, first we fetch the panda node:</span>
+<span class="n">thePandaNode</span> <span class="o">=</span> <span class="n">aNodePath</span><span class="o">.</span><span class="n">node</span><span class="p">()</span>
+
+<span class="c1">## then we fetch the instance of MyNewNode stored on it:</span>
+<span class="n">theInstanceOfMyNewNode</span> <span class="o">=</span> <span class="n">thePandaNode</span><span class="o">.</span><span class="n">getPythonTag</span><span class="p">(</span><span class="s2">&quot;subclass&quot;</span><span class="p">)</span>
+
+<span class="c1">## and finally we fetch the variable we were</span>
+<span class="c1">## interested in all along:</span>
+<span class="k">print</span><span class="p">(</span><span class="n">theInstanceOfMyNewNode</span><span class="o">.</span><span class="n">aVariable</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="in-the-real-world">
+<h2>In the real world<a class="headerlink" href="#in-the-real-world" title="Permalink to this headline">¶</a></h2>
+<p>In a real-world scenario, while dealing with many nodes of arbitrary types,
+things get only marginally more difficult. Ultimately you&#8217;ll want to access
+attributes that you know are present on nodes of one or more new subclasses.
+For this purpose, once you have a handle to the subclass instance, you can
+either test for the type you are expecting (safe but makes the application
+more static) or you can test for the presence of the attribute itself (less
+safe but creates potentially more dynamic, expandable application).</p>
+<p>For example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1">## here we setup the scene</span>
+<span class="n">aNodePath</span> <span class="o">=</span> <span class="n">render</span><span class="o">.</span><span class="n">attachNewNode</span><span class="p">(</span><span class="n">anInstanceOfMyNewSubclass</span><span class="p">)</span>
+<span class="n">aPandaNode</span> <span class="o">=</span> <span class="n">aNodePath</span><span class="o">.</span><span class="n">node</span><span class="p">()</span>
+
+<span class="c1">## here we loop over all nodes under render,</span>
+<span class="c1">## to find the one we are interested in:</span>
+<span class="k">for</span> <span class="n">child</span> <span class="ow">in</span> <span class="n">render</span><span class="o">.</span><span class="n">getChildren</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">child</span><span class="o">.</span><span class="n">hasPythonTag</span><span class="p">(</span><span class="s2">&quot;subclass&quot;</span><span class="p">):</span>
+       <span class="n">theInstanceOfASubclass</span> <span class="o">=</span> <span class="n">child</span><span class="o">.</span><span class="n">getPythonTag</span><span class="p">(</span><span class="s2">&quot;subclass&quot;</span><span class="p">)</span>
+
+       <span class="c1">## here we test for its type, which is safe</span>
+       <span class="c1">## but doesn&#39;t catch subclasses of the subclass</span>
+       <span class="c1">## or simply other objects that have the same</span>
+       <span class="c1">## interface and would work just as well:</span>
+       <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">theInstanceOfASubclass</span> <span class="p">)</span> <span class="o">==</span> <span class="nb">type</span><span class="p">(</span><span class="n">MyNewSubclass</span><span class="p">):</span>
+           <span class="n">theInstanceOfASubclass</span><span class="o">.</span><span class="n">aVariable</span> <span class="o">=</span> <span class="s2">&quot;a new value&quot;</span>
+           <span class="k">continue</span>
+
+       <span class="c1">## here instead we test for the presence of an</span>
+       <span class="c1">## attribute, which mean that all compatible</span>
+       <span class="c1">## objects get modified:</span>
+       <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">theInstanceOfASubclass</span><span class="p">,</span> <span class="s2">&quot;aVariable&quot;</span><span class="p">):</span>
+           <span class="n">theInstanceOfASubclass</span><span class="o">.</span><span class="n">aVariable</span> <span class="o">=</span> <span class="s2">&quot;a new value&quot;</span>
+           <span class="k">continue</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="conclusion">
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this headline">¶</a></h2>
+<p>In conclusion we might not be able to truly subclass a C++ class from Python,
+but we can certainly get very close to it. There is of course an overhead and
+these solutions should not be overused, resorting to pure C++ subclasses where
+performance is an issue. But where performance is not -as much- of an issue,
+you can probably get a lot of mileage following the examples provided above
+and expanding upon them.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="table-of-features-supported-per-graphic-renderer.html" class="btn btn-neutral float-right" title="Table of features supported per graphic renderer" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="threading.html" class="btn btn-neutral" title="Threading" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Panda3D.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.10.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

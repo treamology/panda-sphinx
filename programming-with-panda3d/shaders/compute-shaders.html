@@ -1,0 +1,602 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Compute Shaders &mdash; Panda3D Manual</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Panda3D Manual" href="../../index.html"/>
+        <link rel="up" title="Shaders" href="index.html"/>
+        <link rel="next" title="Camera Control" href="../camera-control/index.html"/>
+        <link rel="prev" title="Cg Tutorial Part 2" href="cg-shader-tutorial/cg-tutorial-part-2.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Panda3D
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.10
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../intro/index.html">Introduction to Panda3D</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Programming with Panda3D</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../the-scene-graph/index.html">The Scene Graph</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../the-configuration-file/index.html">The Configuration File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../models-and-actors/index.html">Models and Actors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-attributes/index.html">Render Attributes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../texturing/index.html">Texturing</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Shaders</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="shader-basics.html">Shader Basics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="list-of-possible-cg-shader-inputs.html">List of Possible Cg Shader Inputs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="list-of-glsl-shader-inputs.html">List of GLSL Shader Inputs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="shaders-and-coordinate-spaces.html">Shaders and Coordinate Spaces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="known-shader-issues.html">Known Shader Bugs and Limitations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="the-shader-generator.html">The Shader Generator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cg-shader-tutorial/index.html">Cg Shader Tutorial</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Compute Shaders</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../camera-control/index.html">Camera Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sound/index.html">Sound</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intervals/index.html">Intervals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks-and-event-handling/index.html">Tasks and Event Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../text-and-image-rendering/index.html">Text and Image Rendering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../directgui/index.html">DirectGUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-effects/index.html">Render Effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../finite-state-machines/index.html">Finite State Machines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../terrain/index.html">Terrain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internal-structures/index.html">Advanced operations with Panda3D&#8217;s internal structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-to-texture-and-image-postprocessing/index.html">Render-to-Texture and Image Postprocessing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../panda3d-rendering-process/index.html">Panda3D Rendering Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../panda3d-utility-functions.html">Panda3D Utility Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../particle-effects/index.html">Particle Effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../collision-detection/index.html">Collision Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../garbage-collection/index.html">Garbage Collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hardware-support/index.html">Hardware support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../math-engine/index.html">Math Engine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../motion-paths.html">Motion Paths</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../timing/index.html">Timing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../networking/index.html">Networking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../multifiles/index.html">Multifiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../showbase.html">ShowBase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../file-reading.html">File Reading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../threading.html">Threading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../subclassing.html">Subclassing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../table-of-features-supported-per-graphic-renderer.html">Table of features supported per graphic renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pandai/index.html">Artificial Intelligence (PANDAI)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../distribution/index.html">Distributing Panda3D Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../samples/index.html">Sample Programs in the Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../debugging/index.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../performance-tuning/index.html">Performance Tuning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../using-c++/index.html">Using C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/index.html">Panda3D Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../building-from-source.html">Building Panda3D from Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cheat-sheets.html">Cheat Sheets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started-on-osx.html">Getting Started on OSX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../more-panda3d-resources.html">More Panda3D Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../thirdparty-licenses.html">Third-party dependencies and license info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../the-irc-channel.html">The IRC Channel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">FAQ</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Panda3D</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Programming with Panda3D</a> &raquo;</li>
+      
+          <li><a href="index.html">Shaders</a> &raquo;</li>
+      
+    <li>Compute Shaders</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/programming-with-panda3d/shaders/compute-shaders.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="compute-shaders">
+<span id="id1"></span><h1>Compute Shaders<a class="headerlink" href="#compute-shaders" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>Panda3D 1.9.0 introduces a new feature: a type of general-purpose shader
+program that can be used to perform a wide variety of functions on the video
+card. They are fundamentally different from other types of shaders in that
+they aren&#8217;t assigned to a node and modify how the node is rendered, but are
+executed (<em>dispatched</em>) in a standalone fashion and perform an operation on an
+arbitrary set of data. They may read from and write to texture images at will.
+This is particularly useful for image processing or GPU-based particle
+algorithms, to name a few examples.</p>
+<p>Compute shaders are only available on hardware supporting OpenGL 4.3, which
+includes NVIDIA GeForce 400 series and above and AMD Radeon HD 5000 series and
+above.</p>
+<p>It is important to know that compute shaders are an advanced, low-level, and
+relatively recent feature. This means that it is very easy to get strange and
+unexplainable results, including garbled texture data, or even video card
+crashes and system freezes in some cases. Using them certainly requires a
+certain amount of expertise with graphics programming. In many cases, similar
+results can be achieved with render-to-texture processes.</p>
+<p>This page only aims to give a cursory overview of compute shaders where it is
+relevant to Panda3D&#8217;s interfaces. It is by no means a comprehensive manual
+covering everything about compute shaders. In particular, image access
+concurrency, shared or coherent variables, and memory barriers are not covered
+here at all. Please refer to the <a class="reference external" href="http://www.opengl.org/wiki/Compute_Shader">OpenGL
+documentation</a> for more
+information.</p>
+</div>
+<div class="section" id="work-groups">
+<h2>Work groups<a class="headerlink" href="#work-groups" title="Permalink to this headline">¶</a></h2>
+<p>Normally, a regular shader is executed on a predetermined set of data (such as
+an amount of vertices or pixels), in which case the amount of shader
+invocations is known beforehand. However, since compute shaders can operate on
+an arbitrary set of data, the amount of invocations has to be explicitly
+specified.</p>
+<p>Compute shader invocations are divided up in batches called <em>work groups</em>,
+which specify how many invocations happen simultaneously. The different
+invocations in a work group may occur at the same time, but you should never
+rely on the different work groups being executed in a particular order or
+simultaneous to each other; this is up to the graphics driver to decide.</p>
+<p>Although the local size of a work group is typically relatively small (you can
+count on 1024 total invocations within a single work group), you may invoke
+any number of these work groups. The work group count is not hard-coded within
+the shader, but specified by the application. One common workflow for an image
+processing shader is to divide up the image into tiles of fixed size, and then
+to specify in the application how many tiles are in the image to be processed.</p>
+<p>The work group size and count are specified using a three-dimensional size
+value, so that it is conveniently possible to use compute shaders on sets of
+data with up to three physical dimensions, such as 3-D textures or cube maps.
+However, the Z component of these values may be set to 1 if the shader is
+designed to operate on a 2-D set of data, and the Y component may be 1 if the
+shader is designed to work on a one-dimensional array. The way this is
+specified merely determines how the coordinates are provided to the shader; in
+the end, what counts is the total number of invocations in the work group,
+which is equal to the product of these three numbers.</p>
+<p>So, if you have an image processing shader that operates on a 512x512 image,
+you may set the local work group size in your shader to 16x16x1, whereas in
+your application, you would specify a work group count of 32x32x1 since there
+are 32 of these tiles in each of the X and Y directions.</p>
+</div>
+<div class="section" id="example-shader">
+<h2>Example shader<a class="headerlink" href="#example-shader" title="Permalink to this headline">¶</a></h2>
+<p>A typical compute shader (GLSL) looks as follows. All that the shader does is
+copy the contents of one texture to another, except that it swaps two
+channels.</p>
+<div class="highlight-glsl"><div class="highlight"><pre><span></span><span class="cp">#version 430</span>
+
+<span class="c1">// Set the number of invocations in the work group.</span>
+<span class="c1">// In this case, we operate on the image in 16x16 pixel tiles.</span>
+<span class="n">layout</span> <span class="p">(</span><span class="n">local_size_x</span> <span class="o">=</span> <span class="mi">16</span><span class="p">,</span> <span class="n">local_size_y</span> <span class="o">=</span> <span class="mi">16</span><span class="p">)</span> <span class="k">in</span><span class="p">;</span>
+
+<span class="c1">// Declare the texture inputs</span>
+<span class="k">uniform</span> <span class="n">readonly</span> <span class="n">image2D</span> <span class="n">fromTex</span><span class="p">;</span>
+<span class="k">uniform</span> <span class="n">writeonly</span> <span class="n">image2D</span> <span class="n">toTex</span><span class="p">;</span>
+
+<span class="k">void</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="c1">// Acquire the coordinates to the texel we are to process.</span>
+  <span class="k">ivec2</span> <span class="n">texelCoords</span> <span class="o">=</span> <span class="k">ivec2</span><span class="p">(</span><span class="n">gl_GlobalInvocationID</span><span class="p">.</span><span class="n">xy</span><span class="p">);</span>
+
+  <span class="c1">// Read the pixel from the first texture.</span>
+  <span class="k">vec4</span> <span class="n">pixel</span> <span class="o">=</span> <span class="n">imageLoad</span><span class="p">(</span><span class="n">fromTex</span><span class="p">,</span> <span class="n">texelCoords</span><span class="p">);</span>
+
+  <span class="c1">// Swap the red and green channels.</span>
+  <span class="n">pixel</span><span class="p">.</span><span class="n">rg</span> <span class="o">=</span> <span class="n">pixel</span><span class="p">.</span><span class="n">gr</span><span class="p">;</span>
+
+  <span class="c1">// Now write the modified pixel to the second texture.</span>
+  <span class="n">imageStore</span><span class="p">(</span><span class="n">toTex</span><span class="p">,</span> <span class="n">texelCoords</span><span class="p">,</span> <span class="n">pixel</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>This page does not attempt to teach how to make GLSL compute shaders - please
+refer to the GLSL documentation for that information.</p>
+</div>
+<div class="section" id="loading-a-compute-shader">
+<h2>Loading a compute shader<a class="headerlink" href="#loading-a-compute-shader" title="Permalink to this headline">¶</a></h2>
+<p>A compute shader is typically never combined with other types of shaders, and
+therefore, loading a compute shader happens via a special call. At present,
+only GLSL compute shaders may be loaded.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">shader</span> <span class="o">=</span> <span class="n">Shader</span><span class="o">.</span><span class="n">load_compute</span><span class="p">(</span><span class="n">Shader</span><span class="o">.</span><span class="n">SL_GLSL</span><span class="p">,</span> <span class="s2">&quot;compute_shader.glsl&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">PT</span><span class="p">(</span><span class="n">Shader</span><span class="p">)</span> <span class="n">shader</span><span class="p">;</span>
+<span class="n">shader</span> <span class="o">=</span> <span class="n">Shader</span><span class="o">::</span><span class="n">load_compute</span><span class="p">(</span><span class="n">Shader</span><span class="o">::</span><span class="n">SL_GLSL</span><span class="p">,</span> <span class="s">&quot;compute_shader.glsl&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>The call <code class="docutils literal"><span class="pre">make_compute</span></code> can be used
+instead to load the shader from a string instead of a filename.</p>
+</div>
+<div class="section" id="dispatching-a-compute-shader">
+<h2>Dispatching a compute shader<a class="headerlink" href="#dispatching-a-compute-shader" title="Permalink to this headline">¶</a></h2>
+<p>Since a compute shader is not applied to a model but may be invoked
+arbitrarily, there has to be a different interface for dispatching a compute
+shader. Usually, you would do this by creating a
+<code class="docutils literal"><span class="pre">ComputeNode</span></code> object, which is
+inserted into the scene graph. When Panda3D encounters one of these nodes
+during the draw process, it will ask OpenGL to dispatch the compute shader
+assigned to that node for the given amount of work groups.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># Create the node</span>
+<span class="n">node</span> <span class="o">=</span> <span class="n">ComputeNode</span><span class="p">(</span><span class="s2">&quot;compute&quot;</span><span class="p">)</span>
+
+<span class="c1"># We want to call it on a 512x512 image, keeping in</span>
+<span class="c1"># mind that the shader has a work group size of 16x16.</span>
+<span class="n">node</span><span class="o">.</span><span class="n">add_dispatch</span><span class="p">(</span><span class="mi">512</span> <span class="o">/</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">512</span> <span class="o">/</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Put the node into the scene graph.</span>
+<span class="n">node_path</span> <span class="o">=</span> <span class="n">render</span><span class="o">.</span><span class="n">attach_new_node</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+
+<span class="c1"># Assign the shader and the shader inputs.</span>
+<span class="n">shader</span> <span class="o">=</span> <span class="n">Shader</span><span class="o">.</span><span class="n">load_compute</span><span class="p">(</span><span class="n">Shader</span><span class="o">.</span><span class="n">SL_GLSL</span><span class="p">,</span> <span class="s2">&quot;compute_shader.glsl&quot;</span><span class="p">)</span>
+<span class="n">node_path</span><span class="o">.</span><span class="n">set_shader</span><span class="p">(</span><span class="n">shader</span><span class="p">)</span>
+<span class="n">node_path</span><span class="o">.</span><span class="n">set_shader_input</span><span class="p">(</span><span class="s2">&quot;fromTex&quot;</span><span class="p">,</span> <span class="n">myTex1</span><span class="p">)</span>
+<span class="n">node_path</span><span class="o">.</span><span class="n">set_shader_input</span><span class="p">(</span><span class="s2">&quot;toTex&quot;</span><span class="p">,</span> <span class="n">myTex2</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">PT</span><span class="p">(</span><span class="n">ComputeNode</span><span class="p">)</span> <span class="n">node</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ComputeNode</span><span class="p">(</span><span class="s">&quot;compute&quot;</span><span class="p">);</span>
+
+<span class="c1">// We want to call it on a 512x512 image, keeping in</span>
+<span class="c1">// mind that the shader has a work group size of 16x16.</span>
+<span class="n">node</span><span class="o">-&gt;</span><span class="n">add_dispatch</span><span class="p">(</span><span class="mi">512</span> <span class="o">/</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">512</span> <span class="o">/</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+
+<span class="c1">// Put the node into the scene graph.</span>
+<span class="n">NodePath</span> <span class="n">node_path</span> <span class="o">=</span> <span class="n">render</span><span class="p">.</span><span class="n">attach_new_node</span><span class="p">(</span><span class="n">node</span><span class="p">);</span>
+
+<span class="c1">// Assign the shader and the shader inputs.</span>
+<span class="n">PT</span><span class="p">(</span><span class="n">Shader</span><span class="p">)</span> <span class="n">shader</span> <span class="o">=</span> <span class="n">Shader</span><span class="o">::</span><span class="n">load_compute</span><span class="p">(</span><span class="n">Shader</span><span class="o">::</span><span class="n">SL_GLSL</span><span class="p">,</span> <span class="s">&quot;compute_shader.glsl&quot;</span><span class="p">);</span>
+<span class="n">node_path</span><span class="p">.</span><span class="n">set_shader</span><span class="p">(</span><span class="n">shader</span><span class="p">);</span>
+<span class="n">node_path</span><span class="p">.</span><span class="n">set_shader_input</span><span class="p">(</span><span class="s">&quot;fromTex&quot;</span><span class="p">,</span> <span class="n">myTex1</span><span class="p">);</span>
+<span class="n">node_path</span><span class="p">.</span><span class="n">set_shader_input</span><span class="p">(</span><span class="s">&quot;toTex&quot;</span><span class="p">,</span> <span class="n">myTex2</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>The ordering of nodes becomes especially important; you may not want a
+procedural texture to be rendered on another node before it is first generated
+using a compute shader, for example. You may have to use cull bins or display
+regions in order to explicitly control when the
+<code class="docutils literal"><span class="pre">ComputeNode</span></code> is encountered during
+the draw process.</p>
+<p>Keep in mind that a ComputeNode is never culled away by default, since it is
+not associated with any geometry. You may override this behaviour by assigning
+a custom BoundingVolume.</p>
+<p>However, whereas the ComputeNode interface is useful for operations that are
+done every frame, it is not very useful for one-off calls, since it is
+cumbersome to add a node to the scene graph only to remove it again in the
+next frame. For these use cases, there is a more lower-level operation to
+dispatch a compute shader:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># Create a dummy node and apply the shader to it</span>
+<span class="n">shader</span> <span class="o">=</span> <span class="n">Shader</span><span class="o">.</span><span class="n">load_compute</span><span class="p">(</span><span class="n">Shader</span><span class="o">.</span><span class="n">SL_GLSL</span><span class="p">,</span> <span class="s2">&quot;compute_shader.glsl&quot;</span><span class="p">)</span>
+<span class="n">dummy</span> <span class="o">=</span> <span class="n">NodePath</span><span class="p">(</span><span class="s2">&quot;dummy&quot;</span><span class="p">)</span>
+<span class="n">dummy</span><span class="o">.</span><span class="n">set_shader</span><span class="p">(</span><span class="n">shader</span><span class="p">)</span>
+<span class="n">dummy</span><span class="o">.</span><span class="n">set_shader_input</span><span class="p">(</span><span class="s2">&quot;fromTex&quot;</span><span class="p">,</span> <span class="n">myTex1</span><span class="p">)</span>
+<span class="n">dummy</span><span class="o">.</span><span class="n">set_shader_input</span><span class="p">(</span><span class="s2">&quot;toTex&quot;</span><span class="p">,</span> <span class="n">myTex2</span><span class="p">)</span>
+
+<span class="c1"># Retrieve the underlying ShaderAttrib</span>
+<span class="n">sattr</span> <span class="o">=</span> <span class="n">dummy</span><span class="o">.</span><span class="n">get_attrib</span><span class="p">(</span><span class="n">ShaderAttrib</span><span class="p">)</span>
+
+<span class="c1"># Dispatch the compute shader, right now!</span>
+<span class="n">base</span><span class="o">.</span><span class="n">graphicsEngine</span><span class="o">.</span><span class="n">dispatch_compute</span><span class="p">((</span><span class="mi">32</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">sattr</span><span class="p">,</span> <span class="n">base</span><span class="o">.</span><span class="n">win</span><span class="o">.</span><span class="n">get_gsg</span><span class="p">())</span>
+</pre></div>
+</div>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="c1">// Create a dummy node and apply the shader to it</span>
+<span class="n">PT</span><span class="p">(</span><span class="n">Shader</span><span class="p">)</span> <span class="n">shader</span> <span class="o">=</span> <span class="n">Shader</span><span class="o">::</span><span class="n">load_compute</span><span class="p">(</span><span class="n">Shader</span><span class="o">::</span><span class="n">SL_GLSL</span><span class="p">,</span> <span class="s">&quot;compute_shader.glsl&quot;</span><span class="p">);</span>
+<span class="n">NodePath</span> <span class="nf">dummy</span><span class="p">(</span><span class="s">&quot;dummy&quot;</span><span class="p">);</span>
+<span class="n">dummy</span><span class="p">.</span><span class="n">set_shader</span><span class="p">(</span><span class="n">shader</span><span class="p">);</span>
+<span class="n">dummy</span><span class="p">.</span><span class="n">set_shader_input</span><span class="p">(</span><span class="s">&quot;fromTex&quot;</span><span class="p">,</span> <span class="n">myTex1</span><span class="p">);</span>
+<span class="n">dummy</span><span class="p">.</span><span class="n">set_shader_input</span><span class="p">(</span><span class="s">&quot;toTex&quot;</span><span class="p">,</span> <span class="n">myTex2</span><span class="p">);</span>
+
+<span class="c1">// Retrieve the underlying ShaderAttrib</span>
+<span class="n">CPT</span><span class="p">(</span><span class="n">ShaderAttrib</span><span class="p">)</span> <span class="n">sattr</span> <span class="o">=</span> <span class="n">DCAST</span><span class="p">(</span><span class="n">ShaderAttrib</span><span class="p">,</span>
+  <span class="n">dummy</span><span class="p">.</span><span class="n">get_attrib</span><span class="p">(</span><span class="n">ShaderAttrib</span><span class="o">::</span><span class="n">get_class_type</span><span class="p">()));</span>
+
+<span class="c1">// Our image has 32x32 tiles</span>
+<span class="n">LVecBase3i</span> <span class="nf">work_groups</span><span class="p">(</span><span class="mi">512</span><span class="o">/</span><span class="mi">16</span><span class="p">,</span> <span class="mi">512</span><span class="o">/</span><span class="mi">16</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+
+<span class="c1">// Dispatch the compute shader, right now!</span>
+<span class="n">GraphicsEngine</span> <span class="o">*</span><span class="n">engine</span> <span class="o">=</span> <span class="n">GraphicsEngine</span><span class="o">::</span><span class="n">get_global_ptr</span><span class="p">();</span>
+<span class="n">engine</span><span class="o">-&gt;</span><span class="n">dispatch_compute</span><span class="p">(</span><span class="n">work_groups</span><span class="p">,</span> <span class="n">sattr</span><span class="p">,</span> <span class="n">win</span><span class="o">-&gt;</span><span class="n">get_gsg</span><span class="p">());</span>
+</pre></div>
+</div>
+<p>Keep in mind that each call to
+<code class="docutils literal"><span class="pre">dispatch_compute</span></code> causes Panda3D to wait
+for the current frame to finish rendering. This can be a very inefficient
+process, and you are not advised to use this method for operations that happen
+on a regular basis.</p>
+</div>
+<div class="section" id="image-access">
+<h2>Image access<a class="headerlink" href="#image-access" title="Permalink to this headline">¶</a></h2>
+<p>Though it is still possible to use regular texture samplers, these aren&#8217;t very
+well suited for many types of image processing. Regular samplers take texture
+coordinates in a [0, 1] range, the extra filtering processes add an
+unnecessary overhead, and it is not possible to write back to textures using
+this interface.</p>
+<p>However, there is a lower level method to read from and write to texture
+images. As you have already seen in the example above, this can be done by
+using an <code class="docutils literal"><span class="pre">image2D</span></code> declaration
+instead of <code class="docutils literal"><span class="pre">sampler2D</span></code>, and instead
+of using the <code class="docutils literal"><span class="pre">texture</span></code> family of
+functions to sample them, you would use
+<code class="docutils literal"><span class="pre">imageLoad</span></code> and
+<code class="docutils literal"><span class="pre">imageStore</span></code>, which now take integer
+texel coordinates.</p>
+<p>On the application side, however, telling the shader which image to use still
+happens in the same way as usual, using the
+<code class="docutils literal"><span class="pre">set_shader_input</span></code> function. However, it
+is very important that the texture has a <em>sized</em> format, rather than a regular
+format:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># WRONG</span>
+<span class="n">tex</span><span class="o">.</span><span class="n">set_format</span><span class="p">(</span><span class="n">Texture</span><span class="o">.</span><span class="n">F_rgba</span><span class="p">)</span>
+
+<span class="c1"># RIGHT</span>
+<span class="n">tex</span><span class="o">.</span><span class="n">set_format</span><span class="p">(</span><span class="n">Texture</span><span class="o">.</span><span class="n">F_rgba8</span><span class="p">)</span>
+
+<span class="n">node_path</span><span class="o">.</span><span class="n">set_shader_input</span><span class="p">(</span><span class="s1">&#39;fromTex&#39;</span><span class="p">,</span> <span class="n">tex</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="c1">// WRONG</span>
+<span class="n">tex</span><span class="o">-&gt;</span><span class="n">set_format</span><span class="p">(</span><span class="n">Texture</span><span class="o">::</span><span class="n">F_rgba</span><span class="p">);</span>
+
+<span class="c1">// RIGHT</span>
+<span class="n">tex</span><span class="o">-&gt;</span><span class="n">set_format</span><span class="p">(</span><span class="n">Texture</span><span class="o">::</span><span class="n">F_rgba8</span><span class="p">);</span>
+
+<span class="n">node_path</span><span class="p">.</span><span class="n">set_shader_input</span><span class="p">(</span><span class="s">&quot;fromTex&quot;</span><span class="p">,</span> <span class="n">tex</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>At time of writing, it is only possible to access the first mipmap level. It
+is not possible to automatically generate the other mipmap levels at the time
+of writing, so it is advised to turn mimpap filtering off for the relevant
+textures. This is a feature we still mean to add.</p>
+<p>Accessing depth textures is impossible via this interface. It is not possible
+to write to them, and reading from them has to be done using a
+<code class="docutils literal"><span class="pre">sampler2D</span></code> or
+<code class="docutils literal"><span class="pre">sampler2DShadow</span></code> object. You can use the
+<code class="docutils literal"><span class="pre">texelFetch</span></code> function with samplers
+so that you can still use integer texel coordinates.</p>
+<p><a class="reference external" href="http://www.opengl.org/wiki/Image_Load_Store#Atomic_operations">Atomic image
+access</a> is
+only supported for textures with the integer
+<code class="docutils literal"><span class="pre">F_r32i</span></code> format. Atomic image
+operations are slower, but they come with an extra guarantee that no two
+invocations write or read from the image texel at the same time.</p>
+<p>It should be noted that this low-level image interface is also supported for
+other types of shaders when write access to images is desired.</p>
+</div>
+<div class="section" id="texture-clear">
+<h2>Texture Clear<a class="headerlink" href="#texture-clear" title="Permalink to this headline">¶</a></h2>
+<p>When using a compute shader to operate on a texture image, such as in
+procedural texture generation, you may require the texture data to be cleared
+to an initial value before it is used. This is now possible using the
+<code class="docutils literal"><span class="pre">set_clear_color</span></code> function, which
+specifies the color that Panda3D will clear the texture to. This color is used
+in absence of actual image data.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># Set up a texture for procedural generation.</span>
+<span class="n">tex</span> <span class="o">=</span> <span class="n">Texture</span><span class="p">(</span><span class="s2">&quot;procedural-normal-map&quot;</span><span class="p">)</span>
+<span class="n">tex</span><span class="o">.</span><span class="n">setup_2d_texture</span><span class="p">(</span><span class="mi">512</span><span class="p">,</span> <span class="mi">512</span><span class="p">,</span> <span class="n">Texture</span><span class="o">.</span><span class="n">T_unsigned_byte</span><span class="p">,</span> <span class="n">Texture</span><span class="o">.</span><span class="n">F_rgb8</span><span class="p">)</span>
+
+<span class="c1"># Set the initial color of the texture.</span>
+<span class="n">tex</span><span class="o">.</span><span class="n">set_clear_color</span><span class="p">((</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="c1">// Set up a texture for procedural generation.</span>
+<span class="n">PT</span><span class="p">(</span><span class="n">Texture</span><span class="p">)</span> <span class="n">tex</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Texture</span><span class="p">(</span><span class="s">&quot;procedural-normal-map&quot;</span><span class="p">);</span>
+<span class="n">tex</span><span class="o">-&gt;</span><span class="n">setup_2d_texture</span><span class="p">(</span><span class="mi">512</span><span class="p">,</span> <span class="mi">512</span><span class="p">,</span> <span class="n">Texture</span><span class="o">::</span><span class="n">T_unsigned_byte</span><span class="p">,</span> <span class="n">Texture</span><span class="o">::</span><span class="n">F_rgb8</span><span class="p">);</span>
+
+<span class="c1">// Set the initial color of the texture.</span>
+<span class="n">LColor</span> <span class="nf">clear_color</span><span class="p">(</span><span class="mf">0.5f</span><span class="p">,</span> <span class="mf">0.5f</span><span class="p">,</span> <span class="mf">1.0f</span><span class="p">,</span> <span class="mf">0.0f</span><span class="p">);</span>
+<span class="n">tex</span><span class="o">-&gt;</span><span class="n">set_clear_color</span><span class="p">(</span><span class="n">clear_color</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>The initial clear is implicit, but clearing a texture in a later frame
+requires explicit use of the
+<code class="docutils literal"><span class="pre">clear_image()</span></code> function, which
+instructs Panda3D to clear the texture the next time it is used. It also
+clears any RAM images that may have been associated with the texture (similar
+to <code class="docutils literal"><span class="pre">clear_ram_image()</span></code>).</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># Tell Panda to fill the texture with a red color on the GPU.</span>
+<span class="n">tex</span><span class="o">.</span><span class="n">set_clear_color</span><span class="p">((</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">))</span>
+<span class="n">tex</span><span class="o">.</span><span class="n">clear_image</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="c1">// Tell Panda to fill the texture with a red color on the GPU.</span>
+<span class="n">LColor</span> <span class="nf">clear_color</span><span class="p">(</span><span class="mf">1.0f</span><span class="p">,</span> <span class="mf">0.0f</span><span class="p">,</span> <span class="mf">0.0f</span><span class="p">,</span> <span class="mf">0.0f</span><span class="p">);</span>
+<span class="n">tex</span><span class="o">-&gt;</span><span class="n">set_clear_color</span><span class="p">(</span><span class="n">clear_color</span><span class="p">);</span>
+<span class="n">tex</span><span class="o">-&gt;</span><span class="n">clear_image</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>When doing this, it is recommended that you enable the use of immutable
+texture storage, which is an experimental feature that allows Panda3D to
+allocate the texture memory beforehand and perform more efficient initial
+clears. It can be activated using the following configuration variable:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">gl</span><span class="o">-</span><span class="n">immutable</span><span class="o">-</span><span class="n">texture</span><span class="o">-</span><span class="n">storage</span> <span class="n">true</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="memory-barriers">
+<h2>Memory barriers<a class="headerlink" href="#memory-barriers" title="Permalink to this headline">¶</a></h2>
+<p>Whenever you write to an image using an
+<code class="docutils literal"><span class="pre">image2D</span></code> uniform, Panda3D
+assumes that the image has been modified by the shader. Panda3D will
+automatically issue a memory barrier when the texture is used in a following
+operation, such as when the texture is used for rendering or bound to a
+different shader, to make sure that the reads and writes are synchronized.</p>
+<p>Since Panda3D does not know whether you have actually written to the image or
+whether you have declared an image variable as
+<code class="docutils literal"><span class="pre">coherent</span></code>, it may do this too
+often, causing slight performance degradation. If you are confident that you
+don&#8217;t need this feature, you may set
+<code class="docutils literal"><span class="pre">gl-enable-memory-barriers</span></code> variable to
+<code class="docutils literal"><span class="pre">false</span></code> in your Config.prc to
+disable this behavior.</p>
+<p>Keep in mind that Panda3D&#8217;s memory barriers only play a role when an image is
+modified by one shader and read by another; it does not affect reads and
+writes performed within the same shader. It is still necessary to use the
+appropriate GLSL qualifiers and memory barrier commands for these purposes.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../camera-control/index.html" class="btn btn-neutral float-right" title="Camera Control" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="cg-shader-tutorial/cg-tutorial-part-2.html" class="btn btn-neutral" title="Cg Tutorial Part 2" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Panda3D.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.10.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

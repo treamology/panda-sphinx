@@ -1,0 +1,384 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Stencil Test/Write Attribute &mdash; Panda3D Manual</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Panda3D Manual" href="../../index.html"/>
+        <link rel="up" title="Render Attributes" href="index.html"/>
+        <link rel="next" title="Texturing" href="../texturing/index.html"/>
+        <link rel="prev" title="Auxiliary Bitplane Control" href="auxiliary-bitplane-control.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Panda3D
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.10
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../intro/index.html">Introduction to Panda3D</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Programming with Panda3D</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../the-scene-graph/index.html">The Scene Graph</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../the-configuration-file/index.html">The Configuration File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../models-and-actors/index.html">Models and Actors</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Render Attributes</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="list-of-all-attributes.html">List of All Attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lighting.html">Lighting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="materials.html">Materials</a></li>
+<li class="toctree-l3"><a class="reference internal" href="depth-test-and-depth-write.html">Depth Test and Depth Write</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fog.html">Fog</a></li>
+<li class="toctree-l3"><a class="reference internal" href="alpha-testing.html">Alpha Testing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="color-write-masks.html">Color Write Masks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="antialiasing.html">Antialiasing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="clip-planes.html">Clip Planes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tinting-and-recoloring.html">Tinting and Recoloring</a></li>
+<li class="toctree-l3"><a class="reference internal" href="backface-culling-and-frontface-culling.html">Backface Culling and Frontface Culling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="occlusion-culling/index.html">Occlusion Culling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="light-ramps.html">Light Ramps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="auxiliary-bitplane-control.html">Auxiliary Bitplane Control</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Stencil Test/Write Attribute</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../texturing/index.html">Texturing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shaders/index.html">Shaders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../camera-control/index.html">Camera Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sound/index.html">Sound</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intervals/index.html">Intervals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks-and-event-handling/index.html">Tasks and Event Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../text-and-image-rendering/index.html">Text and Image Rendering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../directgui/index.html">DirectGUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-effects/index.html">Render Effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../finite-state-machines/index.html">Finite State Machines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../terrain/index.html">Terrain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internal-structures/index.html">Advanced operations with Panda3D&#8217;s internal structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-to-texture-and-image-postprocessing/index.html">Render-to-Texture and Image Postprocessing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../panda3d-rendering-process/index.html">Panda3D Rendering Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../panda3d-utility-functions.html">Panda3D Utility Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../particle-effects/index.html">Particle Effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../collision-detection/index.html">Collision Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../garbage-collection/index.html">Garbage Collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hardware-support/index.html">Hardware support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../math-engine/index.html">Math Engine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../motion-paths.html">Motion Paths</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../timing/index.html">Timing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../networking/index.html">Networking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../multifiles/index.html">Multifiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../showbase.html">ShowBase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../file-reading.html">File Reading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../threading.html">Threading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../subclassing.html">Subclassing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../table-of-features-supported-per-graphic-renderer.html">Table of features supported per graphic renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pandai/index.html">Artificial Intelligence (PANDAI)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../distribution/index.html">Distributing Panda3D Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../samples/index.html">Sample Programs in the Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../debugging/index.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../performance-tuning/index.html">Performance Tuning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../using-c++/index.html">Using C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/index.html">Panda3D Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../building-from-source.html">Building Panda3D from Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cheat-sheets.html">Cheat Sheets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started-on-osx.html">Getting Started on OSX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../more-panda3d-resources.html">More Panda3D Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../thirdparty-licenses.html">Third-party dependencies and license info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../the-irc-channel.html">The IRC Channel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">FAQ</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Panda3D</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Programming with Panda3D</a> &raquo;</li>
+      
+          <li><a href="index.html">Render Attributes</a> &raquo;</li>
+      
+    <li>Stencil Test/Write Attribute</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/programming-with-panda3d/render-attributes/stencil-attribute.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="stencil-test-write-attribute">
+<span id="stencil-attribute"></span><h1>Stencil Test/Write Attribute<a class="headerlink" href="#stencil-test-write-attribute" title="Permalink to this headline">¶</a></h1>
+<p>The StencilAttrib is used for testing and writing to the stencil buffer. Note
+that both of these actions can be performed simultaneously with a single
+StencilAttrib. The stencil buffer is an ancillary graphics buffer, in addition
+to the more well-known color and depth buffers. It provides a per-pixel mask
+for the rendering pipeline which can be exploited to selectively render
+objects or parts of objects. Typical applications of the stencil buffer
+include binary masking, shadowing and planar reflections. Usually, using the
+stencil buffer involves creating some objects which are not rendered into the
+color buffer. Their contribution to the rendered scene is to provide an
+invisible boundary that can be used to turn color buffer rendering on and off
+for other objects in the scene. Think of it as a cardboard cut-out through
+which the world is viewed. During a stencil comparison, the StencilAttrib&#8217;s
+reference value is compared against the value stored in the stencil buffer.
+The order matters here. For example, consider comparison function
+StencilAttrib.SCFGreaterThan with reference value r=1. A pixel passes the
+stencil test if r &gt; S<sub>p</sub>, where S<sub>p</sub> is the value in the stencil
+buffer at pixel p. Objects contributing values to the stencil buffer that will
+be read by other StencilAttributes&#8217; comparison functions must be rendered
+first, or unexpected results will occur. See
+:ref:` &lt;how-to-control-render-order&gt;`. The stencil buffer is disabled by
+default. In order to use StencilAttribs, you must add the following line to
+your config.prc file:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">framebuffer</span><span class="o">-</span><span class="n">stencil</span> <span class="c1">#t</span>
+</pre></div>
+</div>
+<p>StencilAttribs are defined exclusively by their constructor functions, so
+let&#8217;s examine one to understand what each part does. The following code
+creates an attribute which tells an object to render only if the stencil
+buffer is exactly 1, and does not itself modify the stencil buffer.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">stencilReader</span> <span class="o">=</span>
+  <span class="n">StencilAttrib</span><span class="o">.</span><span class="n">make</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">StencilAttrib</span><span class="o">.</span><span class="n">SCFEqual</span><span class="p">,</span><span class="n">StencilAttrib</span><span class="o">.</span><span class="n">SOKeep</span><span class="p">,</span>
+                       <span class="n">StencilAttrib</span><span class="o">.</span><span class="n">SOKeep</span><span class="p">,</span><span class="n">StencilAttrib</span><span class="o">.</span><span class="n">SOKeep</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The first parameter is
+a boolean. If this parameter is zero, the StencilAttrib is not processed. Next
+is the comparison function this attribute uses, in this case Equal. The next
+three parameters determine what happens to the stencil buffer depending on the
+result of the comparison. We&#8217;ll get to these in a minute. The three Keep
+values tell this attribute never to modify the values in the buffer. Next is
+the reference value for the comparison function. Before the reference value is
+passed to the comparison function, however, it is bitwise ANDed with a mask.
+In our case, we&#8217;re interested in reading but not in writing the stencil
+buffer, so we pass 1 and 0 for the read and write masks, respectively. These
+masks are the last two parameters for the StencilAttrib. Next, we&#8217;ll look at a
+stencil attribute that writes the stencil buffer. Presumably, these two
+functions will work in tandem to create an effect.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">constantOneStencil</span> <span class="o">=</span>
+  <span class="n">StencilAttrib</span><span class="o">.</span><span class="n">make</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">StencilAttrib</span><span class="o">.</span><span class="n">SCFAlways</span><span class="p">,</span><span class="n">StencilAttrib</span><span class="o">.</span><span class="n">SOZero</span><span class="p">,</span>
+                       <span class="n">StencilAttrib</span><span class="o">.</span><span class="n">SOReplace</span><span class="p">,</span><span class="n">StencilAttrib</span><span class="o">.</span><span class="n">SOReplace</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Again we start by
+enabling the attribute. The comparison function here is Always, meaning that
+the test passes no matter the parameters. Next is the operation to perform on
+the stencil buffer if the test fails (which in this case will never happen) &#8211;
+we set the stencil buffer value to zero. The next parameter determines what
+should happen if the stencil function passes, but the depth test fails, and
+finally, what should happen if both the stencil and depth tests pass. In our
+case we want to set the value of the stencil buffer whether we pass the depth
+test or not, so both are set to Replace. The reference value to set in the
+stencil buffer is 1. We&#8217;re writing regardless of what&#8217;s in the buffer already,
+so we&#8217;ll set the read and write masks to 0 and 1, respectively. Now we can add
+these attributes to nodes in the scene to exploit the effect. Here is the
+entire script.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">panda3d.core</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="c1"># Do this before the next import:</span>
+<span class="n">loadPrcFileData</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;framebuffer-stencil #t&quot;</span><span class="p">)</span>
+
+<span class="kn">import</span> <span class="nn">direct.directbase.DirectStart</span>
+
+<span class="n">constantOneStencil</span> <span class="o">=</span> <span class="n">StencilAttrib</span><span class="o">.</span><span class="n">make</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">StencilAttrib</span><span class="o">.</span><span class="n">SCFAlways</span><span class="p">,</span>
+<span class="n">StencilAttrib</span><span class="o">.</span><span class="n">SOZero</span><span class="p">,</span><span class="n">StencilAttrib</span><span class="o">.</span><span class="n">SOReplace</span><span class="p">,</span>
+<span class="n">StencilAttrib</span><span class="o">.</span><span class="n">SOReplace</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">stencilReader</span> <span class="o">=</span> <span class="n">StencilAttrib</span><span class="o">.</span><span class="n">make</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">StencilAttrib</span><span class="o">.</span><span class="n">SCFEqual</span><span class="p">,</span>
+<span class="n">StencilAttrib</span><span class="o">.</span><span class="n">SOKeep</span><span class="p">,</span> <span class="n">StencilAttrib</span><span class="o">.</span><span class="n">SOKeep</span><span class="p">,</span>
+<span class="n">StencilAttrib</span><span class="o">.</span><span class="n">SOKeep</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="n">cm</span> <span class="o">=</span> <span class="n">CardMaker</span><span class="p">(</span><span class="s2">&quot;cardmaker&quot;</span><span class="p">)</span>
+<span class="n">cm</span><span class="o">.</span><span class="n">setFrame</span><span class="p">(</span><span class="o">-.</span><span class="mi">5</span><span class="p">,</span><span class="o">.</span><span class="mi">5</span><span class="p">,</span><span class="o">-.</span><span class="mi">5</span><span class="p">,</span><span class="o">.</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="c1"># To rotate the card to face the camera, we create</span>
+<span class="c1"># it and then parent it to the camera.</span>
+<span class="n">viewingSquare</span> <span class="o">=</span> <span class="n">render</span><span class="o">.</span><span class="n">attachNewNode</span><span class="p">(</span><span class="n">cm</span><span class="o">.</span><span class="n">generate</span><span class="p">())</span>
+<span class="n">viewingSquare</span><span class="o">.</span><span class="n">reparentTo</span><span class="p">(</span><span class="n">base</span><span class="o">.</span><span class="n">camera</span><span class="p">)</span>
+<span class="n">viewingSquare</span><span class="o">.</span><span class="n">setPos</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+<span class="n">viewingSquare</span><span class="o">.</span><span class="n">node</span><span class="p">()</span><span class="o">.</span><span class="n">setAttrib</span><span class="p">(</span><span class="n">constantOneStencil</span><span class="p">)</span>
+<span class="n">viewingSquare</span><span class="o">.</span><span class="n">node</span><span class="p">()</span><span class="o">.</span><span class="n">setAttrib</span><span class="p">(</span><span class="n">ColorWriteAttrib</span><span class="o">.</span><span class="n">make</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+<span class="n">viewingSquare</span><span class="o">.</span><span class="n">setBin</span><span class="p">(</span><span class="s1">&#39;background&#39;</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">viewingSquare</span><span class="o">.</span><span class="n">setDepthWrite</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="n">view</span> <span class="o">=</span> <span class="n">loader</span><span class="o">.</span><span class="n">loadModel</span><span class="p">(</span><span class="s2">&quot;panda&quot;</span><span class="p">)</span>
+<span class="n">view</span><span class="o">.</span><span class="n">reparentTo</span><span class="p">(</span><span class="n">render</span><span class="p">)</span>
+<span class="n">view</span><span class="o">.</span><span class="n">setScale</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">view</span><span class="o">.</span><span class="n">setY</span><span class="p">(</span><span class="mi">150</span><span class="p">)</span>
+<span class="n">view</span><span class="o">.</span><span class="n">node</span><span class="p">()</span><span class="o">.</span><span class="n">setAttrib</span><span class="p">(</span><span class="n">stencilReader</span><span class="p">)</span>
+
+<span class="n">run</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>You can
+get a little more insight into stencils in this thread on the forums:
+<a class="reference external" href="https://www.panda3d.org/forums/viewtopic.php?p=48451#48451">https://www.panda3d.org/forums/viewtopic.php?p=48451#48451</a></p>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../texturing/index.html" class="btn btn-neutral float-right" title="Texturing" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="auxiliary-bitplane-control.html" class="btn btn-neutral" title="Auxiliary Bitplane Control" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Panda3D.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.10.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

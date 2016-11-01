@@ -1,0 +1,335 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Actor Intervals &mdash; Panda3D Manual</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Panda3D Manual" href="../../index.html"/>
+        <link rel="up" title="Intervals" href="index.html"/>
+        <link rel="next" title="Sound Intervals" href="sound-intervals.html"/>
+        <link rel="prev" title="Function Intervals" href="function-intervals.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Panda3D
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.10
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../intro/index.html">Introduction to Panda3D</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Programming with Panda3D</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../the-scene-graph/index.html">The Scene Graph</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../the-configuration-file/index.html">The Configuration File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../models-and-actors/index.html">Models and Actors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-attributes/index.html">Render Attributes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../texturing/index.html">Texturing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shaders/index.html">Shaders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../camera-control/index.html">Camera Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sound/index.html">Sound</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Intervals</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="lerp-intervals.html">Lerp Intervals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function-intervals.html">Function Intervals</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Actor Intervals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sound-intervals.html">Sound Intervals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="motion-path-and-particle-intervals.html">Motion Path and Particle Intervals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sequences-and-parallels.html">Sequences and Parallels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="position-rotation-and-scale-intervals.html">Position, Rotation and Scale Intervals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="projectile-intervals.html">Projectile Intervals</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks-and-event-handling/index.html">Tasks and Event Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../text-and-image-rendering/index.html">Text and Image Rendering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../directgui/index.html">DirectGUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-effects/index.html">Render Effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../finite-state-machines/index.html">Finite State Machines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../terrain/index.html">Terrain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internal-structures/index.html">Advanced operations with Panda3D&#8217;s internal structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-to-texture-and-image-postprocessing/index.html">Render-to-Texture and Image Postprocessing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../panda3d-rendering-process/index.html">Panda3D Rendering Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../panda3d-utility-functions.html">Panda3D Utility Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../particle-effects/index.html">Particle Effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../collision-detection/index.html">Collision Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../garbage-collection/index.html">Garbage Collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hardware-support/index.html">Hardware support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../math-engine/index.html">Math Engine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../motion-paths.html">Motion Paths</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../timing/index.html">Timing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../networking/index.html">Networking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../multifiles/index.html">Multifiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../showbase.html">ShowBase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../file-reading.html">File Reading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../threading.html">Threading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../subclassing.html">Subclassing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../table-of-features-supported-per-graphic-renderer.html">Table of features supported per graphic renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pandai/index.html">Artificial Intelligence (PANDAI)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../distribution/index.html">Distributing Panda3D Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../samples/index.html">Sample Programs in the Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../debugging/index.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../performance-tuning/index.html">Performance Tuning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../using-c++/index.html">Using C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/index.html">Panda3D Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../building-from-source.html">Building Panda3D from Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cheat-sheets.html">Cheat Sheets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started-on-osx.html">Getting Started on OSX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../more-panda3d-resources.html">More Panda3D Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../thirdparty-licenses.html">Third-party dependencies and license info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../the-irc-channel.html">The IRC Channel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">FAQ</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Panda3D</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Programming with Panda3D</a> &raquo;</li>
+      
+          <li><a href="index.html">Intervals</a> &raquo;</li>
+      
+    <li>Actor Intervals</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/programming-with-panda3d/intervals/actor-intervals.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="actor-intervals">
+<span id="id1"></span><h1>Actor Intervals<a class="headerlink" href="#actor-intervals" title="Permalink to this headline">¶</a></h1>
+<p>Actor intervals allow actor animations to be played as an interval, which
+allows them to be combined with other intervals through sequences and
+parallels.</p>
+<p>The subrange of the animation to be played may be specified via frames
+(<code class="docutils literal"><span class="pre">startFrame</span></code> up to and including
+<code class="docutils literal"><span class="pre">endFrame</span></code>) or seconds
+(<code class="docutils literal"><span class="pre">startTime</span></code> up to and including
+<code class="docutils literal"><span class="pre">endTime</span></code>). It may also be
+specified with a <code class="docutils literal"><span class="pre">startFrame</span></code> or
+<code class="docutils literal"><span class="pre">startTime</span></code> in conjunction with the
+duration, in seconds. If none of these is specified, then the default is to
+play the entire range of the animation.</p>
+<p>If <code class="docutils literal"><span class="pre">endFrame</span></code> is before
+<code class="docutils literal"><span class="pre">startFrame</span></code>, or if the play rate is
+negative, then the animation will be played backwards.</p>
+<p>You may specify a subrange that is longer than the actual animation, but if
+you do so, you probably also want to specify either
+<code class="docutils literal"><span class="pre">loop=1</span></code> or
+<code class="docutils literal"><span class="pre">constrainedLoop=1</span></code>; see below.</p>
+<p>The loop parameter is a boolean value. When it is true, it means that the
+animation restarts and plays again if the interval extends beyond the
+animation&#8217;s last frame. When it is false, it means that the animation stops
+and holds its final pose when the interval extends beyond the animation&#8217;s last
+frame. Note that, in neither case, will the ActorInterval loop indefinitely:
+all intervals always have a specific, finite duration, and the duration of an
+ActorInterval is controlled by either the duration parameter, the
+<code class="docutils literal"><span class="pre">startTime</span></code>/<code class="docutils literal"><span class="pre">endTime</span></code>
+parameters, or the
+<code class="docutils literal"><span class="pre">startFrame</span></code>/<code class="docutils literal"><span class="pre">endFrame</span></code>
+parameters. Setting <code class="docutils literal"><span class="pre">loop=1</span></code> has
+no effect on the duration of the ActorInterval, it only controls what the
+actor does if you try to play past the end of the animation.</p>
+<p>The parameter <code class="docutils literal"><span class="pre">constrainedLoop</span></code> works
+similarly to loop, but while
+<code class="docutils literal"><span class="pre">loop=1</span></code> implies a loop within
+the entire range of animation,
+<code class="docutils literal"><span class="pre">constrainedLoop=1</span></code> implies a loop within
+<code class="docutils literal"><span class="pre">startFrame</span></code> and
+<code class="docutils literal"><span class="pre">endFrame</span></code> only. That is, if you
+specify <code class="docutils literal"><span class="pre">loop=1</span></code> and the
+animation plays past <code class="docutils literal"><span class="pre">endFrame</span></code>,
+in the next frame it will play beginning at frame 0; while if you specify
+<code class="docutils literal"><span class="pre">constrainedLoop=1</span></code> instead, then the next
+frame after <code class="docutils literal"><span class="pre">endFrame</span></code> will be
+<code class="docutils literal"><span class="pre">startFrame</span></code> again.</p>
+<p>All parameters other than the animation name are optional.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">direct.interval.ActorInterval</span> <span class="kn">import</span> <span class="n">ActorInterval</span>
+
+<span class="n">myInterval</span> <span class="o">=</span> <span class="n">myactor</span><span class="o">.</span><span class="n">actorInterval</span><span class="p">(</span>
+    <span class="s2">&quot;Animation Name&quot;</span><span class="p">,</span>
+    <span class="n">loop</span><span class="o">=&lt;</span><span class="mi">0</span> <span class="ow">or</span> <span class="mi">1</span><span class="o">&gt;</span><span class="p">,</span>
+    <span class="n">constrainedLoop</span><span class="o">=&lt;</span><span class="mi">0</span> <span class="ow">or</span> <span class="mi">1</span><span class="o">&gt;</span><span class="p">,</span>
+    <span class="n">duration</span><span class="o">=</span><span class="n">D</span><span class="p">,</span>
+    <span class="n">startTime</span><span class="o">=</span><span class="n">T1</span><span class="p">,</span>
+    <span class="n">endTime</span><span class="o">=</span><span class="n">T2</span><span class="p">,</span>
+    <span class="n">startFrame</span><span class="o">=</span><span class="n">N1</span><span class="p">,</span>
+    <span class="n">endFrame</span><span class="o">=</span><span class="n">N2</span><span class="p">,</span>
+    <span class="n">playRate</span><span class="o">=</span><span class="n">R</span><span class="p">,</span>
+    <span class="n">partName</span><span class="o">=</span><span class="n">PN</span><span class="p">,</span>
+    <span class="n">lodName</span><span class="o">=</span><span class="n">LN</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>As ActorInterval is implemented in Python, this section does not apply to C++.</p>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="sound-intervals.html" class="btn btn-neutral float-right" title="Sound Intervals" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="function-intervals.html" class="btn btn-neutral" title="Function Intervals" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Panda3D.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.10.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

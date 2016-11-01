@@ -1,0 +1,457 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Flock &mdash; Panda3D Manual</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Panda3D Manual" href="../../../index.html"/>
+        <link rel="up" title="Steering Behaviors" href="index.html"/>
+        <link rel="next" title="Obstacle Avoidance" href="obstacle-avoidance.html"/>
+        <link rel="prev" title="Wander" href="wander.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Panda3D
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.10
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../intro/index.html">Introduction to Panda3D</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Programming with Panda3D</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../the-scene-graph/index.html">The Scene Graph</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../the-configuration-file/index.html">The Configuration File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../models-and-actors/index.html">Models and Actors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../render-attributes/index.html">Render Attributes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../texturing/index.html">Texturing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../shaders/index.html">Shaders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../camera-control/index.html">Camera Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../sound/index.html">Sound</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../intervals/index.html">Intervals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tasks-and-event-handling/index.html">Tasks and Event Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../text-and-image-rendering/index.html">Text and Image Rendering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../directgui/index.html">DirectGUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../render-effects/index.html">Render Effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../finite-state-machines/index.html">Finite State Machines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../terrain/index.html">Terrain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../internal-structures/index.html">Advanced operations with Panda3D&#8217;s internal structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../render-to-texture-and-image-postprocessing/index.html">Render-to-Texture and Image Postprocessing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../panda3d-rendering-process/index.html">Panda3D Rendering Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../panda3d-utility-functions.html">Panda3D Utility Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../particle-effects/index.html">Particle Effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../collision-detection/index.html">Collision Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../garbage-collection/index.html">Garbage Collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hardware-support/index.html">Hardware support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../math-engine/index.html">Math Engine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../motion-paths.html">Motion Paths</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../timing/index.html">Timing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../networking/index.html">Networking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../multifiles/index.html">Multifiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../showbase.html">ShowBase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../file-reading.html">File Reading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../threading.html">Threading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../subclassing.html">Subclassing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../table-of-features-supported-per-graphic-renderer.html">Table of features supported per graphic renderer</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Artificial Intelligence (PANDAI)</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../getting-started.html">Getting Started</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Steering Behaviors</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="seek.html">Seek</a></li>
+<li class="toctree-l4"><a class="reference internal" href="flee.html">Flee</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pursue.html">Pursue</a></li>
+<li class="toctree-l4"><a class="reference internal" href="evade.html">Evade</a></li>
+<li class="toctree-l4"><a class="reference internal" href="wander.html">Wander</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Flock</a></li>
+<li class="toctree-l4"><a class="reference internal" href="obstacle-avoidance.html">Obstacle Avoidance</a></li>
+<li class="toctree-l4"><a class="reference internal" href="path-follow.html">Path Follow</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../pathfinding/index.html">Pathfinding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../source-codes.html">Source Codes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../distribution/index.html">Distributing Panda3D Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../samples/index.html">Sample Programs in the Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../debugging/index.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../performance-tuning/index.html">Performance Tuning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../using-c++/index.html">Using C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tools/index.html">Panda3D Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../building-from-source.html">Building Panda3D from Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cheat-sheets.html">Cheat Sheets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting-started-on-osx.html">Getting Started on OSX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../more-panda3d-resources.html">More Panda3D Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../thirdparty-licenses.html">Third-party dependencies and license info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../the-irc-channel.html">The IRC Channel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../faq.html">FAQ</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../index.html">Panda3D</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../index.html">Programming with Panda3D</a> &raquo;</li>
+      
+          <li><a href="../index.html">Artificial Intelligence (PANDAI)</a> &raquo;</li>
+      
+          <li><a href="index.html">Steering Behaviors</a> &raquo;</li>
+      
+    <li>Flock</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../_sources/programming-with-panda3d/pandai/steering-behaviors/flock.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="flock">
+<span id="id1"></span><h1>Flock<a class="headerlink" href="#flock" title="Permalink to this headline">¶</a></h1>
+<p>What is flocking? Flocking is an emergent behavior and is the resultant of the
+following forces:</p>
+<p>cohesion &#8211; finds average position of neighbors and tries to move to that
+position separation &#8211; object keeps a certain distance between itself and its
+neighbor alignment &#8211; finds average direction in which all neighbors are
+moving and tries to move in that direction</p>
+<p>Each NPC has a &#8220;visibility cone&#8221; and this is used to compute it&#8217;s neighbors.
+The neighbors contribute towards the forces mentioned above.</p>
+<p>Tuners:</p>
+<p>1. The angle and length of each NPC&#8217;s &#8220;visibility cone&#8221;. 2. Weight of
+cohesion, separation, and alignment (how much each sub-behavior of flock
+affects the overall flocking behavior).</p>
+<p>Note: Flocking behavior is NOT a standalone behavior. It needs to be combined
+with other steering behaviors such as seek, pursue, flee, evade etc. to
+function.</p>
+<p>{{#ev:youtube|dkfnlqH06IY}}</p>
+<hr class="docutils" />
+<p>Using PandAI&#8217;s flocking system:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">To</span> <span class="n">create</span> <span class="n">the</span> <span class="n">flock</span>
+<span class="n">flockObject</span> <span class="o">=</span> <span class="n">Flock</span><span class="p">(</span><span class="n">unsigned</span> <span class="nb">int</span> <span class="n">flock_id</span><span class="p">,</span> <span class="n">double</span> <span class="n">vcone_angle</span><span class="p">,</span> <span class="n">double</span> <span class="n">vcone_radius</span><span class="p">,</span> <span class="n">unsigned</span> <span class="nb">int</span> <span class="n">cohesion_wt</span><span class="p">,</span> <span class="n">unsigned</span> <span class="nb">int</span> <span class="n">separation_wt</span><span class="p">,</span> <span class="n">unsigned</span> <span class="nb">int</span> <span class="n">alignment_wt</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>&#8220;flock_id&#8221; is a value
+identifying the flock.</p>
+<p>&#8220;vcone_angle&#8221; is the visibility angle of the character (represented by a cone
+around it)</p>
+<p>&#8220;vcone_radius&#8221; is the length of the visibility cone.</p>
+<p>&#8220;cohesion_wt&#8221;, &#8220;separation_wt&#8221; and &#8220;alignment_wt&#8221; is the amount of
+separation force that contributes to the overall flocking behavior.</p>
+<hr class="docutils" />
+<p>Some standard values to start you off with:</p>
+<p>Type vcone_angle vcone_radius separation_wt cohesion_wt alignment_wt</p>
+<p>Normal Pack 270 10 2 4 1</p>
+<p>Loose Pack 180 10 2 4 5</p>
+<p>Tight Pack 45 5 2 4 5</p>
+<p>You could try experimenting with your own values to customize your flock.</p>
+<hr class="docutils" />
+<p>To add your AI Character to the above created flock</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">flockObject</span><span class="o">.</span><span class="n">addAiChar</span><span class="p">(</span><span class="n">aiChar</span><span class="p">)</span>     <span class="o">//</span> <span class="n">aiChar</span> <span class="ow">is</span> <span class="n">an</span> <span class="n">AICharacter</span> <span class="nb">object</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>After all the AI Characters are added to the flock, add the flock to the
+world.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">aiWorld</span><span class="o">.</span><span class="n">addFlock</span><span class="p">(</span><span class="n">flockObject</span><span class="p">)</span>    <span class="o">//</span> <span class="n">aiWorld</span> <span class="ow">is</span> <span class="n">an</span> <span class="n">AIWorld</span> <span class="nb">object</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>Specify the flock behavior priority. As mentioned earlier, flock behavior
+works with other steering behaviors.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">aiBehaviors</span><span class="o">.</span><span class="n">flock</span><span class="p">(</span><span class="nb">float</span> <span class="n">priority</span><span class="p">)</span>       <span class="o">//</span> <span class="n">aiBehaviors</span> <span class="ow">is</span> <span class="n">an</span> <span class="n">AIBehaviors</span> <span class="nb">object</span><span class="o">.</span>
+<span class="o">&lt;</span><span class="n">code</span><span class="o">&gt;</span>
+
+<span class="o">&lt;</span><span class="n">b</span><span class="o">&gt;</span><span class="n">Other</span> <span class="n">useful</span> <span class="n">flock</span> <span class="n">functions</span><span class="p">:</span><span class="o">&lt;/</span><span class="n">b</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">code</span> <span class="n">python</span><span class="o">&gt;</span>
+<span class="n">aiWorld</span><span class="o">.</span><span class="n">flockOff</span><span class="p">(</span><span class="n">unsigned</span> <span class="nb">int</span> <span class="n">flock_id</span><span class="p">);</span>            <span class="o">//</span> <span class="n">Turns</span> <span class="n">the</span> <span class="n">flock</span> <span class="n">behavior</span> <span class="n">off</span><span class="o">.</span>
+
+<span class="n">aiWorld</span><span class="o">.</span><span class="n">flockOn</span><span class="p">(</span><span class="n">unsigned</span> <span class="nb">int</span> <span class="n">flock_id</span><span class="p">);</span>           <span class="o">//</span> <span class="n">Turns</span> <span class="n">the</span> <span class="n">flock</span> <span class="n">behavior</span> <span class="n">on</span><span class="o">.</span>
+
+<span class="n">aiWorld</span><span class="o">.</span><span class="n">removeFlock</span><span class="p">(</span><span class="n">unsigned</span> <span class="nb">int</span> <span class="n">flock_id</span><span class="p">);</span>    <span class="o">//</span> <span class="n">Removes</span> <span class="n">the</span> <span class="n">flock</span> <span class="n">behavior</span><span class="o">.</span> <span class="n">Note</span><span class="p">:</span> <span class="n">This</span> <span class="n">does</span> <span class="n">NOT</span> <span class="n">remove</span> <span class="n">the</span> <span class="n">AI</span> <span class="n">characters</span> <span class="n">of</span> <span class="n">the</span> <span class="n">flock</span><span class="o">.</span>
+
+<span class="n">aiWorld</span><span class="o">.</span><span class="n">getFlock</span><span class="p">(</span><span class="n">unsigned</span> <span class="nb">int</span> <span class="n">flock_id</span><span class="p">);</span>          <span class="o">//</span> <span class="n">Returns</span> <span class="n">a</span> <span class="n">handle</span> <span class="n">to</span> <span class="n">the</span> <span class="n">flock</span> <span class="nb">object</span><span class="o">.</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+<p>The full working code in Panda3D :</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">direct.directbase.DirectStart</span>
+<span class="kn">from</span> <span class="nn">panda3d.core</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">direct.showbase.DirectObject</span> <span class="kn">import</span> <span class="n">DirectObject</span>
+<span class="kn">from</span> <span class="nn">direct.task</span> <span class="kn">import</span> <span class="n">Task</span>
+<span class="kn">from</span> <span class="nn">direct.actor.Actor</span> <span class="kn">import</span> <span class="n">Actor</span>
+<span class="c1">#for Pandai</span>
+<span class="kn">from</span> <span class="nn">panda3d.ai</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="c1">#for Onscreen GUI</span>
+<span class="kn">from</span> <span class="nn">direct.gui.OnscreenText</span> <span class="kn">import</span> <span class="n">OnscreenText</span>
+
+<span class="c1"># Globals</span>
+<span class="n">speed</span> <span class="o">=</span> <span class="mf">0.75</span>
+
+<span class="c1"># Function to put instructions on the screen.</span>
+<span class="n">font</span> <span class="o">=</span> <span class="n">loader</span><span class="o">.</span><span class="n">loadFont</span><span class="p">(</span><span class="s2">&quot;cmss12&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">addInstructions</span><span class="p">(</span><span class="n">pos</span><span class="p">,</span> <span class="n">msg</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">OnscreenText</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="n">msg</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">fg</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="n">font</span> <span class="o">=</span> <span class="n">font</span><span class="p">,</span>
+                        <span class="n">pos</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mf">1.3</span><span class="p">,</span> <span class="n">pos</span><span class="p">),</span> <span class="n">align</span><span class="o">=</span><span class="n">TextNode</span><span class="o">.</span><span class="n">ALeft</span><span class="p">,</span> <span class="n">scale</span> <span class="o">=</span> <span class="o">.</span><span class="mo">05</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">World</span><span class="p">(</span><span class="n">DirectObject</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">base</span><span class="o">.</span><span class="n">disableMouse</span><span class="p">()</span>
+        <span class="n">base</span><span class="o">.</span><span class="n">cam</span><span class="o">.</span><span class="n">setPosHpr</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">85</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">90</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">loadModels</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setAI</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setMovement</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">loadModels</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># Seeker</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">flockers</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+            <span class="n">ralphStartPos</span> <span class="o">=</span> <span class="n">Vec3</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="o">+</span><span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">flockers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Actor</span><span class="p">(</span><span class="s2">&quot;models/ralph&quot;</span><span class="p">,</span>
+                                     <span class="p">{</span><span class="s2">&quot;run&quot;</span><span class="p">:</span><span class="s2">&quot;models/ralph-run&quot;</span><span class="p">}))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">flockers</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">reparentTo</span><span class="p">(</span><span class="n">render</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">flockers</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">setScale</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">flockers</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">setPos</span><span class="p">(</span><span class="n">ralphStartPos</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">flockers</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">loop</span><span class="p">(</span><span class="s2">&quot;run&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Target</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">target</span> <span class="o">=</span> <span class="n">loader</span><span class="o">.</span><span class="n">loadModel</span><span class="p">(</span><span class="s2">&quot;models/arrow&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">target</span><span class="o">.</span><span class="n">setColor</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">target</span><span class="o">.</span><span class="n">setPos</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">target</span><span class="o">.</span><span class="n">setScale</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">target</span><span class="o">.</span><span class="n">reparentTo</span><span class="p">(</span><span class="n">render</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">setAI</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1">#Creating AI World</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">AIworld</span> <span class="o">=</span> <span class="n">AIWorld</span><span class="p">(</span><span class="n">render</span><span class="p">)</span>
+
+        <span class="c1">#Flock functions</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">MyFlock</span> <span class="o">=</span> <span class="n">Flock</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">270</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">AIworld</span><span class="o">.</span><span class="n">addFlock</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">MyFlock</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">AIworld</span><span class="o">.</span><span class="n">flockOn</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">AIchar</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">AIbehaviors</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">AIchar</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">AICharacter</span><span class="p">(</span><span class="s2">&quot;flockers&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">),</span><span class="bp">self</span><span class="o">.</span><span class="n">flockers</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="mi">100</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">AIworld</span><span class="o">.</span><span class="n">addAiChar</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">AIchar</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">AIbehaviors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">AIchar</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">getAiBehaviors</span><span class="p">())</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">MyFlock</span><span class="o">.</span><span class="n">addAiChar</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">AIchar</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">AIbehaviors</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">flock</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">AIbehaviors</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">pursue</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">target</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+
+        <span class="c1">#AI World update</span>
+        <span class="n">taskMgr</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">AIUpdate</span><span class="p">,</span><span class="s2">&quot;AIUpdate&quot;</span><span class="p">)</span>
+
+    <span class="c1">#to update the AIWorld</span>
+    <span class="k">def</span> <span class="nf">AIUpdate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">task</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">AIworld</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">Task</span><span class="o">.</span><span class="n">cont</span>
+
+<span class="c1">#All the movement functions for the Target</span>
+    <span class="k">def</span> <span class="nf">setMovement</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">keyMap</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;left&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;right&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;up&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;down&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">accept</span><span class="p">(</span><span class="s2">&quot;arrow_left&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">setKey</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;left&quot;</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">accept</span><span class="p">(</span><span class="s2">&quot;arrow_right&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">setKey</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;right&quot;</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">accept</span><span class="p">(</span><span class="s2">&quot;arrow_up&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">setKey</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;up&quot;</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">accept</span><span class="p">(</span><span class="s2">&quot;arrow_down&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">setKey</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;down&quot;</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">accept</span><span class="p">(</span><span class="s2">&quot;arrow_left-up&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">setKey</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;left&quot;</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">accept</span><span class="p">(</span><span class="s2">&quot;arrow_right-up&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">setKey</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;right&quot;</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">accept</span><span class="p">(</span><span class="s2">&quot;arrow_up-up&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">setKey</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;up&quot;</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">accept</span><span class="p">(</span><span class="s2">&quot;arrow_down-up&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">setKey</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;down&quot;</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
+        <span class="c1">#movement task</span>
+        <span class="n">taskMgr</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Mover</span><span class="p">,</span><span class="s2">&quot;Mover&quot;</span><span class="p">)</span>
+
+        <span class="n">addInstructions</span><span class="p">(</span><span class="mf">0.9</span><span class="p">,</span> <span class="s2">&quot;Use the Arrow keys to move the Red Target&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">setKey</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">keyMap</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="k">def</span> <span class="nf">Mover</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">task</span><span class="p">):</span>
+        <span class="n">startPos</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">target</span><span class="o">.</span><span class="n">getPos</span><span class="p">()</span>
+        <span class="k">if</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">keyMap</span><span class="p">[</span><span class="s2">&quot;left&quot;</span><span class="p">]</span><span class="o">!=</span><span class="mi">0</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">target</span><span class="o">.</span><span class="n">setPos</span><span class="p">(</span><span class="n">startPos</span> <span class="o">+</span> <span class="n">Point3</span><span class="p">(</span><span class="o">-</span><span class="n">speed</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span>
+        <span class="k">if</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">keyMap</span><span class="p">[</span><span class="s2">&quot;right&quot;</span><span class="p">]</span><span class="o">!=</span><span class="mi">0</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">target</span><span class="o">.</span><span class="n">setPos</span><span class="p">(</span><span class="n">startPos</span> <span class="o">+</span> <span class="n">Point3</span><span class="p">(</span><span class="n">speed</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span>
+        <span class="k">if</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">keyMap</span><span class="p">[</span><span class="s2">&quot;up&quot;</span><span class="p">]</span><span class="o">!=</span><span class="mi">0</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">target</span><span class="o">.</span><span class="n">setPos</span><span class="p">(</span><span class="n">startPos</span> <span class="o">+</span> <span class="n">Point3</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">speed</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span>
+        <span class="k">if</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">keyMap</span><span class="p">[</span><span class="s2">&quot;down&quot;</span><span class="p">]</span><span class="o">!=</span><span class="mi">0</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">target</span><span class="o">.</span><span class="n">setPos</span><span class="p">(</span><span class="n">startPos</span> <span class="o">+</span> <span class="n">Point3</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="n">speed</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span>
+
+        <span class="k">return</span> <span class="n">Task</span><span class="o">.</span><span class="n">cont</span>
+
+<span class="n">w</span> <span class="o">=</span> <span class="n">World</span><span class="p">()</span>
+<span class="n">run</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>To get the full working
+demo, please visit :</p>
+<p><a class="reference external" href="https://sites.google.com/site/etcpandai/documentation/steering-behaviors/flock/PandAIFlockExample.zip?attredirects=0&amp;d;=1">https://sites.google.com/site/etcpandai/documentation/steering-behaviors/flock/PandAIFlockExample.zip?attredirects=0&amp;d;=1</a></p>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="obstacle-avoidance.html" class="btn btn-neutral float-right" title="Obstacle Avoidance" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="wander.html" class="btn btn-neutral" title="Wander" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Panda3D.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'1.10.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

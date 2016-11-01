@@ -1,0 +1,403 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Tinting and Recoloring &mdash; Panda3D Manual</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Panda3D Manual" href="../../index.html"/>
+        <link rel="up" title="Render Attributes" href="index.html"/>
+        <link rel="next" title="Backface Culling and Frontface Culling" href="backface-culling-and-frontface-culling.html"/>
+        <link rel="prev" title="Clip Planes" href="clip-planes.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Panda3D
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.10
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../intro/index.html">Introduction to Panda3D</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Programming with Panda3D</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../the-scene-graph/index.html">The Scene Graph</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../the-configuration-file/index.html">The Configuration File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../models-and-actors/index.html">Models and Actors</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Render Attributes</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="list-of-all-attributes.html">List of All Attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lighting.html">Lighting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="materials.html">Materials</a></li>
+<li class="toctree-l3"><a class="reference internal" href="depth-test-and-depth-write.html">Depth Test and Depth Write</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fog.html">Fog</a></li>
+<li class="toctree-l3"><a class="reference internal" href="alpha-testing.html">Alpha Testing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="color-write-masks.html">Color Write Masks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="antialiasing.html">Antialiasing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="clip-planes.html">Clip Planes</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Tinting and Recoloring</a></li>
+<li class="toctree-l3"><a class="reference internal" href="backface-culling-and-frontface-culling.html">Backface Culling and Frontface Culling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="occlusion-culling/index.html">Occlusion Culling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="light-ramps.html">Light Ramps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="auxiliary-bitplane-control.html">Auxiliary Bitplane Control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="stencil-attribute.html">Stencil Test/Write Attribute</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../texturing/index.html">Texturing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shaders/index.html">Shaders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../camera-control/index.html">Camera Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sound/index.html">Sound</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intervals/index.html">Intervals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks-and-event-handling/index.html">Tasks and Event Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../text-and-image-rendering/index.html">Text and Image Rendering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../directgui/index.html">DirectGUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-effects/index.html">Render Effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../finite-state-machines/index.html">Finite State Machines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../terrain/index.html">Terrain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internal-structures/index.html">Advanced operations with Panda3D&#8217;s internal structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-to-texture-and-image-postprocessing/index.html">Render-to-Texture and Image Postprocessing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../panda3d-rendering-process/index.html">Panda3D Rendering Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../panda3d-utility-functions.html">Panda3D Utility Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../particle-effects/index.html">Particle Effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../collision-detection/index.html">Collision Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../garbage-collection/index.html">Garbage Collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hardware-support/index.html">Hardware support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../math-engine/index.html">Math Engine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../motion-paths.html">Motion Paths</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../timing/index.html">Timing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../networking/index.html">Networking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../multifiles/index.html">Multifiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../showbase.html">ShowBase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../file-reading.html">File Reading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../threading.html">Threading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../subclassing.html">Subclassing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../table-of-features-supported-per-graphic-renderer.html">Table of features supported per graphic renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pandai/index.html">Artificial Intelligence (PANDAI)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../distribution/index.html">Distributing Panda3D Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../samples/index.html">Sample Programs in the Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../debugging/index.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../performance-tuning/index.html">Performance Tuning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../using-c++/index.html">Using C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/index.html">Panda3D Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../building-from-source.html">Building Panda3D from Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cheat-sheets.html">Cheat Sheets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started-on-osx.html">Getting Started on OSX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../more-panda3d-resources.html">More Panda3D Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../thirdparty-licenses.html">Third-party dependencies and license info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../the-irc-channel.html">The IRC Channel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">FAQ</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Panda3D</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Programming with Panda3D</a> &raquo;</li>
+      
+          <li><a href="index.html">Render Attributes</a> &raquo;</li>
+      
+    <li>Tinting and Recoloring</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/programming-with-panda3d/render-attributes/tinting-and-recoloring.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="tinting-and-recoloring">
+<span id="id1"></span><h1>Tinting and Recoloring<a class="headerlink" href="#tinting-and-recoloring" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="color-and-the-model-loader">
+<h2>Color and the Model Loader<a class="headerlink" href="#color-and-the-model-loader" title="Permalink to this headline">¶</a></h2>
+<p>When you create a 3D model in Max, Maya, or the like, you can color the model
+right in the modeling program. I&#8217;m not talking about using a texture. I&#8217;m
+talking about just setting a single color to the model as whole. This is
+called a &#8220;flat color.&#8221; These art programs also allow you to &#8220;paint vertex
+colors&#8221;: you can color each vertex of the model a different color. Of course,
+sometimes you do neither, in which case the model is just white.</p>
+<p>Every model you load already has a color attribute. Color Attributes are
+usually not created by the programmer explicitly, they&#8217;re usually created by
+the model loader only. There are three possible color attributes created by
+the model loader:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Method</th>
+<th class="head">Explanation</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>ColorAttrib.makeVertex()</td>
+<td>Used by the model loader to indicate that the model has vertex colors stored in its vertex arrays.</td>
+</tr>
+<tr class="row-odd"><td>ColorAttrib.makeFlat(Vec4(R,G,B,A))</td>
+<td>Used by the model loader to indicate that the model has a single flat color.</td>
+</tr>
+<tr class="row-even"><td>ColorAttrib.makeOff()</td>
+<td>Used by the model loader to indicate that no particular color was specified. Essentially the same as flat white, but possibly a little faster to render.</td>
+</tr>
+</tbody>
+</table>
+<p>Panda combines these color attributes with the textures. If you are accustomed
+to Photoshop, you should think of the model&#8217;s color as the bottom (background)
+layer, and the textures go above that. By default, each texture is modulated
+(multiplied) with the previous layer, but as in Photoshop, that can be
+changed.</p>
+</div>
+<div class="section" id="recoloring-the-model">
+<h2>Recoloring the Model<a class="headerlink" href="#recoloring-the-model" title="Permalink to this headline">¶</a></h2>
+<p>If you wish, you can manually override the color attribute which has been
+specified by the model loader.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">nodePath</span><span class="o">.</span><span class="n">setColor</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="n">g</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Again, this is an override. If the model already had vertex colors, these will
+disappear: the <code class="docutils literal"><span class="pre">setColor</span></code> method
+is replacing those colors with a new one. If the model already had a flat
+color, that will be replaced with the new flat color.</p>
+<p>It should be mentioned that the color attribute created by the model loader
+has low priority. That means that even a default-priority
+<code class="docutils literal"><span class="pre">setColor</span></code> is enough to override
+it.</p>
+<p>You can remove a previous
+<code class="docutils literal"><span class="pre">setColor</span></code> using
+<code class="docutils literal"><span class="pre">clearColor</span></code>.</p>
+</div>
+<div class="section" id="tinting-the-model">
+<h2>Tinting the Model<a class="headerlink" href="#tinting-the-model" title="Permalink to this headline">¶</a></h2>
+<p>Sometimes, you don&#8217;t want to replace the existing color, sometimes, you want
+to tint the existing colors. For this, you need setColorScale:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">nodePath</span><span class="o">.</span><span class="n">setColorScale</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="n">g</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This color will be modulated (multiplied) with the existing color.</p>
+<p>You can remove a previous
+<code class="docutils literal"><span class="pre">setColorScale</span></code> using
+<code class="docutils literal"><span class="pre">clearColorScale</span></code>.</p>
+</div>
+<div class="section" id="demonstration">
+<h2>Demonstration<a class="headerlink" href="#demonstration" title="Permalink to this headline">¶</a></h2>
+<p>To see the difference between
+<code class="docutils literal"><span class="pre">setColor</span></code> and
+<code class="docutils literal"><span class="pre">setColorScale</span></code>, try the code sample
+below. You will need the nik-dragon model from the Cartoon Shading sample
+program, which has vertex colors and no texture:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">direct.directbase.DirectStart</span>
+<span class="kn">from</span> <span class="nn">panda3d.core</span> <span class="kn">import</span> <span class="n">ColorAttrib</span>
+
+<span class="c1"># Load three copies of Nik&#39;s dragon, which has vertex colors.</span>
+<span class="n">model1</span> <span class="o">=</span> <span class="n">loader</span><span class="o">.</span><span class="n">loadModel</span><span class="p">(</span><span class="s2">&quot;nik-dragon&quot;</span><span class="p">)</span>
+<span class="n">model2</span> <span class="o">=</span> <span class="n">loader</span><span class="o">.</span><span class="n">loadModel</span><span class="p">(</span><span class="s2">&quot;nik-dragon&quot;</span><span class="p">)</span>
+<span class="n">model3</span> <span class="o">=</span> <span class="n">loader</span><span class="o">.</span><span class="n">loadModel</span><span class="p">(</span><span class="s2">&quot;nik-dragon&quot;</span><span class="p">)</span>
+
+<span class="c1"># Put them in the scene.</span>
+<span class="n">model1</span><span class="o">.</span><span class="n">reparentTo</span><span class="p">(</span><span class="n">render</span><span class="p">)</span>
+<span class="n">model2</span><span class="o">.</span><span class="n">reparentTo</span><span class="p">(</span><span class="n">render</span><span class="p">)</span>
+<span class="n">model3</span><span class="o">.</span><span class="n">reparentTo</span><span class="p">(</span><span class="n">render</span><span class="p">)</span>
+
+<span class="c1"># Arrange them left-to-right</span>
+<span class="n">model1</span><span class="o">.</span><span class="n">setPos</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">model2</span><span class="o">.</span><span class="n">setPos</span><span class="p">(</span>  <span class="mi">0</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">model3</span><span class="o">.</span><span class="n">setPos</span><span class="p">(</span> <span class="mi">10</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># Model 1 will be left alone, so you can see the original.</span>
+<span class="c1"># Model 2 will be recolored light blue.</span>
+<span class="c1"># Model 3 will be tinted light blue.</span>
+<span class="n">model2</span><span class="o">.</span><span class="n">setColor</span><span class="p">(</span><span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
+<span class="n">model3</span><span class="o">.</span><span class="n">setColorScale</span><span class="p">(</span><span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
+
+<span class="n">run</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>This produces the following output:</p>
+<p><img alt="Tinting-and-recoloring1.jpg" src="../../_images/tinting-and-recoloring1.jpg" /></p>
+<p>The model on the left is the original, unaltered model. Nik has used vertex
+colors throughout. The yellow of the belly, the black eyes, the red mouth,
+these are all vertex colors. The one in the middle has been
+<code class="docutils literal"><span class="pre">setColor</span></code> ed to a medium-blue
+color. As you can see, the
+<code class="docutils literal"><span class="pre">setColor</span></code> completely replaces the
+vertex colors. The one on the right bas been
+<code class="docutils literal"><span class="pre">setColorScale</span></code> ed to the same
+medium-blue color, but this only tints the model.</p>
+</div>
+<div class="section" id="related-classes">
+<h2>Related Classes<a class="headerlink" href="#related-classes" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="https://www.panda3d.org/apiref.php?page=ColorScaleAttrib">ColorScaleAttrib</a></li>
+<li><a class="reference external" href="https://www.panda3d.org/apiref.php?page=ColorAttrib">ColorAttrib</a></li>
+<li><a class="reference external" href="https://www.panda3d.org/apiref.php?page=NodePath">NodePath</a></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="backface-culling-and-frontface-culling.html" class="btn btn-neutral float-right" title="Backface Culling and Frontface Culling" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="clip-planes.html" class="btn btn-neutral" title="Clip Planes" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Panda3D.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.10.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,518 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Particle Emitters &mdash; Panda3D Manual</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Panda3D Manual" href="../../index.html"/>
+        <link rel="up" title="Particle Effects" href="index.html"/>
+        <link rel="next" title="Particle Renderers" href="particle-renderers.html"/>
+        <link rel="prev" title="Particle Factories" href="particle-factories.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Panda3D
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.10
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../intro/index.html">Introduction to Panda3D</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Programming with Panda3D</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../the-scene-graph/index.html">The Scene Graph</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../the-configuration-file/index.html">The Configuration File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../models-and-actors/index.html">Models and Actors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-attributes/index.html">Render Attributes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../texturing/index.html">Texturing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shaders/index.html">Shaders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../camera-control/index.html">Camera Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sound/index.html">Sound</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intervals/index.html">Intervals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks-and-event-handling/index.html">Tasks and Event Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../text-and-image-rendering/index.html">Text and Image Rendering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../directgui/index.html">DirectGUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-effects/index.html">Render Effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../finite-state-machines/index.html">Finite State Machines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../terrain/index.html">Terrain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internal-structures/index.html">Advanced operations with Panda3D&#8217;s internal structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-to-texture-and-image-postprocessing/index.html">Render-to-Texture and Image Postprocessing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../panda3d-rendering-process/index.html">Panda3D Rendering Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../panda3d-utility-functions.html">Panda3D Utility Functions</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Particle Effects</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="using-the-particle-panel.html">Using the Particle Panel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="loading-particle-systems.html">Loading Particle Systems</a></li>
+<li class="toctree-l3"><a class="reference internal" href="particle-effect-basic-parameters.html">Particle Effect Basic Parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="particle-factories.html">Particle Factories</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Particle Emitters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="particle-renderers.html">Particle Renderers</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../collision-detection/index.html">Collision Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../garbage-collection/index.html">Garbage Collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hardware-support/index.html">Hardware support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../math-engine/index.html">Math Engine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../motion-paths.html">Motion Paths</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../timing/index.html">Timing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../networking/index.html">Networking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../multifiles/index.html">Multifiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../showbase.html">ShowBase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../file-reading.html">File Reading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../threading.html">Threading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../subclassing.html">Subclassing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../table-of-features-supported-per-graphic-renderer.html">Table of features supported per graphic renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pandai/index.html">Artificial Intelligence (PANDAI)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../distribution/index.html">Distributing Panda3D Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../samples/index.html">Sample Programs in the Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../debugging/index.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../performance-tuning/index.html">Performance Tuning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../using-c++/index.html">Using C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/index.html">Panda3D Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../building-from-source.html">Building Panda3D from Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cheat-sheets.html">Cheat Sheets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started-on-osx.html">Getting Started on OSX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../more-panda3d-resources.html">More Panda3D Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../thirdparty-licenses.html">Third-party dependencies and license info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../the-irc-channel.html">The IRC Channel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">FAQ</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Panda3D</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Programming with Panda3D</a> &raquo;</li>
+      
+          <li><a href="index.html">Particle Effects</a> &raquo;</li>
+      
+    <li>Particle Emitters</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/programming-with-panda3d/particle-effects/particle-emitters.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="particle-emitters">
+<span id="id1"></span><h1>Particle Emitters<a class="headerlink" href="#particle-emitters" title="Permalink to this headline">¶</a></h1>
+<p>There are a large number of particle emitters, each categorized by the volume
+of space they represent. Additionally, all emitters have three modes:
+explicit, radiate, and custom. Explicit mode emits the particles in parallel
+in the same direction. Radiate mode emits particles away from a specific
+point. Custom mode emits particles with a velocity determined by the
+particular emitter. All emitters have a number of common parameters.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="21%" />
+<col width="44%" />
+<col width="35%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>Variable</strong></td>
+<td><strong>Definition</strong></td>
+<td><strong>Values</strong></td>
+</tr>
+<tr class="row-even"><td>emissionType</td>
+<td>Emission mode</td>
+<td>ET_EXPLICIT, ET_RADIATE, ET_CUSTOM</td>
+</tr>
+<tr class="row-odd"><td>explicitLaunchVector</td>
+<td>Initial velocity in explicit mode</td>
+<td>(x, y, z)</td>
+</tr>
+<tr class="row-even"><td>radiateOrigin</td>
+<td>Point particles launch away from in radiate mode</td>
+<td>(x, y, z)</td>
+</tr>
+<tr class="row-odd"><td>amplitude</td>
+<td>Launch velocity multiplier</td>
+<td>(-infinity, infinity)</td>
+</tr>
+<tr class="row-even"><td>amplitudeSpeed</td>
+<td>Spread for launch velocity multiplier</td>
+<td>[0, infinity)</td>
+</tr>
+</tbody>
+</table>
+<p>The following list contains the different types of emitters, their unique
+parameters, and the effect of the custom mode.</p>
+<div class="section" id="boxemitter">
+<h2>BoxEmitter<a class="headerlink" href="#boxemitter" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="26%" />
+<col width="52%" />
+<col width="23%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>Variable</strong></td>
+<td><strong>Definition</strong></td>
+<td><strong>Values</strong></td>
+</tr>
+<tr class="row-even"><td>minBound</td>
+<td>Minimum point for box volume</td>
+<td>(x, y, z)</td>
+</tr>
+<tr class="row-odd"><td>maxBound</td>
+<td>Maximum point for box volume</td>
+<td>(x, y, z)</td>
+</tr>
+</tbody>
+</table>
+<p>Custom mode generates particles with no initial velocity.</p>
+</div>
+<div class="section" id="discemitter">
+<h2>DiscEmitter<a class="headerlink" href="#discemitter" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="18%" />
+<col width="57%" />
+<col width="25%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>Variable</strong></td>
+<td><strong>Definition</strong></td>
+<td><strong>Values</strong></td>
+</tr>
+<tr class="row-even"><td>radius</td>
+<td>Radius of disc</td>
+<td>[0, infinity)</td>
+</tr>
+<tr class="row-odd"><td>outerAngle</td>
+<td>Particle launch angle at edge of disc</td>
+<td>[0, 360]</td>
+</tr>
+<tr class="row-even"><td>innterAngle</td>
+<td>Particle launch angle at center of disc</td>
+<td>[0, 360]</td>
+</tr>
+<tr class="row-odd"><td>outerMagnitude</td>
+<td>Launch velocity multiplier at edge of disc</td>
+<td>(-infinity, infinity)</td>
+</tr>
+<tr class="row-even"><td>innerMagnitude</td>
+<td>Launch velocity multiplier at center of disc</td>
+<td>(-infinity, infinity)</td>
+</tr>
+<tr class="row-odd"><td>cubicLerping</td>
+<td>Whether or not magnitude/angle interpolation is cubic</td>
+<td>Boolean</td>
+</tr>
+</tbody>
+</table>
+<p>Custom mode uses the last five parameters. Particles emitted from areas on the
+inside use interpolated magnitudes and angles, either liner or cubic.</p>
+</div>
+<div class="section" id="pointemitter">
+<h2>PointEmitter<a class="headerlink" href="#pointemitter" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="28%" />
+<col width="47%" />
+<col width="25%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>Variable</strong></td>
+<td><strong>Definition</strong></td>
+<td><strong>Values</strong></td>
+</tr>
+<tr class="row-even"><td>location</td>
+<td>Location of outer point</td>
+<td>(x, y, z)</td>
+</tr>
+</tbody>
+</table>
+<p>Custom mode generates particles with no initial velocity.</p>
+</div>
+<div class="section" id="rectangleemitter">
+<h2>RectangleEmitter<a class="headerlink" href="#rectangleemitter" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="25%" />
+<col width="54%" />
+<col width="22%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>Variable</strong></td>
+<td><strong>Definition</strong></td>
+<td><strong>Values</strong></td>
+</tr>
+<tr class="row-even"><td>minBound</td>
+<td>2D point defining the rectangle</td>
+<td>(x, z)</td>
+</tr>
+<tr class="row-odd"><td>maxBound</td>
+<td>2D point defining the rectangle</td>
+<td>(x, z)</td>
+</tr>
+</tbody>
+</table>
+<p>Custom mode generates particles with no initial velocity.</p>
+</div>
+<div class="section" id="ringemitter">
+<h2>RingEmitter<a class="headerlink" href="#ringemitter" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="28%" />
+<col width="43%" />
+<col width="29%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>Variable</strong></td>
+<td><strong>Definition</strong></td>
+<td><strong>Values</strong></td>
+</tr>
+<tr class="row-even"><td>radius</td>
+<td>Radius of disc</td>
+<td>[0, infinity)</td>
+</tr>
+<tr class="row-odd"><td>angle</td>
+<td>Particle launch angle</td>
+<td>[0, 360]</td>
+</tr>
+</tbody>
+</table>
+<p>Custom mode uses the second parameter to emit particles at an angle with
+respect to the vector from the ring center to the spawn point. 0 degrees emits
+particles away from the center, and 180 degrees emits particles into the
+center.</p>
+</div>
+<div class="section" id="spheresurfaceemitter">
+<h2>SphereSurfaceEmitter<a class="headerlink" href="#spheresurfaceemitter" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="30%" />
+<col width="38%" />
+<col width="32%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>Variable</strong></td>
+<td><strong>Definition</strong></td>
+<td><strong>Values</strong></td>
+</tr>
+<tr class="row-even"><td>radius</td>
+<td>Radius of sphere</td>
+<td>[0, infinity)</td>
+</tr>
+</tbody>
+</table>
+<p>Custom mode generates particles with no initial velocity.</p>
+</div>
+<div class="section" id="spherevolumeemitter">
+<h2>SphereVolumeEmitter<a class="headerlink" href="#spherevolumeemitter" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="30%" />
+<col width="38%" />
+<col width="32%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>Variable</strong></td>
+<td><strong>Definition</strong></td>
+<td><strong>Values</strong></td>
+</tr>
+<tr class="row-even"><td>radius</td>
+<td>Radius of sphere</td>
+<td>[0, infinity)</td>
+</tr>
+</tbody>
+</table>
+<p>Custom mode emits particles away from the sphere center. Their velocity is
+dependent on their spawn location within the sphere. It is 0 at the center, of
+magnitude 1 at the outer edge of the sphere, and linearly interpolated in
+between.</p>
+</div>
+<div class="section" id="tangentringemitter">
+<h2>TangentRingEmitter<a class="headerlink" href="#tangentringemitter" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="31%" />
+<col width="35%" />
+<col width="33%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>Variable</strong></td>
+<td><strong>Definition</strong></td>
+<td><strong>Values</strong></td>
+</tr>
+<tr class="row-even"><td>radius</td>
+<td>Radius of ring</td>
+<td>[0, infinity)</td>
+</tr>
+</tbody>
+</table>
+<p>Custom mode emits particles tangentially to the ring edge, with a velocity
+magnitude of 1.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="particle-renderers.html" class="btn btn-neutral float-right" title="Particle Renderers" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="particle-factories.html" class="btn btn-neutral" title="Particle Factories" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Panda3D.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.10.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

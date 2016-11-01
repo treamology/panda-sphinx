@@ -1,0 +1,17 @@
+.. _hardware-support:
+
+Hardware support
+================
+
+Here is some advice on interacting with hardware using Panda3D's build in
+keyboard and mouse support, as well as some suggestions for getting joystick
+information into Panda3D.
+
+
+.. toctree::
+   :maxdepth: 2
+
+   keyboard-support
+   mouse-support
+   joystick-support
+   vr-helmets-and-trackers

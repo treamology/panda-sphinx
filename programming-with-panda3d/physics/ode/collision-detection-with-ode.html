@@ -1,0 +1,564 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Collision Detection with ODE &mdash; Panda3D Manual</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Panda3D Manual" href="../../../index.html"/>
+        <link rel="up" title="Using ODE with Panda3D" href="index.html"/>
+        <link rel="next" title="Using Bullet with Panda3D" href="../bullet/index.html"/>
+        <link rel="prev" title="Attaching Bodies using Joints" href="attaching-bodies-using-joints.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Panda3D
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.10
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../intro/index.html">Introduction to Panda3D</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Programming with Panda3D</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../the-scene-graph/index.html">The Scene Graph</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../the-configuration-file/index.html">The Configuration File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../models-and-actors/index.html">Models and Actors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../render-attributes/index.html">Render Attributes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../texturing/index.html">Texturing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../shaders/index.html">Shaders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../camera-control/index.html">Camera Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../sound/index.html">Sound</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../intervals/index.html">Intervals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tasks-and-event-handling/index.html">Tasks and Event Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../text-and-image-rendering/index.html">Text and Image Rendering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../directgui/index.html">DirectGUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../render-effects/index.html">Render Effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../finite-state-machines/index.html">Finite State Machines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../terrain/index.html">Terrain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../internal-structures/index.html">Advanced operations with Panda3D&#8217;s internal structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../render-to-texture-and-image-postprocessing/index.html">Render-to-Texture and Image Postprocessing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../panda3d-rendering-process/index.html">Panda3D Rendering Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../panda3d-utility-functions.html">Panda3D Utility Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../particle-effects/index.html">Particle Effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../collision-detection/index.html">Collision Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../garbage-collection/index.html">Garbage Collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hardware-support/index.html">Hardware support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../math-engine/index.html">Math Engine</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Physics</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../panda3d-physics-engine/index.html">Panda3D Physics Engine</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Using ODE with Panda3D</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="worlds-bodies-and-masses.html">Worlds, Bodies and Masses</a></li>
+<li class="toctree-l4"><a class="reference internal" href="simulating-the-physics-world.html">Simulating the Physics World</a></li>
+<li class="toctree-l4"><a class="reference internal" href="attaching-bodies-using-joints.html">Attaching Bodies using Joints</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Collision Detection with ODE</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../bullet/index.html">Using Bullet with Panda3D</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../motion-paths.html">Motion Paths</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../timing/index.html">Timing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../networking/index.html">Networking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../multifiles/index.html">Multifiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../showbase.html">ShowBase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../file-reading.html">File Reading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../threading.html">Threading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../subclassing.html">Subclassing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../table-of-features-supported-per-graphic-renderer.html">Table of features supported per graphic renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../pandai/index.html">Artificial Intelligence (PANDAI)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../distribution/index.html">Distributing Panda3D Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../samples/index.html">Sample Programs in the Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../debugging/index.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../performance-tuning/index.html">Performance Tuning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../using-c++/index.html">Using C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tools/index.html">Panda3D Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../building-from-source.html">Building Panda3D from Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cheat-sheets.html">Cheat Sheets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting-started-on-osx.html">Getting Started on OSX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../more-panda3d-resources.html">More Panda3D Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../thirdparty-licenses.html">Third-party dependencies and license info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../the-irc-channel.html">The IRC Channel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../faq.html">FAQ</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../index.html">Panda3D</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../index.html">Programming with Panda3D</a> &raquo;</li>
+      
+          <li><a href="../index.html">Physics</a> &raquo;</li>
+      
+          <li><a href="index.html">Using ODE with Panda3D</a> &raquo;</li>
+      
+    <li>Collision Detection with ODE</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../_sources/programming-with-panda3d/physics/ode/collision-detection-with-ode.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="collision-detection-with-ode">
+<span id="id1"></span><h1>Collision Detection with ODE<a class="headerlink" href="#collision-detection-with-ode" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="collision-detection">
+<h2>Collision Detection<a class="headerlink" href="#collision-detection" title="Permalink to this headline">¶</a></h2>
+<p>There are two types of collision detection: the kind that immediately makes
+the objects bounce back on a collision, and the kind that instead of making
+the objects bounce back immediately creates control joints instead. The latter
+is the method the Open Dynamics Engine uses. Normally, you would use near
+callbacks to make the control joints and have the objects bounce back.
+However, Panda3D has an autoCollide feature that automatically does these
+things for you.</p>
+<p>These are the steps needed to have your objects collide with each other:</p>
+<ul class="simple">
+<li>Create an OdeSpace (explained below). Use
+<code class="docutils literal"><span class="pre">setAutoCollideWorld(world)</span></code> to let the OdeSpace
+know in which world you want to collide things.</li>
+<li>Create an OdeJointGroup() to hold the contact joints. Use
+<code class="docutils literal"><span class="pre">space.setAutoCollideJointGroup</span></code> to let the space
+know in which OdeJointGroup you would like to store the contact joints.</li>
+<li>Configure the surface table for the world.</li>
+<li>Create ODE collision geometry for your bodies, e.g. OdeBoxGeom,
+OdePlaneGeom, etc. Be sure to set collide and category
+:ref:` &lt;collision-bitmasks&gt;` on it using the
+<code class="docutils literal"><span class="pre">setCollideBits</span></code> and
+<code class="docutils literal"><span class="pre">setCategoryBits</span></code> methods. Assign it
+to your body using <code class="docutils literal"><span class="pre">geom.setBody(body)</span></code>.</li>
+<li>In your simulation loop, call
+<code class="docutils literal"><span class="pre">space.autoCollide()</span></code> before you call
+<code class="docutils literal"><span class="pre">world.quickStep</span></code>.</li>
+<li>After using quickStep, you need to empty your OdeJointGroup using the
+<code class="docutils literal"><span class="pre">empty()</span></code> method.</li>
+</ul>
+</div>
+<div class="section" id="spaces">
+<h2>Spaces<a class="headerlink" href="#spaces" title="Permalink to this headline">¶</a></h2>
+<p>To be able to use collision detection, you will need to create an OdeSpace.
+There are three different kinds of space types you have to choose from, any
+one will work but each one is more optimized for a special kind of simulation.</p>
+<ul class="simple">
+<li>OdeSimpleSpace. This is the most simple kind of space available. This does
+not perform any collision culling at all, that&#8217;s why it is not preferred
+for a large number of objects. If you have a small amount of objects,
+however, you will most likely prefer an OdeSimpleSpace.</li>
+<li>If you have more objects and a larger scene, you will want to use the
+OdeQuadTreeSpace. This uses a pre-allocated hierarchical grid-based AABB
+tree to quickly cull collision checks. It&#8217;s exceptionally quick for large
+amounts of objects in landscape-shaped worlds.</li>
+<li>Finally, there&#8217;s the OdeHashSpace, which uses an internal data structure
+that records how each geom overlaps cells in one of several three
+dimensional grids. Each grid has cubical cells of side lengths 2**i,
+where i is an integer that ranges from a minimum to a maximum value. You
+can set this minimum and maximum value using the
+<code class="docutils literal"><span class="pre">setMinLevel</span></code> and
+<code class="docutils literal"><span class="pre">setMaxLevel</span></code> functions
+respectively, or you can use
+<code class="docutils literal"><span class="pre">setLevels</span></code> to set them all in
+one call.</li>
+</ul>
+</div>
+<div class="section" id="geometry">
+<h2>Geometry<a class="headerlink" href="#geometry" title="Permalink to this headline">¶</a></h2>
+<p>Geometry are the collision solids that you place in a space. These collision
+solids are separate from panda&#8217;s own collision solids but there are similar
+collision solid types. The general code for creating geometry is
+<code class="docutils literal"><span class="pre">OdeGeom(space,</span> <span class="pre">[parameters])</span></code>, where space is the
+OdeSpace the geometry is being placed in. Parameters are dependent on which
+geometry solid you choose. The geometry types that you can choose from are:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="25%" />
+<col width="18%" />
+<col width="58%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Geometry</th>
+<th class="head">Shape</th>
+<th class="head">Initialization Parameters</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>OdeBoxGeom</td>
+<td>Box</td>
+<td><code class="docutils literal"><span class="pre">OdeBoxGeom(space,</span> <span class="pre">length,</span> <span class="pre">width,</span> <span class="pre">height)</span></code></td>
+</tr>
+<tr class="row-odd"><td>OdeCappedCylinderGeom</td>
+<td>Capsule</td>
+<td><code class="docutils literal"><span class="pre">OdeCappedCylinderGeom(space,</span> <span class="pre">radius,</span> <span class="pre">length)</span></code></td>
+</tr>
+<tr class="row-even"><td>OdeCylinderGeom</td>
+<td>Cylinder</td>
+<td><code class="docutils literal"><span class="pre">OdeCylinderGeom(space,</span> <span class="pre">radius,</span> <span class="pre">length)</span></code></td>
+</tr>
+<tr class="row-odd"><td>OdePlaneGeom</td>
+<td>Infinite Plane</td>
+<td><code class="docutils literal"><span class="pre">OdePlaneGeom(space,</span> <span class="pre">Vec4(&lt;vector</span> <span class="pre">of</span> <span class="pre">plane</span> <span class="pre">normal&gt;))</span></code></td>
+</tr>
+<tr class="row-even"><td>OdeRayGeom</td>
+<td>Finite Ray</td>
+<td><code class="docutils literal"><span class="pre">OdeRayGeom(space,</span> <span class="pre">ray_length)</span></code></td>
+</tr>
+<tr class="row-odd"><td>OdeSphereGeom</td>
+<td>Sphere</td>
+<td><code class="docutils literal"><span class="pre">OdeSphereGeom(space,</span> <span class="pre">radius)</span></code></td>
+</tr>
+<tr class="row-even"><td>OdeTriMeshGeom</td>
+<td>3D Mesh</td>
+<td><code class="docutils literal"><span class="pre">OdeTriMeshGeom(space,</span> <span class="pre">OdeTriMeshData)</span></code></td>
+</tr>
+</tbody>
+</table>
+<p>To set the position and direction of an OdeRayGeom, you must call
+<code class="docutils literal"><span class="pre">OdeRayGeom.set(Vec3(&lt;position&gt;),</span> <span class="pre">Vec3(&lt;direction&gt;))</span></code>. The length of the
+direction vector is always set to the ray length specified during
+instantiation.</p>
+<p>A trimesh geometry allows you to create collision geometry of an arbitrary
+shape from a 3d model. However collision detection with a trimesh is the most
+expensive and might be unreliable, for most applications you are better off
+approximating the shape with another collision solid. To get the
+OdeTriMeshGeom from a model requires two steps:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">modelTrimesh</span> <span class="o">=</span> <span class="n">OdeTriMeshData</span><span class="p">(</span><span class="n">modelNodePath</span><span class="p">,</span> <span class="bp">True</span><span class="p">)</span>
+<span class="n">modelGeom</span> <span class="o">=</span> <span class="n">OdeTriMeshGeom</span><span class="p">(</span><span class="n">space</span><span class="p">,</span> <span class="n">modelTrimesh</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">PT</span><span class="p">(</span><span class="n">OdeTriMeshData</span><span class="p">)</span> <span class="n">modelTrimesh</span> <span class="o">=</span> <span class="k">new</span> <span class="n">OdeTriMeshData</span><span class="p">(</span><span class="n">modelNodePath</span><span class="p">,</span> <span class="nb">true</span><span class="p">);</span>
+<span class="n">OdeTriMeshGeom</span> <span class="nf">modelGeom</span> <span class="p">(</span><span class="n">space</span><span class="p">,</span> <span class="n">modelTrimesh</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>If a geometry represents a physically dynamic object you can associate it with
+the dynamic body using <code class="docutils literal"><span class="pre">odeGeom.setBody(body)</span></code>.
+This will automatically reposition the geometry with regard to the position of
+the related body in the OdeWorld.</p>
+</div>
+<div class="section" id="surfaces">
+<h2>Surfaces<a class="headerlink" href="#surfaces" title="Permalink to this headline">¶</a></h2>
+<p>Sufaces define the material a geometry is made of and the Surface Table
+defines how materials react with each other setting the bounce, friction etc.
+To set up the surface system, you must first initialize the surface table
+which is done with <code class="docutils literal"><span class="pre">odeWorld.initSurfaceTable(numberOfSurfaces)</span></code></p>
+<p>Once you have done that, you have to setup the parameters for collisions
+between two surfaces using
+<code class="docutils literal"><span class="pre">odeWorld.setSurfaceEntry(surfaceId1,</span> <span class="pre">surfaceId2,</span> <span class="pre">mu,</span> <span class="pre">bounce,</span> <span class="pre">bounce_vel,</span> <span class="pre">soft_erp,</span> <span class="pre">soft_cfm,</span> <span class="pre">slip,</span> <span class="pre">dampen)</span></code> The surfaceId&#8217;s start
+from 0 so if you initialized your surface table with 3 surfaces, the surface
+ID&#8217;s are 0, 1, 2.</p>
+<p>These are what the rest of the parameters mean:</p>
+<ul class="simple">
+<li>mu: This is the <a class="reference external" href="http://en.wikipedia.org/wiki/Coefficient_of_friction">Coulomb friction
+coefficient</a>. It
+means how much friction the contact has, a value of 0.0 means there will be
+no friction at all, while a value of
+<code class="docutils literal"><span class="pre">OdeUtil.getInfinity()</span></code> means the contact
+will never slip.</li>
+<li>bounce: This is how bouncy the surface is. A value of 0.0 means it is not
+bouncy, a value of 1.0 gives a very bouncy surface.</li>
+<li>bounce_vel: The minimum velocity a body must have before it bounces. If a
+body collides with a velocity lower than this value, it will not bounce
+off.</li>
+<li>soft_erp: The error reduction parameter of the contact normal. This is
+used to simulate soft surfaces.</li>
+<li>soft_cfm: The constraint force mixing parameter of the contact normal.
+This is used to simulate soft surfaces.</li>
+<li>slip: The coefficient for the force-dependent slip. This makes it possible
+for bodies to slide past each other.</li>
+<li>dampen: This is used to simulate a
+<a class="reference external" href="http://en.wikipedia.org/wiki/Damping">damping</a> effect.</li>
+</ul>
+<p>If you have multiple surfaces, you need to tell ODE which surface belongs to
+which geometry. You can assign surfaces to your geometry using
+<code class="docutils literal"><span class="pre">odeSpace.setSurfaceType(geometry,</span> <span class="pre">surfaceId)</span></code></p>
+</div>
+<div class="section" id="collision-events">
+<h2>Collision Events<a class="headerlink" href="#collision-events" title="Permalink to this headline">¶</a></h2>
+<p>In Panda3D 1.6 and above, it&#8217;s possible to receive an event when a collision
+occurs. You need to set the name of the event by doing:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">space</span><span class="o">.</span><span class="n">setCollisionEvent</span><span class="p">(</span><span class="s2">&quot;yourCollision&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">space</span><span class="p">.</span><span class="n">set_collision_event</span><span class="p">(</span><span class="s">&quot;yourCollision&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>You can then use this event name in an
+<code class="docutils literal"><span class="pre">accept()</span></code> call. The parameter
+passed to the event is an OdeCollisionEntry, which holds all the geoms and
+contacts in the collision. See the API reference page for
+<a class="reference external" href="https://www.panda3d.org/apiref.php?page=OdeCollisionEntry">OdeCollisionEntry</a>
+for more details. The following code shows how it works (the methods used are
+not real):</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># Setup collision event</span>
+<span class="k">def</span> <span class="nf">onCollision</span><span class="p">(</span><span class="n">entry</span><span class="p">):</span>
+  <span class="n">geom1</span> <span class="o">=</span> <span class="n">entry</span><span class="o">.</span><span class="n">getGeom1</span><span class="p">()</span>
+  <span class="n">geom2</span> <span class="o">=</span> <span class="n">entry</span><span class="o">.</span><span class="n">getGeom2</span><span class="p">()</span>
+  <span class="n">body1</span> <span class="o">=</span> <span class="n">entry</span><span class="o">.</span><span class="n">getBody1</span><span class="p">()</span>
+  <span class="n">body2</span> <span class="o">=</span> <span class="n">entry</span><span class="o">.</span><span class="n">getBody2</span><span class="p">()</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">body1</span> <span class="ow">and</span> <span class="n">body1</span> <span class="o">==</span> <span class="n">spear</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">body2</span> <span class="ow">and</span> <span class="n">body2</span> <span class="o">==</span> <span class="n">spear</span><span class="p">):</span>
+    <span class="c1"># Must have hit someone</span>
+    <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">entry</span><span class="o">.</span><span class="n">getContactPoints</span><span class="p">()</span>
+      <span class="n">particleSystem</span><span class="o">.</span><span class="n">drawBlood</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+
+<span class="n">space</span><span class="o">.</span><span class="n">setCollisionEvent</span><span class="p">(</span><span class="s2">&quot;ode-collision&quot;</span><span class="p">)</span>
+<span class="n">base</span><span class="o">.</span><span class="n">accept</span><span class="p">(</span><span class="s2">&quot;ode-collision&quot;</span><span class="p">,</span> <span class="n">onCollision</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="example">
+<h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<p>This is an example of some random boxes falling down and colliding with the
+floor.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">direct.directbase</span> <span class="kn">import</span> <span class="n">DirectStart</span>
+<span class="kn">from</span> <span class="nn">panda3d.ode</span> <span class="kn">import</span> <span class="n">OdeWorld</span><span class="p">,</span> <span class="n">OdeSimpleSpace</span><span class="p">,</span> <span class="n">OdeJointGroup</span>
+<span class="kn">from</span> <span class="nn">panda3d.ode</span> <span class="kn">import</span> <span class="n">OdeBody</span><span class="p">,</span> <span class="n">OdeMass</span><span class="p">,</span> <span class="n">OdeBoxGeom</span><span class="p">,</span> <span class="n">OdePlaneGeom</span>
+<span class="kn">from</span> <span class="nn">panda3d.core</span> <span class="kn">import</span> <span class="n">BitMask32</span><span class="p">,</span> <span class="n">CardMaker</span><span class="p">,</span> <span class="n">Vec4</span><span class="p">,</span> <span class="n">Quat</span>
+<span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">randint</span><span class="p">,</span> <span class="n">random</span>
+
+<span class="c1"># Setup our physics world</span>
+<span class="n">world</span> <span class="o">=</span> <span class="n">OdeWorld</span><span class="p">()</span>
+<span class="n">world</span><span class="o">.</span><span class="n">setGravity</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mf">9.81</span><span class="p">)</span>
+
+<span class="c1"># The surface table is needed for autoCollide</span>
+<span class="n">world</span><span class="o">.</span><span class="n">initSurfaceTable</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">world</span><span class="o">.</span><span class="n">setSurfaceEntry</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">9.1</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.00001</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.002</span><span class="p">)</span>
+
+<span class="c1"># Create a space and add a contactgroup to it to add the contact joints</span>
+<span class="n">space</span> <span class="o">=</span> <span class="n">OdeSimpleSpace</span><span class="p">()</span>
+<span class="n">space</span><span class="o">.</span><span class="n">setAutoCollideWorld</span><span class="p">(</span><span class="n">world</span><span class="p">)</span>
+<span class="n">contactgroup</span> <span class="o">=</span> <span class="n">OdeJointGroup</span><span class="p">()</span>
+<span class="n">space</span><span class="o">.</span><span class="n">setAutoCollideJointGroup</span><span class="p">(</span><span class="n">contactgroup</span><span class="p">)</span>
+
+<span class="c1"># Load the box</span>
+<span class="n">box</span> <span class="o">=</span> <span class="n">loader</span><span class="o">.</span><span class="n">loadModel</span><span class="p">(</span><span class="s2">&quot;box&quot;</span><span class="p">)</span>
+<span class="c1"># Make sure its center is at 0, 0, 0 like OdeBoxGeom</span>
+<span class="n">box</span><span class="o">.</span><span class="n">setPos</span><span class="p">(</span><span class="o">-.</span><span class="mi">5</span><span class="p">,</span> <span class="o">-.</span><span class="mi">5</span><span class="p">,</span> <span class="o">-.</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">box</span><span class="o">.</span><span class="n">flattenLight</span><span class="p">()</span> <span class="c1"># Apply transform</span>
+<span class="n">box</span><span class="o">.</span><span class="n">setTextureOff</span><span class="p">()</span>
+
+<span class="c1"># Add a random amount of boxes</span>
+<span class="n">boxes</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">randint</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">30</span><span class="p">)):</span>
+  <span class="c1"># Setup the geometry</span>
+  <span class="n">boxNP</span> <span class="o">=</span> <span class="n">box</span><span class="o">.</span><span class="n">copyTo</span><span class="p">(</span><span class="n">render</span><span class="p">)</span>
+  <span class="n">boxNP</span><span class="o">.</span><span class="n">setPos</span><span class="p">(</span><span class="n">randint</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">randint</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="mi">10</span> <span class="o">+</span> <span class="n">random</span><span class="p">())</span>
+  <span class="n">boxNP</span><span class="o">.</span><span class="n">setColor</span><span class="p">(</span><span class="n">random</span><span class="p">(),</span> <span class="n">random</span><span class="p">(),</span> <span class="n">random</span><span class="p">(),</span> <span class="mi">1</span><span class="p">)</span>
+  <span class="n">boxNP</span><span class="o">.</span><span class="n">setHpr</span><span class="p">(</span><span class="n">randint</span><span class="p">(</span><span class="o">-</span><span class="mi">45</span><span class="p">,</span> <span class="mi">45</span><span class="p">),</span> <span class="n">randint</span><span class="p">(</span><span class="o">-</span><span class="mi">45</span><span class="p">,</span> <span class="mi">45</span><span class="p">),</span> <span class="n">randint</span><span class="p">(</span><span class="o">-</span><span class="mi">45</span><span class="p">,</span> <span class="mi">45</span><span class="p">))</span>
+  <span class="c1"># Create the body and set the mass</span>
+  <span class="n">boxBody</span> <span class="o">=</span> <span class="n">OdeBody</span><span class="p">(</span><span class="n">world</span><span class="p">)</span>
+  <span class="n">M</span> <span class="o">=</span> <span class="n">OdeMass</span><span class="p">()</span>
+  <span class="n">M</span><span class="o">.</span><span class="n">setBox</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+  <span class="n">boxBody</span><span class="o">.</span><span class="n">setMass</span><span class="p">(</span><span class="n">M</span><span class="p">)</span>
+  <span class="n">boxBody</span><span class="o">.</span><span class="n">setPosition</span><span class="p">(</span><span class="n">boxNP</span><span class="o">.</span><span class="n">getPos</span><span class="p">(</span><span class="n">render</span><span class="p">))</span>
+  <span class="n">boxBody</span><span class="o">.</span><span class="n">setQuaternion</span><span class="p">(</span><span class="n">boxNP</span><span class="o">.</span><span class="n">getQuat</span><span class="p">(</span><span class="n">render</span><span class="p">))</span>
+  <span class="c1"># Create a BoxGeom</span>
+  <span class="n">boxGeom</span> <span class="o">=</span> <span class="n">OdeBoxGeom</span><span class="p">(</span><span class="n">space</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+  <span class="n">boxGeom</span><span class="o">.</span><span class="n">setCollideBits</span><span class="p">(</span><span class="n">BitMask32</span><span class="p">(</span><span class="mh">0x00000002</span><span class="p">))</span>
+  <span class="n">boxGeom</span><span class="o">.</span><span class="n">setCategoryBits</span><span class="p">(</span><span class="n">BitMask32</span><span class="p">(</span><span class="mh">0x00000001</span><span class="p">))</span>
+  <span class="n">boxGeom</span><span class="o">.</span><span class="n">setBody</span><span class="p">(</span><span class="n">boxBody</span><span class="p">)</span>
+  <span class="n">boxes</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">boxNP</span><span class="p">,</span> <span class="n">boxBody</span><span class="p">))</span>
+
+<span class="c1"># Add a plane to collide with</span>
+<span class="n">cm</span> <span class="o">=</span> <span class="n">CardMaker</span><span class="p">(</span><span class="s2">&quot;ground&quot;</span><span class="p">)</span>
+<span class="n">cm</span><span class="o">.</span><span class="n">setFrame</span><span class="p">(</span><span class="o">-</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="o">-</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<span class="n">ground</span> <span class="o">=</span> <span class="n">render</span><span class="o">.</span><span class="n">attachNewNode</span><span class="p">(</span><span class="n">cm</span><span class="o">.</span><span class="n">generate</span><span class="p">())</span>
+<span class="n">ground</span><span class="o">.</span><span class="n">setPos</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span> <span class="n">ground</span><span class="o">.</span><span class="n">lookAt</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">groundGeom</span> <span class="o">=</span> <span class="n">OdePlaneGeom</span><span class="p">(</span><span class="n">space</span><span class="p">,</span> <span class="n">Vec4</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+<span class="n">groundGeom</span><span class="o">.</span><span class="n">setCollideBits</span><span class="p">(</span><span class="n">BitMask32</span><span class="p">(</span><span class="mh">0x00000001</span><span class="p">))</span>
+<span class="n">groundGeom</span><span class="o">.</span><span class="n">setCategoryBits</span><span class="p">(</span><span class="n">BitMask32</span><span class="p">(</span><span class="mh">0x00000002</span><span class="p">))</span>
+
+<span class="c1"># Set the camera position</span>
+<span class="n">base</span><span class="o">.</span><span class="n">disableMouse</span><span class="p">()</span>
+<span class="n">base</span><span class="o">.</span><span class="n">camera</span><span class="o">.</span><span class="n">setPos</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<span class="n">base</span><span class="o">.</span><span class="n">camera</span><span class="o">.</span><span class="n">lookAt</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># The task for our simulation</span>
+<span class="k">def</span> <span class="nf">simulationTask</span><span class="p">(</span><span class="n">task</span><span class="p">):</span>
+  <span class="n">space</span><span class="o">.</span><span class="n">autoCollide</span><span class="p">()</span> <span class="c1"># Setup the contact joints</span>
+  <span class="c1"># Step the simulation and set the new positions</span>
+  <span class="n">world</span><span class="o">.</span><span class="n">quickStep</span><span class="p">(</span><span class="n">globalClock</span><span class="o">.</span><span class="n">getDt</span><span class="p">())</span>
+  <span class="k">for</span> <span class="n">np</span><span class="p">,</span> <span class="n">body</span> <span class="ow">in</span> <span class="n">boxes</span><span class="p">:</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">setPosQuat</span><span class="p">(</span><span class="n">render</span><span class="p">,</span> <span class="n">body</span><span class="o">.</span><span class="n">getPosition</span><span class="p">(),</span> <span class="n">Quat</span><span class="p">(</span><span class="n">body</span><span class="o">.</span><span class="n">getQuaternion</span><span class="p">()))</span>
+  <span class="n">contactgroup</span><span class="o">.</span><span class="n">empty</span><span class="p">()</span> <span class="c1"># Clear the contact joints</span>
+  <span class="k">return</span> <span class="n">task</span><span class="o">.</span><span class="n">cont</span>
+
+<span class="c1"># Wait a split second, then start the simulation</span>
+<span class="n">taskMgr</span><span class="o">.</span><span class="n">doMethodLater</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">simulationTask</span><span class="p">,</span> <span class="s2">&quot;Physics Simulation&quot;</span><span class="p">)</span>
+
+<span class="n">run</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>In this example,
+we&#8217;re creating a random amount of boxes with a random orientation and
+position, assigning collision solids to them, and adding a tuple of the
+:ref:` &lt;the-scene-graph&gt;` and the body to a list. This way we can easily keep
+track of all the boxes and loop through them to copy over the positions from
+the OdeBody to Panda&#8217;s NodePath in the simulation loop.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../bullet/index.html" class="btn btn-neutral float-right" title="Using Bullet with Panda3D" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="attaching-bodies-using-joints.html" class="btn btn-neutral" title="Attaching Bodies using Joints" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Panda3D.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'1.10.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

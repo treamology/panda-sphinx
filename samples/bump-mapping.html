@@ -1,0 +1,319 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Sample Programs: Normal Mapping &mdash; Panda3D Manual</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Panda3D Manual" href="../index.html"/>
+        <link rel="up" title="Sample Programs in the Distribution" href="index.html"/>
+        <link rel="next" title="Sample Programs: Particles" href="particles.html"/>
+        <link rel="prev" title="Sample Programs: Music Box" href="music-box.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Panda3D
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.10
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../intro/index.html">Introduction to Panda3D</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../programming-with-panda3d/index.html">Programming with Panda3D</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../distribution/index.html">Distributing Panda3D Applications</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Sample Programs in the Distribution</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="asteroids.html">Sample Programs: Asteroids</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ball-in-maze.html">Sample Programs: Ball in Maze</a></li>
+<li class="toctree-l2"><a class="reference internal" href="boxing-robots.html">Sample Programs: Boxing Robots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="carousel.html">Sample Programs: Carousel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cartoon-shader.html">Sample Programs: Cartoon Shader</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chessboard.html">Sample Programs: Chessboard</a></li>
+<li class="toctree-l2"><a class="reference internal" href="disco-lights.html">Sample Programs: Disco Lights</a></li>
+<li class="toctree-l2"><a class="reference internal" href="distortion.html">Sample Programs: Distortion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fireflies.html">Sample Programs: Fireflies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fractal-plants.html">Sample Programs: Fractal Plants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="glow-filter.html">Sample Programs: Glow Filter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="infinite-tunnel.html">Sample Programs: Infinite Tunnel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="looking-and-gripping.html">Sample Programs: Looking and Gripping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="media-player.html">Sample Programs: Media Player</a></li>
+<li class="toctree-l2"><a class="reference internal" href="motion-trails.html">Sample Programs: Motion Trails</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mouse-modes.html">Sample Programs: Mouse Modes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="music-box.html">Sample Programs: Music Box</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Sample Programs: Normal Mapping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="particles.html">Sample Programs: Particles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="procedural-cube.html">Sample Programs: Procedural Cube</a></li>
+<li class="toctree-l2"><a class="reference internal" href="roaming-ralph.html">Sample Programs: Roaming Ralph</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shadows.html">Sample Programs: Shadows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="solar-system.html">Sample Programs: Solar System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="render-to-texture.html">Sample Programs: Teapot on TV</a></li>
+<li class="toctree-l2"><a class="reference internal" href="texture-swapping.html">Sample Programs: Texture Swapping</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../debugging/index.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../performance-tuning/index.html">Performance Tuning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using-c++/index.html">Using C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tools/index.html">Panda3D Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../building-from-source.html">Building Panda3D from Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cheat-sheets.html">Cheat Sheets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started-on-osx.html">Getting Started on OSX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../more-panda3d-resources.html">More Panda3D Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../thirdparty-licenses.html">Third-party dependencies and license info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../the-irc-channel.html">The IRC Channel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">FAQ</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Panda3D</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="index.html">Sample Programs in the Distribution</a> &raquo;</li>
+      
+    <li>Sample Programs: Normal Mapping</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/samples/bump-mapping.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="sample-programs-normal-mapping">
+<span id="bump-mapping"></span><h1>Sample Programs: Normal Mapping<a class="headerlink" href="#sample-programs-normal-mapping" title="Permalink to this headline">¶</a></h1>
+<p>The Normal Mapping Sample Program</p>
+<p>To run a sample program, you need to install Panda3D. If you&#8217;re a Windows
+user, you&#8217;ll find the sample programs in your start menu. If you&#8217;re a Linux
+user, you&#8217;ll find the sample programs in /usr/share/panda3d.</p>
+<p>Screenshots</p>
+<p><img alt="Screenshot-Sample-Programs-Normal-Mapping.jpg" src="../_images/screenshot-sample-programs-normal-mapping.jpg" /></p>
+<p>Explanation</p>
+<p>Note: this explanation corresponds to Panda3D version 1.5.0. It does not match
+the older version of Panda3D, version 1.4.2.</p>
+<p>Normal Mapping is a technique to make textured surfaces appear more &#8220;lifelike&#8221;
+by having them respond to changing lights and viewing angles. As the light
+moves around, it reflects off of simulated &#8220;bumps&#8221; on the surface (the bumps
+are not real, the polygons are flat, but they look real because of how they
+reflect the light).</p>
+<p>Panda&#8217;s built-in Normal Mapping Capabilities</p>
+<p>Normally, to use fancy rendering techniques like normal mapping, you would
+have to write special GPU code called &#8220;shaders.&#8221; However, in Panda3D version
+1.5.0, panda gained the ability to synthesize many shaders for you. What that
+means is that you can use many modern rendering techniques (including normal
+mapping) without having to know shader programming at all.</p>
+<p>Look in the <code class="docutils literal"><span class="pre">models</span></code>
+subdirectory for a model called &#8220;abstractroom&#8221;. It was created in Maya, and a
+normal map was applied in Maya. The maya exporter was used to convert this
+into panda&#8217;s model file format,
+<code class="docutils literal"><span class="pre">abstractroom.egg.</span></code> During the conversion
+process, the maya exporter noticed the normal map and included information
+about it in the egg file: if you examine the egg file with a text editor, you
+will see the references in there. You can view the model using panda&#8217;s model
+viewer:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>pview abstractroom.egg</td>
+</tr>
+</tbody>
+</table>
+<p>After pview loads, press &#8216;c&#8217; to center the model, &#8216;l&#8217; to turn on lighting, and
+&#8216;p&#8217; to turn on per-pixel lighting. Presto, you will see the effects of normal
+mapping.</p>
+<p>If you are doing this in a program, the steps are basically the same: load a
+model which already has normal maps, set up some lights, and turn on per-pixel
+lighting. The sample program
+<code class="docutils literal"><span class="pre">Tut-Normal-Mapping-Basic</span></code> shows this process.</p>
+<p>Doing it the Hard Way</p>
+<p>The problem with panda&#8217;s shader synthesis capabilities is that they can only
+synthesize the shaders that people usually need. If what you need is esoteric,
+you&#8217;ll have to write your own shader.</p>
+<p>There are two difficulties associated with writing your own shader. The first
+is that you need to know shader programming. Teaching shader programming is
+beyond the scope of this tutorial. Panda uses the Cg shader language, which
+you can learn elsewhere. Furthermore, normal mapping shaders are more complex
+than most. The mathematics involved in normal mapping are quite complex, which
+puts writing a normal mapping shader even further outside the scope of this
+tutorial.</p>
+<p>The second problem with writing your own shader is that shaders must be
+hardwired to a very limited set of circumstances. The shader included with
+this sample program is hardwired for models with a single diffuse texture and
+a single normal map. It is hardwired for absence of vertex colors. It
+implements one white point light and one white ambient light. Changing any of
+these parameters would require a different shader.</p>
+<p>This is not because the shader was written lazily. It is because shaders are
+by nature specialized to a specific combination of model attributes. This
+makes it rather awkward to write a substantial program that uses
+manually-written shaders. This is a big part of the reason that panda now
+supports shader synthesis - the shader generator can handle almost any kind of
+model.</p>
+<p>Back to the List of Sample Programs:</p>
+<p>:ref:` &lt;samples&gt;`</p>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="particles.html" class="btn btn-neutral float-right" title="Sample Programs: Particles" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="music-box.html" class="btn btn-neutral" title="Sample Programs: Music Box" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Panda3D.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.10.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

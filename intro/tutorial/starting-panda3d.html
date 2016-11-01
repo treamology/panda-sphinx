@@ -1,0 +1,351 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Starting Panda3D &mdash; Panda3D Manual</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Panda3D Manual" href="../../index.html"/>
+        <link rel="up" title="A Panda3D Hello World Tutorial" href="index.html"/>
+        <link rel="next" title="Loading the Grassy Scenery" href="loading-the-grassy-scenery.html"/>
+        <link rel="prev" title="A Panda3D Hello World Tutorial" href="index.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Panda3D
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.10
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Introduction to Panda3D</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../installation-windows.html">Installing Panda3D in Windows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation-linux.html">Installing Panda3D in Linux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../preparation.html">General Preparation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../running-your-program.html">Running your Program</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">A Panda3D Hello World Tutorial</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Starting Panda3D</a></li>
+<li class="toctree-l3"><a class="reference internal" href="loading-the-grassy-scenery.html">Loading the Grassy Scenery</a></li>
+<li class="toctree-l3"><a class="reference internal" href="controlling-the-camera.html">Controlling the Camera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="loading-and-animating-the-panda-model.html">Loading and Animating the Panda Model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="using-intervals-to-move-the-panda.html">Using Intervals to move the Panda</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorial-end.html">Tutorial End</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../user-contributed-tutorials-and-examples.html">User Contributed Tutorials and Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../video-tutorials.html">Video Tutorials</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../programming-with-panda3d/index.html">Programming with Panda3D</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../distribution/index.html">Distributing Panda3D Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../samples/index.html">Sample Programs in the Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../debugging/index.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../performance-tuning/index.html">Performance Tuning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../using-c++/index.html">Using C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/index.html">Panda3D Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../building-from-source.html">Building Panda3D from Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cheat-sheets.html">Cheat Sheets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started-on-osx.html">Getting Started on OSX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../more-panda3d-resources.html">More Panda3D Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../thirdparty-licenses.html">Third-party dependencies and license info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../the-irc-channel.html">The IRC Channel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">FAQ</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Panda3D</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Introduction to Panda3D</a> &raquo;</li>
+      
+          <li><a href="index.html">A Panda3D Hello World Tutorial</a> &raquo;</li>
+      
+    <li>Starting Panda3D</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/intro/tutorial/starting-panda3d.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="starting-panda3d">
+<span id="id1"></span><h1>Starting Panda3D<a class="headerlink" href="#starting-panda3d" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="creating-a-new-panda3d-application">
+<h2>Creating a New Panda3D Application<a class="headerlink" href="#creating-a-new-panda3d-application" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="ref-showbase">
+<h3>:ref:` &lt;showbase&gt;`<a class="headerlink" href="#ref-showbase" title="Permalink to this headline">¶</a></h3>
+<p>To start Panda3D, create a text file and save it with the .py extension. PYPE,
+SPE and IDLE are Python-specific text-editors, but any text editor will work.
+Enter the following text into your Python file:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">direct.showbase.ShowBase</span> <span class="kn">import</span> <span class="n">ShowBase</span>
+
+<span class="k">class</span> <span class="nc">MyApp</span><span class="p">(</span><span class="n">ShowBase</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">ShowBase</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">MyApp</span><span class="p">()</span>
+<span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Here we made our main class inherit from
+<code class="docutils literal"><span class="pre">ShowBase</span></code>. The ShowBase class
+loads most of the other Panda3D modules, and causes the 3D window to appear.
+The <code class="docutils literal"><span class="pre">run()</span></code> procedure in
+ShowBase contains the Panda3D main loop. It renders a frame, handles the
+background tasks, and then repeats. It does not normally return, so it needs
+to be called only once and must be the last line in your script. In this
+particular example, there will be nothing to render, so you should expect a
+window containing an empty grey area.</p>
+</div>
+<div class="section" id="directstart">
+<h3>DirectStart<a class="headerlink" href="#directstart" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal"><span class="pre">DirectStart</span></code> is a shortcut that
+instantiates ShowBase automatically on import. This may be useful for quick
+prototyping at the expense of clean code layout. The following example
+demonstrates its use:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">direct.directbase.DirectStart</span>
+
+<span class="n">run</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>The import line automatically constructs an instance of ShowBase, which starts
+the engine and creates an empty window. Because ShowBase uses Python&#8217;s
+<code class="docutils literal"><span class="pre">__builtin__</span></code>, its functions are
+allowed to be called without storing the instance in a variable. For the sake
+of cleanliness, the rest of this tutorial shall use the ShowBase subclass.</p>
+<p>DirectStart is deprecated starting with Panda3D 1.9.0. In order to upgrade old
+code, you can simply replace the DirectStart import with the following:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">direct.showbase.ShowBase</span> <span class="kn">import</span> <span class="n">ShowBase</span>
+<span class="n">base</span> <span class="o">=</span> <span class="n">ShowBase</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="running-the-program">
+<h2>Running the Program<a class="headerlink" href="#running-the-program" title="Permalink to this headline">¶</a></h2>
+<p>To run your program on Windows or Mac, enter the following in a terminal
+(command prompt):</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>ppython filename.py
+</pre></div>
+</div>
+<p>To run it on GNU/Linux, enter the following in a terminal:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>python filename.py
+</pre></div>
+</div>
+<p>If Panda3D has been installed properly, a grey window titled <em>Panda</em> appears.
+There is nothing we can do with this window, but that will change shortly.</p>
+</div>
+<div class="section" id="id2">
+<h2>Creating a New Panda3D Application<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>To start Panda3D, create a text file and save it with a .cxx extension. Any
+text editor will work. Enter the following text into your C++ file:</p>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&quot;pandaFramework.h&quot;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&quot;pandaSystem.h&quot;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
+    <span class="c1">//open a new window framework</span>
+  <span class="n">PandaFramework</span> <span class="n">framework</span><span class="p">;</span>
+  <span class="n">framework</span><span class="p">.</span><span class="n">open_framework</span><span class="p">(</span><span class="n">argc</span><span class="p">,</span> <span class="n">argv</span><span class="p">);</span>
+    <span class="c1">//set the window title to My Panda3D Window</span>
+  <span class="n">framework</span><span class="p">.</span><span class="n">set_window_title</span><span class="p">(</span><span class="s">&quot;My Panda3D Window&quot;</span><span class="p">);</span>
+    <span class="c1">//open the window</span>
+  <span class="n">WindowFramework</span> <span class="o">*</span><span class="n">window</span> <span class="o">=</span> <span class="n">framework</span><span class="p">.</span><span class="n">open_window</span><span class="p">();</span>
+
+  <span class="c1">//here is room for your own code</span>
+
+    <span class="c1">//do the main loop, equal to run() in python</span>
+  <span class="n">framework</span><span class="p">.</span><span class="n">main_loop</span><span class="p">();</span>
+    <span class="c1">//close the window framework</span>
+  <span class="n">framework</span><span class="p">.</span><span class="n">close_framework</span><span class="p">();</span>
+  <span class="k">return</span> <span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>For information about
+the Window Framework to open a window, click :ref:` &lt;the-window-framework&gt;`.</p>
+<p><code class="docutils literal"><span class="pre">pandaFramework.h</span></code> and
+<code class="docutils literal"><span class="pre">pandaSystem.h</span></code> load most of the
+Panda3D modules. The <em>main_loop()</em> subroutine contains the Panda3D main loop.
+It renders a frame, handles the background tasks, and then repeats. It does
+not normally return, so it needs to be called only once and must be the last
+line in your script. In this particular example, there will be nothing to
+render, so you should expect a window containing an empty grey area.</p>
+</div>
+<div class="section" id="id3">
+<h2>Running the Program<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>The steps required to build and run your program were already explained in
+:ref:` &lt;running-your-program&gt;`.</p>
+<p>If Panda3D has been installed properly, a gray window titled <em>My Panda3D
+Window</em> will appear when you run your program. There is nothing we can do with
+this window, but that will change shortly.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="loading-the-grassy-scenery.html" class="btn btn-neutral float-right" title="Loading the Grassy Scenery" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="A Panda3D Hello World Tutorial" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Panda3D.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.10.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

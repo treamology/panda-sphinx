@@ -1,0 +1,314 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Controlling a Joint Procedurally &mdash; Panda3D Manual</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Panda3D Manual" href="../../index.html"/>
+        <link rel="up" title="Models and Actors" href="index.html"/>
+        <link rel="next" title="Level of Detail" href="level-of-detail.html"/>
+        <link rel="prev" title="Attaching an Object to a Joint" href="attaching-an-object-to-a-joint.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Panda3D
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.10
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../intro/index.html">Introduction to Panda3D</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Programming with Panda3D</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../the-scene-graph/index.html">The Scene Graph</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../the-configuration-file/index.html">The Configuration File</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Models and Actors</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="loading-models.html">Loading Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="loading-actors-and-animations.html">Loading Actors and Animations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="actor-animations.html">Actor Animations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multi-part-actors.html">Multi-Part Actors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="attaching-an-object-to-a-joint.html">Attaching an Object to a Joint</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Controlling a Joint Procedurally</a></li>
+<li class="toctree-l3"><a class="reference internal" href="level-of-detail.html">Level of Detail</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../render-attributes/index.html">Render Attributes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../texturing/index.html">Texturing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shaders/index.html">Shaders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../camera-control/index.html">Camera Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sound/index.html">Sound</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intervals/index.html">Intervals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks-and-event-handling/index.html">Tasks and Event Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../text-and-image-rendering/index.html">Text and Image Rendering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../directgui/index.html">DirectGUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-effects/index.html">Render Effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../finite-state-machines/index.html">Finite State Machines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../terrain/index.html">Terrain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internal-structures/index.html">Advanced operations with Panda3D&#8217;s internal structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-to-texture-and-image-postprocessing/index.html">Render-to-Texture and Image Postprocessing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../panda3d-rendering-process/index.html">Panda3D Rendering Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../panda3d-utility-functions.html">Panda3D Utility Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../particle-effects/index.html">Particle Effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../collision-detection/index.html">Collision Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../garbage-collection/index.html">Garbage Collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hardware-support/index.html">Hardware support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../math-engine/index.html">Math Engine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../motion-paths.html">Motion Paths</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../timing/index.html">Timing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../networking/index.html">Networking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../multifiles/index.html">Multifiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../showbase.html">ShowBase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../file-reading.html">File Reading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../threading.html">Threading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../subclassing.html">Subclassing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../table-of-features-supported-per-graphic-renderer.html">Table of features supported per graphic renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pandai/index.html">Artificial Intelligence (PANDAI)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../distribution/index.html">Distributing Panda3D Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../samples/index.html">Sample Programs in the Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../debugging/index.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../performance-tuning/index.html">Performance Tuning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../using-c++/index.html">Using C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/index.html">Panda3D Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../building-from-source.html">Building Panda3D from Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cheat-sheets.html">Cheat Sheets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started-on-osx.html">Getting Started on OSX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../more-panda3d-resources.html">More Panda3D Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../thirdparty-licenses.html">Third-party dependencies and license info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../the-irc-channel.html">The IRC Channel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">FAQ</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Panda3D</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Programming with Panda3D</a> &raquo;</li>
+      
+          <li><a href="index.html">Models and Actors</a> &raquo;</li>
+      
+    <li>Controlling a Joint Procedurally</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/programming-with-panda3d/models-and-actors/controlling-a-joint-procedurally.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="controlling-a-joint-procedurally">
+<span id="id1"></span><h1>Controlling a Joint Procedurally<a class="headerlink" href="#controlling-a-joint-procedurally" title="Permalink to this headline">¶</a></h1>
+<p>Sometimes one wishes to procedurally take control of a model&#8217;s joint. For
+example, if you wish to force a character model&#8217;s eyes to follow the mouse,
+you will need to procedurally take control of the neck and head. To achieve
+this, use controlJoint.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">myNodePath</span> <span class="o">=</span> <span class="n">actor</span><span class="o">.</span><span class="n">controlJoint</span><span class="p">(</span><span class="bp">None</span><span class="p">,</span><span class="s2">&quot;modelRoot&quot;</span><span class="p">,</span><span class="s2">&quot;Joint Name&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This creates a dummy node. Every frame, the transform is copied from the dummy
+node into the joint. By setting the transform of the dummy node, you can
+control the joint. Normally, one would want to use
+<code class="docutils literal"><span class="pre">setHpr</span></code> to rotate the joint
+without moving it. The dummy node is initialized in such a way that the joint
+is in its default location, the one specified in the model&#8217;s egg file.</p>
+<p>You must store a local (not global) transform in the dummy node. In other
+words, the transform is relative to the joint&#8217;s parent bone. If you are
+controlling the forearm of a model, for instance, the transform will be
+relative to the upperarm.</p>
+<p>The string &#8220;modelRoot&#8221; represents the name of the model node - the string
+&#8220;modelRoot&#8221; is usually the correct value.</p>
+<p>The string &#8220;Joint Name&#8221; represents the name of the joint. Typically it would
+be something like &#8220;Femur&#8221;, or &#8220;Neck&#8221;, or &#8220;L Finger1&#8221;. This is usually set
+inside the modeling package. For example, in MAX, each object in the scene has
+a name, including the bones. If necessary, you can determine the joint names
+by scanning the egg file for strings like
+<code class="docutils literal"><span class="pre">&amp;lt;Joint&amp;gt;</span> <span class="pre">Femur</span></code>. You can also use the
+call <code class="docutils literal"><span class="pre">actor.listJoints()</span></code> to show the
+complete hierarchy of joints.</p>
+<div class="section" id="cautions-and-limitations">
+<h2>Cautions and limitations<a class="headerlink" href="#cautions-and-limitations" title="Permalink to this headline">¶</a></h2>
+<p>Prior to Panda3D version 1.5, there were several important limitations to
+controlJoint(). These have been lifted as of Panda3D version 1.5.</p>
+<ul class="simple">
+<li>In previous versions of Panda, controlJoint only worked when an animation
+is playing on the joint. This is no longer true; controlJoint now takes
+effect whether an animation is playing or not.</li>
+<li>It used to be important to make all of your controlJoint() calls for a
+particular model before you made the first call to play(), loop(), or
+pose(). This is no longer necessary; you may call controlJoint() at any
+time.</li>
+<li>In previous versions of Panda, controlJoint could not be undone. Beginning
+in Panda3D version 1.5, you may call releaseJoint(&#8220;modelRoot&#8221;, &#8220;Joint
+Name&#8221;) to undo a previous call to controlJoint().</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="level-of-detail.html" class="btn btn-neutral float-right" title="Level of Detail" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="attaching-an-object-to-a-joint.html" class="btn btn-neutral" title="Attaching an Object to a Joint" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Panda3D.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.10.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

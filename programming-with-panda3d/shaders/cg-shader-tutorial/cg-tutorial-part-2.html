@@ -1,0 +1,454 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Cg Tutorial Part 2 &mdash; Panda3D Manual</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Panda3D Manual" href="../../../index.html"/>
+        <link rel="up" title="Cg Shader Tutorial" href="index.html"/>
+        <link rel="next" title="Compute Shaders" href="../compute-shaders.html"/>
+        <link rel="prev" title="Cg Tutorial Part 1" href="cg-tutorial-part-1.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Panda3D
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.10
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../intro/index.html">Introduction to Panda3D</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Programming with Panda3D</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../the-scene-graph/index.html">The Scene Graph</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../the-configuration-file/index.html">The Configuration File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../models-and-actors/index.html">Models and Actors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../render-attributes/index.html">Render Attributes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../texturing/index.html">Texturing</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Shaders</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../shader-basics.html">Shader Basics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../list-of-possible-cg-shader-inputs.html">List of Possible Cg Shader Inputs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../list-of-glsl-shader-inputs.html">List of GLSL Shader Inputs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../shaders-and-coordinate-spaces.html">Shaders and Coordinate Spaces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../known-shader-issues.html">Known Shader Bugs and Limitations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../the-shader-generator.html">The Shader Generator</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Cg Shader Tutorial</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="cg-tutorial-part-1.html">Cg Tutorial Part 1</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Cg Tutorial Part 2</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../compute-shaders.html">Compute Shaders</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../camera-control/index.html">Camera Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../sound/index.html">Sound</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../intervals/index.html">Intervals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tasks-and-event-handling/index.html">Tasks and Event Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../text-and-image-rendering/index.html">Text and Image Rendering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../directgui/index.html">DirectGUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../render-effects/index.html">Render Effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../finite-state-machines/index.html">Finite State Machines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../terrain/index.html">Terrain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../internal-structures/index.html">Advanced operations with Panda3D&#8217;s internal structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../render-to-texture-and-image-postprocessing/index.html">Render-to-Texture and Image Postprocessing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../panda3d-rendering-process/index.html">Panda3D Rendering Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../panda3d-utility-functions.html">Panda3D Utility Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../particle-effects/index.html">Particle Effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../collision-detection/index.html">Collision Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../garbage-collection/index.html">Garbage Collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hardware-support/index.html">Hardware support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../math-engine/index.html">Math Engine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../motion-paths.html">Motion Paths</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../timing/index.html">Timing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../networking/index.html">Networking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../multifiles/index.html">Multifiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../showbase.html">ShowBase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../file-reading.html">File Reading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../threading.html">Threading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../subclassing.html">Subclassing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../table-of-features-supported-per-graphic-renderer.html">Table of features supported per graphic renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../pandai/index.html">Artificial Intelligence (PANDAI)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../distribution/index.html">Distributing Panda3D Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../samples/index.html">Sample Programs in the Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../debugging/index.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../performance-tuning/index.html">Performance Tuning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../using-c++/index.html">Using C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tools/index.html">Panda3D Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../building-from-source.html">Building Panda3D from Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cheat-sheets.html">Cheat Sheets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting-started-on-osx.html">Getting Started on OSX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../more-panda3d-resources.html">More Panda3D Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../thirdparty-licenses.html">Third-party dependencies and license info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../the-irc-channel.html">The IRC Channel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../faq.html">FAQ</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../index.html">Panda3D</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../index.html">Programming with Panda3D</a> &raquo;</li>
+      
+          <li><a href="../index.html">Shaders</a> &raquo;</li>
+      
+          <li><a href="index.html">Cg Shader Tutorial</a> &raquo;</li>
+      
+    <li>Cg Tutorial Part 2</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../_sources/programming-with-panda3d/shaders/cg-shader-tutorial/cg-tutorial-part-2.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="cg-tutorial-part-2">
+<span id="id1"></span><h1>Cg Tutorial Part 2<a class="headerlink" href="#cg-tutorial-part-2" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="cg-tutorial-part-2-the-simplest-shader">
+<h2>Cg Tutorial Part 2: The Simplest Shader<a class="headerlink" href="#cg-tutorial-part-2-the-simplest-shader" title="Permalink to this headline">¶</a></h2>
+<p>In this part of the tutorial, we will introduce the barest shader possible and
+then modify the python application to load this shader to verify that it
+works. How would we know that it works? Well, this shader is so simple that it
+basically makes our application useless and all we will see is a black screen.</p>
+</div>
+<div class="section" id="the-shader">
+<h2>The Shader<a class="headerlink" href="#the-shader" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-glsl"><div class="highlight"><pre><span></span><span class="c1">//Cg</span>
+<span class="cm">/* lesson2.sha */</span>
+
+<span class="k">void</span> <span class="n">vshader</span><span class="p">(</span>
+    <span class="k">out</span> <span class="n">float4</span> <span class="n">l_position</span> <span class="o">:</span> <span class="n">POSITION</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">l_position</span> <span class="o">=</span> <span class="n">float4</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">void</span> <span class="n">fshader</span><span class="p">(</span>
+    <span class="k">out</span> <span class="n">float4</span> <span class="n">o_color</span> <span class="o">:</span> <span class="n">COLOR</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">o_color</span> <span class="o">=</span> <span class="n">float4</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>We&#8217;ll only go through the basics of this shader for now. Also note that not
+everything in this tutorial is a Cg requirement, some of the things such as
+variable names are Panda3d requirements.</p>
+<p>The first important thing in this shader is the first line, the
+<code class="docutils literal"><span class="pre">//Cg</span></code> comment. Removing it
+will cause the shader to fail compilation. This is a panda requirement,
+telling the engine that the shader being loaded is a Cg shader. Second, you
+see two functions; vshader and fshader. These are the respective entry points
+for the vertex and fragment shaders.</p>
+<p>The only requirements for a vertex shader is that it has to generate a
+position. In Panda, objects move in three dimensions so having an output of 3
+positions should be enough but on reading the vertex shader you can see that
+its output is a float4. A float4 is an array of four float values, so what
+possible use is the fourth value to the vertex shader? With this fourth value,
+you can do some fancy stuff that you cannot do with a float3. In later
+examples we will multiply the output with a float4 matrix, in other words 16
+float values. A float3 cannot be multiplied by a float4 matrix. You can think
+of the fourth value in the same way as the fourth component in an RGBA color,
+the alpha component. Its not often necessary but it allows you to do
+interesting things.</p>
+<p>In this vertex shader, the only thing that we are doing is assigning the
+variable l_position a constant float4. In C/C++/C# you cannot assign arrays
+to arrays the way we do it here, but in Cg this is possible for fixed sized
+arrays. The l_position variable can be renamed into anything you like, as
+long as it is prefixed with l_ and it has the &#8220;POSITION&#8221; keyword attached.</p>
+<p>Why do we have to write &#8220;out&#8221; in front of l_position? In C/C++/C# every
+function has at most one return value but shaders often need to return more
+than one value. The NVIDIA guys added an &#8220;in&#8221; keyword and an &#8220;out&#8221; keyword to
+Cg. &#8220;out&#8221; means that it is a return value. &#8220;in&#8221; means that is an input value.
+This basic shader has no inputs at all and this is one of the main reasons it
+cannot produce any useful results. Here we only output l_position but in
+later examples we will have more then one output value.</p>
+<p>The &#8220;POSITION&#8221; keyword is a hint for the GPU. The GPU then knows that is
+should assign l_position to an internal POSITION register (register is a
+simplification, this term might not be precise). This tells the GPU that it
+will later have to draw the output of POSITION on the screen. Currently the
+GPU does not know what color the pixels will have but it can calculate a
+position on the screen for every given POSITION. The GPU itself is not as
+smart as one might think, we need to do some not so simple math first to help
+the GPU calculate the correct position on the screen.</p>
+<p>More or less everything that was said about the vertex shader is true for the
+fragment shader. The minimum requirement is that a fragment shader has to
+create a color, to do this we have to assign a float4 to o_color. Again, you
+can name this anything you like, but this time it needs to be prefixed with
+o_ and have the &#8220;COLOR&#8221; keyword attached.</p>
+<p>Here the GPU needs the keyword &#8220;COLOR&#8221; for o_color. This is hint for the GPU
+that we would like to assign a float4 to the color buffer of your screen. As
+you may know, the range of a color component is 0 - 255 for R, G and B. That
+is a fact the GPU knows and it translates the floating point values to
+integers. The advantage of writing shaders in floating point is that if 48 bit
+color displays become common, we do not have to change our shader and neither
+would we have to change our shader if we only have a 16 bit color depth.</p>
+</div>
+<div class="section" id="the-python-script">
+<h2>The Python Script<a class="headerlink" href="#the-python-script" title="Permalink to this headline">¶</a></h2>
+<p>The only thing we will change in our panda script is to load our shader file
+and assign the shader on our root node. Run the script and you will see a
+black screen, so theres no point in providing a screenshot for this one!</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1">#Lesson2.py</span>
+
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">direct.directbase.DirectStart</span>
+
+<span class="n">base</span><span class="o">.</span><span class="n">setBackgroundColor</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
+<span class="n">base</span><span class="o">.</span><span class="n">disableMouse</span><span class="p">()</span>
+
+<span class="n">base</span><span class="o">.</span><span class="n">camLens</span><span class="o">.</span><span class="n">setNearFar</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">50.0</span><span class="p">)</span>
+<span class="n">base</span><span class="o">.</span><span class="n">camLens</span><span class="o">.</span><span class="n">setFov</span><span class="p">(</span><span class="mf">45.0</span><span class="p">)</span>
+
+<span class="n">camera</span><span class="o">.</span><span class="n">setPos</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">20.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">)</span>
+<span class="n">camera</span><span class="o">.</span><span class="n">lookAt</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
+
+<span class="n">root</span> <span class="o">=</span> <span class="n">render</span><span class="o">.</span><span class="n">attachNewNode</span><span class="p">(</span><span class="s2">&quot;Root&quot;</span><span class="p">)</span>
+
+<span class="n">modelCube</span> <span class="o">=</span> <span class="n">loader</span><span class="o">.</span><span class="n">loadModel</span><span class="p">(</span><span class="s2">&quot;cube.egg&quot;</span><span class="p">)</span>
+
+<span class="n">cubes</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">[</span><span class="o">-</span><span class="mf">3.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">]:</span>
+    <span class="n">cube</span> <span class="o">=</span> <span class="n">modelCube</span><span class="o">.</span><span class="n">copyTo</span><span class="p">(</span><span class="n">root</span><span class="p">)</span>
+    <span class="n">cube</span><span class="o">.</span><span class="n">setPos</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
+    <span class="n">cubes</span> <span class="o">+=</span> <span class="p">[</span> <span class="n">cube</span> <span class="p">]</span>
+
+<span class="c1"># Load the shader from the file.</span>
+<span class="n">shader</span> <span class="o">=</span> <span class="n">loader</span><span class="o">.</span><span class="n">loadShader</span><span class="p">(</span><span class="s2">&quot;lesson2.sha&quot;</span><span class="p">)</span>
+<span class="c1"># Assign the shader to work on the root node</span>
+<span class="c1"># If you remove the line below, you will see</span>
+<span class="c1"># that panda is actually rendering our scene.</span>
+<span class="n">root</span><span class="o">.</span><span class="n">setShader</span><span class="p">(</span><span class="n">shader</span><span class="p">)</span>
+
+<span class="n">base</span><span class="o">.</span><span class="n">accept</span><span class="p">(</span><span class="s2">&quot;escape&quot;</span><span class="p">,</span> <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">)</span>
+<span class="n">base</span><span class="o">.</span><span class="n">accept</span><span class="p">(</span><span class="s2">&quot;o&quot;</span><span class="p">,</span> <span class="n">base</span><span class="o">.</span><span class="n">oobe</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">move</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
+    <span class="n">root</span><span class="o">.</span><span class="n">setX</span><span class="p">(</span><span class="n">root</span><span class="o">.</span><span class="n">getX</span><span class="p">()</span> <span class="o">+</span> <span class="n">x</span><span class="p">)</span>
+    <span class="n">root</span><span class="o">.</span><span class="n">setY</span><span class="p">(</span><span class="n">root</span><span class="o">.</span><span class="n">getY</span><span class="p">()</span> <span class="o">+</span> <span class="n">y</span><span class="p">)</span>
+    <span class="n">root</span><span class="o">.</span><span class="n">setZ</span><span class="p">(</span><span class="n">root</span><span class="o">.</span><span class="n">getZ</span><span class="p">()</span> <span class="o">+</span> <span class="n">z</span><span class="p">)</span>
+
+<span class="n">base</span><span class="o">.</span><span class="n">accept</span><span class="p">(</span><span class="s2">&quot;d&quot;</span><span class="p">,</span> <span class="n">move</span><span class="p">,</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">])</span>
+<span class="n">base</span><span class="o">.</span><span class="n">accept</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="n">move</span><span class="p">,</span> <span class="p">[</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">])</span>
+<span class="n">base</span><span class="o">.</span><span class="n">accept</span><span class="p">(</span><span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">move</span><span class="p">,</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">])</span>
+<span class="n">base</span><span class="o">.</span><span class="n">accept</span><span class="p">(</span><span class="s2">&quot;s&quot;</span><span class="p">,</span> <span class="n">move</span><span class="p">,</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">])</span>
+<span class="n">base</span><span class="o">.</span><span class="n">accept</span><span class="p">(</span><span class="s2">&quot;e&quot;</span><span class="p">,</span> <span class="n">move</span><span class="p">,</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">])</span>
+<span class="n">base</span><span class="o">.</span><span class="n">accept</span><span class="p">(</span><span class="s2">&quot;q&quot;</span><span class="p">,</span> <span class="n">move</span><span class="p">,</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">])</span>
+
+<span class="n">run</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="modifying-the-shader">
+<h2>Modifying the Shader<a class="headerlink" href="#modifying-the-shader" title="Permalink to this headline">¶</a></h2>
+<p>Let&#8217;s modify the shader to get some idea of what we can do in Cg. We still
+won&#8217;t be producing any output yet but it will give you a good overview of how
+to write in Cg.</p>
+<p>First lets see what happens when we try to use a float3 as the shader output.
+Try changing the vertex shader to the sample below and then running the panda
+script. Examine the console output carefully.</p>
+<div class="highlight-glsl"><div class="highlight"><pre><span></span><span class="k">void</span> <span class="n">vshader</span><span class="p">(</span>
+    <span class="k">out</span> <span class="n">float4</span> <span class="n">l_position</span> <span class="o">:</span> <span class="n">POSITION</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">l_position</span> <span class="o">=</span> <span class="n">float3</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Now this next vertex shader does exactly the same thing as the original shader
+but shows how you can assign fixed length arrays to other fixed length arrays
+in Cg.</p>
+<div class="highlight-glsl"><div class="highlight"><pre><span></span><span class="k">void</span> <span class="n">vshader</span><span class="p">(</span>
+    <span class="k">out</span> <span class="n">float4</span> <span class="n">l_position</span> <span class="o">:</span> <span class="n">POSITION</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">float4</span> <span class="n">zero</span> <span class="o">=</span> <span class="n">float4</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">);</span>
+    <span class="n">l_position</span> <span class="o">=</span> <span class="n">zero</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Finally lets do some useless maths in the vertex shader. Also note how you can
+assign a value to l_position more than once. You should try making your own
+modifications to the shader and see if it can compile</p>
+<div class="highlight-glsl"><div class="highlight"><pre><span></span><span class="k">void</span> <span class="n">vshader</span><span class="p">(</span>
+    <span class="k">out</span> <span class="n">float4</span> <span class="n">l_position</span> <span class="o">:</span> <span class="n">POSITION</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">float4</span> <span class="n">zero</span> <span class="o">=</span> <span class="n">float4</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">);</span>
+    <span class="n">zero</span> <span class="o">=</span> <span class="n">zero</span> <span class="o">*</span> <span class="n">float4</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">);</span>
+    <span class="n">zero</span> <span class="o">=</span> <span class="n">zero</span> <span class="o">*</span> <span class="mf">5.0</span><span class="p">;</span>
+    <span class="n">l_position</span> <span class="o">=</span> <span class="n">zero</span><span class="p">;</span>
+    <span class="n">l_position</span> <span class="o">=</span> <span class="n">float4</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>After modifying the vertex shader, try to modify the fragment shader on your
+own. In the next tutorial, we will improve the shader&#8217;s usefulness.</p>
+<p>:ref:` &lt;cg-tutorial-part-3&gt;`</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../compute-shaders.html" class="btn btn-neutral float-right" title="Compute Shaders" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="cg-tutorial-part-1.html" class="btn btn-neutral" title="Cg Tutorial Part 1" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Panda3D.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'1.10.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,286 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>The Python Debugger &mdash; Panda3D Manual</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Panda3D Manual" href="../index.html"/>
+        <link rel="up" title="Debugging" href="index.html"/>
+        <link rel="next" title="Running Panda3D under the C++ Debugger" href="running-panda3d-under-the-c++-debugger.html"/>
+        <link rel="prev" title="Log Messages" href="log-messages.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Panda3D
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.10
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../intro/index.html">Introduction to Panda3D</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../programming-with-panda3d/index.html">Programming with Panda3D</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../distribution/index.html">Distributing Panda3D Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../samples/index.html">Sample Programs in the Distribution</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Debugging</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="log-messages.html">Log Messages</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">The Python Debugger</a></li>
+<li class="toctree-l2"><a class="reference internal" href="running-panda3d-under-the-c++-debugger.html">Running Panda3D under the C++ Debugger</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../performance-tuning/index.html">Performance Tuning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using-c++/index.html">Using C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tools/index.html">Panda3D Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../building-from-source.html">Building Panda3D from Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cheat-sheets.html">Cheat Sheets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started-on-osx.html">Getting Started on OSX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../more-panda3d-resources.html">More Panda3D Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../thirdparty-licenses.html">Third-party dependencies and license info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../the-irc-channel.html">The IRC Channel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">FAQ</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Panda3D</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="index.html">Debugging</a> &raquo;</li>
+      
+    <li>The Python Debugger</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/debugging/the-python-debugger.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="the-python-debugger">
+<span id="id1"></span><h1>The Python Debugger<a class="headerlink" href="#the-python-debugger" title="Permalink to this headline">¶</a></h1>
+<p>Python is a very powerful interactive and interpreted language. Python&#8217;s
+development cycle is very fast. Often the most effective way to to debug is to
+output relevant information. Having said that, there are many ways to enhance
+productivity with knowledge of good debugging techniques.</p>
+<div class="section" id="using-python-i-mode">
+<h2>Using python -i mode<a class="headerlink" href="#using-python-i-mode" title="Permalink to this headline">¶</a></h2>
+<p>Python programs may be developed and tested with the help of the interactive
+mode of the Python interpreter, which, allows program components to be
+debugged, traced, profiled, and tested interactively. When invoking python
+with -i, this ensures that an interactive session of python is invoked. With
+regards to Panda3D this requires a little explanation. Panda3D programs
+typically have a command called run() to start rendering, so here&#8217;s one way to
+start an interactive session. On the command prompt type:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="o">-</span><span class="n">i</span> <span class="n">myPandaFile</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+<p>After Panda3D has loaded, make sure the command window has focus and type
+Ctrl-C. This will show a python prompt like so:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Now on the command prompt you can execute any python commands, related or
+unrelated to your Panda3D program. This is useful for looking at information
+at that specific point in time. You could even change that information for
+that running instance of the program.</p>
+</div>
+<div class="section" id="pdb">
+<h2>pdb<a class="headerlink" href="#pdb" title="Permalink to this headline">¶</a></h2>
+<p>Python offers hooks enabling interactive debugging. Module pdb supplies a
+simple text-mode interactive debugger. It supports setting (conditional)
+breakpoints and single stepping at the source line level, inspection of stack
+frames, source code listing, and evaluation of arbitrary Python code in the
+context of any stack frame. It also supports post-mortem debugging and can be
+called under program control.</p>
+<p>The debugger&#8217;s prompt is &#8220;(Pdb) &#8221;. There are many ways to enter the debugger.
+Typical usage to run a program under control of the debugger is:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>&amp;gt;&amp;gt;&amp;gt; import pdb
+&amp;gt;&amp;gt;&amp;gt; import &lt;mymodule&gt;
+&amp;gt;&amp;gt;&amp;gt;  pdb.run(&#39;mymodule.test()&#39;)
+&amp;gt; &amp;lt;string&amp;gt;(0)?()
+(Pdb) continue
+&amp;gt; &amp;lt;string&amp;gt;(1)?()
+(Pdb) continue
+ NameError: &#39;spam&#39;
+ &amp;lt;string&amp;gt;(1)?()
+ (Pdb)
+</pre></div>
+</div>
+<p>Detailed information about pdb can be found
+<a class="reference external" href="http://www.python.org/doc/current/lib/module-pdb.html">here</a>. In addition
+to pdb, python also has two modules called
+<code class="docutils literal"><span class="pre">inspect</span></code> and
+<code class="docutils literal"><span class="pre">traceback</span></code>.
+<code class="docutils literal"><span class="pre">inspect</span></code> supplies functions to
+extract information from all kinds of objects, including the Python call stack
+and source files. The <code class="docutils literal"><span class="pre">traceback</span></code>
+module lets you extract, format and output information about tracebacks as
+normally produced by uncaught exceptions.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="running-panda3d-under-the-c++-debugger.html" class="btn btn-neutral float-right" title="Running Panda3D under the C++ Debugger" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="log-messages.html" class="btn btn-neutral" title="Log Messages" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Panda3D.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.10.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

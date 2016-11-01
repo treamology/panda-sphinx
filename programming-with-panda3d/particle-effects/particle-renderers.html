@@ -1,0 +1,489 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Particle Renderers &mdash; Panda3D Manual</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Panda3D Manual" href="../../index.html"/>
+        <link rel="up" title="Particle Effects" href="index.html"/>
+        <link rel="next" title="Collision Detection" href="../collision-detection/index.html"/>
+        <link rel="prev" title="Particle Emitters" href="particle-emitters.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Panda3D
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.10
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../intro/index.html">Introduction to Panda3D</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Programming with Panda3D</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../the-scene-graph/index.html">The Scene Graph</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../the-configuration-file/index.html">The Configuration File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../models-and-actors/index.html">Models and Actors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-attributes/index.html">Render Attributes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../texturing/index.html">Texturing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shaders/index.html">Shaders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../camera-control/index.html">Camera Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sound/index.html">Sound</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intervals/index.html">Intervals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks-and-event-handling/index.html">Tasks and Event Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../text-and-image-rendering/index.html">Text and Image Rendering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../directgui/index.html">DirectGUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-effects/index.html">Render Effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../finite-state-machines/index.html">Finite State Machines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../terrain/index.html">Terrain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internal-structures/index.html">Advanced operations with Panda3D&#8217;s internal structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-to-texture-and-image-postprocessing/index.html">Render-to-Texture and Image Postprocessing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../panda3d-rendering-process/index.html">Panda3D Rendering Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../panda3d-utility-functions.html">Panda3D Utility Functions</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Particle Effects</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="using-the-particle-panel.html">Using the Particle Panel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="loading-particle-systems.html">Loading Particle Systems</a></li>
+<li class="toctree-l3"><a class="reference internal" href="particle-effect-basic-parameters.html">Particle Effect Basic Parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="particle-factories.html">Particle Factories</a></li>
+<li class="toctree-l3"><a class="reference internal" href="particle-emitters.html">Particle Emitters</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Particle Renderers</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../collision-detection/index.html">Collision Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../garbage-collection/index.html">Garbage Collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hardware-support/index.html">Hardware support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../math-engine/index.html">Math Engine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../motion-paths.html">Motion Paths</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../timing/index.html">Timing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../networking/index.html">Networking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../multifiles/index.html">Multifiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../showbase.html">ShowBase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../file-reading.html">File Reading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../threading.html">Threading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../subclassing.html">Subclassing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../table-of-features-supported-per-graphic-renderer.html">Table of features supported per graphic renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pandai/index.html">Artificial Intelligence (PANDAI)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../distribution/index.html">Distributing Panda3D Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../samples/index.html">Sample Programs in the Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../debugging/index.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../performance-tuning/index.html">Performance Tuning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../using-c++/index.html">Using C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/index.html">Panda3D Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../building-from-source.html">Building Panda3D from Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cheat-sheets.html">Cheat Sheets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started-on-osx.html">Getting Started on OSX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../more-panda3d-resources.html">More Panda3D Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../thirdparty-licenses.html">Third-party dependencies and license info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../the-irc-channel.html">The IRC Channel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">FAQ</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Panda3D</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Programming with Panda3D</a> &raquo;</li>
+      
+          <li><a href="index.html">Particle Effects</a> &raquo;</li>
+      
+    <li>Particle Renderers</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/programming-with-panda3d/particle-effects/particle-renderers.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="particle-renderers">
+<span id="id1"></span><h1>Particle Renderers<a class="headerlink" href="#particle-renderers" title="Permalink to this headline">¶</a></h1>
+<p>Particle renderers add particles to the visible scene graph according to the
+information stored in the particle objects and the type of renderer. All
+particle renderers have the following parameters:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="34%" />
+<col width="54%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>Variable</strong></td>
+<td><strong>Definition</strong></td>
+<td><strong>Values</strong></td>
+</tr>
+<tr class="row-even"><td>alphaMode</td>
+<td>Alpha setting over particle lifetime</td>
+<td>PR_ALPHA_NONE, PR_ALPHA_OUT, PR_ALPHA_IN, PR_ALPHA_USER</td>
+</tr>
+<tr class="row-odd"><td>userAlpha</td>
+<td>Alpha value for ALPHA_USER alpha mode</td>
+<td>Boolean</td>
+</tr>
+</tbody>
+</table>
+<p>The following list contains the different types of renderers and their unique
+parameters.</p>
+<div class="section" id="pointparticlerenderer">
+<h2>PointParticleRenderer<a class="headerlink" href="#pointparticlerenderer" title="Permalink to this headline">¶</a></h2>
+<p>Renders particles as pixel points.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="54%" />
+<col width="33%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>Variable</strong></td>
+<td><strong>Definition</strong></td>
+<td><strong>Values</strong></td>
+</tr>
+<tr class="row-even"><td>pointSize</td>
+<td>Width and height of points, in pixels</td>
+<td>[0, infinity)</td>
+</tr>
+<tr class="row-odd"><td>startColor</td>
+<td>Starting color</td>
+<td>(r, g, b, a)</td>
+</tr>
+<tr class="row-even"><td>endColor</td>
+<td>Ending color</td>
+<td>(r, g, b, a)</td>
+</tr>
+<tr class="row-odd"><td>blendType</td>
+<td>How the particles blend from the start color to the end color</td>
+<td>ONE_COLOR, BLEND_LIFE, BLEND_VEL</td>
+</tr>
+<tr class="row-even"><td>blendMethod</td>
+<td>Interpolation method between colors</td>
+<td>LINEAR, CUBIC</td>
+</tr>
+</tbody>
+</table>
+<p>ONE_COLOR: point is always the starting color.</p>
+<p>BLEND_LIFE: color is interpolated from start to end according to the age of
+the point</p>
+<p>BLEND_VEL: color is interpolated between start to end according to the
+velocity/terminal velocity.</p>
+</div>
+<div class="section" id="lineparticlerenderer">
+<h2>LineParticleRenderer<a class="headerlink" href="#lineparticlerenderer" title="Permalink to this headline">¶</a></h2>
+<p>Renders particles as lines between their current position and their last
+position.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="28%" />
+<col width="44%" />
+<col width="28%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>Variable</strong></td>
+<td><strong>Definition</strong></td>
+<td><strong>Values</strong></td>
+</tr>
+<tr class="row-even"><td>headColor</td>
+<td>Color of leading end</td>
+<td>(r, g, b, a)</td>
+</tr>
+<tr class="row-odd"><td>tailColor</td>
+<td>Color of trailing end</td>
+<td>(r, g, b, a)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="sparkleparticlerenderer">
+<h2>SparkleParticleRenderer<a class="headerlink" href="#sparkleparticlerenderer" title="Permalink to this headline">¶</a></h2>
+<p>Renders particles star or sparkle objects, three equal-length perpendicular
+axial lines, much like jacks. Sparkle particles appear to sparkle when viewed
+as being smaller than a pixel.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="17%" />
+<col width="62%" />
+<col width="21%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>Variable</strong></td>
+<td><strong>Definition</strong></td>
+<td><strong>Values</strong></td>
+</tr>
+<tr class="row-even"><td>centerColor</td>
+<td>Color of center</td>
+<td>(r, g, b, a)</td>
+</tr>
+<tr class="row-odd"><td>edgeColor</td>
+<td>Color of edge</td>
+<td>(r, g, b, a)</td>
+</tr>
+<tr class="row-even"><td>birthRadius</td>
+<td>Initial sparkle radius</td>
+<td>[0, infinity)</td>
+</tr>
+<tr class="row-odd"><td>deathRadius</td>
+<td>Final sparkle radius</td>
+<td>[0, infinity)</td>
+</tr>
+<tr class="row-even"><td>lifeScale</td>
+<td>Whether or not sparkle is always of radius birthRadius</td>
+<td>NO_SCALE, SCALE</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="spriteparticlerenderer">
+<h2>SpriteParticleRenderer<a class="headerlink" href="#spriteparticlerenderer" title="Permalink to this headline">¶</a></h2>
+<p>Renders particles as an image, using a Panda3D texture object. The image is
+always facing the user.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="18%" />
+<col width="67%" />
+<col width="15%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>Variable</strong></td>
+<td><strong>Definition</strong></td>
+<td><strong>Values</strong></td>
+</tr>
+<tr class="row-even"><td>texture</td>
+<td>Panda texture object to use as the sprite image</td>
+<td>(r, g, b, a)</td>
+</tr>
+<tr class="row-odd"><td>color</td>
+<td>Color</td>
+<td>(r, g, b, a)</td>
+</tr>
+<tr class="row-even"><td>xScaleFlag</td>
+<td>If true, x scale is interpolated over particle’s life</td>
+<td>Boolean</td>
+</tr>
+<tr class="row-odd"><td>yScaleFlag</td>
+<td>If true, y scale is interpolated over particle’s life</td>
+<td>Boolean</td>
+</tr>
+<tr class="row-even"><td>animAngleFlag</td>
+<td>If true, particles are set to spin on the Z axis</td>
+<td>Boolean</td>
+</tr>
+<tr class="row-odd"><td>initial_X_Scale</td>
+<td>Initial x scaling factor</td>
+<td>[0, infinity)</td>
+</tr>
+<tr class="row-even"><td>final_X_Scale</td>
+<td>Final x scaling factor</td>
+<td>[0, infinity)</td>
+</tr>
+<tr class="row-odd"><td>initial_Y_Scale</td>
+<td>Initial y scaling factor</td>
+<td>[0, infinity)</td>
+</tr>
+<tr class="row-even"><td>final_Y_Scale</td>
+<td>Final y scaling factor</td>
+<td>[0, infinity)</td>
+</tr>
+<tr class="row-odd"><td>nonAnimatedTheta</td>
+<td>If false, sets the counterclockwise Z rotation of all sprites, in degrees</td>
+<td>Boolean</td>
+</tr>
+<tr class="row-even"><td>alphaBlendMethod</td>
+<td>Sets the interpolation blend method</td>
+<td>LINEAR, CUBIC</td>
+</tr>
+<tr class="row-odd"><td>alphaDisable</td>
+<td>If true, alpha blending is disabled</td>
+<td>Boolean</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="geomparticlerenderer">
+<h2>GeomParticleRenderer<a class="headerlink" href="#geomparticlerenderer" title="Permalink to this headline">¶</a></h2>
+<p>Renders particles as full 3D objects. This requires a geometry node.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="26%" />
+<col width="51%" />
+<col width="23%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>Variable</strong></td>
+<td><strong>Definition</strong></td>
+<td><strong>Values</strong></td>
+</tr>
+<tr class="row-even"><td>geomNode</td>
+<td>A geometry scene graph node</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../collision-detection/index.html" class="btn btn-neutral float-right" title="Collision Detection" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="particle-emitters.html" class="btn btn-neutral" title="Particle Emitters" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Panda3D.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.10.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

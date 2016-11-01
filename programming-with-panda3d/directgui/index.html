@@ -1,0 +1,656 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>DirectGUI &mdash; Panda3D Manual</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Panda3D Manual" href="../../index.html"/>
+        <link rel="up" title="Programming with Panda3D" href="../index.html"/>
+        <link rel="next" title="DirectButton" href="directbutton.html"/>
+        <link rel="prev" title="Embedded Text Properties" href="../text-and-image-rendering/embedded-text-properties.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Panda3D
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.10
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../intro/index.html">Introduction to Panda3D</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Programming with Panda3D</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../the-scene-graph/index.html">The Scene Graph</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../the-configuration-file/index.html">The Configuration File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../models-and-actors/index.html">Models and Actors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-attributes/index.html">Render Attributes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../texturing/index.html">Texturing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shaders/index.html">Shaders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../camera-control/index.html">Camera Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sound/index.html">Sound</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intervals/index.html">Intervals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks-and-event-handling/index.html">Tasks and Event Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../text-and-image-rendering/index.html">Text and Image Rendering</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">DirectGUI</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="directbutton.html">DirectButton</a></li>
+<li class="toctree-l3"><a class="reference internal" href="directcheckbutton.html">DirectCheckButton</a></li>
+<li class="toctree-l3"><a class="reference internal" href="directradiobutton.html">DirectRadioButton</a></li>
+<li class="toctree-l3"><a class="reference internal" href="directdialog.html">DirectDialog</a></li>
+<li class="toctree-l3"><a class="reference internal" href="directentry.html">DirectEntry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="directframe.html">DirectFrame</a></li>
+<li class="toctree-l3"><a class="reference internal" href="directlabel.html">DirectLabel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="directoptionmenu.html">DirectOptionMenu</a></li>
+<li class="toctree-l3"><a class="reference internal" href="directscrolledlist.html">DirectScrolledList</a></li>
+<li class="toctree-l3"><a class="reference internal" href="directwaitbar.html">DirectWaitBar</a></li>
+<li class="toctree-l3"><a class="reference internal" href="directslider.html">DirectSlider</a></li>
+<li class="toctree-l3"><a class="reference internal" href="directscrollbar.html">DirectScrollBar</a></li>
+<li class="toctree-l3"><a class="reference internal" href="directscrolledframe.html">DirectScrolledFrame</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../render-effects/index.html">Render Effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../finite-state-machines/index.html">Finite State Machines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../terrain/index.html">Terrain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internal-structures/index.html">Advanced operations with Panda3D&#8217;s internal structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-to-texture-and-image-postprocessing/index.html">Render-to-Texture and Image Postprocessing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../panda3d-rendering-process/index.html">Panda3D Rendering Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../panda3d-utility-functions.html">Panda3D Utility Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../particle-effects/index.html">Particle Effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../collision-detection/index.html">Collision Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../garbage-collection/index.html">Garbage Collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hardware-support/index.html">Hardware support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../math-engine/index.html">Math Engine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../motion-paths.html">Motion Paths</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../timing/index.html">Timing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../networking/index.html">Networking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../multifiles/index.html">Multifiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../showbase.html">ShowBase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../file-reading.html">File Reading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../threading.html">Threading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../subclassing.html">Subclassing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../table-of-features-supported-per-graphic-renderer.html">Table of features supported per graphic renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pandai/index.html">Artificial Intelligence (PANDAI)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../distribution/index.html">Distributing Panda3D Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../samples/index.html">Sample Programs in the Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../debugging/index.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../performance-tuning/index.html">Performance Tuning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../using-c++/index.html">Using C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/index.html">Panda3D Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../building-from-source.html">Building Panda3D from Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cheat-sheets.html">Cheat Sheets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started-on-osx.html">Getting Started on OSX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../more-panda3d-resources.html">More Panda3D Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../thirdparty-licenses.html">Third-party dependencies and license info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../the-irc-channel.html">The IRC Channel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">FAQ</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Panda3D</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Programming with Panda3D</a> &raquo;</li>
+      
+    <li>DirectGUI</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/programming-with-panda3d/directgui/index.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="directgui">
+<span id="id1"></span><h1>DirectGUI<a class="headerlink" href="#directgui" title="Permalink to this headline">¶</a></h1>
+<p>Since DirectGUI is implemented in Python, it is useless to c++ programmers.
+However, there is another GUI system, PGui, that forms the foundation of
+DirectGUI and is in fact implemented in C++.</p>
+<p>Let&#8217;s take a look at some PGui functions.</p>
+<div class="section" id="the-pgui-c-modules">
+<h2>The PGui C++ modules<a class="headerlink" href="#the-pgui-c-modules" title="Permalink to this headline">¶</a></h2>
+<p>[PGButton]</p>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&quot;PGButton.h&quot;</span><span class="cp"></span>
+</pre></div>
+</div>
+<p>with PGButton you can create a freely definable clickable button.</p>
+<p>It can hold four different states:</p>
+<p>ready -&gt; The default state of an untouched button</p>
+<p>pressed -&gt; The pressed state (the user clicked on it)</p>
+<p>roll over -&gt; When the user hovers over the button without clicking</p>
+<p>inactive -&gt; Disabled state</p>
+<p>Example usage, creating a texture for each state:</p>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">PT</span><span class="p">(</span><span class="n">PGButton</span><span class="p">)</span> <span class="n">MyButton</span><span class="p">;</span>
+<span class="n">MyButton</span> <span class="o">=</span> <span class="k">new</span> <span class="n">PGButton</span><span class="p">(</span><span class="s">&quot;MyButton&quot;</span><span class="p">);</span>
+<span class="n">MyButton</span><span class="o">-&gt;</span><span class="n">setup</span><span class="p">(</span><span class="s">&quot;Button&quot;</span><span class="p">,</span><span class="mf">0.1</span><span class="p">);</span>
+<span class="n">PT</span><span class="p">(</span><span class="n">Texture</span><span class="p">)</span> <span class="n">ButtonReady</span><span class="o">=</span><span class="n">TexturePool</span><span class="o">::</span><span class="n">load_texture</span><span class="p">(</span><span class="s">&quot;button.png&quot;</span><span class="p">);</span>
+<span class="n">PT</span><span class="p">(</span><span class="n">Texture</span><span class="p">)</span> <span class="n">ButtonRollover</span><span class="o">=</span><span class="n">TexturePool</span><span class="o">::</span><span class="n">load_texture</span><span class="p">(</span><span class="s">&quot;button_active.png&quot;</span><span class="p">);</span>
+<span class="n">PT</span><span class="p">(</span><span class="n">Texture</span><span class="p">)</span> <span class="n">ButtonPressed</span><span class="o">=</span><span class="n">TexturePool</span><span class="o">::</span><span class="n">load_texture</span><span class="p">(</span><span class="s">&quot;button_pressed.png&quot;</span><span class="p">);</span>
+<span class="n">PT</span><span class="p">(</span><span class="n">Texture</span><span class="p">)</span> <span class="n">ButtonInactive</span><span class="o">=</span><span class="n">TexturePool</span><span class="o">::</span><span class="n">load_texture</span><span class="p">(</span><span class="s">&quot;button_inactive.png&quot;</span><span class="p">);</span>
+
+<span class="c1">// PGFrameStyle is a powerful way to change the appearance of the button:</span>
+<span class="n">PGFrameStyle</span> <span class="n">MyStyle</span><span class="o">=</span><span class="n">MyButton</span><span class="o">-&gt;</span><span class="n">get_frame_style</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span> <span class="c1">// frame_style(0): ready state</span>
+<span class="n">MyStyle</span><span class="p">.</span><span class="n">set_type</span><span class="p">(</span><span class="n">PGFrameStyle</span><span class="o">::</span><span class="n">T_flat</span><span class="p">);</span>
+
+<span class="n">MyStyle</span><span class="p">.</span><span class="n">set_texture</span><span class="p">(</span><span class="n">ButtonReady</span><span class="p">);</span>    <span class="n">MyButton</span><span class="o">-&gt;</span><span class="n">set_frame_style</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">MyStyle</span><span class="p">);</span>
+<span class="n">MyStyle</span><span class="p">.</span><span class="n">set_texture</span><span class="p">(</span><span class="n">ButtonRollover</span><span class="p">);</span> <span class="n">MyButton</span><span class="o">-&gt;</span><span class="n">set_frame_style</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">MyStyle</span><span class="p">);</span>
+<span class="n">MyStyle</span><span class="p">.</span><span class="n">set_texture</span><span class="p">(</span><span class="n">ButtonPressed</span><span class="p">);</span>  <span class="n">MyButton</span><span class="o">-&gt;</span><span class="n">set_frame_style</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="n">MyStyle</span><span class="p">);</span>
+<span class="n">MyStyle</span><span class="p">.</span><span class="n">set_texture</span><span class="p">(</span><span class="n">ButtonInactive</span><span class="p">);</span> <span class="n">MyButton</span><span class="o">-&gt;</span><span class="n">set_frame_style</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="n">MyStyle</span><span class="p">);</span>
+
+<span class="n">NodePath</span> <span class="n">defbutNP</span> <span class="o">=</span> <span class="n">window</span><span class="o">-&gt;</span><span class="n">get_aspect_2d</span><span class="p">().</span><span class="n">attach_new_node</span><span class="p">(</span><span class="n">MyButton</span><span class="p">);</span>
+<span class="n">defbutNP</span><span class="p">.</span><span class="n">set_scale</span><span class="p">(</span><span class="mf">0.1</span><span class="p">);</span>
+
+<span class="c1">// Setup callback function</span>
+<span class="n">framework</span><span class="p">.</span><span class="n">define_key</span><span class="p">(</span><span class="n">MyButton</span><span class="o">-&gt;</span><span class="n">get_click_event</span><span class="p">(</span><span class="n">MouseButton</span><span class="o">::</span><span class="n">one</span><span class="p">()</span> <span class="p">),</span> <span class="s">&quot;button press&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">GUI_Callback_Button_Clicked</span><span class="p">,</span> <span class="n">MyButton</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>An example of a callback function:</p>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="k">static</span> <span class="kt">void</span> <span class="nf">GUI_Callback_Button_Clicked</span><span class="p">(</span><span class="k">const</span> <span class="n">Event</span> <span class="o">*</span><span class="n">ev</span><span class="p">,</span> <span class="kt">void</span> <span class="o">*</span><span class="n">data</span><span class="p">)</span>
+<span class="p">{</span>
+ <span class="n">PGButton</span><span class="o">*</span> <span class="n">CurrentButton</span><span class="o">=</span><span class="p">(</span><span class="n">PGButton</span> <span class="o">*</span><span class="p">)</span><span class="n">data</span><span class="p">;</span>
+ <span class="c1">// Your action here</span>
+ <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%s has been pressed.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="n">CurrentButton</span><span class="o">-&gt;</span><span class="n">get_name</span><span class="p">().</span><span class="n">c_str</span><span class="p">());</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>[PGSliderBar]</p>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&quot;PGSliderBar.h&quot;</span><span class="cp"></span>
+</pre></div>
+</div>
+<p>A simple sliderbar.</p>
+<p>This slider basically has four components:</p>
+<p>The thumb button. This is the sliding part.</p>
+<p>The slider. This is the &#8216;rail&#8217; the thumb button slides along.</p>
+<p>The left button. User can click on it to slide the thumb button to the left.</p>
+<p>The right button. User can click on it to slide the thumb button to the right.</p>
+<p>Using default initialisation, none of these components are textured.</p>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">PT</span><span class="p">(</span><span class="n">PGSliderBar</span><span class="p">)</span> <span class="n">Slider</span><span class="o">=</span><span class="k">new</span> <span class="n">PGSliderBar</span><span class="p">(</span><span class="s">&quot;MySliderBar&quot;</span><span class="p">);</span>
+
+<span class="c1">// Setup, feeding the constructor with (bool vertical,float lenght,float width,float bevel)</span>
+<span class="n">Slider</span><span class="o">-&gt;</span><span class="n">setup_slider</span><span class="p">(</span><span class="nb">false</span><span class="p">,</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.1</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span> <span class="c1">// &#39;rail&#39; properties</span>
+<span class="n">Slider</span><span class="o">-&gt;</span><span class="n">set_range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
+<span class="n">Slider</span><span class="o">-&gt;</span><span class="n">set_value</span><span class="p">(</span><span class="mf">0.5</span><span class="p">);</span>
+
+<span class="c1">// Setup scroll bar (the &#39;moving thumb button&#39; including left and right button)</span>
+<span class="n">Slider</span><span class="o">-&gt;</span><span class="n">setup_scroll_bar</span><span class="p">(</span><span class="nb">false</span><span class="p">,</span><span class="mf">0.35</span><span class="p">,</span><span class="mf">0.05</span><span class="p">,</span><span class="nb">false</span><span class="p">);</span>
+<span class="n">NodePath</span> <span class="n">SliderNP</span><span class="o">=</span><span class="n">window</span><span class="o">-&gt;</span><span class="n">get_aspect_2d</span><span class="p">().</span><span class="n">attach_new_node</span><span class="p">(</span><span class="n">Slider</span><span class="p">);</span>
+<span class="n">SliderNP</span><span class="p">.</span><span class="n">set_pos</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>(work in progress, more to come soon.)</p>
+</div>
+<div class="section" id="the-directgui-python-modules">
+<h2>The DirectGUI Python modules<a class="headerlink" href="#the-directgui-python-modules" title="Permalink to this headline">¶</a></h2>
+<p>Panda3D comes with a set of tools for the creation of a graphical interface
+for any program. The DirectGui system is used to create buttons, labels, text
+entries, and frames within the program. All of these items can be decorated
+with text, images, and 3D graphics. Commands may be associated with these
+items as well. Since these objects inherit from the NodePath class, anything
+done to a NodePath may be done to them, such as show()/hide(), setPos(),
+posInterval(), and so on. Also, since DirectGui objects are by default
+parented to the node aspect2d, they will stay on the screen no matter how the
+user navigates through the world.</p>
+<p>You can specify the parent nodepath for any DirectGUI object using the parent=
+argument. You can use base.aspect2d for center-oriented pacement, and
+a2dTopLeft or a2dBottomRight respectively. The Y coordinate should be left 0,
+because it&#8217;s useless in the 2D space. The Z coordinate goes from -1 to 1, and
+X depends on the aspect ratio, by the default 4:3 it&#8217;s from -1.3333 to 1.3333.
+The other aspect2d variants don&#8217;t scale the numbers, just offset them.</p>
+<p>The direct-gui-edit option in the Config.prc file allows the user to use the
+middle mouse button to move around widgets, and resize them while holding the
+control key; this is very useful to lay a screen out during development. If
+you need to turn this ability off for an individual object, set its
+<code class="docutils literal"><span class="pre">enableEdit</span></code> keyword parameter to
+False.</p>
+<p>All of the DirectGui objects are constructed in a similar way:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">direct.gui.DirectGui</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="n">myObject</span> <span class="o">=</span> <span class="n">Directxxxxxx</span><span class="p">(</span><span class="n">keyword</span><span class="o">=</span><span class="n">value</span><span class="p">,</span> <span class="n">keyword</span><span class="o">=</span><span class="n">value</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Each DirectGui object may contain any of four fundamental pieces that
+determine its appearance. There may be an optional text, an optional geom, an
+optional image, and an optional frame.</p>
+<p>A DirectGui&#8217;s text label may be any arbitrary text string, and whatever text
+string you supply is automatically created using the :ref:` &lt;onscreentext&gt;`
+interface and centered on the object. You can specify the text string using
+the <code class="docutils literal"><span class="pre">text</span></code> keyword. You can
+also specify further parameters to control the appearance or placement of the
+text using the form <code class="docutils literal"><span class="pre">text_parameter</span></code>,
+where <code class="docutils literal"><span class="pre">parameter</span></code> is any valid
+keyword to the :ref:` &lt;onscreentext&gt;` constructor.</p>
+<p>A DirectGui&#8217;s geom can be any NodePath that you design, to represent the
+appearance of the gui object. Typically, this will be a model that you created
+via the program <code class="docutils literal"><span class="pre">egg-texture-cards</span></code>. This
+little program takes a png or other picture and turns it into an egg. See
+:ref:` &lt;automatic-texture-animation&gt;`, for more details. Using this interface,
+you can completely customize the look of the DirectGui object to suit your
+needs. You can specify the geom object using the
+<code class="docutils literal"><span class="pre">geom</span></code> keyword, and like the
+text parameter, you can also control the geom&#8217;s placement using keywords like
+<code class="docutils literal"><span class="pre">geom_parameter</span></code>.</p>
+<p>The image is less often used. It is the filename of a texture image (or an
+already-loaded Texture object). It is intended for displaying a simple texture
+image for which you don&#8217;t already have a model created via
+<code class="docutils literal"><span class="pre">egg-texture-cards</span></code>. A default card will be
+created to display this texture, with a bounding box of (-1, 0, -1) to (1, 0,
+1); that is, a square with sides of length 2 units, centered on the origin.
+You can position and scale this card with the keywords
+<code class="docutils literal"><span class="pre">image_pos</span></code> and
+<code class="docutils literal"><span class="pre">image_scale</span></code>. See also
+:ref:` &lt;onscreenimage&gt;`</p>
+<p>Finally, the DirectGui may have a frame created for it. This is typically a
+gray rectangular background with an optional bevel. There are a handful of
+different frame styles; you can use the
+<code class="docutils literal"><span class="pre">relief</span></code> keyword to select from
+one of the available styles; your choices are SUNKEN, RAISED, GROOVE, or
+RIDGE. You can also specify
+<code class="docutils literal"><span class="pre">relief</span> <span class="pre">=</span> <span class="pre">None</span></code> to avoid creating a
+frame polygon altogether (this is commonly done when you have specified your
+own geom object with the
+<code class="docutils literal"><span class="pre">geom</span></code> keyword).</p>
+<p>The overall size of the DirectGui object is controlled with the
+<code class="docutils literal"><span class="pre">frameSize</span></code> keyword. This is a
+four-tuple of floating-point numbers of the form (left, right, bottom, top),
+which specifies the bounding box region of the DirectGui object. That is, the
+lower-left corner will be at position (left, 0, bottom), and the upper-right
+will be at (right, 0, top). Note that these values represent coordinates from
+the origin of the frame. Setting the frameSize to (-0.1, 0.1, -0.1, 0.1), for
+instance, will create a box, 0.2 units wide and 0.2 units in height, with 0,0
+being the center of the frame located at
+<code class="docutils literal"><span class="pre">pos</span></code> on the screen.</p>
+<p>The <code class="docutils literal"><span class="pre">frameSize</span></code> keyword is
+optional. If you omit it, the default frameSize is computed based on the
+bounding box of the text, geom, and/or image that you have specified.</p>
+<p>The following is a list of keywords that are typically available to DirectGui
+objects of all kinds. Individual kinds of DirectGUI objects may add more
+options to this list, but these keywords are not repeated on each of the
+following pages, for brevity:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="7%" />
+<col width="71%" />
+<col width="22%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Keyword</th>
+<th class="head">Definition</th>
+<th class="head">Value</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>text</td>
+<td>Text to be displayed on the object</td>
+<td>String</td>
+</tr>
+<tr class="row-odd"><td>text_bg</td>
+<td>Background color of the text on the object</td>
+<td>(R,G,B,A)</td>
+</tr>
+<tr class="row-even"><td>text_fg</td>
+<td>Color of the text</td>
+<td>(R,G,B,A)</td>
+</tr>
+<tr class="row-odd"><td>text_pos</td>
+<td>Position of the displayed text</td>
+<td>(x,z)</td>
+</tr>
+<tr class="row-even"><td>text_roll</td>
+<td>Rotation of the displayed text</td>
+<td>Number</td>
+</tr>
+<tr class="row-odd"><td>text_scale</td>
+<td>Scale of the displayed text</td>
+<td>(sx,sz)</td>
+</tr>
+<tr class="row-even"><td>text_*</td>
+<td>Parameters to control the appearance of the text</td>
+<td>Any keyword parameter appropriate to :ref:` &lt;onscreentext&gt;`.</td>
+</tr>
+<tr class="row-odd"><td>frameSize</td>
+<td>Size of the object</td>
+<td>(Left,Right,Bottom,Top)</td>
+</tr>
+<tr class="row-even"><td>frameVisibleScale</td>
+<td>Relative scale of the visible frame to its clickable bounds. Useful for creating things like the paging region of a slider, which is visibly smaller than the acceptable click region (the height of the thumb).</td>
+<td>(hscale, vscale)</td>
+</tr>
+<tr class="row-odd"><td>frameColor</td>
+<td>Color of the object’s <strong>frame</strong></td>
+<td>(R,G,B,A)</td>
+</tr>
+<tr class="row-even"><td>relief</td>
+<td>Relief appearance of the <strong>frame</strong></td>
+<td>SUNKEN, RAISED, GROOVE, RIDGE, FLAT, or None</td>
+</tr>
+<tr class="row-odd"><td>invertedFrames</td>
+<td>If true, switches the meaning of SUNKEN and RAISED</td>
+<td>0 or 1</td>
+</tr>
+<tr class="row-even"><td>borderWidth</td>
+<td>If relief is SUNKEN, RAISED, GROOVE, or RIDGE, changes the size of the bevel</td>
+<td>(Width,Height)</td>
+</tr>
+<tr class="row-odd"><td>image</td>
+<td>An <strong>image</strong> to be displayed on the object</td>
+<td>image filename or Texture object</td>
+</tr>
+<tr class="row-even"><td>image_pos</td>
+<td>Position of the displayed image</td>
+<td>(x,y,z)</td>
+</tr>
+<tr class="row-odd"><td>image_hpr</td>
+<td>Rotation of the displayed image</td>
+<td>(h,p,r)</td>
+</tr>
+<tr class="row-even"><td>image_scale</td>
+<td>Scale of the displayed image</td>
+<td>(sx,sy,sz)</td>
+</tr>
+<tr class="row-odd"><td>geom</td>
+<td>A <strong>geom</strong> to represent the object’s appearance</td>
+<td>NodePath</td>
+</tr>
+<tr class="row-even"><td>geom_pos</td>
+<td>Position of the displayed geom</td>
+<td>(x,y,z)</td>
+</tr>
+<tr class="row-odd"><td>geom_hpr</td>
+<td>Rotation of the displayed geom</td>
+<td>(h,p,r)</td>
+</tr>
+<tr class="row-even"><td>geom_scale</td>
+<td>Scale of the displayed geom</td>
+<td>(sx,sy,sz)</td>
+</tr>
+<tr class="row-odd"><td>parent</td>
+<td>Parent to attach to</td>
+<td>NodePath</td>
+</tr>
+<tr class="row-even"><td>pos</td>
+<td>Position of the object</td>
+<td>(X,Y,Z)</td>
+</tr>
+<tr class="row-odd"><td>hpr</td>
+<td>Orientation of the object</td>
+<td>(H,P,R)</td>
+</tr>
+<tr class="row-even"><td>scale</td>
+<td>Scale of the object</td>
+<td>Number</td>
+</tr>
+<tr class="row-odd"><td>pad</td>
+<td>When frameSize is omitted, this determines the extra space around the <strong>geom</strong> or <strong>text</strong>’s bounding box by which to expand the default <strong>frame</strong></td>
+<td>(Width,Height)</td>
+</tr>
+<tr class="row-even"><td>state</td>
+<td>The initial state of the object</td>
+<td>NORMAL or DISABLED</td>
+</tr>
+<tr class="row-odd"><td>frameTexture</td>
+<td>Texture applied directly to the generated <strong>frame</strong></td>
+<td>image filename or Texture object</td>
+</tr>
+<tr class="row-even"><td>enableEdit</td>
+<td>Affects direct-gui-edit functionality</td>
+<td>0 or 1</td>
+</tr>
+<tr class="row-odd"><td>suppressKeys</td>
+<td>If 1, suppresses triggers of global keyboard-related Panda events (not part of the GUI system)</td>
+<td>0 or 1</td>
+</tr>
+<tr class="row-even"><td>suppressMouse</td>
+<td>If 1, suppresses triggers of global mouse-related Panda events (e.g. camera controls)</td>
+<td>0 or 1</td>
+</tr>
+<tr class="row-odd"><td>sortOrder</td>
+<td>Specifies render order for overlapping objects. Higher numbers are drawn in front of lower numbers.</td>
+<td>Number</td>
+</tr>
+<tr class="row-even"><td>textMayChange</td>
+<td>Whether the text of an object can be changed after creation</td>
+<td>0 or 1</td>
+</tr>
+</tbody>
+</table>
+<p>Remember that the axes for Panda3D use x for left and right, y for in and out
+of the screen, and z for up and down. An object&#8217;s frame is always in the
+background of the object. The geom, if any, is shown in front of the frame,
+and text is shown in front of the geom.</p>
+<p>It is possible to change most of these values after object creation, using:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">myDirectObject</span><span class="p">[</span><span class="s1">&#39;keyword&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+</pre></div>
+</div>
+<p>Most properties can be updated in this way, although position and other
+transform-related values cannot be updated via the keyword
+parameters&#8211;attempts to update them will silently fail. Instead, use the
+NodePath methods to change the object&#8217;s transform.</p>
+<p>Some types of updates, such as changing the text or the geom, may also change
+the size of the object. If you change any of these properties after the object
+has been created, it is necessary to tell the object to re-determine its size:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">myDirectObject</span><span class="o">.</span><span class="n">resetFrameSize</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>If you don&#8217;t do this, you may find, for example, that a button isn&#8217;t clickable
+because it believes it has a zero-width frame.</p>
+<p>To permanently remove a DirectGUI object, you should use the method:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">myDirectObject</span><span class="o">.</span><span class="n">destroy</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>It is not sufficient to simply call
+<code class="docutils literal"><span class="pre">removeNode()</span></code>, since the DirectGUI
+system adds a number of messenger hooks that need to be cleaned up. However,
+if you have a hierarchy of DirectGUI objects, for instance a number of buttons
+parented to a frame, it is sufficient to call destroy() only on the topmost
+object; it will propagate downwards.</p>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="directbutton.html">DirectButton</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="directbutton.html#example">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="directcheckbutton.html">DirectCheckButton</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="directcheckbutton.html#example">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="directradiobutton.html">DirectRadioButton</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="directradiobutton.html#example">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="directdialog.html">DirectDialog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="directdialog.html#yesno-dialog-example">YesNo Dialog Example</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="directentry.html">DirectEntry</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="directentry.html#example">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="directframe.html">DirectFrame</a></li>
+<li class="toctree-l1"><a class="reference internal" href="directlabel.html">DirectLabel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="directoptionmenu.html">DirectOptionMenu</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="directoptionmenu.html#example">Example&lt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="directoptionmenu.html#dynamic-updating-of-a-menu">Dynamic Updating of a Menu</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="directscrolledlist.html">DirectScrolledList</a></li>
+<li class="toctree-l1"><a class="reference internal" href="directwaitbar.html">DirectWaitBar</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="directwaitbar.html#example">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="directslider.html">DirectSlider</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="directslider.html#example">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="directscrollbar.html">DirectScrollBar</a></li>
+<li class="toctree-l1"><a class="reference internal" href="directscrolledframe.html">DirectScrolledFrame</a></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="directbutton.html" class="btn btn-neutral float-right" title="DirectButton" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../text-and-image-rendering/embedded-text-properties.html" class="btn btn-neutral" title="Embedded Text Properties" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Panda3D.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.10.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

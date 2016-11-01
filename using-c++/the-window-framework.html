@@ -1,0 +1,337 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>The Window Framework &mdash; Panda3D Manual</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Panda3D Manual" href="../index.html"/>
+        <link rel="up" title="Using C++" href="index.html"/>
+        <link rel="next" title="Texturing in C++" href="texturing-in-c++.html"/>
+        <link rel="prev" title="How to compile a C++ Panda3D program on Mac OS X" href="how-to-compile-a-c++-panda3d-program/how-to-compile-a-c++-panda3d-program-on-mac-os-x.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Panda3D
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.10
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../intro/index.html">Introduction to Panda3D</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../programming-with-panda3d/index.html">Programming with Panda3D</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../distribution/index.html">Distributing Panda3D Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../samples/index.html">Sample Programs in the Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../debugging/index.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../performance-tuning/index.html">Performance Tuning</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Using C++</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="how-to-compile-a-c++-panda3d-program/index.html">How to compile a C++ Panda3D program</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">The Window Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="texturing-in-c++.html">Texturing in C++</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reference-counting.html">Reference Counting</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tools/index.html">Panda3D Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../building-from-source.html">Building Panda3D from Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cheat-sheets.html">Cheat Sheets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started-on-osx.html">Getting Started on OSX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../more-panda3d-resources.html">More Panda3D Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../thirdparty-licenses.html">Third-party dependencies and license info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../the-irc-channel.html">The IRC Channel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">FAQ</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Panda3D</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="index.html">Using C++</a> &raquo;</li>
+      
+    <li>The Window Framework</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/using-c++/the-window-framework.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="the-window-framework">
+<span id="id1"></span><h1>The Window Framework<a class="headerlink" href="#the-window-framework" title="Permalink to this headline">¶</a></h1>
+<p>The WindowFramework class is for use in C++ only. If you use Python, you can
+just use DirectStart to open a window and skip this page.</p>
+<p>This page will explain how to use the WindowFramework class in C++ to open a
+blank window. First of all, we need to include the appropriate header files:</p>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&quot;pandaFramework.h&quot;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&quot;pandaSystem.h&quot;</span><span class="cp"></span>
+</pre></div>
+</div>
+<p>Second, we need to
+create an instance of the PandaFramework class, and use it to open a window.</p>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">PandaFramework</span> <span class="n">framework</span><span class="p">;</span>
+<span class="n">framework</span><span class="p">.</span><span class="n">open_framework</span><span class="p">(</span><span class="n">argc</span><span class="p">,</span> <span class="n">argv</span><span class="p">);</span>
+<span class="n">framework</span><span class="p">.</span><span class="n">set_window_title</span><span class="p">(</span><span class="s">&quot;Hello World!&quot;</span><span class="p">);</span>
+
+<span class="n">WindowFramework</span> <span class="o">*</span><span class="n">window</span> <span class="o">=</span> <span class="n">framework</span><span class="p">.</span><span class="n">open_window</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>Optionally, we can
+enable keyboard support, in case we want to check for keyboard presses, and we
+can enable the default camera trackball. Note that you also need to enable
+keyboard support to receive mouse button events (sic).</p>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="c1">// Enable keyboard detection</span>
+<span class="n">window</span><span class="o">-&gt;</span><span class="n">enable_keyboard</span><span class="p">();</span>
+<span class="c1">// Enable default camera movement</span>
+<span class="n">window</span><span class="o">-&gt;</span><span class="n">setup_trackball</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>Now, we&#8217;re going to
+check if the window has opened successfully. If so, the main loop must be
+called, using the function framework.main_loop(). This is equivalent to the
+run() function in Python.</p>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">window</span> <span class="o">!=</span> <span class="p">(</span><span class="n">WindowFramework</span> <span class="o">*</span><span class="p">)</span><span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">nout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Opened the window successfully!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+
+  <span class="c1">// Put here your own code, such as the loading of your models</span>
+
+  <span class="n">framework</span><span class="p">.</span><span class="n">main_loop</span><span class="p">();</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="n">nout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Could not load the window!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Afterwards, we need to
+close the framework:</p>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">framework</span><span class="p">.</span><span class="n">close_framework</span><span class="p">();</span>
+<span class="k">return</span> <span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Now, :ref:` &lt;how-to-compile-a-c++-panda3d-program&gt;` your file and you have
+your own window opened!</p>
+<p>This is the completed application:</p>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="c1">// Include all the stuff</span>
+<span class="cp">#include</span> <span class="cpf">&quot;pandaFramework.h&quot;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&quot;pandaSystem.h&quot;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
+  <span class="c1">// Open the framework</span>
+  <span class="n">PandaFramework</span> <span class="n">framework</span><span class="p">;</span>
+  <span class="n">framework</span><span class="p">.</span><span class="n">open_framework</span><span class="p">(</span><span class="n">argc</span><span class="p">,</span> <span class="n">argv</span><span class="p">);</span>
+  <span class="c1">// Set a nice title</span>
+  <span class="n">framework</span><span class="p">.</span><span class="n">set_window_title</span><span class="p">(</span><span class="s">&quot;Hello World!&quot;</span><span class="p">);</span>
+  <span class="c1">// Open it!</span>
+  <span class="n">WindowFramework</span> <span class="o">*</span><span class="n">window</span> <span class="o">=</span> <span class="n">framework</span><span class="p">.</span><span class="n">open_window</span><span class="p">();</span>
+
+  <span class="c1">// Check whether the window is loaded correctly</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">window</span> <span class="o">!=</span> <span class="p">(</span><span class="n">WindowFramework</span> <span class="o">*</span><span class="p">)</span><span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">nout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Opened the window successfully!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+
+    <span class="n">window</span><span class="o">-&gt;</span><span class="n">enable_keyboard</span><span class="p">();</span> <span class="c1">// Enable keyboard detection</span>
+    <span class="n">window</span><span class="o">-&gt;</span><span class="n">setup_trackball</span><span class="p">();</span> <span class="c1">// Enable default camera movement</span>
+
+    <span class="c1">// Put here your own code, such as the loading of your models</span>
+
+    <span class="c1">// Do the main loop</span>
+    <span class="n">framework</span><span class="p">.</span><span class="n">main_loop</span><span class="p">();</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="n">nout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Could not load the window!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="c1">// Close the framework</span>
+  <span class="n">framework</span><span class="p">.</span><span class="n">close_framework</span><span class="p">();</span>
+  <span class="k">return</span> <span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The WindowFramework class also provides all the basic things the python
+ShowBase / DirectStart equivalent would normally take care of:</p>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="k">const</span> <span class="n">NodePath</span> <span class="o">&amp;</span><span class="n">get_render</span><span class="p">();</span>
+<span class="k">const</span> <span class="n">NodePath</span> <span class="o">&amp;</span><span class="n">get_render_2d</span><span class="p">();</span>
+<span class="k">const</span> <span class="n">NodePath</span> <span class="o">&amp;</span><span class="n">get_aspect_2d</span><span class="p">();</span>
+
+<span class="kt">void</span> <span class="nf">set_wireframe</span><span class="p">(</span><span class="kt">bool</span> <span class="n">enable</span><span class="p">);</span>
+<span class="kt">void</span> <span class="nf">set_texture</span><span class="p">(</span><span class="kt">bool</span> <span class="n">enable</span><span class="p">);</span>
+<span class="kt">void</span> <span class="nf">set_two_sided</span><span class="p">(</span><span class="kt">bool</span> <span class="n">enable</span><span class="p">);</span>
+<span class="kt">void</span> <span class="nf">set_one_sided_reverse</span><span class="p">(</span><span class="kt">bool</span> <span class="n">enable</span><span class="p">);</span>
+<span class="kt">void</span> <span class="nf">set_lighting</span><span class="p">(</span><span class="kt">bool</span> <span class="n">enable</span><span class="p">);</span>
+
+<span class="k">const</span> <span class="n">NodePath</span> <span class="o">&amp;</span><span class="n">get_camera_group</span><span class="p">();</span>
+
+<span class="n">INLINE</span> <span class="kt">int</span> <span class="nf">get_num_cameras</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+<span class="n">INLINE</span> <span class="n">Camera</span> <span class="o">*</span><span class="nf">get_camera</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+
+<span class="c1">// WindowFramework also provides access to the GraphicsWindow.</span>
+<span class="c1">// for example, to set the background color to black, you can do this:</span>
+<span class="n">window</span><span class="o">-&gt;</span><span class="n">get_graphics_window</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">set_clear_color</span><span class="p">(</span><span class="n">Colorf</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">));</span>
+</pre></div>
+</div>
+<p>It&#8217;s very useful to
+study the file panda/src/framework/windowFramework.h, since you will need to
+use it often.</p>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="texturing-in-c++.html" class="btn btn-neutral float-right" title="Texturing in C++" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="how-to-compile-a-c++-panda3d-program/how-to-compile-a-c++-panda3d-program-on-mac-os-x.html" class="btn btn-neutral" title="How to compile a C++ Panda3D program on Mac OS X" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Panda3D.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.10.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

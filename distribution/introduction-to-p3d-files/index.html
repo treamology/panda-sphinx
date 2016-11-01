@@ -1,0 +1,261 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Introduction to p3d files &mdash; Panda3D Manual</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Panda3D Manual" href="../../index.html"/>
+        <link rel="up" title="Distributing Panda3D Applications" href="../index.html"/>
+        <link rel="next" title="Using packp3d" href="using-packp3d.html"/>
+        <link rel="prev" title="Distributing Panda3D Applications" href="../index.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Panda3D
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.10
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../intro/index.html">Introduction to Panda3D</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../programming-with-panda3d/index.html">Programming with Panda3D</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Distributing Panda3D Applications</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Introduction to p3d files</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="using-packp3d.html">Using packp3d</a></li>
+<li class="toctree-l3"><a class="reference internal" href="referencing-packages.html">Referencing packages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="running-p3d-files.html">Running p3d files</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../distributing-via-the-web/index.html">Distributing via the web</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../p3d-file-config-settings.html">P3D file config settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../distributing-as-a-self-contained-installer.html">Distributing as a self-contained installer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../the-runtime-panda3d-directory.html">The runtime Panda3D directory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../the-package-system/index.html">The package system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../advanced-scripting-techniques/index.html">Advanced scripting techniques</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../samples/index.html">Sample Programs in the Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../debugging/index.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../performance-tuning/index.html">Performance Tuning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../using-c++/index.html">Using C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/index.html">Panda3D Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../building-from-source.html">Building Panda3D from Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cheat-sheets.html">Cheat Sheets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started-on-osx.html">Getting Started on OSX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../more-panda3d-resources.html">More Panda3D Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../thirdparty-licenses.html">Third-party dependencies and license info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../the-irc-channel.html">The IRC Channel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">FAQ</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Panda3D</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Distributing Panda3D Applications</a> &raquo;</li>
+      
+    <li>Introduction to p3d files</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/distribution/introduction-to-p3d-files/index.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="introduction-to-p3d-files">
+<span id="id1"></span><h1>Introduction to p3d files<a class="headerlink" href="#introduction-to-p3d-files" title="Permalink to this headline">¶</a></h1>
+<p>The p3d file is the heart of Panda&#8217;s packaging system. When you package your
+application for distribution, you will pack it into a p3d file. This file
+contains everything you need to run your application: Python code, models,
+textures, prc files, even compiled dll&#8217;s or pyd&#8217;s if part of your application
+is written in C++.</p>
+<p>The p3d file is really a Panda multifile object; you can inspect its contents
+or add and remove components with the multify command, as with any multifile.
+However, a p3d file is a special kind of multifile that is specifically
+intended to contain a Panda application. The file extension &#8221;.p3d&#8221; is used to
+differentiate it from a generic multifile (which may contain anything
+whatsoever).</p>
+<p>Although it is possible to build a p3d file up by hand using the multify
+command, it&#8217;s usually easier to use one of the packaging tools provided, such
+as packp3d or ppackage, to create a new p3d file from an application on disk.</p>
+<p>The p3d file indicates the particular version of Panda3D that should be used
+to run your application. This allows you to write an application using a
+particular version of Panda3D, without being forced to update it when a new
+version of Panda3D is released.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="using-packp3d.html">Using packp3d</a></li>
+<li class="toctree-l1"><a class="reference internal" href="referencing-packages.html">Referencing packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="running-p3d-files.html">Running p3d files</a></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="using-packp3d.html" class="btn btn-neutral float-right" title="Using packp3d" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../index.html" class="btn btn-neutral" title="Distributing Panda3D Applications" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Panda3D.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.10.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

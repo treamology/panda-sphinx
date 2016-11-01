@@ -1,0 +1,50 @@
+.. _text-and-image-rendering:
+
+Text and Image Rendering
+========================
+
+Panda includes support for easily rendering dynamic text onscreen or in the
+3-d world. It supports full use of the Unicode character set, so it can easily
+render international languages (including Asian languages, when used with an
+appropriate font).
+
+There are three interfaces for creating text, depending on your requirements:
+the :ref:` <text-node>`, which is the fundamental text-rendering class and
+serves as the implementation for the other two, :ref:` <onscreentext>`, a
+simple high-level wrapper around TextNode, :ref:` <onscreenimage>`, the same
+as :ref:` <onscreentext>` but now for images, and :ref:` <directlabel>`, which
+integrates with the rest of the :ref:` <directgui>` system.
+
+International character sets
+----------------------------
+
+
+By default, Panda assumes the text strings you give it are formatted in the
+iso8859 character set, also called latin-1 on Linux. This is a standard
+character set that uses one byte per character and supports most Western
+European languages, and is likely to be the character set you're using anyway.
+If you have need for more characters than are supported by iso8859, you must
+use a more advanced encoding system like utf-8 (which may use one, two, or
+three bytes per character). To use utf-8, put the following in your Config.prc
+file:
+
+::
+    
+    text-encoding utf8
+
+
+
+And then make sure the strings you pass as text strings are encoded using the
+"utf-8" encoding method, for instance by saving your Python source files in
+"utf-8" (this can actually be tricky to do properly in Windows; we recommend
+you use a non-Microsoft editor such as Emacs or Eclipse to do this).
+
+
+.. toctree::
+   :maxdepth: 2
+
+   text-fonts
+   text-node
+   onscreentext
+   onscreenimage
+   embedded-text-properties

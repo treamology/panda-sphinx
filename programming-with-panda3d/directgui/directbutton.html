@@ -1,0 +1,417 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>DirectButton &mdash; Panda3D Manual</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Panda3D Manual" href="../../index.html"/>
+        <link rel="up" title="DirectGUI" href="index.html"/>
+        <link rel="next" title="DirectCheckButton" href="directcheckbutton.html"/>
+        <link rel="prev" title="DirectGUI" href="index.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Panda3D
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.10
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../intro/index.html">Introduction to Panda3D</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Programming with Panda3D</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../the-scene-graph/index.html">The Scene Graph</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../the-configuration-file/index.html">The Configuration File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../models-and-actors/index.html">Models and Actors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-attributes/index.html">Render Attributes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../texturing/index.html">Texturing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shaders/index.html">Shaders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../camera-control/index.html">Camera Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sound/index.html">Sound</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intervals/index.html">Intervals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks-and-event-handling/index.html">Tasks and Event Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../text-and-image-rendering/index.html">Text and Image Rendering</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">DirectGUI</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">DirectButton</a></li>
+<li class="toctree-l3"><a class="reference internal" href="directcheckbutton.html">DirectCheckButton</a></li>
+<li class="toctree-l3"><a class="reference internal" href="directradiobutton.html">DirectRadioButton</a></li>
+<li class="toctree-l3"><a class="reference internal" href="directdialog.html">DirectDialog</a></li>
+<li class="toctree-l3"><a class="reference internal" href="directentry.html">DirectEntry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="directframe.html">DirectFrame</a></li>
+<li class="toctree-l3"><a class="reference internal" href="directlabel.html">DirectLabel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="directoptionmenu.html">DirectOptionMenu</a></li>
+<li class="toctree-l3"><a class="reference internal" href="directscrolledlist.html">DirectScrolledList</a></li>
+<li class="toctree-l3"><a class="reference internal" href="directwaitbar.html">DirectWaitBar</a></li>
+<li class="toctree-l3"><a class="reference internal" href="directslider.html">DirectSlider</a></li>
+<li class="toctree-l3"><a class="reference internal" href="directscrollbar.html">DirectScrollBar</a></li>
+<li class="toctree-l3"><a class="reference internal" href="directscrolledframe.html">DirectScrolledFrame</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../render-effects/index.html">Render Effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../finite-state-machines/index.html">Finite State Machines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../terrain/index.html">Terrain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internal-structures/index.html">Advanced operations with Panda3D&#8217;s internal structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-to-texture-and-image-postprocessing/index.html">Render-to-Texture and Image Postprocessing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../panda3d-rendering-process/index.html">Panda3D Rendering Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../panda3d-utility-functions.html">Panda3D Utility Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../particle-effects/index.html">Particle Effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../collision-detection/index.html">Collision Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../garbage-collection/index.html">Garbage Collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hardware-support/index.html">Hardware support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../math-engine/index.html">Math Engine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../motion-paths.html">Motion Paths</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../timing/index.html">Timing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../networking/index.html">Networking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../multifiles/index.html">Multifiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../showbase.html">ShowBase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../file-reading.html">File Reading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../threading.html">Threading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../subclassing.html">Subclassing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../table-of-features-supported-per-graphic-renderer.html">Table of features supported per graphic renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pandai/index.html">Artificial Intelligence (PANDAI)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../distribution/index.html">Distributing Panda3D Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../samples/index.html">Sample Programs in the Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../debugging/index.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../performance-tuning/index.html">Performance Tuning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../using-c++/index.html">Using C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/index.html">Panda3D Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../building-from-source.html">Building Panda3D from Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cheat-sheets.html">Cheat Sheets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started-on-osx.html">Getting Started on OSX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../more-panda3d-resources.html">More Panda3D Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../thirdparty-licenses.html">Third-party dependencies and license info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../the-irc-channel.html">The IRC Channel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">FAQ</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Panda3D</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Programming with Panda3D</a> &raquo;</li>
+      
+          <li><a href="index.html">DirectGUI</a> &raquo;</li>
+      
+    <li>DirectButton</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/programming-with-panda3d/directgui/directbutton.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="directbutton">
+<span id="id1"></span><h1>DirectButton<a class="headerlink" href="#directbutton" title="Permalink to this headline">¶</a></h1>
+<p>DirectButton is a DirectGui object that will respond to the mouse and can
+execute an arbitrary function when the user clicks on the object. This is
+actually implemented by taking advantage of the &#8220;state&#8221; system supported by
+every DirectGui object.</p>
+<p>Each DirectGui object has a predefined number of available &#8220;states&#8221;, and a
+current state. This concept of &#8220;state&#8221; is completely unrelated to Panda&#8217;s
+:ref:` &lt;finite-state-machines&gt;` object. For a DirectGui object, the current
+state is simply as an integer number, which is used to select one of a list of
+different NodePaths that represent the way the DirectGui object appears in
+each state. Each DirectGui object can therefore have a completely different
+appearance in each of its states.</p>
+<p>Most types of DirectGui objects do not use this state system, and only have
+one state, which is state 0. The DirectButton is presently the only predefined
+object that has more than one state defined by default. In fact, DirectButton
+defines four states, numbered 0 through 3, which are called ready, press,
+rollover, and disabled, in that order. Furthermore, the DirectButton
+automatically manages its current state into one of these states, according to
+the user&#8217;s interaction with the mouse.</p>
+<p>With a DirectButton, then, you have the flexibility to define four completely
+different NodePaths, each of which represents the way the button appears in a
+different state. Usually, you want to define these such that the ready state
+is the way the button looks most of the time, the press state looks like the
+button has been depressed, the rollover state is lit up, and the disabled
+state is grayed out. In fact, the DirectButton interfaces will set these
+NodePaths up for you, if you use the simple forms of the constructor (for
+instance, if you specify just a single text string to the
+<code class="docutils literal"><span class="pre">text</span></code> parameter).</p>
+<p>Sometimes you want to have explicit control over the various states, for
+instance to display a different text string in each state. To do this, you can
+pass a 4-tuple to the text parameter (or to many of the other parameters, such
+as relief or geom), where each element of the tuple is the parameter value for
+the corresponding state, like this:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="n">DirectButton</span><span class="p">(</span><span class="n">text</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;OK&quot;</span><span class="p">,</span> <span class="s2">&quot;click!&quot;</span><span class="p">,</span> <span class="s2">&quot;rolling over&quot;</span><span class="p">,</span> <span class="s2">&quot;disabled&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>The above example would create a DirectButton whose label reads &#8220;OK&#8221; when it
+is not being touched, but it will change to a completely different label as
+the mouse rolls over it and clicks it.</p>
+<p>Another common example is a button you have completely customized by painting
+four different texture maps to represent the button in each state. Normally,
+you would convert these texture maps into an egg file using
+<code class="docutils literal"><span class="pre">egg-texture-cards</span></code> like this:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>egg-texture-cards -o button_maps.egg -p 240,240 button_ready.png button_click.png button_rollover.png button_disabled.png
+</pre></div>
+</div>
+<p>And then you would load up the that egg file in Panda and apply it to the four
+different states like this:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">maps</span> <span class="o">=</span> <span class="n">loader</span><span class="o">.</span><span class="n">loadModel</span><span class="p">(</span><span class="s1">&#39;button_maps&#39;</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">DirectButton</span><span class="p">(</span><span class="n">geom</span> <span class="o">=</span> <span class="p">(</span><span class="n">maps</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;**/button_ready&#39;</span><span class="p">),</span>
+                         <span class="n">maps</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;**/button_click&#39;</span><span class="p">),</span>
+                         <span class="n">maps</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;**/button_rollover&#39;</span><span class="p">),</span>
+                         <span class="n">maps</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;**/button_disabled&#39;</span><span class="p">)))</span>
+</pre></div>
+</div>
+<p>You can also access one of the state-specific NodePaths after the button has
+been created with the interface
+<code class="docutils literal"><span class="pre">myButton.stateNodePath[stateNumber]</span></code>. Normally, however, you
+should not need to access these NodePaths directly.</p>
+<p>The following are the DirectGui keywords that are specific to a DirectButton.
+(These are in addition to the generic DirectGui keywords described on the
+:ref:` &lt;directgui&gt;`.)</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="17%" />
+<col width="54%" />
+<col width="29%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Keyword</th>
+<th class="head">Definition</th>
+<th class="head">Value</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>command</td>
+<td>Command the button performs when clicked</td>
+<td>Function</td>
+</tr>
+<tr class="row-odd"><td>extraArgs</td>
+<td>Extra arguments to the function specified in command</td>
+<td>[Extra Arguments]</td>
+</tr>
+<tr class="row-even"><td>commandButtons</td>
+<td>Which mouse button must be clicked to do the command</td>
+<td>LMB, MMB, or RMB</td>
+</tr>
+<tr class="row-odd"><td>rolloverSound</td>
+<td>The sound made when the cursor rolls over the button</td>
+<td>AudioSound instance</td>
+</tr>
+<tr class="row-even"><td>clickSound</td>
+<td>The sound made when the cursor clicks on the button</td>
+<td>AudioSound instance</td>
+</tr>
+<tr class="row-odd"><td>pressEffect</td>
+<td>Whether or not the button sinks in when clicked</td>
+<td>&lt;0 or 1&gt;</td>
+</tr>
+<tr class="row-even"><td>state</td>
+<td>Whether or not the button is disabled</td>
+<td>DGG.NORMAL or DGG.DISABLED</td>
+</tr>
+</tbody>
+</table>
+<p>Like any other :ref:` &lt;directgui&gt;` widget, you can change any of the
+properties by treating the element as a dictionary:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">button</span><span class="p">[</span><span class="s2">&quot;state&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">DGG</span><span class="o">.</span><span class="n">DISABLED</span>
+</pre></div>
+</div>
+<div class="section" id="example">
+<h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">direct.directbase.DirectStart</span>
+<span class="kn">from</span> <span class="nn">direct.gui.OnscreenText</span> <span class="kn">import</span> <span class="n">OnscreenText</span>
+<span class="kn">from</span> <span class="nn">direct.gui.DirectGui</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="kn">from</span> <span class="nn">panda3d.core</span> <span class="kn">import</span> <span class="n">TextNode</span>
+
+<span class="c1"># Add some text</span>
+<span class="n">bk_text</span> <span class="o">=</span> <span class="s2">&quot;This is my Demo&quot;</span>
+<span class="n">textObject</span> <span class="o">=</span> <span class="n">OnscreenText</span><span class="p">(</span><span class="n">text</span> <span class="o">=</span> <span class="n">bk_text</span><span class="p">,</span> <span class="n">pos</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.95</span><span class="p">,</span><span class="o">-</span><span class="mf">0.95</span><span class="p">),</span>
+<span class="n">scale</span> <span class="o">=</span> <span class="mf">0.07</span><span class="p">,</span><span class="n">fg</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span><span class="n">align</span><span class="o">=</span><span class="n">TextNode</span><span class="o">.</span><span class="n">ACenter</span><span class="p">,</span><span class="n">mayChange</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Callback function to set  text</span>
+<span class="k">def</span> <span class="nf">setText</span><span class="p">():</span>
+        <span class="n">bk_text</span> <span class="o">=</span> <span class="s2">&quot;Button Clicked&quot;</span>
+        <span class="n">textObject</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="n">bk_text</span><span class="p">)</span>
+
+<span class="c1"># Add button</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">DirectButton</span><span class="p">(</span><span class="n">text</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;OK&quot;</span><span class="p">,</span> <span class="s2">&quot;click!&quot;</span><span class="p">,</span> <span class="s2">&quot;rolling over&quot;</span><span class="p">,</span> <span class="s2">&quot;disabled&quot;</span><span class="p">),</span> <span class="n">scale</span><span class="o">=.</span><span class="mo">05</span><span class="p">,</span> <span class="n">command</span><span class="o">=</span><span class="n">setText</span><span class="p">)</span>
+
+<span class="c1"># Run the tutorial</span>
+<span class="n">run</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Note that you will not be able to set the text unless the mayChange flag is 1.
+This is an optimization, which is easily missed by newcomers.</p>
+<p>When you are positioning your button, keep in mind that the button&#8217;s vertical
+center is located at the base of the text. For example, if you had a button
+with the word &#8220;Apple&#8221;, the vertical center would be aligned with the base of
+the letter &#8220;A&#8221;.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="directcheckbutton.html" class="btn btn-neutral float-right" title="DirectCheckButton" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="DirectGUI" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Panda3D.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.10.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

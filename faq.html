@@ -1,0 +1,555 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>FAQ &mdash; Panda3D Manual</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="Panda3D Manual" href="index.html"/>
+        <link rel="prev" title="The IRC Channel" href="the-irc-channel.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Panda3D
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.10
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro/index.html">Introduction to Panda3D</a></li>
+<li class="toctree-l1"><a class="reference internal" href="programming-with-panda3d/index.html">Programming with Panda3D</a></li>
+<li class="toctree-l1"><a class="reference internal" href="distribution/index.html">Distributing Panda3D Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="samples/index.html">Sample Programs in the Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="debugging/index.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="performance-tuning/index.html">Performance Tuning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="using-c++/index.html">Using C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools/index.html">Panda3D Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="building-from-source.html">Building Panda3D from Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cheat-sheets.html">Cheat Sheets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting-started-on-osx.html">Getting Started on OSX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="more-panda3d-resources.html">More Panda3D Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="thirdparty-licenses.html">Third-party dependencies and license info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="the-irc-channel.html">The IRC Channel</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">FAQ</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Panda3D</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>FAQ</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/faq.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="faq">
+<span id="id1"></span><h1>FAQ<a class="headerlink" href="#faq" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="what-are-the-pz-files-i-am-seeing-in-the-samples">
+<h2>What are the .pz files I am seeing in the samples?<a class="headerlink" href="#what-are-the-pz-files-i-am-seeing-in-the-samples" title="Permalink to this headline">¶</a></h2>
+<p>Those are files that are zipped with pzip. Along with punzip, these
+command-line tools handle compression of files in a format that Panda3D can
+read; pzip for compressing and punzip for decompressing. Usage:</p>
+<p><a href="#id2"><span class="problematic" id="id3">``</span></a></p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>pzip file <span class="o">[</span>file2 file3 ...<span class="o">]</span>
+pzip -o dest_file file
+</pre></div>
+</div>
+<p><a href="#id4"><span class="problematic" id="id5">``</span></a></p>
+<p>Usage:</p>
+<p><a href="#id6"><span class="problematic" id="id7">``</span></a></p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>punzip file.pz <span class="o">[</span>file2.pz file3.pz ...<span class="o">]</span>
+punzip -o dest_file file.pz
+</pre></div>
+</div>
+<p><a href="#id8"><span class="problematic" id="id9">``</span></a></p>
+</div>
+<div class="section" id="what-are-the-pyc-files-that-are-created-after-i-run-the-python-interpreter">
+<h2>What are the .pyc files that are created after I run the Python interpreter?<a class="headerlink" href="#what-are-the-pyc-files-that-are-created-after-i-run-the-python-interpreter" title="Permalink to this headline">¶</a></h2>
+<p>.pyc files are compiled versions of Python sources. Similarly, .pyo files are
+both compiled and &#8220;optimized&#8221;. As an important speed-up of the start-up time
+for short programs that use a lot of standard modules, if a file called
+&#8220;spam.pyc&#8221; exists in the directory where &#8220;spam.py&#8221; is found, this is assumed
+to contain an already-``byte-compiled&#8217;&#8217; version of the module spam. The
+modification time of the version of &#8220;spam.py&#8221; used to create &#8220;spam.pyc&#8221; is
+recorded in &#8220;spam.pyc&#8221;, and the file is ignored if these don&#8217;t match.
+<a class="reference external" href="http://www.python.org/doc/1.5.1p1/tut/node43.html">http://www.python.org/doc/1.5.1p1/tut/node43.html</a></p>
+<p>Optimized bytecode (.pyo) is not generated by default, but you may tell the
+interpreter to generate them instead of the regular .pyc. When &#8216;-O&#8217; is added
+to the command, all assert statements are removed before compiling. When &#8216;-OO&#8217;
+is added instead of &#8216;-O&#8217;, all __doc__ strings are removed as well before
+compiling. Note that these optimizations currently do not significantly
+improve performance. The following illustrates how to do this (replace python
+with ppython on Windows):</p>
+<p><a href="#id10"><span class="problematic" id="id11">``</span></a></p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>python -O file.py
+python -OO file.py
+</pre></div>
+</div>
+<p><a href="#id12"><span class="problematic" id="id13">``</span></a></p>
+<p>Note: if you wish to run the Python interpreter without generating compiled
+bytecode files at all, then add &#8216;-B&#8217; to the command. The following illustrates
+how to do this (replace python with ppython on Windows):</p>
+<p><a href="#id14"><span class="problematic" id="id15">``</span></a></p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>python -B file.py
+</pre></div>
+</div>
+<p><a href="#id16"><span class="problematic" id="id17">``</span></a></p>
+</div>
+<div class="section" id="why-are-my-animations-intervals-sometimes-skipped-when-i-run-something-heavy-on-the-cpu-before-playing-them">
+<h2>Why are my animations/intervals sometimes skipped when I run something heavy on the CPU before playing them?<a class="headerlink" href="#why-are-my-animations-intervals-sometimes-skipped-when-i-run-something-heavy-on-the-cpu-before-playing-them" title="Permalink to this headline">¶</a></h2>
+<p>If you&#8217;ll run this example code you might not see the position interval.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">panda3d.core</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">direct.directbase.DirectStart</span>
+<span class="kn">from</span> <span class="nn">direct.interval.IntervalGlobal</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">env</span> <span class="o">=</span> <span class="n">loader</span><span class="o">.</span><span class="n">loadModel</span><span class="p">(</span><span class="s1">&#39;environment&#39;</span><span class="p">)</span>
+<span class="n">env</span><span class="o">.</span><span class="n">reparentTo</span><span class="p">(</span><span class="n">render</span><span class="p">)</span>
+<span class="n">env</span><span class="o">.</span><span class="n">setZ</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">func</span><span class="p">():</span>
+   <span class="c1"># something heavy on the CPU</span>
+   <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">9999999</span><span class="p">):</span>
+      <span class="k">pass</span>
+   <span class="c1"># run the interval after</span>
+   <span class="n">posival</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+
+<span class="n">posival</span> <span class="o">=</span> <span class="n">LerpPosInterval</span><span class="p">(</span><span class="n">base</span><span class="o">.</span><span class="n">cam</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">base</span><span class="o">.</span><span class="n">cam</span><span class="o">.</span><span class="n">getY</span><span class="p">()</span><span class="o">-</span><span class="mi">12</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="n">base</span><span class="o">.</span><span class="n">cam</span><span class="o">.</span><span class="n">getPos</span><span class="p">())</span>
+
+<span class="n">func</span><span class="p">()</span>
+
+<span class="n">run</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>But you will see the
+interval being played if you comment out the for-loop. What is going on? It
+looks like Panda3d had skipped the interval, even though it was after the
+loop, as if Panda3d had &#8220;lost focus&#8221; when running the loop and even after it
+had finished it needed some time to start running normally again.</p>
+<p>The problem is that everything that happens within one frame is deemed to
+happen at the same time. This is the &#8220;frame time&#8221; of the clock object&#8211;it is
+the time as of the start of the frame, and everything you do within that frame
+is deemed to have happened at the &#8220;frame time&#8221;.</p>
+<p>This is usually a good thing, because it makes the simulation internally
+consistent. Frames are atomic. If you start five animations in a row with five
+different calls to actor.start(), you want them all to have &#8220;started&#8221; at the
+exact same time, not within a few milliseconds of each other. If you start an
+interval, you also want it to have started at the same time as every other
+atomic operation in that frame.</p>
+<p>The problem is when you have a single really long frame. In this case,
+anything you do at the end of this long frame is considered to have actually
+happened at the beginning of the frame, and when the next frame rolls around
+(after some considerable time has elapsed from the previous frame), Panda has
+to skip over all of the intervening time to catch up, and you miss seeing some
+part or all of your interval or animation.</p>
+<p>There are several easy solutions. One is to munge the clock while you&#8217;re
+computing your slow frame so that it doesn&#8217;t actually allow time to advance
+during this period, by putting this line after your loop, etc.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">globalClock</span><span class="o">.</span><span class="n">setFrameTime</span><span class="p">(</span><span class="n">globalClock</span><span class="o">.</span><span class="n">getRealTime</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>This simply resets the
+&#8220;frame time&#8221; to whatever the current real time is towards the end of your long
+frame. This will break the atomic-frame rule for (only) that one frame, but in
+this case that&#8217;s what you want to happen.</p>
+<p>Another approach, that doesn&#8217;t involve explicitly munging the clock, would be
+simply to wait to start the interval until the next frame, for instance with a
+doMethodLater().</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">taskMgr</span><span class="o">.</span><span class="n">doMethodLater</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">task</span><span class="p">,</span> <span class="n">posival</span> <span class="o">=</span> <span class="n">posival</span><span class="p">:</span> <span class="n">posival</span><span class="o">.</span><span class="n">start</span><span class="p">(),</span> <span class="s1">&#39;startInterval&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="i-have-a-bunch-of-maya-animations-of-one-model-in-different-mb-files-i-used-maya2egg-to-port-them-into-panda-but-only-one-of-the-animations-work">
+<h2>I have a bunch of Maya Animations of one model in different mb files. I used maya2egg to port them into panda, but only one of the animations work.<a class="headerlink" href="#i-have-a-bunch-of-maya-animations-of-one-model-in-different-mb-files-i-used-maya2egg-to-port-them-into-panda-but-only-one-of-the-animations-work" title="Permalink to this headline">¶</a></h2>
+<p>The key is to use the -cn &lt;character&#8217;s name&gt; flag in maya2egg for every
+file. This ensures that the files work together. Let&#8217;s say you are making an
+animated dog. You have the following animations:</p>
+<div class="line-block">
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&nbsp;&nbsp;dog-walk.mb</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&nbsp;&nbsp;dog-sit.mb</span></code></div>
+<div class="line"><code class="docutils literal"><span class="pre">&nbsp;&nbsp;&nbsp;dog-run.mb</span></code></div>
+</div>
+<p>To convert these into panda, you would call</p>
+<p><a href="#id18"><span class="problematic" id="id19">``</span></a></p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>maya2egg6 dog-walk.mb -a model -cn dog -o dog-model.egg
+</pre></div>
+</div>
+<p><a href="#id20"><span class="problematic" id="id21">``</span></a></p>
+<p>Note, we can grab the model from any of the animations, as long as they are
+all using the exact same rig:</p>
+<p><a href="#id22"><span class="problematic" id="id23">``</span></a></p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>maya2egg6 dog-walk.mb -a chan -cn dog -o dog-walk.egg
+maya2egg6 dog-sit.mb -a chan -cn dog -o dog-sit.egg
+maya2egg6 dog-run.mb -a chan -cn dog -o dog-run.egg
+</pre></div>
+</div>
+<p><a href="#id24"><span class="problematic" id="id25">``</span></a></p>
+</div>
+<div class="section" id="i-m-using-the-lookat-method-on-a-nodepath-to-point-it-at-another-object-it-works-fine-until-i-point-upwards-and-then-it-starts-to-spin-my-object-around-randomly">
+<h2>I&#8217;m using the <code class="docutils literal"><span class="pre">lookAt()</span></code> method on a NodePath to point it at another object. It works fine until I point upwards, and then it starts to spin my object around randomly<a class="headerlink" href="#i-m-using-the-lookat-method-on-a-nodepath-to-point-it-at-another-object-it-works-fine-until-i-point-upwards-and-then-it-starts-to-spin-my-object-around-randomly" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal"><span class="pre">lookAt()</span></code> works as long as you
+aren&#8217;t telling it to look in the direction of its up vector. The up vector can
+be specified as the second argument of
+<code class="docutils literal"><span class="pre">lookAt()</span></code>.</p>
+<p><a href="#id26"><span class="problematic" id="id27">``</span></a></p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">lookAt</span><span class="p">(</span><span class="nb">object</span><span class="p">,</span><span class="n">Vec3</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+<p><a href="#id28"><span class="problematic" id="id29">``</span></a></p>
+</div>
+<div class="section" id="i-m-building-a-3d-game-and-i-have-a-huge-world-when-my-world-starts-up-the-program-hangs-for-a-few-seconds-the-first-time-i-look-around-is-there-any-way-to-avoid-this">
+<h2>I&#8217;m building a 3D game, and I have a huge world. When my world starts up, the program hangs for a few seconds the first time I look around. Is there any way to avoid this?<a class="headerlink" href="#i-m-building-a-3d-game-and-i-have-a-huge-world-when-my-world-starts-up-the-program-hangs-for-a-few-seconds-the-first-time-i-look-around-is-there-any-way-to-avoid-this" title="Permalink to this headline">¶</a></h2>
+<p>It can take a while to prepare objects to be rendered.</p>
+<p>Ideally, you don&#8217;t want this to happen the first time you see an object. You
+can offload the wait time to the beginning by calling:</p>
+<p><a href="#id30"><span class="problematic" id="id31">``</span></a></p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># self.myWorld is a NodePath that contains a ton of objects</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">myWorld</span><span class="o">.</span><span class="n">prepareScene</span><span class="p">(</span><span class="n">base</span><span class="o">.</span><span class="n">win</span><span class="o">.</span><span class="n">getGsg</span><span class="p">())</span>
+</pre></div>
+</div>
+<p><a href="#id32"><span class="problematic" id="id33">``</span></a></p>
+<p>This will walk through the scene graph, starting at
+<code class="docutils literal"><span class="pre">self.myWorld</span></code>, and prepare each
+object for rendering.</p>
+</div>
+<div class="section" id="is-there-a-way-to-hide-the-mouse-pointer-so-that-it-doesn-t-show-up-on-my-screen">
+<h2>Is there a way to hide the mouse pointer so that it doesn&#8217;t show up on my screen?<a class="headerlink" href="#is-there-a-way-to-hide-the-mouse-pointer-so-that-it-doesn-t-show-up-on-my-screen" title="Permalink to this headline">¶</a></h2>
+<p>You can change to properties of the Panda3D window so that it doesn&#8217;t show the
+cursor.</p>
+<p><a href="#id34"><span class="problematic" id="id35">``</span></a></p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">props</span> <span class="o">=</span> <span class="n">WindowProperties</span><span class="p">()</span>
+<span class="n">props</span><span class="o">.</span><span class="n">setCursorHidden</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">base</span><span class="o">.</span><span class="n">win</span><span class="o">.</span><span class="n">requestProperties</span><span class="p">(</span><span class="n">props</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><a href="#id36"><span class="problematic" id="id37">``</span></a></p>
+</div>
+<div class="section" id="if-a-model-has-an-animation-then-is-that-animation-necessarily-represented-by-an-additional-egg-file">
+<h2>If a model has an animation, then is that animation necessarily represented by an additional .egg file?<a class="headerlink" href="#if-a-model-has-an-animation-then-is-that-animation-necessarily-represented-by-an-additional-egg-file" title="Permalink to this headline">¶</a></h2>
+<p>No. A .egg file can either be just geometry, just an animation or a
+combination of the two. It&#8217;s often easiest, however, to create a separate egg
+for every animation and an egg that contains just the model/skeleton
+information.</p>
+</div>
+<div class="section" id="i-have-a-model-with-an-animation-when-i-try-to-play-the-animation-i-get-a-keyerror-why">
+<h2>I have a model with an animation. When I try to play the animation I get a KeyError. Why?<a class="headerlink" href="#i-have-a-model-with-an-animation-when-i-try-to-play-the-animation-i-get-a-keyerror-why" title="Permalink to this headline">¶</a></h2>
+<p>The exact error is this:</p>
+<p><a href="#id38"><span class="problematic" id="id39">``</span></a></p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>KeyError: lodRoot
+display: Closing wglGraphicsWindow
+</pre></div>
+</div>
+<p><a href="#id40"><span class="problematic" id="id41">``</span></a></p>
+<p>This often happens when you are trying to load animations onto a model that
+wasn&#8217;t exported to have animations. There are two pieces to objects that have
+animations; their geometry and their skeleton. The geometry is what you see
+when you load a model, the skeleton is what controls the geometry in an
+animation. If only the geometry was used to make the egg file, you will have
+problems when you try to play animations. Look at the manual for more details
+about exporting models as eggs.</p>
+</div>
+<div class="section" id="i-called-settexture-tex-png-and-it-didn-t-change-or-send-an-error-why">
+<h2>I called <code class="docutils literal"><span class="pre">setTexture('tex.png')</span></code> and it didn&#8217;t change or send an error. Why?<a class="headerlink" href="#i-called-settexture-tex-png-and-it-didn-t-change-or-send-an-error-why" title="Permalink to this headline">¶</a></h2>
+<p>To override an existing texture, you need to specify a priority. The
+<code class="docutils literal"><span class="pre">setTexture()</span></code> call includes an
+optional priority parameter, and if the priority is less than 1 the texture
+will not change.</p>
+<p><a href="#id42"><span class="problematic" id="id43">``</span></a></p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">setTexture</span><span class="p">(</span><span class="s1">&#39;tex.png&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><a href="#id44"><span class="problematic" id="id45">``</span></a></p>
+</div>
+<div class="section" id="why-do-i-get-sometimes-get-an-assertionerror-when-instantiating-sequence">
+<h2>Why do I get sometimes get an AssertionError when instantiating Sequence?<a class="headerlink" href="#why-do-i-get-sometimes-get-an-assertionerror-when-instantiating-sequence" title="Permalink to this headline">¶</a></h2>
+<p>Specifically, I get the following error:</p>
+<p><a href="#id46"><span class="problematic" id="id47">``</span></a></p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>assert<span class="o">(</span>self.validateComponents<span class="o">(</span>self.ivals<span class="o">))</span>
+AssertionError
+</pre></div>
+</div>
+<p><a href="#id48"><span class="problematic" id="id49">``</span></a></p>
+<p>It happens at this line of code:</p>
+<p><a href="#id50"><span class="problematic" id="id51">``</span></a></p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">move</span> <span class="o">=</span> <span class="n">Sequence</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">setX</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+</pre></div>
+</div>
+<p><a href="#id52"><span class="problematic" id="id53">``</span></a></p>
+<p>Sequences and Parallels are a way to combine intervals. You can&#8217;t put anything
+inside them that isn&#8217;t an interval. The following would have the same effect
+and work:</p>
+<p><a href="#id54"><span class="problematic" id="id55">``</span></a></p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">move</span> <span class="o">=</span> <span class="n">Sequence</span><span class="p">(</span><span class="n">Func</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">setX</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+</pre></div>
+</div>
+<p><a href="#id56"><span class="problematic" id="id57">``</span></a></p>
+<p>This will start the execution of the function, but not wait for it to finish.</p>
+</div>
+<div class="section" id="does-panda3d-use-degrees-or-radians">
+<h2>Does Panda3D use degrees or radians?<a class="headerlink" href="#does-panda3d-use-degrees-or-radians" title="Permalink to this headline">¶</a></h2>
+<p>Degrees, but see also the
+<code class="docutils literal"><span class="pre">deg2Rad()</span></code> and
+<code class="docutils literal"><span class="pre">rad2Deg()</span></code> functions. But note
+that functions like <code class="docutils literal"><span class="pre">math.sin()</span></code>,
+<code class="docutils literal"><span class="pre">math.cos()</span></code>,
+<code class="docutils literal"><span class="pre">math.tan()</span></code> are calculated in
+radians. Don&#8217;t forget to convert the values!</p>
+</div>
+<div class="section" id="why-do-all-my-flat-objects-look-weird-when-lit">
+<h2>Why do all my flat objects look weird when lit?<a class="headerlink" href="#why-do-all-my-flat-objects-look-weird-when-lit" title="Permalink to this headline">¶</a></h2>
+<p>Flats don&#8217;t often have a lot of vertices. Lighting is only calculated at the
+vertices, and then linearly interpolated between the vertices. If your
+vertices are very far apart, lighting can look very strange&#8211;for instance, a
+point light in the center of a large polygon might not show up at all. (The
+light is far from all four vertices, even though it&#8217;s very near the polygon&#8217;s
+center.)</p>
+<p>One solution is to create a model with a lot of polygons to pick up the
+lighting. It also helps to make a flat surface slightly curved to improve its
+appearance.</p>
+<p>Another approach might be to create an ambient light that only affects this
+object. See the manual for more detail about attaching lights to objects in
+your scene.</p>
+</div>
+<div class="section" id="to-smooth-my-animations-i-used-the-interpolate-frames-1-option-but-it-doesn-t-work-somehow-why">
+<h2>To smooth my animations, I used the &#8220;interpolate-frames 1&#8221; option, but it doesn&#8217;t work somehow. Why?<a class="headerlink" href="#to-smooth-my-animations-i-used-the-interpolate-frames-1-option-but-it-doesn-t-work-somehow-why" title="Permalink to this headline">¶</a></h2>
+<p>Interpolate-frames flag gets set in the PartBundle at the time it is first
+created, and then baked into the model cache. Thenceforth, later changes to
+the interpolate-frames variable mean nothing. If you changed
+interpolate-frames flag, you will also need to empty your modelcache folder.</p>
+<p>Actually, it is not recommended to use interpolate-frames; it is a global
+setting. It&#8217;s better to achieve the same effect via
+<code class="docutils literal"><span class="pre">actor.setBlend(frameBlend=True)</span></code>, which is a per-actor
+setting (and doesn&#8217;t get baked into the model cache).</p>
+</div>
+<div class="section" id="i-m-trying-to-redirect-the-output-of-some-commands-like-mynode-ls-to-a-file-but-the-usual-method-python-file-mynode-ls-doesn-t-work-what-s-the-alternative">
+<h2>I&#8217;m trying to redirect the output of some commands like <code class="docutils literal"><span class="pre">myNode.ls()</span></code> to a file, but the usual method <code class="docutils literal"><span class="pre">python</span> <span class="pre">&gt;&gt;</span> <span class="pre">file,</span> <span class="pre">myNode.ls()</span></code> doesn&#8217;t work. What&#8217;s the alternative?<a class="headerlink" href="#i-m-trying-to-redirect-the-output-of-some-commands-like-mynode-ls-to-a-file-but-the-usual-method-python-file-mynode-ls-doesn-t-work-what-s-the-alternative" title="Permalink to this headline">¶</a></h2>
+<p>There are several alternative approaches. One approach using StringStream is
+this:</p>
+<p><a href="#id58"><span class="problematic" id="id59">``</span></a></p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">strm</span> <span class="o">=</span> <span class="n">StringStream</span><span class="p">()</span>
+<span class="n">render</span><span class="o">.</span><span class="n">ls</span><span class="p">(</span><span class="n">strm</span><span class="p">)</span>
+<span class="nb">open</span><span class="p">(</span><span class="s1">&#39;out.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">strm</span><span class="o">.</span><span class="n">getData</span><span class="p">())</span>
+</pre></div>
+</div>
+<p><a href="#id60"><span class="problematic" id="id61">``</span></a></p>
+<p>The following is another approach using StringStream:</p>
+<p><a href="#id62"><span class="problematic" id="id63">``</span></a></p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">strm</span> <span class="o">=</span> <span class="n">StringStream</span><span class="p">()</span>
+<span class="n">cvMgr</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">strm</span><span class="p">)</span>
+<span class="nb">open</span><span class="p">(</span><span class="s1">&#39;out.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">strm</span><span class="o">.</span><span class="n">getData</span><span class="p">())</span>
+</pre></div>
+</div>
+<p><a href="#id64"><span class="problematic" id="id65">``</span></a></p>
+<p>If you don&#8217;t want to use a StringStream you can do this:</p>
+<p><a href="#id66"><span class="problematic" id="id67">``</span></a></p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">strm</span> <span class="o">=</span> <span class="n">MultiplexStream</span><span class="p">()</span>
+<span class="n">strm</span><span class="o">.</span><span class="n">addFile</span><span class="p">(</span><span class="n">Filename</span><span class="p">(</span><span class="s1">&#39;out.txt&#39;</span><span class="p">))</span>
+<span class="n">render</span><span class="o">.</span><span class="n">ls</span><span class="p">(</span><span class="n">strm</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><a href="#id68"><span class="problematic" id="id69">``</span></a></p>
+<p>There is also a way to specify the output file in the config file.</p>
+<p><a href="#id70"><span class="problematic" id="id71">``</span></a></p>
+<div class="highlight-text"><div class="highlight"><pre><span></span>notify-output out.txt
+</pre></div>
+</div>
+<p><a href="#id72"><span class="problematic" id="id73">``</span></a></p>
+</div>
+<div class="section" id="how-do-i-create-a-node-from-a-string-containing-a-egg-source">
+<h2>How do I create a node from a string containing a .egg source?<a class="headerlink" href="#how-do-i-create-a-node-from-a-string-containing-a-egg-source" title="Permalink to this headline">¶</a></h2>
+<p>Use the EggData class.</p>
+<p><a href="#id74"><span class="problematic" id="id75">``</span></a></p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">egg</span> <span class="o">=</span> <span class="n">EggData</span><span class="p">()</span>
+<span class="n">egg</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">StringStream</span><span class="p">(</span><span class="n">eggText</span><span class="p">))</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">NodePath</span><span class="p">(</span><span class="n">loadEggData</span><span class="p">(</span><span class="n">egg</span><span class="p">))</span>
+</pre></div>
+</div>
+<p><a href="#id76"><span class="problematic" id="id77">``</span></a></p>
+</div>
+<div class="section" id="how-can-i-know-which-letter-is-below-the-pointer-when-i-click-on-a-textnode">
+<h2>How can I know which letter is below the pointer when I click on a TextNode?<a class="headerlink" href="#how-can-i-know-which-letter-is-below-the-pointer-when-i-click-on-a-textnode" title="Permalink to this headline">¶</a></h2>
+<p>Use the TextAssembler class.</p>
+<p><a href="#id78"><span class="problematic" id="id79">``</span></a></p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">tn</span> <span class="o">=</span> <span class="n">TextNode</span><span class="p">(</span><span class="s1">&#39;tn&#39;</span><span class="p">)</span>
+<span class="n">tn</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="s1">&#39;abcdef</span><span class="se">\n</span><span class="s1">ghi&#39;</span><span class="p">)</span>
+<span class="n">ta</span> <span class="o">=</span> <span class="n">TextAssembler</span><span class="p">(</span><span class="n">tn</span><span class="p">)</span>
+<span class="n">ta</span><span class="o">.</span><span class="n">setWtext</span><span class="p">(</span><span class="n">tn</span><span class="o">.</span><span class="n">getWtext</span><span class="p">())</span>
+<span class="k">for</span> <span class="n">ri</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">ta</span><span class="o">.</span><span class="n">getNumRows</span><span class="p">()):</span>
+    <span class="k">for</span> <span class="n">ci</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">ta</span><span class="o">.</span><span class="n">getNumCols</span><span class="p">(</span><span class="n">ri</span><span class="p">)):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;ri = </span><span class="si">%s</span><span class="s2">, ci = </span><span class="si">%s</span><span class="s2">, char = </span><span class="si">%s</span><span class="s2">, pos = </span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span>
+              <span class="p">(</span><span class="n">ri</span><span class="p">,</span> <span class="n">ci</span><span class="p">,</span> <span class="nb">chr</span><span class="p">(</span><span class="n">ta</span><span class="o">.</span><span class="n">getCharacter</span><span class="p">(</span><span class="n">ri</span><span class="p">,</span> <span class="n">ci</span><span class="p">)),</span>
+                           <span class="n">ta</span><span class="o">.</span><span class="n">getXpos</span><span class="p">(</span><span class="n">ri</span><span class="p">,</span> <span class="n">ci</span><span class="p">),</span>
+                           <span class="n">ta</span><span class="o">.</span><span class="n">getYpos</span><span class="p">(</span><span class="n">ri</span><span class="p">,</span> <span class="n">ci</span><span class="p">)))</span>
+</pre></div>
+</div>
+<p><a href="#id80"><span class="problematic" id="id81">``</span></a></p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="the-irc-channel.html" class="btn btn-neutral" title="The IRC Channel" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Panda3D.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.10.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,420 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Multithreaded Render Pipeline &mdash; Panda3D Manual</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Panda3D Manual" href="../../index.html"/>
+        <link rel="up" title="Panda3D Rendering Process" href="index.html"/>
+        <link rel="next" title="Introducing Graphics Classes" href="introducing-graphics-classes.html"/>
+        <link rel="prev" title="Panda3D Rendering Process" href="index.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Panda3D
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.10
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../intro/index.html">Introduction to Panda3D</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Programming with Panda3D</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../the-scene-graph/index.html">The Scene Graph</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../the-configuration-file/index.html">The Configuration File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../models-and-actors/index.html">Models and Actors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-attributes/index.html">Render Attributes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../texturing/index.html">Texturing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shaders/index.html">Shaders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../camera-control/index.html">Camera Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sound/index.html">Sound</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intervals/index.html">Intervals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks-and-event-handling/index.html">Tasks and Event Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../text-and-image-rendering/index.html">Text and Image Rendering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../directgui/index.html">DirectGUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-effects/index.html">Render Effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../finite-state-machines/index.html">Finite State Machines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../terrain/index.html">Terrain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internal-structures/index.html">Advanced operations with Panda3D&#8217;s internal structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-to-texture-and-image-postprocessing/index.html">Render-to-Texture and Image Postprocessing</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Panda3D Rendering Process</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Multithreaded Render Pipeline</a></li>
+<li class="toctree-l3"><a class="reference internal" href="introducing-graphics-classes.html">Introducing Graphics Classes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="the-graphics-pipe.html">The Graphics Pipe</a></li>
+<li class="toctree-l3"><a class="reference internal" href="creating-windows-and-buffers.html">Creating Windows and Buffers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="display-regions.html">Display Regions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="creating-new-mousewatchers-for-display-regions.html">Creating New MouseWatchers for Display Regions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="clearing-display-regions.html">Clearing Display Regions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="the-2d-display-region.html">The 2D Display Region</a></li>
+<li class="toctree-l3"><a class="reference internal" href="stereo-display-regions.html">Stereo Display Regions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multi-pass-rendering.html">Multi-Pass Rendering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="how-to-control-render-order.html">How to Control Render Order</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../panda3d-utility-functions.html">Panda3D Utility Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../particle-effects/index.html">Particle Effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../collision-detection/index.html">Collision Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../garbage-collection/index.html">Garbage Collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hardware-support/index.html">Hardware support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../math-engine/index.html">Math Engine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../motion-paths.html">Motion Paths</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../timing/index.html">Timing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../networking/index.html">Networking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../multifiles/index.html">Multifiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../showbase.html">ShowBase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../file-reading.html">File Reading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../threading.html">Threading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../subclassing.html">Subclassing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../table-of-features-supported-per-graphic-renderer.html">Table of features supported per graphic renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pandai/index.html">Artificial Intelligence (PANDAI)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../distribution/index.html">Distributing Panda3D Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../samples/index.html">Sample Programs in the Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../debugging/index.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../performance-tuning/index.html">Performance Tuning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../using-c++/index.html">Using C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/index.html">Panda3D Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../building-from-source.html">Building Panda3D from Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cheat-sheets.html">Cheat Sheets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started-on-osx.html">Getting Started on OSX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../more-panda3d-resources.html">More Panda3D Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../thirdparty-licenses.html">Third-party dependencies and license info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../the-irc-channel.html">The IRC Channel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">FAQ</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Panda3D</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Programming with Panda3D</a> &raquo;</li>
+      
+          <li><a href="index.html">Panda3D Rendering Process</a> &raquo;</li>
+      
+    <li>Multithreaded Render Pipeline</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/programming-with-panda3d/panda3d-rendering-process/multithreaded-render-pipeline.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="multithreaded-render-pipeline">
+<span id="id1"></span><h1>Multithreaded Render Pipeline<a class="headerlink" href="#multithreaded-render-pipeline" title="Permalink to this headline">¶</a></h1>
+<p>As of Panda3D version 1.8, Panda supports a multithreaded render pipeline for
+optimal performance on multiprocessor machines. If your computer has at least
+two CPU cores (for instance, because you have a dual-core or quad-core CPU),
+then you can direct Panda to utilize up to three different CPU cores for
+rendering the scene, which can lead to a theoretical performance improvement
+of up to 3 times faster than a simple single-CPU approach. (In practice, an
+improvement of 3x is rare; improvements of 1.5x to 2x are far more common.)</p>
+<p>This feature isn&#8217;t enabled all the time, partly because it is still somewhat
+new and experimental, and partly because it is not always the best idea to
+enable this feature, depending on your precise needs.</p>
+<p>To use this feature successfully, you will need to understand something about
+how it works. First, consider Panda&#8217;s normal, single-threaded render pipeline.
+The time spent processing each frame can be subdivided into three separate
+phases, called &#8220;App&#8221;, &#8220;Cull&#8221;, and &#8220;Draw&#8221;:</p>
+<p><img alt="appculldraw.png" src="../../_images/appculldraw.png" /></p>
+<p>In Panda&#8217;s nomenclature, &#8220;App&#8221; is any time spent in the application yourself,
+i.e. your program. This is your main loop, including any Python code (or C++
+code) you write to control your particular game&#8217;s logic. It also includes any
+Panda-based calculations that must be performed synchronously with this
+application code; for instance, the collision traversal is usually considered
+to be part of App.</p>
+<p>&#8220;Cull&#8221; and &#8220;Draw&#8221; are the two phases of Panda&#8217;s main rendering engine. Once
+your application code finishes executing for the frame, then Cull takes over.
+The name &#8220;Cull&#8221; implies view-frustum culling, and this is part of it; but it
+is also much more. This phase includes all processing of the scene graph
+needed to identify the objects that are going to be rendered this frame and
+their current state, and all processing needed to place them into an ordered
+list for drawing. Cull typically also includes the time to compute character
+animations. The output of Cull is a sorted list of objects and their
+associated states to be sent to the graphics card.</p>
+<p>&#8220;Draw&#8221; is the final phase of the rendering process, which is nothing more than
+walking through the list of objects output by Cull, and sending them one at a
+time to the graphics card. Draw is designed to be as lightweight as possible
+on the CPU; the idea is to keep the graphics command pipe filled with as many
+rendering commands as it will hold. Draw is the only phase of the process
+during which graphics commands are actually being issued.</p>
+<p>You can see the actual time spent within these three phases if you inspect
+your program&#8217;s execution via the PStats tool. Every application is different,
+of course, but in many moderately complex applications, the time spent in each
+of these three phases is similar to the others, so that the three phases
+roughly divide the total frame time into thirds.</p>
+<p>Now that we have the frame time divided into three more-or-less equal pieces,
+the threaded pipeline code can take effect, by splitting each phase into a
+different thread, so that it can run (potentially) on a different CPU, like
+this:</p>
+<p><a href="#id2"><span class="problematic" id="id3">|app\_cull\_draw.png|</span></a></p>
+<p>Note that App remains on the first, or main thread; we have only moved Cull
+and Draw onto separate threads. This is important, because it means that all
+of your application code can continue to be single-threaded (and therefore
+much easier and faster to develop). Of course, there&#8217;s also nothing preventing
+you from using additional threads in App if you wish (and if you have enough
+additional CPU&#8217;s to make it worthwhile).</p>
+<p>If separating the phases onto different threads were all that we did, we
+wouldn&#8217;t have accomplished anything useful, because each phase must still wait
+for the previous phase to complete before it can proceed. It&#8217;s impossible to
+run Cull to figure out what things are going to be rendered before the App
+phase has finished arranging the scene graph properly. Similarly, it&#8217;s
+impossible to run Draw until the Cull phase has finished processing the scene
+graph and constructing the list of objects.</p>
+<p>However, once App has finished processing frame 1, there&#8217;s no reason for that
+thread to sit around waiting for the rest of the frame to be finished drawing.
+It can go right ahead and start working on frame 2, at the same time that the
+Cull thread starts processing frame 1. And then by the time Cull has finished
+processing frame 1, it can start working on culling frame 2 (which App has
+also just finished with). Putting it all in graphical form, the frame time now
+looks like this:</p>
+<p><a href="#id4"><span class="problematic" id="id5">|full\_pipeline.png|</span></a></p>
+<p>So, we see that we can now crank out frames up to three times faster than in
+the original, single-threaded case. Each frame now takes the same amount of
+time, total, as the longest of the original three phases. (Thus, the
+theoretical maximum speedup of 3x can only be achieved in practice if all
+three phases are exactly equal in length.)</p>
+<p>It&#8217;s worth pointing out that the only thing we have improved here is frame
+*throughput*&#8211;the total number of frames per second that the system can
+render. This approach does nothing to improve frame *latency*, or the total
+time that elapses between the time some change happens in the game, and the
+time it appears onscreen. This might be one reason to avoid this approach, if
+latency is more important than throughput. However, we&#8217;re still talking about
+a total latency that&#8217;s usually less than 100ms or so, which is faster than
+human response time anyway; and most applications (including games) can
+tolerate a small amount of latency like this in exchange for a smooth, fast
+frame rate.</p>
+<p>In order for all of this to work, Panda has to do some clever tricks behind
+the scenes. The most important trick is that there need to be three different
+copies of the scene graph in different states of modification. As your App
+process is moving nodes around for frame 3, for instance, Cull is still
+analyzing frame 2, and must be able to analyze the scene graph *before*
+anything in App started mucking around to make frame 3. So there needs to be a
+complete copy of the scene graph saved as of the end of App&#8217;s frame 2. Panda
+does a pretty good job of doing this efficiently, relying on the fact that
+most things are the same from one frame to the next; but still there is some
+overhead to all this, so the total performance gain is always somewhat less
+than the theoretical 3x speedup. In particular, if the application is already
+running fast (60fps or above), then the gain from parallelization is likely to
+be dwarfed by the additional overhead requirements. And, of course, if your
+application is very one-sided, such that almost all of its time is spent in
+App (or, conversely, almost all of its time is spent in Draw), then you will
+not see much benefit from this trick.</p>
+<p>Also, note that it is no longer possible for anything in App to contact the
+graphics card directly; while App is running, the graphics card is being sent
+the drawing commands from two frames ago, and you can&#8217;t reliably interrupt
+this without taking a big performance hit. So this means that OpenGL callbacks
+and the like have to be sensitive to the threaded nature of the graphics
+pipeline. (This is why Panda&#8217;s interface to the graphics window requires an
+indirect call: base.win.requestProperties(), rather than
+base.win.setProperties(). It&#8217;s necessary because the property-change request
+must be handled by the draw thread.)</p>
+<div class="section" id="enabling-the-multithreaded-render-pipeline">
+<h2>Enabling the Multithreaded Render Pipeline<a class="headerlink" href="#enabling-the-multithreaded-render-pipeline" title="Permalink to this headline">¶</a></h2>
+<p>To enable this feature, simply set the following variable in your Config.prc
+file:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">threading</span><span class="o">-</span><span class="n">model</span> <span class="n">Cull</span><span class="o">/</span><span class="n">Draw</span>
+</pre></div>
+</div>
+<p>The names &#8220;Cull&#8221; and &#8220;Draw&#8221; in the above are used as the names of the threads
+that serve Cull and Draw, respectively. It doesn&#8217;t matter what you call them;
+the name before the slash will be the name of the thread that performs Cull,
+and the name following the slash will be the name of the thread that performs
+Draw. (So setting this to Draw/Cull will not reverse the phases, but will
+instead just give your two threads very misleading and confusing names.)</p>
+<p>The above string defines a different thread for each of App, Cull, and Draw.
+You can also assign these three phases to threads in different ways:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">threading</span><span class="o">-</span><span class="n">model</span> <span class="o">/</span><span class="n">Draw</span>
+</pre></div>
+</div>
+<p>Creates a two-thread model: assigns App and Cull together on the main thread,
+and puts Draw on its own thread. This is most appropriate when the total
+amount of time for App + Cull in your application is similar to the total
+amount of time for Draw.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">threading</span><span class="o">-</span><span class="n">model</span> <span class="n">Cull</span><span class="o">/</span><span class="n">Cull</span><span class="o">&lt;</span><span class="n">br</span><span class="o">&gt;</span>
+<span class="n">threading</span><span class="o">-</span><span class="n">model</span> <span class="n">Cull</span>
+</pre></div>
+</div>
+<p>These two are equivalent and create a different two-thread model: App is on
+its own thread, and Cull and Draw are together on a separate thread. This is
+most appropriate when the total amount of time for App in your application is
+similar to the total amount of time for Cull + Draw.</p>
+<p>More generally, the threading model defines the names of the two threads that
+serve Cull and Draw. A slash separates the two phases. If the thread name for
+either phase is the empty string, then the name is understood to be the same
+name as the previous phase (or the App phase for the first one). If two
+threads have the same name, they refer to the same thread, so &#8220;Cull/Cull&#8221;
+means to place both Cull and Draw on the same thread, named &#8220;Cull&#8221;. The
+specific name is irrelevant; it could have been called &#8220;Foo/Foo&#8221; just as
+easily.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="introducing-graphics-classes.html" class="btn btn-neutral float-right" title="Introducing Graphics Classes" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Panda3D Rendering Process" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Panda3D.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.10.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

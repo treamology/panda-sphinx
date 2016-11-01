@@ -1,0 +1,403 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>DirectDialog &mdash; Panda3D Manual</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Panda3D Manual" href="../../index.html"/>
+        <link rel="up" title="DirectGUI" href="index.html"/>
+        <link rel="next" title="DirectEntry" href="directentry.html"/>
+        <link rel="prev" title="DirectRadioButton" href="directradiobutton.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Panda3D
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.10
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../intro/index.html">Introduction to Panda3D</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Programming with Panda3D</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../the-scene-graph/index.html">The Scene Graph</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../the-configuration-file/index.html">The Configuration File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../models-and-actors/index.html">Models and Actors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-attributes/index.html">Render Attributes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../texturing/index.html">Texturing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shaders/index.html">Shaders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../camera-control/index.html">Camera Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sound/index.html">Sound</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intervals/index.html">Intervals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks-and-event-handling/index.html">Tasks and Event Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../text-and-image-rendering/index.html">Text and Image Rendering</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">DirectGUI</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="directbutton.html">DirectButton</a></li>
+<li class="toctree-l3"><a class="reference internal" href="directcheckbutton.html">DirectCheckButton</a></li>
+<li class="toctree-l3"><a class="reference internal" href="directradiobutton.html">DirectRadioButton</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">DirectDialog</a></li>
+<li class="toctree-l3"><a class="reference internal" href="directentry.html">DirectEntry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="directframe.html">DirectFrame</a></li>
+<li class="toctree-l3"><a class="reference internal" href="directlabel.html">DirectLabel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="directoptionmenu.html">DirectOptionMenu</a></li>
+<li class="toctree-l3"><a class="reference internal" href="directscrolledlist.html">DirectScrolledList</a></li>
+<li class="toctree-l3"><a class="reference internal" href="directwaitbar.html">DirectWaitBar</a></li>
+<li class="toctree-l3"><a class="reference internal" href="directslider.html">DirectSlider</a></li>
+<li class="toctree-l3"><a class="reference internal" href="directscrollbar.html">DirectScrollBar</a></li>
+<li class="toctree-l3"><a class="reference internal" href="directscrolledframe.html">DirectScrolledFrame</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../render-effects/index.html">Render Effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../finite-state-machines/index.html">Finite State Machines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../terrain/index.html">Terrain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internal-structures/index.html">Advanced operations with Panda3D&#8217;s internal structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-to-texture-and-image-postprocessing/index.html">Render-to-Texture and Image Postprocessing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../panda3d-rendering-process/index.html">Panda3D Rendering Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../panda3d-utility-functions.html">Panda3D Utility Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../particle-effects/index.html">Particle Effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../collision-detection/index.html">Collision Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../garbage-collection/index.html">Garbage Collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hardware-support/index.html">Hardware support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../math-engine/index.html">Math Engine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../motion-paths.html">Motion Paths</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../timing/index.html">Timing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../networking/index.html">Networking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../multifiles/index.html">Multifiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../showbase.html">ShowBase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../file-reading.html">File Reading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../threading.html">Threading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../subclassing.html">Subclassing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../table-of-features-supported-per-graphic-renderer.html">Table of features supported per graphic renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pandai/index.html">Artificial Intelligence (PANDAI)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../distribution/index.html">Distributing Panda3D Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../samples/index.html">Sample Programs in the Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../debugging/index.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../performance-tuning/index.html">Performance Tuning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../using-c++/index.html">Using C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/index.html">Panda3D Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../building-from-source.html">Building Panda3D from Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cheat-sheets.html">Cheat Sheets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started-on-osx.html">Getting Started on OSX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../more-panda3d-resources.html">More Panda3D Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../thirdparty-licenses.html">Third-party dependencies and license info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../the-irc-channel.html">The IRC Channel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">FAQ</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Panda3D</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Programming with Panda3D</a> &raquo;</li>
+      
+          <li><a href="index.html">DirectGUI</a> &raquo;</li>
+      
+    <li>DirectDialog</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/programming-with-panda3d/directgui/directdialog.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="directdialog">
+<span id="id1"></span><h1>DirectDialog<a class="headerlink" href="#directdialog" title="Permalink to this headline">¶</a></h1>
+<p>DirectDialog objects are popup windows to alert or interact with the user. It
+is invoked just like the other DirectGUI objects, but it also has some unique
+keywords. Integral to DirectDialog are dialogName, buttonTextList,
+buttonImageList, and buttonValueList. The dialogName should ideally be the
+name of the NodePath created to hold the object. The button lists contain the
+various properties of the buttons within the dialog box. No maximum number of
+buttons needs to be declared.</p>
+<p>Panda3D contains a number of shortcuts for common dialog options. For example,
+rather than specifying the rather common text list (&#8220;Yes&#8221;,&#8221;No&#8221;), there is a
+YesNoDialog that functions exactly like a normal dialog but has buttonTextList
+already defined. The other similar dialogs are OkCancelDialog, OkDialog,
+RetryCancelDialog, and YesNoCancelDialog.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="11%" />
+<col width="73%" />
+<col width="15%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Keyword</th>
+<th class="head">Definition</th>
+<th class="head">Value</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>dialogName</td>
+<td>Name of the dialog</td>
+<td>String</td>
+</tr>
+<tr class="row-odd"><td>buttonTextList</td>
+<td>List of text to show on each button</td>
+<td>[Strings]</td>
+</tr>
+<tr class="row-even"><td>buttonGeomList</td>
+<td>List of geometry to show on each button</td>
+<td>[NodePaths]</td>
+</tr>
+<tr class="row-odd"><td>buttonImageList</td>
+<td>List of images to show on each button</td>
+<td>[Image Paths]</td>
+</tr>
+<tr class="row-even"><td>buttonValueList</td>
+<td>List of values sent to dialog command for each button. If value is [] then the ordinal rank of the button is used as its value</td>
+<td>[Numbers]</td>
+</tr>
+<tr class="row-odd"><td>buttonHotKeyList</td>
+<td>Shortcut key for each button (the button must have focus)</td>
+<td>[Characters]</td>
+</tr>
+<tr class="row-even"><td>buttonSize</td>
+<td>4-tuple used to specify custom size for each button (to make bigger then geom/text for example)</td>
+<td>(Left,Right,Bottom,Top)</td>
+</tr>
+<tr class="row-odd"><td>topPad</td>
+<td>Extra space added above text/geom/image</td>
+<td>Number</td>
+</tr>
+<tr class="row-even"><td>midPad</td>
+<td>Extra space added between text/buttons</td>
+<td>Number</td>
+</tr>
+<tr class="row-odd"><td>sidePad</td>
+<td>Extra space added to either side of text/buttons</td>
+<td>Number</td>
+</tr>
+<tr class="row-even"><td>buttonPadSF</td>
+<td>Scale factor used to expand/contract button horizontal spacing</td>
+<td>Number</td>
+</tr>
+<tr class="row-odd"><td>command</td>
+<td>Callback command used when a button is pressed. Value supplied to command depends on values in buttonValueList</td>
+<td>Function</td>
+</tr>
+<tr class="row-even"><td>extraArgs</td>
+<td>Extra arguments to the function specified in command</td>
+<td>[Extra Arguments]</td>
+</tr>
+<tr class="row-odd"><td>fadeScreen</td>
+<td>If 1, fades screen to black when the dialog appears</td>
+<td>0 or 1</td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="yesno-dialog-example">
+<h2>YesNo Dialog Example<a class="headerlink" href="#yesno-dialog-example" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">direct.directbase.DirectStart</span>
+<span class="kn">from</span> <span class="nn">direct.gui.OnscreenText</span> <span class="kn">import</span> <span class="n">OnscreenText</span>
+<span class="kn">from</span> <span class="nn">direct.gui.DirectGui</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">direct.task</span> <span class="kn">import</span> <span class="n">Task</span>
+<span class="kn">from</span> <span class="nn">direct.actor</span> <span class="kn">import</span> <span class="n">Actor</span>
+<span class="kn">from</span> <span class="nn">direct.interval.IntervalGlobal</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">panda3d.core</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="c1">#add some text</span>
+<span class="n">bk_text</span> <span class="o">=</span> <span class="s2">&quot;DirectDialog- YesNoDialog Demo&quot;</span>
+<span class="n">textObject</span> <span class="o">=</span> <span class="n">OnscreenText</span><span class="p">(</span><span class="n">text</span> <span class="o">=</span> <span class="n">bk_text</span><span class="p">,</span> <span class="n">pos</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.85</span><span class="p">,</span><span class="mf">0.85</span><span class="p">),</span>
+<span class="n">scale</span> <span class="o">=</span> <span class="mf">0.07</span><span class="p">,</span><span class="n">fg</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span><span class="n">align</span><span class="o">=</span><span class="n">TextNode</span><span class="o">.</span><span class="n">ACenter</span><span class="p">,</span><span class="n">mayChange</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1">#add some text</span>
+<span class="n">output</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<span class="n">textObject</span> <span class="o">=</span> <span class="n">OnscreenText</span><span class="p">(</span><span class="n">text</span> <span class="o">=</span> <span class="n">output</span><span class="p">,</span> <span class="n">pos</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.95</span><span class="p">,</span><span class="o">-</span><span class="mf">0.95</span><span class="p">),</span>
+ <span class="n">scale</span> <span class="o">=</span> <span class="mf">0.07</span><span class="p">,</span><span class="n">fg</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span><span class="n">align</span><span class="o">=</span><span class="n">TextNode</span><span class="o">.</span><span class="n">ACenter</span><span class="p">,</span><span class="n">mayChange</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1">#callback function to set  text</span>
+<span class="k">def</span> <span class="nf">itemSel</span><span class="p">(</span><span class="n">arg</span><span class="p">):</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">arg</span><span class="p">):</span>
+            <span class="n">output</span> <span class="o">=</span> <span class="s2">&quot;Button Selected is: Yes&quot;</span>
+    <span class="k">else</span><span class="p">:</span>
+            <span class="n">output</span> <span class="o">=</span> <span class="s2">&quot;Button Selected is: No&quot;</span>
+    <span class="n">textObject</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="n">output</span><span class="p">)</span>
+
+<span class="c1">#create a frame</span>
+<span class="n">dialog</span> <span class="o">=</span> <span class="n">YesNoDialog</span><span class="p">(</span><span class="n">dialogName</span><span class="o">=</span><span class="s2">&quot;YesNoCancelDialog&quot;</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Please choose:&quot;</span><span class="p">,</span> <span class="n">command</span><span class="o">=</span><span class="n">itemSel</span><span class="p">)</span>
+
+<span class="n">base</span><span class="o">.</span><span class="n">camera</span><span class="o">.</span><span class="n">setPos</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">20</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="c1">#run the tutorial</span>
+<span class="n">run</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Note: the OkDialog
+causes an error if being created a second time after destroying it with
+<code class="docutils literal"><span class="pre">myOkDialog.destroy()</span></code>. To solve this you can
+use:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">myOkDialog</span><span class="o">.</span><span class="n">cleanup</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="directentry.html" class="btn btn-neutral float-right" title="DirectEntry" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="directradiobutton.html" class="btn btn-neutral" title="DirectRadioButton" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Panda3D.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.10.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

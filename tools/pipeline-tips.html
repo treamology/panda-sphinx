@@ -1,0 +1,306 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Pipeline Tips &mdash; Panda3D Manual</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Panda3D Manual" href="../index.html"/>
+        <link rel="up" title="Panda3D Tools" href="index.html"/>
+        <link rel="next" title="Model Export" href="model-export/index.html"/>
+        <link rel="prev" title="Interrogate" href="interrogate.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Panda3D
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.10
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../intro/index.html">Introduction to Panda3D</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../programming-with-panda3d/index.html">Programming with Panda3D</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../distribution/index.html">Distributing Panda3D Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../samples/index.html">Sample Programs in the Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../debugging/index.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../performance-tuning/index.html">Performance Tuning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using-c++/index.html">Using C++</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Panda3D Tools</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="the-scene-graph-browser/index.html">The Scene Graph Browser</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interrogate.html">Interrogate</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Pipeline Tips</a></li>
+<li class="toctree-l2"><a class="reference internal" href="model-export/index.html">Model Export</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pview.html">Previewing 3D Models in Pview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="list-of-panda3d-executables.html">List of Panda3D Executables</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../building-from-source.html">Building Panda3D from Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cheat-sheets.html">Cheat Sheets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started-on-osx.html">Getting Started on OSX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../more-panda3d-resources.html">More Panda3D Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../thirdparty-licenses.html">Third-party dependencies and license info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../the-irc-channel.html">The IRC Channel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">FAQ</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Panda3D</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="index.html">Panda3D Tools</a> &raquo;</li>
+      
+    <li>Pipeline Tips</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/tools/pipeline-tips.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="pipeline-tips">
+<span id="id1"></span><h1>Pipeline Tips<a class="headerlink" href="#pipeline-tips" title="Permalink to this headline">¶</a></h1>
+<p>This section isn&#8217;t totally related to Panda3D. However, these are a few good
+pointers on how to keep the &#8216;art to programmer&#8217; pipeline running smoothly.</p>
+<div class="section" id="how-artists-can-help-programmers-with-the-pipeline">
+<h2>How artists can help programmers with the pipeline<a class="headerlink" href="#how-artists-can-help-programmers-with-the-pipeline" title="Permalink to this headline">¶</a></h2>
+<p><strong>&#8220;Keep renaming to a minimum, preferably with good names to start with, and
+especially for parts or joints that the programmer will have to manipulate.&#8221;</strong></p>
+<p>Programmers generally deal with objects by their names, not with a graphical
+tool like artists. Every time a name changes, a programmer has to make the
+change in his or her code, and often has to hunt through the egg to try and
+figure out what the name has changed to. In a large model, this can be very
+time-consuming. If you do have to change a name, make sure to let the
+programmer know when you give him or her the new model.</p>
+<p><strong>&#8220;Check your model in pview before handing it off.&#8221;</strong></p>
+<p>The biggest delays in the pipeline come from the back and forth iterations
+between artist and programmer. A quick check with pview will often find
+missing textures, backward facing polygons, incorrect normals, mis-tagged
+collision solids, and a host of other problems.</p>
+<p><strong>&#8220;Build models with good hierarchy, and don&#8217;t change the hierarchy
+unnecessarily.&#8221;</strong></p>
+<p>A well organized hierarchy can make a model much easier for a programmer to
+work with, and can also have a significant effect on rendering performance.
+For rendering purposes, good hierarchies group objects that are close to each
+other together, and don&#8217;t have more than a few hundred to a few thousand
+triangles (depending on the target hardware) in each node. (Low-end hardware
+performs better with only a few hundred triangles per node; high-end hardware
+performs better with several thousand triangles per node.)</p>
+<p><strong>&#8220;Put groups of objects that the programmer will have to deal with in a
+special way under a single node.&#8221;</strong></p>
+<p>For instance, if there&#8217;s a section of an environment that will be hidden
+during some point in the game, put that entire section under a single node.
+The programmer might also like certain classes of collision solids to be under
+a single node.</p>
+<p><strong>&#8220;Don&#8217;t use lossy compression (i.e. jpeg) for textures.&#8221;</strong></p>
+<p>Although jpegs save space on disk, they also degrade your beautiful textures!
+If textures have to be manipulated later (i.e. downgraded), this degradation
+will only be compounded. Every time you edit and resave a jpeg, the image
+quality gets worse. Jpegs may need to be used in the finished product, but
+it&#8217;s always best to make this conversion the last step in the process, not the
+first one. I recommend using the png format, which provides lossless
+compression and full support for all color depths as well as alpha.</p>
+<p><strong>&#8220;If there&#8217;s any chance that an object will be broken apart and used as
+separate pieces, give each piece a separate texture map.&#8221;</strong></p>
+<p>Nothing hurts worse than having to remap an object after its been painted, or
+wasting huge swaths of texture space.</p>
+<p><strong>&#8220;If parts of an object are semi-transparent, make sure those pieces are
+separate parts in the hierarchy.&#8221;</strong></p>
+<p>Rendering semi-transparent objects is a little tricky. Each object with
+transparency needs to be sorted back-to-front each frame by the rendering
+engine. If things aren&#8217;t going quite as planned, a programmer might need to
+get a handle on a transparent part in order to manipulate its render order.</p>
+<p><strong>&#8220;If a semi-transparent object is very large, or you can see through multiple
+layers (like a glass sphere), break it up into separate pieces.&#8221;</strong></p>
+<p>Objects with multiple layers of transparency won&#8217;t render correctly depending
+on which angle they&#8217;re being view from, because some of the polygons will be
+drawn before others, and if it&#8217;s all one object, the rendering engine can&#8217;t
+sort them back-to-front.</p>
+<p><strong>&#8220;Use quads, and higher-order polygons, for collision solids when possible,
+rather than triangles. But make sure your quads are planar.&#8221;</strong></p>
+<p>In general, dividing a quad into two triangles doubles the time it takes to
+test a collision with it, so it is better to model collision polygons with
+quads when possible. The same goes for five-sided and higher-order polygons as
+well. However, there are two important requirements: (1) the collision
+polygons must be convex, not concave, and (2) they must be perfectly flat (all
+of the vertices must lie exactly in the same plane). If either of these is not
+met, Panda will triangulate the polygon anyway.</p>
+<div class="section" id="things-that-don-t-matter-as-much-but-will-give-programmers-warm-fuzzies">
+<h3>Things that don&#8217;t matter as much, but will give programmers warm-fuzzies<a class="headerlink" href="#things-that-don-t-matter-as-much-but-will-give-programmers-warm-fuzzies" title="Permalink to this headline">¶</a></h3>
+<p><strong>&#8220;Use a consistent naming scheme.&#8221;</strong></p>
+<p>Programmers live in a world where names and naming conventions are incredibly
+important. Nothing makes them happier than when the names of art assets fit in
+well with their code. Common naming conventions are: mixedCaseNames,
+CapitalizedMixedCaseNames, names_with_underscores, names-with-hyphens. Pick
+one and stick with it.</p>
+<p><strong>&#8220;Don&#8217;t misspell things.&#8221;</strong></p>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="model-export/index.html" class="btn btn-neutral float-right" title="Model Export" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="interrogate.html" class="btn btn-neutral" title="Interrogate" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Panda3D.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.10.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

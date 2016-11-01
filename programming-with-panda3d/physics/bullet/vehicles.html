@@ -1,0 +1,438 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Bullet Vehicles &mdash; Panda3D Manual</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Panda3D Manual" href="../../../index.html"/>
+        <link rel="up" title="Using Bullet with Panda3D" href="index.html"/>
+        <link rel="next" title="Bullet Softbodies" href="softbodies.html"/>
+        <link rel="prev" title="Bullet Constraints" href="constraints.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Panda3D
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.10
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../intro/index.html">Introduction to Panda3D</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Programming with Panda3D</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../the-scene-graph/index.html">The Scene Graph</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../the-configuration-file/index.html">The Configuration File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../models-and-actors/index.html">Models and Actors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../render-attributes/index.html">Render Attributes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../texturing/index.html">Texturing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../shaders/index.html">Shaders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../camera-control/index.html">Camera Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../sound/index.html">Sound</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../intervals/index.html">Intervals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tasks-and-event-handling/index.html">Tasks and Event Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../text-and-image-rendering/index.html">Text and Image Rendering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../directgui/index.html">DirectGUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../render-effects/index.html">Render Effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../finite-state-machines/index.html">Finite State Machines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../terrain/index.html">Terrain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../internal-structures/index.html">Advanced operations with Panda3D&#8217;s internal structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../render-to-texture-and-image-postprocessing/index.html">Render-to-Texture and Image Postprocessing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../panda3d-rendering-process/index.html">Panda3D Rendering Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../panda3d-utility-functions.html">Panda3D Utility Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../particle-effects/index.html">Particle Effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../collision-detection/index.html">Collision Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../garbage-collection/index.html">Garbage Collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hardware-support/index.html">Hardware support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../math-engine/index.html">Math Engine</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Physics</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../panda3d-physics-engine/index.html">Panda3D Physics Engine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ode/index.html">Using ODE with Panda3D</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Using Bullet with Panda3D</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="hello-world.html">Bullet Hello World</a></li>
+<li class="toctree-l4"><a class="reference internal" href="debug-renderer.html">Bullet Debug Renderer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="collision-shapes.html">Bullet Collision Shapes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="collision-filtering.html">Bullet Collision Filtering</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ccd.html">Bullet Continuous Collision Detection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="queries.html">Bullet Queries</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ghosts.html">Bullet Ghosts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="character-controller.html">Bullet Character Controller</a></li>
+<li class="toctree-l4"><a class="reference internal" href="constraints.html">Bullet Constraints</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Bullet Vehicles</a></li>
+<li class="toctree-l4"><a class="reference internal" href="softbodies.html">Bullet Softbodies</a></li>
+<li class="toctree-l4"><a class="reference internal" href="softbody-rope.html">Bullet Softbody Rope</a></li>
+<li class="toctree-l4"><a class="reference internal" href="softbody-patch.html">Bullet Softbody Patch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="softbody-triangles.html">Bullet Softbody Triangles</a></li>
+<li class="toctree-l4"><a class="reference internal" href="softbody-tetrahedron.html">Bullet Softbody Tetrahedron</a></li>
+<li class="toctree-l4"><a class="reference internal" href="softbody-config.html">Bullet Softbody Config</a></li>
+<li class="toctree-l4"><a class="reference internal" href="config-options.html">Bullet Config Options</a></li>
+<li class="toctree-l4"><a class="reference internal" href="faq.html">Bullet FAQ</a></li>
+<li class="toctree-l4"><a class="reference internal" href="samples.html">Bullet Samples</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../motion-paths.html">Motion Paths</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../timing/index.html">Timing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../networking/index.html">Networking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../multifiles/index.html">Multifiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../showbase.html">ShowBase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../file-reading.html">File Reading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../threading.html">Threading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../subclassing.html">Subclassing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../table-of-features-supported-per-graphic-renderer.html">Table of features supported per graphic renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../pandai/index.html">Artificial Intelligence (PANDAI)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../distribution/index.html">Distributing Panda3D Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../samples/index.html">Sample Programs in the Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../debugging/index.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../performance-tuning/index.html">Performance Tuning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../using-c++/index.html">Using C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tools/index.html">Panda3D Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../building-from-source.html">Building Panda3D from Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cheat-sheets.html">Cheat Sheets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting-started-on-osx.html">Getting Started on OSX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../more-panda3d-resources.html">More Panda3D Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../thirdparty-licenses.html">Third-party dependencies and license info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../the-irc-channel.html">The IRC Channel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../faq.html">FAQ</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../index.html">Panda3D</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../index.html">Programming with Panda3D</a> &raquo;</li>
+      
+          <li><a href="../index.html">Physics</a> &raquo;</li>
+      
+          <li><a href="index.html">Using Bullet with Panda3D</a> &raquo;</li>
+      
+    <li>Bullet Vehicles</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../_sources/programming-with-panda3d/physics/bullet/vehicles.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="bullet-vehicles">
+<span id="vehicles"></span><h1>Bullet Vehicles<a class="headerlink" href="#bullet-vehicles" title="Permalink to this headline">¶</a></h1>
+<p>Bullet comes with a simple vehicle controller, which can be used for arcade
+style vehicle simulations. Instead of simulation of each wheel and chassis as
+separate rigid bodies connected by joints, it simply uses a single rigid body
+for the chassis. Collision detection for the wheels is approximated by ray
+casts, and the tire friction is a basic anisotropic friction model. This
+approach to vehicle modelling is called &#8220;raycast vehicle&#8221;, and it is used
+widely in commercial and non-commercial driving games.</p>
+<div class="section" id="setup">
+<h2>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h2>
+<p>In order to create a vehicle we first have to create an ordinary dynamic rigid
+body. This rigid body will serve as the vehicle chassis. Then we can create a
+new instance of <code class="docutils literal"><span class="pre">BulletVehicle</span></code>. We
+have to pass the <code class="docutils literal"><span class="pre">BulletWorld</span></code> and
+the <code class="docutils literal"><span class="pre">BulletRigidBodyNode</span></code> as arguments to the
+vehicle constructor.</p>
+<p>The following code snippet shows how this could be done.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">panda3d.bullet</span> <span class="kn">import</span> <span class="n">BulletVehicle</span>
+
+<span class="c1"># Chassis body</span>
+<span class="n">shape</span> <span class="o">=</span> <span class="n">BulletBoxShape</span><span class="p">(</span><span class="n">Vec3</span><span class="p">(</span><span class="mf">0.7</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">))</span>
+<span class="n">ts</span> <span class="o">=</span> <span class="n">TransformState</span><span class="o">.</span><span class="n">makePos</span><span class="p">(</span><span class="n">Point3</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">))</span>
+
+<span class="n">chassisNP</span> <span class="o">=</span> <span class="n">render</span><span class="o">.</span><span class="n">attachNewNode</span><span class="p">(</span><span class="n">BulletRigidBodyNode</span><span class="p">(</span><span class="s1">&#39;Vehicle&#39;</span><span class="p">))</span>
+<span class="n">chassisNP</span><span class="o">.</span><span class="n">node</span><span class="p">()</span><span class="o">.</span><span class="n">addShape</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="n">ts</span><span class="p">)</span>
+<span class="n">chassisNP</span><span class="o">.</span><span class="n">setPos</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">chassisNP</span><span class="o">.</span><span class="n">node</span><span class="p">()</span><span class="o">.</span><span class="n">setMass</span><span class="p">(</span><span class="mf">800.0</span><span class="p">)</span>
+<span class="n">chassisNP</span><span class="o">.</span><span class="n">node</span><span class="p">()</span><span class="o">.</span><span class="n">setDisableDeactivation</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
+
+<span class="n">world</span><span class="o">.</span><span class="n">attachRigidBody</span><span class="p">(</span><span class="n">chassisNP</span><span class="o">.</span><span class="n">node</span><span class="p">())</span>
+
+<span class="c1"># Chassis geometry</span>
+<span class="n">loader</span><span class="o">.</span><span class="n">loadModel</span><span class="p">(</span><span class="s1">&#39;path/to/model&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">reparentTo</span><span class="p">(</span><span class="n">chassisNP</span><span class="p">)</span>
+
+<span class="c1"># Vehicle</span>
+<span class="n">vehicle</span> <span class="o">=</span> <span class="n">BulletVehicle</span><span class="p">(</span><span class="n">world</span><span class="p">,</span> <span class="n">chassisNP</span><span class="o">.</span><span class="n">node</span><span class="p">())</span>
+<span class="n">vehicle</span><span class="o">.</span><span class="n">setCoordinateSystem</span><span class="p">(</span><span class="n">ZUp</span><span class="p">)</span>
+<span class="n">world</span><span class="o">.</span><span class="n">attachVehicle</span><span class="p">(</span><span class="n">vehicle</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">TODO</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="wheels">
+<h2>Wheels<a class="headerlink" href="#wheels" title="Permalink to this headline">¶</a></h2>
+<p>One we have created the chassis and the vehicle we can add wheels to the
+vehicle. We can create a new wheel using the
+<code class="docutils literal"><span class="pre">createWheel</span></code> factory method of the
+previously created vehicle. Once created we still have to configure the wheel,
+that is set friction parameters, offset of the wheel hub with respect to the
+chassis, axle direction and so on.</p>
+<p>The following sample shows how to create and configure a wheel. In this case a
+front wheel is created. Front wheels are steerable.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">wheelNP</span> <span class="o">=</span> <span class="n">loader</span><span class="o">.</span><span class="n">loadModel</span><span class="p">(</span><span class="s1">&#39;path/to/model&#39;</span><span class="p">)</span>
+<span class="n">wheelNP</span><span class="o">.</span><span class="n">reparentTo</span><span class="p">(</span><span class="n">render</span><span class="p">)</span>
+
+<span class="n">wheel</span> <span class="o">=</span> <span class="n">vehicle</span><span class="o">.</span><span class="n">createWheel</span><span class="p">()</span>
+
+<span class="n">wheel</span><span class="o">.</span><span class="n">setNode</span><span class="p">(</span><span class="n">wheelNP</span><span class="o">.</span><span class="n">node</span><span class="p">())</span>
+<span class="n">wheel</span><span class="o">.</span><span class="n">setChassisConnectionPointCs</span><span class="p">(</span><span class="n">Point3</span><span class="p">(</span><span class="mf">0.8</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">))</span>
+<span class="n">wheel</span><span class="o">.</span><span class="n">setFrontWheel</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
+
+<span class="n">wheel</span><span class="o">.</span><span class="n">setWheelDirectionCs</span><span class="p">(</span><span class="n">Vec3</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">wheel</span><span class="o">.</span><span class="n">setWheelAxleCs</span><span class="p">(</span><span class="n">Vec3</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+<span class="n">wheel</span><span class="o">.</span><span class="n">setWheelRadius</span><span class="p">(</span><span class="mf">0.25</span><span class="p">)</span>
+<span class="n">wheel</span><span class="o">.</span><span class="n">setMaxSuspensionTravelCm</span><span class="p">(</span><span class="mf">40.0</span><span class="p">)</span>
+
+<span class="n">wheel</span><span class="o">.</span><span class="n">setSuspensionStiffness</span><span class="p">(</span><span class="mf">40.0</span><span class="p">)</span>
+<span class="n">wheel</span><span class="o">.</span><span class="n">setWheelsDampingRelaxation</span><span class="p">(</span><span class="mf">2.3</span><span class="p">)</span>
+<span class="n">wheel</span><span class="o">.</span><span class="n">setWheelsDampingCompression</span><span class="p">(</span><span class="mf">4.4</span><span class="p">)</span>
+<span class="n">wheel</span><span class="o">.</span><span class="n">setFrictionSlip</span><span class="p">(</span><span class="mf">100.0</span><span class="p">)</span>
+<span class="n">wheel</span><span class="o">.</span><span class="n">setRollInfluence</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">TODO</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="steering-and-engine-brake">
+<h2>Steering and Engine/Brake<a class="headerlink" href="#steering-and-engine-brake" title="Permalink to this headline">¶</a></h2>
+<p>Finally we need to control steering and engine/brakes. This is best done using
+a task, and keeping the current steering angle around somewhere in a variable.</p>
+<p>Here we use a very simple model of controlling the steering angle. If
+&#8216;turnLeft&#8217; or &#8216;turnRight&#8217; keys are pressed the sterring angle will
+increase/decrease at a constant rate, until a maximum steering angle is
+achieved. No relaxation is applied. Therefor we also define constants for the
+maximum steering angle (here: steeringClamp) and the rate at which the
+steering angle increases/decreases (here: steeringIncrement).</p>
+<p>The engine force and brake model shown is very simple too. If &#8216;forward&#8217; is
+pressed then the engine force will be the maximum engine force, otherwise
+engine force will be zero. Likewise for the brakes.</p>
+<p>Once the steering angle and engine/brake forces are determined they will be
+applied to the wheels. Each wheel - addressed by it&#8217;s index, i. e. 0 to 3 for
+a four-wheel car - can be individually assigned values for steering and
+engine/brake force. This way front/rear drives or four-wheel-drives can be
+simulated.</p>
+<p>The following code snippet shows pseudocode for controlling steering and
+engine/brakes.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># Steering info</span>
+<span class="n">steering</span> <span class="o">=</span> <span class="mf">0.0</span>            <span class="c1"># degree</span>
+<span class="n">steeringClamp</span> <span class="o">=</span> <span class="mf">45.0</span>      <span class="c1"># degree</span>
+<span class="n">steeringIncrement</span> <span class="o">=</span> <span class="mf">120.0</span> <span class="c1"># degree per second</span>
+
+<span class="c1"># Process input</span>
+<span class="n">engineForce</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="n">brakeForce</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+<span class="k">if</span> <span class="n">inputState</span><span class="o">.</span><span class="n">isSet</span><span class="p">(</span><span class="s1">&#39;forward&#39;</span><span class="p">):</span>
+  <span class="n">engineForce</span> <span class="o">=</span> <span class="mf">1000.0</span>
+  <span class="n">brakeForce</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+<span class="k">if</span> <span class="n">inputState</span><span class="o">.</span><span class="n">isSet</span><span class="p">(</span><span class="s1">&#39;reverse&#39;</span><span class="p">):</span>
+  <span class="n">engineForce</span> <span class="o">=</span> <span class="mf">0.0</span>
+  <span class="n">brakeForce</span> <span class="o">=</span> <span class="mf">100.0</span>
+
+<span class="k">if</span> <span class="n">inputState</span><span class="o">.</span><span class="n">isSet</span><span class="p">(</span><span class="s1">&#39;turnLeft&#39;</span><span class="p">):</span>
+  <span class="n">steering</span> <span class="o">+=</span> <span class="n">dt</span> <span class="o">*</span> <span class="n">steeringIncrement</span>
+  <span class="n">steering</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">steering</span><span class="p">,</span> <span class="n">steeringClamp</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">inputState</span><span class="o">.</span><span class="n">isSet</span><span class="p">(</span><span class="s1">&#39;turnRight&#39;</span><span class="p">):</span>
+  <span class="n">steering</span> <span class="o">-=</span> <span class="n">dt</span> <span class="o">*</span> <span class="n">steeringIncrement</span>
+  <span class="n">steering</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">steering</span><span class="p">,</span> <span class="o">-</span><span class="n">steeringClamp</span><span class="p">)</span>
+
+<span class="c1"># Apply steering to front wheels</span>
+<span class="n">vehicle</span><span class="o">.</span><span class="n">setSteeringValue</span><span class="p">(</span><span class="n">steering</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">vehicle</span><span class="o">.</span><span class="n">setSteeringValue</span><span class="p">(</span><span class="n">steering</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Apply engine and brake to rear wheels</span>
+<span class="n">vehicle</span><span class="o">.</span><span class="n">applyEngineForce</span><span class="p">(</span><span class="n">engineForce</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">vehicle</span><span class="o">.</span><span class="n">applyEngineForce</span><span class="p">(</span><span class="n">engineForce</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">vehicle</span><span class="o">.</span><span class="n">setBrake</span><span class="p">(</span><span class="n">brakeForce</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">vehicle</span><span class="o">.</span><span class="n">setBrake</span><span class="p">(</span><span class="n">brakeForce</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">TODO</span>
+</pre></div>
+</div>
+<p>More realistic control models can be invented, in order to meet the control
+requirements of individual driving games. For example:</p>
+<ul class="simple">
+<li>Relaxing the steering angle to zero if the user does no hold down the left
+or right keys.</li>
+<li>Reducing the maximum steering angle with increasing vehicle speed.</li>
+<li>Setting engine force based on an analogue input, or alternatively based on
+the duration of the forward key being pressed down.</li>
+</ul>
+<p>However, it is up to you do invent such controls. What Bullet requires is that
+you provide the steering angle and the engine and brake force.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="softbodies.html" class="btn btn-neutral float-right" title="Bullet Softbodies" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="constraints.html" class="btn btn-neutral" title="Bullet Constraints" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Panda3D.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'1.10.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

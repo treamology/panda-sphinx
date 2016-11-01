@@ -1,0 +1,584 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Collision Solids &mdash; Panda3D Manual</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Panda3D Manual" href="../../index.html"/>
+        <link rel="up" title="Collision Detection" href="index.html"/>
+        <link rel="next" title="Collision Handlers" href="collision-handlers.html"/>
+        <link rel="prev" title="Collision Detection" href="index.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Panda3D
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.10
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../intro/index.html">Introduction to Panda3D</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Programming with Panda3D</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../the-scene-graph/index.html">The Scene Graph</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../the-configuration-file/index.html">The Configuration File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../models-and-actors/index.html">Models and Actors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-attributes/index.html">Render Attributes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../texturing/index.html">Texturing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shaders/index.html">Shaders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../camera-control/index.html">Camera Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sound/index.html">Sound</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intervals/index.html">Intervals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks-and-event-handling/index.html">Tasks and Event Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../text-and-image-rendering/index.html">Text and Image Rendering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../directgui/index.html">DirectGUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-effects/index.html">Render Effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../finite-state-machines/index.html">Finite State Machines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../terrain/index.html">Terrain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internal-structures/index.html">Advanced operations with Panda3D&#8217;s internal structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-to-texture-and-image-postprocessing/index.html">Render-to-Texture and Image Postprocessing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../panda3d-rendering-process/index.html">Panda3D Rendering Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../panda3d-utility-functions.html">Panda3D Utility Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../particle-effects/index.html">Particle Effects</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Collision Detection</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Collision Solids</a></li>
+<li class="toctree-l3"><a class="reference internal" href="collision-handlers.html">Collision Handlers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="collision-entries.html">Collision Entries</a></li>
+<li class="toctree-l3"><a class="reference internal" href="collision-traversers.html">Collision Traversers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="collision-bitmasks.html">Collision Bitmasks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rapidly-moving-objects.html">Rapidly-Moving Objects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pusher-example.html">Pusher Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="event-example.html">Event Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bitmask-example.html">Bitmask Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="clicking-on-3d-objects.html">Clicking on 3D Objects</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../garbage-collection/index.html">Garbage Collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hardware-support/index.html">Hardware support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../math-engine/index.html">Math Engine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../motion-paths.html">Motion Paths</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../timing/index.html">Timing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../networking/index.html">Networking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../multifiles/index.html">Multifiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../showbase.html">ShowBase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../file-reading.html">File Reading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../threading.html">Threading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../subclassing.html">Subclassing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../table-of-features-supported-per-graphic-renderer.html">Table of features supported per graphic renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pandai/index.html">Artificial Intelligence (PANDAI)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../distribution/index.html">Distributing Panda3D Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../samples/index.html">Sample Programs in the Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../debugging/index.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../performance-tuning/index.html">Performance Tuning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../using-c++/index.html">Using C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/index.html">Panda3D Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../building-from-source.html">Building Panda3D from Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cheat-sheets.html">Cheat Sheets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started-on-osx.html">Getting Started on OSX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../more-panda3d-resources.html">More Panda3D Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../thirdparty-licenses.html">Third-party dependencies and license info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../the-irc-channel.html">The IRC Channel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">FAQ</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Panda3D</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Programming with Panda3D</a> &raquo;</li>
+      
+          <li><a href="index.html">Collision Detection</a> &raquo;</li>
+      
+    <li>Collision Solids</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/programming-with-panda3d/collision-detection/collision-solids.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="collision-solids">
+<span id="id1"></span><h1>Collision Solids<a class="headerlink" href="#collision-solids" title="Permalink to this headline">¶</a></h1>
+<p>The CollisionSolid is the fundamental object of the collision system.
+CollisionSolids represent special invisible geometry that is created solely
+for the purpose of performing collision tests; these CollisionSolids are
+stored in the scene graph alongside the normal visible geometry.</p>
+<p>The CollisionSolids are specifically optimized for performing collision tests
+quickly. Collisions can be performed against visible geometry as well, but
+this is more expensive since visible geometry is not optimized for this sort
+of thing.</p>
+<p>You can create CollisionSolids interactively in program code, or you can
+construct them in your modeling package and load them up from an egg or bam
+file along with the rest of your scene.</p>
+<p>When you create a CollisionSolid interactively, you must also create a
+CollisionNode to hold the solid. (When you load your CollisionSolids in from
+an egg file, the CollisionNodes are created for you.) Often, a CollisionNode
+will be used to hold only one solid, but in fact a CollisionNode can contain
+any number of solids, and this is sometimes a useful optimization, especially
+if you have several solids that always move together as a unit.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">cs</span> <span class="o">=</span> <span class="n">CollisionSphere</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">cnodePath</span> <span class="o">=</span> <span class="n">avatar</span><span class="o">.</span><span class="n">attachNewNode</span><span class="p">(</span><span class="n">CollisionNode</span><span class="p">(</span><span class="s1">&#39;cnode&#39;</span><span class="p">))</span>
+<span class="n">cnodePath</span><span class="o">.</span><span class="n">node</span><span class="p">()</span><span class="o">.</span><span class="n">addSolid</span><span class="p">(</span><span class="n">cs</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">PT</span><span class="p">(</span><span class="n">CollisionSphere</span><span class="p">)</span> <span class="n">cs</span> <span class="o">=</span> <span class="k">new</span> <span class="n">CollisionSphere</span><span class="p">();</span>
+<span class="n">cSphere_node</span><span class="o">=</span> <span class="k">new</span> <span class="n">CollisionNode</span><span class="p">(</span><span class="s">&quot;Sphere&quot;</span><span class="p">);</span>
+<span class="n">cSphere_node</span><span class="o">-&gt;</span><span class="n">add_solid</span><span class="p">(</span><span class="n">cs</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>CollisionNodes are hidden by default, but they may be shown for debugging
+purposes:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">cnodePath</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">cSphere_node</span><span class="o">-&gt;</span><span class="n">show</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>Note: Be aware that the collision algorithm has only limited awareness of
+scaling transforms applied to CollisionSolids. This particularly applies to
+non-uniform scales, ie. when the X, Y and Z components of a scale transform
+are not all the same. If unequal scaling is applied between a &#8220;from&#8221; collider
+and an &#8220;into&#8221; collider, unexpected results may occur. In general, strive to
+have as few scaling transforms applied to your collision solids as possible.</p>
+<p>There are several kinds of CollisionSolids available.</p>
+<div class="section" id="collisionsphere">
+<h2>CollisionSphere<a class="headerlink" href="#collisionsphere" title="Permalink to this headline">¶</a></h2>
+<p>The sphere is the workhorse of the collision system. Spheres are the fastest
+primitives for any collision calculation; and the sphere calculation is
+particularly robust. If your object is even vaguely spherical, consider
+wrapping a sphere around it.</p>
+<p>Also, a sphere is a particularly good choice for use as a &#8220;from&#8221; object,
+because a sphere can reliably be tested for collision with most of the other
+solid types. The &#8220;from&#8221; objects are the objects that are considered the active
+objects in the world; see :ref:` &lt;collision-traversers&gt;`. A sphere is usually
+the best choice to put around the player&#8217;s avatar, for instance. The sphere
+also makes a good &#8220;into&#8221; object; it is the only object type that is a good
+choice for both &#8220;from&#8221; and &#8220;into&#8221; objects.</p>
+<p>A sphere is defined in terms of a center and a radius. Note that, like any
+object, the sphere&#8217;s coordinates are defined in the sphere&#8217;s own coordinate
+space, so that often the center is (0, 0, 0).</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">sphere</span> <span class="o">=</span> <span class="n">CollisionSphere</span><span class="p">(</span><span class="n">cx</span><span class="p">,</span> <span class="n">cy</span><span class="p">,</span> <span class="n">cz</span><span class="p">,</span> <span class="n">radius</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="collisiontube">
+<h2>CollisionTube<a class="headerlink" href="#collisiontube" title="Permalink to this headline">¶</a></h2>
+<p>A &#8220;tube&#8221; is a cylinder with hemispherical endcaps. This shape is sometimes
+called a capsule in other collision systems.</p>
+<p>The tube is good as an &#8220;into&#8221; object, for objects that are largely
+cylindrical. It is not a very good choice for a &#8220;from&#8221; object, because not
+many intersection tests have been written from tubes into other shapes.</p>
+<p><img alt="A CollisionTube" src="../../_images/tube.jpg" /></p>
+<p>A tube is defined with its two endpoints, and the cylindrical radius.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">tube</span> <span class="o">=</span> <span class="n">CollisionTube</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">ay</span><span class="p">,</span> <span class="n">az</span><span class="p">,</span> <span class="n">bx</span><span class="p">,</span> <span class="n">by</span><span class="p">,</span> <span class="n">bz</span><span class="p">,</span> <span class="n">radius</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="collisioninvsphere">
+<h2>CollisionInvSphere<a class="headerlink" href="#collisioninvsphere" title="Permalink to this headline">¶</a></h2>
+<p>The inverse sphere is a special-purpose solid that is rarely used, but
+occasionally it is very useful. It is an inside-out sphere: the solid part of
+the sphere is on the outside. Any object that is on the outside of the sphere
+is considered to be colliding with it; any object on the inside is not
+colliding.</p>
+<p>Think of the inverse sphere as a solid mass that fills the whole universe in
+all directions, except for a bubble of space in the middle. It&#8217;s useful for
+constraining an object within a particular space, since nothing can get out of
+an inverse sphere.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">inv</span> <span class="o">=</span> <span class="n">CollisionInvSphere</span><span class="p">(</span><span class="n">cx</span><span class="p">,</span> <span class="n">cy</span><span class="p">,</span> <span class="n">cz</span><span class="p">,</span> <span class="n">radius</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="collisionplane">
+<h2>CollisionPlane<a class="headerlink" href="#collisionplane" title="Permalink to this headline">¶</a></h2>
+<p>The CollisionPlane is an infinite plane extending in all directions. It is not
+often used, but it can be useful in certain cases, for instance as a trigger
+placed below the ground to detect when an avatar has accidentally slipped
+through a crack in the world. You can also build a box out of six planes to
+keep objects perfectly constrained within a rectangular region, similar to an
+inverse sphere; such a box is much more reliable than one constructed of six
+polygons.</p>
+<p>The plane actually divides the universe into two spaces: the space behind the
+plane, which is all considered solid, and the space in front of the plane,
+which is all empty. Thus, if an object is anywhere behind a plane, no matter
+how far, it is considered to be intersecting the plane.</p>
+<p>Although it can only be used as an &#8220;into&#8221; solid, it is the most reliable of
+the &#8220;into&#8221; solids; tests are implemented for every &#8220;from&#8221; solid, and since it
+extends out infinitely, there is no possibility of glitching through it. This
+makes it an excellent choice for a ground plane in games where the ground is
+mostly level.</p>
+<p>A CollisionPlane is constructed using a Panda3D Plane object, which itself has
+a number of constructors, including the A, B, C, D plane equation, or a list
+of three points, or a point and a normal.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">plane</span> <span class="o">=</span> <span class="n">CollisionPlane</span><span class="p">(</span><span class="n">Plane</span><span class="p">(</span><span class="n">Vec3</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">Point3</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="collisionpolygon">
+<h2>CollisionPolygon<a class="headerlink" href="#collisionpolygon" title="Permalink to this headline">¶</a></h2>
+<p>A CollisionPolygon is the most general of the collision solids, since it is
+easy to model any shape with polygons (especially using a modeling package).
+However, it is also the most expensive solid, and the least robust&#8211;there may
+be numerical inaccuracies with polygons that allow collisions to slip through
+where they shouldn&#8217;t.</p>
+<p>Like a plane and a tube, a CollisionPolygon is only a good choice as an &#8220;into&#8221;
+object. It doesn&#8217;t support collision tests as a &#8220;from&#8221; object.</p>
+<p>In general, if you must use CollisionPolygons to model your shape, you should
+use as few polygons as possible. Use quads instead of triangles if possible,
+since two triangles take twice as much time to compute as a single quad. This
+does mean that you need to ensure that your quads are perfectly coplanar.</p>
+<p>You can also make higher-order polygons like five-sided and six-sided polygons
+or more, but you cannot make concave polygons. If you create a concave or
+non-coplanar CollisionPolygon in your modeling package, Panda will
+automatically triangulate it for you (but this might result in a suboptimal
+representation, so it is usually better to subdivide a concave polygon by
+hand).</p>
+<p>Unlike a plane, a CollisionPolygon is infinitely thin; an object is only
+considered to be colliding with the polygon while it is overlapping it.</p>
+<p>When you create a CollisionPolygon interactively, you can only create
+triangles or quads (the higher-order polygons can only be loaded from an egg
+file). Simply specify the three or four points to the constructor, in
+counter-clockwise order.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">quad</span> <span class="o">=</span> <span class="n">CollisionPolygon</span><span class="p">(</span><span class="n">Point3</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">Point3</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+  <span class="n">Point3</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">Point3</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="collisionray">
+<h2>CollisionRay<a class="headerlink" href="#collisionray" title="Permalink to this headline">¶</a></h2>
+<p>The ray is a special collision solid that is useful only as a &#8220;from&#8221; object;
+since the object has no volume, nothing will collide &#8220;into&#8221; a ray. The same is
+true for line, parabola, and segment listed below.</p>
+<p>The CollisionRay represents an infinite ray that begins at a specific point,
+and stretches in one direction to infinity.</p>
+<p>It is particularly useful for picking objects from the screen, since you can
+create a ray that starts at the camera&#8217;s point of view and extends into the
+screen, and then determine which objects that ray is intersecting. (In fact,
+there is a method on CollisionRay called
+<code class="docutils literal"><span class="pre">setFromLens()</span></code> that automatically sets
+up the ray based on a 2-d onscreen coordinate; this is used by the &#8220;picker&#8221;.
+See :ref:` &lt;clicking-on-3d-objects&gt;`.)</p>
+<p>The CollisionRay is also useful in conjunction with the CollisionHandlerFloor;
+see :ref:` &lt;collision-handlers&gt;`.</p>
+<p>A CollisionRay is created by specifing an origin point, and a direction
+vector. The direction vector need not be normalized.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">ray</span> <span class="o">=</span> <span class="n">CollisionRay</span><span class="p">(</span><span class="n">ox</span><span class="p">,</span> <span class="n">oy</span><span class="p">,</span> <span class="n">oz</span><span class="p">,</span> <span class="n">dx</span><span class="p">,</span> <span class="n">dy</span><span class="p">,</span> <span class="n">dz</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="collisionline">
+<h2>CollisionLine<a class="headerlink" href="#collisionline" title="Permalink to this headline">¶</a></h2>
+<p>This is essentially the same as a CollisionRay, except it extends to infinity
+in both directions. It is constructed with the same parameters, an origin
+point and a direction vector.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">line</span> <span class="o">=</span> <span class="n">CollisionLine</span><span class="p">(</span><span class="n">ox</span><span class="p">,</span> <span class="n">oy</span><span class="p">,</span> <span class="n">oz</span><span class="p">,</span> <span class="n">dx</span><span class="p">,</span> <span class="n">dy</span><span class="p">,</span> <span class="n">dz</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="collisionsegment">
+<h2>CollisionSegment<a class="headerlink" href="#collisionsegment" title="Permalink to this headline">¶</a></h2>
+<p>A segment is another variant on the CollisionRay that does not extend to
+infinity, but only goes to a certain point and stops. It is useful when you
+want to put a limit on how far the CollisionRay would otherwise reach.</p>
+<p>A CollisionSegment is constructed by specifying the two end points.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">segment</span> <span class="o">=</span> <span class="n">CollisionSegment</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">ay</span><span class="p">,</span> <span class="n">az</span><span class="p">,</span> <span class="n">bx</span><span class="p">,</span> <span class="n">by</span><span class="p">,</span> <span class="n">bz</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="collisionparabola">
+<h2>CollisionParabola<a class="headerlink" href="#collisionparabola" title="Permalink to this headline">¶</a></h2>
+<p>A parabola is another variant on the CollisionRay that bends. It is useful
+when you want to test with arcs, such as a cannonball shot.</p>
+</div>
+<div class="section" id="collisionbox">
+<h2>CollisionBox<a class="headerlink" href="#collisionbox" title="Permalink to this headline">¶</a></h2>
+<p>Finally, a box represents a cuboid. It consists of three pairs of rectangles,
+with adjacent sides meeting each other at a right angle. This can be employed
+where ever a necessity arises for using six intersecting planes. A box can be
+both a &#8216;from&#8217; and &#8216;into&#8217; object for the shapes specified in the chart. A box
+can only be constructed as an Axis-Aligned Bounding Box (AABB). That is, each
+side of the box is parallel to one of the coordinate axes. Once constructed,
+all collision tests are performed on the box as though it was an
+Oriented-Bounding Box (OBB).</p>
+<p>There are two constructors for the Box. One of them specifies the center for
+the box as well as the distance of each of the sides from the center.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">box</span> <span class="o">=</span> <span class="n">CollisionBox</span><span class="p">(</span><span class="n">center</span><span class="p">,</span> <span class="n">dx</span><span class="p">,</span> <span class="n">dy</span><span class="p">,</span> <span class="n">dz</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The second form of constructor takes the two diagonally opposite end points of
+the AABB.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">box</span> <span class="o">=</span> <span class="n">CollisionBox</span><span class="p">(</span><span class="n">Point3</span><span class="p">(</span><span class="n">minx</span><span class="p">,</span><span class="n">miny</span><span class="p">,</span><span class="n">minz</span><span class="p">),</span><span class="n">Point3</span><span class="p">(</span><span class="n">maxx</span><span class="p">,</span><span class="n">maxy</span><span class="p">,</span><span class="n">maxz</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="collision-system-chart">
+<h2>Collision System Chart<a class="headerlink" href="#collision-system-chart" title="Permalink to this headline">¶</a></h2>
+<p>Here is a table of the Collision Solids that can be used as &#8220;from&#8221; and &#8220;into&#8221;
+objects in a Collision.</p>
+<p>At noted above, with no volume CollisionRay, CollisionLine, CollisionParabola,
+CollisionSegment are only &#8220;from&#8221;, never &#8220;into&#8221; and hence not listed as columns
+in the table below.</p>
+<p>At present, CollisionFloorMesh, CollisionInvSphere, CollisionPlane, and
+CollisionPolygon are only &#8220;into&#8221; and never &#8220;from&#8221; and hence are not listed as
+rows in the table below.</p>
+<p>In the table below, the solid is listed without its &#8220;Collision&#8221; preface, e.g.,
+&#8220;Sphere&#8221; instead of &#8220;CollisionSphere&#8221;, to save on space.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="16%" />
+<col width="14%" />
+<col width="14%" />
+<col width="10%" />
+<col width="13%" />
+<col width="11%" />
+<col width="10%" />
+<col width="13%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>From \ Into</strong></td>
+<td><strong>FloorMesh</strong></td>
+<td><strong>InvSphere</strong></td>
+<td><strong>Plane</strong></td>
+<td><strong>Polygon</strong></td>
+<td><strong>Sphere</strong></td>
+<td><strong>Tube</strong></td>
+<td><strong>Box</strong></td>
+</tr>
+<tr class="row-even"><td>| Line</td>
+<td>&#8216;&#8217;&#8217; &#8216;&#8217;&#8216;</td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td>&#8216;&#8217;&#8217; &#8216;&#8217;&#8216;</td>
+</tr>
+<tr class="row-odd"><td>| Parabola</td>
+<td>&#8216;&#8217;&#8217; &#8216;&#8217;&#8216;</td>
+<td>&#8216;&#8217;&#8217; &#8216;&#8217;&#8216;</td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td>&#8216;&#8217;&#8217; &#8216;&#8217;&#8216;</td>
+</tr>
+<tr class="row-even"><td>| Ray</td>
+<td><strong>Yes*</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+</tr>
+<tr class="row-odd"><td>| Segment</td>
+<td>&#8216;&#8217;&#8217; &#8216;&#8217;&#8216;</td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+</tr>
+<tr class="row-even"><td>| Sphere</td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Yes</strong></td>
+</tr>
+<tr class="row-odd"><td>| Box</td>
+<td>&#8216;&#8217;&#8217; &#8216;&#8217;&#8216;</td>
+<td>&#8216;&#8217;&#8217; &#8216;&#8217;&#8216;</td>
+<td><strong>1.10</strong></td>
+<td>&#8216;&#8217;&#8217; 1.10 &#8216;&#8217;&#8216;</td>
+<td><em>&#8216; Yes</em>&#8216;</td>
+<td>&#8216;&#8217;&#8217; &#8216;&#8217;&#8216;</td>
+<td>&#8216;&#8217;&#8217; 1.10 &#8216;&#8217;&#8216;</td>
+</tr>
+<tr class="row-even"><td>| Tube</td>
+<td>&#8216;&#8217;&#8217; &#8216;&#8217;&#8216;</td>
+<td>&#8216;&#8217;&#8217; &#8216;&#8217;&#8216;</td>
+<td><strong>1.10</strong></td>
+<td>&#8216;&#8217;&#8217; &#8216;&#8217;&#8216;</td>
+<td><em>&#8216; 1.10</em>&#8216;</td>
+<td>&#8216;&#8217;&#8217; &#8216;&#8217;&#8216;</td>
+<td>&#8216;&#8217;&#8217; &#8216;&#8217;&#8216;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="collision-handlers.html" class="btn btn-neutral float-right" title="Collision Handlers" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Collision Detection" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Panda3D.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.10.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

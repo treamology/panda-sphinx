@@ -1,0 +1,363 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Bullet Config Options &mdash; Panda3D Manual</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Panda3D Manual" href="../../../index.html"/>
+        <link rel="up" title="Using Bullet with Panda3D" href="index.html"/>
+        <link rel="next" title="Bullet FAQ" href="faq.html"/>
+        <link rel="prev" title="Bullet Softbody Config" href="softbody-config.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Panda3D
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.10
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../intro/index.html">Introduction to Panda3D</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Programming with Panda3D</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../the-scene-graph/index.html">The Scene Graph</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../the-configuration-file/index.html">The Configuration File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../models-and-actors/index.html">Models and Actors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../render-attributes/index.html">Render Attributes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../texturing/index.html">Texturing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../shaders/index.html">Shaders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../camera-control/index.html">Camera Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../sound/index.html">Sound</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../intervals/index.html">Intervals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tasks-and-event-handling/index.html">Tasks and Event Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../text-and-image-rendering/index.html">Text and Image Rendering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../directgui/index.html">DirectGUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../render-effects/index.html">Render Effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../finite-state-machines/index.html">Finite State Machines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../terrain/index.html">Terrain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../internal-structures/index.html">Advanced operations with Panda3D&#8217;s internal structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../render-to-texture-and-image-postprocessing/index.html">Render-to-Texture and Image Postprocessing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../panda3d-rendering-process/index.html">Panda3D Rendering Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../panda3d-utility-functions.html">Panda3D Utility Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../particle-effects/index.html">Particle Effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../collision-detection/index.html">Collision Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../garbage-collection/index.html">Garbage Collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hardware-support/index.html">Hardware support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../math-engine/index.html">Math Engine</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Physics</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../panda3d-physics-engine/index.html">Panda3D Physics Engine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ode/index.html">Using ODE with Panda3D</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Using Bullet with Panda3D</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="hello-world.html">Bullet Hello World</a></li>
+<li class="toctree-l4"><a class="reference internal" href="debug-renderer.html">Bullet Debug Renderer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="collision-shapes.html">Bullet Collision Shapes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="collision-filtering.html">Bullet Collision Filtering</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ccd.html">Bullet Continuous Collision Detection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="queries.html">Bullet Queries</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ghosts.html">Bullet Ghosts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="character-controller.html">Bullet Character Controller</a></li>
+<li class="toctree-l4"><a class="reference internal" href="constraints.html">Bullet Constraints</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vehicles.html">Bullet Vehicles</a></li>
+<li class="toctree-l4"><a class="reference internal" href="softbodies.html">Bullet Softbodies</a></li>
+<li class="toctree-l4"><a class="reference internal" href="softbody-rope.html">Bullet Softbody Rope</a></li>
+<li class="toctree-l4"><a class="reference internal" href="softbody-patch.html">Bullet Softbody Patch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="softbody-triangles.html">Bullet Softbody Triangles</a></li>
+<li class="toctree-l4"><a class="reference internal" href="softbody-tetrahedron.html">Bullet Softbody Tetrahedron</a></li>
+<li class="toctree-l4"><a class="reference internal" href="softbody-config.html">Bullet Softbody Config</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Bullet Config Options</a></li>
+<li class="toctree-l4"><a class="reference internal" href="faq.html">Bullet FAQ</a></li>
+<li class="toctree-l4"><a class="reference internal" href="samples.html">Bullet Samples</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../motion-paths.html">Motion Paths</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../timing/index.html">Timing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../networking/index.html">Networking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../multifiles/index.html">Multifiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../showbase.html">ShowBase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../file-reading.html">File Reading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../threading.html">Threading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../subclassing.html">Subclassing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../table-of-features-supported-per-graphic-renderer.html">Table of features supported per graphic renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../pandai/index.html">Artificial Intelligence (PANDAI)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../distribution/index.html">Distributing Panda3D Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../samples/index.html">Sample Programs in the Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../debugging/index.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../performance-tuning/index.html">Performance Tuning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../using-c++/index.html">Using C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tools/index.html">Panda3D Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../building-from-source.html">Building Panda3D from Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cheat-sheets.html">Cheat Sheets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting-started-on-osx.html">Getting Started on OSX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../more-panda3d-resources.html">More Panda3D Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../thirdparty-licenses.html">Third-party dependencies and license info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../the-irc-channel.html">The IRC Channel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../faq.html">FAQ</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../index.html">Panda3D</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../index.html">Programming with Panda3D</a> &raquo;</li>
+      
+          <li><a href="../index.html">Physics</a> &raquo;</li>
+      
+          <li><a href="index.html">Using Bullet with Panda3D</a> &raquo;</li>
+      
+    <li>Bullet Config Options</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../_sources/programming-with-panda3d/physics/bullet/config-options.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="bullet-config-options">
+<span id="config-options"></span><h1>Bullet Config Options<a class="headerlink" href="#bullet-config-options" title="Permalink to this headline">¶</a></h1>
+<p>The following list is a listing of all config variables defined by the Panda3D
+Bullet module.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="16%" />
+<col width="5%" />
+<col width="4%" />
+<col width="75%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Variable</th>
+<th class="head">Value Type</th>
+<th class="head">Default</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>bullet-max-objects</td>
+<td>int</td>
+<td>1024</td>
+<td>Specifies the maximum number of individual objects within a bullet physics world.</td>
+</tr>
+<tr class="row-odd"><td>bullet-gc-lifetime</td>
+<td>int</td>
+<td>256</td>
+<td>Specifies the lifetime of data clean up be the soft body world info garbage collector.</td>
+</tr>
+<tr class="row-even"><td>bullet-broadphase-algorithm</td>
+<td>enum</td>
+<td>aabb</td>
+<td>Specifies the broadphase algorithm to be used by the physics engine. Default value is &#8216;aabb&#8217; (dynamic aabb tree). A second value is &#8216;sap&#8217; (sweep and prune).</td>
+</tr>
+<tr class="row-odd"><td>bullet-sap-extents</td>
+<td>float</td>
+<td>1000.0</td>
+<td>Specifies the world extent in all directions. The config variable is only used if bullet-broadphase-algorithm is set to &#8216;sap&#8217; (sweep and prune).</td>
+</tr>
+<tr class="row-even"><td>bullet-enable-contact-events</td>
+<td>bool</td>
+<td>false</td>
+<td>Specifies if events should be send when new contacts are created or existing contacts get remove. Warning: enabling contact events might create more load on the event queue then you might want! Default value is FALSE.</td>
+</tr>
+<tr class="row-odd"><td>bullet-solver-iterations</td>
+<td>int</td>
+<td>10</td>
+<td>Specifies the number of iterations for the Bullet contact solver. This is the native Bullet property btContactSolverInfo::m_numIterations.</td>
+</tr>
+<tr class="row-even"><td>bullet-additional-damping</td>
+<td>bool</td>
+<td>false</td>
+<td>Enables additional damping on each rigid body, in order to reduce jitter. Additional damping is an experimental feature of the Bullet physics engine. Use with care.&#8221;</td>
+</tr>
+<tr class="row-odd"><td>bullet-additional-damping-linear-factor</td>
+<td>float</td>
+<td>0.005</td>
+<td>Only used when bullet-additional-damping is set to TRUE.</td>
+</tr>
+<tr class="row-even"><td>bullet-additional-damping-angular-factor</td>
+<td>float</td>
+<td>0.01</td>
+<td>Only used when bullet-additional-damping is set to TRUE.</td>
+</tr>
+<tr class="row-odd"><td>bullet-additional-damping-linear-threshold</td>
+<td>float</td>
+<td>0.01</td>
+<td>Only used when bullet-additional-damping is set to TRUE.</td>
+</tr>
+<tr class="row-even"><td>bullet-additional-damping-angular-threshold</td>
+<td>float</td>
+<td>0.01</td>
+<td>Only used when bullet-additional-damping is set to TRUE.</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="faq.html" class="btn btn-neutral float-right" title="Bullet FAQ" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="softbody-config.html" class="btn btn-neutral" title="Bullet Softbody Config" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Panda3D.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'1.10.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

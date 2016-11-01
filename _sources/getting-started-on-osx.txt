@@ -1,0 +1,108 @@
+.. _getting-started-on-osx:
+
+Getting Started on OSX
+======================
+
+Congratulations! You've installed Panda3D on your machine. Now, what next?
+
+First of all, you should :ref:` <preparation>` by learning Python. You can
+also use C++ with Panda3D, but since most of its users use Python, and it is a
+very easy language to master, Python is the most recommended choice.
+
+Then, you can dive into the :ref:` <>` and try the Hello World samples. The
+manual is a great resource for learning Panda3D and getting in-depth
+information about various subjects. However, for more concrete examples, you
+can dive into the :ref:` <samples>`, which ship with the Panda3D build.
+
+Running the Sample Programs
+---------------------------
+
+Panda3D comes with a handful of Sample Programs, which are stored in
+/Developer/Examples/Panda3D (for Panda3D 1.6.x, they are stored in
+/Applications/Panda3D/1.6.0/samples). After opening a terminal window navigate
+to the directory of the sample program you want to see.
+
+Then, you can run the program by using the 'ppython' command: (For Panda3D
+1.6.x, use '/usr/bin/python' rather than 'ppython')
+
+
+.. code-block:: python
+    
+    ppython Tut-Asteroids.py
+
+
+
+Troubleshooting Common Issues
+-----------------------------
+
+What to do if you see the Error Message:
+::
+    
+    dyld: Library not loaded: @executable_path/../Library/Frameworks/Cg.framework/Cg
+    Referenced from: /Applications/Panda3D/1.6.0/lib/libpanda.dylib
+    Reason: image not found
+    Trace/BPT trap
+
+
+
+This means you need to download and install the `NVIDIA Cg
+Toolkit <http://developer.nvidia.com/object/cg_toolkit.html#downloads>`__
+before you will be able to use Panda3D.
+
+What to do if you see the Error Message:
+::
+    
+    Fatal Python error: Interpreter not initialized (version mismatch?)
+    Abort trap
+
+Or the following:
+::
+    
+    Traceback (most recent call last):
+      File "main.py", line 1, in <module>
+        import direct.directbase.DirectStart
+    ImportError: No module named direct.directbase.DirectStart
+
+
+
+You are running a version of Python that is not compatible with the version
+Panda3D has been compiled with. However, OSX always ships with a system
+version of Python that should be compatible. The fact that it doesn't work
+simply indicates that the wrong copy of python is ran.
+
+You need to make sure you are running Apple's version of Python. Fortunately,
+Panda3D ships with a file called 'ppython' that is a mere symlink to
+/usr/bin/python, where Apple's copy of Python resides. So, instead of
+'python', you should call 'ppython'.
+
+What to do if you see the Error Message:
+::
+    
+    display(error): The application requested hardware acceleration, but your OpenGL
+    display(error): driver, GDI Generic, only supports software rendering.
+    display(error): You need to install a hardware-accelerated OpenGL driver, or,
+    display(error): if you actually *want* to use a software renderer, then
+    display(error): alter the hardware/software configuration in your Config.prc file.
+    display(error): Window wouldn't open; abandoning window.
+
+
+
+This error is fairly self-explanatory: it means your video drivers are
+inadequate. Obtain updated drivers by running Software Update or, if you have
+installed a 3rd party video card, installing new drivers from the video card
+vendor.
+
+Alternatively, you can use Panda3D in software rendering mode, You will not be
+able to use fancy shaders and it will be much slower than in hardware mode.
+However, if you still want to use it, you need to edit your Config.prc file
+(which can be found in the "etc" dir of your Panda3D installation) and find
+this line: ::
+    
+    load-display pandagl
+
+Replace that
+line with this instead: ::
+    
+    load-display tinydisplay
+
+

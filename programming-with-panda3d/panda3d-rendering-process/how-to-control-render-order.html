@@ -1,0 +1,403 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>How to Control Render Order &mdash; Panda3D Manual</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Panda3D Manual" href="../../index.html"/>
+        <link rel="up" title="Panda3D Rendering Process" href="index.html"/>
+        <link rel="next" title="Panda3D Utility Functions" href="../panda3d-utility-functions.html"/>
+        <link rel="prev" title="Multi-Pass Rendering" href="multi-pass-rendering.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Panda3D
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.10
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../intro/index.html">Introduction to Panda3D</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Programming with Panda3D</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../the-scene-graph/index.html">The Scene Graph</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../the-configuration-file/index.html">The Configuration File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../models-and-actors/index.html">Models and Actors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-attributes/index.html">Render Attributes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../texturing/index.html">Texturing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shaders/index.html">Shaders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../camera-control/index.html">Camera Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sound/index.html">Sound</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intervals/index.html">Intervals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks-and-event-handling/index.html">Tasks and Event Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../text-and-image-rendering/index.html">Text and Image Rendering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../directgui/index.html">DirectGUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-effects/index.html">Render Effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../finite-state-machines/index.html">Finite State Machines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../terrain/index.html">Terrain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internal-structures/index.html">Advanced operations with Panda3D&#8217;s internal structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-to-texture-and-image-postprocessing/index.html">Render-to-Texture and Image Postprocessing</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Panda3D Rendering Process</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="multithreaded-render-pipeline.html">Multithreaded Render Pipeline</a></li>
+<li class="toctree-l3"><a class="reference internal" href="introducing-graphics-classes.html">Introducing Graphics Classes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="the-graphics-pipe.html">The Graphics Pipe</a></li>
+<li class="toctree-l3"><a class="reference internal" href="creating-windows-and-buffers.html">Creating Windows and Buffers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="display-regions.html">Display Regions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="creating-new-mousewatchers-for-display-regions.html">Creating New MouseWatchers for Display Regions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="clearing-display-regions.html">Clearing Display Regions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="the-2d-display-region.html">The 2D Display Region</a></li>
+<li class="toctree-l3"><a class="reference internal" href="stereo-display-regions.html">Stereo Display Regions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multi-pass-rendering.html">Multi-Pass Rendering</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">How to Control Render Order</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../panda3d-utility-functions.html">Panda3D Utility Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../particle-effects/index.html">Particle Effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../collision-detection/index.html">Collision Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../garbage-collection/index.html">Garbage Collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hardware-support/index.html">Hardware support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../math-engine/index.html">Math Engine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../motion-paths.html">Motion Paths</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../timing/index.html">Timing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../networking/index.html">Networking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../multifiles/index.html">Multifiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../showbase.html">ShowBase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../file-reading.html">File Reading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../threading.html">Threading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../subclassing.html">Subclassing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../table-of-features-supported-per-graphic-renderer.html">Table of features supported per graphic renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pandai/index.html">Artificial Intelligence (PANDAI)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../distribution/index.html">Distributing Panda3D Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../samples/index.html">Sample Programs in the Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../debugging/index.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../performance-tuning/index.html">Performance Tuning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../using-c++/index.html">Using C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/index.html">Panda3D Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../building-from-source.html">Building Panda3D from Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cheat-sheets.html">Cheat Sheets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started-on-osx.html">Getting Started on OSX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../more-panda3d-resources.html">More Panda3D Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../thirdparty-licenses.html">Third-party dependencies and license info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../the-irc-channel.html">The IRC Channel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">FAQ</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Panda3D</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Programming with Panda3D</a> &raquo;</li>
+      
+          <li><a href="index.html">Panda3D Rendering Process</a> &raquo;</li>
+      
+    <li>How to Control Render Order</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/programming-with-panda3d/panda3d-rendering-process/how-to-control-render-order.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="how-to-control-render-order">
+<span id="id1"></span><h1>How to Control Render Order<a class="headerlink" href="#how-to-control-render-order" title="Permalink to this headline">¶</a></h1>
+<p>In most simple scenes, you can naively attach geometry to the scene graph and
+let Panda decide the order in which objects should be rendered. Generally, it
+will do a good enough job, but there are occasions in which it is necessary to
+step in and take control of the process.</p>
+<p>To do this well, you need to understand the implications of render order. In a
+typical OpenGL- or DirectX-style Z-buffered system, the order in which
+primitives are sent to the graphics hardware is theoretically unimportant, but
+in practice there are many important reasons for rendering one object before
+another.</p>
+<p>Firstly, state sorting is one important optimization. This means choosing to
+render things that have similar state (texture, color, etc.) all at the same
+time, to minimize the number of times the graphics hardware has to be told to
+change state in a particular frame. This sort of optimization is particularly
+important for very high-end graphics hardware, which achieves its advertised
+theoretical polygon throughput only in the absence of any state changes; for
+many such advanced cards, each state change request will completely flush the
+register cache and force a restart of the pipeline.</p>
+<p>Secondly, some hardware has a different optimization requirement, and may
+benefit from drawing nearer things before farther things, so that the Z-buffer
+algorithm can effectively short-circuit some of the advanced shading features
+in the graphics card for pixels that would be obscured anyway. This sort of
+hardware will draw things fastest when the scene is sorted in order from the
+nearest object to the farthest object, or &#8220;front-to-back&#8221; ordering.</p>
+<p>Finally, regardless of the rendering optimizations described above, a
+particular sorting order is required to render transparency properly (in the
+absence of the specialized transparency support that only a few graphics cards
+provide). Transparent and semitransparent objects are normally rendered by
+blending their semitransparent parts with what has already been drawn to the
+framebuffer, which means that it is important that everything that will appear
+behind a semitransparent object must have already been drawn before the
+semitransparent parts of the occluding object is drawn. This implies that all
+semitransparent objects must be drawn in order from farthest away to nearest,
+or in &#8220;back-to-front&#8221; ordering, and furthermore that the opaque objects should
+all be drawn before any of the semitransparent objects.</p>
+<p>Panda achieves these sometimes conflicting sorting requirements through the
+use of bins.</p>
+<div class="section" id="cull-bins">
+<h2>Cull Bins<a class="headerlink" href="#cull-bins" title="Permalink to this headline">¶</a></h2>
+<p>The CullBinManager is a global object that maintains a list of all of the cull
+bins in the world, and their properties. Initially, there are five default
+bins, and they will be rendered in the following order:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="33%" />
+<col width="17%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Bin Name</th>
+<th class="head">Sort</th>
+<th class="head">Type</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>background</td>
+<td>10</td>
+<td>BT_fixed</td>
+</tr>
+<tr class="row-odd"><td>opaque</td>
+<td>20</td>
+<td>BT_state_sorted</td>
+</tr>
+<tr class="row-even"><td>transparent</td>
+<td>30</td>
+<td>BT_back_to_front</td>
+</tr>
+<tr class="row-odd"><td>fixed</td>
+<td>40</td>
+<td>BT_fixed</td>
+</tr>
+<tr class="row-even"><td>unsorted</td>
+<td>50</td>
+<td>BT_unsorted</td>
+</tr>
+</tbody>
+</table>
+<p>When Panda traverses the scene graph each frame for rendering, it assigns each
+Geom it encounters into one of the bins defined in the CullBinManager. (The
+above lists only the default bins. Additional bins may be created as needed,
+using either the <code class="docutils literal"><span class="pre">CullBinManager::add_bin()</span></code>
+method, or the Config.prc
+<code class="docutils literal"><span class="pre">cull-bin</span></code> variable.)</p>
+<p>You may assign a node or nodes to an explicit bin using the
+<code class="docutils literal"><span class="pre">NodePath::set_bin()</span></code> interface. set_bin()
+requires two parameters, the bin name and an integer sort parameter; the sort
+parameter is only meaningful if the bin type is BT_fixed (more on this
+below), but it must always be specified regardless.</p>
+<p>If a node is not explicitly assigned to a particular bin, then Panda will
+assign it into either the &#8220;opaque&#8221; or the &#8220;transparent&#8221; bin, according to
+whether it has transparency enabled or not. (Note that the reverse is not
+true: explicitly assigning an object into the &#8220;transparent&#8221; bin does not
+automatically enable transparency for the object.)</p>
+<p>When the entire scene has been traversed and all objects have been assigned to
+bins, then the bins are rendered in order according to their sort parameter.
+Within each bin, the contents are sorted according to the bin type.</p>
+<p>If you want simple geometry that&#8217;s in back of something to render in front of
+something that it logically shouldn&#8217;t, add the following code to the model
+that you want in front:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">setBin</span><span class="p">(</span><span class="s2">&quot;fixed&quot;</span><span class="p">,</span> <span class="mi">40</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">setDepthTest</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">setDepthWrite</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The above code will only work for simple models. If your model self occludes
+(parts of the model covers other parts of the model), the code will not work
+as expected. An alternative method is to use a :ref:` &lt;display-regions&gt;` with
+<code class="docutils literal"><span class="pre">displayRegion.clearDepthActive(True)</span></code>.</p>
+<p>The following bin types may be specified:</p>
+<dl class="docutils">
+<dt>BT_fixed</dt>
+<dd>Render all of the objects in the bin in a fixed order specified by the
+user. This is according to the second parameter of the NodePath.set_bin()
+method; objects with a lower value are drawn first.</dd>
+<dt>BT_state_sorted</dt>
+<dd>Collects together objects that share similar state and renders them
+together, in an attempt to minimize state transitions in the scene.</dd>
+<dt>BT_back_to_front</dt>
+<dd>Sorts each Geom according to the center of its bounding volume, in linear
+distance from the camera plane, so that farther objects are drawn first.
+That is, in Panda&#8217;s default right-handed Z-up coordinate system, objects
+with large positive Y are drawn before objects with smaller positive Y.</dd>
+<dt>BT_front_to_back</dt>
+<dd>The reverse of back_to_front, this sorts so that nearer objects are
+drawn first.</dd>
+<dt>BT_unsorted</dt>
+<dd>Objects are drawn in the order in which they appear in the scene graph, in
+a depth-first traversal from top to bottom and then from left to right.</dd>
+</dl>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../panda3d-utility-functions.html" class="btn btn-neutral float-right" title="Panda3D Utility Functions" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="multi-pass-rendering.html" class="btn btn-neutral" title="Multi-Pass Rendering" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Panda3D.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.10.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,109 @@
+.. _vr-helmets-and-trackers:
+
+VR Helmets and Trackers
+=======================
+
+This section is especially geared towards Carnegie Mellon University's virtual
+reality equipment. The tracking setup used consists of a magnetic tracker base
+that receives signals, a virtual reality headmount, and four small trackers,
+one of which is attached to the headmount. These magnetic trackers may be held
+in the hand or implanted in non-metallic objects, and they will relay their
+position and orientation to the tracker base, which then supplies it to the
+program.
+
+First, make sure that the VRHandler is in the same folder as your python
+files. Then, import it as you would any Panda3D module.
+
+
+
+.. code-block:: python
+    
+    from VRHandler import *
+
+
+
+Once imported, the VRHandler functions are now available. Make a constant in
+your code that controls whether or not the tracker is used.
+
+
+
+.. code-block:: python
+    
+    USE_TRACKER = True
+
+
+
+or
+
+
+
+.. code-block:: python
+    
+    USE_TRACKER = False
+
+
+
+Then, activate the tracker if required:
+
+
+
+.. code-block:: python
+    
+    if USE_TRACKER:
+      self.tracker = Tracker()
+      camera.reparentTo(self.tracker.getHMDHelper())
+    else:
+      print "Using Mouse and Keyboard Controls"
+      self.controls = MouseAndKeyboardControls()
+      self.controls.start()
+
+
+
+If the tracker is not being used, the above code enables first-person-shooter
+style controls, using WASD to move, R and F for height, and the mouse to look
+around. You can add the following lines to your code if you want to customize
+the feel of the controls:
+
+
+
+.. code-block:: python
+    
+    &#35; Keyboard control constants
+    self.controls.acceleration = 15
+    self.controls.maxSpeed = 5
+    self.controls.friction = 6
+
+
+
+Change those three numbers to whatever feels right for your world.
+
+Typically, the tracker base is 6.5 feet off the ground, and the range of the
+trackers is from three or so inches from the tracker base to around the knees
+of an average person. The tracker base is treated as a NodePath, so it may be
+moved around. If you want the guest to move around the world while his
+real-life feet stay put, get the tracker base helper and move that around:
+
+
+
+.. code-block:: python
+    
+    self.trackerBaseHelper = self.tracker.getTrackerBaseHelper()
+    self.trackerBaseHelper.setPos(0, 3, 0)
+
+
+
+Finally, objects within the Panda3D application may be reparented to the
+trackers. The four trackers are HMDHelper, YellowHelper, GreenHelper, and
+BlueHelper. Also, remember that reparenting may create some strange
+inheritance issues.
+
+
+
+.. code-block:: python
+    
+    NodePath.reparentTo(self.tracker.getHMDHelper() )
+    NodePath.reparentTo(self.tracker.getYellowHelper() )
+    NodePath.reparentTo(self.tracker.getGreenHelper() )
+    NodePath.reparentTo(self.tracker.getBlueHelper() )
+
+

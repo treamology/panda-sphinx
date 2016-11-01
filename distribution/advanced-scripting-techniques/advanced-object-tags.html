@@ -1,0 +1,311 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Advanced object tags &mdash; Panda3D Manual</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Panda3D Manual" href="../../index.html"/>
+        <link rel="up" title="Advanced scripting techniques" href="index.html"/>
+        <link rel="next" title="Splash window tags" href="splash-window-tags.html"/>
+        <link rel="prev" title="DetectPanda3D.js" href="detectpanda3d.js.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Panda3D
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.10
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../intro/index.html">Introduction to Panda3D</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../programming-with-panda3d/index.html">Programming with Panda3D</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Distributing Panda3D Applications</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../introduction-to-p3d-files/index.html">Introduction to p3d files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../distributing-via-the-web/index.html">Distributing via the web</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../p3d-file-config-settings.html">P3D file config settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../distributing-as-a-self-contained-installer.html">Distributing as a self-contained installer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../the-runtime-panda3d-directory.html">The runtime Panda3D directory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../the-package-system/index.html">The package system</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Advanced scripting techniques</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="detectpanda3d.js.html">DetectPanda3D.js</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Advanced object tags</a></li>
+<li class="toctree-l3"><a class="reference internal" href="splash-window-tags.html">Splash window tags</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plugin-notify-callbacks.html">Plugin notify callbacks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="apprunner/index.html">AppRunner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="p3d-origin-security.html">P3D origin security</a></li>
+<li class="toctree-l3"><a class="reference internal" href="packageinstaller.html">PackageInstaller</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../samples/index.html">Sample Programs in the Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../debugging/index.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../performance-tuning/index.html">Performance Tuning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../using-c++/index.html">Using C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/index.html">Panda3D Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../building-from-source.html">Building Panda3D from Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cheat-sheets.html">Cheat Sheets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started-on-osx.html">Getting Started on OSX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../more-panda3d-resources.html">More Panda3D Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../thirdparty-licenses.html">Third-party dependencies and license info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../the-irc-channel.html">The IRC Channel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">FAQ</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Panda3D</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Distributing Panda3D Applications</a> &raquo;</li>
+      
+          <li><a href="index.html">Advanced scripting techniques</a> &raquo;</li>
+      
+    <li>Advanced object tags</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/distribution/advanced-scripting-techniques/advanced-object-tags.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="advanced-object-tags">
+<span id="id1"></span><h1>Advanced object tags<a class="headerlink" href="#advanced-object-tags" title="Permalink to this headline">¶</a></h1>
+<p>When you embed a Panda3D application in a web page, either with the
+&lt;object&gt; tag or with P3D_RunContent, you specify certain key pieces of
+information such as window size and p3d URL.</p>
+<p>You can specify more exotic things too:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="12%" />
+<col width="88%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Token</th>
+<th class="head">Meaning</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>auto_start</td>
+<td>&#8220;1&#8221; to launch the app without waiting for the green &#8220;play&#8221; button</td>
+</tr>
+<tr class="row-odd"><td>hidden</td>
+<td>&#8220;1&#8221; to avoid opening a Panda3D window</td>
+</tr>
+<tr class="row-even"><td>keep_pythonpath</td>
+<td>&#8220;1&#8221; to allow the user&#8217;s PYTHONPATH environment variable to remain intact, and thus to override Python files within the app (requires -D on p3d file)</td>
+</tr>
+<tr class="row-odd"><td>log_basename</td>
+<td>Specifies the log file within Panda3D/log to write to for this app</td>
+</tr>
+<tr class="row-even"><td>prc_name</td>
+<td>Specifies a directory name within Panda3D/prc from which user prc files custom to this app will be loaded</td>
+</tr>
+<tr class="row-odd"><td>alt_host</td>
+<td>Specifies one of the &#8220;alternate host&#8221; keywords defined for the p3d file&#8217;s download host, to enable alternate download contents</td>
+</tr>
+</tbody>
+</table>
+<p>In addition to the above list, you may specify any of numerous splash image
+URL&#8217;s, or any of the plugin notify callbacks; these are described on the
+following pages.</p>
+<p>Furthermore, you can specify tokens that have particular meaning to your own
+application. Any additional tokens you specify are passed to the application
+and can be queried by Python code via base.appRunner.getToken(&#8216;keyword&#8217;), so
+any application is free to define its own custom tokens.</p>
+<p>To use any of the above, specify the token and the value as a pair in the
+embedding HTML syntax. In the Internet Explorer syntax, this means you use the
+&lt;param&gt; element, e.g.:</p>
+<div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">object</span> <span class="na">width</span><span class="o">=</span><span class="s">&quot;640&quot;</span> <span class="na">height</span><span class="o">=</span><span class="s">&quot;480&quot;</span>
+  <span class="na">classid</span><span class="o">=</span><span class="s">&quot;CLSID:924B4927-D3BA-41EA-9F7E-8A89194AB3AC&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">param</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;data&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;myapp.p3d&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">param</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;splash_img&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;my_splash.jpg&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">param</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;auto_start&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;1&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">object</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>In the non-Internet Explorer syntax, you can use the &lt;param&gt; element as
+above, or you can insert the token directly within the &lt;object&gt; tag, e.g.:</p>
+<div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">object</span> <span class="na">width</span><span class="o">=</span><span class="s">&quot;640&quot;</span> <span class="na">height</span><span class="o">=</span><span class="s">&quot;480&quot;</span>
+  <span class="na">type</span><span class="o">=</span><span class="s">&quot;application/x-panda3d&quot;</span> <span class="na">data</span><span class="o">=</span><span class="s">&quot;myapp.p3d&quot;</span>
+  <span class="na">splash_img</span><span class="o">=</span><span class="s">&quot;my_splash.jpg&quot;</span> <span class="na">auto_start</span><span class="o">=</span><span class="s">&quot;1&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">object</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>When using RunPanda3D, you just add the token and value as a pair of strings
+to the P3D_RunContent() call:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">P3D_RunContent</span><span class="p">(</span><span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="s1">&#39;myapp.p3d&#39;</span><span class="p">,</span> <span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;myapp_id&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;width&#39;</span><span class="p">,</span> <span class="s1">&#39;640&#39;</span><span class="p">,</span> <span class="s1">&#39;height&#39;</span><span class="p">,</span> <span class="s1">&#39;480&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;splash_img&#39;</span><span class="p">,</span> <span class="s1">&#39;my_splash.jpg&#39;</span><span class="p">,</span> <span class="s1">&#39;auto_start&#39;</span><span class="p">,</span> <span class="s1">&#39;1&#39;</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="splash-window-tags.html" class="btn btn-neutral float-right" title="Splash window tags" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="detectpanda3d.js.html" class="btn btn-neutral" title="DetectPanda3D.js" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Panda3D.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.10.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

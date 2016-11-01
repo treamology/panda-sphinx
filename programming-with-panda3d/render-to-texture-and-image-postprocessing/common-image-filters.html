@@ -1,0 +1,457 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Common Image Filters &mdash; Panda3D Manual</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Panda3D Manual" href="../../index.html"/>
+        <link rel="up" title="Render-to-Texture and Image Postprocessing" href="index.html"/>
+        <link rel="next" title="Generalized Image Filters" href="generalized-image-filters.html"/>
+        <link rel="prev" title="Render-to-Texture and Image Postprocessing" href="index.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Panda3D
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.10
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../intro/index.html">Introduction to Panda3D</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Programming with Panda3D</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../the-scene-graph/index.html">The Scene Graph</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../the-configuration-file/index.html">The Configuration File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../models-and-actors/index.html">Models and Actors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-attributes/index.html">Render Attributes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../texturing/index.html">Texturing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shaders/index.html">Shaders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../camera-control/index.html">Camera Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sound/index.html">Sound</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intervals/index.html">Intervals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks-and-event-handling/index.html">Tasks and Event Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../text-and-image-rendering/index.html">Text and Image Rendering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../directgui/index.html">DirectGUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-effects/index.html">Render Effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../finite-state-machines/index.html">Finite State Machines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../terrain/index.html">Terrain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internal-structures/index.html">Advanced operations with Panda3D&#8217;s internal structures</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Render-to-Texture and Image Postprocessing</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Common Image Filters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generalized-image-filters.html">Generalized Image Filters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dynamic-cube-maps.html">Dynamic Cube Maps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="low-level-render-to-texture.html">Low-Level Render to Texture</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../panda3d-rendering-process/index.html">Panda3D Rendering Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../panda3d-utility-functions.html">Panda3D Utility Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../particle-effects/index.html">Particle Effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../collision-detection/index.html">Collision Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../garbage-collection/index.html">Garbage Collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hardware-support/index.html">Hardware support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../math-engine/index.html">Math Engine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../motion-paths.html">Motion Paths</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../timing/index.html">Timing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../networking/index.html">Networking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../multifiles/index.html">Multifiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../showbase.html">ShowBase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../file-reading.html">File Reading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../threading.html">Threading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../subclassing.html">Subclassing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../table-of-features-supported-per-graphic-renderer.html">Table of features supported per graphic renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pandai/index.html">Artificial Intelligence (PANDAI)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../distribution/index.html">Distributing Panda3D Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../samples/index.html">Sample Programs in the Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../debugging/index.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../performance-tuning/index.html">Performance Tuning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../using-c++/index.html">Using C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/index.html">Panda3D Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../building-from-source.html">Building Panda3D from Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cheat-sheets.html">Cheat Sheets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started-on-osx.html">Getting Started on OSX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../more-panda3d-resources.html">More Panda3D Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../thirdparty-licenses.html">Third-party dependencies and license info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../the-irc-channel.html">The IRC Channel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">FAQ</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Panda3D</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Programming with Panda3D</a> &raquo;</li>
+      
+          <li><a href="index.html">Render-to-Texture and Image Postprocessing</a> &raquo;</li>
+      
+    <li>Common Image Filters</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/programming-with-panda3d/render-to-texture-and-image-postprocessing/common-image-filters.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="common-image-filters">
+<span id="id1"></span><h1>Common Image Filters<a class="headerlink" href="#common-image-filters" title="Permalink to this headline">¶</a></h1>
+<p>Note: Sorry, but the CommonFilters and FilterManager classes are implemented
+in Python and will not be of much use to C++ users.</p>
+<div class="section" id="id2">
+<h2>Common Image Filters<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>Note: the following information applies to Panda version 1.5.0 and beyond. It
+does not apply to older versions of Panda3D.</p>
+<p>The purpose of class CommonFilters is to make it easy to set up a number of
+common image postprocessing operations.</p>
+<p>Import the class like this:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">direct.filter.CommonFilters</span> <span class="kn">import</span> <span class="n">CommonFilters</span>
+</pre></div>
+</div>
+<p>Currently, the image postprocessing operations supported by class
+CommonFilters is:</p>
+<ol class="arabic simple">
+<li>Bloom Filter - creates a glowing halo around bright objects.</li>
+<li>Cartoon Inker - draws black lines around 3D objects.</li>
+<li>Volumetric Lighting - screen-space method for casting god-rays (new in
+1.6.0)</li>
+<li>Inverted Filter - inverts all colors (new in 1.6.0)</li>
+<li>Blur/Sharpen Filter - applies a generic blur or sharpen filter (new in
+1.7.0)</li>
+<li>Ambient Occlusion - applies a screen-space ambient occlusion filter (new in
+1.7.0)</li>
+</ol>
+<p>We expect this list to grow rather substantially over the next year or so.</p>
+</div>
+<div class="section" id="basic-setup">
+<h2>Basic Setup<a class="headerlink" href="#basic-setup" title="Permalink to this headline">¶</a></h2>
+<p>The first step is to create an object of class CommonFilters. Pass in a
+pointer to your window, and your 3D camera:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">filters</span> <span class="o">=</span> <span class="n">CommonFilters</span><span class="p">(</span><span class="n">base</span><span class="o">.</span><span class="n">win</span><span class="p">,</span> <span class="n">base</span><span class="o">.</span><span class="n">cam</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This will have no effect until you enable a filter (instructions below.) Once
+a filter is enabled, class CommonFilters will reconfigure the Panda3D
+rendering as follows:</p>
+<ul class="simple">
+<li>It will render the scene into an offscreen buffer, using the camera you
+provided.</li>
+<li>It will remove the scene from the specified window, and replace it with a
+fullscreen quad.</li>
+<li>The quad will be textured with the scene, plus a shader that implements
+whatever filter you have selected.</li>
+</ul>
+<p>If all goes well, the net effect is that your scene will continue to appear in
+your window, but it will be filtered as you specify.</p>
+</div>
+<div class="section" id="what-if-the-video-card-can-t-handle-it">
+<h2>What if the Video Card can&#8217;t handle it?<a class="headerlink" href="#what-if-the-video-card-can-t-handle-it" title="Permalink to this headline">¶</a></h2>
+<p>If the video card is not capable of implementing your filters, then all
+filters will be removed and the filter-enabling function will return False.
+Otherwise, filter-enabling functions will return True.</p>
+</div>
+<div class="section" id="the-bloom-filter">
+<h2>The Bloom Filter<a class="headerlink" href="#the-bloom-filter" title="Permalink to this headline">¶</a></h2>
+<p>The bloom filter causes bright objects to have a glowing halo around them. To
+enable a bloom filter, use
+<code class="docutils literal"><span class="pre">setBloom</span></code>. To disable, use
+<code class="docutils literal"><span class="pre">delBloom</span></code>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">filters</span><span class="o">.</span><span class="n">setBloom</span><span class="p">(</span> <span class="o">...</span> <span class="n">options</span> <span class="o">...</span><span class="p">)</span>
+<span class="n">filters</span><span class="o">.</span><span class="n">delBloom</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>The bloom filter works as follows. First, it renders the scene into a texture.
+It also asks the renderer to render any glow-maps into the alpha channel of
+the texture. After rendering the scene, it generates a second copy of the
+scene which has been darkened until only the brightest pixels are visible, and
+all the others go to black. It then blurs that texture, yielding soft halos
+where the bright pixels used to be, and black everywhere else. It then adds
+the soft halos back onto the scene in the window.</p>
+<p>Note: If you want to use glow maps to indicate which parts of the image should
+receive bloom, you should assign a nonzero value to the alpha value of the
+blend-weight parameter, and you should enable the
+:ref:` &lt;the-shader-generator&gt;` for the models that have glow maps applied.</p>
+<p>The bloom filter has many keyword parameters:</p>
+<ul class="simple">
+<li>blend - The bloom filter needs to measure the brightness of each pixel. It
+does this by weighting the R,G,B, and A components. Default weights:
+(0.3,0.4,0.3,0.0). You should assign a nonzero weight to the alpha channel
+if you want the glow map to have an effect, or a value like (0, 0, 0, 1) if
+you only want your glow map to indicate which models should glow.</li>
+<li>mintrigger - Minimum brightness at which a halo is generated. Default: 0.6</li>
+<li>maxtrigger - Maximum brightness at which the halo reaches peak intensity.
+Default: 1.0</li>
+<li>desat - Degree to which the halo is desaturated. Setting this to zero means
+the halo is the same color as the bright pixel. Setting it to one means the
+halo is white. Default: 0.6</li>
+<li>intensity - An adjustment parameter for the brightness of the halos.
+Default: 1.0</li>
+<li>size - Adjusts the size of the halos. Takes a string value: &#8220;small&#8221;,
+&#8220;medium&#8221;, or &#8220;large&#8221;. The reason that this is a discrete value and not a
+continuous one is that the blur operation involves downsampling the
+original texture by a power of two. Default: &#8220;medium&#8221;</li>
+</ul>
+</div>
+<div class="section" id="the-cartoon-inking-filter">
+<h2>The Cartoon Inking Filter<a class="headerlink" href="#the-cartoon-inking-filter" title="Permalink to this headline">¶</a></h2>
+<p>The cartoon inking filter causes objects to have black lines around them. To
+enable a cartoon inking filter, use
+<code class="docutils literal"><span class="pre">setCartoonInk</span></code>. To disable, use
+<code class="docutils literal"><span class="pre">delCartoonInk</span></code>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">filters</span><span class="o">.</span><span class="n">setCartoonInk</span><span class="p">(</span> <span class="o">...</span> <span class="n">options</span> <span class="o">...</span><span class="p">)</span>
+<span class="n">filters</span><span class="o">.</span><span class="n">delCartoonInk</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>The cartoon inking filter works by rendering a camera-space normal into an
+texture. Then, a postprocessing filter does an edge-detect algorithm on the
+camera-space normal texture.</p>
+<p>The filter has the following keyword parameters:</p>
+<ul class="simple">
+<li>separation - Distance in pixels, controls the width of the ink line.
+Default: 1 pixel.</li>
+<li>color - Color of the outline (new in 1.8.0). Default: (0, 0, 0, 1)</li>
+</ul>
+</div>
+<div class="section" id="the-volumetric-lighting-filter">
+<h2>The Volumetric Lighting Filter<a class="headerlink" href="#the-volumetric-lighting-filter" title="Permalink to this headline">¶</a></h2>
+<p>The Volumetric Lighting filter makes objects cast visible light rays (also
+known as crepuscular rays, god rays or sunbeams) that can be occluded by
+visible geometry. This is an easy way to easily create nice-looking light/sun
+effects.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">filters</span><span class="o">.</span><span class="n">setVolumetricLighting</span><span class="p">(</span> <span class="o">...</span> <span class="n">options</span> <span class="o">...</span><span class="p">)</span>
+<span class="n">filters</span><span class="o">.</span><span class="n">delVolumetricLighting</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>The filter has the following keyword parameters:</p>
+<ul class="simple">
+<li>caster - NodePath that indicates the origin of the rays. Usually, you would
+pass your light, and create a sun billboard which is reparented to the
+light&#8217;s NodePath.</li>
+<li>numsamples - Number of samples. The more samples you use, the slower the
+effect will be, but you will have smoother light rays. Note that using a
+fuzzy billboarded dot instead of a hard-edged sphere as light caster can
+help with smoothing the end result, too. This value does not need to be a
+power-of-two, it can be any positive number. Default: 32</li>
+<li>density - This defines the length of the rays. The default value of 5.0 is
+probably too high for many purposes, usually a value between 0.5 and 1.0
+works best. This also depends on the number of samples and exposure you&#8217;ve
+chosen, though. Default: 5.0</li>
+<li>decay - Decay makes rays gradually decrease in brightness. The default
+value of 0.1 is not well chosen and makes the rays very short! Usually,
+this a value close to 1.0, like 0.98. Default: 0.1</li>
+<li>exposure - Defines the brightness of the rays. Default: 0.1</li>
+</ul>
+</div>
+<div class="section" id="the-inverted-filter">
+<h2>The Inverted Filter<a class="headerlink" href="#the-inverted-filter" title="Permalink to this headline">¶</a></h2>
+<p>This filter simply inverts the colors of the image.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">filters</span><span class="o">.</span><span class="n">setInverted</span><span class="p">()</span>
+<span class="n">filters</span><span class="o">.</span><span class="n">delInverted</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>This filter has no parameters.</p>
+</div>
+<div class="section" id="the-blur-sharpen-filter">
+<h2>The Blur / Sharpen Filter<a class="headerlink" href="#the-blur-sharpen-filter" title="Permalink to this headline">¶</a></h2>
+<p>This filter can apply a blur or sharpen effect to the image.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">filters</span><span class="o">.</span><span class="n">setBlurSharpen</span><span class="p">(</span> <span class="o">...</span> <span class="n">options</span> <span class="o">...</span><span class="p">)</span>
+<span class="n">filters</span><span class="o">.</span><span class="n">delBlurSharpen</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>The filter has the following keyword parameters:</p>
+<ul class="simple">
+<li>amount - The amount of blurring, this is usually a value between 0.0 and
+2.0. You can take values smaller than 0.0 or larger than 2.0, but this
+usually gives ugly artifacts. A value of 0.0 means maximum blur. A value of
+1.0 does nothing, and if you go past 1.0, the image will be sharpened
+instead of blurred. Default: 0.0</li>
+</ul>
+</div>
+<div class="section" id="the-ambient-occlusion-filter">
+<h2>The Ambient Occlusion Filter<a class="headerlink" href="#the-ambient-occlusion-filter" title="Permalink to this headline">¶</a></h2>
+<p>This filter adds a simple screen-space ambient occlusion effect to the scene.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">filters</span><span class="o">.</span><span class="n">setAmbientOcclusion</span><span class="p">(</span> <span class="o">...</span> <span class="n">options</span> <span class="o">...</span><span class="p">)</span>
+<span class="n">filters</span><span class="o">.</span><span class="n">delAmbientOcclusion</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>It is important that the viewing frustrum&#8217;s near and far values fit the scene
+as tightly as possible. Note that you need to do lots of tweaking to the
+parameters to get this filter to work for your particular situation.</p>
+<p>The filter has the following keyword parameters:</p>
+<ul class="simple">
+<li>numsamples - The amount of samples used. Default: 16</li>
+<li>radius - The sampling radius of the rotating kernel. Default: 0.05</li>
+<li>amount - Default: 2.0</li>
+<li>strength - Default: 0.01</li>
+<li>falloff - Default: 0.000002</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="generalized-image-filters.html" class="btn btn-neutral float-right" title="Generalized Image Filters" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Render-to-Texture and Image Postprocessing" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Panda3D.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.10.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

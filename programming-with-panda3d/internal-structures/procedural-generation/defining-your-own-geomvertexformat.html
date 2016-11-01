@@ -1,0 +1,355 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Defining your own GeomVertexFormat &mdash; Panda3D Manual</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Panda3D Manual" href="../../../index.html"/>
+        <link rel="up" title="Procedurally Generating 3D Models" href="index.html"/>
+        <link rel="next" title="Pre-defined vertex formats" href="pre-defined-vertex-formats.html"/>
+        <link rel="prev" title="Procedurally Generating 3D Models" href="index.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Panda3D
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.10
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../intro/index.html">Introduction to Panda3D</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Programming with Panda3D</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../the-scene-graph/index.html">The Scene Graph</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../the-configuration-file/index.html">The Configuration File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../models-and-actors/index.html">Models and Actors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../render-attributes/index.html">Render Attributes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../texturing/index.html">Texturing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../shaders/index.html">Shaders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../camera-control/index.html">Camera Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../sound/index.html">Sound</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../intervals/index.html">Intervals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tasks-and-event-handling/index.html">Tasks and Event Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../text-and-image-rendering/index.html">Text and Image Rendering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../directgui/index.html">DirectGUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../render-effects/index.html">Render Effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../finite-state-machines/index.html">Finite State Machines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../terrain/index.html">Terrain</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Advanced operations with Panda3D&#8217;s internal structures</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../how-panda3d-stores-vertices-and-geometry/index.html">How Panda3D Stores Vertices and Geometry</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Procedurally Generating 3D Models</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Defining your own GeomVertexFormat</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pre-defined-vertex-formats.html">Pre-defined vertex formats</a></li>
+<li class="toctree-l4"><a class="reference internal" href="creating-and-filling-a-geomvertexdata.html">Creating and filling a GeomVertexData</a></li>
+<li class="toctree-l4"><a class="reference internal" href="creating-the-geomprimitive-objects.html">Creating the GeomPrimitive objects</a></li>
+<li class="toctree-l4"><a class="reference internal" href="putting-your-new-geometry-in-the-scene-graph.html">Putting your new geometry in the scene graph</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../other-vertex-and-model-manipulation/index.html">Other Vertex and Model Manipulation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../render-to-texture-and-image-postprocessing/index.html">Render-to-Texture and Image Postprocessing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../panda3d-rendering-process/index.html">Panda3D Rendering Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../panda3d-utility-functions.html">Panda3D Utility Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../particle-effects/index.html">Particle Effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../collision-detection/index.html">Collision Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../garbage-collection/index.html">Garbage Collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hardware-support/index.html">Hardware support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../math-engine/index.html">Math Engine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../motion-paths.html">Motion Paths</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../timing/index.html">Timing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../networking/index.html">Networking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../multifiles/index.html">Multifiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../showbase.html">ShowBase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../file-reading.html">File Reading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../threading.html">Threading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../subclassing.html">Subclassing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../table-of-features-supported-per-graphic-renderer.html">Table of features supported per graphic renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../pandai/index.html">Artificial Intelligence (PANDAI)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../distribution/index.html">Distributing Panda3D Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../samples/index.html">Sample Programs in the Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../debugging/index.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../performance-tuning/index.html">Performance Tuning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../using-c++/index.html">Using C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tools/index.html">Panda3D Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../building-from-source.html">Building Panda3D from Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cheat-sheets.html">Cheat Sheets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting-started-on-osx.html">Getting Started on OSX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../more-panda3d-resources.html">More Panda3D Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../thirdparty-licenses.html">Third-party dependencies and license info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../the-irc-channel.html">The IRC Channel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../faq.html">FAQ</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../index.html">Panda3D</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../index.html">Programming with Panda3D</a> &raquo;</li>
+      
+          <li><a href="../index.html">Advanced operations with Panda3D&#8217;s internal structures</a> &raquo;</li>
+      
+          <li><a href="index.html">Procedurally Generating 3D Models</a> &raquo;</li>
+      
+    <li>Defining your own GeomVertexFormat</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../_sources/programming-with-panda3d/internal-structures/procedural-generation/defining-your-own-geomvertexformat.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="defining-your-own-geomvertexformat">
+<span id="id1"></span><h1>Defining your own GeomVertexFormat<a class="headerlink" href="#defining-your-own-geomvertexformat" title="Permalink to this headline">¶</a></h1>
+<p>Before you can create any geometry in Panda3D, you must have a valid
+:ref:` &lt;geomvertexformat&gt;`. You can decide exactly which columns you want to
+have in your format, by building the format up one column at a time. (But you
+might be able to avoid this effort by taking advantage of one of the
+:ref:` &lt;pre-defined-vertex-formats&gt;` listed on the next page.)</p>
+<p>To build up your custom format, you need to first create an empty
+GeomVertexArrayFormat, and add columns one at a time by calling addColumn():</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">array</span> <span class="o">=</span> <span class="n">GeomVertexArrayFormat</span><span class="p">()</span>
+<span class="n">array</span><span class="o">.</span><span class="n">addColumn</span><span class="p">(</span><span class="s2">&quot;vertex&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">Geom</span><span class="o">.</span><span class="n">NTFloat32</span><span class="p">,</span> <span class="n">Geom</span><span class="o">.</span><span class="n">CPoint</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">PT</span><span class="p">(</span><span class="n">GeomVertexArrayFormat</span><span class="p">)</span> <span class="n">array</span><span class="p">;</span>
+<span class="n">array</span> <span class="o">=</span> <span class="k">new</span> <span class="n">GeomVertexArrayFormat</span><span class="p">();</span>
+<span class="n">array</span><span class="o">-&gt;</span><span class="n">add_column</span><span class="p">(</span><span class="n">InternalName</span><span class="o">::</span><span class="n">make</span><span class="p">(</span><span class="s">&quot;vertex&quot;</span><span class="p">),</span> <span class="mi">3</span><span class="p">,</span>
+                  <span class="n">Geom</span><span class="o">::</span><span class="n">NT_float32</span><span class="p">,</span> <span class="n">Geom</span><span class="o">::</span><span class="n">C_point</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>The parameters to addColumn() are, in order, the column name, the number of
+components, the numeric type, and the contents specification. See
+:ref:` &lt;geomvertexformat&gt;` for a detailed description of each of these
+parameters and their appropriate values. You may also supply an optional fifth
+parameter, which specifies the byte offset within the row at which the
+column&#8217;s data begins; but normally you should omit this to indicate that the
+column&#8217;s data immediately follows the previous column&#8217;s data.</p>
+<p>Note that the column name should be an InternalName object, as returned by a
+call to InternalName.make(). This is Panda&#8217;s mechanism for tokenizing a string
+name, to allow for fast name lookups during rendering. Other than this detail,
+the column name is really just an arbitrary string.</p>
+<p>It is your responsibility to ensure that all of the parameters passed to
+addColumn() are appropriate for the column you are defining. The column data
+will be stored exactly as you specify. When rendering, Panda will attempt to
+convert the column data as it is stored to whatever format your graphics API
+(e.g. OpenGL or DirectX) expects to receive.</p>
+<p>For instance, to define a vertex format that includes a vertex position and a
+(U, V) texture coordinate:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">array</span> <span class="o">=</span> <span class="n">GeomVertexArrayFormat</span><span class="p">()</span>
+<span class="n">array</span><span class="o">.</span><span class="n">addColumn</span><span class="p">(</span><span class="s2">&quot;vertex&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">Geom</span><span class="o">.</span><span class="n">NTFloat32</span><span class="p">,</span> <span class="n">Geom</span><span class="o">.</span><span class="n">CPoint</span><span class="p">)</span>
+<span class="n">array</span><span class="o">.</span><span class="n">addColumn</span><span class="p">(</span><span class="s2">&quot;texcoord&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">Geom</span><span class="o">.</span><span class="n">NTFloat32</span><span class="p">,</span> <span class="n">Geom</span><span class="o">.</span><span class="n">CTexcoord</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">PT</span><span class="p">(</span><span class="n">GeomVertexArrayFormat</span><span class="p">)</span> <span class="n">array</span><span class="p">;</span>
+<span class="n">array</span> <span class="o">=</span> <span class="k">new</span> <span class="n">GeomVertexArrayFormat</span><span class="p">();</span>
+<span class="n">array</span><span class="o">-&gt;</span><span class="n">add_column</span><span class="p">(</span><span class="n">InternalName</span><span class="o">::</span><span class="n">make</span><span class="p">(</span><span class="s">&quot;vertex&quot;</span><span class="p">),</span> <span class="mi">3</span><span class="p">,</span>
+                  <span class="n">Geom</span><span class="o">::</span><span class="n">NT_float32</span><span class="p">,</span> <span class="n">Geom</span><span class="o">::</span><span class="n">C_point</span><span class="p">);</span>
+<span class="n">array</span><span class="o">-&gt;</span><span class="n">add_column</span><span class="p">(</span><span class="n">InternalName</span><span class="o">::</span><span class="n">make</span><span class="p">(</span><span class="s">&quot;texcoord&quot;</span><span class="p">),</span> <span class="mi">2</span><span class="p">,</span>
+                  <span class="n">Geom</span><span class="o">::</span><span class="n">NT_float32</span><span class="p">,</span> <span class="n">Geom</span><span class="o">::</span><span class="n">C_texcoord</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Once you have defined the columns of your array, you should create a
+GeomVertexFormat to hold the array:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">format</span> <span class="o">=</span> <span class="n">GeomVertexFormat</span><span class="p">()</span>
+<span class="n">format</span><span class="o">.</span><span class="n">addArray</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">PT</span><span class="p">(</span><span class="n">GeomVertexFormat</span><span class="p">)</span> <span class="n">unregistered_format</span><span class="p">;</span>
+<span class="n">unregistered_format</span> <span class="o">=</span> <span class="k">new</span> <span class="n">GeomVertexFormat</span><span class="p">();</span>
+<span class="n">unregistered_format</span><span class="o">-&gt;</span><span class="n">add_array</span><span class="p">(</span><span class="n">array</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>If you want your format to consist of multiple different arrays, you can
+create additional arrays and add them at this point as well.</p>
+<p>Finally, before you can use your new format, you must register it. Registering
+a format builds up the internal tables necessary to use the vertex format for
+rendering. However, once you have registered a format, you can no longer add
+or remove columns, or modify it in any way; if you want to make changes to the
+format after this point, you&#8217;ll have to start over with a new GeomVertexFormat
+object.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">format</span> <span class="o">=</span> <span class="n">GeomVertexFormat</span><span class="o">.</span><span class="n">registerFormat</span><span class="p">(</span><span class="n">format</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">CPT</span><span class="p">(</span><span class="n">GeomVertexFormat</span><span class="p">)</span> <span class="n">format</span><span class="p">;</span>
+<span class="n">format</span> <span class="o">=</span> <span class="n">GeomVertexFormat</span><span class="o">::</span><span class="n">register_format</span><span class="p">(</span><span class="n">unregistered_format</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>You should always register a format with a syntax similar to the above: that
+is, you should use the return value of registerFormat as your new, registered
+format object, and discard the original format object. (The returned format
+object may be the same format object you started with, or it may be a
+different object with an equivalent meaning. Either way, the format object you
+started with should be discarded.)</p>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="pre-defined-vertex-formats.html" class="btn btn-neutral float-right" title="Pre-defined vertex formats" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Procedurally Generating 3D Models" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Panda3D.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'1.10.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

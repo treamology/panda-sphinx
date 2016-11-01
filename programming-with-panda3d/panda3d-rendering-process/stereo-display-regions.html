@@ -1,0 +1,380 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Stereo Display Regions &mdash; Panda3D Manual</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Panda3D Manual" href="../../index.html"/>
+        <link rel="up" title="Panda3D Rendering Process" href="index.html"/>
+        <link rel="next" title="Multi-Pass Rendering" href="multi-pass-rendering.html"/>
+        <link rel="prev" title="The 2D Display Region" href="the-2d-display-region.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Panda3D
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.10
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../intro/index.html">Introduction to Panda3D</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Programming with Panda3D</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../the-scene-graph/index.html">The Scene Graph</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../the-configuration-file/index.html">The Configuration File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../models-and-actors/index.html">Models and Actors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-attributes/index.html">Render Attributes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../texturing/index.html">Texturing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shaders/index.html">Shaders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../camera-control/index.html">Camera Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sound/index.html">Sound</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intervals/index.html">Intervals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks-and-event-handling/index.html">Tasks and Event Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../text-and-image-rendering/index.html">Text and Image Rendering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../directgui/index.html">DirectGUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-effects/index.html">Render Effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../finite-state-machines/index.html">Finite State Machines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../terrain/index.html">Terrain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internal-structures/index.html">Advanced operations with Panda3D&#8217;s internal structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-to-texture-and-image-postprocessing/index.html">Render-to-Texture and Image Postprocessing</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Panda3D Rendering Process</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="multithreaded-render-pipeline.html">Multithreaded Render Pipeline</a></li>
+<li class="toctree-l3"><a class="reference internal" href="introducing-graphics-classes.html">Introducing Graphics Classes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="the-graphics-pipe.html">The Graphics Pipe</a></li>
+<li class="toctree-l3"><a class="reference internal" href="creating-windows-and-buffers.html">Creating Windows and Buffers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="display-regions.html">Display Regions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="creating-new-mousewatchers-for-display-regions.html">Creating New MouseWatchers for Display Regions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="clearing-display-regions.html">Clearing Display Regions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="the-2d-display-region.html">The 2D Display Region</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Stereo Display Regions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multi-pass-rendering.html">Multi-Pass Rendering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="how-to-control-render-order.html">How to Control Render Order</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../panda3d-utility-functions.html">Panda3D Utility Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../particle-effects/index.html">Particle Effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../collision-detection/index.html">Collision Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../garbage-collection/index.html">Garbage Collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hardware-support/index.html">Hardware support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../math-engine/index.html">Math Engine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../motion-paths.html">Motion Paths</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../timing/index.html">Timing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../networking/index.html">Networking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../multifiles/index.html">Multifiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../showbase.html">ShowBase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../file-reading.html">File Reading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../threading.html">Threading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../subclassing.html">Subclassing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../table-of-features-supported-per-graphic-renderer.html">Table of features supported per graphic renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pandai/index.html">Artificial Intelligence (PANDAI)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../distribution/index.html">Distributing Panda3D Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../samples/index.html">Sample Programs in the Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../debugging/index.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../performance-tuning/index.html">Performance Tuning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../using-c++/index.html">Using C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/index.html">Panda3D Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../building-from-source.html">Building Panda3D from Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cheat-sheets.html">Cheat Sheets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started-on-osx.html">Getting Started on OSX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../more-panda3d-resources.html">More Panda3D Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../thirdparty-licenses.html">Third-party dependencies and license info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../the-irc-channel.html">The IRC Channel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">FAQ</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Panda3D</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Programming with Panda3D</a> &raquo;</li>
+      
+          <li><a href="index.html">Panda3D Rendering Process</a> &raquo;</li>
+      
+    <li>Stereo Display Regions</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/programming-with-panda3d/panda3d-rendering-process/stereo-display-regions.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="stereo-display-regions">
+<span id="id1"></span><h1>Stereo Display Regions<a class="headerlink" href="#stereo-display-regions" title="Permalink to this headline">¶</a></h1>
+<p>A StereoDisplayRegion is a special kind of DisplayRegion that contains two
+views internally: one view for the left eye, and a different view for the
+right eye. If you have a special 3-D display device, then Panda can use it to
+deliver each view to the appropriate eye.</p>
+<p>Alternatively, you can also simply create the two required views
+independently, one DisplayRegion for the left eye, and a separate
+DisplayRegion for the right eye. However, creating a single
+StereoDisplayRegion for both eyes at the same time is often more convenient.</p>
+<p>When you call <code class="docutils literal"><span class="pre">window.make_display_region()</span></code>, it will
+implicitly return a StereoDisplayRegion instead of a regular DisplayRegion if
+your window or buffer indicates that it supports stereo output (that is, if
+window.isStereo() returns true). There are four ways that you can have a
+graphics output that supports stereo output:</p>
+<p>(1) You have a special 3-D display device and the drivers to support it, and
+you put <code class="docutils literal"><span class="pre">framebuffer-stereo</span> <span class="pre">1</span></code> in your
+Config.prc file. This tells Panda to activate the OpenGL interfaces to enable
+the 3-D hardware.</p>
+<p>(2) You put <code class="docutils literal"><span class="pre">red-blue-stereo</span> <span class="pre">1</span></code> in your
+Config.prc file. This tells Panda to render the two different eyes in two
+different colors, so that the traditional red-blue (or red-cyan) glasses, for
+instance for 3-D comic books, can be used to view the scene in 3-D. Color is
+distorted, so it is best if your scene relies on unsaturated color palettes.
+Shades of gray work particularly well.</p>
+<p>(3) You put <code class="docutils literal"><span class="pre">side-by-side-stereo</span> <span class="pre">1</span></code> in your
+Config.prc file. This is similar to red-blue-stereo, above, but the two views
+are rendered side-by-side in the same window. This is useful for developing
+stereo applications, so you can see each view easily; it may also be useful
+for environments such as head-mounted displays where the output spans two
+different displays, and each display represents a different eye.</p>
+<p>(4) As of Panda3D 1.9.0, you may create a stereo off-screen buffer without
+special hardware support, assuming the card supports using multiple render
+targets (most modern cards do), by setting the stereo flag in the
+<code class="docutils literal"><span class="pre">FrameBufferProperties</span></code> object. Panda3D will
+automatically designate one of the draw buffers to contain the stereo view for
+the other eye. When binding a texture to the color attachment for
+render-to-texture, Panda3D will automatically initialize it as a
+:ref:` &lt;stereo-multiview-textures&gt;` containing both left and right views. This
+is only supported in OpenGL as of writing.</p>
+<div class="section" id="using-a-stereodisplayregion">
+<h2>Using a StereoDisplayRegion<a class="headerlink" href="#using-a-stereodisplayregion" title="Permalink to this headline">¶</a></h2>
+<p>A StereoDisplayRegion actually consists of two ordinary DisplayRegions,
+created automatically. If you need to, you can access them individually with
+<code class="docutils literal"><span class="pre">sdr.get_left_eye()</span></code> or
+<code class="docutils literal"><span class="pre">sdr.get_right_eye()</span></code>.</p>
+<p>Both the left and the right eye DisplayRegions actually share the same Camera
+object. The thing that makes the view different for the left and the right
+eyes is the stereo channel setting, which you can set via
+<code class="docutils literal"><span class="pre">dr.set_stereo_channel()</span></code>. (You can change this
+setting on any DisplayRegion you like; it doesn&#8217;t have to be a special
+StereoDisplayRegion. The only thing that a StereoDisplayRegion does is it
+manages the internal left and right DisplayRegions automatically, but there&#8217;s
+no reason you need to use a StereoDisplayRegion if you want to manage them
+yourself.)</p>
+<p>You can set a DisplayRegion&#8217;s stereo channel to one of
+<code class="docutils literal"><span class="pre">&lt;cxx&gt;Lens::SC_left&lt;/cxx&gt;&lt;python&gt;Lens.SCLeft&lt;/python&gt;</span></code>,
+<code class="docutils literal"><span class="pre">&lt;cxx&gt;Lens::SC_right&lt;/cxx&gt;&lt;python&gt;Lens.SCRight&lt;/python&gt;</span></code>, or
+<code class="docutils literal"><span class="pre">&lt;cxx&gt;Lens::SC_mono&lt;/cxx&gt;&lt;python&gt;Lens.SCMono&lt;/python&gt;</span></code>. The default for a
+non-stereo DisplayRegion is
+<code class="docutils literal"><span class="pre">&lt;cxx&gt;Lens::SC_mono&lt;/cxx&gt;&lt;python&gt;Lens.SCMono&lt;/python&gt;</span></code>, which means the normal
+view from the center of the camera. If you set it to either left or right,
+then the point of view is slid automatically to the left or right,
+respectively, according to the stereo lens parameters.</p>
+<p>Setting the stereo channel to left or right also resets the texture view
+offset associated with the DisplayRegion: the default tex view offset is 0 for
+the left eye, and 1 for the right eye. This allows dual-view stereo textures
+to render properly in the DisplayRegion, so that the left view is visible in
+the left eye and the right view in the right eye. See
+:ref:` &lt;stereo-multiview-textures&gt;` for more about this feature.</p>
+<p>The lens parameters can be controlled via
+<code class="docutils literal"><span class="pre">lens.set_interocular_distance()</span></code> and
+<code class="docutils literal"><span class="pre">lens.set_convergence_distance()</span></code>, or by the equivalent
+Config.prc settings <code class="docutils literal"><span class="pre">default-iod</span></code> and
+<code class="docutils literal"><span class="pre">default-converge</span></code>. Refer to the following
+illustration:</p>
+<p><img alt="Stereo Lens Parameters" src="../../_images/stereo-lens-parameters.jpg" /></p>
+<p>In this image, the camera indicated with &#8220;C&#8221; is the center view, the normal
+view from the center of the camera view in the case of
+<code class="docutils literal"><span class="pre">&lt;cxx&gt;Lens::SC_mono&lt;/cxx&gt;&lt;python&gt;Lens.SCMono&lt;/python&gt;</span></code>. &#8220;L&#8221; and &#8220;R&#8221; represent
+the left and right points of view for the same camera, which will be used in
+the case of <code class="docutils literal"><span class="pre">&lt;cxx&gt;Lens::SC_left&lt;/cxx&gt;&lt;python&gt;Lens.SCLeft&lt;/python&gt;</span></code> or
+<code class="docutils literal"><span class="pre">&lt;cxx&gt;Lens::SC_right&lt;/cxx&gt;&lt;python&gt;Lens.SCRight&lt;/python&gt;</span></code>. The distance between
+these two eyes, line &#8220;a&#8221; on the image, is the interocular distance, which
+should be in the same units as the scene you are viewing.</p>
+<p>The gray lines on the image represent the direction the camera appears to be
+facing into the scene. Both the left and the right eyes converge together at
+one point, which is the convergence distance. This distance is represented by
+line &#8220;b&#8221; on the image. Generally, the objects that are this distance away will
+appear to be in the screen plane. Objects that are closer than the convergence
+distance will appear to float in front of the screen, while objects that are
+further than the convergence distance will appear to be inside the screen.</p>
+<p>Note that the default stereo frustums that Panda creates are off-axis
+frustums, not toe-in frustums. That is, both the left and the right eyes are
+still pointing in the precise same direction as the center camera, but the
+frustum is distorted a bit to make objects converge approximately at the
+requested distance. This is generally regarded as producing a superior stereo
+effect over the more naive toe-in approach, in which the left and right eyes
+are simply tilted towards each other to provide the required convergence.</p>
+<p>If you require a different stereo frustum&#8211;for instance, if you wish to use
+toe-in stereo, or some other kind of stereo frustum of your choosing&#8211;you may
+simply set each DisplayRegion to use its own camera (instead of both sharing
+the same camera), and assign the particular frustum you wish to each eye.</p>
+<p><strong>Note:</strong> Prior to Panda3D 1.9.0, the convergence was being calculated
+incorrectly. It has since been corrected. To restore the legacy behavior you
+can set the <code class="docutils literal"><span class="pre">stereo-lens-old-convergence</span></code> variable to
+<code class="docutils literal"><span class="pre">true</span></code>.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="multi-pass-rendering.html" class="btn btn-neutral float-right" title="Multi-Pass Rendering" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="the-2d-display-region.html" class="btn btn-neutral" title="The 2D Display Region" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Panda3D.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.10.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

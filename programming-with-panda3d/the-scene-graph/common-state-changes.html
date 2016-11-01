@@ -1,0 +1,504 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Common State Changes &mdash; Panda3D Manual</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Panda3D Manual" href="../../index.html"/>
+        <link rel="up" title="The Scene Graph" href="index.html"/>
+        <link rel="next" title="Manipulating a Piece of a Model" href="manipulating-a-piece-of-a-model.html"/>
+        <link rel="prev" title="Scene Graph Manipulations" href="scene-graph-manipulations.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Panda3D
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.10
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../intro/index.html">Introduction to Panda3D</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Programming with Panda3D</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">The Scene Graph</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="scene-graph-manipulations.html">Scene Graph Manipulations</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Common State Changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="manipulating-a-piece-of-a-model.html">Manipulating a Piece of a Model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="searching-the-scene-graph.html">Searching the Scene Graph</a></li>
+<li class="toctree-l3"><a class="reference internal" href="instancing.html">Instancing</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../the-configuration-file/index.html">The Configuration File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../models-and-actors/index.html">Models and Actors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-attributes/index.html">Render Attributes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../texturing/index.html">Texturing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shaders/index.html">Shaders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../camera-control/index.html">Camera Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sound/index.html">Sound</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intervals/index.html">Intervals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks-and-event-handling/index.html">Tasks and Event Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../text-and-image-rendering/index.html">Text and Image Rendering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../directgui/index.html">DirectGUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-effects/index.html">Render Effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../finite-state-machines/index.html">Finite State Machines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../terrain/index.html">Terrain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internal-structures/index.html">Advanced operations with Panda3D&#8217;s internal structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-to-texture-and-image-postprocessing/index.html">Render-to-Texture and Image Postprocessing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../panda3d-rendering-process/index.html">Panda3D Rendering Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../panda3d-utility-functions.html">Panda3D Utility Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../particle-effects/index.html">Particle Effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../collision-detection/index.html">Collision Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../garbage-collection/index.html">Garbage Collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hardware-support/index.html">Hardware support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../math-engine/index.html">Math Engine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../motion-paths.html">Motion Paths</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../timing/index.html">Timing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../networking/index.html">Networking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../multifiles/index.html">Multifiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../showbase.html">ShowBase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../file-reading.html">File Reading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../threading.html">Threading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../subclassing.html">Subclassing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../table-of-features-supported-per-graphic-renderer.html">Table of features supported per graphic renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pandai/index.html">Artificial Intelligence (PANDAI)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../distribution/index.html">Distributing Panda3D Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../samples/index.html">Sample Programs in the Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../debugging/index.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../performance-tuning/index.html">Performance Tuning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../using-c++/index.html">Using C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/index.html">Panda3D Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../building-from-source.html">Building Panda3D from Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cheat-sheets.html">Cheat Sheets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started-on-osx.html">Getting Started on OSX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../more-panda3d-resources.html">More Panda3D Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../thirdparty-licenses.html">Third-party dependencies and license info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../the-irc-channel.html">The IRC Channel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">FAQ</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Panda3D</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Programming with Panda3D</a> &raquo;</li>
+      
+          <li><a href="index.html">The Scene Graph</a> &raquo;</li>
+      
+    <li>Common State Changes</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/programming-with-panda3d/the-scene-graph/common-state-changes.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="common-state-changes">
+<span id="id1"></span><h1>Common State Changes<a class="headerlink" href="#common-state-changes" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+<p>This page lists some of the most common changes you can make to a 3D node.
+This page is really only a quick cheat-sheet summary: the detailed
+documentation for these operations comes later in the manual.</p>
+</div>
+<div class="section" id="state-change-cheat-sheet">
+<h2>State Change Cheat Sheet<a class="headerlink" href="#state-change-cheat-sheet" title="Permalink to this headline">¶</a></h2>
+<p>Two of the most common changes are position and orientation.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">myNodePath</span><span class="o">.</span><span class="n">setPos</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Z</span><span class="p">)</span>
+<span class="n">myNodePath</span><span class="o">.</span><span class="n">setHpr</span><span class="p">(</span><span class="n">Yaw</span><span class="p">,</span> <span class="n">Pitch</span><span class="p">,</span> <span class="n">Roll</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">myNodePath</span><span class="p">.</span><span class="n">set_pos</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Z</span><span class="p">);</span>
+<span class="n">myNodePath</span><span class="p">.</span><span class="n">set_hpr</span><span class="p">(</span><span class="n">Yaw</span><span class="p">,</span> <span class="n">Pitch</span><span class="p">,</span> <span class="n">Roll</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>By default in Panda3D, the X axis points to the right, the Y axis is forward,
+and Z is up. An object&#8217;s rotation is usually described using Euler angles
+called Heading, Pitch, and Roll (sometimes called Yaw, Pitch, and Roll in
+other packages)&#8211;these specify angle rotations in degrees. (If you are more
+comfortable using quaternions, the
+<code class="docutils literal"><span class="pre">setQuat()</span></code> method can be used to
+specify the rotation as a quaternion.)</p>
+<p>You can change an object&#8217;s size, either uniformly, or with a different value
+of x, y, and z.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">myNodePath</span><span class="o">.</span><span class="n">setScale</span><span class="p">(</span><span class="n">S</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">myNodePath</span><span class="p">.</span><span class="n">set_scale</span><span class="p">(</span><span class="n">S</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Sometimes it is convenient to adjust a single component individually:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">myNodePath</span><span class="o">.</span><span class="n">setX</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="n">myNodePath</span><span class="o">.</span><span class="n">setY</span><span class="p">(</span><span class="n">Y</span><span class="p">)</span>
+<span class="n">myNodePath</span><span class="o">.</span><span class="n">setZ</span><span class="p">(</span><span class="n">Z</span><span class="p">)</span>
+<span class="n">myNodePath</span><span class="o">.</span><span class="n">setH</span><span class="p">(</span><span class="n">H</span><span class="p">)</span>
+<span class="n">myNodePath</span><span class="o">.</span><span class="n">setP</span><span class="p">(</span><span class="n">P</span><span class="p">)</span>
+<span class="n">myNodePath</span><span class="o">.</span><span class="n">setR</span><span class="p">(</span><span class="n">R</span><span class="p">)</span>
+<span class="n">myNodePath</span><span class="o">.</span><span class="n">setSx</span><span class="p">(</span><span class="n">SX</span><span class="p">)</span>
+<span class="n">myNodePath</span><span class="o">.</span><span class="n">setSy</span><span class="p">(</span><span class="n">SY</span><span class="p">)</span>
+<span class="n">myNodePath</span><span class="o">.</span><span class="n">setSz</span><span class="p">(</span><span class="n">SZ</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">myNodePath</span><span class="p">.</span><span class="n">set_x</span><span class="p">(</span><span class="n">X</span><span class="p">);</span>
+<span class="n">myNodePath</span><span class="p">.</span><span class="n">set_y</span><span class="p">(</span><span class="n">Y</span><span class="p">);</span>
+<span class="n">myNodePath</span><span class="p">.</span><span class="n">set_z</span><span class="p">(</span><span class="n">Z</span><span class="p">);</span>
+<span class="n">myNodePath</span><span class="p">.</span><span class="n">set_h</span><span class="p">(</span><span class="n">H</span><span class="p">);</span>
+<span class="n">myNodePath</span><span class="p">.</span><span class="n">set_p</span><span class="p">(</span><span class="n">P</span><span class="p">);</span>
+<span class="n">myNodePath</span><span class="p">.</span><span class="n">set_r</span><span class="p">(</span><span class="n">R</span><span class="p">);</span>
+<span class="n">myNodePath</span><span class="p">.</span><span class="n">set_sx</span><span class="p">(</span><span class="n">SX</span><span class="p">);</span>
+<span class="n">myNodePath</span><span class="p">.</span><span class="n">set_sy</span><span class="p">(</span><span class="n">SY</span><span class="p">);</span>
+<span class="n">myNodePath</span><span class="p">.</span><span class="n">set_sz</span><span class="p">(</span><span class="n">SZ</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Or all at the same time:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">myNodePath</span><span class="o">.</span><span class="n">setPosHprScale</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Z</span><span class="p">,</span> <span class="n">H</span><span class="p">,</span> <span class="n">P</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="n">SX</span><span class="p">,</span> <span class="n">SY</span><span class="p">,</span> <span class="n">SZ</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">myNodePath</span><span class="p">.</span><span class="n">set_pos_hpr_scale</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Z</span><span class="p">,</span> <span class="n">H</span><span class="p">,</span> <span class="n">P</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="n">SX</span><span class="p">,</span> <span class="n">SY</span><span class="p">,</span> <span class="n">SZ</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>You can also query the current transform information for any of the above:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">myNodePath</span><span class="o">.</span><span class="n">getPos</span><span class="p">()</span>
+<span class="n">myNodePath</span><span class="o">.</span><span class="n">getX</span><span class="p">()</span>
+<span class="n">myNodePath</span><span class="o">.</span><span class="n">getY</span><span class="p">()</span>
+<span class="n">myNodePath</span><span class="o">.</span><span class="n">getZ</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">myNodePath</span><span class="p">.</span><span class="n">get_pos</span><span class="p">();</span>
+<span class="n">myNodePath</span><span class="p">.</span><span class="n">get_x</span><span class="p">();</span>
+<span class="n">myNodePath</span><span class="p">.</span><span class="n">get_y</span><span class="p">();</span>
+<span class="n">myNodePath</span><span class="p">.</span><span class="n">get_z</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>Also, by using the functions
+<code class="docutils literal"><span class="pre">setTag()</span></code> and
+<code class="docutils literal"><span class="pre">getTag()</span></code> you can store your own
+information in key value pairs. For example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">myNodePath</span><span class="o">.</span><span class="n">setTag</span><span class="p">(</span><span class="s2">&quot;Key&quot;</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">myNodePath</span><span class="p">.</span><span class="n">set_tag</span><span class="p">(</span><span class="s">&quot;Key&quot;</span><span class="p">,</span> <span class="s">&quot;value&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>You can also store Python objects as tags by using the
+<code class="docutils literal"><span class="pre">setPythonTag</span></code> function with the same
+arguments.</p>
+<p>As a more advanced feature, you may also set or query the position (or any of
+the above transform properties) of a particular NodePath with respect to
+another one. To do this, specify the relative NodePath as the first parameter:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">myNodePath</span><span class="o">.</span><span class="n">setPos</span><span class="p">(</span><span class="n">otherNodePath</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Z</span><span class="p">)</span>
+<span class="n">myNodePath</span><span class="o">.</span><span class="n">getPos</span><span class="p">(</span><span class="n">otherNodePath</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">myNodePath</span><span class="p">.</span><span class="n">set_pos</span><span class="p">(</span><span class="n">otherNodePath</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Z</span><span class="p">);</span>
+<span class="n">myNodePath</span><span class="p">.</span><span class="n">get_pos</span><span class="p">(</span><span class="n">otherNodePath</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Putting a NodePath as the first parameter to any of the transform setters or
+getters makes it a relative operation. The above
+<code class="docutils literal"><span class="pre">setPos()</span></code> means to set myNodePath
+to the position (X, Y, Z), relative to otherNodePath&#8211;that is, the position
+myNodePath would be in if it were a child of otherNodePath and its position
+were set to (X, Y, Z). The
+<code class="docutils literal"><span class="pre">getPos()</span></code> call returns the
+position myNodePath would have if it were a child of otherNodePath.</p>
+<p>It is also important to note that you can use the NodePath in its own relative
+sets and gets. This maybe helpful in situations where you are concerned with
+distances. For example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># Move myNodePath 3 units forward in the x</span>
+<span class="n">myNodePath</span><span class="o">.</span><span class="n">setPos</span><span class="p">(</span><span class="n">myNodePath</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="c1">// Move myNodePath 3 units forward in the x</span>
+<span class="n">myNodePath</span><span class="p">.</span><span class="n">set_pos</span><span class="p">(</span><span class="n">myNodePath</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>These relative sets and gets are a very powerful feature of Panda&#8217;s scene
+graph, but they can also be confusing; don&#8217;t worry if it doesn&#8217;t make sense
+right now.</p>
+<p>The <code class="docutils literal"><span class="pre">lookAt()</span></code> method rotates a
+model to face another object; that is, it rotates the first object so that its
++Y axis points toward the second object. Note that a particular model might or
+might not have been generated with the +Y axis forward, so this doesn&#8217;t
+necessarily make a model &#8220;look at&#8221; the given object.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">myNodePath</span><span class="o">.</span><span class="n">lookAt</span><span class="p">(</span><span class="n">otherObject</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">myNodePath</span><span class="p">.</span><span class="n">look_at</span><span class="p">(</span><span class="n">otherObject</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Color changes are another common alteration. Values for color are floating
+point numbers from 0 to 1, 0 being black, 1 being white.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">myNodePath</span><span class="o">.</span><span class="n">setColor</span><span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="n">G</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">A</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">myNodePath</span><span class="p">.</span><span class="n">set_color</span><span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="n">G</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">A</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>If models have textures, they may not be distinguishable or even visible at
+certain color settings. Setting the color to white may restore the visibility
+of the texture, but it is better to simply clear the current color settings.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">myNodePath</span><span class="o">.</span><span class="n">clearColor</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">myNodePath</span><span class="p">.</span><span class="n">clear_color</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>Note the fourth component of color is alpha. This is usually used to indicate
+transparency, and it is usually 1.0 to indicate the object is not transparent.
+If you set the alpha to a value between 0 and 1, you can fade the object to
+invisible. However, in order for the alpha value to be respected, you must
+first enable transparency:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">myNodePath</span><span class="o">.</span><span class="n">setTransparency</span><span class="p">(</span><span class="n">TransparencyAttrib</span><span class="o">.</span><span class="n">MAlpha</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">myNodePath</span><span class="p">.</span><span class="n">set_transparency</span><span class="p">(</span><span class="n">TransparencyAttrib</span><span class="o">::</span><span class="n">M_alpha</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>The parameter to <code class="docutils literal"><span class="pre">setTransparency()</span></code> is
+usually <code class="docutils literal"><span class="pre">TransparencyAttrib.M&lt;python&gt;A&lt;/python&gt;&lt;cxx&gt;_a&lt;/cxx&gt;lpha</span></code>, which is
+ordinary transparency. You can also explicitly turn transparency off with
+<code class="docutils literal"><span class="pre">TransparencyAttrib.M&lt;python&gt;N&lt;/python&gt;&lt;cxx&gt;_n&lt;/cxx&gt;one</span></code>. (Other transparency
+modes are possible, but that is a more advanced topic. Some older code may
+pass just 0 or 1 for this parameter, but it is better to name the mode.) If
+you don&#8217;t explicitly enable transparency first, the alpha component of color
+may be ignored. Be sure you don&#8217;t enable transparency unnecessarily, since it
+does enable a more expensive rendering mode.</p>
+<p>Setting an object&#8217;s color completely replaces any color on the vertices.
+However, if you have created a model with per-vertex color, you might prefer
+to modulate the object&#8217;s color without losing the per-vertex color. For this
+there is the <code class="docutils literal"><span class="pre">setColorScale()</span></code> variant,
+which multiples the indicated color values by the object&#8217;s existing color:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">myNodePath</span><span class="o">.</span><span class="n">setColorScale</span><span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="n">G</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">A</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">myNodePath</span><span class="p">.</span><span class="n">set_color_scale</span><span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="n">G</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">A</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>One use of <code class="docutils literal"><span class="pre">setColorScale()</span></code> is to apply
+it at the top of the scene graph (e.g. render) to darken the entire scene
+uniformly, for instance to implement a fade-to-black effect.</p>
+<p>Since alpha is so important, there is also a method for scaling it without
+affecting the other color components:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">myNodePath</span><span class="o">.</span><span class="n">setAlphaScale</span><span class="p">(</span><span class="n">SA</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">myNodePath</span><span class="p">.</span><span class="n">set_alpha_scale</span><span class="p">(</span><span class="n">SA</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>To temporarily prevent an object from being drawn on all cameras, use
+<code class="docutils literal"><span class="pre">hide()</span></code> and
+<code class="docutils literal"><span class="pre">show()</span></code>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">myNodePath</span><span class="o">.</span><span class="n">hide</span><span class="p">()</span>
+<span class="n">myNodePath</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">myNodePath</span><span class="p">.</span><span class="n">hide</span><span class="p">();</span>
+<span class="n">myNodePath</span><span class="p">.</span><span class="n">show</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>If you want to hide an object for one camera but not another, you can use the
+<code class="docutils literal"><span class="pre">hide()</span></code> and
+<code class="docutils literal"><span class="pre">show()</span></code> commands in conjunction
+with the <code class="docutils literal"><span class="pre">camera.setCameraMask()</span></code> function:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">camera1</span><span class="o">.</span><span class="n">node</span><span class="p">()</span><span class="o">.</span><span class="n">setCameraMask</span><span class="p">(</span><span class="n">BitMask32</span><span class="o">.</span><span class="n">bit</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+<span class="n">camera2</span><span class="o">.</span><span class="n">node</span><span class="p">()</span><span class="o">.</span><span class="n">setCameraMask</span><span class="p">(</span><span class="n">BitMask32</span><span class="o">.</span><span class="n">bit</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">myNodePath</span><span class="o">.</span><span class="n">hide</span><span class="p">(</span><span class="n">BitMask32</span><span class="o">.</span><span class="n">bit</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+<span class="n">myNodePath</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">BitMask32</span><span class="o">.</span><span class="n">bit</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+<span class="c1"># Now myNodePath will only be shown on camera2...</span>
+</pre></div>
+</div>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">camera1</span><span class="p">.</span><span class="n">node</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">set_camera_mask</span><span class="p">(</span><span class="n">BitMask32</span><span class="o">::</span><span class="n">bit</span><span class="p">(</span><span class="mi">0</span><span class="p">));</span>
+<span class="n">camera2</span><span class="p">.</span><span class="n">node</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">set_camera_mask</span><span class="p">(</span><span class="n">BitMask32</span><span class="o">::</span><span class="n">bit</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span>
+<span class="n">myNodePath</span><span class="p">.</span><span class="n">hide</span><span class="p">(</span><span class="n">BitMask32</span><span class="o">::</span><span class="n">bit</span><span class="p">(</span><span class="mi">0</span><span class="p">));</span>
+<span class="n">myNodePath</span><span class="p">.</span><span class="n">show</span><span class="p">(</span><span class="n">BitMask32</span><span class="o">::</span><span class="n">bit</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span>
+<span class="c1">// Now myNodePath will only be shown on camera2...</span>
+</pre></div>
+</div>
+<p>Please note that using hide/show without an argument will mess up any
+hide/shows with the argument (show(bit) will not undo a hide()...) To hide an
+object from all cameras instead use
+<code class="docutils literal"><span class="pre">nodepath.hide(BitMask32.allOn())</span></code>.</p>
+<p>To set the camera mask for the default camera use base.cam, not base.camera,
+as base.camera is not an actual camera but a dummy node to hold cameras.</p>
+<p>Please see the camera
+section for information on how to set up multiple cameras.</p>
+<p>Any object that is parented to the object that is hidden will also be hidden.</p>
+<p>If you have trouble to place, scale or rotate your nodes you can use the
+<code class="docutils literal"><span class="pre">place()</span></code> function to bring up a
+small GUI which will help you. You need to have TkInter installed to use it.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">myNodePath</span><span class="o">.</span><span class="n">place</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="manipulating-a-piece-of-a-model.html" class="btn btn-neutral float-right" title="Manipulating a Piece of a Model" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="scene-graph-manipulations.html" class="btn btn-neutral" title="Scene Graph Manipulations" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Panda3D.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.10.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

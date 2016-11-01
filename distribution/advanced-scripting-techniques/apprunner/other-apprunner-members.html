@@ -1,0 +1,339 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Other appRunner members &mdash; Panda3D Manual</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Panda3D Manual" href="../../../index.html"/>
+        <link rel="up" title="AppRunner" href="index.html"/>
+        <link rel="next" title="P3D origin security" href="../p3d-origin-security.html"/>
+        <link rel="prev" title="Reading the HTML tokens" href="reading-the-html-tokens.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Panda3D
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.10
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../intro/index.html">Introduction to Panda3D</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../programming-with-panda3d/index.html">Programming with Panda3D</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Distributing Panda3D Applications</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../introduction-to-p3d-files/index.html">Introduction to p3d files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../distributing-via-the-web/index.html">Distributing via the web</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p3d-file-config-settings.html">P3D file config settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../distributing-as-a-self-contained-installer.html">Distributing as a self-contained installer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../the-runtime-panda3d-directory.html">The runtime Panda3D directory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../the-package-system/index.html">The package system</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Advanced scripting techniques</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../detectpanda3d.js.html">DetectPanda3D.js</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../advanced-object-tags.html">Advanced object tags</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../splash-window-tags.html">Splash window tags</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plugin-notify-callbacks.html">Plugin notify callbacks</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">AppRunner</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="the-apprunner.main-object.html">The appRunner.main object</a></li>
+<li class="toctree-l4"><a class="reference internal" href="the-apprunner.dom-object.html">The appRunner.dom object</a></li>
+<li class="toctree-l4"><a class="reference internal" href="reading-the-html-tokens.html">Reading the HTML tokens</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Other appRunner members</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../p3d-origin-security.html">P3D origin security</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packageinstaller.html">PackageInstaller</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../samples/index.html">Sample Programs in the Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../debugging/index.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../performance-tuning/index.html">Performance Tuning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../using-c++/index.html">Using C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tools/index.html">Panda3D Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../building-from-source.html">Building Panda3D from Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cheat-sheets.html">Cheat Sheets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting-started-on-osx.html">Getting Started on OSX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../more-panda3d-resources.html">More Panda3D Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../thirdparty-licenses.html">Third-party dependencies and license info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../the-irc-channel.html">The IRC Channel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../faq.html">FAQ</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../index.html">Panda3D</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../index.html">Distributing Panda3D Applications</a> &raquo;</li>
+      
+          <li><a href="../index.html">Advanced scripting techniques</a> &raquo;</li>
+      
+          <li><a href="index.html">AppRunner</a> &raquo;</li>
+      
+    <li>Other appRunner members</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../_sources/distribution/advanced-scripting-techniques/apprunner/other-apprunner-members.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="other-apprunner-members">
+<span id="id1"></span><h1>Other appRunner members<a class="headerlink" href="#other-apprunner-members" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li>appRunner.Undefined</li>
+</ul>
+<p>The JavaScript language has two different value types that are conceptually
+similar to Python&#8217;s None type: the null type, and the void or undefined type.
+The plugin system could convert both of these to Python&#8217;s None, but sometimes
+it is important to make a distinction between them.</p>
+<p>To solve this problem, the plugin converts the Javascript null type to
+Python&#8217;s None, and the void/undefined type to base.appRunner.Undefined, which
+is a special singleton that has no properties, similar to None. To check for
+undefined, you can use (object == base.appRunner.Undefined) or (object is
+base.appRunner.Undefined). Since Undefined evaluates to false in a boolean
+test, you could also just use &#8220;if object:&#8221; to test for whether an object is
+neither None nor Undefined.</p>
+<ul class="simple">
+<li>appRunner.ConcreteStruct</li>
+</ul>
+<p>Most Python objects are passed to JavaScript by reference, the same way Python
+deals with them internally. This means that if you store an object on
+base.appRunner.main, the JavaScript code can query and update its members
+individually, and those changes are visible on the Python side.</p>
+<p>Often, you only need to provide a read-only object to JavaScript, and you
+don&#8217;t want the additional overhead that&#8217;s required to make the object
+writable. In this case, you can make your object an instance of (or inherit
+from) appRunner.ConcreteStruct. This tells the plugin that there is no need
+for JavaScript to modify its contents, and it will copy all of its members to
+JavaScript once, at the time that JavaScript first accesses the overall
+object, and not have to go back-and-forth between Python and JavaScript with
+each individual member access. Only the data members are transmitted; callable
+methods of ConcreteStruct are not supported. This is a performance
+optimization only; everything will still work perfectly well if you don&#8217;t do
+this.</p>
+<p>Note that in order to gather the full benefit of this optimization, your
+JavaScript code should access the Python object only once and store it
+locally, rather than querying it repeatedly out of plugin.main.</p>
+<ul class="simple">
+<li>appRunner.multifileRoot</li>
+</ul>
+<p>When the AppRunner mounts your p3d file into the VirtualFileSystem, it
+installs it in the directory named by appRunner.multifileRoot. This directory,
+then, is the root directory of the contents of your p3d file. If you need to
+load a file directly out of your p3d file, look for it here. At the moment,
+this is a constant string; but future releases of Panda might need to install
+the multifile into a different place each time, so you should not write code
+that depends on this string being fixed.</p>
+<ul class="simple">
+<li>appRunner.exceptionHandler</li>
+</ul>
+<p>You can assign a Python function object to this member. This function will be
+called whenever a Python exception propagates to the top of the call stack;
+you can use this to deal appropriately with unexpected behavior in your
+application. If you do not assign this, the default behavior for an uncaught
+exception will be to terminate the app.</p>
+<ul class="simple">
+<li>appRunner.windowProperties</li>
+</ul>
+<p>This is the WindowProperties structure that is used for the initial window
+that is created when you import DirectStart; you can use this if you want to
+re-create a new window in the same place later (for instance, because you have
+an in-game option to switch between fullscreen and embedded mode).</p>
+<ul class="simple">
+<li>appRunner.installPackage()</li>
+</ul>
+<p>Call this method to download and install a Panda3D package, as built by the
+ppackage.p3d utility, at runtime. This allows you to install the package at
+your leisure, instead of requiring the package to be downloaded before
+starting the p3d application.</p>
+<p>Note that this method runs synchronously: it will download the package
+on-the-spot, however long that takes, and not return until it has finished. If
+you want to use an asynchronous download instead, downloading a package in the
+background while gameplay continues, you should use the
+:ref:` &lt;packageinstaller&gt;` interface instead.</p>
+<ul class="simple">
+<li>appRunner.notifyRequest()</li>
+</ul>
+<p>This allows you to define your own callback events, similar to the built-in
+ones described in :ref:` &lt;plugin-notify-callbacks&gt;`. Simply call
+base.appRunner.notifyRequest(name), where name is the name of your callback
+event; for example base.appRunner.notifyRequest(&#8216;onGameRestart&#8217;). There is no
+facility to pass parameters; if you need to call a JavaScript function with
+parameters, use a different mechanism, such as calling the function directly
+through appRunner.dom, or use appRunner.evalScript(), below.</p>
+<ul class="simple">
+<li>appRunner.evalScript()</li>
+</ul>
+<p>Whatever string you pass to base.appRunner.evalScript() is evaluated and
+executed directly in the JavaScript environment. By default, the return value,
+if any, is not preserved; but if you need the return value you can also pass
+needsResponse = True.</p>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../p3d-origin-security.html" class="btn btn-neutral float-right" title="P3D origin security" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="reading-the-html-tokens.html" class="btn btn-neutral" title="Reading the HTML tokens" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Panda3D.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'1.10.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

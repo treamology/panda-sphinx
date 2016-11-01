@@ -1,0 +1,382 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Getting Started &mdash; Panda3D Manual</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Panda3D Manual" href="../../index.html"/>
+        <link rel="up" title="Artificial Intelligence (PANDAI)" href="index.html"/>
+        <link rel="next" title="Steering Behaviors" href="steering-behaviors/index.html"/>
+        <link rel="prev" title="Artificial Intelligence (PANDAI)" href="index.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Panda3D
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.10
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../intro/index.html">Introduction to Panda3D</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Programming with Panda3D</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../the-scene-graph/index.html">The Scene Graph</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../the-configuration-file/index.html">The Configuration File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../models-and-actors/index.html">Models and Actors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-attributes/index.html">Render Attributes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../texturing/index.html">Texturing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shaders/index.html">Shaders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../camera-control/index.html">Camera Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sound/index.html">Sound</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intervals/index.html">Intervals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks-and-event-handling/index.html">Tasks and Event Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../text-and-image-rendering/index.html">Text and Image Rendering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../directgui/index.html">DirectGUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-effects/index.html">Render Effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../finite-state-machines/index.html">Finite State Machines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../terrain/index.html">Terrain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internal-structures/index.html">Advanced operations with Panda3D&#8217;s internal structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render-to-texture-and-image-postprocessing/index.html">Render-to-Texture and Image Postprocessing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../panda3d-rendering-process/index.html">Panda3D Rendering Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../panda3d-utility-functions.html">Panda3D Utility Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../particle-effects/index.html">Particle Effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../collision-detection/index.html">Collision Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../garbage-collection/index.html">Garbage Collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hardware-support/index.html">Hardware support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../math-engine/index.html">Math Engine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../motion-paths.html">Motion Paths</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../timing/index.html">Timing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../networking/index.html">Networking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../multifiles/index.html">Multifiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../showbase.html">ShowBase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../file-reading.html">File Reading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../threading.html">Threading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../subclassing.html">Subclassing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../table-of-features-supported-per-graphic-renderer.html">Table of features supported per graphic renderer</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Artificial Intelligence (PANDAI)</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Getting Started</a></li>
+<li class="toctree-l3"><a class="reference internal" href="steering-behaviors/index.html">Steering Behaviors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pathfinding/index.html">Pathfinding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="source-codes.html">Source Codes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../distribution/index.html">Distributing Panda3D Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../samples/index.html">Sample Programs in the Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../debugging/index.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../performance-tuning/index.html">Performance Tuning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../using-c++/index.html">Using C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/index.html">Panda3D Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../building-from-source.html">Building Panda3D from Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cheat-sheets.html">Cheat Sheets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started-on-osx.html">Getting Started on OSX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../more-panda3d-resources.html">More Panda3D Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../thirdparty-licenses.html">Third-party dependencies and license info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../the-irc-channel.html">The IRC Channel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">FAQ</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Panda3D</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Programming with Panda3D</a> &raquo;</li>
+      
+          <li><a href="index.html">Artificial Intelligence (PANDAI)</a> &raquo;</li>
+      
+    <li>Getting Started</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/programming-with-panda3d/pandai/getting-started.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="getting-started">
+<span id="id1"></span><h1>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h1>
+<p>The basics : Theory :</p>
+<p>The PandAI library has been built upon the design pattern of composition.</p>
+<p>There exists a main AIWorld Class which governs all updates of any
+AICharacters added to it. Each AICharacter has its own AIBehavior object which
+keeps track of all position and rotation updates based on the type of AI which
+is acting on that character.</p>
+<p>So in short : AIWorld -&gt; AICharacter -&gt; AIBehavior</p>
+<p>Each AIBehavior object has the functionality to implement all the steering
+behaviors and pathfinding behaviors. So once you get a reference to this
+object from the AICharacter, it should give you the ability to call the
+respective functions.</p>
+<p>Implementation :</p>
+<p>Following are the steps to get the basics of PandAI working. Don&#8217;t worry if
+you can&#8217;t understand some of them.</p>
+<p>Step 1 :</p>
+<p>To use our AI library into your game you need to import PandAI into your game
+code via :</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">panda3d.ai</span> <span class="kn">import</span> <span class="o">*</span>
+</pre></div>
+</div>
+<p>Step 2 :</p>
+<p>Create an object of the AIWorld class which defines your AI in your game
+world.</p>
+<p>Step 3 :</p>
+<p>Setup a task which runs continuously which keeps calling the &#8216;Update()&#8217;
+function for your previously created AIWorld object</p>
+<p>Step 4 :</p>
+<p>To test this out let us also implement a simple call to the &#8216;seek&#8217; behavior
+function in PandAI. To do this we need two objects: A seeker and a target. For
+this example, we will use Ralph (seeker) and an arrow model (target).</p>
+<p>Step 5 :</p>
+<p>Create an &#8216;AICharacter&#8217; object and attach it to your AIWorld class (previously
+created). The AICharacter constructor looks for a NodePath, this can be a
+Model or an Actor or even an Empty NodePath.</p>
+<p>Step 6 :</p>
+<p>Get a reference to the AIBehaviors object of your previously created
+AICharacter class via the &#8216;getAiBehaviors&#8217; function().</p>
+<p>Step 7 :</p>
+<p>Call the seek function on your AIBehaviors reference (previously created). The
+seek function takes a NodePath or a Vector3 position to seek to.</p>
+<p>Step 8 :</p>
+<p>Start your AIWorld update task which you created earlier.</p>
+<p>Step 9 :</p>
+<p>Watch how your awesome seek function works !</p>
+<p>The actual code :</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">direct.directbase.DirectStart</span>
+<span class="kn">from</span> <span class="nn">panda3d.core</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">direct.showbase.DirectObject</span> <span class="kn">import</span> <span class="n">DirectObject</span>
+<span class="kn">from</span> <span class="nn">direct.task</span> <span class="kn">import</span> <span class="n">Task</span>
+<span class="kn">from</span> <span class="nn">direct.actor.Actor</span> <span class="kn">import</span> <span class="n">Actor</span>
+<span class="c1">#for Pandai</span>
+<span class="kn">from</span> <span class="nn">panda3d.ai</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="k">class</span> <span class="nc">World</span><span class="p">(</span><span class="n">DirectObject</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">base</span><span class="o">.</span><span class="n">disableMouse</span><span class="p">()</span>
+        <span class="n">base</span><span class="o">.</span><span class="n">cam</span><span class="o">.</span><span class="n">setPosHpr</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">55</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">90</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">loadModels</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setAI</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">loadModels</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># Seeker</span>
+        <span class="n">ralphStartPos</span> <span class="o">=</span> <span class="n">Vec3</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">seeker</span> <span class="o">=</span> <span class="n">Actor</span><span class="p">(</span><span class="s2">&quot;models/ralph&quot;</span><span class="p">,</span>
+                                 <span class="p">{</span><span class="s2">&quot;run&quot;</span><span class="p">:</span><span class="s2">&quot;models/ralph-run&quot;</span><span class="p">})</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">seeker</span><span class="o">.</span><span class="n">reparentTo</span><span class="p">(</span><span class="n">render</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">seeker</span><span class="o">.</span><span class="n">setScale</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">seeker</span><span class="o">.</span><span class="n">setPos</span><span class="p">(</span><span class="n">ralphStartPos</span><span class="p">)</span>
+        <span class="c1"># Target</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">target</span> <span class="o">=</span> <span class="n">loader</span><span class="o">.</span><span class="n">loadModel</span><span class="p">(</span><span class="s2">&quot;models/arrow&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">target</span><span class="o">.</span><span class="n">setColor</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">target</span><span class="o">.</span><span class="n">setPos</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">target</span><span class="o">.</span><span class="n">setScale</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">target</span><span class="o">.</span><span class="n">reparentTo</span><span class="p">(</span><span class="n">render</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">setAI</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1">#Creating AI World</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">AIworld</span> <span class="o">=</span> <span class="n">AIWorld</span><span class="p">(</span><span class="n">render</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">AIchar</span> <span class="o">=</span> <span class="n">AICharacter</span><span class="p">(</span><span class="s2">&quot;seeker&quot;</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">seeker</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">AIworld</span><span class="o">.</span><span class="n">addAiChar</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">AIchar</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">AIbehaviors</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">AIchar</span><span class="o">.</span><span class="n">getAiBehaviors</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">AIbehaviors</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">target</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">seeker</span><span class="o">.</span><span class="n">loop</span><span class="p">(</span><span class="s2">&quot;run&quot;</span><span class="p">)</span>
+
+        <span class="c1">#AI World update</span>
+        <span class="n">taskMgr</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">AIUpdate</span><span class="p">,</span><span class="s2">&quot;AIUpdate&quot;</span><span class="p">)</span>
+
+    <span class="c1">#to update the AIWorld</span>
+    <span class="k">def</span> <span class="nf">AIUpdate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">task</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">AIworld</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">Task</span><span class="o">.</span><span class="n">cont</span>
+
+<span class="n">w</span> <span class="o">=</span> <span class="n">World</span><span class="p">()</span>
+<span class="n">run</span><span class="p">()</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>Note : It doesn&#8217;t matter where your seek is first called (ie. before the
+AIWorld update or after) it should still work as soon as the Update starts
+processing.</li>
+<li>Note : This above example is only for seek but if you go to each of the
+pages, a separate example is provided showing you each AI individually.</li>
+</ul>
+<hr class="docutils" />
+<blockquote>
+<div>If you want to get a working demo of this tutorial, please visit :</div></blockquote>
+<p><a class="reference external" href="https://sites.google.com/site/etcpandai/documentation/getting-started/PandAIBasicTutorial.zip?attredirects=0&amp;d;=1">https://sites.google.com/site/etcpandai/documentation/getting-started/PandAIBasicTutorial.zip?attredirects=0&amp;d;=1</a></p>
+<hr class="docutils" />
+<p>Next Steps :</p>
+<p>Now that you have a basic working program of PandAI, you should proceed to the
+Steering Behaviors page and gain more knowledge of the system from there.</p>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="steering-behaviors/index.html" class="btn btn-neutral float-right" title="Steering Behaviors" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Artificial Intelligence (PANDAI)" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Panda3D.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.10.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

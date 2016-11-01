@@ -1,0 +1,27 @@
+.. _distribution:
+
+Distributing Panda3D Applications
+=================================
+
+Beginning in Panda3D version 1.7.0, Panda provides a packaging and
+distribution system designed to make it very easy to distribute your Panda3D
+application to the world, either embedded within a web page or distributed as
+a standalone application.
+
+If you are using an older version of Panda3D or do not wish to use the
+packaging and distribution system that Panda3D provides for whatever reason
+then you can use
+`packpanda <https://www.panda3d.org/manual/index.php/Building_an_installer_using_packpanda>`__
+or any other similar tool for Python/C++ programs.
+
+
+.. toctree::
+   :maxdepth: 2
+
+   introduction-to-p3d-files/index
+   distributing-via-the-web/index
+   p3d-file-config-settings
+   distributing-as-a-self-contained-installer
+   the-runtime-panda3d-directory
+   the-package-system/index
+   advanced-scripting-techniques/index

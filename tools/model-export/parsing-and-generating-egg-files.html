@@ -1,0 +1,282 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Parsing and Generating Egg Files &mdash; Panda3D Manual</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Panda3D Manual" href="../../index.html"/>
+        <link rel="up" title="Model Export" href="index.html"/>
+        <link rel="next" title="Egg Syntax" href="egg-syntax.html"/>
+        <link rel="prev" title="Converting Egg to Bam" href="converting-egg-to-bam.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Panda3D
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.10
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../intro/index.html">Introduction to Panda3D</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../programming-with-panda3d/index.html">Programming with Panda3D</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../distribution/index.html">Distributing Panda3D Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../samples/index.html">Sample Programs in the Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../debugging/index.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../performance-tuning/index.html">Performance Tuning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../using-c++/index.html">Using C++</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Panda3D Tools</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../the-scene-graph-browser/index.html">The Scene Graph Browser</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../interrogate.html">Interrogate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pipeline-tips.html">Pipeline Tips</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Model Export</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="converting-from-3d-studio-max.html">Converting from 3D Studio Max</a></li>
+<li class="toctree-l3"><a class="reference internal" href="converting-from-maya.html">Converting from Maya</a></li>
+<li class="toctree-l3"><a class="reference internal" href="converting-from-blender.html">Converting from Blender</a></li>
+<li class="toctree-l3"><a class="reference internal" href="converting-from-softimage.html">Converting from SoftImage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="converting-from-milkshape-3d.html">Converting from Milkshape 3D</a></li>
+<li class="toctree-l3"><a class="reference internal" href="converting-from-gmax.html">Converting from GMax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="converting-from-other-formats.html">Converting from other Formats</a></li>
+<li class="toctree-l3"><a class="reference internal" href="converting-egg-to-bam.html">Converting Egg to Bam</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Parsing and Generating Egg Files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="egg-syntax.html">Egg Syntax</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../pview.html">Previewing 3D Models in Pview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../list-of-panda3d-executables.html">List of Panda3D Executables</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../building-from-source.html">Building Panda3D from Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cheat-sheets.html">Cheat Sheets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started-on-osx.html">Getting Started on OSX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../more-panda3d-resources.html">More Panda3D Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../thirdparty-licenses.html">Third-party dependencies and license info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../the-irc-channel.html">The IRC Channel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">FAQ</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Panda3D</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Panda3D Tools</a> &raquo;</li>
+      
+          <li><a href="index.html">Model Export</a> &raquo;</li>
+      
+    <li>Parsing and Generating Egg Files</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/tools/model-export/parsing-and-generating-egg-files.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="parsing-and-generating-egg-files">
+<span id="id1"></span><h1>Parsing and Generating Egg Files<a class="headerlink" href="#parsing-and-generating-egg-files" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="transforms-and-vertices">
+<h2>Transforms and Vertices<a class="headerlink" href="#transforms-and-vertices" title="Permalink to this headline">¶</a></h2>
+<p>The egg syntax defines all transforms, including joint transforms, relative to
+the parent node only. When the animation is played, Panda accumulates the
+transforms for each joint.</p>
+<p>Although joints are defined using a local transform, vertices are defined in
+an egg file using global coordinates, which is irrespective of transforms
+appearing within the egg file. This means when Panda loads the egg file is
+loaded, the vertex coordinates given in the egg file must be pre-transformed
+by the appropriate inverse matrix to compensate.</p>
+</div>
+<div class="section" id="custom-egg-readers-writers">
+<h2>Custom .egg Readers/Writers<a class="headerlink" href="#custom-egg-readers-writers" title="Permalink to this headline">¶</a></h2>
+<p>When writing an importer or exporter for panda, you have two choices.</p>
+<p>One option is to use the panda runtime library, which includes code for
+reading, parsing, storing, and emitting Egg files. This approach can save you
+a great deal of effort. However, it does require that you link with the panda
+runtime system, which may be inconvenient if you wish to distribute a small,
+standalone file translator.</p>
+<p>If you decide to use the panda runtime system, the classes you will need to
+use are defined in the <code class="docutils literal"><span class="pre">panda3d.egg</span></code>
+module, such as <code class="docutils literal"><span class="pre">panda3d.egg.EggData</span></code>,
+<code class="docutils literal"><span class="pre">panda3d.egg.EggGroup</span></code>, and so forth. Like all
+panda classes, these are documented in the <a class="reference external" href="https://www.panda3d.org/reference/">API reference
+manual.</a></p>
+<p>The other alternative is to parse/generate the Egg file entirely by yourself.
+In this case, you will need to read the <a class="reference external" href="https://raw.githubusercontent.com/panda3d/panda3d/master/panda/src/doc/eggSyntax.txt">syntax documentation for egg
+files</a>.
+This documentation is part of the source code on GitHub. The file format is
+human-readable, and fairly straightforward.</p>
+<p>If you are writing a program to <em>generate</em> Egg files, either approach is
+equally good. However, if you are writing a program to <em>parse</em> Egg files, we
+do recommend using the panda runtime library, rather than writing your own
+parser, for the simple reason that it is difficult to write a parser that
+accepts all valid Egg files. Also, the Egg syntax might be extended from time
+to time, and relying on the runtime library to parse the Egg syntax will
+ensure that your program continues to parse future Egg files.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="egg-syntax.html" class="btn btn-neutral float-right" title="Egg Syntax" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="converting-egg-to-bam.html" class="btn btn-neutral" title="Converting Egg to Bam" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Panda3D.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.10.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
