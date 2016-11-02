@@ -18,12 +18,12 @@ polygons in realtime, they still can't render more than few hundred meshes
 1 Geom in realtime, but you will torture your GPU if you'll try to render 300
 Geoms, even if each has a single polygon. There are few ways to find out the
 Geom count and many solutions for lowering it which are discussed in the
-:ref:` <too-many-meshes>`. Another issue might be using too many polygons on
-animated meshes (Actors). When you play an animation, Panda or your GPU need
-to calculate the new position of each vertex associated with a joint, even
-though the GPU will render the mesh at the same speed, the calculations done
-for the animation can get expensive themselves. You can easily find out the
-time spent on skinning with PStats:
+:ref:`appropriate page <too-many-meshes>`. Another issue might be using too
+many polygons on animated meshes (Actors). When you play an animation, Panda
+or your GPU need to calculate the new position of each vertex associated with
+a joint, even though the GPU will render the mesh at the same speed, the
+calculations done for the animation can get expensive themselves. You can
+easily find out the time spent on skinning with PStats:
 
 |Pstats-skinning-time.png|
 
@@ -40,7 +40,8 @@ polygons, there are few optimizations you can do.
    of one single quad won't shade the same way as a wall consisting of
    multiple quads. You'll need to find a balance or use per-pixel lightning.
 
--  You can have :ref:` <level-of-detail>` for your mesh.
+-  You can have :ref:`multiple levels of detail <level-of-detail>` for your
+   mesh.
 
 -  If you have a highpoly model, you can create a lowpoly version of it and
    generate a normal map from the highpoly model which you can assign to your
@@ -48,11 +49,12 @@ polygons, there are few optimizations you can do.
    ShaderGenerator or a custom shader.
 
 -  Sometimes it's possible to represent a mesh as a textured plane
-   :ref:` <billboard-effects>`.
+   :ref:`billboard <billboard-effects>`.
 
--  See if you can lower the :ref:` <lenses-and-field-of-view>` of the camera
+-  See if you can lower the
+   :ref:`far distance or far plane <lenses-and-field-of-view>` of the camera
    lens. Anything farther than the far plane of the camera lens won't be
-   rendered. You can use :ref:` <fog>` to hide the clipping.
+   rendered. You can use :ref:`fog <fog>` to hide the clipping.
 
 .. |Pstats-skinning-time.png| image:: pstats-skinning-time.png
 

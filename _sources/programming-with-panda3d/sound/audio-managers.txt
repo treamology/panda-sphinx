@@ -46,4 +46,4 @@ groups.
 
 
 Positional audio is implemented through a wrapper of these objects and is
-covered in the next section, :ref:` <3d-audio>`.
+covered in the next section, :ref:`3d-audio`.

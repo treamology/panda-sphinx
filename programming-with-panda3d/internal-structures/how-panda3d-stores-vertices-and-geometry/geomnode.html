@@ -203,7 +203,7 @@
             
   <div class="section" id="geomnode">
 <span id="id1"></span><h1>GeomNode<a class="headerlink" href="#geomnode" title="Permalink to this headline">¶</a></h1>
-<p>Finally, GeomNode is the glue that connects :ref:` &lt;geom&gt;` into the scene
+<p>Finally, GeomNode is the glue that connects <a class="reference internal" href="geom.html#geom"><span class="std std-ref">Geoms</span></a> into the scene
 graph. A GeomNode contains a list of one or more Geoms.</p>
 <table border="1" class="docutils">
 <colgroup>
@@ -259,10 +259,11 @@ graph. A GeomNode contains a list of one or more Geoms.</p>
 </tr>
 </tbody>
 </table>
-<p>The GeomNode class inherits from :ref:` &lt;the-scene-graph&gt;`, so a GeomNode can
-be attached directly to the scene graph like any other node; and like any
-node, it inherits a transform and a render state from its parents in the scene
-graph. This transform and state is then applied to each of the node&#8217;s Geoms.</p>
+<p>The GeomNode class inherits from <a class="reference internal" href="../../the-scene-graph/index.html#the-scene-graph"><span class="std std-ref">PandaNode</span></a>, so a
+GeomNode can be attached directly to the scene graph like any other node; and
+like any node, it inherits a transform and a render state from its parents in
+the scene graph. This transform and state is then applied to each of the
+node&#8217;s Geoms.</p>
 <p>Furthermore, the GeomNode stores an additional render state definition for
 each Geom. This allows each Geom within a given GeomNode to have its own
 unique state; for instance, each Geom may have a different texture applied.</p>

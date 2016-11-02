@@ -202,18 +202,18 @@
             
   <div class="section" id="creating-and-filling-a-geomvertexdata">
 <span id="id1"></span><h1>Creating and filling a GeomVertexData<a class="headerlink" href="#creating-and-filling-a-geomvertexdata" title="Permalink to this headline">¶</a></h1>
-<p>Once you have a :ref:` &lt;geomvertexformat&gt;`, registered and ready to use, you
-can use it to create a :ref:` &lt;geomvertexdata&gt;`.</p>
+<p>Once you have a <a class="reference internal" href="../how-panda3d-stores-vertices-and-geometry/geomvertexformat.html#geomvertexformat"><span class="std std-ref">GeomVertexFormat</span></a>, registered and ready to use, you can
+use it to create a <a class="reference internal" href="../how-panda3d-stores-vertices-and-geometry/geomvertexdata.html#geomvertexdata"><span class="std std-ref">GeomVertexData</span></a>.</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">vdata</span> <span class="o">=</span> <span class="n">GeomVertexData</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="n">format</span><span class="p">,</span> <span class="n">Geom</span><span class="o">.</span><span class="n">UHStatic</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Using a :ref:` &lt;defining-your-own-geomvertexformat&gt;`.</p>
+<p>Using a <a class="reference internal" href="defining-your-own-geomvertexformat.html#defining-your-own-geomvertexformat"><span class="std std-ref">custom vertex format</span></a>.</p>
 <div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">PT</span><span class="p">(</span><span class="n">GeomVertexData</span><span class="p">)</span> <span class="n">vdata</span><span class="p">;</span>
 <span class="n">vdata</span> <span class="o">=</span> <span class="k">new</span> <span class="n">GeomVertexData</span><span class="p">(</span><span class="s">&quot;name&quot;</span><span class="p">,</span> <span class="n">format</span><span class="p">,</span> <span class="n">Geom</span><span class="o">::</span><span class="n">UH_static</span><span class="p">);</span>
 </pre></div>
 </div>
 <p>Or using a
-:ref:` &lt;pre-defined-vertex-formats&gt;`.</p>
+<a class="reference internal" href="pre-defined-vertex-formats.html#pre-defined-vertex-formats"><span class="std std-ref">Pre-defined vertex format</span></a>.</p>
 <div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">PT</span><span class="p">(</span><span class="n">GeomVertexData</span><span class="p">)</span> <span class="n">vdata</span><span class="p">;</span>
 <span class="n">vdata</span> <span class="o">=</span> <span class="k">new</span> <span class="n">GeomVertexData</span><span class="p">(</span><span class="s">&quot;name&quot;</span><span class="p">,</span> <span class="n">GeomVertexFormat</span><span class="o">::</span><span class="n">get_</span><span class="o">????</span><span class="p">(),</span> <span class="n">Geom</span><span class="o">::</span><span class="n">UH_static</span><span class="p">);</span>
 </pre></div>
@@ -222,7 +222,7 @@ can use it to create a :ref:` &lt;geomvertexdata&gt;`.</p>
 which is any arbitrary name you like. This name is mainly for documentation
 purposes; it may help you identify this vertex data later. You can leave it
 empty if you like.</p>
-<p>The second parameter is the :ref:` &lt;geomvertexformat&gt;` to use for this
+<p>The second parameter is the <a class="reference internal" href="../how-panda3d-stores-vertices-and-geometry/geomvertexformat.html#geomvertexformat"><span class="std std-ref">GeomVertexFormat</span></a> to use for this
 GeomVertexData. The format specifies the number of arrays that will be created
 for the data, the names and formats of the columns in each array, and the
 number of bytes that need to be allocated for each row.</p>
@@ -254,7 +254,7 @@ slower</em> than if you had specified a number of rows.</p>
 </pre></div>
 </div>
 <p>Now that you have created a GeomVertexData, you should create a number of
-:ref:` &lt;more-about-geomvertexreader-geomvertexwriter-and-geomvertexrewriter&gt;`,
+<a class="reference internal" href="../other-vertex-and-model-manipulation/more-about-geomvertexreader-geomvertexwriter-and-geomvertexrewriter.html#more-about-geomvertexreader-geomvertexwriter-and-geomvertexrewriter"><span class="std std-ref">GeomVertexWriters</span></a>,
 one for each column, to fill in the data.</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">vertex</span> <span class="o">=</span> <span class="n">GeomVertexWriter</span><span class="p">(</span><span class="n">vdata</span><span class="p">,</span> <span class="s1">&#39;vertex&#39;</span><span class="p">)</span>
 <span class="n">normal</span> <span class="o">=</span> <span class="n">GeomVertexWriter</span><span class="p">(</span><span class="n">vdata</span><span class="p">,</span> <span class="s1">&#39;normal&#39;</span><span class="p">)</span>

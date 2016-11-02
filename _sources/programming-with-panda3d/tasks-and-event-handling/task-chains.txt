@@ -55,7 +55,7 @@ directly, or you will risk a terrible crash.
     thread or mutex objects.
 
 
-`` See ``\ :ref:` <threading>`\ `` for more.``
+`` See ``\ :ref:`threading`\ `` for more.``
 
 Defining task chains
 --------------------

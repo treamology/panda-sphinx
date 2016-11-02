@@ -29,11 +29,11 @@ to a function. Panda3D almost never crashes, and much code is dedicated to the
 problem of tracking and isolating errors.
 
 Finally, to come back to power and speed: to gauge Panda3D's capabilities you
-can take a look at the :ref:` <samples>`. These are short programs that
-demonstrate a sampling of Panda3D's capabilities. The screenshots have
-frame-rates in the upper-right corner, taken on a Radeon X700. Note that some
-samples are old and use placeholder art and so are not great examples of
-Panda3D's visual capabilities.
+can take a look at the :ref:`Sample Programs <samples>`. These are short
+programs that demonstrate a sampling of Panda3D's capabilities. The
+screenshots have frame-rates in the upper-right corner, taken on a Radeon
+X700. Note that some samples are old and use placeholder art and so are not
+great examples of Panda3D's visual capabilities.
 
 Panda3D was developed by Disney for their massively multiplayer online game,
 Toontown Online. It was released as free software in 2002. Carnegie Mellon
@@ -73,12 +73,12 @@ it's written in C++. Python is just used for scripting. Developers usually
 write the performance-intensive bits, if any, in C++ or something similar
 `Cython <https://www.panda3d.org/blog/panda3d-and-cython/>`__. To see what
 kind of framerate a small Panda3D program typically gets, take a look at the
-screenshots of the :ref:` <samples>`. Those were taken using an old Radeon
-x700. Of course, only a sample program can run at 400 fps like that, but for a
-real game, 60 fps is quite attainable. One caveat, though: to get that kind of
-performance, you need to understand 3D cards and 3D performance optimization.
-It doesn't happen automatically. Panda3D includes profiling tools you need to
-hit 60 fps.
+screenshots of the :ref:`Sample Programs <samples>`. Those were taken using an
+old Radeon x700. Of course, only a sample program can run at 400 fps like
+that, but for a real game, 60 fps is quite attainable. One caveat, though: to
+get that kind of performance, you need to understand 3D cards and 3D
+performance optimization. It doesn't happen automatically. Panda3D includes
+profiling tools you need to hit 60 fps.
 
 Panda3D's Software License
 --------------------------

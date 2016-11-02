@@ -81,4 +81,5 @@ panel.
 
 
 
-Useful DirectTool panels are explained in the :ref:` <tools>` section.
+Useful DirectTool panels are explained in the :ref:`Panda Tools <tools>`
+section.

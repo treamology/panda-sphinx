@@ -17,7 +17,7 @@ need to keep a few things in mind:
 -  You need to include the file pandabase.h, which is needed to initialize the
    Panda3D library.
 -  There's no DirectStart. You need to create windows yourself using the
-   :ref:` <the-window-framework>`.
+   :ref:`Window Framework <the-window-framework>`.
 -  You can import the classes you need just by including their header file,
    like this:
 

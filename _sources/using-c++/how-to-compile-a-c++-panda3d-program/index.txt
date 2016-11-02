@@ -22,14 +22,14 @@ How to compile a C++ Panda3D program
     On UNIX, it is a very good possibility that you can compile using the g++
     compiler. The following page describes how to do that:
     
-    -  :ref:` <how-to-compile-a-c++-panda3d-program-on-linux>`
-    -  :ref:` <how-to-compile-a-c++-panda3d-program-on-mac-os-x>`
+    -  :ref:`Linux version <how-to-compile-a-c++-panda3d-program-on-linux>`
+    -  :ref:`Mac OS X version <how-to-compile-a-c++-panda3d-program-on-mac-os-x>`
     
     On Windows, compiling using g++ will not work. It is however possible to
     compile your Panda3D project using the MSVC (Microsoft Visual Studio 2008 C++)
     compiler. The following page describes how to do that:
     
-    -  :ref:` <how-to-build-a-c++-panda3d-game-using-microsoft-visual-studio-2008>`
+    -  :ref:`MSVC version <how-to-build-a-c++-panda3d-game-using-microsoft-visual-studio-2008>`
 
 
 

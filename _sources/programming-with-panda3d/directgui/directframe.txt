@@ -29,7 +29,7 @@ DirectFrame
     ``frameSize``,
     ``frameColor`` and
     ``pos``. For a full list of
-    keywords available for this object you can click, see the :ref:` <directgui>`
+    keywords available for this object you can click, see the :ref:`directgui`
     page.
     
     As we established above, the most common keywords are:

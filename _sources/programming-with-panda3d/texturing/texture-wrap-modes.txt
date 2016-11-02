@@ -45,8 +45,8 @@ wrap mode**.
 The wrap\_mode parameter is specified separately for the *u* and *v*
 directions (there is also a
 ``setWrapW()`` for
-:ref:` <3d-textures>`, but that's an advanced topic). The wrapMode may be any
-of the following values:
+:ref:`3-D textures <3d-textures>`, but that's an advanced topic). The wrapMode
+may be any of the following values:
 
 +----------------------------------------------------------+------------------------------------------------------------------------------------------------------------+
 | ``Texture.WM_repeat``| The texture image repeats to infinity.                                                                     |

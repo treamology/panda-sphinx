@@ -3,9 +3,9 @@
 Pre-defined vertex formats
 ==========================
 
-Panda3D predefines a handful of standard :ref:` <geomvertexformat>` objects
-that might be useful to you. If you don't have any special format needs, feel
-free to use any of these standard formats, which have already been defined and
+Panda3D predefines a handful of standard :ref:`geomvertexformat` objects that
+might be useful to you. If you don't have any special format needs, feel free
+to use any of these standard formats, which have already been defined and
 registered, and are ready to use for rendering.
 
 Each of these formats includes one or more of the standard columns vertex,

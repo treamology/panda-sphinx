@@ -3,9 +3,9 @@
 Texture Combine Modes
 =====================
 
-In addition to the several :ref:` <texture-modes>` described previously, there
-is a more advanced interface on TextureStage that allows for a larger
-vocabulary of texture blending options.
+In addition to the several :ref:`Texture Blend Modes <texture-modes>`
+described previously, there is a more advanced interface on TextureStage that
+allows for a larger vocabulary of texture blending options.
 
 Although several of the following options (CMReplace, CMModulate, CMAdd) have
 obvious parallels with the simpler blend modes described previously, they are

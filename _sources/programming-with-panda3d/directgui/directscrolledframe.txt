@@ -7,9 +7,9 @@ The DirectScrolledFrame is a special variant of DirectFrame that allows the
 user to page through a larger frame than would otherwise fit onscreen. The
 DirectScrolledFrame consists of a small onscreen frame which is actually a
 window onto a potentially much larger virtual canvas; the user can scroll
-through this canvas through the use of one or two :ref:` <directscrollbar>` on
-the right and bottom of the frame. DirectScrolledFrame is available beginning
-with Panda3D version 1.1.
+through this canvas through the use of one or two
+:ref:`DirectScrollBars <directscrollbar>` on the right and bottom of the
+frame. DirectScrolledFrame is available beginning with Panda3D version 1.1.
 
 The ``frameSize`` parameter controls
 the size and placement of the visible, onscreen frame; use the
@@ -32,23 +32,23 @@ bars yourself, you can set one or both of
 ``manageScrollBars`` and
 ``autoHideScrollBars`` to False.
 
-+---------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------+
-| Keyword                                                       | Definition                                                                                                   | Value                                                     |
-+===============================================================+==============================================================================================================+===========================================================+
-| canvasSize                                                    | Extents of the virtual canvas                                                                                | (Left, right, bottom, top)                                |
-+---------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------+
-| frameSize                                                     | Extents of the actual visible frame                                                                          | (Left, right, bottom, top)                                |
-+---------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------+
-| manageScrollBars                                              | Whether to automatically position and scale the scroll bars to fit along the right and bottom of the frame   | True or False                                             |
-+---------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------+
-| autoHideScrollBars                                            | Whether to automatically hide one or both scroll bars when not needed                                        | True or False                                             |
-+---------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------+
-| scrollBarWidth                                                | Specifies the width of both scroll bars at construction time                                                 | Default is 0.08                                           |
-+---------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------+
-| verticalScroll\_relief, verticalScroll\_frameSize, etc.       | Parameters to control the look of the vertical scroll bar                                                    | Any parameters appropriate to :ref:` <directscrollbar>`   |
-+---------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------+
-| horizontalScroll\_relief, horizontalScroll\_frameSize, etc.   | Parameters to control the look of the horizontal scroll bar                                                  | Any parameters appropriate to :ref:` <directscrollbar>`   |
-+---------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------+
++---------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------+--------------------------------------------------------+
+| Keyword                                                       | Definition                                                                                                   | Value                                                  |
++===============================================================+==============================================================================================================+========================================================+
+| canvasSize                                                    | Extents of the virtual canvas                                                                                | (Left, right, bottom, top)                             |
++---------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------+--------------------------------------------------------+
+| frameSize                                                     | Extents of the actual visible frame                                                                          | (Left, right, bottom, top)                             |
++---------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------+--------------------------------------------------------+
+| manageScrollBars                                              | Whether to automatically position and scale the scroll bars to fit along the right and bottom of the frame   | True or False                                          |
++---------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------+--------------------------------------------------------+
+| autoHideScrollBars                                            | Whether to automatically hide one or both scroll bars when not needed                                        | True or False                                          |
++---------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------+--------------------------------------------------------+
+| scrollBarWidth                                                | Specifies the width of both scroll bars at construction time                                                 | Default is 0.08                                        |
++---------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------+--------------------------------------------------------+
+| verticalScroll\_relief, verticalScroll\_frameSize, etc.       | Parameters to control the look of the vertical scroll bar                                                    | Any parameters appropriate to :ref:`directscrollbar`   |
++---------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------+--------------------------------------------------------+
+| horizontalScroll\_relief, horizontalScroll\_frameSize, etc.   | Parameters to control the look of the horizontal scroll bar                                                  | Any parameters appropriate to :ref:`directscrollbar`   |
++---------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------+--------------------------------------------------------+
 
 As a very small and simple example on how to use this element we have a simple
 scrolled frame on the middle of the screen:

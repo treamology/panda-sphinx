@@ -27,7 +27,7 @@ Texturing in C++
     
     1. C++ does not have a loader.loadTexture. You need to use the TexturePool to
     load textures. Please note that the Texture class is
-    :ref:` <reference-counting>`.
+    :ref:`reference counted <reference-counting>`.
     
     
     .. code-block:: cpp

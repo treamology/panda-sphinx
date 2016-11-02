@@ -32,7 +32,7 @@ intervals section of the online manual.
 
 Back to the List of Sample Programs:
 
-:ref:` <samples>`
+:ref:`samples`
 
 .. |Screenshot-Sample-Programs-Carousel.jpg| image:: screenshot-sample-programs-carousel.jpg
 

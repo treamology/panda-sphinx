@@ -230,16 +230,15 @@ iterate through the list using
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>By default, the :ref:` &lt;collision-entries&gt;` appear in the queue in no
-particular order. You can arrange them in order from nearest to furthest by
-calling <code class="docutils literal"><span class="pre">queue.sortEntries()</span></code> after the
-traversal.</p>
+<p>By default, the <a class="reference internal" href="collision-entries.html#collision-entries"><span class="std std-ref">Collision Entries</span></a> appear in the queue in no particular
+order. You can arrange them in order from nearest to furthest by calling
+<code class="docutils literal"><span class="pre">queue.sortEntries()</span></code> after the traversal.</p>
 </div>
 <div class="section" id="collisionhandlerevent">
 <h2>CollisionHandlerEvent<a class="headerlink" href="#collisionhandlerevent" title="Permalink to this headline">¶</a></h2>
 <p>This is another simple kind of CollisionHandler. Rather than saving up the
-collisions, it generates a :ref:` &lt;tasks-and-event-handling&gt;` when collision
-events are detected.</p>
+collisions, it generates a <a class="reference internal" href="../tasks-and-event-handling/index.html#tasks-and-event-handling"><span class="std std-ref">Panda event</span></a> when
+collision events are detected.</p>
 <p>There are three kinds of events that may be generated: the &#8220;in&#8221; event, when a
 particular object collides with another object that it didn&#8217;t in the previous
 pass, the &#8220;out&#8221; event, when an object is no longer colliding with an object it
@@ -308,7 +307,7 @@ surrounded by parentheses. The tag is consulted using the
 <code class="docutils literal"><span class="pre">nodePath.getNetTag()</span></code> interface.</p>
 <p>In any case, the event handler function that you write to service the event
 should receive one parameter (in addition to self, if it is a method): the
-:ref:` &lt;collision-entries&gt;`. For example:</p>
+<a class="reference internal" href="collision-entries.html#collision-entries"><span class="std std-ref">CollisionEntry</span></a>. For example:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyObject</span><span class="p">(</span><span class="n">DirectObject</span><span class="o">.</span><span class="n">DirectObject</span><span class="p">):</span>
   <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">accept</span><span class="p">(</span><span class="s1">&#39;car-into-rail&#39;</span><span class="p">,</span> <span class="n">handleRailCollision</span><span class="p">)</span>
@@ -383,8 +382,8 @@ it into the <code class="docutils literal"><span class="pre">pusher.addCollider<
 <div class="section" id="physicscollisionhandler">
 <h2>PhysicsCollisionHandler<a class="headerlink" href="#physicscollisionhandler" title="Permalink to this headline">¶</a></h2>
 <p>This kind of handler further specializes CollisionHandlerPusher to integrate
-with Panda&#8217;s :ref:` &lt;panda3d-physics-engine&gt;`. It requires that the NodePath
-you pass as the second parameter to
+with Panda&#8217;s <a class="reference internal" href="../physics/panda3d-physics-engine/index.html#panda3d-physics-engine"><span class="std std-ref">Physics Engine</span></a>. It requires that
+the NodePath you pass as the second parameter to
 <code class="docutils literal"><span class="pre">pusher.addCollider</span></code> actually contains an
 ActorNode, the type of node that is moved by forces in the physics system.</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">anp</span> <span class="o">=</span> <span class="n">render</span><span class="o">.</span><span class="n">attachNewNode</span><span class="p">(</span><span class="n">ActorNode</span><span class="p">(</span><span class="s1">&#39;actor&#39;</span><span class="p">))</span>

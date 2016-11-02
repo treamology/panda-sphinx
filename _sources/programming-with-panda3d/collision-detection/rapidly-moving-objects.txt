@@ -79,10 +79,10 @@ here, testing for collisions along the way". It is important to make a clear
 distinction between these two calls, and make the appropriate call for each
 situation.
 
-If you are moving an object with a :ref:` <lerp-intervals>`, and you want
-collisions to be active (and fluid) during the lerp, you should pass the
-keyword parameter ``fluid = 1`` to
-the LerpInterval constructor. It is rare to expect collisions to be active
+If you are moving an object with a :ref:`LerpInterval <lerp-intervals>`, and
+you want collisions to be active (and fluid) during the lerp, you should pass
+the keyword parameter ``fluid = 1``
+to the LerpInterval constructor. It is rare to expect collisions to be active
 while an object is moving under direct control of the application, however.
 
 Visualizing the previous transform

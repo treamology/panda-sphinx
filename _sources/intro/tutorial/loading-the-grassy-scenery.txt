@@ -3,8 +3,8 @@
 Loading the Grassy Scenery
 ==========================
 
-:ref:` <the-scene-graph>`
--------------------------
+:ref:`the-scene-graph`
+----------------------
 
 Panda3D contains a data structure called the *Scene Graph*. The Scene Graph is
 a tree containing all objects that need to be rendered. At the root of the
@@ -132,8 +132,8 @@ The ShowBase procedure
 loads the specified file, in this case the environment.egg file in the models
 folder. The return value is an object of the
 ``NodePath`` class, effectively a
-pointer to the model. Note that :ref:` <loading-models>` uses the
-forward-slash, even under Windows.
+pointer to the model. Note that :ref:`Panda Filename Syntax <loading-models>`
+uses the forward-slash, even under Windows.
 
 Run the Program
 ~~~~~~~~~~~~~~~

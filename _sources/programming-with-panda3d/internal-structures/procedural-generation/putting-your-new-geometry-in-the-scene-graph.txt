@@ -3,10 +3,10 @@
 Putting your new geometry in the scene graph
 ============================================
 
-Finally, now that you have a :ref:` <geomvertexdata>` and one or more
-:ref:` <geomprimitive>` objects, you can create a :ref:` <geom>` object and a
-:ref:` <geomnode>` to put the new geometry in the scene graph, so that it will
-be rendered.
+Finally, now that you have a :ref:`geomvertexdata` and one or more
+:ref:`geomprimitive` objects, you can create a :ref:`geom` object and a
+:ref:`geomnode` to put the new geometry in the scene graph, so that it will be
+rendered.
 
 
 

@@ -165,8 +165,8 @@ Lerp Intervals
     ``LerpIntervals`` that perform multiple
     lerps at the same time. (You can also achieve the same effect by combining
     several ``LerpIntervals`` within a
-    :ref:` <sequences-and-parallels>`, but these combination intervals are often
-    simpler to use, and they execute just a bit faster.)
+    :ref:`Parallel <sequences-and-parallels>`, but these combination intervals are
+    often simpler to use, and they execute just a bit faster.)
     
     
     .. code-block:: python

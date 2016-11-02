@@ -11,10 +11,11 @@ Before you Begin
 
 
 The first step is to download the panda source code and compile it. The
-instructions can be found in the section :ref:` <building-from-source>`. Be
-sure to compile with the Optimize setting of 1, otherwise, Visual Studio will
-not be able to debug properly. Once you have compiled panda, start up visual
-studio, and ask it to create a new project:
+instructions can be found in the section
+:ref:`Building Panda from Source <building-from-source>`. Be sure to compile
+with the Optimize setting of 1, otherwise, Visual Studio will not be able to
+debug properly. Once you have compiled panda, start up visual studio, and ask
+it to create a new project:
 
 |debugpanda1.jpg|
 

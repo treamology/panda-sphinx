@@ -32,8 +32,8 @@ Panda must draw this scene by first clearing the window to a gray background,
 then drawing the contents of the larger display region (with the panda), then
 clearing the smaller, nested display region to a black background, and then
 finally drawing the contents of the smaller display region.
-(:ref:` <imagedisplayregion-1.jpg>` to see the sample code that sets all this
-up.)
+(:ref:`Click here <imagedisplayregion-1.jpg>` to see the sample code that sets
+all this up.)
 
 You can control the clear operations per DisplayRegion, as well as on the
 overall GraphicsOutput. The following methods are defined for both

@@ -223,4 +223,4 @@ modifications to the shader and see if it can compile
 After modifying the vertex shader, try to modify the fragment shader on your
 own. In the next tutorial, we will improve the shader's usefulness.
 
-:ref:` <cg-tutorial-part-3>`
+:ref:`Part 3: The Simplest Possible Useful Shader <cg-tutorial-part-3>`

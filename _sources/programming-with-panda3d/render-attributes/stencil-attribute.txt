@@ -22,9 +22,9 @@ stencil test if r > S\ :sub:`p`, where S\ :sub:`p` is the value in the stencil
 buffer at pixel p. Objects contributing values to the stencil buffer that will
 be read by other StencilAttributes' comparison functions must be rendered
 first, or unexpected results will occur. See
-:ref:` <how-to-control-render-order>`. The stencil buffer is disabled by
-default. In order to use StencilAttribs, you must add the following line to
-your config.prc file: ::
+:ref:`how-to-control-render-order`. The stencil buffer is disabled by default.
+In order to use StencilAttribs, you must add the following line to your
+config.prc file: ::
     
     framebuffer-stencil #t
 

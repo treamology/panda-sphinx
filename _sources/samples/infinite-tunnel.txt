@@ -29,7 +29,7 @@ object is being occluded by a 'cloud' of fog.
 
 Back to the List of Sample Programs:
 
-:ref:` <samples>`
+:ref:`samples`
 
 .. |Screenshot-Sample-Programs-Infinite-Tunnel.jpg| image:: screenshot-sample-programs-infinite-tunnel.jpg
 

@@ -214,17 +214,17 @@ a different order.</p>
 <p>This does make certain kinds of vertex operations difficult; if you plan to
 write code that expects to encounter the vertices of a model in a particular
 order, we recommend you build up those vertices yourself using a
-:ref:` &lt;more-about-geomvertexreader-geomvertexwriter-and-geomvertexrewriter&gt;`
-(as described in :ref:` &lt;creating-and-filling-a-geomvertexdata&gt;`), so that you
+<a class="reference internal" href="more-about-geomvertexreader-geomvertexwriter-and-geomvertexrewriter.html#more-about-geomvertexreader-geomvertexwriter-and-geomvertexrewriter"><span class="std std-ref">GeomVertexWriter</span></a>
+(as described in <a class="reference internal" href="../procedural-generation/creating-and-filling-a-geomvertexdata.html#creating-and-filling-a-geomvertexdata"><span class="std std-ref">Creating and filling a GeomVertexData</span></a>), so that you
 have explicit control over the vertex order.</p>
 <p>However, if you have no need to operate on the vertices in any particular
 order, or if you just want to casually browse the vertices in a model, feel
 free to use the following instructions to read the data.</p>
 <p>When you load a model, you have a handle to the root node of the model, which
 is usually a ModelRoot node. The geometry itself will be stored in a series of
-:ref:` &lt;geomnode&gt;`, which will be children of the root node. In order to
-examine the vertex data, you must visit the GeomNodes in the model. One way to
-do this is to walk through all the GeomNodes like this:</p>
+<a class="reference internal" href="../how-panda3d-stores-vertices-and-geometry/geomnode.html#geomnode"><span class="std std-ref">GeomNodes</span></a>, which will be children of the root node. In order
+to examine the vertex data, you must visit the GeomNodes in the model. One way
+to do this is to walk through all the GeomNodes like this:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">geomNodeCollection</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">findAllMatches</span><span class="p">(</span><span class="s1">&#39;**/+GeomNode&#39;</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">nodePath</span> <span class="ow">in</span> <span class="n">geomNodeCollection</span><span class="o">.</span><span class="n">asList</span><span class="p">():</span>
   <span class="n">geomNode</span> <span class="o">=</span> <span class="n">nodePath</span><span class="o">.</span><span class="n">node</span><span class="p">()</span>
@@ -239,7 +239,7 @@ do this is to walk through all the GeomNodes like this:</p>
 </pre></div>
 </div>
 <p>Once you have a particular GeomNode, you must walk through the list of
-:ref:` &lt;geom&gt;` stored on that node. Each Geom also has an associated
+<a class="reference internal" href="../how-panda3d-stores-vertices-and-geometry/geom.html#geom"><span class="std std-ref">Geoms</span></a> stored on that node. Each Geom also has an associated
 RenderState, which controls the visible appearance of that Geom (e.g. texture,
 backfacing, etc.).</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">processGeomNode</span><span class="p">(</span><span class="n">geomNode</span><span class="p">):</span>
@@ -266,10 +266,10 @@ backfacing, etc.).</p>
 not modifying, the data. If you intend to modify the geom data in any way
 (including any nested data like vertices or primitives), you should use
 geomNode.modifyGeom() instead.</p>
-<p>Each Geom has an associated :ref:` &lt;geomvertexdata&gt;`, and one or more
-:ref:` &lt;geomprimitive&gt;`. Some GeomVertexData objects may be shared by more
-than one Geom, especially if you have used flattenStrong() to optimize a
-model.</p>
+<p>Each Geom has an associated <a class="reference internal" href="../how-panda3d-stores-vertices-and-geometry/geomvertexdata.html#geomvertexdata"><span class="std std-ref">GeomVertexData</span></a>, and one or more
+<a class="reference internal" href="../how-panda3d-stores-vertices-and-geometry/geomprimitive.html#geomprimitive"><span class="std std-ref">GeomPrimitives</span></a>. Some GeomVertexData objects may be
+shared by more than one Geom, especially if you have used flattenStrong() to
+optimize a model.</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">processGeom</span><span class="p">(</span><span class="n">geom</span><span class="p">):</span>
   <span class="n">vdata</span> <span class="o">=</span> <span class="n">geom</span><span class="o">.</span><span class="n">getVertexData</span><span class="p">()</span>
   <span class="k">print</span> <span class="n">vdata</span>
@@ -298,7 +298,7 @@ but not modifying, the vertex data. Similarly, getPrimitive() is appropriate
 only if you will not be modifying the primitive index array. If you intend to
 modify either one, use modifyVertexData() or modifyPrimitive(), respectively.</p>
 <p>You can use the
-:ref:` &lt;more-about-geomvertexreader-geomvertexwriter-and-geomvertexrewriter&gt;`
+<a class="reference internal" href="more-about-geomvertexreader-geomvertexwriter-and-geomvertexrewriter.html#more-about-geomvertexreader-geomvertexwriter-and-geomvertexrewriter"><span class="std std-ref">GeomVertexReader</span></a>
 class to examine the vertex data. You should create a GeomVertexReader for
 each column of the data you intend to read. It is up to you to ensure that a
 given column exists in the vertex data before you attempt to read it (you can

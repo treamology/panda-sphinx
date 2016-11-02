@@ -15,10 +15,9 @@ instance, you would do this to project a 3-D movie onto a screen in your
 virtual space.
 
 In its default configuration, whenever Panda renders to a 3-D stereo window
-(see :ref:` <stereo-display-regions>`), any multiview textures are
-automatically treated as stereo textures. View 0 is presented to the left eye,
-and view 1 is presented to the right eye. Additional views beyond view 1 are
-not used.
+(see :ref:`stereo-display-regions`), any multiview textures are automatically
+treated as stereo textures. View 0 is presented to the left eye, and view 1 is
+presented to the right eye. Additional views beyond view 1 are not used.
 
 A multiview texture is loaded as a series of independent texture images
 (similar to the way a cube map or 3-D texture is loaded). Each image is

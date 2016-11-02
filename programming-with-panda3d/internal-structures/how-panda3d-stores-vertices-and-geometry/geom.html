@@ -203,11 +203,11 @@
             
   <div class="section" id="geom">
 <span id="id1"></span><h1>Geom<a class="headerlink" href="#geom" title="Permalink to this headline">¶</a></h1>
-<p>The Geom object collects together a :ref:` &lt;geomvertexdata&gt;` and one or more
-:ref:` &lt;geomprimitive&gt;` objects, to make a single renderable piece of
-geometry. In fact, an individual Geom is the smallest piece into which Panda
-will subdivide the scene for rendering; in any given frame, either an entire
-Geom is rendered, or none of it is.</p>
+<p>The Geom object collects together a <a class="reference internal" href="geomvertexdata.html#geomvertexdata"><span class="std std-ref">GeomVertexData</span></a> and one or more
+<a class="reference internal" href="geomprimitive.html#geomprimitive"><span class="std std-ref">GeomPrimitive</span></a> objects, to make a single renderable piece of geometry.
+In fact, an individual Geom is the smallest piece into which Panda will
+subdivide the scene for rendering; in any given frame, either an entire Geom
+is rendered, or none of it is.</p>
 <p>Fundamentally, a Geom is very simple; it contains a pointer to a single
 GeomVertexData, and a list of one or more GeomPrimitives, of various types, as
 needed. All the associated GeomPrimitives index into the same GeomVertexData.</p>

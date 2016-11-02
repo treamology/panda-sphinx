@@ -58,7 +58,7 @@ is due to the nature of the PC and the AGP bus.
 
 For example, though your graphics card may claim it can easily handle 100,000
 polygons, this may be true in practice only if all of those polygons are sent
-in one batch--that is, just a single :ref:` <geom>`. If, however, your scene
+in one batch--that is, just a single :ref:`geom`. If, however, your scene
 consists of 1,000 nodes with 100 polygons each, it may not have nearly as good
 a frame rate.
 

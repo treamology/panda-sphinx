@@ -45,8 +45,8 @@ targets (most modern cards do), by setting the stereo flag in the
 automatically designate one of the draw buffers to contain the stereo view for
 the other eye. When binding a texture to the color attachment for
 render-to-texture, Panda3D will automatically initialize it as a
-:ref:` <stereo-multiview-textures>` containing both left and right views. This
-is only supported in OpenGL as of writing.
+:ref:`multiview texture <stereo-multiview-textures>` containing both left and
+right views. This is only supported in OpenGL as of writing.
 
 Using a StereoDisplayRegion
 ---------------------------
@@ -81,7 +81,7 @@ offset associated with the DisplayRegion: the default tex view offset is 0 for
 the left eye, and 1 for the right eye. This allows dual-view stereo textures
 to render properly in the DisplayRegion, so that the left view is visible in
 the left eye and the right view in the right eye. See
-:ref:` <stereo-multiview-textures>` for more about this feature.
+:ref:`stereo-multiview-textures` for more about this feature.
 
 The lens parameters can be controlled via
 ``lens.set_interocular_distance()`` and

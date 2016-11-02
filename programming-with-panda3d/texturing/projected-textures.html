@@ -213,8 +213,8 @@
             
   <div class="section" id="projected-textures">
 <span id="id1"></span><h1>Projected Textures<a class="headerlink" href="#projected-textures" title="Permalink to this headline">¶</a></h1>
-<p>In a :ref:` &lt;texture-transforms&gt;`, we introduced ways to apply an explicit
-transformation to a model&#8217;s texture coordinates, with methods like
+<p>In a <a class="reference internal" href="texture-transforms.html#texture-transforms"><span class="std std-ref">previous section</span></a>, we introduced ways to apply
+an explicit transformation to a model&#8217;s texture coordinates, with methods like
 <code class="docutils literal"><span class="pre">setTexOffset()</span></code> and
 <code class="docutils literal"><span class="pre">setTexScale()</span></code>. In addition to this
 explicit control, Panda3D offers a simple mechanism to apply an automatic
@@ -241,16 +241,16 @@ two arbitrary NodePaths. If either of them is just
 <code class="docutils literal"><span class="pre">NodePath()</span></code>, it stands for the top
 of the graph.</p>
 <p>This has several useful applications. We have already introduced
-:ref:` &lt;automatic-texture-coordinates&gt;`, in conjunction with
+<a class="reference internal" href="automatic-texture-coordinates.html#automatic-texture-coordinates"><span class="std std-ref">one application</span></a>, in conjunction with
 <code class="docutils literal"><span class="pre">MWorldPosition</span></code>, to move the generated
 texture coordinates from the root of the graph to the model itself.</p>
 <div class="section" id="interval-animated-texture-transforms">
 <h2>Interval-animated texture transforms<a class="headerlink" href="#interval-animated-texture-transforms" title="Permalink to this headline">¶</a></h2>
 <p>Another handy application for a TexProjector is to enable the use of the
-various :ref:` &lt;lerp-intervals&gt;` to animate a texture transform. Although
-there are no LerpIntervals that directly animate texture transforms, you can
-make a LerpInterval animate a NodePath&#8211;and then set up a TexProjector effect
-to follow that NodePath. For example:</p>
+various <a class="reference internal" href="../intervals/lerp-intervals.html#lerp-intervals"><span class="std std-ref">LerpIntervals</span></a> to animate a texture transform.
+Although there are no LerpIntervals that directly animate texture transforms,
+you can make a LerpInterval animate a NodePath&#8211;and then set up a TexProjector
+effect to follow that NodePath. For example:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">smiley</span> <span class="o">=</span> <span class="n">loader</span><span class="o">.</span><span class="n">loadModel</span><span class="p">(</span><span class="s1">&#39;smiley.egg&#39;</span><span class="p">)</span>
 <span class="n">lerper</span> <span class="o">=</span> <span class="n">NodePath</span><span class="p">(</span><span class="s1">&#39;lerper&#39;</span><span class="p">)</span>
 <span class="n">smiley</span><span class="o">.</span><span class="n">setTexProjector</span><span class="p">(</span><span class="n">TextureStage</span><span class="o">.</span><span class="n">getDefault</span><span class="p">(),</span> <span class="n">NodePath</span><span class="p">(),</span> <span class="n">lerper</span><span class="p">)</span>
@@ -287,7 +287,7 @@ the relative transform between the nodes).</p>
 <p>To implement projected textures, you need to do three steps:</p>
 <p>1. Apply the texture you want to the model you want to project it onto,
 usually on its own TextureStage, so that it is
-:ref:` &lt;multitexture-introduction&gt;`.</p>
+<a class="reference internal" href="multitexture-introduction.html#multitexture-introduction"><span class="std std-ref">multitextured</span></a>.</p>
 <p>2. Put the <code class="docutils literal"><span class="pre">MWorldPosition</span></code> TexGen mode
 on the model. This copies the model&#8217;s vertex positions into its texture
 coordinates, for your texture&#8217;s TextureStage.</p>

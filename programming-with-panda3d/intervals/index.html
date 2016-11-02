@@ -207,10 +207,10 @@ following pages, but all of them have in common the following property: each
 Interval represents an action (or a series of actions) that occur over a
 specific, finite interval of time (hence the name).</p>
 <p>The real power of the Interval system comes from
-:ref:` &lt;sequences-and-parallels&gt;`, which are a special kind of Interval that
-can contain nested Intervals of any kind (including additional Sequences
-and/or Parallels). By using these grouping Intervals, you can easily assemble
-complex scripts from the basic atoms.</p>
+<a class="reference internal" href="sequences-and-parallels.html#sequences-and-parallels"><span class="std std-ref">Sequences and Parallels</span></a>, which are a special kind of Interval that can
+contain nested Intervals of any kind (including additional Sequences and/or
+Parallels). By using these grouping Intervals, you can easily assemble complex
+scripts from the basic atoms.</p>
 <div class="section" id="using-intervals">
 <h2>Using Intervals<a class="headerlink" href="#using-intervals" title="Permalink to this headline">¶</a></h2>
 <p>In any Panda3D module that uses Intervals, you should first import the
@@ -257,7 +257,8 @@ between its current time and the new time; there is no way to skip in time
 without performing the intervening actions.</p>
 <p>It is legal to set the time to an earlier time; the interval will do its best
 to reset its state to the previous state. In some cases this may not be
-possible (particularly if a :ref:` &lt;function-intervals&gt;` is involved).</p>
+possible (particularly if a <a class="reference internal" href="function-intervals.html#function-intervals"><span class="std std-ref">Function Interval</span></a> is
+involved).</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">interval</span><span class="o">.</span><span class="n">setPlayRate</span><span class="p">(</span><span class="n">playRate</span><span class="p">)</span>
 </pre></div>
 </div>

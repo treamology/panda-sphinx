@@ -224,10 +224,10 @@ for instance), then the fog&#8217;s position is ignored, and the fog is
 camera-relative. Likewise, if the fog is exponential, the fog&#8217;s position is
 ignored, and the fog is camera-relative.</p>
 <p>The <code class="docutils literal"><span class="pre">setFog</span></code> directive creates a
-fog attribute object. Like any :ref:` &lt;render-attributes&gt;`, the fog attribute
-affects the node that it is attached to, and any nodes below it in the scene
-graph. So you can easily cause only a subset of the objects (or just a single
-model) to be affected by the fog, by calling
+fog attribute object. Like any <a class="reference internal" href="index.html#render-attributes"><span class="std std-ref">Render Attribute</span></a>,
+the fog attribute affects the node that it is attached to, and any nodes below
+it in the scene graph. So you can easily cause only a subset of the objects
+(or just a single model) to be affected by the fog, by calling
 <code class="docutils literal"><span class="pre">setFog</span></code> on the root of the
 subgraph you want to be affected. To remove the fog attribute later, use the
 <code class="docutils literal"><span class="pre">clearFog</span></code> directive:</p>

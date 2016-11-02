@@ -37,10 +37,10 @@ First, and most useful, is the ls() command:
 
 This simply lists all of the children of the indicated NodePath, along with
 all of their children, and so on until the entire subgraph is printed out. It
-also lists the transforms and :ref:` <render-attributes>` that are on each
-node. This is an especially useful command for when you're running
-interactively with Python; it's a good way to check that the scene graph is
-what you think it should be.
+also lists the transforms and :ref:`render-attributes` that are on each node.
+This is an especially useful command for when you're running interactively
+with Python; it's a good way to check that the scene graph is what you think
+it should be.
 
 The two methods ``find()`` and
 ``findAllMatches()`` will return a

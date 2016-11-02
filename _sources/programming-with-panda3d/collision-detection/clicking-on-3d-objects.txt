@@ -93,8 +93,8 @@ of this tag after we get the response back from the collision system.
 
 .. only:: python
 
-    Because :ref:` <loading-actors-and-animations>` uses a different setup the
-    collision system will return the geometry but not the NodePath. Use
+    Because :ref:`Actors <loading-actors-and-animations>` uses a different setup
+    the collision system will return the geometry but not the NodePath. Use
     ``object.setPythonTag('myObjectTag', 1)`` and
     ``object.getPythonTag('myObjectTag')`` instead to return the
     nodepath of an Actor.

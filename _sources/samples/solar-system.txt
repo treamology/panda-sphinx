@@ -30,7 +30,7 @@ positioning.
 
 Back to the List of Sample Programs:
 
-:ref:` <samples>`
+:ref:`samples`
 
 .. |Screenshot-Sample-Programs-Solar-System.jpg| image:: screenshot-sample-programs-solar-system.jpg
 .. |Spirograph.gif| image:: spirograph.gif

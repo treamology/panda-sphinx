@@ -211,50 +211,56 @@
 Additional documentation can be found by clicking on the name of the
 RenderAttrib.</p>
 <ul class="simple">
-<li>:ref:` &lt;alpha-testing&gt;`: Hides part of the model, based on the texture&#8217;s
-alpha channel.</li>
-<li>:ref:` &lt;antialiasing&gt;`: Controls full-screen antialiasing and polygon-edge
-antialiasing.</li>
-<li>:ref:<a href="#id3"><span class="problematic" id="id4">``</span></a>: Applies a scale to audio volume for positional sounds.</li>
-<li>:ref:` &lt;auxiliary-bitplane-control&gt;`: Causes shader generator to produce
-extra data.</li>
-<li>:ref:` &lt;clip-planes&gt;`: Slices off a piece of the model, using a clipping
-plane.</li>
-<li>:ref:` &lt;tinting-and-recoloring&gt;`: Tints the model. Only works if the model
-is not illuminated.</li>
-<li>:ref:` &lt;transparency-and-blending&gt;`: This specifies how colors are blended
-into the frame buffer, for special effects.</li>
-<li>:ref:` &lt;tinting-and-recoloring&gt;`: Modulates vertex colors with a flat
-color.</li>
-<li>:ref:` &lt;color-write-masks&gt;`: Causes the model to not affect the R, G, B, or
-A channel of the framebuffer.</li>
+<li><a class="reference internal" href="alpha-testing.html#alpha-testing"><span class="std std-ref">AlphaTestAttrib</span></a>: Hides part of the model, based on
+the texture&#8217;s alpha channel.</li>
+<li><a class="reference internal" href="antialiasing.html#antialiasing"><span class="std std-ref">AntialiasAttrib</span></a>: Controls full-screen antialiasing
+and polygon-edge antialiasing.</li>
+<li><span class="xref std std-ref">AudioVolumeAttrib</span>: Applies a scale to audio volume for positional
+sounds.</li>
+<li><a class="reference internal" href="auxiliary-bitplane-control.html#auxiliary-bitplane-control"><span class="std std-ref">AuxBitplaneAttrib</span></a>: Causes shader
+generator to produce extra data.</li>
+<li><a class="reference internal" href="clip-planes.html#clip-planes"><span class="std std-ref">ClipPlaneAttrib</span></a>: Slices off a piece of the model,
+using a clipping plane.</li>
+<li><a class="reference internal" href="tinting-and-recoloring.html#tinting-and-recoloring"><span class="std std-ref">ColorAttrib</span></a>: Tints the model. Only works if
+the model is not illuminated.</li>
+<li><a class="reference internal" href="../texturing/transparency-and-blending.html#transparency-and-blending"><span class="std std-ref">ColorBlendAttrib</span></a>: This specifies how
+colors are blended into the frame buffer, for special effects.</li>
+<li><a class="reference internal" href="tinting-and-recoloring.html#tinting-and-recoloring"><span class="std std-ref">ColorScaleAttrib</span></a>: Modulates vertex colors
+with a flat color.</li>
+<li><a class="reference internal" href="color-write-masks.html#color-write-masks"><span class="std std-ref">ColorWriteAttrib</span></a>: Causes the model to not affect
+the R, G, B, or A channel of the framebuffer.</li>
 <li>CullBinAttrib: Controls the order in which Panda renders geometry.</li>
-<li>:ref:` &lt;backface-culling-and-frontface-culling&gt;`: Causes backfaces or
-frontfaces of the model to be visible.</li>
+<li><a class="reference internal" href="backface-culling-and-frontface-culling.html#backface-culling-and-frontface-culling"><span class="std std-ref">CullFaceAttrib</span></a>: Causes
+backfaces or frontfaces of the model to be visible.</li>
 <li>DepthOffsetAttrib: Causes the Z-buffer to treat the object as if it were
 closer or farther.</li>
-<li>:ref:` &lt;depth-test-and-depth-write&gt;`: Alters the way the Z-buffer affects
-the model.</li>
-<li>:ref:` &lt;depth-test-and-depth-write&gt;`: Controls whether or not the model
-affects the Z-buffer.</li>
-<li>:ref:` &lt;fog&gt;`: Causes the model to be obscured by fog if it is far from the
-camera.</li>
-<li>:ref:` &lt;lighting&gt;`: Causes the model to be illuminated by certain lights.</li>
-<li>:ref:` &lt;light-ramps&gt;`: Enables HDR tone mapping or cartoon shading.</li>
-<li>:ref:` &lt;materials&gt;`: Changes the way the model reflects light.</li>
+<li><a class="reference internal" href="depth-test-and-depth-write.html#depth-test-and-depth-write"><span class="std std-ref">DepthTestAttrib</span></a>: Alters the way the
+Z-buffer affects the model.</li>
+<li><a class="reference internal" href="depth-test-and-depth-write.html#depth-test-and-depth-write"><span class="std std-ref">DepthWriteAttrib</span></a>: Controls whether or
+not the model affects the Z-buffer.</li>
+<li><a class="reference internal" href="fog.html#fog"><span class="std std-ref">FogAttrib</span></a>: Causes the model to be obscured by fog if it is far
+from the camera.</li>
+<li><a class="reference internal" href="lighting.html#lighting"><span class="std std-ref">LightAttrib</span></a>: Causes the model to be illuminated by
+certain lights.</li>
+<li><a class="reference internal" href="light-ramps.html#light-ramps"><span class="std std-ref">LightRampAttrib</span></a>: Enables HDR tone mapping or cartoon
+shading.</li>
+<li><a class="reference internal" href="materials.html#materials"><span class="std std-ref">MaterialAttrib</span></a>: Changes the way the model reflects
+light.</li>
 <li>RenderModeAttrib: Used to enable wireframe rendering.</li>
 <li>RescaleNormalAttrib: Can disable the automatic correction of non-unit
 normals.</li>
 <li>ShadeModelAttrib: Can cause the model to appear faceted instead of smooth.</li>
-<li>:ref:` &lt;shaders&gt;`: Gives almost unlimited control, but difficult to use.</li>
-<li>:ref:` &lt;stencil-attribute&gt;`: Causes the model to affect the stencil buffer,
-or be affected by the stencil buffer.</li>
-<li>:ref:` &lt;automatic-texture-coordinates&gt;`: Causes the system to synthesize
-texture coordinates for the model.</li>
-<li>:ref:` &lt;texture-transforms&gt;`: Alters the existing texture coordinates.</li>
-<li>:ref:` &lt;texturing&gt;`: Applies a texture map to the model.</li>
-<li>:ref:` &lt;transparency-and-blending&gt;`: Causes the model to be partially
-transparent.</li>
+<li><a class="reference internal" href="../shaders/index.html#shaders"><span class="std std-ref">ShaderAttrib</span></a>: Gives almost unlimited control, but
+difficult to use.</li>
+<li><a class="reference internal" href="stencil-attribute.html#stencil-attribute"><span class="std std-ref">StencilAttrib</span></a>: Causes the model to affect the
+stencil buffer, or be affected by the stencil buffer.</li>
+<li><a class="reference internal" href="../texturing/automatic-texture-coordinates.html#automatic-texture-coordinates"><span class="std std-ref">TexGenAttrib</span></a>: Causes the system to
+synthesize texture coordinates for the model.</li>
+<li><a class="reference internal" href="../texturing/texture-transforms.html#texture-transforms"><span class="std std-ref">TexMatrixAttrib</span></a>: Alters the existing texture
+coordinates.</li>
+<li><a class="reference internal" href="../texturing/index.html#texturing"><span class="std std-ref">TextureAttrib</span></a>: Applies a texture map to the model.</li>
+<li><a class="reference internal" href="../texturing/transparency-and-blending.html#transparency-and-blending"><span class="std std-ref">TransparencyAttrib</span></a>: Causes the model to
+be partially transparent.</li>
 </ul>
 </div>
 <div class="section" id="undocumented">

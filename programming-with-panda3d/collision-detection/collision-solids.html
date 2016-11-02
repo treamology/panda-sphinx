@@ -251,10 +251,10 @@ wrapping a sphere around it.</p>
 <p>Also, a sphere is a particularly good choice for use as a &#8220;from&#8221; object,
 because a sphere can reliably be tested for collision with most of the other
 solid types. The &#8220;from&#8221; objects are the objects that are considered the active
-objects in the world; see :ref:` &lt;collision-traversers&gt;`. A sphere is usually
-the best choice to put around the player&#8217;s avatar, for instance. The sphere
-also makes a good &#8220;into&#8221; object; it is the only object type that is a good
-choice for both &#8220;from&#8221; and &#8220;into&#8221; objects.</p>
+objects in the world; see <a class="reference internal" href="collision-traversers.html#collision-traversers"><span class="std std-ref">Collision Traversers</span></a>. A sphere is usually the
+best choice to put around the player&#8217;s avatar, for instance. The sphere also
+makes a good &#8220;into&#8221; object; it is the only object type that is a good choice
+for both &#8220;from&#8221; and &#8220;into&#8221; objects.</p>
 <p>A sphere is defined in terms of a center and a radius. Note that, like any
 object, the sphere&#8217;s coordinates are defined in the sphere&#8217;s own coordinate
 space, so that often the center is (0, 0, 0).</p>
@@ -358,9 +358,9 @@ screen, and then determine which objects that ray is intersecting. (In fact,
 there is a method on CollisionRay called
 <code class="docutils literal"><span class="pre">setFromLens()</span></code> that automatically sets
 up the ray based on a 2-d onscreen coordinate; this is used by the &#8220;picker&#8221;.
-See :ref:` &lt;clicking-on-3d-objects&gt;`.)</p>
+See <a class="reference internal" href="clicking-on-3d-objects.html#clicking-on-3d-objects"><span class="std std-ref">Clicking on 3D Objects</span></a>.)</p>
 <p>The CollisionRay is also useful in conjunction with the CollisionHandlerFloor;
-see :ref:` &lt;collision-handlers&gt;`.</p>
+see <a class="reference internal" href="collision-handlers.html#collision-handlers"><span class="std std-ref">Collision Handlers</span></a>.</p>
 <p>A CollisionRay is created by specifing an origin point, and a direction
 vector. The direction vector need not be normalized.</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">ray</span> <span class="o">=</span> <span class="n">CollisionRay</span><span class="p">(</span><span class="n">ox</span><span class="p">,</span> <span class="n">oy</span><span class="p">,</span> <span class="n">oz</span><span class="p">,</span> <span class="n">dx</span><span class="p">,</span> <span class="n">dy</span><span class="p">,</span> <span class="n">dz</span><span class="p">)</span>

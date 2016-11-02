@@ -178,5 +178,5 @@ the camera and the models correctly relative to each other.
 Example code
 ~~~~~~~~~~~~
 
-:ref:` <imagedisplayregion-1.jpg>` to see the sample code that sets all this
-up (it also reveals where win comes from.)
+:ref:`Click here <imagedisplayregion-1.jpg>` to see the sample code that sets
+all this up (it also reveals where win comes from.)

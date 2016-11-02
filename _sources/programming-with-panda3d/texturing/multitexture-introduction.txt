@@ -44,7 +44,7 @@ TextureStages you can have on any one particular node; you can still have as
 many different TextureStages as you like as long as they are all on different
 nodes.
 
-Let's revisit the example from :ref:` <simple-texture-replacement>`, where we
+Let's revisit the example from :ref:`simple-texture-replacement`, where we
 replaced the normal texture on smiley.egg with a new texture image that
 contains a random color pattern. This time, instead of assigning the new
 texture to the default TextureStage, we'll create a new TextureStage for it,

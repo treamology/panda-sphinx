@@ -43,10 +43,10 @@ experience, but with rapid enough movements, the mouse can leave the window in
 
 Finally, the 's' key toggles the visibility of the mouse cursor.
 
-The :ref:` <mouse-support>` section of the manual covers the mouse modes,
+The :ref:`mouse-support` section of the manual covers the mouse modes,
 detecting whether a mouse mode is supported, and a strategy for re-centering
 the mouse, as used by this sample.
 
 Back to the List of Sample Programs:
 
-:ref:` <samples>`
+:ref:`samples`

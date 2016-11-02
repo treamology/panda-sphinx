@@ -6,15 +6,15 @@ Using Intervals to move the Panda
 Intervals and Sequences
 -----------------------
 
-:ref:` <intervals>`
-~~~~~~~~~~~~~~~~~~~
+:ref:`intervals`
+~~~~~~~~~~~~~~~~
 
 *Intervals* are tasks that change a property from one value to another over a
 specified period of time. Starting an interval effectively starts a background
 process that modifies the property over the specified period of time.
 
-:ref:` <sequences-and-parallels>`
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+:ref:`Sequences <sequences-and-parallels>`
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 *Sequences*, also called *MetaIntervals* are tasks that execute one interval
 after another.

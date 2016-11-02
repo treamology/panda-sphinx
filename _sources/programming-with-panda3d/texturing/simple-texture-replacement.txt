@@ -50,7 +50,7 @@ setTexture() call--that is, you do not need to do card.setTexture(tex,
 applied to it, so your texture will be visible even without the override.)
 
 In order for this to work, the model you apply it to must already have texture
-coordinates defined (see :ref:` <simple-texturing>`). As it happens, the
+coordinates defined (see :ref:`simple-texturing`). As it happens, the
 CardMaker generates texture coordinates by default when it generates a card,
 so no problem there.
 
@@ -81,8 +81,8 @@ For instance, to change the appearance of smiley:
 Often, you want to replace the texture on just one piece of a model, rather
 than setting the texture on every element. To do this, you simply get a
 NodePath handle to the piece or pieces of the model that you want to change,
-as described in the section :ref:` <manipulating-a-piece-of-a-model>`, and
-make the ``setTexture()`` call on those
+as described in the section :ref:`manipulating-a-piece-of-a-model`, and make
+the ``setTexture()`` call on those
 NodePaths.
 
 For instance, this car model has multiple textures available in different
@@ -122,7 +122,7 @@ And the result is this:
 
 If you are interested in changing the image of a texture during program
 execution, say to adjust some of its pixels, see
-:ref:` <creating-new-textures-from-scratch>`.
+:ref:`creating-new-textures-from-scratch`.
 
 .. |Smiley with noise.egg applied| image:: texture-smiley-noise.png
 .. |Description| image:: car-red.png

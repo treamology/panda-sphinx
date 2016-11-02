@@ -65,7 +65,7 @@ The following table describes the inputs that can be used in Cg shaders.
 +---------------------------------+------------------------------------------------+
 | XXXREPLACE-7a5e56662cb421c54c76 | Panda makes it possible to store arbitrary     |
 | 0020cbeb31f1d436009eXXX         | columns of user-defined data in the vertex     |
-|                                 | table; see :ref:` <geomvertexdata>`. You can   |
+|                                 | table; see :ref:`geomvertexdata`. You can      |
 |                                 | access this data using this syntax. For        |
 |                                 | example, vtx\_chicken will look for a column   |
 |                                 | named "chicken" in the vertex array. Vertex    |
@@ -74,8 +74,8 @@ The following table describes the inputs that can be used in Cg shaders.
 | XXXREPLACE-c8fc7deb8dc4f7f7fd23 | A matrix that transforms from coordinate       |
 | ddc1498d0b7379d391f7XXX         | system X to coordinate system Y. See the       |
 |                                 | section on                                     |
-|                                 | :ref:` <shaders-and-coordinate-spaces>` for    |
-|                                 | more information.                              |
+|                                 | :ref:`shaders-and-coordinate-spaces` for more  |
+|                                 | information.                                   |
 +---------------------------------+------------------------------------------------+
 | XXXREPLACE-e1cb5f95f7136699441c | Transpose of trans\_x\_to\_y                   |
 | 100140dd9fb6374d3e7bXXX         |                                                |

@@ -12,7 +12,7 @@ This class allows you to manipulate individual pixels of the image. You can
 load existing images using the function
 ``read(fileName)`` where
 ``filename`` is the path to the
-image file (in :ref:` <loading-models>`) wrapped in a
+image file (in :ref:`Panda Filename Syntax <loading-models>`) wrapped in a
 ``Filename `` object. Or, you can
 create a brand new image from scratch, by passing the x, y size to the
 constructor. 

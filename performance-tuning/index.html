@@ -220,12 +220,12 @@ how fast something &#8220;should&#8221; run? Experienced game programmers have a
 for what their video card should be capable of, but inexperienced ones often
 don&#8217;t really know what to expect. This makes performance tuning that much
 harder.</p>
-<p>However, you have an advantage. We have a collection of :ref:` &lt;samples&gt;`
-demonstrating Panda3D features. It is easy to turn on the frame-rate meter to
-see how fast these samples run. The screenshots in the manual contain
-frame-rates, taken with a Radeon x700. That should give you a baseline. It is
-even more informative to turn on the frame-rate meter to see what your video
-card can deliver.</p>
+<p>However, you have an advantage. We have a collection of
+<a class="reference internal" href="../samples/index.html#samples"><span class="std std-ref">sample programs</span></a> demonstrating Panda3D features. It is easy to
+turn on the frame-rate meter to see how fast these samples run. The
+screenshots in the manual contain frame-rates, taken with a Radeon x700. That
+should give you a baseline. It is even more informative to turn on the
+frame-rate meter to see what your video card can deliver.</p>
 <p>Video Synchronisation</p>
 <p>Panda3D sometimes caps the framerate to not exceed the monitor&#8217;s refresh rate:
 this is called video synchronization. Panda3D knows that since the monitor
@@ -235,45 +235,46 @@ than the monitor&#8217;s refresh rate. To disable this and be able to see the &#
 framerate, set the config variable
 <code class="docutils literal"><span class="pre">sync-video</span></code> to
 <code class="docutils literal"><span class="pre">#f</span></code> in your
-:ref:` &lt;configuring-panda3d&gt;`.</p>
+<a class="reference internal" href="../programming-with-panda3d/the-configuration-file/configuring-panda3d.html#configuring-panda3d"><span class="std std-ref">Config.prc</span></a>.</p>
 </div>
 <div class="section" id="list-of-common-performance-issues">
 <h2>List of Common Performance Issues<a class="headerlink" href="#list-of-common-performance-issues" title="Permalink to this headline">¶</a></h2>
 <p>Here is a list of things that can go wrong, roughly in order from most likely
 to least likely. Each of these has a section to explain it in greater detail.</p>
 <ul class="simple">
-<li>:ref:` &lt;too-many-meshes&gt;`. A well-made typical 3D model contains one mesh.
+<li><a class="reference internal" href="too-many-meshes.html#too-many-meshes"><span class="std std-ref">Performance Issue: Too Many Meshes</span></a>. A well-made typical 3D model contains one mesh.
 Huge 3D models, such as the model of an entire dungeon or an entire island,
 might contain multiple meshes. 3D models created by inexperienced modelers
 can contain dozens of meshes. Most video cards can render about 300 meshes
 total for the entire scene. Panda3D contains tools to coalesce multiple
 meshes into one, but they aren&#8217;t fully automatic.</li>
-<li>:ref:` &lt;too-many-state-changes&gt;`. The state of an object is the sum of its
+<li><a class="reference internal" href="too-many-state-changes.html#too-many-state-changes"><span class="std std-ref">Performance Issue: Too Many State Changes</span></a>. The state of an object is the sum of its
 color, material, light, fog, and other attributes. It can be expensive, for
 a variety of reasons, to have too many different states in your scene. It
 is better if many objects share the same state.</li>
-<li>:ref:` &lt;too-many-text-updates&gt;`. If you have lots of text in your game that
+<li><a class="reference internal" href="too-many-text-updates.html#too-many-text-updates"><span class="std std-ref">Performance Issue: Too Many Text Updates</span></a>. If you have lots of text in your game that
 gets updated every frame, it will often take a long time for Panda to keep
 regenerating the text. You need to minimize the amount of text to
 regenerate per frame.</li>
-<li>:ref:` &lt;too-many-shader-instructions&gt;`. If you are using per-pixel
-lighting, or hand-written shaders, you need to be conscious of how long
-your shaders are. Adding one pixel shader instruction can slow the video
-card a lot. Adding a texture lookup can slow it even more. Professional
-pixel shaders contain 20-30 assembly-level instructions.</li>
-<li>:ref:` &lt;excessive-fill&gt;`. The fill rate of the video card is number of
-pixels it can render per second. Objects that are occluded (behind other
-objects) still consume fill rate. The total fill-consumption of</li>
+<li><a class="reference internal" href="too-many-shader-instructions.html#too-many-shader-instructions"><span class="std std-ref">Performance Issue: Too Many Pixel Shader Instructions</span></a>.
+If you are using per-pixel lighting, or hand-written shaders, you need to
+be conscious of how long your shaders are. Adding one pixel shader
+instruction can slow the video card a lot. Adding a texture lookup can slow
+it even more. Professional pixel shaders contain 20-30 assembly-level
+instructions.</li>
+<li><a class="reference internal" href="excessive-fill.html#excessive-fill"><span class="std std-ref">Performance Issue: Excessive Fill</span></a>. The fill rate of the video card is number of pixels
+it can render per second. Objects that are occluded (behind other objects)
+still consume fill rate. The total fill-consumption of</li>
 </ul>
 <p>the scene is the total screen real estate of all objects, including the
 occluded ones. Particles, in particular, can consume fill-rate like crazy,
 especially if the camera gets close to the particles.</p>
 <ul class="simple">
-<li>:ref:` &lt;memory-full&gt;`. A floating point-number takes four bytes. Just one
+<li><a class="reference internal" href="memory-full.html#memory-full"><span class="std std-ref">Performance Issue: Memory Full</span></a>. A floating point-number takes four bytes. Just one
 vertex contains (X,Y,Z), and a normal, and a texture coordinate. An RGBA
 color takes four bytes, so a 1024x1024 texture is four megabytes. Do the
 math, and you&#8217;ll see how fast it all adds up.</li>
-<li>:ref:` &lt;python-calculation&gt;`. Python is a very slow</li>
+<li><a class="reference internal" href="python-calculation.html#python-calculation"><span class="std std-ref">Performance Issue: Python Calculation</span></a>. Python is a very slow</li>
 </ul>
 <p>language. Most Panda3D programs only run a few thousand lines of python per
 frame, since all the real work is done in C++. Sometimes, though, you need to
@@ -281,31 +282,31 @@ do some complex calculation, and Panda3D just doesn&#8217;t contain any C++ code
 do it for you. In that case, trying to write the calculation in python can
 cause problems. You may need a C++ plug-in.</p>
 <ul class="simple">
-<li>:ref:` &lt;failure-to-garbage-collect&gt;`. It&#8217;s easy</li>
+<li><a class="reference internal" href="failure-to-garbage-collect.html#failure-to-garbage-collect"><span class="std std-ref">Performance Issue: Failure to Garbage Collect</span></a>. It&#8217;s easy</li>
 </ul>
 <p>to get used to the fact that Python&#8217;s garbage collector can automatically
 clean up Panda3D data structures. Unfortunately, there are a few structures
 that can&#8217;t be cleaned up automatically. You need to know what they are, or you
 may end up with a leak.</p>
 <ul class="simple">
-<li>:ref:` &lt;collision-system-misuse&gt;`. The collision</li>
+<li><a class="reference internal" href="collision-system-misuse.html#collision-system-misuse"><span class="std std-ref">Performance Issue: Collision System Misuse</span></a>. The collision</li>
 </ul>
 <p>system can detect most types of collisions very rapidly. However, it is
 possible to construct situations that the collision detection system just
 can&#8217;t handle. Know what it&#8217;s good at, and what it&#8217;s not.</p>
 <ul class="simple">
-<li>:ref:` &lt;motherboard-integrated-video&gt;`. Motherboard</li>
+<li><a class="reference internal" href="motherboard-integrated-video.html#motherboard-integrated-video"><span class="std std-ref">Performance Issue: Motherboard Integrated Video</span></a>. Motherboard</li>
 </ul>
 <p>video is very misleading. The chips have names like &#8220;Radeon&#8221; and &#8220;GeForce&#8221;
 that we have come to associate with speed, but these chips are an order of
 magnitude slower than real video cards. Programming for these chips requires
 special consideration.</p>
 <ul class="simple">
-<li>:ref:` &lt;too-many-polygons&gt;`. This is at the bottom of the likelihood list,
-but it can still happen. Usually this happens in combination with something
+<li><a class="reference internal" href="too-many-polygons.html#too-many-polygons"><span class="std std-ref">Performance Issue: Too Many Polygons</span></a>. This is at the bottom of the likelihood list, but
+it can still happen. Usually this happens in combination with something
 else, e.g. if you have a large vertex shader, performance can be
 drastically reduced for each vertex you add.</li>
-<li>:ref:` &lt;miscellaneous&gt;`. There are a lot of small things that have a
+<li><a class="reference internal" href="miscellaneous.html#miscellaneous"><span class="std std-ref">Performance Issue: Miscellaneous</span></a>. There are a lot of small things that have a
 surprisingly large impact on performance. For instance, printing messages
 on the console can be very slow in Windows. This section lists a number of
 miscellaneous things that can bog you down.</li>

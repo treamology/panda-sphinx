@@ -4,10 +4,10 @@ Texture Order
 =============
 
 When there are multiple textures in effect, depending on the
-:ref:` <texture-modes>` in use, it may be important to control the order in
-which the textures apply. For instance, although Modulate mode and Add mode
-are order-independent, texture order makes a big difference to Decal mode,
-Replace mode, and Blend mode.
+:ref:`Texture Blend Mode <texture-modes>` in use, it may be important to
+control the order in which the textures apply. For instance, although Modulate
+mode and Add mode are order-independent, texture order makes a big difference
+to Decal mode, Replace mode, and Blend mode.
 
 To specify the texture order, use
 ``TextureStage.setSort()`` on one or more of your

@@ -95,8 +95,9 @@ partname, like this:
 
 
 
-If you want to use AnimControl, as explained in :ref:` <actor-animations>`,
-you must supply the partname as second parameter in getAnimControl():
+If you want to use AnimControl, as explained in
+:ref:`this section <actor-animations>`, you must supply the partname as second
+parameter in getAnimControl():
 
 
 

@@ -17,4 +17,5 @@ A link to the latest build instructions can be found here:
 https://github.com/panda3d/panda3d/blob/master/README.md
 
 While building you'll get a list of not found dependencies. Further
-descriptions of those can be found here: :ref:` <thirdparty-licenses>`.
+descriptions of those can be found here:
+:ref:`Dependencies <thirdparty-licenses>`.

@@ -3,11 +3,11 @@
 Accessing Config Vars in a Program
 ==================================
 
-Panda3D uses a :ref:` <configuring-panda3d>` named Config.prc. Panda3D
-supplies functions to easily read values out of Config.prc, and to alter their
-values in memory (the modified values are not written back out to disk). The
-ability to read an alter configuration settings procedurally has two major
-uses:
+Panda3D uses a :ref:`configuration file <configuring-panda3d>` named
+Config.prc. Panda3D supplies functions to easily read values out of
+Config.prc, and to alter their values in memory (the modified values are not
+written back out to disk). The ability to read an alter configuration settings
+procedurally has two major uses:
 
 #. Storing your own configuration data.
 #. Tweaking Panda3D's behavior.
@@ -125,7 +125,8 @@ directory at start-up.
 Sometimes, it is desirable to load an additional configuration file from disk,
 by giving an explicit filename. To do so, use
 ``loadPrcFile()``. Note that
-:ref:` <loading-models>` uses a forward slash even under Windows.
+:ref:`Panda Filename Syntax <loading-models>` uses a forward slash even under
+Windows.
 
 
 

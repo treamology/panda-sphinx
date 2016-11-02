@@ -103,10 +103,10 @@ wrapping a sphere around it.
 Also, a sphere is a particularly good choice for use as a "from" object,
 because a sphere can reliably be tested for collision with most of the other
 solid types. The "from" objects are the objects that are considered the active
-objects in the world; see :ref:` <collision-traversers>`. A sphere is usually
-the best choice to put around the player's avatar, for instance. The sphere
-also makes a good "into" object; it is the only object type that is a good
-choice for both "from" and "into" objects.
+objects in the world; see :ref:`collision-traversers`. A sphere is usually the
+best choice to put around the player's avatar, for instance. The sphere also
+makes a good "into" object; it is the only object type that is a good choice
+for both "from" and "into" objects.
 
 A sphere is defined in terms of a center and a radius. Note that, like any
 object, the sphere's coordinates are defined in the sphere's own coordinate
@@ -255,10 +255,10 @@ screen, and then determine which objects that ray is intersecting. (In fact,
 there is a method on CollisionRay called
 ``setFromLens()`` that automatically sets
 up the ray based on a 2-d onscreen coordinate; this is used by the "picker".
-See :ref:` <clicking-on-3d-objects>`.)
+See :ref:`clicking-on-3d-objects`.)
 
 The CollisionRay is also useful in conjunction with the CollisionHandlerFloor;
-see :ref:` <collision-handlers>`.
+see :ref:`collision-handlers`.
 
 A CollisionRay is created by specifing an origin point, and a direction
 vector. The direction vector need not be normalized.

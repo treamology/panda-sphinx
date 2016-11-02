@@ -67,10 +67,11 @@ instance, the teapot:
 |The teapot with sphere map|
 
 In this example, you can see that the key to sphere mapping in Panda is to set
-the :ref:` <automatic-texture-coordinates>` to MEyeSphereMap. This mode
-computes a spherical (u, v) texture coordinate pair based on the reflection
-vector for each vertex of the teapot. In order for this to work, your model
-must have normals defined for all its vertices (the teapot has good normals).
+the :ref:`TexGen mode <automatic-texture-coordinates>` to MEyeSphereMap. This
+mode computes a spherical (u, v) texture coordinate pair based on the
+reflection vector for each vertex of the teapot. In order for this to work,
+your model must have normals defined for all its vertices (the teapot has good
+normals).
 
 Shiny teapots are one thing, but it would be nice to make something like, say,
 a car look shiny. We could just do exactly the same thing as above, but our
@@ -91,10 +92,10 @@ environment map we'll end up with a chrome car:
 |The car with sphere map|
 
 That looks pretty silly. So we'd really prefer to use
-:ref:` <multitexture-introduction>` to apply both the car's regular texture,
-and layer a little bit of shine on top of that. We'll use
-:ref:` <texture-modes>` to add the environment map to the existing color,
-which is appropriate for a shiny highlight on an object.
+:ref:`multitexture <multitexture-introduction>` to apply both the car's
+regular texture, and layer a little bit of shine on top of that. We'll use
+:ref:`Add mode <texture-modes>` to add the environment map to the existing
+color, which is appropriate for a shiny highlight on an object.
 
 In order to use Add mode without oversaturating the colors, we need to darken
 the environment map substantially. We could use any image processing program
@@ -153,10 +154,10 @@ that if the camera were to swing around to view the car from the other side,
 the things you could see in the reflection would still be the objects behind
 the camera on this side.
 
-Both of these problems can be solved by :ref:` <cube-maps>`, which is a more
-advanced technique for, among other things, applying environment maps.
-However, cube maps aren't always ideal; very often, the venerable sphere map
-really is the best choice.
+Both of these problems can be solved by :ref:`cube mapping <cube-maps>`, which
+is a more advanced technique for, among other things, applying environment
+maps. However, cube maps aren't always ideal; very often, the venerable sphere
+map really is the best choice.
 
 It is rare that an application presents a closeup view of a smooth, round
 mirrored object in which you can see reflections clearly, like the teapot

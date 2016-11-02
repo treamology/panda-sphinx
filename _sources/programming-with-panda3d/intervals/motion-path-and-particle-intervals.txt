@@ -20,7 +20,7 @@ the motion path and the NodePath it is affecting.
 
 
 
-Read more about :ref:` <motion-paths>`.
+Read more about :ref:`motion-paths`.
 
 ParticleInterval
 ----------------
@@ -42,4 +42,4 @@ Particle effects can be run from inside intervals as well:
 
 
 
-Read more about :ref:` <particle-effects>`.
+Read more about :ref:`particle-effects`.

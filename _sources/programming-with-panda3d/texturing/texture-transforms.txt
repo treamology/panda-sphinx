@@ -36,8 +36,9 @@ large.
 
 The above methods apply a 2-d transform to your texture coordinates, which is
 appropriate, since texture coordinates are usually two-dimensional. However,
-sometimes you are working with :ref:` <3d-textures>`, and you really do want
-to apply a 3-d transform. For those cases, there are the following methods:
+sometimes you are working with :ref:`3-d texture coordinates <3d-textures>`,
+and you really do want to apply a 3-d transform. For those cases, there are
+the following methods:
 
 
 
@@ -75,8 +76,8 @@ therefore apply a different texture transform to each different TextureStage,
 so that if you have multiple textures in effect on a particular node, they
 need not all be in the same place, even if they all use the same texture
 coordinates. For instance, this technique was used to generate the sample
-images in the :ref:` <texture-modes>` section. In fact, the following code was
-used to place this sample texture (excerpted):
+images in the :ref:`Texture Blend Modes <texture-modes>` section. In fact, the
+following code was used to place this sample texture (excerpted):
 
 
 

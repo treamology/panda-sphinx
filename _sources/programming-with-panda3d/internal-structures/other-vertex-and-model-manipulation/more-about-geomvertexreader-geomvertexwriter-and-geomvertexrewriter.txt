@@ -5,7 +5,7 @@ More about GeomVertexReader, GeomVertexWriter, and GeomVertexRewriter
 
 The classes GeomVertexReader and GeomVertexWriter together represent the core
 interface for reading and writing the numeric data stored within a
-:ref:` <geomvertexdata>` object.
+:ref:`geomvertexdata` object.
 
 These two classes work similarly. Both are designed to get a temporary pointer
 to the data for a particular column when they are constructed, and they
@@ -15,8 +15,8 @@ setData/getData operation, they automatically increment to the next row (the
 next vertex).
 
 You construct a GeomVertexReader or GeomVertexWriter with a pointer to the
-:ref:` <geomvertexdata>` object you are operating on, and the name of the
-column you wish to process, e.g.:
+:ref:`geomvertexdata` object you are operating on, and the name of the column
+you wish to process, e.g.:
 
 
 

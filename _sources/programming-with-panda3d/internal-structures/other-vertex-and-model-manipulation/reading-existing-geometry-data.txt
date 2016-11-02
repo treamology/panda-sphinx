@@ -15,8 +15,8 @@ a different order.
 This does make certain kinds of vertex operations difficult; if you plan to
 write code that expects to encounter the vertices of a model in a particular
 order, we recommend you build up those vertices yourself using a
-:ref:` <more-about-geomvertexreader-geomvertexwriter-and-geomvertexrewriter>`
-(as described in :ref:` <creating-and-filling-a-geomvertexdata>`), so that you
+:ref:`GeomVertexWriter <more-about-geomvertexreader-geomvertexwriter-and-geomvertexrewriter>`
+(as described in :ref:`creating-and-filling-a-geomvertexdata`), so that you
 have explicit control over the vertex order.
 
 However, if you have no need to operate on the vertices in any particular
@@ -25,9 +25,9 @@ free to use the following instructions to read the data.
 
 When you load a model, you have a handle to the root node of the model, which
 is usually a ModelRoot node. The geometry itself will be stored in a series of
-:ref:` <geomnode>`, which will be children of the root node. In order to
-examine the vertex data, you must visit the GeomNodes in the model. One way to
-do this is to walk through all the GeomNodes like this:
+:ref:`GeomNodes <geomnode>`, which will be children of the root node. In order
+to examine the vertex data, you must visit the GeomNodes in the model. One way
+to do this is to walk through all the GeomNodes like this:
 
 
 
@@ -63,7 +63,7 @@ do this is to walk through all the GeomNodes like this:
 
 
 Once you have a particular GeomNode, you must walk through the list of
-:ref:` <geom>` stored on that node. Each Geom also has an associated
+:ref:`Geoms <geom>` stored on that node. Each Geom also has an associated
 RenderState, which controls the visible appearance of that Geom (e.g. texture,
 backfacing, etc.).
 
@@ -112,10 +112,10 @@ not modifying, the data. If you intend to modify the geom data in any way
 (including any nested data like vertices or primitives), you should use
 geomNode.modifyGeom() instead.
 
-Each Geom has an associated :ref:` <geomvertexdata>`, and one or more
-:ref:` <geomprimitive>`. Some GeomVertexData objects may be shared by more
-than one Geom, especially if you have used flattenStrong() to optimize a
-model.
+Each Geom has an associated :ref:`geomvertexdata`, and one or more
+:ref:`GeomPrimitives <geomprimitive>`. Some GeomVertexData objects may be
+shared by more than one Geom, especially if you have used flattenStrong() to
+optimize a model.
 
 
 
@@ -166,7 +166,7 @@ only if you will not be modifying the primitive index array. If you intend to
 modify either one, use modifyVertexData() or modifyPrimitive(), respectively.
 
 You can use the
-:ref:` <more-about-geomvertexreader-geomvertexwriter-and-geomvertexrewriter>`
+:ref:`GeomVertexReader <more-about-geomvertexreader-geomvertexwriter-and-geomvertexrewriter>`
 class to examine the vertex data. You should create a GeomVertexReader for
 each column of the data you intend to read. It is up to you to ensure that a
 given column exists in the vertex data before you attempt to read it (you can

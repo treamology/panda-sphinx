@@ -185,7 +185,7 @@ So, here are the equations in their final form:
 Back to the List of
 Sample Programs:
 
-:ref:` <samples>`
+:ref:`samples`
 
 .. |Screenshot-Sample-Programs-Fireflies.jpg| image:: screenshot-sample-programs-fireflies.jpg
 

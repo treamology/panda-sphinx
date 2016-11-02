@@ -3,7 +3,7 @@
 GeomPrimitive
 =============
 
-In order to use the vertices in a :ref:` <geomvertexdata>` to render anything,
+In order to use the vertices in a :ref:`geomvertexdata` to render anything,
 Panda needs to have a GeomPrimitive of some kind, which indexes into the
 vertex table and tells Panda how to tie together the vertices to make lines,
 triangles, or individual points.
@@ -184,16 +184,17 @@ nodePath.setRenderModePerspective() to enable a mode in which the points scale
 according to their distance from the camera. This makes the points appear more
 like real objects in the 3-D scene, and is particularly useful for rendering
 sprite polygons, for instance for particle effects. In fact, Panda's
-:ref:` <particle-renderers>` takes advantage of this render mode. (This
-perspective mode works only for points; it does not affect line segments.)
+:ref:`SpriteParticleRenderer <particle-renderers>` takes advantage of this
+render mode. (This perspective mode works only for points; it does not affect
+line segments.)
 
 Even though the sprite polygons are rendered as squares, remember they are
 really defined with one vertex, and each vertex can only supply one UV
 coordinate. This means each sprite normally has only one UV coordinate pair
 across the whole polygon. If you want to apply a texture to the face of each
-sprite, use :ref:` <automatic-texture-coordinates>` with the mode
-TexGenAttrib.MPointSprite; this will generate texture coordinates on each
-polygon in the range (0, 0) to (1, 1). You can then transform the texture
+sprite, use :ref:`nodePath.setTexGen() <automatic-texture-coordinates>` with
+the mode TexGenAttrib.MPointSprite; this will generate texture coordinates on
+each polygon in the range (0, 0) to (1, 1). You can then transform the texture
 coordinates, if you wish, using one of the methods like
 nodePath.setTexOffset(), setTexScale(), etc.
 

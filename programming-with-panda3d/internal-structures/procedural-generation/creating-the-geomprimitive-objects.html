@@ -202,9 +202,9 @@
             
   <div class="section" id="creating-the-geomprimitive-objects">
 <span id="id1"></span><h1>Creating the GeomPrimitive objects<a class="headerlink" href="#creating-the-geomprimitive-objects" title="Permalink to this headline">¶</a></h1>
-<p>Now that you have a :ref:` &lt;geomvertexdata&gt;` with a set of vertices, you can
-create one or more :ref:` &lt;geomprimitive&gt;` objects that use the vertices in
-your GeomVertexData.</p>
+<p>Now that you have a <a class="reference internal" href="../how-panda3d-stores-vertices-and-geometry/geomvertexdata.html#geomvertexdata"><span class="std std-ref">GeomVertexData</span></a> with a set of vertices, you can
+create one or more <a class="reference internal" href="../how-panda3d-stores-vertices-and-geometry/geomprimitive.html#geomprimitive"><span class="std std-ref">GeomPrimitive</span></a> objects that use the vertices in your
+GeomVertexData.</p>
 <p>In general, you do this by first creating a GeomPrimitive of the appropriate
 type, and then calling addVertex() for each vertex in your primitive, followed
 by closePrimitive() after each primitive is complete.</p>
@@ -248,12 +248,12 @@ primitive.</p>
 </pre></div>
 </div>
 <p>Note that the GeomPrimitive constructor requires one parameter, which is a
-usage hint, similar to the usage hint required for the
-:ref:` &lt;geomvertexdata&gt;` constructor. Like that usage hint, this tells Panda
-whether you will frequently adjust the vertex indices on this primitive after
-it has been created. Since it is very unusual to adjust the vertex indices on
-a primitive (usually, if you intend to animate the vertices, you would operate
-on the vertices, not these indices), this is almost always
+usage hint, similar to the usage hint required for the <a class="reference internal" href="../how-panda3d-stores-vertices-and-geometry/geomvertexdata.html#geomvertexdata"><span class="std std-ref">GeomVertexData</span></a>
+constructor. Like that usage hint, this tells Panda whether you will
+frequently adjust the vertex indices on this primitive after it has been
+created. Since it is very unusual to adjust the vertex indices on a primitive
+(usually, if you intend to animate the vertices, you would operate on the
+vertices, not these indices), this is almost always
 <code class="docutils literal"><span class="pre">Geom.UH_static</span></code>, even if the primitive
 is associated with a dynamic GeomVertexData. However, there may be special
 rendering effects in which you actually do manipulate this vertex index table
@@ -295,10 +295,10 @@ to adhere to the usage you specify.</p>
 </tbody>
 </table>
 <p>The actual positions of the vertices depends on the values of the vertices
-numbered 0, 1, 2, 3, and 5 in the associated :ref:` &lt;geomvertexdata&gt;` (you
-will associate your GeomPrimitives with a GeomVertexData
-:ref:` &lt;putting-your-new-geometry-in-the-scene-graph&gt;`, when you attach the
-GeomPrimitives to a :ref:` &lt;geom&gt;`).</p>
+numbered 0, 1, 2, 3, and 5 in the associated <a class="reference internal" href="../how-panda3d-stores-vertices-and-geometry/geomvertexdata.html#geomvertexdata"><span class="std std-ref">GeomVertexData</span></a> (you will
+associate your GeomPrimitives with a GeomVertexData
+<a class="reference internal" href="putting-your-new-geometry-in-the-scene-graph.html#putting-your-new-geometry-in-the-scene-graph"><span class="std std-ref">in the next step</span></a>, when
+you attach the GeomPrimitives to a <a class="reference internal" href="../how-panda3d-stores-vertices-and-geometry/geom.html#geom"><span class="std std-ref">Geom</span></a>).</p>
 <p>Finally, there are a few handy shortcuts for adding multiple vertices at once:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">add_vertices</span><span class="p">(</span><span class="n">v1</span><span class="p">,</span> <span class="n">v2</span><span class="p">)</span>
 <span class="n">add_vertices</span><span class="p">(</span><span class="n">v1</span><span class="p">,</span> <span class="n">v2</span><span class="p">,</span> <span class="n">v3</span><span class="p">)</span>

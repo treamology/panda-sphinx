@@ -237,8 +237,8 @@ targets (most modern cards do), by setting the stereo flag in the
 automatically designate one of the draw buffers to contain the stereo view for
 the other eye. When binding a texture to the color attachment for
 render-to-texture, Panda3D will automatically initialize it as a
-:ref:` &lt;stereo-multiview-textures&gt;` containing both left and right views. This
-is only supported in OpenGL as of writing.</p>
+<a class="reference internal" href="../texturing/stereo-multiview-textures.html#stereo-multiview-textures"><span class="std std-ref">multiview texture</span></a> containing both left and
+right views. This is only supported in OpenGL as of writing.</p>
 <div class="section" id="using-a-stereodisplayregion">
 <h2>Using a StereoDisplayRegion<a class="headerlink" href="#using-a-stereodisplayregion" title="Permalink to this headline">¶</a></h2>
 <p>A StereoDisplayRegion actually consists of two ordinary DisplayRegions,
@@ -268,7 +268,7 @@ offset associated with the DisplayRegion: the default tex view offset is 0 for
 the left eye, and 1 for the right eye. This allows dual-view stereo textures
 to render properly in the DisplayRegion, so that the left view is visible in
 the left eye and the right view in the right eye. See
-:ref:` &lt;stereo-multiview-textures&gt;` for more about this feature.</p>
+<a class="reference internal" href="../texturing/stereo-multiview-textures.html#stereo-multiview-textures"><span class="std std-ref">Stereo/Multiview Textures</span></a> for more about this feature.</p>
 <p>The lens parameters can be controlled via
 <code class="docutils literal"><span class="pre">lens.set_interocular_distance()</span></code> and
 <code class="docutils literal"><span class="pre">lens.set_convergence_distance()</span></code>, or by the equivalent

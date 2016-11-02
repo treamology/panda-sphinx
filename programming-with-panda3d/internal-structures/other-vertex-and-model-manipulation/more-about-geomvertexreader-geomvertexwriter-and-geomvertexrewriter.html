@@ -205,7 +205,7 @@
 <span id="id1"></span><h1>More about GeomVertexReader, GeomVertexWriter, and GeomVertexRewriter<a class="headerlink" href="#more-about-geomvertexreader-geomvertexwriter-and-geomvertexrewriter" title="Permalink to this headline">¶</a></h1>
 <p>The classes GeomVertexReader and GeomVertexWriter together represent the core
 interface for reading and writing the numeric data stored within a
-:ref:` &lt;geomvertexdata&gt;` object.</p>
+<a class="reference internal" href="../how-panda3d-stores-vertices-and-geometry/geomvertexdata.html#geomvertexdata"><span class="std std-ref">GeomVertexData</span></a> object.</p>
 <p>These two classes work similarly. Both are designed to get a temporary pointer
 to the data for a particular column when they are constructed, and they
 increment that pointer as you walk through the vertices. Initially, they start
@@ -213,8 +213,8 @@ at row number 0 (the first vertex in the table), and after each
 setData/getData operation, they automatically increment to the next row (the
 next vertex).</p>
 <p>You construct a GeomVertexReader or GeomVertexWriter with a pointer to the
-:ref:` &lt;geomvertexdata&gt;` object you are operating on, and the name of the
-column you wish to process, e.g.:</p>
+<a class="reference internal" href="../how-panda3d-stores-vertices-and-geometry/geomvertexdata.html#geomvertexdata"><span class="std std-ref">GeomVertexData</span></a> object you are operating on, and the name of the column
+you wish to process, e.g.:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">color</span> <span class="o">=</span> <span class="n">GeomVertexReader</span><span class="p">(</span><span class="n">vdata</span><span class="p">,</span> <span class="s1">&#39;color&#39;</span><span class="p">)</span>
 </pre></div>
 </div>

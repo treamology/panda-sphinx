@@ -67,8 +67,8 @@ There is a helper class called
 ``NodePath`` which is a very small
 object containing a pointer to a node, plus some administrative information.
 For now, you can ignore the administrative information; it will be explained
-in a :ref:` <instancing>` of the manual. It is the intent of the panda
-designers that you should think of a NodePath as a handle to a node. Any
+in a :ref:`later section <instancing>` of the manual. It is the intent of the
+panda designers that you should think of a NodePath as a handle to a node. Any
 function that creates a node returns a
 ``NodePath`` that refers to the
 newly-created node.

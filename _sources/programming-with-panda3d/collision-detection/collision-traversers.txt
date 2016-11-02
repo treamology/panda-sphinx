@@ -75,7 +75,8 @@ or not, is automatically an "into" object.
 
 Note that all of your "from" objects are typically "into" objects too (because
 they are in the scene graph), although you may choose to make them not behave
-as into objects by setting their :ref:` <collision-bitmasks>` to zero.
+as into objects by setting their :ref:`CollideMask <collision-bitmasks>` to
+zero.
 
 The CollisionTraverser can visually show the collisions that are occurring by
 using the following line of code:

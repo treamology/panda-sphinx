@@ -207,9 +207,9 @@ sufficient, but often you will need more control.</p>
 <p>This control is provided with the collide masks. Every CollisionNode has two
 collide masks: a &#8220;from&#8221; mask, which is used when the CollisionNode is acting
 as a &#8220;from&#8221; object (i.e. it has been added to a
-:ref:` &lt;collision-traversers&gt;`), and an &#8220;into&#8221; mask, which is used when the
-node is acting as an &#8220;into&#8221; object (i.e. it is in the scene graph, and a from
-object is considering it for collisions).</p>
+<a class="reference internal" href="collision-traversers.html#collision-traversers"><span class="std std-ref">CollisionTraverser</span></a>), and an &#8220;into&#8221; mask, which
+is used when the node is acting as an &#8220;into&#8221; object (i.e. it is in the scene
+graph, and a from object is considering it for collisions).</p>
 <p>In addition, visible geometry nodes&#8211;that is, GeomNodes&#8211;also have an &#8220;into&#8221;
 mask, so that visible geometry can serve as an &#8220;into&#8221; object also. (However,
 only a CollisionNode can serve as a &#8220;from&#8221; object.)</p>
@@ -275,11 +275,11 @@ all of its children to that same collide mask, wiping out what was there
 before.</p>
 <p>If you need to have only entities with a certain collision mask to be able to
 collide with a model, it is helpful to open the model&#8217;s egg file and see where
-the collisions are enabled (see :ref:` &lt;egg-syntax&gt;`). Then you would set the
-collide mask for only that child node, using
+the collisions are enabled (see <a class="reference internal" href="../../tools/model-export/egg-syntax.html#egg-syntax"><span class="std std-ref">Egg_Syntax</span></a>). Then you
+would set the collide mask for only that child node, using
 <a href="#id2"><span class="problematic" id="id3">``</span></a>NodePath.find()``(see
-:ref:` &lt;the-scene-graph&gt;`). For example, to create a box into only &#8220;ralph&#8221; can
-collide:</p>
+<a class="reference internal" href="../the-scene-graph/index.html#the-scene-graph"><span class="std std-ref">NodePath</span></a>). For example, to create a box into only
+&#8220;ralph&#8221; can collide:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">ralph</span><span class="o">=</span><span class="n">loader</span><span class="o">.</span><span class="n">loadModel</span><span class="p">(</span><span class="s2">&quot;ralph&quot;</span><span class="p">)</span>
 <span class="n">ralph</span><span class="o">.</span><span class="n">setCollideMask</span><span class="p">(</span><span class="n">BitMask32</span><span class="o">.</span><span class="n">bit</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
 <span class="n">box</span><span class="o">=</span><span class="n">loader</span><span class="o">.</span><span class="n">loadModel</span><span class="p">(</span><span class="s2">&quot;box&quot;</span><span class="p">)</span>

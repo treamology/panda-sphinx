@@ -238,7 +238,7 @@ placing the textures on individual cubes:
 Now that we have a general idea of how 3D hardware and models work, lets move
 on to using shaders.
 
-:ref:` <cg-tutorial-part-2>`
+:ref:`Part 2: The simplest possible shader <cg-tutorial-part-2>`
 
 .. |Cg\_lesson1\_screen.png| image:: cg-lesson1-screen.png
 .. |Cg\_tut\_cube1.png| image:: cg-tut-cube1.png

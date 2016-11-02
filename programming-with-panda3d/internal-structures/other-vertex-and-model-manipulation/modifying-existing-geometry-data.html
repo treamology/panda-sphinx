@@ -204,22 +204,22 @@
   <div class="section" id="modifying-existing-geometry-data">
 <span id="id1"></span><h1>Modifying existing geometry data<a class="headerlink" href="#modifying-existing-geometry-data" title="Permalink to this headline">¶</a></h1>
 <p>If you want to load a model and operate on its vertices, you can walk through
-the vertices as shown in :ref:` &lt;reading-existing-geometry-data&gt;`, but you
-should substitute modifyGeom(), modifyVertexData(), and modifyPrimitive() for
+the vertices as shown in
+<a class="reference internal" href="reading-existing-geometry-data.html#reading-existing-geometry-data"><span class="std std-ref">the previous section</span></a>, but you should
+substitute modifyGeom(), modifyVertexData(), and modifyPrimitive() for
 getGeom(), getVertexData(), and getPrimitive(), respectively. These calls
 ensure that, in case the data happens to be shared between multiple different
 GeomNodes, you will get your own unique copy to modify, without inadvertently
 affecting other nodes.</p>
 <p>If you want to modify the vertex data, you have two choices. The simplest
-option is to create a new :ref:` &lt;geomvertexdata&gt;` and fill it up with your
-new vertex data (as described in
-:ref:` &lt;creating-and-filling-a-geomvertexdata&gt;`), and then assigning this data
-to the geom with the call geom.setVertexData(). You must ensure that you add
-enough vertices to the new GeomVertexData to satisfy the GeomPrimitives that
-reference it.</p>
+option is to create a new <a class="reference internal" href="../how-panda3d-stores-vertices-and-geometry/geomvertexdata.html#geomvertexdata"><span class="std std-ref">GeomVertexData</span></a> and fill it up with your new
+vertex data (as described in <a class="reference internal" href="../procedural-generation/creating-and-filling-a-geomvertexdata.html#creating-and-filling-a-geomvertexdata"><span class="std std-ref">Creating and filling a GeomVertexData</span></a>),
+and then assigning this data to the geom with the call geom.setVertexData().
+You must ensure that you add enough vertices to the new GeomVertexData to
+satisfy the GeomPrimitives that reference it.</p>
 <p>Your second choice is to modify the vertex data in-place, by operating on the
 existing vertices. You can do this with a
-:ref:` &lt;more-about-geomvertexreader-geomvertexwriter-and-geomvertexrewriter&gt;`.
+<a class="reference internal" href="more-about-geomvertexreader-geomvertexwriter-and-geomvertexrewriter.html#more-about-geomvertexreader-geomvertexwriter-and-geomvertexrewriter"><span class="std std-ref">GeomVertexWriter</span></a>.
 For instance, if you want to copy the (X, Y) position of each vertex to its
 (U, V) texture coordinate, you could do something like this:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">texcoord</span> <span class="o">=</span> <span class="n">GeomVertexWriter</span><span class="p">(</span><span class="n">vdata</span><span class="p">,</span> <span class="s1">&#39;texcoord&#39;</span><span class="p">)</span>
@@ -255,13 +255,12 @@ texture coordinates, simply calling texcoord.setData3f(u, v, w) wouldn&#8217;t
 change the fact that the existing texcoord column is a 2-component format; you
 would just be trying to stuff a 3-component value into a 2-component column.</p>
 <p>If you want to add a new column to a GeomVertexData, or modify the format of
-an existing column, you will have to create a new :ref:` &lt;geomvertexformat&gt;`
-that includes the new column (see
-:ref:` &lt;defining-your-own-geomvertexformat&gt;`), and then change the format on
-the GeomVertexData via vdata.setFormat(format). This call will internally
-adjust all of the data to match the new format. (Because of this internal
-adjustment, it is important to do this before you create the first
-GeomVertexWriter or GeomVertexReader.)</p>
+an existing column, you will have to create a new <a class="reference internal" href="../how-panda3d-stores-vertices-and-geometry/geomvertexformat.html#geomvertexformat"><span class="std std-ref">GeomVertexFormat</span></a> that
+includes the new column (see <a class="reference internal" href="../procedural-generation/defining-your-own-geomvertexformat.html#defining-your-own-geomvertexformat"><span class="std std-ref">Defining your own GeomVertexFormat</span></a>), and
+then change the format on the GeomVertexData via vdata.setFormat(format). This
+call will internally adjust all of the data to match the new format. (Because
+of this internal adjustment, it is important to do this before you create the
+first GeomVertexWriter or GeomVertexReader.)</p>
 </div>
 
 

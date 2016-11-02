@@ -66,10 +66,10 @@ Loading models
 --------------
 
 
-You can load up a model with a filename path, in the :ref:` <loading-models>`,
-to the model's egg or bam file. In many examples, the filename extension is
-omitted; in this case, Panda will look for a file with either the .egg or .bam
-extension.
+You can load up a model with a filename path, in the
+:ref:`Panda Filename Syntax <loading-models>`, to the model's egg or bam file.
+In many examples, the filename extension is omitted; in this case, Panda will
+look for a file with either the .egg or .bam extension.
 
 
 
@@ -104,7 +104,7 @@ each subsequent call, the model is simply copied from the table, instead of
 reading the file.
 
 The above call is appropriate for loading static models; for animated models,
-see :ref:` <loading-actors-and-animations>`.
+see :ref:`loading-actors-and-animations`.
 
 Reparenting nodes and models
 ----------------------------

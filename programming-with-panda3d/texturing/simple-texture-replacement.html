@@ -240,7 +240,7 @@ setTexture() call&#8211;that is, you do not need to do card.setTexture(tex,
 1)&#8211;because in this case, the card does not already have any other texture
 applied to it, so your texture will be visible even without the override.)</p>
 <p>In order for this to work, the model you apply it to must already have texture
-coordinates defined (see :ref:` &lt;simple-texturing&gt;`). As it happens, the
+coordinates defined (see <a class="reference internal" href="simple-texturing.html#simple-texturing"><span class="std std-ref">Simple Texturing</span></a>). As it happens, the
 CardMaker generates texture coordinates by default when it generates a card,
 so no problem there.</p>
 <p>You can also use <code class="docutils literal"><span class="pre">setTexture()</span></code> to
@@ -262,8 +262,8 @@ texture change won&#8217;t be made.</p>
 <p>Often, you want to replace the texture on just one piece of a model, rather
 than setting the texture on every element. To do this, you simply get a
 NodePath handle to the piece or pieces of the model that you want to change,
-as described in the section :ref:` &lt;manipulating-a-piece-of-a-model&gt;`, and
-make the <code class="docutils literal"><span class="pre">setTexture()</span></code> call on those
+as described in the section <a class="reference internal" href="../the-scene-graph/manipulating-a-piece-of-a-model.html#manipulating-a-piece-of-a-model"><span class="std std-ref">Manipulating a Piece of a Model</span></a>, and make
+the <code class="docutils literal"><span class="pre">setTexture()</span></code> call on those
 NodePaths.</p>
 <p>For instance, this car model has multiple textures available in different
 colors:</p>
@@ -288,7 +288,7 @@ just to the pieces that we want to change:</p>
 <p><img alt="Description" src="../../_images/car-with-blue.png" /></p>
 <p>If you are interested in changing the image of a texture during program
 execution, say to adjust some of its pixels, see
-:ref:` &lt;creating-new-textures-from-scratch&gt;`.</p>
+<a class="reference internal" href="../internal-structures/other-vertex-and-model-manipulation/creating-new-textures-from-scratch.html#creating-new-textures-from-scratch"><span class="std std-ref">Creating New Textures from Scratch</span></a>.</p>
 </div>
 
 

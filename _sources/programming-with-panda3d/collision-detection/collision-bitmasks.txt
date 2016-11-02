@@ -11,9 +11,9 @@ sufficient, but often you will need more control.
 This control is provided with the collide masks. Every CollisionNode has two
 collide masks: a "from" mask, which is used when the CollisionNode is acting
 as a "from" object (i.e. it has been added to a
-:ref:` <collision-traversers>`), and an "into" mask, which is used when the
-node is acting as an "into" object (i.e. it is in the scene graph, and a from
-object is considering it for collisions).
+:ref:`CollisionTraverser <collision-traversers>`), and an "into" mask, which
+is used when the node is acting as an "into" object (i.e. it is in the scene
+graph, and a from object is considering it for collisions).
 
 In addition, visible geometry nodes--that is, GeomNodes--also have an "into"
 mask, so that visible geometry can serve as an "into" object also. (However,
@@ -122,11 +122,11 @@ before.
 
 If you need to have only entities with a certain collision mask to be able to
 collide with a model, it is helpful to open the model's egg file and see where
-the collisions are enabled (see :ref:` <egg-syntax>`). Then you would set the
-collide mask for only that child node, using
+the collisions are enabled (see :ref:`Egg_Syntax <egg-syntax>`). Then you
+would set the collide mask for only that child node, using
 ``NodePath.find()``(see
-:ref:` <the-scene-graph>`). For example, to create a box into only "ralph" can
-collide:
+:ref:`NodePath <the-scene-graph>`). For example, to create a box into only
+"ralph" can collide:
 
 
 

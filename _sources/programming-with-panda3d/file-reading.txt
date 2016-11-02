@@ -7,7 +7,7 @@ General file reading in Panda is handled by the Virtual File System.
 
 Although it presents the files and directories that it provides access to as a
 single, unbroken file system, it can in fact include files from multiple
-sources (such as :ref:` <multifiles>`) in the hierarchy, regardless of the
+sources (such as :ref:`multifiles`) in the hierarchy, regardless of the
 underlying structure.
 
 This has the advantage of allowing one to access files and directories without
@@ -28,7 +28,7 @@ end of the line in a single call.
     --------------------
     
     
-    In versions 1.6.0 and above, Panda3D offers a :ref:` <threading>`-safe
+    In versions 1.6.0 and above, Panda3D offers a :ref:`thread <threading>`-safe
     replacement for the Python file module. You can find it in direct.stdpy.file.
     The interface is exactly the same as Python's, so it's safe to put this import
     above all the files where you want to use the "file" or "open" functions:

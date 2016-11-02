@@ -105,7 +105,7 @@ Creating a glow map will cause those parts of the model which are glowing to
 be bright even when the light is dark. However, it will not by itself create a
 full-featured bloom effect. To get that, you need to use a bloom filter in
 your Panda3D program in conjunction with the glow map. There is a
-:ref:` <glow-filter>` that demonstrates this process.
+:ref:`sample program <glow-filter>` that demonstrates this process.
 
 Finally, there is plain old multitexturing. Create this structure in the
 hypershade, using a "Layered Texture" (NOT a "Layered Shader!"):
@@ -211,9 +211,9 @@ In that case, the command to export the model is:
 
 
 
-Note that :ref:` <loading-models>` uses forward slashes, even under Windows,
-and this applies to the exporter as well. After doing this export, the
-character egg will contain the following texture reference:
+Note that :ref:`Panda Filename Syntax <loading-models>` uses forward slashes,
+even under Windows, and this applies to the exporter as well. After doing this
+export, the character egg will contain the following texture reference:
 
 ::
     

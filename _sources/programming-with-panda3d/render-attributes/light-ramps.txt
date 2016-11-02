@@ -21,7 +21,7 @@ smarter. This is particularly relevant for two major graphics algorithms: HDR
 tone mapping, and cartoon shading.
 
 It must be emphasized that light ramps have no effect unless per-pixel
-lighting is enabled via :ref:` <the-shader-generator>`.
+lighting is enabled via :ref:`the shader generator <the-shader-generator>`.
 
 HDR Tone Mapping
 ----------------

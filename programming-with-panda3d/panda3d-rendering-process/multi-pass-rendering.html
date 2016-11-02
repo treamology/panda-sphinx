@@ -215,14 +215,15 @@ a separate buffer. You:</p>
 <p>However, this method assumes you have two independent scene graphs. If you use
 this method to render the same scene graph, it is only useful for showing the
 scene from a different camera view. To actually make the scenes have different
-:ref:` &lt;render-attributes&gt;` (i.e. one without lighting, one with lighting) you
-must also change how each Camera renders the scene.</p>
+<a class="reference internal" href="../render-attributes/index.html#render-attributes"><span class="std std-ref">RenderStates</span></a> (i.e. one without lighting, one with
+lighting) you must also change how each Camera renders the scene.</p>
 <p>Each Camera node has a function called
 <code class="docutils literal"><span class="pre">setInitialState(state)</span></code>. It makes every object
 in the scene get drawn as if the top node in its scene graph has
 <code class="docutils literal"><span class="pre">state</span></code> as its
-:ref:` &lt;render-attributes&gt;`. This still means that :ref:` &lt;render-attributes&gt;`
-can be changed/overridden after the Camera has been put on a scene.</p>
+<a class="reference internal" href="../render-attributes/index.html#render-attributes"><span class="std std-ref">RenderState</span></a>. This still means that
+<a class="reference internal" href="../render-attributes/index.html#render-attributes"><span class="std std-ref">attributes</span></a> can be changed/overridden after the
+Camera has been put on a scene.</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># This makes everything drawn by the default camera use myNodePath&#39;s</span>
 <span class="c1"># RenderState.  Note:  base.cam is not base.camera.  If you have an</span>
 <span class="c1"># reference to base.camera, use base.camera.node().</span>
@@ -235,8 +236,8 @@ each node in the scene. You can do this using the Camera class methods
 <code class="docutils literal"><span class="pre">setTagState(value,</span> <span class="pre">state)</span></code>. For any NodePaths that
 you want to recieve special treatment you call
 <code class="docutils literal"><span class="pre">setTag(key,</span> <span class="pre">value)``(See</span>
-<span class="pre">:ref:`</span> <span class="pre">&lt;common-state-changes&gt;`).</span> <span class="pre">Now,</span> <span class="pre">anytime</span> <span class="pre">the</span> <span class="pre">Camera</span> <span class="pre">sees</span> <span class="pre">a</span> <span class="pre">NodePath</span> <span class="pre">with</span>
-<span class="pre">a</span> <span class="pre">tag</span> <span class="pre">named</span> <span class="pre">``key</span></code> the Camera
+<span class="pre">:ref:`common-state-changes`).</span> <span class="pre">Now,</span> <span class="pre">anytime</span> <span class="pre">the</span> <span class="pre">Camera</span> <span class="pre">sees</span> <span class="pre">a</span> <span class="pre">NodePath</span> <span class="pre">with</span> <span class="pre">a</span>
+<span class="pre">tag</span> <span class="pre">named</span> <span class="pre">``key</span></code> the Camera
 assigns it whatever RenderState is associated with
 <code class="docutils literal"><span class="pre">value</span></code>.</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># Assume we have Shader instances toon_shader and blur_shader</span>

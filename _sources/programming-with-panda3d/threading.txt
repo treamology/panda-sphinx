@@ -44,7 +44,7 @@ the following program:
 
 If threading is enabled, it's also possible to turn it off, for example if you
 want to test if a certain problem you are experiencing is related to
-threading. Put this in your :ref:` <configuring-panda3d>`:
+threading. Put this in your :ref:`Config.prc <configuring-panda3d>`:
 
 
 .. code-block:: text

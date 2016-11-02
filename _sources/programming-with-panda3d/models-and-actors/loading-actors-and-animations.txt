@@ -34,9 +34,9 @@ Actor Basics
     Character. You can see the Character node in the scene graph when you call
     ``actor.ls()``.
     
-    Do not confuse the Actor class with the :ref:` <enabling-physics-on-a-node>`
-    class, which is used for physics. They are completely unrelated classes with
-    similar names.
+    Do not confuse the Actor class with the
+    :ref:`ActorNode <enabling-physics-on-a-node>` class, which is used for
+    physics. They are completely unrelated classes with similar names.
     
     Using Actors
     ------------
@@ -182,18 +182,17 @@ Actor Basics
 
 Although this is a rarely-used technique, it is possible to assemble a
 character model out of several separate pieces (separate models). This is
-further explained in the section :ref:` <multi-part-actors>`.
+further explained in the section :ref:`multi-part-actors`.
 
 Panda3D supports both skeletal animation and morph animations.
 
 It is also possible to load animations asynchronously, if your build of Panda
-has :ref:` <threading>` enabled (which is the case in version 1.6.1 and
-above).
+has :ref:`threading` enabled (which is the case in version 1.6.1 and above).
 
 Panda Filename Syntax
 ---------------------
 
 
 The filenames used in the Actor constructor must follow Panda's filename
-conventions. See :ref:` <loading-models>` for more information. Loading actors
+conventions. See :ref:`loading-models` for more information. Loading actors
 and animations utilizes the panda model path, the same as for static models.

@@ -77,12 +77,12 @@ Note that this method runs synchronously: it will download the package
 on-the-spot, however long that takes, and not return until it has finished. If
 you want to use an asynchronous download instead, downloading a package in the
 background while gameplay continues, you should use the
-:ref:` <packageinstaller>` interface instead.
+:ref:`packageinstaller` interface instead.
 
 -  appRunner.notifyRequest()
 
 This allows you to define your own callback events, similar to the built-in
-ones described in :ref:` <plugin-notify-callbacks>`. Simply call
+ones described in :ref:`plugin-notify-callbacks`. Simply call
 base.appRunner.notifyRequest(name), where name is the name of your callback
 event; for example base.appRunner.notifyRequest('onGameRestart'). There is no
 facility to pass parameters; if you need to call a JavaScript function with

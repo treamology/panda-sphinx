@@ -3,8 +3,8 @@
 Loading and Animating the Panda Model
 =====================================
 
-:ref:` <loading-actors-and-animations>`
----------------------------------------
+:ref:`Actors <loading-actors-and-animations>`
+---------------------------------------------
 
 
 

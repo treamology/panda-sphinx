@@ -4,8 +4,8 @@ The Scene Graph Browser
 =======================
 
 The Scene Graph Browser is only available when 'Direct Tools' are enabled.
-Information on enabling 'Direct Tools' is available in the :ref:` <tools>`
-section.
+Information on enabling 'Direct Tools' is available in the
+:ref:`Panda Tools <tools>` section.
 
 In the main Direct Session window, there are several scene placement tools
 available through the tabs at the right side of the screen. Clicking on these

@@ -193,11 +193,11 @@
             
   <div class="section" id="accessing-config-vars-in-a-program">
 <span id="id1"></span><h1>Accessing Config Vars in a Program<a class="headerlink" href="#accessing-config-vars-in-a-program" title="Permalink to this headline">¶</a></h1>
-<p>Panda3D uses a :ref:` &lt;configuring-panda3d&gt;` named Config.prc. Panda3D
-supplies functions to easily read values out of Config.prc, and to alter their
-values in memory (the modified values are not written back out to disk). The
-ability to read an alter configuration settings procedurally has two major
-uses:</p>
+<p>Panda3D uses a <a class="reference internal" href="configuring-panda3d.html#configuring-panda3d"><span class="std std-ref">configuration file</span></a> named
+Config.prc. Panda3D supplies functions to easily read values out of
+Config.prc, and to alter their values in memory (the modified values are not
+written back out to disk). The ability to read an alter configuration settings
+procedurally has two major uses:</p>
 <ol class="arabic simple">
 <li>Storing your own configuration data.</li>
 <li>Tweaking Panda3D&#8217;s behavior.</li>
@@ -273,7 +273,8 @@ to do this to ensure that you are editing the correct Config.prc file.</p>
 <p>Sometimes, it is desirable to load an additional configuration file from disk,
 by giving an explicit filename. To do so, use
 <code class="docutils literal"><span class="pre">loadPrcFile()</span></code>. Note that
-:ref:` &lt;loading-models&gt;` uses a forward slash even under Windows.</p>
+<a class="reference internal" href="../models-and-actors/loading-models.html#loading-models"><span class="std std-ref">Panda Filename Syntax</span></a> uses a forward slash even under
+Windows.</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">panda3d.core</span> <span class="kn">import</span> <span class="n">loadPrcFile</span>
 
 <span class="n">loadPrcFile</span><span class="p">(</span><span class="s2">&quot;config/Config.prc&quot;</span><span class="p">)</span>

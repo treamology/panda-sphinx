@@ -34,7 +34,7 @@ adjust its transparency, and otherwise tweak it in a number of ways.
 
 Back to the List of Sample Programs:
 
-:ref:` <samples>`
+:ref:`samples`
 
 .. |Screenshot-Sample-Programs-Motion-Trails.jpg| image:: screenshot-sample-programs-motion-trails.jpg
 

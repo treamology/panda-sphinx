@@ -11,5 +11,7 @@ requires() call in a pdef file.
 It is also possible to download and install one or more packages at runtime,
 after the application has already started. To do this, instead of referencing
 the package with the -r parameter, you can call
-:ref:` <other-apprunner-members>` at runtime, or you can use the
-:ref:` <packageinstaller>` class to download and install it asynchronously.
+:ref:`base.appRunner.installPackage() <other-apprunner-members>` at runtime,
+or you can use the
+:ref:`PackageInstaller or DWBPackageInstaller <packageinstaller>` class to
+download and install it asynchronously.

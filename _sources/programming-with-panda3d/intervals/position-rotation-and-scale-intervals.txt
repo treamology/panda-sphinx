@@ -26,7 +26,7 @@ or a rotation to a certain HPR value. You can do this by calling
 
 
 
-You can easily create :ref:` <sequences-and-parallels>` from these intervals:
+You can easily create :ref:`sequences-and-parallels` from these intervals:
 
 
 .. code-block:: python

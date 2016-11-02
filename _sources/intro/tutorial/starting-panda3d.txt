@@ -10,8 +10,8 @@ Starting Panda3D
     Creating a New Panda3D Application
     ----------------------------------
     
-    :ref:` <showbase>`
-    ~~~~~~~~~~~~~~~~~~
+    :ref:`showbase`
+    ~~~~~~~~~~~~~~~
     
     To start Panda3D, create a text file and save it with the .py extension. PYPE,
     SPE and IDLE are Python-specific text-editors, but any text editor will work.
@@ -143,7 +143,8 @@ Starting Panda3D
         }
     
     For information about
-    the Window Framework to open a window, click :ref:` <the-window-framework>`.
+    the Window Framework to open a window, click
+    :ref:`here <the-window-framework>`.
     
     ``pandaFramework.h`` and
     ``pandaSystem.h`` load most of the
@@ -157,7 +158,7 @@ Starting Panda3D
     -------------------
     
     The steps required to build and run your program were already explained in
-    :ref:` <running-your-program>`.
+    :ref:`a previous page <running-your-program>`.
     
     If Panda3D has been installed properly, a gray window titled *My Panda3D
     Window* will appear when you run your program. There is nothing we can do with

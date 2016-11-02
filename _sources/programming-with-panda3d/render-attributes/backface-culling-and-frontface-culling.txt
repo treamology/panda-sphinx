@@ -41,9 +41,9 @@ using an algorithm that requires it, such as stencil shadows.
 Rendering Double-Sided
 ----------------------
 
-There is a quick way to render a certain :ref:` <the-scene-graph>` in your
-scene double-sided, which means no culling is performed at all and both sides
-are visible, without hassling with attribs:
+There is a quick way to render a certain :ref:`NodePath <the-scene-graph>` in
+your scene double-sided, which means no culling is performed at all and both
+sides are visible, without hassling with attribs:
 
 
 .. only:: python

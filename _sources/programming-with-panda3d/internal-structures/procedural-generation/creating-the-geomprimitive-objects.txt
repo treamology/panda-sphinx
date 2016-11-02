@@ -3,9 +3,9 @@
 Creating the GeomPrimitive objects
 ==================================
 
-Now that you have a :ref:` <geomvertexdata>` with a set of vertices, you can
-create one or more :ref:` <geomprimitive>` objects that use the vertices in
-your GeomVertexData.
+Now that you have a :ref:`geomvertexdata` with a set of vertices, you can
+create one or more :ref:`geomprimitive` objects that use the vertices in your
+GeomVertexData.
 
 In general, you do this by first creating a GeomPrimitive of the appropriate
 type, and then calling addVertex() for each vertex in your primitive, followed
@@ -73,12 +73,12 @@ For example:
 
 
 Note that the GeomPrimitive constructor requires one parameter, which is a
-usage hint, similar to the usage hint required for the
-:ref:` <geomvertexdata>` constructor. Like that usage hint, this tells Panda
-whether you will frequently adjust the vertex indices on this primitive after
-it has been created. Since it is very unusual to adjust the vertex indices on
-a primitive (usually, if you intend to animate the vertices, you would operate
-on the vertices, not these indices), this is almost always
+usage hint, similar to the usage hint required for the :ref:`geomvertexdata`
+constructor. Like that usage hint, this tells Panda whether you will
+frequently adjust the vertex indices on this primitive after it has been
+created. Since it is very unusual to adjust the vertex indices on a primitive
+(usually, if you intend to animate the vertices, you would operate on the
+vertices, not these indices), this is almost always
 ``Geom.UH_static``, even if the primitive
 is associated with a dynamic GeomVertexData. However, there may be special
 rendering effects in which you actually do manipulate this vertex index table
@@ -119,10 +119,10 @@ The above sample code defines a GeomTriangles object that looks like this:
 
 
 The actual positions of the vertices depends on the values of the vertices
-numbered 0, 1, 2, 3, and 5 in the associated :ref:` <geomvertexdata>` (you
-will associate your GeomPrimitives with a GeomVertexData
-:ref:` <putting-your-new-geometry-in-the-scene-graph>`, when you attach the
-GeomPrimitives to a :ref:` <geom>`).
+numbered 0, 1, 2, 3, and 5 in the associated :ref:`geomvertexdata` (you will
+associate your GeomPrimitives with a GeomVertexData
+:ref:`in the next step <putting-your-new-geometry-in-the-scene-graph>`, when
+you attach the GeomPrimitives to a :ref:`geom`).
 
 Finally, there are a few handy shortcuts for adding multiple vertices at once:
 

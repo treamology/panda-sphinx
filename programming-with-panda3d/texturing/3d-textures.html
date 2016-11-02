@@ -234,9 +234,10 @@ requires that your modeling package (and its Panda converter) support 3-D
 texture coordinates; however, at the time of this writing, none of the
 existing Panda converters currently do support 3-D texture coordinates.</p>
 <p>More commonly, 3-D texture coordinates are assigned to a model automatically
-with one of the :ref:` &lt;automatic-texture-coordinates&gt;`, especially
-<code class="docutils literal"><span class="pre">MWorldPosition</span></code>. For example, to assign
-3-D texture coordinates to the teapot, you might do something like this:</p>
+with one of the <a class="reference internal" href="automatic-texture-coordinates.html#automatic-texture-coordinates"><span class="std std-ref">TexGen modes</span></a>,
+especially <code class="docutils literal"><span class="pre">MWorldPosition</span></code>. For
+example, to assign 3-D texture coordinates to the teapot, you might do
+something like this:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">teapot</span> <span class="o">=</span> <span class="n">loader</span><span class="o">.</span><span class="n">loadModel</span><span class="p">(</span><span class="s1">&#39;teapot.egg&#39;</span><span class="p">)</span>
 <span class="n">teapot</span><span class="o">.</span><span class="n">setTexGen</span><span class="p">(</span><span class="n">TextureStage</span><span class="o">.</span><span class="n">getDefault</span><span class="p">(),</span> <span class="n">TexGenAttrib</span><span class="o">.</span><span class="n">MWorldPosition</span><span class="p">)</span>
 <span class="n">teapot</span><span class="o">.</span><span class="n">setTexProjector</span><span class="p">(</span><span class="n">TextureStage</span><span class="o">.</span><span class="n">getDefault</span><span class="p">(),</span> <span class="n">render</span><span class="p">,</span> <span class="n">teapot</span><span class="p">)</span>
@@ -279,12 +280,13 @@ sign; for instance, loading &#8220;grid_###.png&#8221; would look for files name
 &#8220;grid_000.png&#8221;, &#8220;grid_001.png&#8221;, and so on. Note that you don&#8217;t have to use
 multiple hash marks to count higher than 9. You can count as high as you like
 even with only one hash mark; it just won&#8217;t pad the numbers with zeros.</p>
-<p>Remember that you must usually :ref:` &lt;choosing-a-texture-size&gt;` for the size
-of your texture images. This extends to the w size, too: for most graphics
-cards, the number of slices of your texture should be a power of two. Unlike
-the ordinary (u, v) dimensions, Panda3D won&#8217;t automatically rescale your 3-D
-texture if it has a non-power-of-two size in the w dimension, so it is
-important that you choose the size correctly yourself.</p>
+<p>Remember that you must usually
+<a class="reference internal" href="choosing-a-texture-size.html#choosing-a-texture-size"><span class="std std-ref">choose a power of two</span></a> for the size of your
+texture images. This extends to the w size, too: for most graphics cards, the
+number of slices of your texture should be a power of two. Unlike the ordinary
+(u, v) dimensions, Panda3D won&#8217;t automatically rescale your 3-D texture if it
+has a non-power-of-two size in the w dimension, so it is important that you
+choose the size correctly yourself.</p>
 <div class="section" id="applications-for-3-d-textures">
 <h2>Applications for 3-D textures<a class="headerlink" href="#applications-for-3-d-textures" title="Permalink to this headline">¶</a></h2>
 <p>3-D textures are often used in scientific and medical imagery applications,
@@ -299,8 +301,8 @@ to paint the surface of an object.</p>
 <p>So when 3-D textures are used at all, they are often generated procedurally.
 One classic example of a procedural 3-D texture is wood grain; it is fairly
 easy to define a convincing woodgrain texture procedurally. For instance,
-:ref:` &lt;woodgrain-example&gt;` to view a Panda3D program that generates a
-woodgrain texture and stores it as a series of files named woodgrain_0.png,
+<span class="xref std std-ref">click here</span> to view a Panda3D program that generates
+a woodgrain texture and stores it as a series of files named woodgrain_0.png,
 woodgrain_1.png, and so on. The following code applies this woodgrain texture
 to the teapot, to make a teapot that looks like it was carved from a single
 block of wood:</p>
@@ -317,8 +319,8 @@ block of wood:</p>
 <p><img alt="A wooden teapot." src="../../_images/wooden-teapot.jpg" /></p>
 <p>However, even procedurally-generated 3-D textures like this are used only
 occasionally. If the algorithm to generate your texture is not too complex, it
-may make more sense to program a :ref:` &lt;shaders&gt;` to generate the texture
-implicitly, as your models are rendered.</p>
+may make more sense to program a <a class="reference internal" href="../shaders/index.html#shaders"><span class="std std-ref">pixel shader</span></a> to generate the
+texture implicitly, as your models are rendered.</p>
 <p>Still, even if it is used only occasionally, the 3-D texture remains a
 powerful rendering technique to keep in your back pocket.</p>
 </div>

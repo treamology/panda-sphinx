@@ -20,15 +20,16 @@ a separate buffer. You:
 However, this method assumes you have two independent scene graphs. If you use
 this method to render the same scene graph, it is only useful for showing the
 scene from a different camera view. To actually make the scenes have different
-:ref:` <render-attributes>` (i.e. one without lighting, one with lighting) you
-must also change how each Camera renders the scene.
+:ref:`RenderStates <render-attributes>` (i.e. one without lighting, one with
+lighting) you must also change how each Camera renders the scene.
 
 Each Camera node has a function called
 ``setInitialState(state)``. It makes every object
 in the scene get drawn as if the top node in its scene graph has
 ``state`` as its
-:ref:` <render-attributes>`. This still means that :ref:` <render-attributes>`
-can be changed/overridden after the Camera has been put on a scene.
+:ref:`RenderState <render-attributes>`. This still means that
+:ref:`attributes <render-attributes>` can be changed/overridden after the
+Camera has been put on a scene.
 
 
 
@@ -47,8 +48,8 @@ each node in the scene. You can do this using the Camera class methods
 ``setTagState(value, state)``. For any NodePaths that
 you want to recieve special treatment you call
 ``setTag(key, value)``(See
-:ref:` <common-state-changes>`). Now, anytime the Camera sees a NodePath with
-a tag named ``key`` the Camera
+:ref:`common-state-changes`). Now, anytime the Camera sees a NodePath with a
+tag named ``key`` the Camera
 assigns it whatever RenderState is associated with
 ``value``.
 

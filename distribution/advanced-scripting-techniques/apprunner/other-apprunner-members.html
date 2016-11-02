@@ -248,12 +248,12 @@ starting the p3d application.</p>
 on-the-spot, however long that takes, and not return until it has finished. If
 you want to use an asynchronous download instead, downloading a package in the
 background while gameplay continues, you should use the
-:ref:` &lt;packageinstaller&gt;` interface instead.</p>
+<a class="reference internal" href="../packageinstaller.html#packageinstaller"><span class="std std-ref">PackageInstaller</span></a> interface instead.</p>
 <ul class="simple">
 <li>appRunner.notifyRequest()</li>
 </ul>
 <p>This allows you to define your own callback events, similar to the built-in
-ones described in :ref:` &lt;plugin-notify-callbacks&gt;`. Simply call
+ones described in <a class="reference internal" href="../plugin-notify-callbacks.html#plugin-notify-callbacks"><span class="std std-ref">Plugin notify callbacks</span></a>. Simply call
 base.appRunner.notifyRequest(name), where name is the name of your callback
 event; for example base.appRunner.notifyRequest(&#8216;onGameRestart&#8217;). There is no
 facility to pass parameters; if you need to call a JavaScript function with

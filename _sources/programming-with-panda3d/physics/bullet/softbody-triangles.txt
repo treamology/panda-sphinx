@@ -79,7 +79,7 @@ setup, we will find that there are two differences:
    A mapping between the original Bullet members of the btSoftBodyConfig class
    and the Panda3D BulletSoftBodyConfig object returned by
    ``getCfg`` is given on the
-   manual page :ref:` <softbody-config>`.
+   manual page :ref:`softbody-config`.
 
 -  Second, the method ``setPose``
    is called. This method sets the current state of the soft body as a

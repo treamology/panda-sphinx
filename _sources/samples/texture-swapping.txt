@@ -41,7 +41,7 @@ to face the camera while the duck will not.
 
 Back to the List of Sample Programs:
 
-:ref:` <samples>`
+:ref:`samples`
 
 .. |Screenshot-Sample-Programs-Texture-Swapping.jpg| image:: screenshot-sample-programs-texture-swapping.jpg
 

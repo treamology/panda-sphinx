@@ -198,9 +198,9 @@ terrain into multiple chunks, where each of them can have a different level of
 detail. The advantage of this approach is that, when the focal point (the
 place where the terrain has the highest quality, probably the camera) moves,
 not the entire terrain has to be regenerated to match the correct detail
-level, like the :ref:` &lt;the-heightfield-tesselator&gt;`, but only the chunks that
-have a different LOD can be regenerated. Also, it improves culling and
-collision detection.</p>
+level, like the <a class="reference internal" href="the-heightfield-tesselator.html#the-heightfield-tesselator"><span class="std std-ref">HeightfieldTesselator</span></a>, but
+only the chunks that have a different LOD can be regenerated. Also, it
+improves culling and collision detection.</p>
 <div class="section" id="basic-usage">
 <h2>Basic Usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
 <p>Using the GeoMipTerrain is quite easy, it does not require to write much
@@ -226,8 +226,8 @@ heightfield image. Preferably this is a size of a power of two plus one (like
 129, 257, 513, 1025, etc.), but if it is not, the GeoMipTerrain will
 automatically scale it up to the nearest correct size (which is quite slow).
 <code class="docutils literal"><span class="pre">setHeightfield()</span></code> can take a
-:ref:` &lt;creating-new-textures-from-scratch&gt;`, Texture or
-:ref:` &lt;loading-models&gt;` instance.</p>
+<a class="reference internal" href="../internal-structures/other-vertex-and-model-manipulation/creating-new-textures-from-scratch.html#creating-new-textures-from-scratch"><span class="std std-ref">PNMImage</span></a>, Texture or
+<a class="reference internal" href="../models-and-actors/loading-models.html#loading-models"><span class="std std-ref">Filename</span></a> instance.</p>
 <p>The <code class="docutils literal"><span class="pre">setBruteforce(True)</span></code> call sets the
 terrain to bruteforce rendering &#8211; this means that the terrain is created at
 the highest quality (the lowest detail level), and LOD is not applied. In the
@@ -235,7 +235,7 @@ next section we will explain how to set a LOD level and a Focal Point. The
 <code class="docutils literal"><span class="pre">getRoot()</span></code> call returns the
 NodePath of the terrain. It is then reparented to
 <code class="docutils literal"><span class="pre">render</span></code> to be a part of the
-scene graph. You can apply :ref:` &lt;common-state-changes&gt;` to this NodePath.
+scene graph. You can apply <a class="reference internal" href="../the-scene-graph/common-state-changes.html#common-state-changes"><span class="std std-ref">Common State Changes</span></a> to this NodePath.
 Finally, the <code class="docutils literal"><span class="pre">generate()</span></code> call
 generates the terrain geometry. Note that if the terrain is still quite flat,
 you will have to scale the terrain NodePath in the Z direction, because by
@@ -344,10 +344,10 @@ focal point.</p>
 <p>Automatic Flattening</p>
 <p>Since flattening the terrain root might interfere with the updating system,
 GeoMipTerrain provides an auto-flattening function, which can be really useful
-if you have :ref:` &lt;too-many-meshes&gt;` in your scene. This function calls one
-of NodePath&#8217;s flattening functions every time the terrain is regenerated, and
-each time before the chunks are modified the terrain is restored from a backup
-node:</p>
+if you have <a class="reference internal" href="../../performance-tuning/too-many-meshes.html#too-many-meshes"><span class="std std-ref">too many meshes</span></a> in your scene. This
+function calls one of NodePath&#8217;s flattening functions every time the terrain
+is regenerated, and each time before the chunks are modified the terrain is
+restored from a backup node:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">terrain</span><span class="o">.</span><span class="n">setAutoFlatten</span><span class="p">(</span><span class="n">GeoMipTerrain</span><span class="o">.</span><span class="n">AFMStrong</span><span class="p">)</span>
 </pre></div>
 </div>

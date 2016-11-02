@@ -201,21 +201,21 @@ lower quality terrain - that is, less triangles - because those far away parts
 are not as much visible as the closer parts.</p>
 <p>Panda3D provides two classes for terrain generation and LOD handling:</p>
 <ul class="simple">
-<li>The :ref:` &lt;the-heightfield-tesselator&gt;`. This class can take a grayscale
-height field image and generate a terrain. It uses a linear LOD system,
-and, of course, because when the camera moves away from the focal point,
-the terrain needs to be regenerated to &#8216;focus&#8217; on the new focal point. On
-extremely large terrains, this might lead to complications, because
-regenerating the entire terrain takes time, and the player might experience
-some lag when it is regenerated. That is why this class is not very
-suitable for extremely large terrains.</li>
-<li>The :ref:` &lt;geometrical-mipmapping&gt;`, formerly known as PGMM. This is a
-community-contributed terrain system and has been included since Panda3D
-1.5.1. This algorithm takes a height field and also converts it into
-geometry, but it splits the terrain up in smaller chunks, so when the focal
-point changes, not all chunks have to be regenerated. This is to prevent
-lagging when the focal point moves. For smaller terrains, however, you
-might not need such extensive terrain calculations, and use the
+<li>The <a class="reference internal" href="the-heightfield-tesselator.html#the-heightfield-tesselator"><span class="std std-ref">HeightfieldTesselator</span></a>. This class
+can take a grayscale height field image and generate a terrain. It uses a
+linear LOD system, and, of course, because when the camera moves away from
+the focal point, the terrain needs to be regenerated to &#8216;focus&#8217; on the new
+focal point. On extremely large terrains, this might lead to complications,
+because regenerating the entire terrain takes time, and the player might
+experience some lag when it is regenerated. That is why this class is not
+very suitable for extremely large terrains.</li>
+<li>The <a class="reference internal" href="geometrical-mipmapping.html#geometrical-mipmapping"><span class="std std-ref">GeoMipTerrain</span></a>, formerly known as PGMM.
+This is a community-contributed terrain system and has been included since
+Panda3D 1.5.1. This algorithm takes a height field and also converts it
+into geometry, but it splits the terrain up in smaller chunks, so when the
+focal point changes, not all chunks have to be regenerated. This is to
+prevent lagging when the focal point moves. For smaller terrains, however,
+you might not need such extensive terrain calculations, and use the
 HeightfieldTesselator instead.</li>
 </ul>
 <p>The GeoMipTerrain also provides a way to generate terrain bruteforce, that

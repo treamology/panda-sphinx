@@ -160,9 +160,10 @@
 <span id="id1"></span><h1>P3D file config settings<a class="headerlink" href="#p3d-file-config-settings" title="Permalink to this headline">¶</a></h1>
 <p>You can set certain config settings in a p3d file on the packp3d command line.
 These control the way the p3d file may be used or embedded.</p>
-<p>Some of these settings can also be set in the :ref:` &lt;advanced-object-tags&gt;`
-used when the p3d file is embedded on a web page. If a config setting is
-specified in both places, the HTML page overrides.</p>
+<p>Some of these settings can also be set in the
+<a class="reference internal" href="advanced-scripting-techniques/advanced-object-tags.html#advanced-object-tags"><span class="std std-ref">HTML object tags</span></a> used when the p3d file is
+embedded on a web page. If a config setting is specified in both places, the
+HTML page overrides.</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="4%" />
@@ -196,10 +197,10 @@ specified in both places, the HTML page overrides.</p>
 <td>&#8220;1&#8221; if the user&#8217;s environment variables, and current working directory, should be preserved when running this app. Normally, most environment variables are reset to default values, or cleared altogether. You would normally specify this for a command-line app, where the user may want to preserve his or her environment; for instance, packp3d.p3d itself sets this option. It doesn&#8217;t make sense to set this for a p3d file that is intended to be run within a web page.</td>
 </tr>
 <tr class="row-odd"><td>run_origin</td>
-<td>The semicolon-separated list of hostnames that are allowed to embed this app in a web page. The default is any hostname. See :ref:` &lt;p3d-origin-security&gt;`.</td>
+<td>The semicolon-separated list of hostnames that are allowed to embed this app in a web page. The default is any hostname. See <a class="reference internal" href="advanced-scripting-techniques/p3d-origin-security.html#p3d-origin-security"><span class="std std-ref">P3D origin security</span></a>.</td>
 </tr>
 <tr class="row-even"><td>script_origin</td>
-<td>The semicolon-separated list of hostnames that are allowed to directly call Python methods exposed by this app from JavaScript in a web page. The default is no hostname. See :ref:` &lt;p3d-origin-security&gt;`.</td>
+<td>The semicolon-separated list of hostnames that are allowed to directly call Python methods exposed by this app from JavaScript in a web page. The default is no hostname. See <a class="reference internal" href="advanced-scripting-techniques/p3d-origin-security.html#p3d-origin-security"><span class="std std-ref">P3D origin security</span></a>.</td>
 </tr>
 <tr class="row-odd"><td><p class="first">height</p>
 <p class="last">width</p>

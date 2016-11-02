@@ -28,4 +28,4 @@ In general, anything you can do in JavaScript, you can do in Python, via the
 base.appRunner.dom object.
 
 The dom object is always available; it is not limited by the
-:ref:` <p3d-origin-security>` features.
+:ref:`p3d-origin-security` features.

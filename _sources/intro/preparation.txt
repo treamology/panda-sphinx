@@ -133,5 +133,5 @@ toggle between C++ information and Python information.
     On UNIX-like operating systems you can use the GNU G++ compiler.
     
     For information about compiling your C++ program, see
-    :ref:` <how-to-compile-a-c++-panda3d-program>`.
+    :ref:`this page <how-to-compile-a-c++-panda3d-program>`.
 

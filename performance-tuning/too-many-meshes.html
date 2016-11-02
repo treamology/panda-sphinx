@@ -168,7 +168,7 @@
 <span id="too-many-meshes"></span><h1>Performance Issue: Too Many Meshes<a class="headerlink" href="#performance-issue-too-many-meshes" title="Permalink to this headline">¶</a></h1>
 <p>If you have too many nodes/meshes in your scene, this might result in slow
 performance. You can check your Geom count in
-:ref:` &lt;measuring-performance-with-pstats&gt;`, or by calling
+<a class="reference internal" href="measuring-performance-with-pstats.html#measuring-performance-with-pstats"><span class="std std-ref">PStats</span></a>, or by calling
 <code class="docutils literal"><span class="pre">NodePath.analyze()</span></code> on your object or
 scene.</p>
 <p>Panda3D provides a function to reduce the mesh count:
@@ -184,15 +184,17 @@ NodePath.flattenStrong(), but may be worth considering.</p>
 <p>Though, if you have multiple independently-moving rigid nodes, the flattening
 functions might not suit your needs, because, since the flattening functions
 flatten everything to one node you won&#8217;t be able to move individual sub-nodes
-around. An alternative is :ref:` &lt;the-rigid-body-combiner&gt;`, which can combine
+around. An alternative is
+<a class="reference internal" href="the-rigid-body-combiner.html#the-rigid-body-combiner"><span class="std std-ref">the Rigid Body Combiner</span></a>, which can combine
 multiple nodes while you can still change the transforms on the sub-nodes.</p>
-<p>If you are using the :ref:` &lt;geometrical-mipmapping&gt;` for terrain rendering,
-that might also result in a large mesh count. (You can check the block count
-by calling <code class="docutils literal"><span class="pre">terrain.getRoot().analyze()</span></code>.) If it is
-too high, try increasing the block size, or enable AutoFlattening, which will
-reduce the block count to only one. The autoflatten function was created
-because normally you can&#8217;t flatten a terrain using the normal flattenX
-methods, because this will interfere with the GeoMipTerrain&#8217;s updating system.</p>
+<p>If you are using the <a class="reference internal" href="../programming-with-panda3d/terrain/geometrical-mipmapping.html#geometrical-mipmapping"><span class="std std-ref">GeoMipTerrain</span></a> for terrain
+rendering, that might also result in a large mesh count. (You can check the
+block count by calling
+<code class="docutils literal"><span class="pre">terrain.getRoot().analyze()</span></code>.) If it is too high,
+try increasing the block size, or enable AutoFlattening, which will reduce the
+block count to only one. The autoflatten function was created because normally
+you can&#8217;t flatten a terrain using the normal flattenX methods, because this
+will interfere with the GeoMipTerrain&#8217;s updating system.</p>
 </div>
 
 

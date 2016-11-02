@@ -197,16 +197,16 @@
 <span id="id1"></span><h1>Text Node<a class="headerlink" href="#text-node" title="Permalink to this headline">¶</a></h1>
 <p>The most fundamental way to render text in Panda3D is via the
 <code class="docutils literal"><span class="pre">TextNode</span></code> interface. This may be
-a little more work than the :ref:` &lt;onscreentext&gt;` or :ref:` &lt;directlabel&gt;`
-objects, but it gives you a lot more control over the appearance of the text.</p>
+a little more work than the <a class="reference internal" href="onscreentext.html#onscreentext"><span class="std std-ref">OnscreenText</span></a> or <a class="reference internal" href="../directgui/directlabel.html#directlabel"><span class="std std-ref">DirectLabel</span></a> objects,
+but it gives you a lot more control over the appearance of the text.</p>
 <p>To use a TextNode, simply create one and call
 <code class="docutils literal"><span class="pre">setText()</span></code> to set the actual text
 to display, and then parent the TextNode wherever you like (you can put it
-under :ref:` &lt;scene-graph-manipulations&gt;` to make a 2-d onscreen text, or you
-can put it in the 3-d world for in-the-world text). Note that if you parent
-the text to render2d or aspect2d, you will probably need to give it a fairly
-small scale, since the coordinate space of the whole screen in render2d is in
-the range (-1, 1).</p>
+under <a class="reference internal" href="../the-scene-graph/scene-graph-manipulations.html#scene-graph-manipulations"><span class="std std-ref">aspect2d</span></a> to make a 2-d onscreen text,
+or you can put it in the 3-d world for in-the-world text). Note that if you
+parent the text to render2d or aspect2d, you will probably need to give it a
+fairly small scale, since the coordinate space of the whole screen in render2d
+is in the range (-1, 1).</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="n">TextNode</span><span class="p">(</span><span class="s1">&#39;node name&#39;</span><span class="p">)</span>
 <span class="n">text</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="s2">&quot;Every day in every way I&#39;m getting better and better.&quot;</span><span class="p">)</span>
 <span class="n">textNodePath</span> <span class="o">=</span> <span class="n">aspect2d</span><span class="o">.</span><span class="n">attachNewNode</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
@@ -238,7 +238,7 @@ control the appearance of your text.</p>
 </pre></div>
 </div>
 <p><img alt="TextNode.setFont() example" src="../../_images/text-font.png" /></p>
-<p>You may use any font you like, including a TTF file; see :ref:` &lt;text-fonts&gt;`.</p>
+<p>You may use any font you like, including a TTF file; see <a class="reference internal" href="text-fonts.html#text-fonts"><span class="std std-ref">Text Fonts</span></a>.</p>
 </div>
 <div class="section" id="small-caps">
 <h2>Small Caps<a class="headerlink" href="#small-caps" title="Permalink to this headline">¶</a></h2>

@@ -212,9 +212,10 @@ also have a stencil bitplane or accumulation bitplane. In addition, if it is a
 render-to-texture framebuffer, it may have auxiliary bitplanes. These
 auxiliary bitplanes can be used to store more or less arbitrary user-defined
 data.</p>
-<p>When per-pixel lighting is enabled via :ref:` &lt;the-shader-generator&gt;`, the
-shader generator can be asked to produce extra data into the auxiliary
-bitplanes. This is done by setting an AuxBitplaneAttrib:</p>
+<p>When per-pixel lighting is enabled via
+<a class="reference internal" href="../shaders/the-shader-generator.html#the-shader-generator"><span class="std std-ref">the shader generator</span></a>, the shader generator can
+be asked to produce extra data into the auxiliary bitplanes. This is done by
+setting an AuxBitplaneAttrib:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">setAttrib</span><span class="p">(</span><span class="n">AuxBitplaneAttrib</span><span class="o">.</span><span class="n">make</span><span class="p">(</span><span class="n">bits</span><span class="p">))</span>
 </pre></div>
 </div>

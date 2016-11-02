@@ -28,7 +28,7 @@ Caution: this program uses an extremely inefficient method for detecting the
 height of the terrain. There is a much better way to do it, but we have not
 had time to correct the sample program. Back to the List of Sample Programs:
 
-:ref:` <samples>`
+:ref:`samples`
 
 .. |Screenshot-Sample-Programs-Roaming-Ralph.jpg| image:: screenshot-sample-programs-roaming-ralph.jpg
 

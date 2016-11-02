@@ -203,10 +203,11 @@
   <div class="section" id="defining-your-own-geomvertexformat">
 <span id="id1"></span><h1>Defining your own GeomVertexFormat<a class="headerlink" href="#defining-your-own-geomvertexformat" title="Permalink to this headline">¶</a></h1>
 <p>Before you can create any geometry in Panda3D, you must have a valid
-:ref:` &lt;geomvertexformat&gt;`. You can decide exactly which columns you want to
-have in your format, by building the format up one column at a time. (But you
-might be able to avoid this effort by taking advantage of one of the
-:ref:` &lt;pre-defined-vertex-formats&gt;` listed on the next page.)</p>
+<a class="reference internal" href="../how-panda3d-stores-vertices-and-geometry/geomvertexformat.html#geomvertexformat"><span class="std std-ref">GeomVertexFormat</span></a>. You can decide exactly which columns you want to have
+in your format, by building the format up one column at a time. (But you might
+be able to avoid this effort by taking advantage of one of the
+<a class="reference internal" href="pre-defined-vertex-formats.html#pre-defined-vertex-formats"><span class="std std-ref">pre-defined formats</span></a> listed on the next
+page.)</p>
 <p>To build up your custom format, you need to first create an empty
 GeomVertexArrayFormat, and add columns one at a time by calling addColumn():</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">array</span> <span class="o">=</span> <span class="n">GeomVertexArrayFormat</span><span class="p">()</span>
@@ -221,11 +222,11 @@ GeomVertexArrayFormat, and add columns one at a time by calling addColumn():</p>
 </div>
 <p>The parameters to addColumn() are, in order, the column name, the number of
 components, the numeric type, and the contents specification. See
-:ref:` &lt;geomvertexformat&gt;` for a detailed description of each of these
-parameters and their appropriate values. You may also supply an optional fifth
-parameter, which specifies the byte offset within the row at which the
-column&#8217;s data begins; but normally you should omit this to indicate that the
-column&#8217;s data immediately follows the previous column&#8217;s data.</p>
+<a class="reference internal" href="../how-panda3d-stores-vertices-and-geometry/geomvertexformat.html#geomvertexformat"><span class="std std-ref">GeomVertexFormat</span></a> for a detailed description of each of these parameters
+and their appropriate values. You may also supply an optional fifth parameter,
+which specifies the byte offset within the row at which the column&#8217;s data
+begins; but normally you should omit this to indicate that the column&#8217;s data
+immediately follows the previous column&#8217;s data.</p>
 <p>Note that the column name should be an InternalName object, as returned by a
 call to InternalName.make(). This is Panda&#8217;s mechanism for tokenizing a string
 name, to allow for fast name lookups during rendering. Other than this detail,

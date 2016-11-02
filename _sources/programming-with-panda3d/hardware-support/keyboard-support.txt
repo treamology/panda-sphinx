@@ -7,9 +7,9 @@ Keyboard events
 ---------------
 
 Panda3D has keyboard support built-in. Keyboard presses send
-:ref:` <tasks-and-event-handling>`. Each keyboard key will send an event when
-it is first pressed down, when it is released, and one repeatedly while its
-pressed.
+:ref:`Events <tasks-and-event-handling>`. Each keyboard key will send an event
+when it is first pressed down, when it is released, and one repeatedly while
+its pressed.
 
 The events can be accepted with the following code:
 

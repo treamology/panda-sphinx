@@ -385,11 +385,12 @@ cache).&#8221;</p>
 <div class="section" id="actor-intervals">
 <h2>Actor Intervals<a class="headerlink" href="#actor-intervals" title="Permalink to this headline">¶</a></h2>
 <p>Another way to play an animation on an actor is to use an
-:ref:` &lt;actor-intervals&gt;`, which gives you a lot more frame-by-frame control
-over the animation, and is particularly useful when building a complex script
-using Intervals. However, the ActorInterval interface is a little bit slower
-than the above interfaces at runtime, so you should prefer the more
-fundamental interfaces unless there is a good reason to use ActorInterval.</p>
+<a class="reference internal" href="../intervals/actor-intervals.html#actor-intervals"><span class="std std-ref">ActorInterval</span></a>, which gives you a lot more
+frame-by-frame control over the animation, and is particularly useful when
+building a complex script using Intervals. However, the ActorInterval
+interface is a little bit slower than the above interfaces at runtime, so you
+should prefer the more fundamental interfaces unless there is a good reason to
+use ActorInterval.</p>
 </div>
 <div class="section" id="the-task-manager">
 <h2>The Task manager<a class="headerlink" href="#the-task-manager" title="Permalink to this headline">¶</a></h2>
@@ -399,9 +400,10 @@ call to run(), and it should be the last thing you do after starting up. This
 starts the task manager. Think of this as the main loop of the application:
 your startup procedure is to set up your loading screen, start any initial
 tasks or intervals, hang any initial messenger hooks, and then go get lost in
-run(). Thereafter everything must run in a :ref:` &lt;tasks-and-event-handling&gt;`,
-in an interval, or is a response to a message. This is true for both
-animations and :ref:` &lt;loading-and-playing-sounds-and-music&gt;`.</p>
+run(). Thereafter everything must run in a
+<a class="reference internal" href="../tasks-and-event-handling/index.html#tasks-and-event-handling"><span class="std std-ref">task</span></a>, in an interval, or is a response to a
+message. This is true for both animations and
+<a class="reference internal" href="../sound/loading-and-playing-sounds-and-music.html#loading-and-playing-sounds-and-music"><span class="std std-ref">sound</span></a>.</p>
 </div>
 </div>
 

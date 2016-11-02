@@ -13,10 +13,10 @@ For a full documentation about Panda3D's configuration system, click
 to view the original documentation file.
 
 To know about accessing config variables from within your code, please see
-:ref:` <accessing-config-vars-in-a-program>`.
+:ref:`accessing-config-vars-in-a-program`.
 
 To get a more complete list of variables, see the
-:ref:` <list-of-all-config-variables>`.
+:ref:`list of all config variables <list-of-all-config-variables>`.
 
 +--------------------------+--------------------+----------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | Variable                 | Values             | Default              | Details                                                                                                                                                    |

@@ -57,18 +57,17 @@ iterate through the list using
     
 
 
-By default, the :ref:` <collision-entries>` appear in the queue in no
-particular order. You can arrange them in order from nearest to furthest by
-calling ``queue.sortEntries()`` after the
-traversal.
+By default, the :ref:`collision-entries` appear in the queue in no particular
+order. You can arrange them in order from nearest to furthest by calling
+``queue.sortEntries()`` after the traversal.
 
 CollisionHandlerEvent
 ---------------------
 
 
 This is another simple kind of CollisionHandler. Rather than saving up the
-collisions, it generates a :ref:` <tasks-and-event-handling>` when collision
-events are detected.
+collisions, it generates a :ref:`Panda event <tasks-and-event-handling>` when
+collision events are detected.
 
 There are three kinds of events that may be generated: the "in" event, when a
 particular object collides with another object that it didn't in the previous
@@ -146,7 +145,7 @@ surrounded by parentheses. The tag is consulted using the
 
 In any case, the event handler function that you write to service the event
 should receive one parameter (in addition to self, if it is a method): the
-:ref:` <collision-entries>`. For example:
+:ref:`CollisionEntry <collision-entries>`. For example:
 
 
 
@@ -299,8 +298,8 @@ PhysicsCollisionHandler
 
 
 This kind of handler further specializes CollisionHandlerPusher to integrate
-with Panda's :ref:` <panda3d-physics-engine>`. It requires that the NodePath
-you pass as the second parameter to
+with Panda's :ref:`Physics Engine <panda3d-physics-engine>`. It requires that
+the NodePath you pass as the second parameter to
 ``pusher.addCollider`` actually contains an
 ActorNode, the type of node that is moved by forces in the physics system.
 

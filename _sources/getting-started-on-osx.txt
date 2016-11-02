@@ -5,14 +5,15 @@ Getting Started on OSX
 
 Congratulations! You've installed Panda3D on your machine. Now, what next?
 
-First of all, you should :ref:` <preparation>` by learning Python. You can
-also use C++ with Panda3D, but since most of its users use Python, and it is a
-very easy language to master, Python is the most recommended choice.
+First of all, you should :ref:`prepare <preparation>` by learning Python. You
+can also use C++ with Panda3D, but since most of its users use Python, and it
+is a very easy language to master, Python is the most recommended choice.
 
-Then, you can dive into the :ref:` <>` and try the Hello World samples. The
-manual is a great resource for learning Panda3D and getting in-depth
+Then, you can dive into the :ref:`Manual <>` and try the Hello World samples.
+The manual is a great resource for learning Panda3D and getting in-depth
 information about various subjects. However, for more concrete examples, you
-can dive into the :ref:` <samples>`, which ship with the Panda3D build.
+can dive into the :ref:`Sample Programs <samples>`, which ship with the
+Panda3D build.
 
 Running the Sample Programs
 ---------------------------

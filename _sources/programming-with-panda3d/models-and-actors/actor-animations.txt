@@ -348,11 +348,12 @@ Actor Intervals
 
 
 Another way to play an animation on an actor is to use an
-:ref:` <actor-intervals>`, which gives you a lot more frame-by-frame control
-over the animation, and is particularly useful when building a complex script
-using Intervals. However, the ActorInterval interface is a little bit slower
-than the above interfaces at runtime, so you should prefer the more
-fundamental interfaces unless there is a good reason to use ActorInterval.
+:ref:`ActorInterval <actor-intervals>`, which gives you a lot more
+frame-by-frame control over the animation, and is particularly useful when
+building a complex script using Intervals. However, the ActorInterval
+interface is a little bit slower than the above interfaces at runtime, so you
+should prefer the more fundamental interfaces unless there is a good reason to
+use ActorInterval.
 
 The Task manager
 ----------------
@@ -364,6 +365,7 @@ call to run(), and it should be the last thing you do after starting up. This
 starts the task manager. Think of this as the main loop of the application:
 your startup procedure is to set up your loading screen, start any initial
 tasks or intervals, hang any initial messenger hooks, and then go get lost in
-run(). Thereafter everything must run in a :ref:` <tasks-and-event-handling>`,
-in an interval, or is a response to a message. This is true for both
-animations and :ref:` <loading-and-playing-sounds-and-music>`.
+run(). Thereafter everything must run in a
+:ref:`task <tasks-and-event-handling>`, in an interval, or is a response to a
+message. This is true for both animations and
+:ref:`sound <loading-and-playing-sounds-and-music>`.

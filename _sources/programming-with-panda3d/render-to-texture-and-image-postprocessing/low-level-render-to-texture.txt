@@ -175,4 +175,4 @@ omitted.
 For the meaning of the various flags, consult the GraphicsPipe API
 documentation.
 
-Several of the :ref:` <samples>` use the lower-level API.
+Several of the :ref:`Sample Programs <samples>` use the lower-level API.

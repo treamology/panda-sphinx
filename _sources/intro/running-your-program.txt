@@ -190,6 +190,6 @@ Running your Program
     
     The following pages describe how this is accomplished:
     
-    -  :ref:` <how-to-compile-a-c++-panda3d-program-on-linux>`
-    -  :ref:` <how-to-compile-a-c++-panda3d-program-on-mac-os-x>`
+    -  :ref:`Linux version <how-to-compile-a-c++-panda3d-program-on-linux>`
+    -  :ref:`Mac OS X version <how-to-compile-a-c++-panda3d-program-on-mac-os-x>`
 

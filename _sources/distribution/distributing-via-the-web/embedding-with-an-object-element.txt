@@ -84,4 +84,4 @@ Explorer version first.
 
 Note that there are additional, optional attributes that may be provided to
 either form of the <object> tag. These are discussed in
-:ref:` <advanced-object-tags>`.
+:ref:`advanced-object-tags`.

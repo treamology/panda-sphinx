@@ -13,7 +13,7 @@ format. Also, the egg format is intended to be backward-compatible from all
 future versions of Panda3D, so if you have an egg file that Panda can load
 now, it should always be able to load that file. (Well, we can't really make
 guarantees, but this is what we shoot for.) See
-:ref:` <parsing-and-generating-egg-files>` for more information about the egg
+:ref:`parsing-and-generating-egg-files` for more information about the egg
 format.
 
 BAM Files
@@ -33,15 +33,16 @@ long-term storage format for your models, since a future version of Panda3D
 may not be able to load bam files from older versions.
 
 You can always convert egg files to bam files using the program
-:ref:` <converting-egg-to-bam>`. For many simple models, it is also possible
-to convert back again with the program :ref:` <list-of-panda3d-executables>`,
-but you should not rely on this, since it does not convert advanced features
-like animation; and some structure of the original egg file may be lost in the
-conversion.
+:ref:`egg2bam <converting-egg-to-bam>`. For many simple models, it is also
+possible to convert back again with the program
+:ref:`bam2egg <list-of-panda3d-executables>`, but you should not rely on this,
+since it does not convert advanced features like animation; and some structure
+of the original egg file may be lost in the conversion.
 
-You can load files of these formats, as well as :ref:` <model-export>`, using
-the :ref:` <scene-graph-manipulations>` interface. Any file types other than
-``.bam`` or
+You can load files of these formats, as well as
+:ref:`any other supported format <model-export>`, using the
+:ref:`loader.loadModel <scene-graph-manipulations>` interface. Any file types
+other than ``.bam`` or
 ``.egg`` will be automatically
 converted at runtime, exactly as if you had run the appropriate command-line
 conversion tool first.

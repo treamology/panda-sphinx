@@ -416,8 +416,9 @@ generate two separate errors: Panda3D knows that vtx_position is supposed to
 be a float-vector, not a texture, that it is supposed to be varying, not
 uniform.</p>
 <p>Again, all parameter names must be recognized. There is a
-:ref:` &lt;list-of-possible-cg-shader-inputs&gt;` that shows all the valid parameter
-names and the data that Panda3D will supply.</p>
+<a class="reference internal" href="list-of-possible-cg-shader-inputs.html#list-of-possible-cg-shader-inputs"><span class="std std-ref">list of possible Cg shader inputs</span></a>
+that shows all the valid parameter names and the data that Panda3D will
+supply.</p>
 </div>
 <div class="section" id="supplying-data-to-the-shader-manually">
 <h2>Supplying data to the Shader Manually<a class="headerlink" href="#supplying-data-to-the-shader-manually" title="Permalink to this headline">¶</a></h2>
@@ -444,8 +445,9 @@ interested in a data item labeled &#8220;tint&#8221;.</p>
 <p>To fetch data that was supplied using
 <code class="docutils literal"><span class="pre">set_shader_input()</span></code>, the shader must use
 the appropriate parameter name. See the
-:ref:` &lt;list-of-possible-cg-shader-inputs&gt;`, many of which refer to the data
-that was stored using <code class="docutils literal"><span class="pre">set_shader_input()</span></code>.</p>
+<a class="reference internal" href="list-of-possible-cg-shader-inputs.html#list-of-possible-cg-shader-inputs"><span class="std std-ref">list of possible Cg shader inputs</span></a>,
+many of which refer to the data that was stored using
+<code class="docutils literal"><span class="pre">set_shader_input()</span></code>.</p>
 <p>Shader Inputs propagate down the scene graph, and accumulate as they go. For
 example, if you store <code class="docutils literal"><span class="pre">set_shader_input(&quot;x&quot;,</span> <span class="pre">1)</span></code>
 on a node, and <code class="docutils literal"><span class="pre">set_shader_input(&quot;y&quot;,</span> <span class="pre">2)</span></code> on its

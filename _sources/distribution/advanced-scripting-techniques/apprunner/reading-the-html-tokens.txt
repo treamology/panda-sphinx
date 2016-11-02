@@ -3,7 +3,7 @@
 Reading the HTML tokens
 =======================
 
-As described in :ref:` <advanced-object-tags>`, you can write Python code to
+As described in :ref:`advanced-object-tags`, you can write Python code to
 respond to any arbitrary tokens given in the <object> element. The
 AppRunner provides several interfaces for this:
 

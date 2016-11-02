@@ -10,7 +10,7 @@ Effect, DecalEffect, PolylightEffect, and ShowBoundsEffect.
 List of All Render Effects:
 ---------------------------
 
-:ref:` <billboard-effects>`
+:ref:`BillboardEffect <billboard-effects>`
     Dicates that geometry at this node should automatically rotate to face the
     camera, or any other arbitrary node.
 CharacterJointEffect
@@ -22,7 +22,7 @@ PolylightEffect
     node. A LightGroup contains PolylightNodes which are essentially nodes
     that add color to the polygons of a model based on distance. PolylightNode
     is a cheap way to get lighting effects specially for night scenes
-:ref:` <compass-effects>`
+:ref:`CompassEffect <compass-effects>`
     In its purest form, a CompassEffect is used to keep the node's rotation
     fixed relative to the top of the scene graph, despite other transforms
     that may exist above the node. Hence the name: the node behaves like a

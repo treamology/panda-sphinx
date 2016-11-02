@@ -31,10 +31,10 @@ camera-relative. Likewise, if the fog is exponential, the fog's position is
 ignored, and the fog is camera-relative.
 
 The ``setFog`` directive creates a
-fog attribute object. Like any :ref:` <render-attributes>`, the fog attribute
-affects the node that it is attached to, and any nodes below it in the scene
-graph. So you can easily cause only a subset of the objects (or just a single
-model) to be affected by the fog, by calling
+fog attribute object. Like any :ref:`Render Attribute <render-attributes>`,
+the fog attribute affects the node that it is attached to, and any nodes below
+it in the scene graph. So you can easily cause only a subset of the objects
+(or just a single model) to be affected by the fog, by calling
 ``setFog`` on the root of the
 subgraph you want to be affected. To remove the fog attribute later, use the
 ``clearFog`` directive:

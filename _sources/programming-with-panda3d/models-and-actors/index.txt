@@ -21,14 +21,14 @@ all models: each is a piece of static non-animated geometry.
 
 Many engines provide tools to create terrain, and store that terrain into
 heightmap images. Panda3D can generate geometry for kind of heightmap
-terrains, refer to the :ref:` <terrain>` section for more information. For
-many simple terrains, though, many people prefer to use a static model rather
-than a heightmap image.
+terrains, refer to the :ref:`terrain` section for more information. For many
+simple terrains, though, many people prefer to use a static model rather than
+a heightmap image.
 
 The following sections of the manual assume that you have a valid egg file
 which has an animatable model, and some additional egg files containing
 animations. To learn how to convert a model into an egg file see the
-:ref:` <model-export>` section.
+:ref:`model-export` section.
 
 Panda's Primary File Format
 ---------------------------

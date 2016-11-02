@@ -9,9 +9,9 @@ terrain into multiple chunks, where each of them can have a different level of
 detail. The advantage of this approach is that, when the focal point (the
 place where the terrain has the highest quality, probably the camera) moves,
 not the entire terrain has to be regenerated to match the correct detail
-level, like the :ref:` <the-heightfield-tesselator>`, but only the chunks that
-have a different LOD can be regenerated. Also, it improves culling and
-collision detection.
+level, like the :ref:`HeightfieldTesselator <the-heightfield-tesselator>`, but
+only the chunks that have a different LOD can be regenerated. Also, it
+improves culling and collision detection.
 
 Basic Usage
 ~~~~~~~~~~~
@@ -61,8 +61,8 @@ heightfield image. Preferably this is a size of a power of two plus one (like
 129, 257, 513, 1025, etc.), but if it is not, the GeoMipTerrain will
 automatically scale it up to the nearest correct size (which is quite slow).
 ``setHeightfield()`` can take a
-:ref:` <creating-new-textures-from-scratch>`, Texture or
-:ref:` <loading-models>` instance.
+:ref:`PNMImage <creating-new-textures-from-scratch>`, Texture or
+:ref:`Filename <loading-models>` instance.
 
 The ``setBruteforce(True)`` call sets the
 terrain to bruteforce rendering -- this means that the terrain is created at
@@ -71,7 +71,7 @@ next section we will explain how to set a LOD level and a Focal Point. The
 ``getRoot()`` call returns the
 NodePath of the terrain. It is then reparented to
 ``render`` to be a part of the
-scene graph. You can apply :ref:` <common-state-changes>` to this NodePath.
+scene graph. You can apply :ref:`common-state-changes` to this NodePath.
 Finally, the ``generate()`` call
 generates the terrain geometry. Note that if the terrain is still quite flat,
 you will have to scale the terrain NodePath in the Z direction, because by
@@ -243,10 +243,11 @@ Automatic Flattening
 
 Since flattening the terrain root might interfere with the updating system,
 GeoMipTerrain provides an auto-flattening function, which can be really useful
-if you have :ref:` <too-many-meshes>` in your scene. This function calls one
-of NodePath's flattening functions every time the terrain is regenerated, and
-each time before the chunks are modified the terrain is restored from a backup
-node: 
+if you have :ref:`too many meshes <too-many-meshes>` in your scene. This
+function calls one of NodePath's flattening functions every time the terrain
+is regenerated, and each time before the chunks are modified the terrain is
+restored from a backup node:
+
 
 .. only:: python
 

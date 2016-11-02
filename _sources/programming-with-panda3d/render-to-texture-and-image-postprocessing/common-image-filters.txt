@@ -112,7 +112,8 @@ the soft halos back onto the scene in the window.
 Note: If you want to use glow maps to indicate which parts of the image should
 receive bloom, you should assign a nonzero value to the alpha value of the
 blend-weight parameter, and you should enable the
-:ref:` <the-shader-generator>` for the models that have glow maps applied.
+:ref:`shader generator <the-shader-generator>` for the models that have glow
+maps applied.
 
 The bloom filter has many keyword parameters:
 

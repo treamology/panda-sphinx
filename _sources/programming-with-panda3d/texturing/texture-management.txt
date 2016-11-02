@@ -44,7 +44,7 @@ textures, you can exclude them with lines like:
 Enabling texture compression
 ----------------------------
 
-Another possibility is to enable and use :ref:` <texture-compression>`, as
+Another possibility is to enable and use :ref:`texture-compression`, as
 described on the next page. If supported by your graphics card, this will
 reduce texture memory requirements dramatically, to 1/4 or 1/8 of the
 original. There is some reduction of quality, but not as much as the quality
@@ -84,8 +84,8 @@ Monitoring memory usage
 -----------------------
 
 You can see how much graphics memory you are actually consuming with the
-:ref:` <measuring-performance-with-pstats>` tool. Select the "Graphics memory"
-option. This graph will show the amount of memory required for active
+:ref:`PStats <measuring-performance-with-pstats>` tool. Select the "Graphics
+memory" option. This graph will show the amount of memory required for active
 (onscreen), and inactive (offscreen) textures. It also includes memory
 required for vertex and index buffers, though these are typically much smaller
 than your texture memory requirements.

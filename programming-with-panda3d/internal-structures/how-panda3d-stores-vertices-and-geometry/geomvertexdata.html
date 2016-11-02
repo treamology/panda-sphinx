@@ -260,13 +260,13 @@ have fewer columns, and some will have more. In fact, all columns, except for
 are certain column names that are reserved for Panda, and instruct Panda what
 the meaning of each column is. For instance, the vertex position column is
 always named &#8220;vertex&#8221;, and the lighting normal column, if it is present, must
-be named &#8220;normal&#8221;. See :ref:` &lt;geomvertexformat&gt;` for the complete list of
+be named &#8220;normal&#8221;. See <a class="reference internal" href="geomvertexformat.html#geomvertexformat"><span class="std std-ref">GeomVertexFormat</span></a> for the complete list of
 reserved column names.</p>
 <p>You can define your own custom columns. If there are any columns that have a
 name that Panda does not recognize, Panda will not do anything special with
 the column, but it can still send it to the graphics card. Of course, it is
-then up to you to write a :ref:` &lt;shader-basics&gt;` that understands what to do
-with the data in the column.</p>
+then up to you to write a <a class="reference internal" href="../../shaders/shader-basics.html#shader-basics"><span class="std std-ref">vertex shader</span></a> that
+understands what to do with the data in the column.</p>
 <p>It is possible to break up a GeomVertexData into more than one array. A
 GeomVertexArray is table of vertex data that is stored in one contiguous block
 of memory. Typically, each GeomVertexData consists of just one array; but it

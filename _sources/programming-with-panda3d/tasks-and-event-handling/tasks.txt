@@ -666,7 +666,7 @@ add the following line to your Config.prc file
 
 
 
-(see :ref:` <the-configuration-file>` for config syntax)
+(see :ref:`the-configuration-file` for config syntax)
 
 Examples
 --------

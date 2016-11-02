@@ -16,10 +16,10 @@ Interval represents an action (or a series of actions) that occur over a
 specific, finite interval of time (hence the name).
 
 The real power of the Interval system comes from
-:ref:` <sequences-and-parallels>`, which are a special kind of Interval that
-can contain nested Intervals of any kind (including additional Sequences
-and/or Parallels). By using these grouping Intervals, you can easily assemble
-complex scripts from the basic atoms.
+:ref:`sequences-and-parallels`, which are a special kind of Interval that can
+contain nested Intervals of any kind (including additional Sequences and/or
+Parallels). By using these grouping Intervals, you can easily assemble complex
+scripts from the basic atoms.
 
 Using Intervals
 ---------------
@@ -104,7 +104,8 @@ without performing the intervening actions.
 
 It is legal to set the time to an earlier time; the interval will do its best
 to reset its state to the previous state. In some cases this may not be
-possible (particularly if a :ref:` <function-intervals>` is involved).
+possible (particularly if a :ref:`Function Interval <function-intervals>` is
+involved).
 
 
 

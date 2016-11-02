@@ -80,8 +80,9 @@ To get the position:
 
 
 The mouse clicks generate "events." To understand what events are, and how to
-process them, you will need to read the :ref:` <tasks-and-event-handling>`
-section. The names of the events generated are:
+process them, you will need to read the
+:ref:`Event Handling <tasks-and-event-handling>` section. The names of the
+events generated are:
 
 +---------------+--------------------------------+
 | mouse1        | Mouse Button 1 Pressed         |
@@ -103,7 +104,7 @@ section. The names of the events generated are:
 
 
 If you want to hide the mouse cursor, you want the line: "cursor hidden #t" in
-your :ref:` <configuring-panda3d>` or this section of code:
+your :ref:`Config.prc <configuring-panda3d>` or this section of code:
 
 
 

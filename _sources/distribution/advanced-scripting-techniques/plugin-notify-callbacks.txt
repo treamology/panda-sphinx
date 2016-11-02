@@ -6,7 +6,7 @@ Plugin notify callbacks
 At key points during application launch, the plugin will make optional
 callbacks into JavaScript code, so your page can respond to what the
 application is doing. This is done using the <object> token system, as
-described in :ref:` <advanced-object-tags>`.
+described in :ref:`advanced-object-tags`.
 
 The following events may be sent:
 
@@ -60,7 +60,7 @@ your own JavaScript functions, e.g.:
 
 
 You should use the appropriate embedding syntax as described in
-:ref:` <advanced-object-tags>`.
+:ref:`advanced-object-tags`.
 
 Additional notes
 ----------------

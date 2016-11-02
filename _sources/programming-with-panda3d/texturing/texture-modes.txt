@@ -37,7 +37,7 @@ different purpose, and smiley is not transparent there.
 Note also that, for the purposes of illustration, we have only applied the
 sample texture image to a portion of the smiley model, rather than to the
 whole model. (This was done by transforming the texture coordinates of this
-texture stage, which is covered in :ref:` <texture-transforms>`.)
+texture stage, which is covered in :ref:`a later topic <texture-transforms>`.)
 
 Modulate mode
 -------------
@@ -349,10 +349,10 @@ The creation of normal maps is a sufficiently complex process that it is
 beyond the scope of this manual. However, there are many good tools out there
 like Z-Brush, Crazy Bump, and the like which create normal maps.
 
-See also: :ref:` <bump-mapping>`
+See also: :ref:`bump-mapping`
 
 Normal maps are new to Panda3D as of version 1.5.0. They only function when
-:ref:` <the-shader-generator>` is enabled.
+:ref:`shader generation <the-shader-generator>` is enabled.
 
 Height / Parallax Map Mode
 --------------------------
@@ -538,7 +538,7 @@ Currently, Panda3D only allows one gloss map per polygon, additional gloss
 maps will be ignored.
 
 Gloss maps are new to Panda3D as of version 1.5.0. They only function when
-:ref:` <the-shader-generator>` is enabled.
+:ref:`shader generation <the-shader-generator>` is enabled.
 
 Glow Map Mode
 -------------
@@ -622,10 +622,10 @@ are modulated onto the model, and the A controls glow:
 Currently, Panda3D only allows one glow map per polygon, additional glow maps
 will be ignored.
 
-See also: :ref:` <glow-filter>`
+See also: :ref:`glow-filter`
 
 Glow maps are new to Panda3D as of version 1.5.0. They only function when
-:ref:` <the-shader-generator>` is enabled.
+:ref:`shader generation <the-shader-generator>` is enabled.
 
 .. |Sample multitexture image| image:: color-pattern.png
 .. |Smiley with no multitexture| image:: smiley-multitex-none.png

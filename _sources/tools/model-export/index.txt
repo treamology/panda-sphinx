@@ -23,9 +23,8 @@ Both file formats contain:
 
 
 The paths (e.g. for textures) can be either relative (as seen from the egg
-file) or absolute (full path). See :ref:` <loading-models>` for more info
-about Panda's Filename Syntax. In most cases the relative path makes more
-sense.
+file) or absolute (full path). See :ref:`loading-models` for more info about
+Panda's Filename Syntax. In most cases the relative path makes more sense.
 
 
 .. toctree::

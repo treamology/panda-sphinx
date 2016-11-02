@@ -26,7 +26,7 @@ These are the steps needed to have your objects collide with each other:
 -  Configure the surface table for the world.
 -  Create ODE collision geometry for your bodies, e.g. OdeBoxGeom,
    OdePlaneGeom, etc. Be sure to set collide and category
-   :ref:` <collision-bitmasks>` on it using the
+   :ref:`bitmasks <collision-bitmasks>` on it using the
    ``setCollideBits`` and
    ``setCategoryBits`` methods. Assign it
    to your body using ``geom.setBody(body)``.
@@ -323,6 +323,6 @@ floor.
 In this example,
 we're creating a random amount of boxes with a random orientation and
 position, assigning collision solids to them, and adding a tuple of the
-:ref:` <the-scene-graph>` and the body to a list. This way we can easily keep
-track of all the boxes and loop through them to copy over the positions from
-the OdeBody to Panda's NodePath in the simulation loop.
+:ref:`NodePath <the-scene-graph>` and the body to a list. This way we can
+easily keep track of all the boxes and loop through them to copy over the
+positions from the OdeBody to Panda's NodePath in the simulation loop.

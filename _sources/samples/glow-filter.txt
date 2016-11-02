@@ -55,7 +55,7 @@ additive blending - ie, the halos are added to the scene.
 
 Back to the List of Sample Programs:
 
-:ref:` <samples>`
+:ref:`samples`
 
 .. |Screenshot-Sample-Programs-Glow-Filter.jpg| image:: screenshot-sample-programs-glow-filter.jpg
 

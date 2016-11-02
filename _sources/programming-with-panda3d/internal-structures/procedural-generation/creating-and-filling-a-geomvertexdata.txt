@@ -3,8 +3,8 @@
 Creating and filling a GeomVertexData
 =====================================
 
-Once you have a :ref:` <geomvertexformat>`, registered and ready to use, you
-can use it to create a :ref:` <geomvertexdata>`.
+Once you have a :ref:`geomvertexformat`, registered and ready to use, you can
+use it to create a :ref:`geomvertexdata`.
 
 
 
@@ -23,7 +23,7 @@ can use it to create a :ref:` <geomvertexdata>`.
 
 .. only:: c++
 
-    Using a :ref:` <defining-your-own-geomvertexformat>`.
+    Using a :ref:`custom vertex format <defining-your-own-geomvertexformat>`.
     
     
     .. code-block:: cpp
@@ -32,7 +32,7 @@ can use it to create a :ref:` <geomvertexdata>`.
         vdata = new GeomVertexData("name", format, Geom::UH_static);
     
     Or using a
-    :ref:` <pre-defined-vertex-formats>`.
+    :ref:`Pre-defined vertex format <pre-defined-vertex-formats>`.
     
     
     .. code-block:: cpp
@@ -48,7 +48,7 @@ which is any arbitrary name you like. This name is mainly for documentation
 purposes; it may help you identify this vertex data later. You can leave it
 empty if you like.
 
-The second parameter is the :ref:` <geomvertexformat>` to use for this
+The second parameter is the :ref:`geomvertexformat` to use for this
 GeomVertexData. The format specifies the number of arrays that will be created
 for the data, the names and formats of the columns in each array, and the
 number of bytes that need to be allocated for each row.
@@ -104,7 +104,7 @@ slower* than if you had specified a number of rows.
 
 
 Now that you have created a GeomVertexData, you should create a number of
-:ref:` <more-about-geomvertexreader-geomvertexwriter-and-geomvertexrewriter>`,
+:ref:`GeomVertexWriters <more-about-geomvertexreader-geomvertexwriter-and-geomvertexrewriter>`,
 one for each column, to fill in the data.
 
 

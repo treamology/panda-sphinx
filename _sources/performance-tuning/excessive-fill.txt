@@ -24,7 +24,7 @@ polygons are fully transparent, using M\_dual may provide an improvement over
 M\_alpha.
 
 For a more in-depth explanation on the various transparency modes, see
-:ref:` <transparency-and-blending>`.
+:ref:`transparency-and-blending`.
 
 Incomplete Section
 ------------------

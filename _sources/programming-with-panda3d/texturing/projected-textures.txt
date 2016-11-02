@@ -3,8 +3,8 @@
 Projected Textures
 ==================
 
-In a :ref:` <texture-transforms>`, we introduced ways to apply an explicit
-transformation to a model's texture coordinates, with methods like
+In a :ref:`previous section <texture-transforms>`, we introduced ways to apply
+an explicit transformation to a model's texture coordinates, with methods like
 ``setTexOffset()`` and
 ``setTexScale()``. In addition to this
 explicit control, Panda3D offers a simple mechanism to apply an automatic
@@ -44,7 +44,7 @@ two arbitrary NodePaths. If either of them is just
 of the graph.
 
 This has several useful applications. We have already introduced
-:ref:` <automatic-texture-coordinates>`, in conjunction with
+:ref:`one application <automatic-texture-coordinates>`, in conjunction with
 ``MWorldPosition``, to move the generated
 texture coordinates from the root of the graph to the model itself.
 
@@ -53,10 +53,10 @@ Interval-animated texture transforms
 
 
 Another handy application for a TexProjector is to enable the use of the
-various :ref:` <lerp-intervals>` to animate a texture transform. Although
-there are no LerpIntervals that directly animate texture transforms, you can
-make a LerpInterval animate a NodePath--and then set up a TexProjector effect
-to follow that NodePath. For example:
+various :ref:`LerpIntervals <lerp-intervals>` to animate a texture transform.
+Although there are no LerpIntervals that directly animate texture transforms,
+you can make a LerpInterval animate a NodePath--and then set up a TexProjector
+effect to follow that NodePath. For example:
 
 
 
@@ -104,7 +104,7 @@ To implement projected textures, you need to do three steps:
 
 1. Apply the texture you want to the model you want to project it onto,
 usually on its own TextureStage, so that it is
-:ref:` <multitexture-introduction>`.
+:ref:`multitextured <multitexture-introduction>`.
 
 2. Put the ``MWorldPosition`` TexGen mode
 on the model. This copies the model's vertex positions into its texture

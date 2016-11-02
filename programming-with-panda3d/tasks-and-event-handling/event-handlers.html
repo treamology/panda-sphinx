@@ -195,13 +195,14 @@
   <div class="section" id="event-handlers">
 <span id="id1"></span><h1>Event Handlers<a class="headerlink" href="#event-handlers" title="Permalink to this headline">¶</a></h1>
 <p>Events occur either when the user does something (such as clicking a
-:ref:` &lt;mouse-support&gt;` or pressing a :ref:` &lt;keyboard-support&gt;`) or when sent
-by the script using <code class="docutils literal"><span class="pre">messenger.send()</span></code>.
-When an event occurs, Panda&#8217;s &#8220;messenger&#8221; will check to see if you have
-written an &#8220;event handler&#8221; routine. If so, your event handler will be called.
-The messenger system is object-oriented, to create an event handler, you have
-to first create a class that inherits from DirectObject. Your event handler
-will be a method of your class.</p>
+<a class="reference internal" href="../hardware-support/mouse-support.html#mouse-support"><span class="std std-ref">mouse</span></a> or pressing a <a class="reference internal" href="../hardware-support/keyboard-support.html#keyboard-support"><span class="std std-ref">key</span></a>) or
+when sent by the script using
+<code class="docutils literal"><span class="pre">messenger.send()</span></code>. When an event occurs,
+Panda&#8217;s &#8220;messenger&#8221; will check to see if you have written an &#8220;event handler&#8221;
+routine. If so, your event handler will be called. The messenger system is
+object-oriented, to create an event handler, you have to first create a class
+that inherits from DirectObject. Your event handler will be a method of your
+class.</p>
 <div class="section" id="defining-a-class-that-can-handle-events">
 <h2>Defining a class that can Handle Events<a class="headerlink" href="#defining-a-class-that-can-handle-events" title="Permalink to this headline">¶</a></h2>
 <p>The first step is to import class DirectObject:</p>

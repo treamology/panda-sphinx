@@ -9,9 +9,10 @@ The Installation Process - Linux
 
 The easiest way to install panda is to use the RPM or DEB packages. This is
 only possible if your version of Linux is one of the provided versions of
-Linux. If not, you will need to :ref:` <building-from-source>`. If there is an
-installer available, download and install the RPM or DEB appropriate to your
-version of Linux.
+Linux. If not, you will need to
+:ref:`compile from source <building-from-source>`. If there is an installer
+available, download and install the RPM or DEB appropriate to your version of
+Linux.
 
 After installing Panda, you should run the sample programs to verify that the
 installation is good. To do so, you need to change directory to the Panda

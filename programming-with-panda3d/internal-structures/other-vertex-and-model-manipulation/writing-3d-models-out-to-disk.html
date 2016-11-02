@@ -212,7 +212,7 @@ format. Also, the egg format is intended to be backward-compatible from all
 future versions of Panda3D, so if you have an egg file that Panda can load
 now, it should always be able to load that file. (Well, we can&#8217;t really make
 guarantees, but this is what we shoot for.) See
-:ref:` &lt;parsing-and-generating-egg-files&gt;` for more information about the egg
+<a class="reference internal" href="../../../tools/model-export/parsing-and-generating-egg-files.html#parsing-and-generating-egg-files"><span class="std std-ref">Parsing and Generating Egg Files</span></a> for more information about the egg
 format.</p>
 <div class="section" id="bam-files">
 <h2>BAM Files<a class="headerlink" href="#bam-files" title="Permalink to this headline">¶</a></h2>
@@ -228,14 +228,15 @@ quickly. However, you should not consider the bam file format to be a good
 long-term storage format for your models, since a future version of Panda3D
 may not be able to load bam files from older versions.</p>
 <p>You can always convert egg files to bam files using the program
-:ref:` &lt;converting-egg-to-bam&gt;`. For many simple models, it is also possible
-to convert back again with the program :ref:` &lt;list-of-panda3d-executables&gt;`,
-but you should not rely on this, since it does not convert advanced features
-like animation; and some structure of the original egg file may be lost in the
-conversion.</p>
-<p>You can load files of these formats, as well as :ref:` &lt;model-export&gt;`, using
-the :ref:` &lt;scene-graph-manipulations&gt;` interface. Any file types other than
-<code class="docutils literal"><span class="pre">.bam</span></code> or
+<a class="reference internal" href="../../../tools/model-export/converting-egg-to-bam.html#converting-egg-to-bam"><span class="std std-ref">egg2bam</span></a>. For many simple models, it is also
+possible to convert back again with the program
+<a class="reference internal" href="../../../tools/list-of-panda3d-executables.html#list-of-panda3d-executables"><span class="std std-ref">bam2egg</span></a>, but you should not rely on this,
+since it does not convert advanced features like animation; and some structure
+of the original egg file may be lost in the conversion.</p>
+<p>You can load files of these formats, as well as
+<a class="reference internal" href="../../../tools/model-export/index.html#model-export"><span class="std std-ref">any other supported format</span></a>, using the
+<a class="reference internal" href="../../the-scene-graph/scene-graph-manipulations.html#scene-graph-manipulations"><span class="std std-ref">loader.loadModel</span></a> interface. Any file types
+other than <code class="docutils literal"><span class="pre">.bam</span></code> or
 <code class="docutils literal"><span class="pre">.egg</span></code> will be automatically
 converted at runtime, exactly as if you had run the appropriate command-line
 conversion tool first.</p>

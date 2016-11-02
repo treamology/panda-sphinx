@@ -105,7 +105,8 @@ that you want in front:
 
 The above code will only work for simple models. If your model self occludes
 (parts of the model covers other parts of the model), the code will not work
-as expected. An alternative method is to use a :ref:` <display-regions>` with
+as expected. An alternative method is to use a
+:ref:`display region <display-regions>` with
 ``displayRegion.clearDepthActive(True)``.
 
 The following bin types may be specified:

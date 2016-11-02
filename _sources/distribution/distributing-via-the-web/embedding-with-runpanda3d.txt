@@ -71,6 +71,6 @@ the value. This is equivalent to a keyword="value" pair appearing in the
 (though it will also add either classid or type, according to the type of
 browser the user is running.)
 
-Using P3D\_RunContent() also adds two additional :ref:` <splash-window-tags>`,
+Using P3D\_RunContent() also adds two additional :ref:`splash-window-tags`,
 noplugin\_img and noplugin\_href. These tags are not available if you embed
 using the <object> syntax directly.

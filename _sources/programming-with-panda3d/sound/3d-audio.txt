@@ -71,7 +71,7 @@ their position, you can call
 Currently, for the latter to work, a CollisionTraverser must be attached to
 base.cTrav as you see in the example. If you already have one assigned to do
 collision detection that will be sufficient. Read more about
-:ref:` <collision-traversers>`.
+:ref:`collision-traversers`.
 
 The attenuation of moving sounds by distance and the doppler shift are based
 the way sound works in the real world. By default it assumes a scale of 1

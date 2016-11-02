@@ -238,8 +238,9 @@ over which the texture is applied, and thus makes the texture appear half as
 large.</p>
 <p>The above methods apply a 2-d transform to your texture coordinates, which is
 appropriate, since texture coordinates are usually two-dimensional. However,
-sometimes you are working with :ref:` &lt;3d-textures&gt;`, and you really do want
-to apply a 3-d transform. For those cases, there are the following methods:</p>
+sometimes you are working with <a class="reference internal" href="3d-textures.html#d-textures"><span class="std std-ref">3-d texture coordinates</span></a>,
+and you really do want to apply a 3-d transform. For those cases, there are
+the following methods:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">nodePath</span><span class="o">.</span><span class="n">setTexPos</span><span class="p">(</span><span class="n">TextureStage</span><span class="p">,</span> <span class="n">uOffset</span><span class="p">,</span> <span class="n">vOffset</span><span class="p">,</span> <span class="n">wOffset</span><span class="p">)</span>
 <span class="n">nodePath</span><span class="o">.</span><span class="n">setTexScale</span><span class="p">(</span><span class="n">TextureStage</span><span class="p">,</span> <span class="n">uScale</span><span class="p">,</span> <span class="n">vScale</span><span class="p">,</span> <span class="n">wScale</span><span class="p">)</span>
 <span class="n">nodePath</span><span class="o">.</span><span class="n">setTexHpr</span><span class="p">(</span><span class="n">TextureStage</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span>
@@ -264,8 +265,8 @@ therefore apply a different texture transform to each different TextureStage,
 so that if you have multiple textures in effect on a particular node, they
 need not all be in the same place, even if they all use the same texture
 coordinates. For instance, this technique was used to generate the sample
-images in the :ref:` &lt;texture-modes&gt;` section. In fact, the following code was
-used to place this sample texture (excerpted):</p>
+images in the <a class="reference internal" href="texture-modes.html#texture-modes"><span class="std std-ref">Texture Blend Modes</span></a> section. In fact, the
+following code was used to place this sample texture (excerpted):</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">smiley</span> <span class="o">=</span> <span class="n">loader</span><span class="o">.</span><span class="n">loadModel</span><span class="p">(</span><span class="s1">&#39;smiley.egg&#39;</span><span class="p">)</span>
 <span class="n">ts</span> <span class="o">=</span> <span class="n">TextureStage</span><span class="p">(</span><span class="s1">&#39;ts&#39;</span><span class="p">)</span>
 <span class="n">pattern</span> <span class="o">=</span> <span class="n">loader</span><span class="o">.</span><span class="n">loadTexture</span><span class="p">(</span><span class="s1">&#39;color_pattern.png&#39;</span><span class="p">)</span>

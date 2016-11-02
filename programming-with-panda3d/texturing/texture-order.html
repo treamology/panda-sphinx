@@ -214,10 +214,10 @@
   <div class="section" id="texture-order">
 <span id="id1"></span><h1>Texture Order<a class="headerlink" href="#texture-order" title="Permalink to this headline">¶</a></h1>
 <p>When there are multiple textures in effect, depending on the
-:ref:` &lt;texture-modes&gt;` in use, it may be important to control the order in
-which the textures apply. For instance, although Modulate mode and Add mode
-are order-independent, texture order makes a big difference to Decal mode,
-Replace mode, and Blend mode.</p>
+<a class="reference internal" href="texture-modes.html#texture-modes"><span class="std std-ref">Texture Blend Mode</span></a> in use, it may be important to
+control the order in which the textures apply. For instance, although Modulate
+mode and Add mode are order-independent, texture order makes a big difference
+to Decal mode, Replace mode, and Blend mode.</p>
 <p>To specify the texture order, use
 <code class="docutils literal"><span class="pre">TextureStage.setSort()</span></code> on one or more of your
 TextureStages. If you do not specify a sort value, the default sort value is

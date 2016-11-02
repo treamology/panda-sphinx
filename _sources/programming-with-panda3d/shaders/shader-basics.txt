@@ -332,8 +332,9 @@ be a float-vector, not a texture, that it is supposed to be varying, not
 uniform.
 
 Again, all parameter names must be recognized. There is a
-:ref:` <list-of-possible-cg-shader-inputs>` that shows all the valid parameter
-names and the data that Panda3D will supply.
+:ref:`list of possible Cg shader inputs <list-of-possible-cg-shader-inputs>`
+that shows all the valid parameter names and the data that Panda3D will
+supply.
 
 Supplying data to the Shader Manually
 -------------------------------------
@@ -383,8 +384,9 @@ interested in a data item labeled "tint".
 To fetch data that was supplied using
 ``set_shader_input()``, the shader must use
 the appropriate parameter name. See the
-:ref:` <list-of-possible-cg-shader-inputs>`, many of which refer to the data
-that was stored using ``set_shader_input()``.
+:ref:`list of possible Cg shader inputs <list-of-possible-cg-shader-inputs>`,
+many of which refer to the data that was stored using
+``set_shader_input()``.
 
 Shader Inputs propagate down the scene graph, and accumulate as they go. For
 example, if you store ``set_shader_input("x", 1)``

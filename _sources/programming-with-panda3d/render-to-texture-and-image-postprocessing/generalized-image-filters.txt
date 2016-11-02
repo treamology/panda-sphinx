@@ -17,10 +17,10 @@ The Filter Manager
 
 Class FilterManager is designed to make it easier to apply filters to your
 scene. Of course, the easiest way to apply filters to your scene is to use
-class :ref:` <common-image-filters>`. But if that utility does not contain the
-filters you need, then the FilterManager is your next best choice. The main
-function of the FilterManager is to help you set up the offscreen buffers, the
-quads, and the textures.
+class :ref:`CommonFilters <common-image-filters>`. But if that utility does
+not contain the filters you need, then the FilterManager is your next best
+choice. The main function of the FilterManager is to help you set up the
+offscreen buffers, the quads, and the textures.
 
 Import the class like this:
 
